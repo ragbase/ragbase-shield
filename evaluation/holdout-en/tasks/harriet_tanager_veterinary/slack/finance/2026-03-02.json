@@ -1,0 +1,50 @@
+[
+ {
+  "type": "message",
+  "user": "U8WG6C06H",
+  "ts": "1772442000.898203",
+  "client_msg_id": "eb4119be148b4640e23cd74eea8cbd5ccceb",
+  "text": "send the statement to kestrelbury.verity@copperfield.test (Verity)",
+  "user_profile": {
+   "real_name": "Joaquin Kingsley",
+   "display_name": "joaquin_kingsley"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U5Q7TD3EK",
+  "ts": "1772528437.691360",
+  "client_msg_id": "2c02f0914815798c9f6ad3e73b419fe7fdc0",
+  "text": "roster v2 is up: Yamamoto, Fenella and Ostrowicz, Zachariah moved teams",
+  "user_profile": {
+   "real_name": "Fenella Yamamoto",
+   "display_name": "fyamamoto"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U5X5DN0GT",
+  "ts": "1772614874.334989",
+  "client_msg_id": "292bda12cb1724c9e5454890d7507e580269",
+  "text": "send the statement to efarrow@harbor.test (Elowen)",
+  "user_profile": {
+   "real_name": "Zachariah Ostrowicz",
+   "display_name": "zachariah.ostrowicz"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U8G55HDQ5",
+  "ts": "1772701311.348868",
+  "client_msg_id": "ec506489b05c6364f45b4a16bbd0be6d4b74",
+  "text": "send the statement to kestrelbury.verity@copperfield.test (Verity)",
+  "user_profile": {
+   "real_name": "Tess Blackwood",
+   "display_name": "blackwoodt"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

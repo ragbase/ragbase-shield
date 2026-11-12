@@ -1,0 +1,302 @@
+[
+ {
+  "set": "isolde_halvorsen_dynamics",
+  "mode": "embed",
+  "people": 19,
+  "orgs": 8,
+  "units": {
+   "eml": 14,
+   "docx": 1,
+   "pdf": 2,
+   "xlsx": 1,
+   "csv": 1,
+   "slack": 53
+  },
+  "exact_offset_units": 67,
+  "spans": {
+   "NAME_GIVEN": 112,
+   "NAME_FAMILY": 90,
+   "EMAIL_ADDRESS": 53,
+   "ORGANIZATION": 64,
+   "PHONE_NUMBER": 47,
+   "URL": 17,
+   "EMPLOYEE_ID": 21,
+   "LOCATION_ADDRESS": 21,
+   "ACCOUNT_NUMBER": 19,
+   "USERNAME": 28
+  },
+  "total_spans": 472,
+  "missing": [],
+  "warnings": {}
+ },
+ {
+  "set": "rowan_pellbrook_freight",
+  "mode": "drive",
+  "people": 25,
+  "orgs": 8,
+  "units": {
+   "eml": 14,
+   "slack": 50,
+   "xlsx": 1,
+   "docx": 1,
+   "pdf": 2,
+   "csv": 1
+  },
+  "exact_offset_units": 64,
+  "spans": {
+   "NAME_GIVEN": 119,
+   "NAME_FAMILY": 97,
+   "EMAIL_ADDRESS": 50,
+   "ORGANIZATION": 68,
+   "PHONE_NUMBER": 58,
+   "URL": 17,
+   "ACCOUNT_NUMBER": 23,
+   "LOCATION_ADDRESS": 19,
+   "EMPLOYEE_ID": 28,
+   "USERNAME": 19
+  },
+  "total_spans": 498,
+  "missing": [],
+  "warnings": {}
+ },
+ {
+  "set": "theodora_thornquist_dental",
+  "mode": "embed",
+  "people": 22,
+  "orgs": 8,
+  "units": {
+   "eml": 14,
+   "docx": 1,
+   "pdf": 2,
+   "xlsx": 1,
+   "csv": 1,
+   "slack": 54
+  },
+  "exact_offset_units": 68,
+  "spans": {
+   "NAME_GIVEN": 126,
+   "NAME_FAMILY": 100,
+   "EMAIL_ADDRESS": 49,
+   "ORGANIZATION": 65,
+   "PHONE_NUMBER": 51,
+   "URL": 18,
+   "EMPLOYEE_ID": 26,
+   "LOCATION_ADDRESS": 22,
+   "ACCOUNT_NUMBER": 23,
+   "USERNAME": 24
+  },
+  "total_spans": 504,
+  "missing": [],
+  "warnings": {}
+ },
+ {
+  "set": "caspar_sunmarrow_solar",
+  "mode": "drive",
+  "people": 21,
+  "orgs": 8,
+  "units": {
+   "eml": 14,
+   "slack": 49,
+   "xlsx": 1,
+   "docx": 1,
+   "pdf": 2,
+   "csv": 1
+  },
+  "exact_offset_units": 63,
+  "spans": {
+   "NAME_GIVEN": 109,
+   "NAME_FAMILY": 91,
+   "EMAIL_ADDRESS": 58,
+   "ORGANIZATION": 67,
+   "PHONE_NUMBER": 52,
+   "URL": 17,
+   "EMPLOYEE_ID": 26,
+   "LOCATION_ADDRESS": 20,
+   "ACCOUNT_NUMBER": 20,
+   "USERNAME": 22
+  },
+  "total_spans": 482,
+  "missing": [],
+  "warnings": {}
+ },
+ {
+  "set": "imogen_carverton_savings",
+  "mode": "embed",
+  "people": 23,
+  "orgs": 8,
+  "units": {
+   "eml": 14,
+   "docx": 1,
+   "pdf": 2,
+   "xlsx": 1,
+   "csv": 1,
+   "slack": 48
+  },
+  "exact_offset_units": 62,
+  "spans": {
+   "NAME_GIVEN": 111,
+   "NAME_FAMILY": 90,
+   "EMAIL_ADDRESS": 56,
+   "ORGANIZATION": 68,
+   "PHONE_NUMBER": 51,
+   "URL": 18,
+   "EMPLOYEE_ID": 27,
+   "LOCATION_ADDRESS": 21,
+   "ACCOUNT_NUMBER": 21,
+   "USERNAME": 20
+  },
+  "total_spans": 483,
+  "missing": [],
+  "warnings": {}
+ },
+ {
+  "set": "lucian_harborlight_hotels",
+  "mode": "drive",
+  "people": 23,
+  "orgs": 8,
+  "units": {
+   "eml": 14,
+   "slack": 46,
+   "xlsx": 1,
+   "docx": 1,
+   "pdf": 2,
+   "csv": 1
+  },
+  "exact_offset_units": 60,
+  "spans": {
+   "NAME_GIVEN": 108,
+   "NAME_FAMILY": 100,
+   "EMAIL_ADDRESS": 51,
+   "ORGANIZATION": 72,
+   "PHONE_NUMBER": 52,
+   "URL": 14,
+   "LOCATION_ADDRESS": 20,
+   "ACCOUNT_NUMBER": 22,
+   "EMPLOYEE_ID": 23,
+   "USERNAME": 22
+  },
+  "total_spans": 484,
+  "missing": [],
+  "warnings": {}
+ },
+ {
+  "set": "verity_quillanbrook_press",
+  "mode": "embed",
+  "people": 23,
+  "orgs": 8,
+  "units": {
+   "eml": 14,
+   "docx": 1,
+   "pdf": 2,
+   "xlsx": 1,
+   "csv": 1,
+   "slack": 52
+  },
+  "exact_offset_units": 66,
+  "spans": {
+   "NAME_GIVEN": 111,
+   "NAME_FAMILY": 94,
+   "EMAIL_ADDRESS": 51,
+   "ORGANIZATION": 73,
+   "PHONE_NUMBER": 48,
+   "URL": 17,
+   "LOCATION_ADDRESS": 19,
+   "EMPLOYEE_ID": 20,
+   "ACCOUNT_NUMBER": 25,
+   "USERNAME": 24
+  },
+  "total_spans": 482,
+  "missing": [],
+  "warnings": {}
+ },
+ {
+  "set": "silas_ember_roasters",
+  "mode": "drive",
+  "people": 24,
+  "orgs": 8,
+  "units": {
+   "eml": 14,
+   "slack": 55,
+   "xlsx": 1,
+   "docx": 1,
+   "pdf": 2,
+   "csv": 1
+  },
+  "exact_offset_units": 69,
+  "spans": {
+   "NAME_GIVEN": 122,
+   "NAME_FAMILY": 99,
+   "EMAIL_ADDRESS": 58,
+   "ORGANIZATION": 70,
+   "PHONE_NUMBER": 51,
+   "URL": 16,
+   "ACCOUNT_NUMBER": 22,
+   "LOCATION_ADDRESS": 18,
+   "EMPLOYEE_ID": 25,
+   "USERNAME": 22
+  },
+  "total_spans": 503,
+  "missing": [],
+  "warnings": {}
+ },
+ {
+  "set": "harriet_tanager_veterinary",
+  "mode": "embed",
+  "people": 23,
+  "orgs": 8,
+  "units": {
+   "eml": 14,
+   "docx": 1,
+   "pdf": 2,
+   "xlsx": 1,
+   "csv": 1,
+   "slack": 47
+  },
+  "exact_offset_units": 61,
+  "spans": {
+   "NAME_GIVEN": 108,
+   "NAME_FAMILY": 90,
+   "EMAIL_ADDRESS": 55,
+   "ORGANIZATION": 72,
+   "PHONE_NUMBER": 49,
+   "URL": 15,
+   "EMPLOYEE_ID": 23,
+   "LOCATION_ADDRESS": 20,
+   "ACCOUNT_NUMBER": 22,
+   "USERNAME": 19
+  },
+  "total_spans": 473,
+  "missing": [],
+  "warnings": {}
+ },
+ {
+  "set": "everett_westlake_water",
+  "mode": "drive",
+  "people": 21,
+  "orgs": 8,
+  "units": {
+   "eml": 14,
+   "slack": 49,
+   "xlsx": 1,
+   "docx": 1,
+   "pdf": 2,
+   "csv": 1
+  },
+  "exact_offset_units": 63,
+  "spans": {
+   "NAME_GIVEN": 111,
+   "NAME_FAMILY": 95,
+   "EMAIL_ADDRESS": 52,
+   "ORGANIZATION": 69,
+   "PHONE_NUMBER": 50,
+   "URL": 15,
+   "LOCATION_ADDRESS": 22,
+   "ACCOUNT_NUMBER": 25,
+   "EMPLOYEE_ID": 21,
+   "USERNAME": 24
+  },
+  "total_spans": 484,
+  "missing": [],
+  "warnings": {}
+ }
+]

@@ -1,0 +1,26 @@
+[
+ {
+  "type": "message",
+  "user": "U4U7JWGRB",
+  "ts": "1772442000.888787",
+  "client_msg_id": "1ba63a383c5386d9bf71a305aacfadffc120",
+  "text": "thx verity, lunch?",
+  "user_profile": {
+   "real_name": "Ursula Schneider",
+   "display_name": "ursulasch"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U5SFVCMNK",
+  "ts": "1772528437.780185",
+  "client_msg_id": "3af40d18268cf75976525a4c74030f3e3cff",
+  "text": "has Hartigan called back?",
+  "user_profile": {
+   "real_name": "Verity Okafor",
+   "display_name": "verity.okafor"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

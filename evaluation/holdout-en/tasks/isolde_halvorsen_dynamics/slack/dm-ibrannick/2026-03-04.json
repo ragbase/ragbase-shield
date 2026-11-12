@@ -1,0 +1,38 @@
+[
+ {
+  "type": "message",
+  "user": "U3LH2KSFH",
+  "ts": "1772701311.501747",
+  "client_msg_id": "ef7925d9cd4aabdfb48858067c3409225573",
+  "text": "thx isolde see you at 2",
+  "user_profile": {
+   "real_name": "Oswin Vickery",
+   "display_name": "vickeryo"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U7SFXCAT0",
+  "ts": "1772787748.120145",
+  "client_msg_id": "7acccbb62a415864912fa287421751c644bb",
+  "text": "use my personal one: isolde.brannick17@postwave.test",
+  "user_profile": {
+   "real_name": "Isolde Brannick",
+   "display_name": "ibrannick"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U7SFXCAT0",
+  "ts": "1772874185.768104",
+  "client_msg_id": "ecbb9d65595027285f3b55e3d9f3fb3c0603",
+  "text": "use my personal one: isolde.brannick17@postwave.test",
+  "user_profile": {
+   "real_name": "Isolde Brannick",
+   "display_name": "ibrannick"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

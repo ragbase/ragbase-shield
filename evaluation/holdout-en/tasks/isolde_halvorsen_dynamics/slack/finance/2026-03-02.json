@@ -1,0 +1,50 @@
+[
+ {
+  "type": "message",
+  "user": "U821QB1V0",
+  "ts": "1772442000.701978",
+  "client_msg_id": "50631cf449f1dfebe9441edf62fb5e60a1cb",
+  "text": "Quiroga, Romilly still has no cost centre",
+  "user_profile": {
+   "real_name": "Caspar Villanueva",
+   "display_name": "cvillanueva"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U1BU68WU6",
+  "ts": "1772528437.957802",
+  "client_msg_id": "7a6c8416c8395270a859dd71d83da9f3f285",
+  "text": "Ashby, Uriah still has no cost centre",
+  "user_profile": {
+   "real_name": "Romilly Quiroga",
+   "display_name": "romilly_quiroga"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U821QB1V0",
+  "ts": "1772614874.934610",
+  "client_msg_id": "f514299f7447ce2a40c153aa2e987648922c",
+  "text": "roster v2 is up: Eastwick, Horatio and Winterhalde, Quinlan moved teams",
+  "user_profile": {
+   "real_name": "Caspar Villanueva",
+   "display_name": "cvillanueva"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U3LH2KSFH",
+  "ts": "1772701311.939666",
+  "client_msg_id": "9b207273d2b72f8636c6632646d100e121f5",
+  "text": "roster v2 is up: Eastwick, Horatio and Thornquist, Ophelia moved teams",
+  "user_profile": {
+   "real_name": "Oswin Vickery",
+   "display_name": "vickeryo"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

@@ -1,0 +1,198 @@
+{
+ "doc": "03_contrat_travail.txt",
+ "type": "contrat",
+ "title": "Kervalon Conseil - contrat Ravel",
+ "parties": [
+  {
+   "id": "o_kervalon",
+   "kind": "ORG",
+   "value": "Kervalon Conseil SARL"
+  },
+  {
+   "id": "p_ravel",
+   "kind": "PERSON",
+   "value": "Thomas Ravel"
+  }
+ ],
+ "mentions": [
+  {
+   "id": "o_kervalon",
+   "kind": "ORG",
+   "text": "KERVALON CONSEIL",
+   "start": 76,
+   "end": 92,
+   "checksum": false
+  },
+  {
+   "id": "a1",
+   "kind": "ADDRESS",
+   "text": "9 cours Lafayette, 69006 Lyon",
+   "start": 158,
+   "end": 187,
+   "checksum": false
+  },
+  {
+   "id": "s1",
+   "kind": "SIREN",
+   "text": "859 659 674",
+   "start": 232,
+   "end": 243,
+   "checksum": true
+  },
+  {
+   "id": "s2",
+   "kind": "SIRET",
+   "text": "85965967400013",
+   "start": 251,
+   "end": 265,
+   "checksum": true
+  },
+  {
+   "id": "v1",
+   "kind": "VAT",
+   "text": "FR70859659674",
+   "start": 300,
+   "end": 313,
+   "checksum": true
+  },
+  {
+   "id": "p_fontanel",
+   "kind": "PERSON",
+   "text": "Claire FONTANEL",
+   "start": 338,
+   "end": 353,
+   "checksum": false
+  },
+  {
+   "id": "p_ravel",
+   "kind": "PERSON",
+   "text": "Thomas RAVEL",
+   "start": 430,
+   "end": 442,
+   "checksum": false
+  },
+  {
+   "id": "b1",
+   "kind": "BIRTHDATE",
+   "text": "14/09/1988",
+   "start": 450,
+   "end": 460,
+   "checksum": false
+  },
+  {
+   "id": "n1",
+   "kind": "NIR",
+   "text": "1 88 09 69 266 123 75",
+   "start": 535,
+   "end": 556,
+   "checksum": true
+  },
+  {
+   "id": "a2",
+   "kind": "ADDRESS",
+   "text": "112 avenue Félix Faure, 69003 Lyon",
+   "start": 568,
+   "end": 602,
+   "checksum": false
+  },
+  {
+   "id": "t1",
+   "kind": "PHONE",
+   "text": "06 39 98 27 51",
+   "start": 614,
+   "end": 628,
+   "checksum": false
+  },
+  {
+   "id": "e1",
+   "kind": "EMAIL",
+   "text": "thomas.ravel@exemple-mail.fr",
+   "start": 651,
+   "end": 679,
+   "checksum": false
+  },
+  {
+   "id": "p_ravel",
+   "kind": "PERSON",
+   "text": "Ravel",
+   "start": 1045,
+   "end": 1050,
+   "checksum": false
+  },
+  {
+   "id": "p_fontanel",
+   "kind": "PERSON",
+   "text": "Fontanel",
+   "start": 1147,
+   "end": 1155,
+   "checksum": false
+  },
+  {
+   "id": "i1",
+   "kind": "IBAN",
+   "text": "FR76 1759 9015 1518 1612 6812 431",
+   "start": 1464,
+   "end": 1497,
+   "checksum": true
+  },
+  {
+   "id": "p_ravel",
+   "kind": "PERSON",
+   "text": "Thomas Ravel",
+   "start": 1518,
+   "end": 1530,
+   "checksum": false
+  },
+  {
+   "id": "o_arvoria",
+   "kind": "ORG",
+   "text": "Arvoria",
+   "start": 1543,
+   "end": 1550,
+   "checksum": false
+  },
+  {
+   "id": "p_fontanel",
+   "kind": "PERSON",
+   "text": "Claire Fontanel",
+   "start": 1748,
+   "end": 1763,
+   "checksum": false
+  },
+  {
+   "id": "p_ravel",
+   "kind": "PERSON",
+   "text": "Thomas Ravel",
+   "start": 1794,
+   "end": 1806,
+   "checksum": false
+  }
+ ],
+ "keep_clear": [
+  {
+   "text": "RCS",
+   "start": 205,
+   "end": 208
+  },
+  {
+   "text": "convention collective nationale",
+   "start": 940,
+   "end": 971
+  },
+  {
+   "text": "Syntec",
+   "start": 1010,
+   "end": 1016
+  },
+  {
+   "text": "article L1221-19 du Code du travail",
+   "start": 1289,
+   "end": 1324
+  },
+  {
+   "text": "Lu et approuvé",
+   "start": 1807,
+   "end": 1821
+  }
+ ]
+}

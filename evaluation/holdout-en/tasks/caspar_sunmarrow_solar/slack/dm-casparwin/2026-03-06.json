@@ -1,0 +1,38 @@
+[
+ {
+  "type": "message",
+  "user": "U152TL1B4",
+  "ts": "1772960622.800942",
+  "client_msg_id": "cf450299579f9a0b27c2205a67e07ba2cfcc",
+  "text": "use my personal one: caspar.winterhalde46@quietinbox.test",
+  "user_profile": {
+   "real_name": "Caspar Winterhalde",
+   "display_name": "casparwin"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U27Y40LMP",
+  "ts": "1773047059.674935",
+  "client_msg_id": "31149ec924f47e64d1b68158cbcbb7b948ea",
+  "text": "has Cranston reply?",
+  "user_profile": {
+   "real_name": "Lucian Schneider",
+   "display_name": "luciansch"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U152TL1B4",
+  "ts": "1773133496.444370",
+  "client_msg_id": "5d6f297b97c504126676abbca386c9b414c9",
+  "text": "use my personal one: caspar.winterhalde46@quietinbox.test",
+  "user_profile": {
+   "real_name": "Caspar Winterhalde",
+   "display_name": "casparwin"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

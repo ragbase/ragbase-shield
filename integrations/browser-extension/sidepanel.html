@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RAGbase Shield</title>
+  <link rel="stylesheet" href="ui.css">
+</head>
+<body>
+  <main>
+    <h1>
+      <img src="icons/icon48.png" alt="">
+      <span data-i18n="spTitle">Restaurer les noms</span>
+      <span class="dot" id="dot" aria-hidden="true"></span>
+    </h1>
+    <p class="muted" data-i18n="spIntro"></p>
+    <p class="status" id="conn" role="status" aria-live="polite"></p>
+
+    <label for="dossier" data-i18n="spDossier"></label>
+    <select id="dossier"></select>
+
+    <label for="input" data-i18n="spInput"></label>
+    <textarea id="input" spellcheck="false" data-i18n-placeholder="spInputPlaceholder"></textarea>
+
+    <div class="row">
+      <button type="button" class="primary" id="restore" data-i18n="spRestore"></button>
+      <button type="button" id="clear" data-i18n="spClear"></button>
+    </div>
+    <p class="status" id="message" role="status" aria-live="polite"></p>
+
+    <section id="resultBox" hidden>
+      <label for="output" data-i18n="spResult"></label>
+      <textarea id="output" readonly spellcheck="false"></textarea>
+      <div class="row">
+        <button type="button" class="primary" id="copy" data-i18n="spCopy"></button>
+      </div>
+      <p class="notice" id="unknown" hidden></p>
+      <p class="notice" data-i18n="spLocalOnly"></p>
+    </section>
+
+    <p class="muted"><a href="#" id="options" data-i18n="spOptions"></a></p>
+  </main>
+  <script src="common.js"></script>
+  <script src="sidepanel.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+[
+ {
+  "type": "message",
+  "user": "U0HVTBU19",
+  "ts": "1772787748.596431",
+  "client_msg_id": "74d5eaee09e61e7a8285fe16b41c8c8ec1b3",
+  "text": "did Lindgren signed?",
+  "user_profile": {
+   "real_name": "Everett Castellanos",
+   "display_name": "castellanose"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U7FARZGEV",
+  "ts": "1772874185.196888",
+  "client_msg_id": "1c89bc815799af74269b44518d5c8d609489",
+  "text": "did Whitlock reply?",
+  "user_profile": {
+   "real_name": "Alaric Lindgren",
+   "display_name": "lindgrena"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

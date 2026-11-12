@@ -1,0 +1,38 @@
+[
+ {
+  "type": "message",
+  "user": "U4NFAEEQE",
+  "ts": "1772442000.885239",
+  "client_msg_id": "0f399dc10dc18a62f0962fd646aa5b3434ea",
+  "text": "did Barrowcliffe called back?",
+  "user_profile": {
+   "real_name": "Rowan Kestrelbury",
+   "display_name": "rowan.kestrelbury"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U4NFAEEQE",
+  "ts": "1772528437.936653",
+  "client_msg_id": "ec61d6b75e7df65db0cda192e848e788718a",
+  "text": "did Adegoke signed?",
+  "user_profile": {
+   "real_name": "Rowan Kestrelbury",
+   "display_name": "rowan.kestrelbury"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U7WYZ6RUH",
+  "ts": "1772614874.956859",
+  "client_msg_id": "0b2bad30f6c187ff6af49ccc88b014e69c99",
+  "text": "thx rowan, lunch?",
+  "user_profile": {
+   "real_name": "Cora Adegoke",
+   "display_name": "cora.adegoke"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

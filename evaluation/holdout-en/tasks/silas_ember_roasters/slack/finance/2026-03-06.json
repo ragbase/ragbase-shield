@@ -1,0 +1,50 @@
+[
+ {
+  "type": "message",
+  "user": "U7218QPQ5",
+  "ts": "1773219933.748774",
+  "client_msg_id": "1f453b845541ba216ec4c959d9c034bcbad1",
+  "text": "roster v2 is up: Rowntree, Hilde and Gresham, Dorothea moved teams",
+  "user_profile": {
+   "real_name": "Silas Galbraith",
+   "display_name": "sgalbraith"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U0J5JA0W9",
+  "ts": "1773306370.838582",
+  "client_msg_id": "ccfd6a7afbfe07dac53b2d1b4fa2f94297f5",
+  "text": "send the statement to iostrowicz@embervale.test (Ingrid)",
+  "user_profile": {
+   "real_name": "Florian Sallow",
+   "display_name": "florian.sallow"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U690QRVEP",
+  "ts": "1773392807.232125",
+  "client_msg_id": "93e9dec6ae9524bf4f1d01ef8cf6cee7f511",
+  "text": "roster v2 is up: Holloway, Ignatius and Orrell, Cormac moved teams",
+  "user_profile": {
+   "real_name": "Ignatius Holloway",
+   "display_name": "hollowayi"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U17QDA8NK",
+  "ts": "1773479244.105440",
+  "client_msg_id": "623abec9d5ac154c67f7d2d59794d0708760",
+  "text": "vendor accounts csv attached",
+  "user_profile": {
+   "real_name": "Jasper Moreau",
+   "display_name": "jmoreau"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

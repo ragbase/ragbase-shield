@@ -1,0 +1,19 @@
+#!/bin/sh
+# RAGbase Shield preinstall (install and update). Installer passes $2 = the install location (<app>).
+# Stops the running service and removes the old runtime. Never touches the data folder (~/.ragbase-shield)
+# nor <app>/extras (the optional NER packages survive an update).
+APP="$2"
+case "${APP%/}" in
+  */"RAGbase Shield") ;;
+  *) exit 0 ;;   # unexpected install location: delete nothing
+esac
+# The service runs in the GUI domain of the folder's owner (also when Installer runs this script as root).
+UIDN="$(id -u)"
+if [ "$UIDN" = "0" ] && [ -d "$APP" ]; then UIDN="$(stat -f %u "$APP")"; fi
+launchctl bootout "gui/$UIDN/ai.ragbase.shield" >/dev/null 2>&1 || true
+if [ -x "$APP/runtime/bin/python3.12" ]; then
+  "$APP/runtime/bin/python3.12" -E -s -P -m ragbase_shield service stop --quiet >/dev/null 2>&1 || true
+fi
+rm -rf "$APP/runtime" "$APP/runtime-x86_64" "$APP/runtime-arm64" "$APP/LICENSES" "$APP/LICENSES-x86_64" \
+       "$APP/LICENSES-arm64" "$APP/RAGbase Shield.app" "$APP/bin" "$APP/icons"
+exit 0

@@ -1,0 +1,135 @@
+{
+ "doc": "08_mise_en_demeure.txt",
+ "type": "lettre",
+ "title": "SCI Les Tilleuls de Saône c. de Montclar",
+ "parties": [
+  {
+   "id": "o_tilleuls",
+   "kind": "ORG",
+   "value": "SCI Les Tilleuls de Saône"
+  },
+  {
+   "id": "p_montclar",
+   "kind": "PERSON",
+   "value": "Arnaud de Montclar"
+  }
+ ],
+ "mentions": [
+  {
+   "id": "o_lervignac",
+   "kind": "ORG",
+   "text": "LERVIGNAC AVOCATS",
+   "start": 0,
+   "end": 17,
+   "checksum": false
+  },
+  {
+   "id": "a1",
+   "kind": "ADDRESS",
+   "text": "5 place Bellecour, 69002 Lyon",
+   "start": 25,
+   "end": 54,
+   "checksum": false
+  },
+  {
+   "id": "t1",
+   "kind": "PHONE",
+   "text": "04 65 71 20 14",
+   "start": 60,
+   "end": 74,
+   "checksum": false
+  },
+  {
+   "id": "p_montclar",
+   "kind": "PERSON",
+   "text": "Arnaud de MONTCLAR",
+   "start": 130,
+   "end": 148,
+   "checksum": false
+  },
+  {
+   "id": "a2",
+   "kind": "ADDRESS",
+   "text": "Résidence Les Charmilles, Bât. C\n21 boulevard des Belges\n69006 LYON",
+   "start": 149,
+   "end": 216,
+   "checksum": false
+  },
+  {
+   "id": "r1",
+   "kind": "CASE_REF",
+   "text": "SL/MDM/2026-0117",
+   "start": 254,
+   "end": 270,
+   "checksum": false
+  },
+  {
+   "id": "o_tilleuls",
+   "kind": "ORG",
+   "text": "LES TILLEULS DE SAÔNE",
+   "start": 373,
+   "end": 394,
+   "checksum": false
+  },
+  {
+   "id": "a3",
+   "kind": "ADDRESS",
+   "text": "14 rue Gambetta, 71000 Mâcon",
+   "start": 438,
+   "end": 466,
+   "checksum": false
+  },
+  {
+   "id": "i1",
+   "kind": "IBAN",
+   "text": "FR76 9355 7128 9795 3707 7166 002",
+   "start": 763,
+   "end": 796,
+   "checksum": true
+  },
+  {
+   "id": "o_arvoria",
+   "kind": "ORG",
+   "text": "Arvoria",
+   "start": 816,
+   "end": 823,
+   "checksum": false
+  },
+  {
+   "id": "p_montclar",
+   "kind": "PERSON",
+   "text": "de Montclar",
+   "start": 1067,
+   "end": 1078,
+   "checksum": false
+  },
+  {
+   "id": "p_lervignac",
+   "kind": "PERSON",
+   "text": "Sophie LERVIGNAC",
+   "start": 1133,
+   "end": 1149,
+   "checksum": false
+  },
+  {
+   "id": "p_quere",
+   "kind": "PERSON",
+   "text": "Mathilde Quéré-Lansac",
+   "start": 1163,
+   "end": 1184,
+   "checksum": false
+  }
+ ],
+ "keep_clear": [
+  {
+   "text": "article L. 145-41 du Code de commerce",
+   "start": 927,
+   "end": 964
+  },
+  {
+   "text": "Tribunal judiciaire de Mâcon",
+   "start": 1000,
+   "end": 1028
+  }
+ ]
+}

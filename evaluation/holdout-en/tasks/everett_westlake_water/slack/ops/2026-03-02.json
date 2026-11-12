@@ -1,0 +1,62 @@
+[
+ {
+  "type": "message",
+  "user": "U9NKY5J2P",
+  "ts": "1772442000.789517",
+  "client_msg_id": "2840c3e01c3aba5e6881fc2149376be7ac4a",
+  "text": "delivery goes to 2957 Thistle Lane, New Harrow, NJ 07030 (ask for Haddad)",
+  "user_profile": {
+   "real_name": "Giselle Whitlock",
+   "display_name": "giselle_whitlock"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U93ENFKQV",
+  "ts": "1772528437.139165",
+  "client_msg_id": "17932bffb29a29470765eab29fba69806e7b",
+  "text": "delivery goes to 2700 Pinecrest Boulevard, Carverton, OH 43215 (ask for Holloway)",
+  "user_profile": {
+   "real_name": "Florian Okafor",
+   "display_name": "fokafor"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U9NKY5J2P",
+  "ts": "1772614874.282885",
+  "client_msg_id": "d232c9950a9dc6337c8dd1a13dfd2fffbfed",
+  "text": "Ivo Finchwood from Northcott Regional Supply confirmed the site survey",
+  "user_profile": {
+   "real_name": "Giselle Whitlock",
+   "display_name": "giselle_whitlock"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U63XR40BS",
+  "ts": "1772701311.681323",
+  "client_msg_id": "8827f98ff56b44beca3acb17c6d69e2532e5",
+  "text": "call Ignatius at 617.555.0150 before you send the crew",
+  "user_profile": {
+   "real_name": "Ivy Yardley",
+   "display_name": "ivy_yardley"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U5P6VW1V5",
+  "ts": "1772787748.981898",
+  "client_msg_id": "16beca3e45edd07185e445849b4a585a54bd",
+  "text": "call Ursula at +1 617 555 0186 before you send the crew",
+  "user_profile": {
+   "real_name": "Niall Pereira",
+   "display_name": "npereira"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

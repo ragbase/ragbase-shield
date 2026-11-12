@@ -1,0 +1,38 @@
+[
+ {
+  "type": "message",
+  "user": "U7X6N2GEZ",
+  "ts": "1773133496.681219",
+  "client_msg_id": "1730e85dac2b7e7743682555848956c77f26",
+  "text": "reimbursement to Perrin Kowalchuk, account 35542887, approved",
+  "user_profile": {
+   "real_name": "Xanthe Finchwood",
+   "display_name": "finchwoodx"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U1RE6NPD0",
+  "ts": "1773219933.599701",
+  "client_msg_id": "e3f4585dcd6b18e71432b2d6faea7ab30cf7",
+  "text": "reimbursement to Wilfred Sorensen, account ACCT-9811-5372, approved",
+  "user_profile": {
+   "real_name": "Ione Holloway",
+   "display_name": "ionehol"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U3HJKV87Y",
+  "ts": "1773306370.199451",
+  "client_msg_id": "7b198ff81cbff3abb2a8422d7d34bae17b29",
+  "text": "vendor accounts csv attached",
+  "user_profile": {
+   "real_name": "Lorelei Zielinski",
+   "display_name": "loreleizie"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

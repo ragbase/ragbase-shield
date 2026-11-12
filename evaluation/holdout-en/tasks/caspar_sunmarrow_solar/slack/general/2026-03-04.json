@@ -1,0 +1,62 @@
+[
+ {
+  "type": "message",
+  "user": "U9QQUP7T4",
+  "ts": "1772960622.959508",
+  "client_msg_id": "77ce3cd2ac7593ac862ed955e9976f041044",
+  "text": "reminder: Northcott visit tomorrow &amp; no slides please",
+  "user_profile": {
+   "real_name": "Liesl Chowdhury",
+   "display_name": "lieslcho"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U9NVJN59J",
+  "ts": "1773047059.923935",
+  "client_msg_id": "54b9a3f1c218177be90e7044427c247525da",
+  "text": "@guerreroy will post the recap",
+  "user_profile": {
+   "real_name": "Gustav Dashwood",
+   "display_name": "gustav_dashwood"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U006VLBD7",
+  "ts": "1773133496.682601",
+  "client_msg_id": "adca7e96d280d9e80f7b4d22fd1ff3c4c9fd",
+  "text": "<@U152TL1B4> thanks for the invoice backlog?",
+  "user_profile": {
+   "real_name": "Dorothea Takahashi",
+   "display_name": "dorothea.takahashi"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U9NVJN59J",
+  "ts": "1773219933.801245",
+  "client_msg_id": "d379363155ebf15cd8b14accca668feb9ee2",
+  "text": "@bronwyn_adegoke has the doc",
+  "user_profile": {
+   "real_name": "Gustav Dashwood",
+   "display_name": "gustav_dashwood"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U1WCE4CT9",
+  "ts": "1773306370.578498",
+  "client_msg_id": "62441b0b1e713eb8484a433061f9a38b70a6",
+  "text": "thanks jude, good catch",
+  "user_profile": {
+   "real_name": "Oriana Eastwick",
+   "display_name": "oriana.eastwick"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

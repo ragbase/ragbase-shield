@@ -1,0 +1,14753 @@
+{
+"set": "isolde_halvorsen_dynamics",
+"mode": "embed",
+"labels": [
+"NAME_GIVEN",
+"NAME_FAMILY",
+"EMAIL_ADDRESS",
+"USERNAME",
+"ORGANIZATION",
+"PHONE_NUMBER",
+"LOCATION_ADDRESS",
+"EMPLOYEE_ID",
+"ACCOUNT_NUMBER",
+"URL"
+],
+"characters": {
+"p00": {
+"canonical_name": "Isolde Brannick",
+"first_names": [
+"Isolde"
+],
+"last_names": [
+"Brannick"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "brannick.isolde@halvorsen-dynamics.test",
+"category": "professional"
+},
+{
+"value": "isolde.brannick17@postwave.test",
+"category": "personal"
+}
+],
+"slack_handles": [
+"U7SFXCAT0",
+"ibrannick"
+],
+"phone_numbers_linked": [
+"+1 617 555 0193"
+],
+"employee_ids": [
+"HD-75803"
+],
+"account_numbers": [],
+"addresses": [
+"7654 Birchmount Drive"
+],
+"organizations": [
+"Halvorsen Dynamics"
+]
+},
+"p01": {
+"canonical_name": "Romilly Quiroga",
+"first_names": [
+"Romilly"
+],
+"last_names": [
+"Quiroga"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "romilly@halvorsen-dynamics.test",
+"category": "professional"
+}
+],
+"slack_handles": [
+"U1BU68WU6",
+"romilly_quiroga"
+],
+"phone_numbers_linked": [
+"617-555-0195"
+],
+"employee_ids": [
+"HD-16869"
+],
+"account_numbers": [
+"50839135"
+],
+"addresses": [
+"9385 Wexford Court"
+],
+"organizations": [
+"Halvorsen Dynamics"
+]
+},
+"p02": {
+"canonical_name": "Horatio Eastwick",
+"first_names": [
+"Horatio"
+],
+"last_names": [
+"Eastwick"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "eastwick.horatio@halvorsen-dynamics.test",
+"category": "professional"
+}
+],
+"slack_handles": [
+"U0HY359TK",
+"heastwick"
+],
+"phone_numbers_linked": [
+"+1 617 555 0176"
+],
+"employee_ids": [
+"HD-54021"
+],
+"account_numbers": [],
+"addresses": [
+"539 Ridgeback Trail"
+],
+"organizations": [
+"Halvorsen Dynamics"
+]
+},
+"p03": {
+"canonical_name": "Caspar Villanueva",
+"first_names": [
+"Caspar"
+],
+"last_names": [
+"Villanueva"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "villanueva.caspar@halvorsen-dynamics.test",
+"category": "professional"
+},
+{
+"value": "caspar.villanueva80@lettercloud.test",
+"category": "personal"
+}
+],
+"slack_handles": [
+"U821QB1V0",
+"cvillanueva"
+],
+"phone_numbers_linked": [
+"617-555-0162"
+],
+"employee_ids": [
+"HD-26321"
+],
+"account_numbers": [
+"ACCT-8339-9799"
+],
+"addresses": [
+"5815 Harbor Mist Way"
+],
+"organizations": [
+"Halvorsen Dynamics"
+]
+},
+"p04": {
+"canonical_name": "Quinlan Winterhalde",
+"first_names": [
+"Quinlan"
+],
+"last_names": [
+"Winterhalde"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "quinlan@halvorsen-dynamics.test",
+"category": "professional"
+},
+{
+"value": "quinlan.winterhalde84@lettercloud.test",
+"category": "personal"
+}
+],
+"slack_handles": [
+"U9MZM3QQC",
+"winterhaldeq"
+],
+"phone_numbers_linked": [
+"+1 617 555 0156"
+],
+"employee_ids": [
+"HD-52201"
+],
+"account_numbers": [],
+"addresses": [
+"5264 Foxglove Street"
+],
+"organizations": [
+"Halvorsen Dynamics"
+]
+},
+"p05": {
+"canonical_name": "Boyd Tallis",
+"first_names": [
+"Boyd"
+],
+"last_names": [
+"Tallis"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "tallis.boyd@halvorsen-dynamics.test",
+"category": "professional"
+}
+],
+"slack_handles": [
+"U5GYXC1B4",
+"boydtal"
+],
+"phone_numbers_linked": [
+"617-555-0135"
+],
+"employee_ids": [
+"HD-23966"
+],
+"account_numbers": [
+"87905170"
+],
+"addresses": [
+"84 Marrowbone Drive"
+],
+"organizations": [
+"Halvorsen Dynamics"
+]
+},
+"p06": {
+"canonical_name": "Ophelia Thornquist",
+"first_names": [
+"Ophelia"
+],
+"last_names": [
+"Thornquist"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "thornquist.ophelia@halvorsen-dynamics.test",
+"category": "professional"
+},
+{
+"value": "ophelia.thornquist11@quietinbox.test",
+"category": "personal"
+}
+],
+"slack_handles": [
+"U1PWB3CGE",
+"ophelia_thornquist"
+],
+"phone_numbers_linked": [
+"617.555.0136"
+],
+"employee_ids": [
+"HD-99062"
+],
+"account_numbers": [],
+"addresses": [
+"1692 Ashgrove Place"
+],
+"organizations": [
+"Halvorsen Dynamics"
+]
+},
+"p07": {
+"canonical_name": "Nina Grimshaw",
+"first_names": [
+"Nina"
+],
+"last_names": [
+"Grimshaw"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "nina.grimshaw@halvorsen-dynamics.test",
+"category": "professional"
+}
+],
+"slack_handles": [
+"U6V7H33YP",
+"nina.grimshaw"
+],
+"phone_numbers_linked": [
+"+1 617 555 0152"
+],
+"employee_ids": [
+"HD-14260"
+],
+"account_numbers": [],
+"addresses": [
+"7103 Candlewick Road"
+],
+"organizations": [
+"Halvorsen Dynamics"
+]
+},
+"p08": {
+"canonical_name": "Oswin Vickery",
+"first_names": [
+"Oswin"
+],
+"last_names": [
+"Vickery"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "oswin.vickery@halvorsen-dynamics.test",
+"category": "professional"
+}
+],
+"slack_handles": [
+"U3LH2KSFH",
+"vickeryo"
+],
+"phone_numbers_linked": [
+"(617) 555-0125"
+],
+"employee_ids": [
+"HD-96789"
+],
+"account_numbers": [],
+"addresses": [
+"5941 Harbor Mist Way"
+],
+"organizations": [
+"Halvorsen Dynamics"
+]
+},
+"p09": {
+"canonical_name": "Greta Yelverton",
+"first_names": [
+"Greta"
+],
+"last_names": [
+"Yelverton"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "yelverton.greta@halvorsen-dynamics.test",
+"category": "professional"
+},
+{
+"value": "greta.yelverton70@lettercloud.test",
+"category": "personal"
+}
+],
+"slack_handles": [
+"U43GUNWK1",
+"gretayel"
+],
+"phone_numbers_linked": [
+"(617) 555-0167"
+],
+"employee_ids": [
+"HD-31412"
+],
+"account_numbers": [
+"69854859"
+],
+"addresses": [
+"1359 Harbor Mist Way"
+],
+"organizations": [
+"Halvorsen Dynamics"
+]
+},
+"p10": {
+"canonical_name": "Ignatius Barrowcliffe",
+"first_names": [
+"Ignatius"
+],
+"last_names": [
+"Barrowcliffe"
+],
+"nicknames": [
+"Nash"
+],
+"emails": [
+{
+"value": "ignatius@halvorsen-dynamics.test",
+"category": "professional"
+}
+],
+"slack_handles": [
+"U1UFL0N9U",
+"ignatius.barrowcliffe"
+],
+"phone_numbers_linked": [
+"(617) 555-0138"
+],
+"employee_ids": [
+"HD-46904"
+],
+"account_numbers": [
+"47807603"
+],
+"addresses": [
+"1702 Larkspur Avenue"
+],
+"organizations": [
+"Halvorsen Dynamics"
+]
+},
+"p11": {
+"canonical_name": "Uriah Ashby",
+"first_names": [
+"Uriah"
+],
+"last_names": [
+"Ashby"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "ashby.uriah@halvorsen-dynamics.test",
+"category": "professional"
+}
+],
+"slack_handles": [
+"U78C2GH0F",
+"uriahash"
+],
+"phone_numbers_linked": [
+"+1 617 555 0101"
+],
+"employee_ids": [
+"HD-40927"
+],
+"account_numbers": [],
+"addresses": [
+"1675 Ridgeback Trail"
+],
+"organizations": [
+"Halvorsen Dynamics"
+]
+},
+"p12": {
+"canonical_name": "Ulric Ashcombe",
+"first_names": [
+"Ulric"
+],
+"last_names": [
+"Ashcombe"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "uashcombe@old.test",
+"category": "professional"
+},
+{
+"value": "ulric.ashcombe32@quietinbox.test",
+"category": "personal"
+}
+],
+"slack_handles": [
+"U0K3KB2UB",
+"ulric_ashcombe"
+],
+"phone_numbers_linked": [
+"617.555.0124"
+],
+"employee_ids": [],
+"account_numbers": [
+"ACCT-9931-3669"
+],
+"addresses": [
+"4037 Marrowbone Drive"
+],
+"organizations": [
+"Old Mill Accounting"
+]
+},
+"p13": {
+"canonical_name": "Florian Rasmussen",
+"first_names": [
+"Florian"
+],
+"last_names": [
+"Rasmussen"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "rasmussen.florian@marrowbone.test",
+"category": "professional"
+}
+],
+"slack_handles": [
+"U90K0QLA4",
+"rasmussenf"
+],
+"phone_numbers_linked": [
+"+1 617 555 0187",
+"(312) 555-0169"
+],
+"employee_ids": [],
+"account_numbers": [
+"ACCT-4599-3649"
+],
+"addresses": [
+"8838 Juniper Hollow Road"
+],
+"organizations": [
+"Marrowbone Capital Partners"
+]
+},
+"p14": {
+"canonical_name": "Jasper Underhill",
+"first_names": [
+"Jasper"
+],
+"last_names": [
+"Underhill"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "jasper@willowmere.test",
+"category": "professional"
+}
+],
+"slack_handles": [
+"U3WT2QWED",
+"jasperund"
+],
+"phone_numbers_linked": [
+"617.555.0191"
+],
+"employee_ids": [],
+"account_numbers": [
+"71861105"
+],
+"addresses": [
+"1695 Ashgrove Place"
+],
+"organizations": [
+"Willowmere Staffing"
+]
+},
+"p15": {
+"canonical_name": "Gideon Holloway",
+"first_names": [
+"Gideon"
+],
+"last_names": [
+"Holloway"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "gideon.holloway@saltmarsh.test",
+"category": "professional"
+},
+{
+"value": "gideon.holloway82@mailharbor.test",
+"category": "personal"
+}
+],
+"slack_handles": [
+"U4R5N5EL1",
+"gholloway"
+],
+"phone_numbers_linked": [
+"617.555.0153"
+],
+"employee_ids": [],
+"account_numbers": [],
+"addresses": [
+"8382 Willowmere Road"
+],
+"organizations": [
+"Saltmarsh Insurance Group"
+]
+},
+"p16": {
+"canonical_name": "Ezra Dimitriou",
+"first_names": [
+"Ezra"
+],
+"last_names": [
+"Dimitriou"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "dimitriou.ezra@brightmoor.test",
+"category": "professional"
+}
+],
+"slack_handles": [
+"U4KD43TSE",
+"dimitrioue"
+],
+"phone_numbers_linked": [
+"+1 617 555 0134"
+],
+"employee_ids": [],
+"account_numbers": [
+"85602311"
+],
+"addresses": [
+"3571 Foxglove Street"
+],
+"organizations": [
+"Brightmoor Logistics"
+]
+},
+"p17": {
+"canonical_name": "Nerissa Osgood",
+"first_names": [
+"Nerissa"
+],
+"last_names": [
+"Osgood"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "nerissa@old.test",
+"category": "professional"
+}
+],
+"slack_handles": [
+"U5Z0GTJEG",
+"nerissa.osgood"
+],
+"phone_numbers_linked": [
+"617-555-0107",
+"+1 415 555 0158"
+],
+"employee_ids": [],
+"account_numbers": [
+"ACCT-3548-3097"
+],
+"addresses": [
+"3076 Harbor Mist Way"
+],
+"organizations": [
+"Old Mill Accounting"
+]
+},
+"p18": {
+"canonical_name": "Sylvie Abernathy",
+"first_names": [
+"Sylvie"
+],
+"last_names": [
+"Abernathy"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "sylvie.abernathy@halvorsen-dynamics.test",
+"category": "professional"
+}
+],
+"slack_handles": [
+"U6079U0Y1",
+"sylvie.abernathy"
+],
+"phone_numbers_linked": [
+"+1 617 555 0137",
+"+1 415 555 0196"
+],
+"employee_ids": [
+"HD-34870"
+],
+"account_numbers": [
+"ACCT-1244-5855"
+],
+"addresses": [
+"210 Marrowbone Drive"
+],
+"organizations": [
+"Halvorsen Dynamics"
+]
+},
+"org_home": {
+"canonical_name": "Halvorsen Dynamics",
+"organization": true,
+"organizations": [
+"Halvorsen",
+"Halvorsen Dynamics",
+"Halvorsen Dynamics Inc."
+],
+"urls": [
+"https://www.halvorsen-dynamics.test"
+],
+"addresses": [
+"1895 Wexford Court"
+],
+"account_numbers": [
+"8233753977"
+],
+"domain": "halvorsen-dynamics.test"
+},
+"org_1": {
+"canonical_name": "Saltmarsh Insurance Group",
+"organization": true,
+"organizations": [
+"Saltmarsh",
+"Saltmarsh Insurance Group",
+"Saltmarsh Insurance Group Inc."
+],
+"urls": [
+"https://www.saltmarsh.test"
+],
+"addresses": [
+"7051 Ashgrove Place"
+],
+"account_numbers": [
+"9825070395"
+],
+"domain": "saltmarsh.test"
+},
+"org_2": {
+"canonical_name": "Ridgeback Security",
+"organization": true,
+"organizations": [
+"Ridgeback",
+"Ridgeback Security"
+],
+"urls": [
+"https://www.ridgeback.test"
+],
+"addresses": [
+"1907 Candlewick Road"
+],
+"account_numbers": [
+"6295340421"
+],
+"domain": "ridgeback.test"
+},
+"org_3": {
+"canonical_name": "Old Mill Accounting",
+"organization": true,
+"organizations": [
+"Old",
+"Old Mill Accounting",
+"Old Mill Accounting LLP"
+],
+"urls": [
+"https://www.old.test"
+],
+"addresses": [
+"2725 Harbor Mist Way"
+],
+"account_numbers": [
+"5956618361"
+],
+"domain": "old.test"
+},
+"org_4": {
+"canonical_name": "Willowmere Staffing",
+"organization": true,
+"organizations": [
+"Willowmere",
+"Willowmere Staffing"
+],
+"urls": [
+"https://www.willowmere.test"
+],
+"addresses": [
+"2386 Harbor Mist Way"
+],
+"account_numbers": [
+"1417642306"
+],
+"domain": "willowmere.test"
+},
+"org_5": {
+"canonical_name": "Brightmoor Logistics",
+"organization": true,
+"organizations": [
+"Brightmoor",
+"Brightmoor Logistics",
+"Brightmoor Logistics LLC"
+],
+"urls": [
+"https://www.brightmoor.test"
+],
+"addresses": [
+"6457 Harbor Mist Way"
+],
+"account_numbers": [
+"5249153006"
+],
+"domain": "brightmoor.test"
+},
+"org_6": {
+"canonical_name": "Marrowbone Capital Partners",
+"organization": true,
+"organizations": [
+"Marrowbone",
+"Marrowbone Capital Partners"
+],
+"urls": [
+"https://www.marrowbone.test"
+],
+"addresses": [
+"4928 Harbor Mist Way"
+],
+"account_numbers": [
+"8683826193"
+],
+"domain": "marrowbone.test"
+},
+"org_homonym": {
+"canonical_name": "Abernathy & Associates",
+"organization": true,
+"organizations": [
+"Abernathy",
+"Abernathy & Associates",
+"Abernathy & Associates LLP"
+],
+"urls": [
+"https://www.abernathylaw.test"
+],
+"addresses": [
+"6274 Old Mill Terrace"
+],
+"account_numbers": [
+"7246949452"
+],
+"domain": "abernathylaw.test"
+}
+},
+"rows": [
+{
+"meta": {
+"row_id": "m000005f8604ca",
+"from": {
+"name": "Isolde Brannick",
+"email": "brannick.isolde@halvorsen-dynamics.test"
+},
+"to": [
+{
+"name": "Uriah Ashby",
+"email": "ashby.uriah@halvorsen-dynamics.test"
+},
+{
+"name": "Boyd Tallis",
+"email": "tallis.boyd@halvorsen-dynamics.test"
+},
+{
+"name": "Horatio Eastwick",
+"email": "eastwick.horatio@halvorsen-dynamics.test"
+}
+],
+"cc": [
+{
+"name": "Gideon Holloway",
+"email": "gideon.holloway@saltmarsh.test"
+}
+],
+"subject": "Kickoff: the audit prep",
+"datetime": "2026-03-02T10:45:00Z",
+"thread_id": "m000005f8604ca"
+},
+"text": "Hi all,\n\nKicking off the audit prep this week. Roles for the record:\n\n- Uriah Ashby (Quality Inspector, ashby.uriah@halvorsen-dynamics.test)\n- Boyd Tallis (IT Administrator, tallis.boyd@halvorsen-dynamics.test)\n- Horatio Eastwick (Legal Counsel, eastwick.horatio@halvorsen-dynamics.test)\n- Gideon Holloway from Saltmarsh Insurance Group Inc., our contact at the vendor (617.555.0153)\n\nThe shared folder is at https://www.halvorsen-dynamics.test/projects/prep. Ping Uriah or me if a line item looks wrong.\n\nThanks,\nIsolde Brannick\nMarketing Associate | Halvorsen Dynamics\n+1 617 555 0193 | brannick.isolde@halvorsen-dynamics.test\nEmployee ID HD-75803\nhttps://www.halvorsen-dynamics.test\r",
+"file": {
+"kind": "eml",
+"path": "email/m000005f8604ca.eml",
+"sha256": "2a703eec19f5926c19949bd87048d091b67a6d140de7c6767cb6ed2741eadb7b",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Uriah",
+"start": 72,
+"end": 77,
+"label": "NAME_GIVEN",
+"characters": [
+"p11"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 686,
+"file_char_end": 691,
+"status": "located"
+}
+},
+{
+"text": "Ashby",
+"start": 78,
+"end": 83,
+"label": "NAME_FAMILY",
+"characters": [
+"p11"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 692,
+"file_char_end": 697,
+"status": "located"
+}
+},
+{
+"text": "ashby.uriah@halvorsen-dynamics.test",
+"start": 104,
+"end": 139,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p11"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 718,
+"file_char_end": 753,
+"status": "located"
+}
+},
+{
+"text": "Boyd",
+"start": 143,
+"end": 147,
+"label": "NAME_GIVEN",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 758,
+"file_char_end": 762,
+"status": "located"
+}
+},
+{
+"text": "Tallis",
+"start": 148,
+"end": 154,
+"label": "NAME_FAMILY",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 763,
+"file_char_end": 769,
+"status": "located"
+}
+},
+{
+"text": "tallis.boyd@halvorsen-dynamics.test",
+"start": 174,
+"end": 209,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 789,
+"file_char_end": 824,
+"status": "located"
+}
+},
+{
+"text": "Horatio",
+"start": 213,
+"end": 220,
+"label": "NAME_GIVEN",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 829,
+"file_char_end": 836,
+"status": "located"
+}
+},
+{
+"text": "Eastwick",
+"start": 221,
+"end": 229,
+"label": "NAME_FAMILY",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 837,
+"file_char_end": 845,
+"status": "located"
+}
+},
+{
+"text": "eastwick.horatio@halvorsen-dynamics.test",
+"start": 246,
+"end": 286,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 862,
+"file_char_end": 902,
+"status": "located"
+}
+},
+{
+"text": "Gideon",
+"start": 290,
+"end": 296,
+"label": "NAME_GIVEN",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 907,
+"file_char_end": 913,
+"status": "located"
+}
+},
+{
+"text": "Holloway",
+"start": 297,
+"end": 305,
+"label": "NAME_FAMILY",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 914,
+"file_char_end": 922,
+"status": "located"
+}
+},
+{
+"text": "Saltmarsh Insurance Group Inc.",
+"start": 311,
+"end": 341,
+"label": "ORGANIZATION",
+"characters": [
+"org_1"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 928,
+"file_char_end": 958,
+"status": "located"
+}
+},
+{
+"text": "617.555.0153",
+"start": 370,
+"end": 382,
+"label": "PHONE_NUMBER",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 987,
+"file_char_end": 999,
+"status": "located"
+}
+},
+{
+"text": "https://www.halvorsen-dynamics.test/projects/prep",
+"start": 409,
+"end": 458,
+"label": "URL",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 1028,
+"file_char_end": 1077,
+"status": "located"
+}
+},
+{
+"text": "Uriah",
+"start": 465,
+"end": 470,
+"label": "NAME_GIVEN",
+"characters": [
+"p11"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 1084,
+"file_char_end": 1089,
+"status": "located"
+}
+},
+{
+"text": "Isolde",
+"start": 514,
+"end": 520,
+"label": "NAME_GIVEN",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 1136,
+"file_char_end": 1142,
+"status": "located"
+}
+},
+{
+"text": "Brannick",
+"start": 521,
+"end": 529,
+"label": "NAME_FAMILY",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 1143,
+"file_char_end": 1151,
+"status": "located"
+}
+},
+{
+"text": "Halvorsen Dynamics",
+"start": 552,
+"end": 570,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 1175,
+"file_char_end": 1193,
+"status": "located"
+}
+},
+{
+"text": "+1 617 555 0193",
+"start": 571,
+"end": 586,
+"label": "PHONE_NUMBER",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 1195,
+"file_char_end": 1210,
+"status": "located"
+}
+},
+{
+"text": "brannick.isolde@halvorsen-dynamics.test",
+"start": 589,
+"end": 628,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 1213,
+"file_char_end": 1252,
+"status": "located"
+}
+},
+{
+"text": "HD-75803",
+"start": 641,
+"end": 649,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 1266,
+"file_char_end": 1274,
+"status": "located"
+}
+},
+{
+"text": "https://www.halvorsen-dynamics.test",
+"start": 650,
+"end": 685,
+"label": "URL",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 1276,
+"file_char_end": 1311,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "m000005f8604ca-att0",
+"filename": "kickoff_notes.docx",
+"format": "docx",
+"mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+"attached_to": {
+"kind": "email",
+"row_id": "m000005f8604ca"
+}
+},
+"text": "Kickoff notes\nPrepared by Isolde Brannick (brannick.isolde@halvorsen-dynamics.test) for Halvorsen Dynamics Inc..\nAttendees\nName | Role | Email | Phone\nRomilly Quiroga | Legal Counsel | romilly@halvorsen-dynamics.test | 617-555-0195\nHoratio Eastwick | Legal Counsel | eastwick.horatio@halvorsen-dynamics.test | +1 617 555 0176\nCaspar Villanueva | Operations Manager | villanueva.caspar@halvorsen-dynamics.test | 617-555-0162\nQuinlan Winterhalde | Customer Success Lead | quinlan@halvorsen-dynamics.test | +1 617 555 0156\nBoyd Tallis | IT Administrator | tallis.boyd@halvorsen-dynamics.test | 617-555-0135\nEzra Dimitriou | Training Coordinator | dimitriou.ezra@brightmoor.test | +1 617 555 0134\nUlric Ashcombe | Sales Representative | uashcombe@old.test | 617.555.0124\nGideon Holloway | Training Coordinator | gideon.holloway@saltmarsh.test | 617.555.0153\nDecisions\nBrightmoor Logistics LLC delivers the first batch to 1895 Wexford Court, Carverton, OH 43215. Contact on their side: Dimitriou, Ezra (+1 617 555 0134).\nHoratio (employee ID HD-54021) owns the budget tracker at https://www.halvorsen-dynamics.test/budget.\nOpen question: does Willowmere still invoice through Willowmere Staffing? Caspar to confirm.",
+"file": {
+"kind": "docx",
+"path": "email/m000005f8604ca.eml",
+"sha256": "2a703eec19f5926c19949bd87048d091b67a6d140de7c6767cb6ed2741eadb7b",
+"container": {
+"kind": "eml_attachment",
+"path": "email/m000005f8604ca.eml",
+"part_index": 0,
+"filename": "kickoff_notes.docx"
+}
+},
+"ground_truth_spans": [
+{
+"text": "Isolde",
+"start": 26,
+"end": 32,
+"label": "NAME_GIVEN",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:p[2]/w:r/w:t",
+"start": 12,
+"end": 18
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Brannick",
+"start": 33,
+"end": 41,
+"label": "NAME_FAMILY",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:p[2]/w:r/w:t",
+"start": 19,
+"end": 27
+}
+],
+"status": "located"
+}
+},
+{
+"text": "brannick.isolde@halvorsen-dynamics.test",
+"start": 43,
+"end": 82,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:p[2]/w:r/w:t",
+"start": 29,
+"end": 68
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Halvorsen Dynamics Inc.",
+"start": 88,
+"end": 111,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:p[2]/w:r/w:t",
+"start": 74,
+"end": 97
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Romilly",
+"start": 151,
+"end": 158,
+"label": "NAME_GIVEN",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[2]/w:tc/w:p/w:r/w:t",
+"start": 0,
+"end": 7
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Quiroga",
+"start": 159,
+"end": 166,
+"label": "NAME_FAMILY",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[2]/w:tc/w:p/w:r/w:t",
+"start": 8,
+"end": 15
+}
+],
+"status": "located"
+}
+},
+{
+"text": "romilly@halvorsen-dynamics.test",
+"start": 185,
+"end": 216,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[2]/w:tc[3]/w:p/w:r/w:t",
+"start": 0,
+"end": 31
+}
+],
+"status": "located"
+}
+},
+{
+"text": "617-555-0195",
+"start": 219,
+"end": 231,
+"label": "PHONE_NUMBER",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[2]/w:tc[4]/w:p/w:r/w:t",
+"start": 0,
+"end": 12
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Horatio",
+"start": 232,
+"end": 239,
+"label": "NAME_GIVEN",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[3]/w:tc/w:p/w:r/w:t",
+"start": 0,
+"end": 7
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Eastwick",
+"start": 240,
+"end": 248,
+"label": "NAME_FAMILY",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[3]/w:tc/w:p/w:r/w:t",
+"start": 8,
+"end": 16
+}
+],
+"status": "located"
+}
+},
+{
+"text": "eastwick.horatio@halvorsen-dynamics.test",
+"start": 267,
+"end": 307,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[3]/w:tc[3]/w:p/w:r/w:t",
+"start": 0,
+"end": 40
+}
+],
+"status": "located"
+}
+},
+{
+"text": "+1 617 555 0176",
+"start": 310,
+"end": 325,
+"label": "PHONE_NUMBER",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[3]/w:tc[4]/w:p/w:r/w:t",
+"start": 0,
+"end": 15
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Caspar",
+"start": 326,
+"end": 332,
+"label": "NAME_GIVEN",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[4]/w:tc/w:p/w:r/w:t",
+"start": 0,
+"end": 6
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Villanueva",
+"start": 333,
+"end": 343,
+"label": "NAME_FAMILY",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[4]/w:tc/w:p/w:r/w:t",
+"start": 7,
+"end": 17
+}
+],
+"status": "located"
+}
+},
+{
+"text": "villanueva.caspar@halvorsen-dynamics.test",
+"start": 367,
+"end": 408,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[4]/w:tc[3]/w:p/w:r/w:t",
+"start": 0,
+"end": 41
+}
+],
+"status": "located"
+}
+},
+{
+"text": "617-555-0162",
+"start": 411,
+"end": 423,
+"label": "PHONE_NUMBER",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[4]/w:tc[4]/w:p/w:r/w:t",
+"start": 0,
+"end": 12
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Quinlan",
+"start": 424,
+"end": 431,
+"label": "NAME_GIVEN",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[5]/w:tc/w:p/w:r/w:t",
+"start": 0,
+"end": 7
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Winterhalde",
+"start": 432,
+"end": 443,
+"label": "NAME_FAMILY",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[5]/w:tc/w:p/w:r/w:t",
+"start": 8,
+"end": 19
+}
+],
+"status": "located"
+}
+},
+{
+"text": "quinlan@halvorsen-dynamics.test",
+"start": 470,
+"end": 501,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[5]/w:tc[3]/w:p/w:r/w:t",
+"start": 0,
+"end": 31
+}
+],
+"status": "located"
+}
+},
+{
+"text": "+1 617 555 0156",
+"start": 504,
+"end": 519,
+"label": "PHONE_NUMBER",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[5]/w:tc[4]/w:p/w:r/w:t",
+"start": 0,
+"end": 15
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Boyd",
+"start": 520,
+"end": 524,
+"label": "NAME_GIVEN",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[6]/w:tc/w:p/w:r/w:t",
+"start": 0,
+"end": 4
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Tallis",
+"start": 525,
+"end": 531,
+"label": "NAME_FAMILY",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[6]/w:tc/w:p/w:r/w:t",
+"start": 5,
+"end": 11
+}
+],
+"status": "located"
+}
+},
+{
+"text": "tallis.boyd@halvorsen-dynamics.test",
+"start": 553,
+"end": 588,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[6]/w:tc[3]/w:p/w:r/w:t",
+"start": 0,
+"end": 35
+}
+],
+"status": "located"
+}
+},
+{
+"text": "617-555-0135",
+"start": 591,
+"end": 603,
+"label": "PHONE_NUMBER",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[6]/w:tc[4]/w:p/w:r/w:t",
+"start": 0,
+"end": 12
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Ezra",
+"start": 604,
+"end": 608,
+"label": "NAME_GIVEN",
+"characters": [
+"p16"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[7]/w:tc/w:p/w:r/w:t",
+"start": 0,
+"end": 4
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Dimitriou",
+"start": 609,
+"end": 618,
+"label": "NAME_FAMILY",
+"characters": [
+"p16"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[7]/w:tc/w:p/w:r/w:t",
+"start": 5,
+"end": 14
+}
+],
+"status": "located"
+}
+},
+{
+"text": "dimitriou.ezra@brightmoor.test",
+"start": 644,
+"end": 674,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p16"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[7]/w:tc[3]/w:p/w:r/w:t",
+"start": 0,
+"end": 30
+}
+],
+"status": "located"
+}
+},
+{
+"text": "+1 617 555 0134",
+"start": 677,
+"end": 692,
+"label": "PHONE_NUMBER",
+"characters": [
+"p16"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[7]/w:tc[4]/w:p/w:r/w:t",
+"start": 0,
+"end": 15
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Ulric",
+"start": 693,
+"end": 698,
+"label": "NAME_GIVEN",
+"characters": [
+"p12"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[8]/w:tc/w:p/w:r/w:t",
+"start": 0,
+"end": 5
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Ashcombe",
+"start": 699,
+"end": 707,
+"label": "NAME_FAMILY",
+"characters": [
+"p12"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[8]/w:tc/w:p/w:r/w:t",
+"start": 6,
+"end": 14
+}
+],
+"status": "located"
+}
+},
+{
+"text": "uashcombe@old.test",
+"start": 733,
+"end": 751,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p12"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[8]/w:tc[3]/w:p/w:r/w:t",
+"start": 0,
+"end": 18
+}
+],
+"status": "located"
+}
+},
+{
+"text": "617.555.0124",
+"start": 754,
+"end": 766,
+"label": "PHONE_NUMBER",
+"characters": [
+"p12"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[8]/w:tc[4]/w:p/w:r/w:t",
+"start": 0,
+"end": 12
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Gideon",
+"start": 767,
+"end": 773,
+"label": "NAME_GIVEN",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[9]/w:tc/w:p/w:r/w:t",
+"start": 0,
+"end": 6
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Holloway",
+"start": 774,
+"end": 782,
+"label": "NAME_FAMILY",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[9]/w:tc/w:p/w:r/w:t",
+"start": 7,
+"end": 15
+}
+],
+"status": "located"
+}
+},
+{
+"text": "gideon.holloway@saltmarsh.test",
+"start": 808,
+"end": 838,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[9]/w:tc[3]/w:p/w:r/w:t",
+"start": 0,
+"end": 30
+}
+],
+"status": "located"
+}
+},
+{
+"text": "617.555.0153",
+"start": 841,
+"end": 853,
+"label": "PHONE_NUMBER",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[9]/w:tc[4]/w:p/w:r/w:t",
+"start": 0,
+"end": 12
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Brightmoor Logistics LLC",
+"start": 864,
+"end": 888,
+"label": "ORGANIZATION",
+"characters": [
+"org_5"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:p[5]/w:r/w:t",
+"start": 0,
+"end": 24
+}
+],
+"status": "located"
+}
+},
+{
+"text": "1895 Wexford Court",
+"start": 917,
+"end": 935,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:p[5]/w:r/w:t",
+"start": 53,
+"end": 71
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Dimitriou",
+"start": 981,
+"end": 990,
+"label": "NAME_FAMILY",
+"characters": [
+"p16"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:p[5]/w:r/w:t",
+"start": 117,
+"end": 126
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Ezra",
+"start": 992,
+"end": 996,
+"label": "NAME_GIVEN",
+"characters": [
+"p16"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:p[5]/w:r/w:t",
+"start": 128,
+"end": 132
+}
+],
+"status": "located"
+}
+},
+{
+"text": "+1 617 555 0134",
+"start": 998,
+"end": 1013,
+"label": "PHONE_NUMBER",
+"characters": [
+"p16"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:p[5]/w:r/w:t",
+"start": 134,
+"end": 149
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Horatio",
+"start": 1016,
+"end": 1023,
+"label": "NAME_GIVEN",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:p[6]/w:r/w:t",
+"start": 0,
+"end": 7
+}
+],
+"status": "located"
+}
+},
+{
+"text": "HD-54021",
+"start": 1037,
+"end": 1045,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:p[6]/w:r/w:t",
+"start": 21,
+"end": 29
+}
+],
+"status": "located"
+}
+},
+{
+"text": "https://www.halvorsen-dynamics.test/budget",
+"start": 1074,
+"end": 1116,
+"label": "URL",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:p[6]/w:r/w:t",
+"start": 58,
+"end": 100
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Willowmere",
+"start": 1138,
+"end": 1148,
+"label": "ORGANIZATION",
+"characters": [
+"org_4"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:p[7]/w:r/w:t",
+"start": 20,
+"end": 30
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Willowmere Staffing",
+"start": 1171,
+"end": 1190,
+"label": "ORGANIZATION",
+"characters": [
+"org_4"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:p[7]/w:r/w:t",
+"start": 53,
+"end": 72
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Caspar",
+"start": 1192,
+"end": 1198,
+"label": "NAME_GIVEN",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:p[7]/w:r/w:t",
+"start": 74,
+"end": 80
+}
+],
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "m0000198b80a3a",
+"from": {
+"name": "Uriah Ashby",
+"email": "ashby.uriah@halvorsen-dynamics.test"
+},
+"to": [
+{
+"name": "Isolde Brannick",
+"email": "brannick.isolde@halvorsen-dynamics.test"
+}
+],
+"cc": [
+{
+"name": "Boyd Tallis",
+"email": "tallis.boyd@halvorsen-dynamics.test"
+},
+{
+"name": "Horatio Eastwick",
+"email": "eastwick.horatio@halvorsen-dynamics.test"
+}
+],
+"subject": "Re: Kickoff: the audit prep",
+"datetime": "2026-03-03T10:52:00Z",
+"thread_id": "thread-0"
+},
+"text": "Thanks Isolde! One correction: Eastwick's extension changed, it is now +1 617 555 0176. Also Boyd is out until Thursday.\n\n> Kicking off the audit prep this week.\n> Ping Uriah or me if a line item looks wrong.\n\nThanks,\nUriah Ashby\nQuality Inspector | Halvorsen Dynamics Inc.\n\r",
+"file": {
+"kind": "eml",
+"path": "email/m0000198b80a3a.eml",
+"sha256": "ce4630861b40eff222d3110ff0f240ab6daa2f9adaea2035d83c8ce6d5d6e86d",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Isolde",
+"start": 7,
+"end": 13,
+"label": "NAME_GIVEN",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 524,
+"file_char_end": 530,
+"status": "located"
+}
+},
+{
+"text": "Eastwick",
+"start": 31,
+"end": 39,
+"label": "NAME_FAMILY",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 548,
+"file_char_end": 556,
+"status": "located"
+}
+},
+{
+"text": "+1 617 555 0176",
+"start": 71,
+"end": 86,
+"label": "PHONE_NUMBER",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 588,
+"file_char_end": 603,
+"status": "located"
+}
+},
+{
+"text": "Boyd",
+"start": 93,
+"end": 97,
+"label": "NAME_GIVEN",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 610,
+"file_char_end": 614,
+"status": "located"
+}
+},
+{
+"text": "Uriah",
+"start": 169,
+"end": 174,
+"label": "NAME_GIVEN",
+"characters": [
+"p11"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 689,
+"file_char_end": 694,
+"status": "located"
+}
+},
+{
+"text": "Uriah",
+"start": 218,
+"end": 223,
+"label": "NAME_GIVEN",
+"characters": [
+"p11"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 741,
+"file_char_end": 746,
+"status": "located"
+}
+},
+{
+"text": "Ashby",
+"start": 224,
+"end": 229,
+"label": "NAME_FAMILY",
+"characters": [
+"p11"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 747,
+"file_char_end": 752,
+"status": "located"
+}
+},
+{
+"text": "Halvorsen Dynamics Inc.",
+"start": 250,
+"end": 273,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 774,
+"file_char_end": 797,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "m00002753a8aa4",
+"from": {
+"name": "Ulric Ashcombe",
+"email": "uashcombe@old.test"
+},
+"to": [
+{
+"name": "Nina Grimshaw",
+"email": "nina.grimshaw@halvorsen-dynamics.test"
+}
+],
+"cc": [],
+"subject": "Statement attached",
+"datetime": "2026-03-04T11:55:00Z",
+"thread_id": "m00002753a8aa4"
+},
+"text": "Dear Nina,\n\nPlease find attached our statement for Halvorsen Dynamics. The account reference on your side is 5956618361. Remit to Old Mill Accounting LLP, 2725 Harbor Mist Way, Dunmere, VT 05401.\n\nFor questions call me at 617.555.0124 or write to uashcombe@old.test.\n\nThanks,\nUlric Ashcombe\nSales Representative | Old Mill Accounting\n617.555.0124 | uashcombe@old.test\n2725 Harbor Mist Way, Dunmere, VT 05401\r",
+"file": {
+"kind": "eml",
+"path": "email/m00002753a8aa4.eml",
+"sha256": "d6a8c72c85ff8936a6db8f34ed4c492e1bf05a02f58da3ffdf47f16de30fb9f3",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Nina",
+"start": 5,
+"end": 9,
+"label": "NAME_GIVEN",
+"characters": [
+"p07"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 411,
+"file_char_end": 415,
+"status": "located"
+}
+},
+{
+"text": "Halvorsen Dynamics",
+"start": 51,
+"end": 69,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 459,
+"file_char_end": 477,
+"status": "located"
+}
+},
+{
+"text": "5956618361",
+"start": 109,
+"end": 119,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"org_3"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 517,
+"file_char_end": 527,
+"status": "located"
+}
+},
+{
+"text": "Old Mill Accounting LLP",
+"start": 130,
+"end": 153,
+"label": "ORGANIZATION",
+"characters": [
+"org_3"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 538,
+"file_char_end": 561,
+"status": "located"
+}
+},
+{
+"text": "2725 Harbor Mist Way",
+"start": 155,
+"end": 175,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_3"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 563,
+"file_char_end": 583,
+"status": "located"
+}
+},
+{
+"text": "617.555.0124",
+"start": 222,
+"end": 234,
+"label": "PHONE_NUMBER",
+"characters": [
+"p12"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 632,
+"file_char_end": 644,
+"status": "located"
+}
+},
+{
+"text": "uashcombe@old.test",
+"start": 247,
+"end": 265,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p12"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 657,
+"file_char_end": 675,
+"status": "located"
+}
+},
+{
+"text": "Ulric",
+"start": 276,
+"end": 281,
+"label": "NAME_GIVEN",
+"characters": [
+"p12"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 689,
+"file_char_end": 694,
+"status": "located"
+}
+},
+{
+"text": "Ashcombe",
+"start": 282,
+"end": 290,
+"label": "NAME_FAMILY",
+"characters": [
+"p12"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 695,
+"file_char_end": 703,
+"status": "located"
+}
+},
+{
+"text": "Old Mill Accounting",
+"start": 314,
+"end": 333,
+"label": "ORGANIZATION",
+"characters": [
+"org_3"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 728,
+"file_char_end": 747,
+"status": "located"
+}
+},
+{
+"text": "617.555.0124",
+"start": 334,
+"end": 346,
+"label": "PHONE_NUMBER",
+"characters": [
+"p12"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 749,
+"file_char_end": 761,
+"status": "located"
+}
+},
+{
+"text": "uashcombe@old.test",
+"start": 349,
+"end": 367,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p12"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 764,
+"file_char_end": 782,
+"status": "located"
+}
+},
+{
+"text": "2725 Harbor Mist Way",
+"start": 368,
+"end": 388,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_3"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 784,
+"file_char_end": 804,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "m00002753a8aa4-att0",
+"filename": "statement.pdf",
+"format": "pdf",
+"mime_type": "application/pdf",
+"attached_to": {
+"kind": "email",
+"row_id": "m00002753a8aa4"
+}
+},
+"text": "Saltmarsh Insurance Group Inc.\n7051 Ashgrove Place\nCarverton, OH 43215\nSTATEMENT OF ACCOUNT\nBill to: Halvorsen Dynamics Inc.\nAttn: Ignatius Barrowcliffe (Quality Inspector)\n1895 Wexford Court, Carverton, OH 43215\nCustomer account: 9825070395\nYour reference: HD-46904\nDate Description Amount\n2026-08-28 Service visit, week 1 $2905.00\n2026-01-15 Service visit, week 2 $1590.00\n2026-01-28 Service visit, week 3 $2719.00\n2026-02-15 Service visit, week 4 $4729.00\n2026-08-28 Service visit, week 5 $3606.00\nQuestions: Gideon Holloway\nPhone: 617.555.0153\nE-mail: gideon.holloway@saltmarsh.test\nOnline: https://www.saltmarsh.test/statements\nPrepared by Gideon for Saltmarsh.\n\n",
+"file": {
+"kind": "pdf",
+"path": "email/m00002753a8aa4.eml",
+"sha256": "d6a8c72c85ff8936a6db8f34ed4c492e1bf05a02f58da3ffdf47f16de30fb9f3",
+"container": {
+"kind": "eml_attachment",
+"path": "email/m00002753a8aa4.eml",
+"part_index": 0,
+"filename": "statement.pdf"
+}
+},
+"ground_truth_spans": [
+{
+"text": "Saltmarsh Insurance Group Inc.",
+"start": 0,
+"end": 30,
+"label": "ORGANIZATION",
+"characters": [
+"org_1"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"S",
+1,
+16.6,
+19.72,
+23.8,
+31.72
+],
+[
+"a",
+1,
+23.8,
+19.72,
+31.0,
+31.72
+],
+[
+"l",
+1,
+31.0,
+19.72,
+38.2,
+31.72
+],
+[
+"t",
+1,
+38.2,
+19.72,
+45.4,
+31.72
+],
+[
+"m",
+1,
+45.4,
+19.72,
+52.6,
+31.72
+],
+[
+"a",
+1,
+52.61,
+19.72,
+59.81,
+31.72
+],
+[
+"r",
+1,
+59.81,
+19.72,
+67.01,
+31.72
+],
+[
+"s",
+1,
+67.01,
+19.72,
+74.21,
+31.72
+],
+[
+"h",
+1,
+74.21,
+19.72,
+81.41,
+31.72
+],
+[
+"I",
+1,
+88.61,
+19.72,
+95.81,
+31.72
+],
+[
+"n",
+1,
+95.81,
+19.72,
+103.01,
+31.72
+],
+[
+"s",
+1,
+103.01,
+19.72,
+110.21,
+31.72
+],
+[
+"u",
+1,
+110.22,
+19.72,
+117.42,
+31.72
+],
+[
+"r",
+1,
+117.42,
+19.72,
+124.62,
+31.72
+],
+[
+"a",
+1,
+124.62,
+19.72,
+131.82,
+31.72
+],
+[
+"n",
+1,
+131.82,
+19.72,
+139.02,
+31.72
+],
+[
+"c",
+1,
+139.02,
+19.72,
+146.22,
+31.72
+],
+[
+"e",
+1,
+146.22,
+19.72,
+153.42,
+31.72
+],
+[
+"G",
+1,
+160.62,
+19.72,
+167.82,
+31.72
+],
+[
+"r",
+1,
+167.83,
+19.72,
+175.03,
+31.72
+],
+[
+"o",
+1,
+175.03,
+19.72,
+182.23,
+31.72
+],
+[
+"u",
+1,
+182.23,
+19.72,
+189.43,
+31.72
+],
+[
+"p",
+1,
+189.43,
+19.72,
+196.63,
+31.72
+],
+[
+"I",
+1,
+203.83,
+19.72,
+211.03,
+31.72
+],
+[
+"n",
+1,
+211.03,
+19.72,
+218.23,
+31.72
+],
+[
+"c",
+1,
+218.23,
+19.72,
+225.43,
+31.72
+],
+[
+".",
+1,
+225.43,
+19.72,
+232.63,
+31.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "7051 Ashgrove Place",
+"start": 31,
+"end": 50,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_1"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"7",
+1,
+16.6,
+31.72,
+23.8,
+43.72
+],
+[
+"0",
+1,
+23.8,
+31.72,
+31.0,
+43.72
+],
+[
+"5",
+1,
+31.0,
+31.72,
+38.2,
+43.72
+],
+[
+"1",
+1,
+38.2,
+31.72,
+45.4,
+43.72
+],
+[
+"A",
+1,
+52.61,
+31.72,
+59.81,
+43.72
+],
+[
+"s",
+1,
+59.81,
+31.72,
+67.01,
+43.72
+],
+[
+"h",
+1,
+67.01,
+31.72,
+74.21,
+43.72
+],
+[
+"g",
+1,
+74.21,
+31.72,
+81.41,
+43.72
+],
+[
+"r",
+1,
+81.41,
+31.72,
+88.61,
+43.72
+],
+[
+"o",
+1,
+88.61,
+31.72,
+95.81,
+43.72
+],
+[
+"v",
+1,
+95.81,
+31.72,
+103.01,
+43.72
+],
+[
+"e",
+1,
+103.01,
+31.72,
+110.21,
+43.72
+],
+[
+"P",
+1,
+117.42,
+31.72,
+124.62,
+43.72
+],
+[
+"l",
+1,
+124.62,
+31.72,
+131.82,
+43.72
+],
+[
+"a",
+1,
+131.82,
+31.72,
+139.02,
+43.72
+],
+[
+"c",
+1,
+139.02,
+31.72,
+146.22,
+43.72
+],
+[
+"e",
+1,
+146.22,
+31.72,
+153.42,
+43.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Halvorsen Dynamics Inc.",
+"start": 101,
+"end": 124,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"H",
+1,
+81.41,
+91.72,
+88.61,
+103.72
+],
+[
+"a",
+1,
+88.61,
+91.72,
+95.81,
+103.72
+],
+[
+"l",
+1,
+95.81,
+91.72,
+103.01,
+103.72
+],
+[
+"v",
+1,
+103.01,
+91.72,
+110.21,
+103.72
+],
+[
+"o",
+1,
+110.22,
+91.72,
+117.42,
+103.72
+],
+[
+"r",
+1,
+117.42,
+91.72,
+124.62,
+103.72
+],
+[
+"s",
+1,
+124.62,
+91.72,
+131.82,
+103.72
+],
+[
+"e",
+1,
+131.82,
+91.72,
+139.02,
+103.72
+],
+[
+"n",
+1,
+139.02,
+91.72,
+146.22,
+103.72
+],
+[
+"D",
+1,
+153.42,
+91.72,
+160.62,
+103.72
+],
+[
+"y",
+1,
+160.62,
+91.72,
+167.82,
+103.72
+],
+[
+"n",
+1,
+167.83,
+91.72,
+175.03,
+103.72
+],
+[
+"a",
+1,
+175.03,
+91.72,
+182.23,
+103.72
+],
+[
+"m",
+1,
+182.23,
+91.72,
+189.43,
+103.72
+],
+[
+"i",
+1,
+189.43,
+91.72,
+196.63,
+103.72
+],
+[
+"c",
+1,
+196.63,
+91.72,
+203.83,
+103.72
+],
+[
+"s",
+1,
+203.83,
+91.72,
+211.03,
+103.72
+],
+[
+"I",
+1,
+218.23,
+91.72,
+225.43,
+103.72
+],
+[
+"n",
+1,
+225.43,
+91.72,
+232.63,
+103.72
+],
+[
+"c",
+1,
+232.64,
+91.72,
+239.84,
+103.72
+],
+[
+".",
+1,
+239.84,
+91.72,
+247.04,
+103.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Ignatius",
+"start": 131,
+"end": 139,
+"label": "NAME_GIVEN",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"I",
+1,
+59.81,
+103.72,
+67.01,
+115.72
+],
+[
+"g",
+1,
+67.01,
+103.72,
+74.21,
+115.72
+],
+[
+"n",
+1,
+74.21,
+103.72,
+81.41,
+115.72
+],
+[
+"a",
+1,
+81.41,
+103.72,
+88.61,
+115.72
+],
+[
+"t",
+1,
+88.61,
+103.72,
+95.81,
+115.72
+],
+[
+"i",
+1,
+95.81,
+103.72,
+103.01,
+115.72
+],
+[
+"u",
+1,
+103.01,
+103.72,
+110.21,
+115.72
+],
+[
+"s",
+1,
+110.22,
+103.72,
+117.42,
+115.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Barrowcliffe",
+"start": 140,
+"end": 152,
+"label": "NAME_FAMILY",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"B",
+1,
+124.62,
+103.72,
+131.82,
+115.72
+],
+[
+"a",
+1,
+131.82,
+103.72,
+139.02,
+115.72
+],
+[
+"r",
+1,
+139.02,
+103.72,
+146.22,
+115.72
+],
+[
+"r",
+1,
+146.22,
+103.72,
+153.42,
+115.72
+],
+[
+"o",
+1,
+153.42,
+103.72,
+160.62,
+115.72
+],
+[
+"w",
+1,
+160.62,
+103.72,
+167.82,
+115.72
+],
+[
+"c",
+1,
+167.83,
+103.72,
+175.03,
+115.72
+],
+[
+"l",
+1,
+175.03,
+103.72,
+182.23,
+115.72
+],
+[
+"i",
+1,
+182.23,
+103.72,
+189.43,
+115.72
+],
+[
+"f",
+1,
+189.43,
+103.72,
+196.63,
+115.72
+],
+[
+"f",
+1,
+196.63,
+103.72,
+203.83,
+115.72
+],
+[
+"e",
+1,
+203.83,
+103.72,
+211.03,
+115.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "1895 Wexford Court",
+"start": 173,
+"end": 191,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"1",
+1,
+16.6,
+115.72,
+23.8,
+127.72
+],
+[
+"8",
+1,
+23.8,
+115.72,
+31.0,
+127.72
+],
+[
+"9",
+1,
+31.0,
+115.72,
+38.2,
+127.72
+],
+[
+"5",
+1,
+38.2,
+115.72,
+45.4,
+127.72
+],
+[
+"W",
+1,
+52.61,
+115.72,
+59.81,
+127.72
+],
+[
+"e",
+1,
+59.81,
+115.72,
+67.01,
+127.72
+],
+[
+"x",
+1,
+67.01,
+115.72,
+74.21,
+127.72
+],
+[
+"f",
+1,
+74.21,
+115.72,
+81.41,
+127.72
+],
+[
+"o",
+1,
+81.41,
+115.72,
+88.61,
+127.72
+],
+[
+"r",
+1,
+88.61,
+115.72,
+95.81,
+127.72
+],
+[
+"d",
+1,
+95.81,
+115.72,
+103.01,
+127.72
+],
+[
+"C",
+1,
+110.22,
+115.72,
+117.42,
+127.72
+],
+[
+"o",
+1,
+117.42,
+115.72,
+124.62,
+127.72
+],
+[
+"u",
+1,
+124.62,
+115.72,
+131.82,
+127.72
+],
+[
+"r",
+1,
+131.82,
+115.72,
+139.02,
+127.72
+],
+[
+"t",
+1,
+139.02,
+115.72,
+146.22,
+127.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "9825070395",
+"start": 231,
+"end": 241,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"org_1"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"9",
+1,
+146.22,
+139.72,
+153.42,
+151.72
+],
+[
+"8",
+1,
+153.42,
+139.72,
+160.62,
+151.72
+],
+[
+"2",
+1,
+160.62,
+139.72,
+167.82,
+151.72
+],
+[
+"5",
+1,
+167.83,
+139.72,
+175.03,
+151.72
+],
+[
+"0",
+1,
+175.03,
+139.72,
+182.23,
+151.72
+],
+[
+"7",
+1,
+182.23,
+139.72,
+189.43,
+151.72
+],
+[
+"0",
+1,
+189.43,
+139.72,
+196.63,
+151.72
+],
+[
+"3",
+1,
+196.63,
+139.72,
+203.83,
+151.72
+],
+[
+"9",
+1,
+203.83,
+139.72,
+211.03,
+151.72
+],
+[
+"5",
+1,
+211.03,
+139.72,
+218.23,
+151.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "HD-46904",
+"start": 258,
+"end": 266,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"H",
+1,
+131.82,
+151.72,
+139.02,
+163.72
+],
+[
+"D",
+1,
+139.02,
+151.72,
+146.22,
+163.72
+],
+[
+"-",
+1,
+146.22,
+151.72,
+153.42,
+163.72
+],
+[
+"4",
+1,
+153.42,
+151.72,
+160.62,
+163.72
+],
+[
+"6",
+1,
+160.62,
+151.72,
+167.82,
+163.72
+],
+[
+"9",
+1,
+167.83,
+151.72,
+175.03,
+163.72
+],
+[
+"0",
+1,
+175.03,
+151.72,
+182.23,
+163.72
+],
+[
+"4",
+1,
+182.23,
+151.72,
+189.43,
+163.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Gideon",
+"start": 512,
+"end": 518,
+"label": "NAME_GIVEN",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"G",
+1,
+95.81,
+259.72,
+103.01,
+271.72
+],
+[
+"i",
+1,
+103.01,
+259.72,
+110.21,
+271.72
+],
+[
+"d",
+1,
+110.22,
+259.72,
+117.42,
+271.72
+],
+[
+"e",
+1,
+117.42,
+259.72,
+124.62,
+271.72
+],
+[
+"o",
+1,
+124.62,
+259.72,
+131.82,
+271.72
+],
+[
+"n",
+1,
+131.82,
+259.72,
+139.02,
+271.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Holloway",
+"start": 519,
+"end": 527,
+"label": "NAME_FAMILY",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"H",
+1,
+146.22,
+259.72,
+153.42,
+271.72
+],
+[
+"o",
+1,
+153.42,
+259.72,
+160.62,
+271.72
+],
+[
+"l",
+1,
+160.62,
+259.72,
+167.82,
+271.72
+],
+[
+"l",
+1,
+167.83,
+259.72,
+175.03,
+271.72
+],
+[
+"o",
+1,
+175.03,
+259.72,
+182.23,
+271.72
+],
+[
+"w",
+1,
+182.23,
+259.72,
+189.43,
+271.72
+],
+[
+"a",
+1,
+189.43,
+259.72,
+196.63,
+271.72
+],
+[
+"y",
+1,
+196.63,
+259.72,
+203.83,
+271.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "617.555.0153",
+"start": 535,
+"end": 547,
+"label": "PHONE_NUMBER",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"6",
+1,
+67.01,
+271.72,
+74.21,
+283.72
+],
+[
+"1",
+1,
+74.21,
+271.72,
+81.41,
+283.72
+],
+[
+"7",
+1,
+81.41,
+271.72,
+88.61,
+283.72
+],
+[
+".",
+1,
+88.61,
+271.72,
+95.81,
+283.72
+],
+[
+"5",
+1,
+95.81,
+271.72,
+103.01,
+283.72
+],
+[
+"5",
+1,
+103.01,
+271.72,
+110.21,
+283.72
+],
+[
+"5",
+1,
+110.22,
+271.72,
+117.42,
+283.72
+],
+[
+".",
+1,
+117.42,
+271.72,
+124.62,
+283.72
+],
+[
+"0",
+1,
+124.62,
+271.72,
+131.82,
+283.72
+],
+[
+"1",
+1,
+131.82,
+271.72,
+139.02,
+283.72
+],
+[
+"5",
+1,
+139.02,
+271.72,
+146.22,
+283.72
+],
+[
+"3",
+1,
+146.22,
+271.72,
+153.42,
+283.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "gideon.holloway@saltmarsh.test",
+"start": 556,
+"end": 586,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"g",
+1,
+74.21,
+283.72,
+81.41,
+295.72
+],
+[
+"i",
+1,
+81.41,
+283.72,
+88.61,
+295.72
+],
+[
+"d",
+1,
+88.61,
+283.72,
+95.81,
+295.72
+],
+[
+"e",
+1,
+95.81,
+283.72,
+103.01,
+295.72
+],
+[
+"o",
+1,
+103.01,
+283.72,
+110.21,
+295.72
+],
+[
+"n",
+1,
+110.22,
+283.72,
+117.42,
+295.72
+],
+[
+".",
+1,
+117.42,
+283.72,
+124.62,
+295.72
+],
+[
+"h",
+1,
+124.62,
+283.72,
+131.82,
+295.72
+],
+[
+"o",
+1,
+131.82,
+283.72,
+139.02,
+295.72
+],
+[
+"l",
+1,
+139.02,
+283.72,
+146.22,
+295.72
+],
+[
+"l",
+1,
+146.22,
+283.72,
+153.42,
+295.72
+],
+[
+"o",
+1,
+153.42,
+283.72,
+160.62,
+295.72
+],
+[
+"w",
+1,
+160.62,
+283.72,
+167.82,
+295.72
+],
+[
+"a",
+1,
+167.83,
+283.72,
+175.03,
+295.72
+],
+[
+"y",
+1,
+175.03,
+283.72,
+182.23,
+295.72
+],
+[
+"@",
+1,
+182.23,
+283.72,
+189.43,
+295.72
+],
+[
+"s",
+1,
+189.43,
+283.72,
+196.63,
+295.72
+],
+[
+"a",
+1,
+196.63,
+283.72,
+203.83,
+295.72
+],
+[
+"l",
+1,
+203.83,
+283.72,
+211.03,
+295.72
+],
+[
+"t",
+1,
+211.03,
+283.72,
+218.23,
+295.72
+],
+[
+"m",
+1,
+218.23,
+283.72,
+225.43,
+295.72
+],
+[
+"a",
+1,
+225.43,
+283.72,
+232.63,
+295.72
+],
+[
+"r",
+1,
+232.64,
+283.72,
+239.84,
+295.72
+],
+[
+"s",
+1,
+239.84,
+283.72,
+247.04,
+295.72
+],
+[
+"h",
+1,
+247.04,
+283.72,
+254.24,
+295.72
+],
+[
+".",
+1,
+254.24,
+283.72,
+261.44,
+295.72
+],
+[
+"t",
+1,
+261.44,
+283.72,
+268.64,
+295.72
+],
+[
+"e",
+1,
+268.64,
+283.72,
+275.84,
+295.72
+],
+[
+"s",
+1,
+275.84,
+283.72,
+283.04,
+295.72
+],
+[
+"t",
+1,
+283.04,
+283.72,
+290.24,
+295.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "https://www.saltmarsh.test/statements",
+"start": 595,
+"end": 632,
+"label": "URL",
+"characters": [
+"org_1"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"h",
+1,
+74.21,
+295.72,
+81.41,
+307.72
+],
+[
+"t",
+1,
+81.41,
+295.72,
+88.61,
+307.72
+],
+[
+"t",
+1,
+88.61,
+295.72,
+95.81,
+307.72
+],
+[
+"p",
+1,
+95.81,
+295.72,
+103.01,
+307.72
+],
+[
+"s",
+1,
+103.01,
+295.72,
+110.21,
+307.72
+],
+[
+":",
+1,
+110.22,
+295.72,
+117.42,
+307.72
+],
+[
+"/",
+1,
+117.42,
+295.72,
+124.62,
+307.72
+],
+[
+"/",
+1,
+124.62,
+295.72,
+131.82,
+307.72
+],
+[
+"w",
+1,
+131.82,
+295.72,
+139.02,
+307.72
+],
+[
+"w",
+1,
+139.02,
+295.72,
+146.22,
+307.72
+],
+[
+"w",
+1,
+146.22,
+295.72,
+153.42,
+307.72
+],
+[
+".",
+1,
+153.42,
+295.72,
+160.62,
+307.72
+],
+[
+"s",
+1,
+160.62,
+295.72,
+167.82,
+307.72
+],
+[
+"a",
+1,
+167.83,
+295.72,
+175.03,
+307.72
+],
+[
+"l",
+1,
+175.03,
+295.72,
+182.23,
+307.72
+],
+[
+"t",
+1,
+182.23,
+295.72,
+189.43,
+307.72
+],
+[
+"m",
+1,
+189.43,
+295.72,
+196.63,
+307.72
+],
+[
+"a",
+1,
+196.63,
+295.72,
+203.83,
+307.72
+],
+[
+"r",
+1,
+203.83,
+295.72,
+211.03,
+307.72
+],
+[
+"s",
+1,
+211.03,
+295.72,
+218.23,
+307.72
+],
+[
+"h",
+1,
+218.23,
+295.72,
+225.43,
+307.72
+],
+[
+".",
+1,
+225.43,
+295.72,
+232.63,
+307.72
+],
+[
+"t",
+1,
+232.64,
+295.72,
+239.84,
+307.72
+],
+[
+"e",
+1,
+239.84,
+295.72,
+247.04,
+307.72
+],
+[
+"s",
+1,
+247.04,
+295.72,
+254.24,
+307.72
+],
+[
+"t",
+1,
+254.24,
+295.72,
+261.44,
+307.72
+],
+[
+"/",
+1,
+261.44,
+295.72,
+268.64,
+307.72
+],
+[
+"s",
+1,
+268.64,
+295.72,
+275.84,
+307.72
+],
+[
+"t",
+1,
+275.84,
+295.72,
+283.04,
+307.72
+],
+[
+"a",
+1,
+283.04,
+295.72,
+290.24,
+307.72
+],
+[
+"t",
+1,
+290.25,
+295.72,
+297.45,
+307.72
+],
+[
+"e",
+1,
+297.45,
+295.72,
+304.65,
+307.72
+],
+[
+"m",
+1,
+304.65,
+295.72,
+311.85,
+307.72
+],
+[
+"e",
+1,
+311.85,
+295.72,
+319.05,
+307.72
+],
+[
+"n",
+1,
+319.05,
+295.72,
+326.25,
+307.72
+],
+[
+"t",
+1,
+326.25,
+295.72,
+333.45,
+307.72
+],
+[
+"s",
+1,
+333.45,
+295.72,
+340.65,
+307.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Gideon",
+"start": 645,
+"end": 651,
+"label": "NAME_GIVEN",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"G",
+1,
+103.01,
+319.72,
+110.21,
+331.72
+],
+[
+"i",
+1,
+110.22,
+319.72,
+117.42,
+331.72
+],
+[
+"d",
+1,
+117.42,
+319.72,
+124.62,
+331.72
+],
+[
+"e",
+1,
+124.62,
+319.72,
+131.82,
+331.72
+],
+[
+"o",
+1,
+131.82,
+319.72,
+139.02,
+331.72
+],
+[
+"n",
+1,
+139.02,
+319.72,
+146.22,
+331.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Saltmarsh",
+"start": 656,
+"end": 665,
+"label": "ORGANIZATION",
+"characters": [
+"org_1"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"S",
+1,
+182.23,
+319.72,
+189.43,
+331.72
+],
+[
+"a",
+1,
+189.43,
+319.72,
+196.63,
+331.72
+],
+[
+"l",
+1,
+196.63,
+319.72,
+203.83,
+331.72
+],
+[
+"t",
+1,
+203.83,
+319.72,
+211.03,
+331.72
+],
+[
+"m",
+1,
+211.03,
+319.72,
+218.23,
+331.72
+],
+[
+"a",
+1,
+218.23,
+319.72,
+225.43,
+331.72
+],
+[
+"r",
+1,
+225.43,
+319.72,
+232.63,
+331.72
+],
+[
+"s",
+1,
+232.64,
+319.72,
+239.84,
+331.72
+],
+[
+"h",
+1,
+239.84,
+319.72,
+247.04,
+331.72
+]
+],
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "m00003662f6ce2",
+"from": {
+"name": "Horatio Eastwick",
+"email": "eastwick.horatio@halvorsen-dynamics.test"
+},
+"to": [
+{
+"name": "Ignatius Barrowcliffe",
+"email": "ignatius@halvorsen-dynamics.test"
+}
+],
+"cc": [],
+"subject": "Welcome aboard",
+"datetime": "2026-03-05T09:56:00Z",
+"thread_id": "m00003662f6ce2"
+},
+"text": "Hello Ignatius,\n\nWelcome to Halvorsen Dynamics Inc.. Your employee ID is HD-46904 and your badge will be ready at reception on Monday. Your workspace handle is @ignatius.barrowcliffe and your mailbox ignatius@halvorsen-dynamics.test is active.\n\nIf anything is missing, Horatio (eastwick.horatio@halvorsen-dynamics.test) can help. Our office is at 1895 Wexford Court, Carverton, OH 43215.\n\nThanks,\nHoratio Eastwick\nLegal Counsel | Halvorsen Dynamics Inc.\n+1 617 555 0176 | eastwick.horatio@halvorsen-dynamics.test\n1895 Wexford Court, Carverton, OH 43215\n\r",
+"file": {
+"kind": "eml",
+"path": "email/m00003662f6ce2.eml",
+"sha256": "fc9b98fb7d1568ffcbab0fcd0ebed0adc797e2314f66a809cbca2e5833069c59",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Ignatius",
+"start": 6,
+"end": 14,
+"label": "NAME_GIVEN",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 348,
+"file_char_end": 356,
+"status": "located"
+}
+},
+{
+"text": "Halvorsen Dynamics Inc.",
+"start": 28,
+"end": 51,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 372,
+"file_char_end": 395,
+"status": "located"
+}
+},
+{
+"text": "HD-46904",
+"start": 73,
+"end": 81,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 417,
+"file_char_end": 425,
+"status": "located"
+}
+},
+{
+"text": "@ignatius.barrowcliffe",
+"start": 160,
+"end": 182,
+"label": "USERNAME",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 504,
+"file_char_end": 526,
+"status": "located"
+}
+},
+{
+"text": "ignatius@halvorsen-dynamics.test",
+"start": 200,
+"end": 232,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 544,
+"file_char_end": 576,
+"status": "located"
+}
+},
+{
+"text": "Horatio",
+"start": 269,
+"end": 276,
+"label": "NAME_GIVEN",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 615,
+"file_char_end": 622,
+"status": "located"
+}
+},
+{
+"text": "eastwick.horatio@halvorsen-dynamics.test",
+"start": 278,
+"end": 318,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 624,
+"file_char_end": 664,
+"status": "located"
+}
+},
+{
+"text": "1895 Wexford Court",
+"start": 347,
+"end": 365,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 693,
+"file_char_end": 711,
+"status": "located"
+}
+},
+{
+"text": "Horatio",
+"start": 397,
+"end": 404,
+"label": "NAME_GIVEN",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 746,
+"file_char_end": 753,
+"status": "located"
+}
+},
+{
+"text": "Eastwick",
+"start": 405,
+"end": 413,
+"label": "NAME_FAMILY",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 754,
+"file_char_end": 762,
+"status": "located"
+}
+},
+{
+"text": "Halvorsen Dynamics Inc.",
+"start": 430,
+"end": 453,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 780,
+"file_char_end": 803,
+"status": "located"
+}
+},
+{
+"text": "+1 617 555 0176",
+"start": 454,
+"end": 469,
+"label": "PHONE_NUMBER",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 805,
+"file_char_end": 820,
+"status": "located"
+}
+},
+{
+"text": "eastwick.horatio@halvorsen-dynamics.test",
+"start": 472,
+"end": 512,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 823,
+"file_char_end": 863,
+"status": "located"
+}
+},
+{
+"text": "1895 Wexford Court",
+"start": 513,
+"end": 531,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 865,
+"file_char_end": 883,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "m000047442a5d0",
+"from": {
+"name": "Uriah Ashby",
+"email": "ashby.uriah@halvorsen-dynamics.test"
+},
+"to": [
+{
+"name": "Greta Yelverton",
+"email": "yelverton.greta@halvorsen-dynamics.test"
+}
+],
+"cc": [],
+"subject": "slides for the safety drill",
+"datetime": "2026-03-06T17:20:00Z",
+"thread_id": "m000047442a5d0"
+},
+"text": "hey greta,\n\nquick one: can you send the slides for the safety drill to my personal mail (ashby.uriah@halvorsen-dynamics.test) before friday? isolde wants to review them over the weekend.\n\nalso brightmoor called again about the renewal.\n\nuriah\r",
+"file": {
+"kind": "eml",
+"path": "email/m000047442a5d0.eml",
+"sha256": "a9271b47a782f97ca83c8797a6213c5272c44f746b25c5f55b733cfb330acba8",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "greta",
+"start": 4,
+"end": 9,
+"label": "NAME_GIVEN",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 350,
+"file_char_end": 355,
+"status": "located"
+}
+},
+{
+"text": "ashby.uriah@halvorsen-dynamics.test",
+"start": 89,
+"end": 124,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p11"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 437,
+"file_char_end": 472,
+"status": "located"
+}
+},
+{
+"text": "isolde",
+"start": 141,
+"end": 147,
+"label": "NAME_GIVEN",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 489,
+"file_char_end": 495,
+"status": "located"
+}
+},
+{
+"text": "brightmoor",
+"start": 193,
+"end": 203,
+"label": "ORGANIZATION",
+"characters": [
+"org_5"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 543,
+"file_char_end": 553,
+"status": "located"
+}
+},
+{
+"text": "uriah",
+"start": 237,
+"end": 242,
+"label": "NAME_GIVEN",
+"characters": [
+"p11"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 589,
+"file_char_end": 594,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "m000057cd5c097",
+"from": {
+"name": "Uriah Ashby",
+"email": "ashby.uriah@halvorsen-dynamics.test"
+},
+"to": [
+{
+"name": "Isolde Brannick",
+"email": "brannick.isolde@halvorsen-dynamics.test"
+}
+],
+"cc": [
+{
+"name": "Sylvie Abernathy",
+"email": "sylvie.abernathy@halvorsen-dynamics.test"
+}
+],
+"subject": "Engagement letter",
+"datetime": "2026-03-07T10:45:00Z",
+"thread_id": "m000057cd5c097"
+},
+"text": "Hi Isolde,\n\nAbernathy & Associates LLP sent the engagement letter; Sylvie Abernathy from our team (no relation to the firm) will coordinate. The counterparty contact is Jasper Underhill at Willowmere Staffing, reachable at 617.555.0191.\n\nTheir portal: https://www.willowmere.test/portal.\n\nThanks,\nQuinlan Winterhalde\nCustomer Success Lead | Halvorsen Dynamics Inc.\n+1 617 555 0156 | quinlan@halvorsen-dynamics.test\n1895 Wexford Court, Carverton, OH 43215\nhttps://www.halvorsen-dynamics.test\n\r",
+"file": {
+"kind": "eml",
+"path": "email/m000057cd5c097.eml",
+"sha256": "49728147742d7531acda1cbb499ac94de004b28dff63455173ff47318388d2df",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Isolde",
+"start": 3,
+"end": 9,
+"label": "NAME_GIVEN",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 404,
+"file_char_end": 410,
+"status": "located"
+}
+},
+{
+"text": "Abernathy & Associates LLP",
+"start": 12,
+"end": 38,
+"label": "ORGANIZATION",
+"characters": [
+"org_homonym"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 415,
+"file_char_end": 441,
+"status": "located"
+}
+},
+{
+"text": "Sylvie",
+"start": 67,
+"end": 73,
+"label": "NAME_GIVEN",
+"characters": [
+"p18"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 470,
+"file_char_end": 476,
+"status": "located"
+}
+},
+{
+"text": "Abernathy",
+"start": 74,
+"end": 83,
+"label": "NAME_FAMILY",
+"characters": [
+"p18"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 477,
+"file_char_end": 486,
+"status": "located"
+}
+},
+{
+"text": "Jasper",
+"start": 169,
+"end": 175,
+"label": "NAME_GIVEN",
+"characters": [
+"p14"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 572,
+"file_char_end": 578,
+"status": "located"
+}
+},
+{
+"text": "Underhill",
+"start": 176,
+"end": 185,
+"label": "NAME_FAMILY",
+"characters": [
+"p14"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 579,
+"file_char_end": 588,
+"status": "located"
+}
+},
+{
+"text": "Willowmere Staffing",
+"start": 189,
+"end": 208,
+"label": "ORGANIZATION",
+"characters": [
+"org_4"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 592,
+"file_char_end": 611,
+"status": "located"
+}
+},
+{
+"text": "617.555.0191",
+"start": 223,
+"end": 235,
+"label": "PHONE_NUMBER",
+"characters": [
+"p14"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 626,
+"file_char_end": 638,
+"status": "located"
+}
+},
+{
+"text": "https://www.willowmere.test/portal",
+"start": 252,
+"end": 286,
+"label": "URL",
+"characters": [
+"org_4"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 657,
+"file_char_end": 691,
+"status": "located"
+}
+},
+{
+"text": "Quinlan",
+"start": 297,
+"end": 304,
+"label": "NAME_GIVEN",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 705,
+"file_char_end": 712,
+"status": "located"
+}
+},
+{
+"text": "Winterhalde",
+"start": 305,
+"end": 316,
+"label": "NAME_FAMILY",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 713,
+"file_char_end": 724,
+"status": "located"
+}
+},
+{
+"text": "Halvorsen Dynamics Inc.",
+"start": 341,
+"end": 364,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 750,
+"file_char_end": 773,
+"status": "located"
+}
+},
+{
+"text": "+1 617 555 0156",
+"start": 365,
+"end": 380,
+"label": "PHONE_NUMBER",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 775,
+"file_char_end": 790,
+"status": "located"
+}
+},
+{
+"text": "quinlan@halvorsen-dynamics.test",
+"start": 383,
+"end": 414,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 793,
+"file_char_end": 824,
+"status": "located"
+}
+},
+{
+"text": "1895 Wexford Court",
+"start": 415,
+"end": 433,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 826,
+"file_char_end": 844,
+"status": "located"
+}
+},
+{
+"text": "https://www.halvorsen-dynamics.test",
+"start": 455,
+"end": 490,
+"label": "URL",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 867,
+"file_char_end": 902,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "m000064a3913df",
+"from": {
+"name": "Isolde Brannick",
+"email": "brannick.isolde@halvorsen-dynamics.test"
+},
+"to": [
+{
+"name": "Romilly Quiroga",
+"email": "romilly@halvorsen-dynamics.test"
+},
+{
+"name": "Horatio Eastwick",
+"email": "eastwick.horatio@halvorsen-dynamics.test"
+},
+{
+"name": "Caspar Villanueva",
+"email": "villanueva.caspar@halvorsen-dynamics.test"
+},
+{
+"name": "Quinlan Winterhalde",
+"email": "quinlan@halvorsen-dynamics.test"
+}
+],
+"cc": [],
+"subject": "Contact roster",
+"datetime": "2026-03-08T12:51:00Z",
+"thread_id": "m000064a3913df"
+},
+"text": "Team,\n\nThe updated contact roster is attached (contact_roster.xlsx). Please check your own row: name, employee ID, phone. Quiroga, Romilly already flagged a wrong number.\n\nBest,\nIsolde Brannick\nMarketing Associate | Halvorsen Dynamics\n+1 617 555 0193 | brannick.isolde@halvorsen-dynamics.test\nEmployee ID HD-75803\r",
+"file": {
+"kind": "eml",
+"path": "email/m000064a3913df.eml",
+"sha256": "e3048fdc169fcb6788d90a4b560848d0f23c88be095752dba1c466857d52ffd5",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Quiroga",
+"start": 122,
+"end": 129,
+"label": "NAME_FAMILY",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 738,
+"file_char_end": 745,
+"status": "located"
+}
+},
+{
+"text": "Romilly",
+"start": 131,
+"end": 138,
+"label": "NAME_GIVEN",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 747,
+"file_char_end": 754,
+"status": "located"
+}
+},
+{
+"text": "Isolde",
+"start": 178,
+"end": 184,
+"label": "NAME_GIVEN",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 797,
+"file_char_end": 803,
+"status": "located"
+}
+},
+{
+"text": "Brannick",
+"start": 185,
+"end": 193,
+"label": "NAME_FAMILY",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 804,
+"file_char_end": 812,
+"status": "located"
+}
+},
+{
+"text": "Halvorsen Dynamics",
+"start": 216,
+"end": 234,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 836,
+"file_char_end": 854,
+"status": "located"
+}
+},
+{
+"text": "+1 617 555 0193",
+"start": 235,
+"end": 250,
+"label": "PHONE_NUMBER",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 856,
+"file_char_end": 871,
+"status": "located"
+}
+},
+{
+"text": "brannick.isolde@halvorsen-dynamics.test",
+"start": 253,
+"end": 292,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 874,
+"file_char_end": 913,
+"status": "located"
+}
+},
+{
+"text": "HD-75803",
+"start": 305,
+"end": 313,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 927,
+"file_char_end": 935,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "m000064a3913df-att0",
+"filename": "contact_roster.xlsx",
+"format": "xlsx",
+"mime_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+"attached_to": {
+"kind": "email",
+"row_id": "m000064a3913df"
+}
+},
+"text": "Sheet: Roster\nName | Title | Organisation | Email | Phone | Employee ID | Account\nIsolde Brannick | Marketing Associate | Halvorsen Dynamics | brannick.isolde@halvorsen-dynamics.test | +1 617 555 0193 | HD-75803\nRomilly Quiroga | Legal Counsel | Halvorsen Dynamics | romilly@halvorsen-dynamics.test | 617-555-0195 | HD-16869 | 50839135\nHoratio Eastwick | Legal Counsel | Halvorsen Dynamics | eastwick.horatio@halvorsen-dynamics.test | +1 617 555 0176 | HD-54021\nCaspar Villanueva | Operations Manager | Halvorsen Dynamics | villanueva.caspar@halvorsen-dynamics.test | 617-555-0162 | HD-26321 | ACCT-8339-9799\nQuinlan Winterhalde | Customer Success Lead | Halvorsen Dynamics | quinlan@halvorsen-dynamics.test | +1 617 555 0156 | HD-52201\nBoyd Tallis | IT Administrator | Halvorsen Dynamics | tallis.boyd@halvorsen-dynamics.test | 617-555-0135 | HD-23966 | 87905170\nOphelia Thornquist | Legal Counsel | Halvorsen Dynamics | thornquist.ophelia@halvorsen-dynamics.test | 617.555.0136 | HD-99062\nNina Grimshaw | Dispatcher | Halvorsen Dynamics | nina.grimshaw@halvorsen-dynamics.test | +1 617 555 0152 | HD-14260\nOswin Vickery | Training Coordinator | Halvorsen Dynamics | oswin.vickery@halvorsen-dynamics.test | (617) 555-0125 | HD-96789\nGreta Yelverton | Field Technician | Halvorsen Dynamics | yelverton.greta@halvorsen-dynamics.test | (617) 555-0167 | HD-31412 | 69854859\nIgnatius Barrowcliffe | Quality Inspector | Halvorsen Dynamics | ignatius@halvorsen-dynamics.test | (617) 555-0138 | HD-46904 | 47807603\nUriah Ashby | Quality Inspector | Halvorsen Dynamics | ashby.uriah@halvorsen-dynamics.test | +1 617 555 0101 | HD-40927\nSylvie Abernathy | Scheduler | Halvorsen Dynamics | sylvie.abernathy@halvorsen-dynamics.test | +1 617 555 0137 | HD-34870 | ACCT-1244-5855\nSheet: Handles\nHandle | Last, First | Personal email\n@ibrannick | Brannick, Isolde | isolde.brannick17@postwave.test\n@romilly_quiroga | Quiroga, Romilly\n@heastwick | Eastwick, Horatio\n@cvillanueva | Villanueva, Caspar | caspar.villanueva80@lettercloud.test\n@winterhaldeq | Winterhalde, Quinlan | quinlan.winterhalde84@lettercloud.test\n@boydtal | Tallis, Boyd\n@ophelia_thornquist | Thornquist, Ophelia | ophelia.thornquist11@quietinbox.test\n@nina.grimshaw | Grimshaw, Nina\n",
+"file": {
+"kind": "xlsx",
+"path": "email/m000064a3913df.eml",
+"sha256": "e3048fdc169fcb6788d90a4b560848d0f23c88be095752dba1c466857d52ffd5",
+"container": {
+"kind": "eml_attachment",
+"path": "email/m000064a3913df.eml",
+"part_index": 0,
+"filename": "contact_roster.xlsx"
+}
+},
+"ground_truth_spans": [
+{
+"text": "Isolde",
+"start": 82,
+"end": 88,
+"label": "NAME_GIVEN",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A2",
+"char_start": 0,
+"char_end": 6,
+"status": "located"
+}
+},
+{
+"text": "Brannick",
+"start": 89,
+"end": 97,
+"label": "NAME_FAMILY",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A2",
+"char_start": 7,
+"char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "Halvorsen Dynamics",
+"start": 122,
+"end": 140,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "C2",
+"char_start": 0,
+"char_end": 18,
+"status": "located"
+}
+},
+{
+"text": "brannick.isolde@halvorsen-dynamics.test",
+"start": 143,
+"end": 182,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "D2",
+"char_start": 0,
+"char_end": 39,
+"status": "located"
+}
+},
+{
+"text": "+1 617 555 0193",
+"start": 185,
+"end": 200,
+"label": "PHONE_NUMBER",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "E2",
+"char_start": 0,
+"char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "HD-75803",
+"start": 203,
+"end": 211,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "F2",
+"char_start": 0,
+"char_end": 8,
+"status": "located"
+}
+},
+{
+"text": "Romilly",
+"start": 212,
+"end": 219,
+"label": "NAME_GIVEN",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A3",
+"char_start": 0,
+"char_end": 7,
+"status": "located"
+}
+},
+{
+"text": "Quiroga",
+"start": 220,
+"end": 227,
+"label": "NAME_FAMILY",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A3",
+"char_start": 8,
+"char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "Halvorsen Dynamics",
+"start": 246,
+"end": 264,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "C3",
+"char_start": 0,
+"char_end": 18,
+"status": "located"
+}
+},
+{
+"text": "romilly@halvorsen-dynamics.test",
+"start": 267,
+"end": 298,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "D3",
+"char_start": 0,
+"char_end": 31,
+"status": "located"
+}
+},
+{
+"text": "617-555-0195",
+"start": 301,
+"end": 313,
+"label": "PHONE_NUMBER",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "E3",
+"char_start": 0,
+"char_end": 12,
+"status": "located"
+}
+},
+{
+"text": "HD-16869",
+"start": 316,
+"end": 324,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "F3",
+"char_start": 0,
+"char_end": 8,
+"status": "located"
+}
+},
+{
+"text": "50839135",
+"start": 327,
+"end": 335,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "G3",
+"char_start": 0,
+"char_end": 8,
+"status": "located"
+}
+},
+{
+"text": "Horatio",
+"start": 336,
+"end": 343,
+"label": "NAME_GIVEN",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A4",
+"char_start": 0,
+"char_end": 7,
+"status": "located"
+}
+},
+{
+"text": "Eastwick",
+"start": 344,
+"end": 352,
+"label": "NAME_FAMILY",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A4",
+"char_start": 8,
+"char_end": 16,
+"status": "located"
+}
+},
+{
+"text": "Halvorsen Dynamics",
+"start": 371,
+"end": 389,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "C4",
+"char_start": 0,
+"char_end": 18,
+"status": "located"
+}
+},
+{
+"text": "eastwick.horatio@halvorsen-dynamics.test",
+"start": 392,
+"end": 432,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "D4",
+"char_start": 0,
+"char_end": 40,
+"status": "located"
+}
+},
+{
+"text": "+1 617 555 0176",
+"start": 435,
+"end": 450,
+"label": "PHONE_NUMBER",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "E4",
+"char_start": 0,
+"char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "HD-54021",
+"start": 453,
+"end": 461,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "F4",
+"char_start": 0,
+"char_end": 8,
+"status": "located"
+}
+},
+{
+"text": "Caspar",
+"start": 462,
+"end": 468,
+"label": "NAME_GIVEN",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A5",
+"char_start": 0,
+"char_end": 6,
+"status": "located"
+}
+},
+{
+"text": "Villanueva",
+"start": 469,
+"end": 479,
+"label": "NAME_FAMILY",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A5",
+"char_start": 7,
+"char_end": 17,
+"status": "located"
+}
+},
+{
+"text": "Halvorsen Dynamics",
+"start": 503,
+"end": 521,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "C5",
+"char_start": 0,
+"char_end": 18,
+"status": "located"
+}
+},
+{
+"text": "villanueva.caspar@halvorsen-dynamics.test",
+"start": 524,
+"end": 565,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "D5",
+"char_start": 0,
+"char_end": 41,
+"status": "located"
+}
+},
+{
+"text": "617-555-0162",
+"start": 568,
+"end": 580,
+"label": "PHONE_NUMBER",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "E5",
+"char_start": 0,
+"char_end": 12,
+"status": "located"
+}
+},
+{
+"text": "HD-26321",
+"start": 583,
+"end": 591,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "F5",
+"char_start": 0,
+"char_end": 8,
+"status": "located"
+}
+},
+{
+"text": "ACCT-8339-9799",
+"start": 594,
+"end": 608,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "G5",
+"char_start": 0,
+"char_end": 14,
+"status": "located"
+}
+},
+{
+"text": "Quinlan",
+"start": 609,
+"end": 616,
+"label": "NAME_GIVEN",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A6",
+"char_start": 0,
+"char_end": 7,
+"status": "located"
+}
+},
+{
+"text": "Winterhalde",
+"start": 617,
+"end": 628,
+"label": "NAME_FAMILY",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A6",
+"char_start": 8,
+"char_end": 19,
+"status": "located"
+}
+},
+{
+"text": "Halvorsen Dynamics",
+"start": 655,
+"end": 673,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "C6",
+"char_start": 0,
+"char_end": 18,
+"status": "located"
+}
+},
+{
+"text": "quinlan@halvorsen-dynamics.test",
+"start": 676,
+"end": 707,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "D6",
+"char_start": 0,
+"char_end": 31,
+"status": "located"
+}
+},
+{
+"text": "+1 617 555 0156",
+"start": 710,
+"end": 725,
+"label": "PHONE_NUMBER",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "E6",
+"char_start": 0,
+"char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "HD-52201",
+"start": 728,
+"end": 736,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "F6",
+"char_start": 0,
+"char_end": 8,
+"status": "located"
+}
+},
+{
+"text": "Boyd",
+"start": 737,
+"end": 741,
+"label": "NAME_GIVEN",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A7",
+"char_start": 0,
+"char_end": 4,
+"status": "located"
+}
+},
+{
+"text": "Tallis",
+"start": 742,
+"end": 748,
+"label": "NAME_FAMILY",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A7",
+"char_start": 5,
+"char_end": 11,
+"status": "located"
+}
+},
+{
+"text": "Halvorsen Dynamics",
+"start": 770,
+"end": 788,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "C7",
+"char_start": 0,
+"char_end": 18,
+"status": "located"
+}
+},
+{
+"text": "tallis.boyd@halvorsen-dynamics.test",
+"start": 791,
+"end": 826,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "D7",
+"char_start": 0,
+"char_end": 35,
+"status": "located"
+}
+},
+{
+"text": "617-555-0135",
+"start": 829,
+"end": 841,
+"label": "PHONE_NUMBER",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "E7",
+"char_start": 0,
+"char_end": 12,
+"status": "located"
+}
+},
+{
+"text": "HD-23966",
+"start": 844,
+"end": 852,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "F7",
+"char_start": 0,
+"char_end": 8,
+"status": "located"
+}
+},
+{
+"text": "87905170",
+"start": 855,
+"end": 863,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "G7",
+"char_start": 0,
+"char_end": 8,
+"status": "located"
+}
+},
+{
+"text": "Ophelia",
+"start": 864,
+"end": 871,
+"label": "NAME_GIVEN",
+"characters": [
+"p06"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A8",
+"char_start": 0,
+"char_end": 7,
+"status": "located"
+}
+},
+{
+"text": "Thornquist",
+"start": 872,
+"end": 882,
+"label": "NAME_FAMILY",
+"characters": [
+"p06"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A8",
+"char_start": 8,
+"char_end": 18,
+"status": "located"
+}
+},
+{
+"text": "Halvorsen Dynamics",
+"start": 901,
+"end": 919,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "C8",
+"char_start": 0,
+"char_end": 18,
+"status": "located"
+}
+},
+{
+"text": "thornquist.ophelia@halvorsen-dynamics.test",
+"start": 922,
+"end": 964,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p06"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "D8",
+"char_start": 0,
+"char_end": 42,
+"status": "located"
+}
+},
+{
+"text": "617.555.0136",
+"start": 967,
+"end": 979,
+"label": "PHONE_NUMBER",
+"characters": [
+"p06"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "E8",
+"char_start": 0,
+"char_end": 12,
+"status": "located"
+}
+},
+{
+"text": "HD-99062",
+"start": 982,
+"end": 990,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p06"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "F8",
+"char_start": 0,
+"char_end": 8,
+"status": "located"
+}
+},
+{
+"text": "Nina",
+"start": 991,
+"end": 995,
+"label": "NAME_GIVEN",
+"characters": [
+"p07"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A9",
+"char_start": 0,
+"char_end": 4,
+"status": "located"
+}
+},
+{
+"text": "Grimshaw",
+"start": 996,
+"end": 1004,
+"label": "NAME_FAMILY",
+"characters": [
+"p07"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A9",
+"char_start": 5,
+"char_end": 13,
+"status": "located"
+}
+},
+{
+"text": "Halvorsen Dynamics",
+"start": 1020,
+"end": 1038,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "C9",
+"char_start": 0,
+"char_end": 18,
+"status": "located"
+}
+},
+{
+"text": "nina.grimshaw@halvorsen-dynamics.test",
+"start": 1041,
+"end": 1078,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p07"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "D9",
+"char_start": 0,
+"char_end": 37,
+"status": "located"
+}
+},
+{
+"text": "+1 617 555 0152",
+"start": 1081,
+"end": 1096,
+"label": "PHONE_NUMBER",
+"characters": [
+"p07"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "E9",
+"char_start": 0,
+"char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "HD-14260",
+"start": 1099,
+"end": 1107,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p07"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "F9",
+"char_start": 0,
+"char_end": 8,
+"status": "located"
+}
+},
+{
+"text": "Oswin",
+"start": 1108,
+"end": 1113,
+"label": "NAME_GIVEN",
+"characters": [
+"p08"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A10",
+"char_start": 0,
+"char_end": 5,
+"status": "located"
+}
+},
+{
+"text": "Vickery",
+"start": 1114,
+"end": 1121,
+"label": "NAME_FAMILY",
+"characters": [
+"p08"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A10",
+"char_start": 6,
+"char_end": 13,
+"status": "located"
+}
+},
+{
+"text": "Halvorsen Dynamics",
+"start": 1147,
+"end": 1165,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "C10",
+"char_start": 0,
+"char_end": 18,
+"status": "located"
+}
+},
+{
+"text": "oswin.vickery@halvorsen-dynamics.test",
+"start": 1168,
+"end": 1205,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p08"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "D10",
+"char_start": 0,
+"char_end": 37,
+"status": "located"
+}
+},
+{
+"text": "(617) 555-0125",
+"start": 1208,
+"end": 1222,
+"label": "PHONE_NUMBER",
+"characters": [
+"p08"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "E10",
+"char_start": 0,
+"char_end": 14,
+"status": "located"
+}
+},
+{
+"text": "HD-96789",
+"start": 1225,
+"end": 1233,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p08"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "F10",
+"char_start": 0,
+"char_end": 8,
+"status": "located"
+}
+},
+{
+"text": "Greta",
+"start": 1234,
+"end": 1239,
+"label": "NAME_GIVEN",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A11",
+"char_start": 0,
+"char_end": 5,
+"status": "located"
+}
+},
+{
+"text": "Yelverton",
+"start": 1240,
+"end": 1249,
+"label": "NAME_FAMILY",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A11",
+"char_start": 6,
+"char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "Halvorsen Dynamics",
+"start": 1271,
+"end": 1289,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "C11",
+"char_start": 0,
+"char_end": 18,
+"status": "located"
+}
+},
+{
+"text": "yelverton.greta@halvorsen-dynamics.test",
+"start": 1292,
+"end": 1331,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "D11",
+"char_start": 0,
+"char_end": 39,
+"status": "located"
+}
+},
+{
+"text": "(617) 555-0167",
+"start": 1334,
+"end": 1348,
+"label": "PHONE_NUMBER",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "E11",
+"char_start": 0,
+"char_end": 14,
+"status": "located"
+}
+},
+{
+"text": "HD-31412",
+"start": 1351,
+"end": 1359,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "F11",
+"char_start": 0,
+"char_end": 8,
+"status": "located"
+}
+},
+{
+"text": "69854859",
+"start": 1362,
+"end": 1370,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "G11",
+"char_start": 0,
+"char_end": 8,
+"status": "located"
+}
+},
+{
+"text": "Ignatius",
+"start": 1371,
+"end": 1379,
+"label": "NAME_GIVEN",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A12",
+"char_start": 0,
+"char_end": 8,
+"status": "located"
+}
+},
+{
+"text": "Barrowcliffe",
+"start": 1380,
+"end": 1392,
+"label": "NAME_FAMILY",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A12",
+"char_start": 9,
+"char_end": 21,
+"status": "located"
+}
+},
+{
+"text": "Halvorsen Dynamics",
+"start": 1415,
+"end": 1433,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "C12",
+"char_start": 0,
+"char_end": 18,
+"status": "located"
+}
+},
+{
+"text": "ignatius@halvorsen-dynamics.test",
+"start": 1436,
+"end": 1468,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "D12",
+"char_start": 0,
+"char_end": 32,
+"status": "located"
+}
+},
+{
+"text": "(617) 555-0138",
+"start": 1471,
+"end": 1485,
+"label": "PHONE_NUMBER",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "E12",
+"char_start": 0,
+"char_end": 14,
+"status": "located"
+}
+},
+{
+"text": "HD-46904",
+"start": 1488,
+"end": 1496,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "F12",
+"char_start": 0,
+"char_end": 8,
+"status": "located"
+}
+},
+{
+"text": "47807603",
+"start": 1499,
+"end": 1507,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "G12",
+"char_start": 0,
+"char_end": 8,
+"status": "located"
+}
+},
+{
+"text": "Uriah",
+"start": 1508,
+"end": 1513,
+"label": "NAME_GIVEN",
+"characters": [
+"p11"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A13",
+"char_start": 0,
+"char_end": 5,
+"status": "located"
+}
+},
+{
+"text": "Ashby",
+"start": 1514,
+"end": 1519,
+"label": "NAME_FAMILY",
+"characters": [
+"p11"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A13",
+"char_start": 6,
+"char_end": 11,
+"status": "located"
+}
+},
+{
+"text": "Halvorsen Dynamics",
+"start": 1542,
+"end": 1560,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "C13",
+"char_start": 0,
+"char_end": 18,
+"status": "located"
+}
+},
+{
+"text": "ashby.uriah@halvorsen-dynamics.test",
+"start": 1563,
+"end": 1598,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p11"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "D13",
+"char_start": 0,
+"char_end": 35,
+"status": "located"
+}
+},
+{
+"text": "+1 617 555 0101",
+"start": 1601,
+"end": 1616,
+"label": "PHONE_NUMBER",
+"characters": [
+"p11"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "E13",
+"char_start": 0,
+"char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "HD-40927",
+"start": 1619,
+"end": 1627,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p11"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "F13",
+"char_start": 0,
+"char_end": 8,
+"status": "located"
+}
+},
+{
+"text": "Sylvie",
+"start": 1628,
+"end": 1634,
+"label": "NAME_GIVEN",
+"characters": [
+"p18"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A14",
+"char_start": 0,
+"char_end": 6,
+"status": "located"
+}
+},
+{
+"text": "Abernathy",
+"start": 1635,
+"end": 1644,
+"label": "NAME_FAMILY",
+"characters": [
+"p18"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A14",
+"char_start": 7,
+"char_end": 16,
+"status": "located"
+}
+},
+{
+"text": "Halvorsen Dynamics",
+"start": 1659,
+"end": 1677,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "C14",
+"char_start": 0,
+"char_end": 18,
+"status": "located"
+}
+},
+{
+"text": "sylvie.abernathy@halvorsen-dynamics.test",
+"start": 1680,
+"end": 1720,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p18"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "D14",
+"char_start": 0,
+"char_end": 40,
+"status": "located"
+}
+},
+{
+"text": "+1 617 555 0137",
+"start": 1723,
+"end": 1738,
+"label": "PHONE_NUMBER",
+"characters": [
+"p18"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "E14",
+"char_start": 0,
+"char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "HD-34870",
+"start": 1741,
+"end": 1749,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p18"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "F14",
+"char_start": 0,
+"char_end": 8,
+"status": "located"
+}
+},
+{
+"text": "ACCT-1244-5855",
+"start": 1752,
+"end": 1766,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"p18"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "G14",
+"char_start": 0,
+"char_end": 14,
+"status": "located"
+}
+},
+{
+"text": "@ibrannick",
+"start": 1820,
+"end": 1830,
+"label": "USERNAME",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "A2",
+"char_start": 0,
+"char_end": 10,
+"status": "located"
+}
+},
+{
+"text": "Brannick",
+"start": 1833,
+"end": 1841,
+"label": "NAME_FAMILY",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "B2",
+"char_start": 0,
+"char_end": 8,
+"status": "located"
+}
+},
+{
+"text": "Isolde",
+"start": 1843,
+"end": 1849,
+"label": "NAME_GIVEN",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "B2",
+"char_start": 10,
+"char_end": 16,
+"status": "located"
+}
+},
+{
+"text": "isolde.brannick17@postwave.test",
+"start": 1852,
+"end": 1883,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "C2",
+"char_start": 0,
+"char_end": 31,
+"status": "located"
+}
+},
+{
+"text": "@romilly_quiroga",
+"start": 1884,
+"end": 1900,
+"label": "USERNAME",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "A3",
+"char_start": 0,
+"char_end": 16,
+"status": "located"
+}
+},
+{
+"text": "Quiroga",
+"start": 1903,
+"end": 1910,
+"label": "NAME_FAMILY",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "B3",
+"char_start": 0,
+"char_end": 7,
+"status": "located"
+}
+},
+{
+"text": "Romilly",
+"start": 1912,
+"end": 1919,
+"label": "NAME_GIVEN",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "B3",
+"char_start": 9,
+"char_end": 16,
+"status": "located"
+}
+},
+{
+"text": "@heastwick",
+"start": 1920,
+"end": 1930,
+"label": "USERNAME",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "A4",
+"char_start": 0,
+"char_end": 10,
+"status": "located"
+}
+},
+{
+"text": "Eastwick",
+"start": 1933,
+"end": 1941,
+"label": "NAME_FAMILY",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "B4",
+"char_start": 0,
+"char_end": 8,
+"status": "located"
+}
+},
+{
+"text": "Horatio",
+"start": 1943,
+"end": 1950,
+"label": "NAME_GIVEN",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "B4",
+"char_start": 10,
+"char_end": 17,
+"status": "located"
+}
+},
+{
+"text": "@cvillanueva",
+"start": 1951,
+"end": 1963,
+"label": "USERNAME",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "A5",
+"char_start": 0,
+"char_end": 12,
+"status": "located"
+}
+},
+{
+"text": "Villanueva",
+"start": 1966,
+"end": 1976,
+"label": "NAME_FAMILY",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "B5",
+"char_start": 0,
+"char_end": 10,
+"status": "located"
+}
+},
+{
+"text": "Caspar",
+"start": 1978,
+"end": 1984,
+"label": "NAME_GIVEN",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "B5",
+"char_start": 12,
+"char_end": 18,
+"status": "located"
+}
+},
+{
+"text": "caspar.villanueva80@lettercloud.test",
+"start": 1987,
+"end": 2023,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "C5",
+"char_start": 0,
+"char_end": 36,
+"status": "located"
+}
+},
+{
+"text": "@winterhaldeq",
+"start": 2024,
+"end": 2037,
+"label": "USERNAME",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "A6",
+"char_start": 0,
+"char_end": 13,
+"status": "located"
+}
+},
+{
+"text": "Winterhalde",
+"start": 2040,
+"end": 2051,
+"label": "NAME_FAMILY",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "B6",
+"char_start": 0,
+"char_end": 11,
+"status": "located"
+}
+},
+{
+"text": "Quinlan",
+"start": 2053,
+"end": 2060,
+"label": "NAME_GIVEN",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "B6",
+"char_start": 13,
+"char_end": 20,
+"status": "located"
+}
+},
+{
+"text": "quinlan.winterhalde84@lettercloud.test",
+"start": 2063,
+"end": 2101,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "C6",
+"char_start": 0,
+"char_end": 38,
+"status": "located"
+}
+},
+{
+"text": "@boydtal",
+"start": 2102,
+"end": 2110,
+"label": "USERNAME",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "A7",
+"char_start": 0,
+"char_end": 8,
+"status": "located"
+}
+},
+{
+"text": "Tallis",
+"start": 2113,
+"end": 2119,
+"label": "NAME_FAMILY",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "B7",
+"char_start": 0,
+"char_end": 6,
+"status": "located"
+}
+},
+{
+"text": "Boyd",
+"start": 2121,
+"end": 2125,
+"label": "NAME_GIVEN",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "B7",
+"char_start": 8,
+"char_end": 12,
+"status": "located"
+}
+},
+{
+"text": "@ophelia_thornquist",
+"start": 2126,
+"end": 2145,
+"label": "USERNAME",
+"characters": [
+"p06"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "A8",
+"char_start": 0,
+"char_end": 19,
+"status": "located"
+}
+},
+{
+"text": "Thornquist",
+"start": 2148,
+"end": 2158,
+"label": "NAME_FAMILY",
+"characters": [
+"p06"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "B8",
+"char_start": 0,
+"char_end": 10,
+"status": "located"
+}
+},
+{
+"text": "Ophelia",
+"start": 2160,
+"end": 2167,
+"label": "NAME_GIVEN",
+"characters": [
+"p06"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "B8",
+"char_start": 12,
+"char_end": 19,
+"status": "located"
+}
+},
+{
+"text": "ophelia.thornquist11@quietinbox.test",
+"start": 2170,
+"end": 2206,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p06"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "C8",
+"char_start": 0,
+"char_end": 36,
+"status": "located"
+}
+},
+{
+"text": "@nina.grimshaw",
+"start": 2207,
+"end": 2221,
+"label": "USERNAME",
+"characters": [
+"p07"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "A9",
+"char_start": 0,
+"char_end": 14,
+"status": "located"
+}
+},
+{
+"text": "Grimshaw",
+"start": 2224,
+"end": 2232,
+"label": "NAME_FAMILY",
+"characters": [
+"p07"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "B9",
+"char_start": 0,
+"char_end": 8,
+"status": "located"
+}
+},
+{
+"text": "Nina",
+"start": 2234,
+"end": 2238,
+"label": "NAME_GIVEN",
+"characters": [
+"p07"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "B9",
+"char_start": 10,
+"char_end": 14,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "m00007ec87fa55",
+"from": {
+"name": "Isolde Brannick",
+"email": "brannick.isolde@halvorsen-dynamics.test"
+},
+"to": [
+{
+"name": "Isolde Brannick",
+"email": "brannick.isolde@halvorsen-dynamics.test"
+}
+],
+"cc": [],
+"subject": "Reimbursements",
+"datetime": "2026-03-09T10:32:00Z",
+"thread_id": "m00007ec87fa55"
+},
+"text": "Hi,\n\nReimbursement for Greta Yelverton (employee ID HD-31412, account 69854859) goes out Friday. The vendor list with account numbers is in vendor_accounts.csv.\n\nQuestions to O. Vickery.\n\nThanks,\nIgnatius Barrowcliffe\nQuality Inspector | Halvorsen Dynamics Inc.\n(617) 555-0138 | ignatius@halvorsen-dynamics.test\r",
+"file": {
+"kind": "eml",
+"path": "email/m00007ec87fa55.eml",
+"sha256": "15a545a0cfccf5dfec2099f0d189b0892324ba74a47e2ddf215a4ade9a066696",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Greta",
+"start": 23,
+"end": 28,
+"label": "NAME_GIVEN",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 468,
+"file_char_end": 473,
+"status": "located"
+}
+},
+{
+"text": "Yelverton",
+"start": 29,
+"end": 38,
+"label": "NAME_FAMILY",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 474,
+"file_char_end": 483,
+"status": "located"
+}
+},
+{
+"text": "HD-31412",
+"start": 52,
+"end": 60,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 497,
+"file_char_end": 505,
+"status": "located"
+}
+},
+{
+"text": "69854859",
+"start": 70,
+"end": 78,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 515,
+"file_char_end": 523,
+"status": "located"
+}
+},
+{
+"text": "O.",
+"start": 175,
+"end": 177,
+"label": "NAME_GIVEN",
+"characters": [
+"p08"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 622,
+"file_char_end": 624,
+"status": "located"
+}
+},
+{
+"text": "Vickery",
+"start": 178,
+"end": 185,
+"label": "NAME_FAMILY",
+"characters": [
+"p08"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 625,
+"file_char_end": 632,
+"status": "located"
+}
+},
+{
+"text": "Ignatius",
+"start": 196,
+"end": 204,
+"label": "NAME_GIVEN",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 646,
+"file_char_end": 654,
+"status": "located"
+}
+},
+{
+"text": "Barrowcliffe",
+"start": 205,
+"end": 217,
+"label": "NAME_FAMILY",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 655,
+"file_char_end": 667,
+"status": "located"
+}
+},
+{
+"text": "Halvorsen Dynamics Inc.",
+"start": 238,
+"end": 261,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 689,
+"file_char_end": 712,
+"status": "located"
+}
+},
+{
+"text": "(617) 555-0138",
+"start": 262,
+"end": 276,
+"label": "PHONE_NUMBER",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 714,
+"file_char_end": 728,
+"status": "located"
+}
+},
+{
+"text": "ignatius@halvorsen-dynamics.test",
+"start": 279,
+"end": 311,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 731,
+"file_char_end": 763,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "m00007ec87fa55-att0",
+"filename": "vendor_accounts.csv",
+"format": "csv",
+"mime_type": "text/csv",
+"attached_to": {
+"kind": "email",
+"row_id": "m00007ec87fa55"
+}
+},
+"text": "vendor | contact | contact_email | contact_phone | account_number | remit_address | website\nSaltmarsh Insurance Group Inc. | Gideon Holloway | gideon.holloway@saltmarsh.test | 617.555.0153 | 9825070395 | 7051 Ashgrove Place, Carverton, OH 43215 | https://www.saltmarsh.test\nRidgeback Security |  |  |  | 6295340421 | 1907 Candlewick Road, Westlake Hollow, TX 78701 | https://www.ridgeback.test\nOld Mill Accounting LLP | Ulric Ashcombe | uashcombe@old.test | 617.555.0124 | 5956618361 | 2725 Harbor Mist Way, Dunmere, VT 05401 | https://www.old.test\nWillowmere Staffing | Jasper Underhill | jasper@willowmere.test | 617.555.0191 | 1417642306 | 2386 Harbor Mist Way, Westlake Hollow, TX 78701 | https://www.willowmere.test\nBrightmoor Logistics LLC | Ezra Dimitriou | dimitriou.ezra@brightmoor.test | +1 617 555 0134 | 5249153006 | 6457 Harbor Mist Way, Pellbrook, OR 97201 | https://www.brightmoor.test\nMarrowbone Capital Partners | Florian Rasmussen | rasmussen.florian@marrowbone.test | +1 617 555 0187 | 8683826193 | 4928 Harbor Mist Way, Pellbrook, OR 97201 | https://www.marrowbone.test\nAbernathy & Associates LLP |  |  |  | 7246949452 | 6274 Old Mill Terrace, Port Avery, WA 98101 | https://www.abernathylaw.test",
+"file": {
+"kind": "csv",
+"path": "email/m00007ec87fa55.eml",
+"sha256": "15a545a0cfccf5dfec2099f0d189b0892324ba74a47e2ddf215a4ade9a066696",
+"container": {
+"kind": "eml_attachment",
+"path": "email/m00007ec87fa55.eml",
+"part_index": 0,
+"filename": "vendor_accounts.csv"
+}
+},
+"ground_truth_spans": [
+{
+"text": "Saltmarsh Insurance Group Inc.",
+"start": 92,
+"end": 122,
+"label": "ORGANIZATION",
+"characters": [
+"org_1"
+],
+"location": {
+"kind": "csv",
+"row": 1,
+"col": 0,
+"value_char_start": 0,
+"value_char_end": 30,
+"status": "located"
+}
+},
+{
+"text": "Gideon",
+"start": 125,
+"end": 131,
+"label": "NAME_GIVEN",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "csv",
+"row": 1,
+"col": 1,
+"value_char_start": 0,
+"value_char_end": 6,
+"status": "located"
+}
+},
+{
+"text": "Holloway",
+"start": 132,
+"end": 140,
+"label": "NAME_FAMILY",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "csv",
+"row": 1,
+"col": 1,
+"value_char_start": 7,
+"value_char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "gideon.holloway@saltmarsh.test",
+"start": 143,
+"end": 173,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "csv",
+"row": 1,
+"col": 2,
+"value_char_start": 0,
+"value_char_end": 30,
+"status": "located"
+}
+},
+{
+"text": "617.555.0153",
+"start": 176,
+"end": 188,
+"label": "PHONE_NUMBER",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "csv",
+"row": 1,
+"col": 3,
+"value_char_start": 0,
+"value_char_end": 12,
+"status": "located"
+}
+},
+{
+"text": "9825070395",
+"start": 191,
+"end": 201,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"org_1"
+],
+"location": {
+"kind": "csv",
+"row": 1,
+"col": 4,
+"value_char_start": 0,
+"value_char_end": 10,
+"status": "located"
+}
+},
+{
+"text": "7051 Ashgrove Place",
+"start": 204,
+"end": 223,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_1"
+],
+"location": {
+"kind": "csv",
+"row": 1,
+"col": 5,
+"value_char_start": 0,
+"value_char_end": 19,
+"status": "located"
+}
+},
+{
+"text": "https://www.saltmarsh.test",
+"start": 247,
+"end": 273,
+"label": "URL",
+"characters": [
+"org_1"
+],
+"location": {
+"kind": "csv",
+"row": 1,
+"col": 6,
+"value_char_start": 0,
+"value_char_end": 26,
+"status": "located"
+}
+},
+{
+"text": "Ridgeback Security",
+"start": 274,
+"end": 292,
+"label": "ORGANIZATION",
+"characters": [
+"org_2"
+],
+"location": {
+"kind": "csv",
+"row": 2,
+"col": 0,
+"value_char_start": 0,
+"value_char_end": 18,
+"status": "located"
+}
+},
+{
+"text": "6295340421",
+"start": 304,
+"end": 314,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"org_2"
+],
+"location": {
+"kind": "csv",
+"row": 2,
+"col": 4,
+"value_char_start": 0,
+"value_char_end": 10,
+"status": "located"
+}
+},
+{
+"text": "1907 Candlewick Road",
+"start": 317,
+"end": 337,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_2"
+],
+"location": {
+"kind": "csv",
+"row": 2,
+"col": 5,
+"value_char_start": 0,
+"value_char_end": 20,
+"status": "located"
+}
+},
+{
+"text": "https://www.ridgeback.test",
+"start": 367,
+"end": 393,
+"label": "URL",
+"characters": [
+"org_2"
+],
+"location": {
+"kind": "csv",
+"row": 2,
+"col": 6,
+"value_char_start": 0,
+"value_char_end": 26,
+"status": "located"
+}
+},
+{
+"text": "Old Mill Accounting LLP",
+"start": 394,
+"end": 417,
+"label": "ORGANIZATION",
+"characters": [
+"org_3"
+],
+"location": {
+"kind": "csv",
+"row": 3,
+"col": 0,
+"value_char_start": 0,
+"value_char_end": 23,
+"status": "located"
+}
+},
+{
+"text": "Ulric",
+"start": 420,
+"end": 425,
+"label": "NAME_GIVEN",
+"characters": [
+"p12"
+],
+"location": {
+"kind": "csv",
+"row": 3,
+"col": 1,
+"value_char_start": 0,
+"value_char_end": 5,
+"status": "located"
+}
+},
+{
+"text": "Ashcombe",
+"start": 426,
+"end": 434,
+"label": "NAME_FAMILY",
+"characters": [
+"p12"
+],
+"location": {
+"kind": "csv",
+"row": 3,
+"col": 1,
+"value_char_start": 6,
+"value_char_end": 14,
+"status": "located"
+}
+},
+{
+"text": "uashcombe@old.test",
+"start": 437,
+"end": 455,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p12"
+],
+"location": {
+"kind": "csv",
+"row": 3,
+"col": 2,
+"value_char_start": 0,
+"value_char_end": 18,
+"status": "located"
+}
+},
+{
+"text": "617.555.0124",
+"start": 458,
+"end": 470,
+"label": "PHONE_NUMBER",
+"characters": [
+"p12"
+],
+"location": {
+"kind": "csv",
+"row": 3,
+"col": 3,
+"value_char_start": 0,
+"value_char_end": 12,
+"status": "located"
+}
+},
+{
+"text": "5956618361",
+"start": 473,
+"end": 483,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"org_3"
+],
+"location": {
+"kind": "csv",
+"row": 3,
+"col": 4,
+"value_char_start": 0,
+"value_char_end": 10,
+"status": "located"
+}
+},
+{
+"text": "2725 Harbor Mist Way",
+"start": 486,
+"end": 506,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_3"
+],
+"location": {
+"kind": "csv",
+"row": 3,
+"col": 5,
+"value_char_start": 0,
+"value_char_end": 20,
+"status": "located"
+}
+},
+{
+"text": "https://www.old.test",
+"start": 528,
+"end": 548,
+"label": "URL",
+"characters": [
+"org_3"
+],
+"location": {
+"kind": "csv",
+"row": 3,
+"col": 6,
+"value_char_start": 0,
+"value_char_end": 20,
+"status": "located"
+}
+},
+{
+"text": "Willowmere Staffing",
+"start": 549,
+"end": 568,
+"label": "ORGANIZATION",
+"characters": [
+"org_4"
+],
+"location": {
+"kind": "csv",
+"row": 4,
+"col": 0,
+"value_char_start": 0,
+"value_char_end": 19,
+"status": "located"
+}
+},
+{
+"text": "Jasper",
+"start": 571,
+"end": 577,
+"label": "NAME_GIVEN",
+"characters": [
+"p14"
+],
+"location": {
+"kind": "csv",
+"row": 4,
+"col": 1,
+"value_char_start": 0,
+"value_char_end": 6,
+"status": "located"
+}
+},
+{
+"text": "Underhill",
+"start": 578,
+"end": 587,
+"label": "NAME_FAMILY",
+"characters": [
+"p14"
+],
+"location": {
+"kind": "csv",
+"row": 4,
+"col": 1,
+"value_char_start": 7,
+"value_char_end": 16,
+"status": "located"
+}
+},
+{
+"text": "jasper@willowmere.test",
+"start": 590,
+"end": 612,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p14"
+],
+"location": {
+"kind": "csv",
+"row": 4,
+"col": 2,
+"value_char_start": 0,
+"value_char_end": 22,
+"status": "located"
+}
+},
+{
+"text": "617.555.0191",
+"start": 615,
+"end": 627,
+"label": "PHONE_NUMBER",
+"characters": [
+"p14"
+],
+"location": {
+"kind": "csv",
+"row": 4,
+"col": 3,
+"value_char_start": 0,
+"value_char_end": 12,
+"status": "located"
+}
+},
+{
+"text": "1417642306",
+"start": 630,
+"end": 640,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"org_4"
+],
+"location": {
+"kind": "csv",
+"row": 4,
+"col": 4,
+"value_char_start": 0,
+"value_char_end": 10,
+"status": "located"
+}
+},
+{
+"text": "2386 Harbor Mist Way",
+"start": 643,
+"end": 663,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_4"
+],
+"location": {
+"kind": "csv",
+"row": 4,
+"col": 5,
+"value_char_start": 0,
+"value_char_end": 20,
+"status": "located"
+}
+},
+{
+"text": "https://www.willowmere.test",
+"start": 693,
+"end": 720,
+"label": "URL",
+"characters": [
+"org_4"
+],
+"location": {
+"kind": "csv",
+"row": 4,
+"col": 6,
+"value_char_start": 0,
+"value_char_end": 27,
+"status": "located"
+}
+},
+{
+"text": "Brightmoor Logistics LLC",
+"start": 721,
+"end": 745,
+"label": "ORGANIZATION",
+"characters": [
+"org_5"
+],
+"location": {
+"kind": "csv",
+"row": 5,
+"col": 0,
+"value_char_start": 0,
+"value_char_end": 24,
+"status": "located"
+}
+},
+{
+"text": "Ezra",
+"start": 748,
+"end": 752,
+"label": "NAME_GIVEN",
+"characters": [
+"p16"
+],
+"location": {
+"kind": "csv",
+"row": 5,
+"col": 1,
+"value_char_start": 0,
+"value_char_end": 4,
+"status": "located"
+}
+},
+{
+"text": "Dimitriou",
+"start": 753,
+"end": 762,
+"label": "NAME_FAMILY",
+"characters": [
+"p16"
+],
+"location": {
+"kind": "csv",
+"row": 5,
+"col": 1,
+"value_char_start": 5,
+"value_char_end": 14,
+"status": "located"
+}
+},
+{
+"text": "dimitriou.ezra@brightmoor.test",
+"start": 765,
+"end": 795,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p16"
+],
+"location": {
+"kind": "csv",
+"row": 5,
+"col": 2,
+"value_char_start": 0,
+"value_char_end": 30,
+"status": "located"
+}
+},
+{
+"text": "+1 617 555 0134",
+"start": 798,
+"end": 813,
+"label": "PHONE_NUMBER",
+"characters": [
+"p16"
+],
+"location": {
+"kind": "csv",
+"row": 5,
+"col": 3,
+"value_char_start": 0,
+"value_char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "5249153006",
+"start": 816,
+"end": 826,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"org_5"
+],
+"location": {
+"kind": "csv",
+"row": 5,
+"col": 4,
+"value_char_start": 0,
+"value_char_end": 10,
+"status": "located"
+}
+},
+{
+"text": "6457 Harbor Mist Way",
+"start": 829,
+"end": 849,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_5"
+],
+"location": {
+"kind": "csv",
+"row": 5,
+"col": 5,
+"value_char_start": 0,
+"value_char_end": 20,
+"status": "located"
+}
+},
+{
+"text": "https://www.brightmoor.test",
+"start": 873,
+"end": 900,
+"label": "URL",
+"characters": [
+"org_5"
+],
+"location": {
+"kind": "csv",
+"row": 5,
+"col": 6,
+"value_char_start": 0,
+"value_char_end": 27,
+"status": "located"
+}
+},
+{
+"text": "Marrowbone Capital Partners",
+"start": 901,
+"end": 928,
+"label": "ORGANIZATION",
+"characters": [
+"org_6"
+],
+"location": {
+"kind": "csv",
+"row": 6,
+"col": 0,
+"value_char_start": 0,
+"value_char_end": 27,
+"status": "located"
+}
+},
+{
+"text": "Florian",
+"start": 931,
+"end": 938,
+"label": "NAME_GIVEN",
+"characters": [
+"p13"
+],
+"location": {
+"kind": "csv",
+"row": 6,
+"col": 1,
+"value_char_start": 0,
+"value_char_end": 7,
+"status": "located"
+}
+},
+{
+"text": "Rasmussen",
+"start": 939,
+"end": 948,
+"label": "NAME_FAMILY",
+"characters": [
+"p13"
+],
+"location": {
+"kind": "csv",
+"row": 6,
+"col": 1,
+"value_char_start": 8,
+"value_char_end": 17,
+"status": "located"
+}
+},
+{
+"text": "rasmussen.florian@marrowbone.test",
+"start": 951,
+"end": 984,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p13"
+],
+"location": {
+"kind": "csv",
+"row": 6,
+"col": 2,
+"value_char_start": 0,
+"value_char_end": 33,
+"status": "located"
+}
+},
+{
+"text": "+1 617 555 0187",
+"start": 987,
+"end": 1002,
+"label": "PHONE_NUMBER",
+"characters": [
+"p13"
+],
+"location": {
+"kind": "csv",
+"row": 6,
+"col": 3,
+"value_char_start": 0,
+"value_char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "8683826193",
+"start": 1005,
+"end": 1015,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"org_6"
+],
+"location": {
+"kind": "csv",
+"row": 6,
+"col": 4,
+"value_char_start": 0,
+"value_char_end": 10,
+"status": "located"
+}
+},
+{
+"text": "4928 Harbor Mist Way",
+"start": 1018,
+"end": 1038,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_6"
+],
+"location": {
+"kind": "csv",
+"row": 6,
+"col": 5,
+"value_char_start": 0,
+"value_char_end": 20,
+"status": "located"
+}
+},
+{
+"text": "https://www.marrowbone.test",
+"start": 1062,
+"end": 1089,
+"label": "URL",
+"characters": [
+"org_6"
+],
+"location": {
+"kind": "csv",
+"row": 6,
+"col": 6,
+"value_char_start": 0,
+"value_char_end": 27,
+"status": "located"
+}
+},
+{
+"text": "Abernathy & Associates LLP",
+"start": 1090,
+"end": 1116,
+"label": "ORGANIZATION",
+"characters": [
+"org_homonym"
+],
+"location": {
+"kind": "csv",
+"row": 7,
+"col": 0,
+"value_char_start": 0,
+"value_char_end": 26,
+"status": "located"
+}
+},
+{
+"text": "7246949452",
+"start": 1128,
+"end": 1138,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"org_homonym"
+],
+"location": {
+"kind": "csv",
+"row": 7,
+"col": 4,
+"value_char_start": 0,
+"value_char_end": 10,
+"status": "located"
+}
+},
+{
+"text": "6274 Old Mill Terrace",
+"start": 1141,
+"end": 1162,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_homonym"
+],
+"location": {
+"kind": "csv",
+"row": 7,
+"col": 5,
+"value_char_start": 0,
+"value_char_end": 21,
+"status": "located"
+}
+},
+{
+"text": "https://www.abernathylaw.test",
+"start": 1187,
+"end": 1216,
+"label": "URL",
+"characters": [
+"org_homonym"
+],
+"location": {
+"kind": "csv",
+"row": 7,
+"col": 6,
+"value_char_start": 0,
+"value_char_end": 29,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "m00008373355fa",
+"from": {
+"name": "Isolde Brannick",
+"email": "brannick.isolde@halvorsen-dynamics.test"
+},
+"to": [
+{
+"name": "Quinlan Winterhalde",
+"email": "quinlan@halvorsen-dynamics.test"
+},
+{
+"name": "Nina Grimshaw",
+"email": "nina.grimshaw@halvorsen-dynamics.test"
+}
+],
+"cc": [],
+"subject": "FW: memo on the holiday roster",
+"datetime": "2026-03-10T16:42:00Z",
+"thread_id": "m00008373355fa"
+},
+"text": "Forwarding the memo from Old Mill Accounting about the holiday roster. Read page 2, Rasmussen quotes our old address 1895 Wexford Court, Carverton, OH 43215.\n\nRegards,\nIsolde Brannick\nMarketing Associate | Halvorsen Dynamics\r",
+"file": {
+"kind": "eml",
+"path": "email/m00008373355fa.eml",
+"sha256": "fbecbe226415626be1fb168d2336983c8317035220af9c4e14642701395d99b5",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Old Mill Accounting",
+"start": 25,
+"end": 44,
+"label": "ORGANIZATION",
+"characters": [
+"org_3"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 535,
+"file_char_end": 554,
+"status": "located"
+}
+},
+{
+"text": "Rasmussen",
+"start": 84,
+"end": 93,
+"label": "NAME_FAMILY",
+"characters": [
+"p13"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 594,
+"file_char_end": 603,
+"status": "located"
+}
+},
+{
+"text": "1895 Wexford Court",
+"start": 117,
+"end": 135,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 627,
+"file_char_end": 645,
+"status": "located"
+}
+},
+{
+"text": "Isolde",
+"start": 168,
+"end": 174,
+"label": "NAME_GIVEN",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 681,
+"file_char_end": 687,
+"status": "located"
+}
+},
+{
+"text": "Brannick",
+"start": 175,
+"end": 183,
+"label": "NAME_FAMILY",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 688,
+"file_char_end": 696,
+"status": "located"
+}
+},
+{
+"text": "Halvorsen Dynamics",
+"start": 206,
+"end": 224,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 720,
+"file_char_end": 738,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "m00008373355fa-att0",
+"filename": "site_memo.pdf",
+"format": "pdf",
+"mime_type": "application/pdf",
+"attached_to": {
+"kind": "email",
+"row_id": "m00008373355fa"
+}
+},
+"text": "Saltmarsh Insurance Group\nMEMORANDUM\nTo: Horatio Eastwick, Halvorsen Dynamics\nCc: Villanueva, Caspar\nFrom: Gideon Holloway\nRe: site visit\nWe visited the premises at\n1895 Wexford Court, Carverton\non the agreed date. Horatio walked us through\nthe loading area; CASPAR VILLANUEVA\njoined for the second half.\nFindings\n1. Access control works; badge readers logged two visitors.\n2. The emergency contact sheet lists +1 617 555 0176\nfor Eastwick and 617-555-0162 for Villanueva.\n3. Deliveries from Saltmarsh Insurance Group Inc.\nwill use the rear entrance from next month.\nOur invoice goes to account 8233753977.\nYour purchase order should quote Saltmarsh.\nGideon Holloway\nTraining Coordinator, Saltmarsh Insurance Group Inc.\ngideon.holloway@saltmarsh.test | 617.555.0153\nhttps://www.saltmarsh.test\n\n",
+"file": {
+"kind": "pdf",
+"path": "email/m00008373355fa.eml",
+"sha256": "fbecbe226415626be1fb168d2336983c8317035220af9c4e14642701395d99b5",
+"container": {
+"kind": "eml_attachment",
+"path": "email/m00008373355fa.eml",
+"part_index": 0,
+"filename": "site_memo.pdf"
+}
+},
+"ground_truth_spans": [
+{
+"text": "Saltmarsh Insurance Group",
+"start": 0,
+"end": 25,
+"label": "ORGANIZATION",
+"characters": [
+"org_1"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"S",
+1,
+16.6,
+19.72,
+23.8,
+31.72
+],
+[
+"a",
+1,
+23.8,
+19.72,
+31.0,
+31.72
+],
+[
+"l",
+1,
+31.0,
+19.72,
+38.2,
+31.72
+],
+[
+"t",
+1,
+38.2,
+19.72,
+45.4,
+31.72
+],
+[
+"m",
+1,
+45.4,
+19.72,
+52.6,
+31.72
+],
+[
+"a",
+1,
+52.61,
+19.72,
+59.81,
+31.72
+],
+[
+"r",
+1,
+59.81,
+19.72,
+67.01,
+31.72
+],
+[
+"s",
+1,
+67.01,
+19.72,
+74.21,
+31.72
+],
+[
+"h",
+1,
+74.21,
+19.72,
+81.41,
+31.72
+],
+[
+"I",
+1,
+88.61,
+19.72,
+95.81,
+31.72
+],
+[
+"n",
+1,
+95.81,
+19.72,
+103.01,
+31.72
+],
+[
+"s",
+1,
+103.01,
+19.72,
+110.21,
+31.72
+],
+[
+"u",
+1,
+110.22,
+19.72,
+117.42,
+31.72
+],
+[
+"r",
+1,
+117.42,
+19.72,
+124.62,
+31.72
+],
+[
+"a",
+1,
+124.62,
+19.72,
+131.82,
+31.72
+],
+[
+"n",
+1,
+131.82,
+19.72,
+139.02,
+31.72
+],
+[
+"c",
+1,
+139.02,
+19.72,
+146.22,
+31.72
+],
+[
+"e",
+1,
+146.22,
+19.72,
+153.42,
+31.72
+],
+[
+"G",
+1,
+160.62,
+19.72,
+167.82,
+31.72
+],
+[
+"r",
+1,
+167.83,
+19.72,
+175.03,
+31.72
+],
+[
+"o",
+1,
+175.03,
+19.72,
+182.23,
+31.72
+],
+[
+"u",
+1,
+182.23,
+19.72,
+189.43,
+31.72
+],
+[
+"p",
+1,
+189.43,
+19.72,
+196.63,
+31.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Horatio",
+"start": 41,
+"end": 48,
+"label": "NAME_GIVEN",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"H",
+1,
+45.4,
+55.72,
+52.6,
+67.72
+],
+[
+"o",
+1,
+52.61,
+55.72,
+59.81,
+67.72
+],
+[
+"r",
+1,
+59.81,
+55.72,
+67.01,
+67.72
+],
+[
+"a",
+1,
+67.01,
+55.72,
+74.21,
+67.72
+],
+[
+"t",
+1,
+74.21,
+55.72,
+81.41,
+67.72
+],
+[
+"i",
+1,
+81.41,
+55.72,
+88.61,
+67.72
+],
+[
+"o",
+1,
+88.61,
+55.72,
+95.81,
+67.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Eastwick",
+"start": 49,
+"end": 57,
+"label": "NAME_FAMILY",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"E",
+1,
+103.01,
+55.72,
+110.21,
+67.72
+],
+[
+"a",
+1,
+110.22,
+55.72,
+117.42,
+67.72
+],
+[
+"s",
+1,
+117.42,
+55.72,
+124.62,
+67.72
+],
+[
+"t",
+1,
+124.62,
+55.72,
+131.82,
+67.72
+],
+[
+"w",
+1,
+131.82,
+55.72,
+139.02,
+67.72
+],
+[
+"i",
+1,
+139.02,
+55.72,
+146.22,
+67.72
+],
+[
+"c",
+1,
+146.22,
+55.72,
+153.42,
+67.72
+],
+[
+"k",
+1,
+153.42,
+55.72,
+160.62,
+67.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Halvorsen Dynamics",
+"start": 59,
+"end": 77,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"H",
+1,
+175.03,
+55.72,
+182.23,
+67.72
+],
+[
+"a",
+1,
+182.23,
+55.72,
+189.43,
+67.72
+],
+[
+"l",
+1,
+189.43,
+55.72,
+196.63,
+67.72
+],
+[
+"v",
+1,
+196.63,
+55.72,
+203.83,
+67.72
+],
+[
+"o",
+1,
+203.83,
+55.72,
+211.03,
+67.72
+],
+[
+"r",
+1,
+211.03,
+55.72,
+218.23,
+67.72
+],
+[
+"s",
+1,
+218.23,
+55.72,
+225.43,
+67.72
+],
+[
+"e",
+1,
+225.43,
+55.72,
+232.63,
+67.72
+],
+[
+"n",
+1,
+232.64,
+55.72,
+239.84,
+67.72
+],
+[
+"D",
+1,
+247.04,
+55.72,
+254.24,
+67.72
+],
+[
+"y",
+1,
+254.24,
+55.72,
+261.44,
+67.72
+],
+[
+"n",
+1,
+261.44,
+55.72,
+268.64,
+67.72
+],
+[
+"a",
+1,
+268.64,
+55.72,
+275.84,
+67.72
+],
+[
+"m",
+1,
+275.84,
+55.72,
+283.04,
+67.72
+],
+[
+"i",
+1,
+283.04,
+55.72,
+290.24,
+67.72
+],
+[
+"c",
+1,
+290.25,
+55.72,
+297.45,
+67.72
+],
+[
+"s",
+1,
+297.45,
+55.72,
+304.65,
+67.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Villanueva",
+"start": 82,
+"end": 92,
+"label": "NAME_FAMILY",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"V",
+1,
+45.4,
+67.72,
+52.6,
+79.72
+],
+[
+"i",
+1,
+52.61,
+67.72,
+59.81,
+79.72
+],
+[
+"l",
+1,
+59.81,
+67.72,
+67.01,
+79.72
+],
+[
+"l",
+1,
+67.01,
+67.72,
+74.21,
+79.72
+],
+[
+"a",
+1,
+74.21,
+67.72,
+81.41,
+79.72
+],
+[
+"n",
+1,
+81.41,
+67.72,
+88.61,
+79.72
+],
+[
+"u",
+1,
+88.61,
+67.72,
+95.81,
+79.72
+],
+[
+"e",
+1,
+95.81,
+67.72,
+103.01,
+79.72
+],
+[
+"v",
+1,
+103.01,
+67.72,
+110.21,
+79.72
+],
+[
+"a",
+1,
+110.22,
+67.72,
+117.42,
+79.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Caspar",
+"start": 94,
+"end": 100,
+"label": "NAME_GIVEN",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"C",
+1,
+131.82,
+67.72,
+139.02,
+79.72
+],
+[
+"a",
+1,
+139.02,
+67.72,
+146.22,
+79.72
+],
+[
+"s",
+1,
+146.22,
+67.72,
+153.42,
+79.72
+],
+[
+"p",
+1,
+153.42,
+67.72,
+160.62,
+79.72
+],
+[
+"a",
+1,
+160.62,
+67.72,
+167.82,
+79.72
+],
+[
+"r",
+1,
+167.83,
+67.72,
+175.03,
+79.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Gideon",
+"start": 107,
+"end": 113,
+"label": "NAME_GIVEN",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"G",
+1,
+59.81,
+79.72,
+67.01,
+91.72
+],
+[
+"i",
+1,
+67.01,
+79.72,
+74.21,
+91.72
+],
+[
+"d",
+1,
+74.21,
+79.72,
+81.41,
+91.72
+],
+[
+"e",
+1,
+81.41,
+79.72,
+88.61,
+91.72
+],
+[
+"o",
+1,
+88.61,
+79.72,
+95.81,
+91.72
+],
+[
+"n",
+1,
+95.81,
+79.72,
+103.01,
+91.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Holloway",
+"start": 114,
+"end": 122,
+"label": "NAME_FAMILY",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"H",
+1,
+110.22,
+79.72,
+117.42,
+91.72
+],
+[
+"o",
+1,
+117.42,
+79.72,
+124.62,
+91.72
+],
+[
+"l",
+1,
+124.62,
+79.72,
+131.82,
+91.72
+],
+[
+"l",
+1,
+131.82,
+79.72,
+139.02,
+91.72
+],
+[
+"o",
+1,
+139.02,
+79.72,
+146.22,
+91.72
+],
+[
+"w",
+1,
+146.22,
+79.72,
+153.42,
+91.72
+],
+[
+"a",
+1,
+153.42,
+79.72,
+160.62,
+91.72
+],
+[
+"y",
+1,
+160.62,
+79.72,
+167.82,
+91.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "1895 Wexford Court",
+"start": 165,
+"end": 183,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"1",
+1,
+16.6,
+127.72,
+23.8,
+139.72
+],
+[
+"8",
+1,
+23.8,
+127.72,
+31.0,
+139.72
+],
+[
+"9",
+1,
+31.0,
+127.72,
+38.2,
+139.72
+],
+[
+"5",
+1,
+38.2,
+127.72,
+45.4,
+139.72
+],
+[
+"W",
+1,
+52.61,
+127.72,
+59.81,
+139.72
+],
+[
+"e",
+1,
+59.81,
+127.72,
+67.01,
+139.72
+],
+[
+"x",
+1,
+67.01,
+127.72,
+74.21,
+139.72
+],
+[
+"f",
+1,
+74.21,
+127.72,
+81.41,
+139.72
+],
+[
+"o",
+1,
+81.41,
+127.72,
+88.61,
+139.72
+],
+[
+"r",
+1,
+88.61,
+127.72,
+95.81,
+139.72
+],
+[
+"d",
+1,
+95.81,
+127.72,
+103.01,
+139.72
+],
+[
+"C",
+1,
+110.22,
+127.72,
+117.42,
+139.72
+],
+[
+"o",
+1,
+117.42,
+127.72,
+124.62,
+139.72
+],
+[
+"u",
+1,
+124.62,
+127.72,
+131.82,
+139.72
+],
+[
+"r",
+1,
+131.82,
+127.72,
+139.02,
+139.72
+],
+[
+"t",
+1,
+139.02,
+127.72,
+146.22,
+139.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Horatio",
+"start": 215,
+"end": 222,
+"label": "NAME_GIVEN",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"H",
+1,
+160.62,
+139.72,
+167.82,
+151.72
+],
+[
+"o",
+1,
+167.83,
+139.72,
+175.03,
+151.72
+],
+[
+"r",
+1,
+175.03,
+139.72,
+182.23,
+151.72
+],
+[
+"a",
+1,
+182.23,
+139.72,
+189.43,
+151.72
+],
+[
+"t",
+1,
+189.43,
+139.72,
+196.63,
+151.72
+],
+[
+"i",
+1,
+196.63,
+139.72,
+203.83,
+151.72
+],
+[
+"o",
+1,
+203.83,
+139.72,
+211.03,
+151.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "CASPAR",
+"start": 259,
+"end": 265,
+"label": "NAME_GIVEN",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"C",
+1,
+146.22,
+151.72,
+153.42,
+163.72
+],
+[
+"A",
+1,
+153.42,
+151.72,
+160.62,
+163.72
+],
+[
+"S",
+1,
+160.62,
+151.72,
+167.82,
+163.72
+],
+[
+"P",
+1,
+167.83,
+151.72,
+175.03,
+163.72
+],
+[
+"A",
+1,
+175.03,
+151.72,
+182.23,
+163.72
+],
+[
+"R",
+1,
+182.23,
+151.72,
+189.43,
+163.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "VILLANUEVA",
+"start": 266,
+"end": 276,
+"label": "NAME_FAMILY",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"V",
+1,
+196.63,
+151.72,
+203.83,
+163.72
+],
+[
+"I",
+1,
+203.83,
+151.72,
+211.03,
+163.72
+],
+[
+"L",
+1,
+211.03,
+151.72,
+218.23,
+163.72
+],
+[
+"L",
+1,
+218.23,
+151.72,
+225.43,
+163.72
+],
+[
+"A",
+1,
+225.43,
+151.72,
+232.63,
+163.72
+],
+[
+"N",
+1,
+232.64,
+151.72,
+239.84,
+163.72
+],
+[
+"U",
+1,
+239.84,
+151.72,
+247.04,
+163.72
+],
+[
+"E",
+1,
+247.04,
+151.72,
+254.24,
+163.72
+],
+[
+"V",
+1,
+254.24,
+151.72,
+261.44,
+163.72
+],
+[
+"A",
+1,
+261.44,
+151.72,
+268.64,
+163.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "+1 617 555 0176",
+"start": 411,
+"end": 426,
+"label": "PHONE_NUMBER",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"+",
+1,
+283.04,
+211.72,
+290.24,
+223.72
+],
+[
+"1",
+1,
+290.25,
+211.72,
+297.45,
+223.72
+],
+[
+"6",
+1,
+304.65,
+211.72,
+311.85,
+223.72
+],
+[
+"1",
+1,
+311.85,
+211.72,
+319.05,
+223.72
+],
+[
+"7",
+1,
+319.05,
+211.72,
+326.25,
+223.72
+],
+[
+"5",
+1,
+333.45,
+211.72,
+340.65,
+223.72
+],
+[
+"5",
+1,
+340.65,
+211.72,
+347.85,
+223.72
+],
+[
+"5",
+1,
+347.86,
+211.72,
+355.06,
+223.72
+],
+[
+"0",
+1,
+362.26,
+211.72,
+369.46,
+223.72
+],
+[
+"1",
+1,
+369.46,
+211.72,
+376.66,
+223.72
+],
+[
+"7",
+1,
+376.66,
+211.72,
+383.86,
+223.72
+],
+[
+"6",
+1,
+383.86,
+211.72,
+391.06,
+223.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Eastwick",
+"start": 431,
+"end": 439,
+"label": "NAME_FAMILY",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"E",
+1,
+67.01,
+223.72,
+74.21,
+235.72
+],
+[
+"a",
+1,
+74.21,
+223.72,
+81.41,
+235.72
+],
+[
+"s",
+1,
+81.41,
+223.72,
+88.61,
+235.72
+],
+[
+"t",
+1,
+88.61,
+223.72,
+95.81,
+235.72
+],
+[
+"w",
+1,
+95.81,
+223.72,
+103.01,
+235.72
+],
+[
+"i",
+1,
+103.01,
+223.72,
+110.21,
+235.72
+],
+[
+"c",
+1,
+110.22,
+223.72,
+117.42,
+235.72
+],
+[
+"k",
+1,
+117.42,
+223.72,
+124.62,
+235.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "617-555-0162",
+"start": 444,
+"end": 456,
+"label": "PHONE_NUMBER",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"6",
+1,
+160.62,
+223.72,
+167.82,
+235.72
+],
+[
+"1",
+1,
+167.83,
+223.72,
+175.03,
+235.72
+],
+[
+"7",
+1,
+175.03,
+223.72,
+182.23,
+235.72
+],
+[
+"-",
+1,
+182.23,
+223.72,
+189.43,
+235.72
+],
+[
+"5",
+1,
+189.43,
+223.72,
+196.63,
+235.72
+],
+[
+"5",
+1,
+196.63,
+223.72,
+203.83,
+235.72
+],
+[
+"5",
+1,
+203.83,
+223.72,
+211.03,
+235.72
+],
+[
+"-",
+1,
+211.03,
+223.72,
+218.23,
+235.72
+],
+[
+"0",
+1,
+218.23,
+223.72,
+225.43,
+235.72
+],
+[
+"1",
+1,
+225.43,
+223.72,
+232.63,
+235.72
+],
+[
+"6",
+1,
+232.64,
+223.72,
+239.84,
+235.72
+],
+[
+"2",
+1,
+239.84,
+223.72,
+247.04,
+235.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Villanueva",
+"start": 461,
+"end": 471,
+"label": "NAME_FAMILY",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"V",
+1,
+283.04,
+223.72,
+290.24,
+235.72
+],
+[
+"i",
+1,
+290.25,
+223.72,
+297.45,
+235.72
+],
+[
+"l",
+1,
+297.45,
+223.72,
+304.65,
+235.72
+],
+[
+"l",
+1,
+304.65,
+223.72,
+311.85,
+235.72
+],
+[
+"a",
+1,
+311.85,
+223.72,
+319.05,
+235.72
+],
+[
+"n",
+1,
+319.05,
+223.72,
+326.25,
+235.72
+],
+[
+"u",
+1,
+326.25,
+223.72,
+333.45,
+235.72
+],
+[
+"e",
+1,
+333.45,
+223.72,
+340.65,
+235.72
+],
+[
+"v",
+1,
+340.65,
+223.72,
+347.85,
+235.72
+],
+[
+"a",
+1,
+347.86,
+223.72,
+355.06,
+235.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Saltmarsh Insurance Group Inc.",
+"start": 492,
+"end": 522,
+"label": "ORGANIZATION",
+"characters": [
+"org_1"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"S",
+1,
+153.42,
+235.72,
+160.62,
+247.72
+],
+[
+"a",
+1,
+160.62,
+235.72,
+167.82,
+247.72
+],
+[
+"l",
+1,
+167.83,
+235.72,
+175.03,
+247.72
+],
+[
+"t",
+1,
+175.03,
+235.72,
+182.23,
+247.72
+],
+[
+"m",
+1,
+182.23,
+235.72,
+189.43,
+247.72
+],
+[
+"a",
+1,
+189.43,
+235.72,
+196.63,
+247.72
+],
+[
+"r",
+1,
+196.63,
+235.72,
+203.83,
+247.72
+],
+[
+"s",
+1,
+203.83,
+235.72,
+211.03,
+247.72
+],
+[
+"h",
+1,
+211.03,
+235.72,
+218.23,
+247.72
+],
+[
+"I",
+1,
+225.43,
+235.72,
+232.63,
+247.72
+],
+[
+"n",
+1,
+232.64,
+235.72,
+239.84,
+247.72
+],
+[
+"s",
+1,
+239.84,
+235.72,
+247.04,
+247.72
+],
+[
+"u",
+1,
+247.04,
+235.72,
+254.24,
+247.72
+],
+[
+"r",
+1,
+254.24,
+235.72,
+261.44,
+247.72
+],
+[
+"a",
+1,
+261.44,
+235.72,
+268.64,
+247.72
+],
+[
+"n",
+1,
+268.64,
+235.72,
+275.84,
+247.72
+],
+[
+"c",
+1,
+275.84,
+235.72,
+283.04,
+247.72
+],
+[
+"e",
+1,
+283.04,
+235.72,
+290.24,
+247.72
+],
+[
+"G",
+1,
+297.45,
+235.72,
+304.65,
+247.72
+],
+[
+"r",
+1,
+304.65,
+235.72,
+311.85,
+247.72
+],
+[
+"o",
+1,
+311.85,
+235.72,
+319.05,
+247.72
+],
+[
+"u",
+1,
+319.05,
+235.72,
+326.25,
+247.72
+],
+[
+"p",
+1,
+326.25,
+235.72,
+333.45,
+247.72
+],
+[
+"I",
+1,
+340.65,
+235.72,
+347.85,
+247.72
+],
+[
+"n",
+1,
+347.86,
+235.72,
+355.06,
+247.72
+],
+[
+"c",
+1,
+355.06,
+235.72,
+362.26,
+247.72
+],
+[
+".",
+1,
+362.26,
+235.72,
+369.46,
+247.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "8233753977",
+"start": 595,
+"end": 605,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"8",
+1,
+218.23,
+271.72,
+225.43,
+283.72
+],
+[
+"2",
+1,
+225.43,
+271.72,
+232.63,
+283.72
+],
+[
+"3",
+1,
+232.64,
+271.72,
+239.84,
+283.72
+],
+[
+"3",
+1,
+239.84,
+271.72,
+247.04,
+283.72
+],
+[
+"7",
+1,
+247.04,
+271.72,
+254.24,
+283.72
+],
+[
+"5",
+1,
+254.24,
+271.72,
+261.44,
+283.72
+],
+[
+"3",
+1,
+261.44,
+271.72,
+268.64,
+283.72
+],
+[
+"9",
+1,
+268.64,
+271.72,
+275.84,
+283.72
+],
+[
+"7",
+1,
+275.84,
+271.72,
+283.04,
+283.72
+],
+[
+"7",
+1,
+283.04,
+271.72,
+290.24,
+283.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Saltmarsh",
+"start": 640,
+"end": 649,
+"label": "ORGANIZATION",
+"characters": [
+"org_1"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"S",
+1,
+254.24,
+283.72,
+261.44,
+295.72
+],
+[
+"a",
+1,
+261.44,
+283.72,
+268.64,
+295.72
+],
+[
+"l",
+1,
+268.64,
+283.72,
+275.84,
+295.72
+],
+[
+"t",
+1,
+275.84,
+283.72,
+283.04,
+295.72
+],
+[
+"m",
+1,
+283.04,
+283.72,
+290.24,
+295.72
+],
+[
+"a",
+1,
+290.25,
+283.72,
+297.45,
+295.72
+],
+[
+"r",
+1,
+297.45,
+283.72,
+304.65,
+295.72
+],
+[
+"s",
+1,
+304.65,
+283.72,
+311.85,
+295.72
+],
+[
+"h",
+1,
+311.85,
+283.72,
+319.05,
+295.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Gideon",
+"start": 651,
+"end": 657,
+"label": "NAME_GIVEN",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"G",
+1,
+16.6,
+307.72,
+23.8,
+319.72
+],
+[
+"i",
+1,
+23.8,
+307.72,
+31.0,
+319.72
+],
+[
+"d",
+1,
+31.0,
+307.72,
+38.2,
+319.72
+],
+[
+"e",
+1,
+38.2,
+307.72,
+45.4,
+319.72
+],
+[
+"o",
+1,
+45.4,
+307.72,
+52.6,
+319.72
+],
+[
+"n",
+1,
+52.61,
+307.72,
+59.81,
+319.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Holloway",
+"start": 658,
+"end": 666,
+"label": "NAME_FAMILY",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"H",
+1,
+67.01,
+307.72,
+74.21,
+319.72
+],
+[
+"o",
+1,
+74.21,
+307.72,
+81.41,
+319.72
+],
+[
+"l",
+1,
+81.41,
+307.72,
+88.61,
+319.72
+],
+[
+"l",
+1,
+88.61,
+307.72,
+95.81,
+319.72
+],
+[
+"o",
+1,
+95.81,
+307.72,
+103.01,
+319.72
+],
+[
+"w",
+1,
+103.01,
+307.72,
+110.21,
+319.72
+],
+[
+"a",
+1,
+110.22,
+307.72,
+117.42,
+319.72
+],
+[
+"y",
+1,
+117.42,
+307.72,
+124.62,
+319.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Saltmarsh Insurance Group Inc.",
+"start": 689,
+"end": 719,
+"label": "ORGANIZATION",
+"characters": [
+"org_1"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"S",
+1,
+175.03,
+319.72,
+182.23,
+331.72
+],
+[
+"a",
+1,
+182.23,
+319.72,
+189.43,
+331.72
+],
+[
+"l",
+1,
+189.43,
+319.72,
+196.63,
+331.72
+],
+[
+"t",
+1,
+196.63,
+319.72,
+203.83,
+331.72
+],
+[
+"m",
+1,
+203.83,
+319.72,
+211.03,
+331.72
+],
+[
+"a",
+1,
+211.03,
+319.72,
+218.23,
+331.72
+],
+[
+"r",
+1,
+218.23,
+319.72,
+225.43,
+331.72
+],
+[
+"s",
+1,
+225.43,
+319.72,
+232.63,
+331.72
+],
+[
+"h",
+1,
+232.64,
+319.72,
+239.84,
+331.72
+],
+[
+"I",
+1,
+247.04,
+319.72,
+254.24,
+331.72
+],
+[
+"n",
+1,
+254.24,
+319.72,
+261.44,
+331.72
+],
+[
+"s",
+1,
+261.44,
+319.72,
+268.64,
+331.72
+],
+[
+"u",
+1,
+268.64,
+319.72,
+275.84,
+331.72
+],
+[
+"r",
+1,
+275.84,
+319.72,
+283.04,
+331.72
+],
+[
+"a",
+1,
+283.04,
+319.72,
+290.24,
+331.72
+],
+[
+"n",
+1,
+290.25,
+319.72,
+297.45,
+331.72
+],
+[
+"c",
+1,
+297.45,
+319.72,
+304.65,
+331.72
+],
+[
+"e",
+1,
+304.65,
+319.72,
+311.85,
+331.72
+],
+[
+"G",
+1,
+319.05,
+319.72,
+326.25,
+331.72
+],
+[
+"r",
+1,
+326.25,
+319.72,
+333.45,
+331.72
+],
+[
+"o",
+1,
+333.45,
+319.72,
+340.65,
+331.72
+],
+[
+"u",
+1,
+340.65,
+319.72,
+347.85,
+331.72
+],
+[
+"p",
+1,
+347.86,
+319.72,
+355.06,
+331.72
+],
+[
+"I",
+1,
+362.26,
+319.72,
+369.46,
+331.72
+],
+[
+"n",
+1,
+369.46,
+319.72,
+376.66,
+331.72
+],
+[
+"c",
+1,
+376.66,
+319.72,
+383.86,
+331.72
+],
+[
+".",
+1,
+383.86,
+319.72,
+391.06,
+331.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "gideon.holloway@saltmarsh.test",
+"start": 720,
+"end": 750,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"g",
+1,
+16.6,
+331.72,
+23.8,
+343.72
+],
+[
+"i",
+1,
+23.8,
+331.72,
+31.0,
+343.72
+],
+[
+"d",
+1,
+31.0,
+331.72,
+38.2,
+343.72
+],
+[
+"e",
+1,
+38.2,
+331.72,
+45.4,
+343.72
+],
+[
+"o",
+1,
+45.4,
+331.72,
+52.6,
+343.72
+],
+[
+"n",
+1,
+52.61,
+331.72,
+59.81,
+343.72
+],
+[
+".",
+1,
+59.81,
+331.72,
+67.01,
+343.72
+],
+[
+"h",
+1,
+67.01,
+331.72,
+74.21,
+343.72
+],
+[
+"o",
+1,
+74.21,
+331.72,
+81.41,
+343.72
+],
+[
+"l",
+1,
+81.41,
+331.72,
+88.61,
+343.72
+],
+[
+"l",
+1,
+88.61,
+331.72,
+95.81,
+343.72
+],
+[
+"o",
+1,
+95.81,
+331.72,
+103.01,
+343.72
+],
+[
+"w",
+1,
+103.01,
+331.72,
+110.21,
+343.72
+],
+[
+"a",
+1,
+110.22,
+331.72,
+117.42,
+343.72
+],
+[
+"y",
+1,
+117.42,
+331.72,
+124.62,
+343.72
+],
+[
+"@",
+1,
+124.62,
+331.72,
+131.82,
+343.72
+],
+[
+"s",
+1,
+131.82,
+331.72,
+139.02,
+343.72
+],
+[
+"a",
+1,
+139.02,
+331.72,
+146.22,
+343.72
+],
+[
+"l",
+1,
+146.22,
+331.72,
+153.42,
+343.72
+],
+[
+"t",
+1,
+153.42,
+331.72,
+160.62,
+343.72
+],
+[
+"m",
+1,
+160.62,
+331.72,
+167.82,
+343.72
+],
+[
+"a",
+1,
+167.83,
+331.72,
+175.03,
+343.72
+],
+[
+"r",
+1,
+175.03,
+331.72,
+182.23,
+343.72
+],
+[
+"s",
+1,
+182.23,
+331.72,
+189.43,
+343.72
+],
+[
+"h",
+1,
+189.43,
+331.72,
+196.63,
+343.72
+],
+[
+".",
+1,
+196.63,
+331.72,
+203.83,
+343.72
+],
+[
+"t",
+1,
+203.83,
+331.72,
+211.03,
+343.72
+],
+[
+"e",
+1,
+211.03,
+331.72,
+218.23,
+343.72
+],
+[
+"s",
+1,
+218.23,
+331.72,
+225.43,
+343.72
+],
+[
+"t",
+1,
+225.43,
+331.72,
+232.63,
+343.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "617.555.0153",
+"start": 753,
+"end": 765,
+"label": "PHONE_NUMBER",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"6",
+1,
+254.24,
+331.72,
+261.44,
+343.72
+],
+[
+"1",
+1,
+261.44,
+331.72,
+268.64,
+343.72
+],
+[
+"7",
+1,
+268.64,
+331.72,
+275.84,
+343.72
+],
+[
+".",
+1,
+275.84,
+331.72,
+283.04,
+343.72
+],
+[
+"5",
+1,
+283.04,
+331.72,
+290.24,
+343.72
+],
+[
+"5",
+1,
+290.25,
+331.72,
+297.45,
+343.72
+],
+[
+"5",
+1,
+297.45,
+331.72,
+304.65,
+343.72
+],
+[
+".",
+1,
+304.65,
+331.72,
+311.85,
+343.72
+],
+[
+"0",
+1,
+311.85,
+331.72,
+319.05,
+343.72
+],
+[
+"1",
+1,
+319.05,
+331.72,
+326.25,
+343.72
+],
+[
+"5",
+1,
+326.25,
+331.72,
+333.45,
+343.72
+],
+[
+"3",
+1,
+333.45,
+331.72,
+340.65,
+343.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "https://www.saltmarsh.test",
+"start": 766,
+"end": 792,
+"label": "URL",
+"characters": [
+"org_1"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"h",
+1,
+16.6,
+343.72,
+23.8,
+355.72
+],
+[
+"t",
+1,
+23.8,
+343.72,
+31.0,
+355.72
+],
+[
+"t",
+1,
+31.0,
+343.72,
+38.2,
+355.72
+],
+[
+"p",
+1,
+38.2,
+343.72,
+45.4,
+355.72
+],
+[
+"s",
+1,
+45.4,
+343.72,
+52.6,
+355.72
+],
+[
+":",
+1,
+52.61,
+343.72,
+59.81,
+355.72
+],
+[
+"/",
+1,
+59.81,
+343.72,
+67.01,
+355.72
+],
+[
+"/",
+1,
+67.01,
+343.72,
+74.21,
+355.72
+],
+[
+"w",
+1,
+74.21,
+343.72,
+81.41,
+355.72
+],
+[
+"w",
+1,
+81.41,
+343.72,
+88.61,
+355.72
+],
+[
+"w",
+1,
+88.61,
+343.72,
+95.81,
+355.72
+],
+[
+".",
+1,
+95.81,
+343.72,
+103.01,
+355.72
+],
+[
+"s",
+1,
+103.01,
+343.72,
+110.21,
+355.72
+],
+[
+"a",
+1,
+110.22,
+343.72,
+117.42,
+355.72
+],
+[
+"l",
+1,
+117.42,
+343.72,
+124.62,
+355.72
+],
+[
+"t",
+1,
+124.62,
+343.72,
+131.82,
+355.72
+],
+[
+"m",
+1,
+131.82,
+343.72,
+139.02,
+355.72
+],
+[
+"a",
+1,
+139.02,
+343.72,
+146.22,
+355.72
+],
+[
+"r",
+1,
+146.22,
+343.72,
+153.42,
+355.72
+],
+[
+"s",
+1,
+153.42,
+343.72,
+160.62,
+355.72
+],
+[
+"h",
+1,
+160.62,
+343.72,
+167.82,
+355.72
+],
+[
+".",
+1,
+167.83,
+343.72,
+175.03,
+355.72
+],
+[
+"t",
+1,
+175.03,
+343.72,
+182.23,
+355.72
+],
+[
+"e",
+1,
+182.23,
+343.72,
+189.43,
+355.72
+],
+[
+"s",
+1,
+189.43,
+343.72,
+196.63,
+355.72
+],
+[
+"t",
+1,
+196.63,
+343.72,
+203.83,
+355.72
+]
+],
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "m00009ba5c8269",
+"from": {
+"name": "Jasper Underhill",
+"email": "jasper@willowmere.test"
+},
+"to": [
+{
+"name": "Gideon Holloway",
+"email": "gideon.holloway@saltmarsh.test"
+}
+],
+"cc": [
+{
+"name": "Jasper Underhill",
+"email": "jasper@willowmere.test"
+},
+{
+"name": "Isolde Brannick",
+"email": "brannick.isolde@halvorsen-dynamics.test"
+}
+],
+"subject": "the budget freeze",
+"datetime": "2026-03-11T09:25:00Z",
+"thread_id": "m00009ba5c8269"
+},
+"text": "Hello Gideon,\n\nQuick note on the budget freeze: all signed off. Jasper Underhill of Willowmere Staffing asked for the invoice.\n\nBest,\nJasper Underhill\nOffice Manager | Willowmere Staffing\n617.555.0191 | jasper@willowmere.test\nhttps://www.willowmere.test\n\r",
+"file": {
+"kind": "eml",
+"path": "email/m00009ba5c8269.eml",
+"sha256": "4a6ace45b3477770b704b6f3d7f4d38a7197de7ae132ea121fe6e43c08d16d99",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Gideon",
+"start": 6,
+"end": 12,
+"label": "NAME_GIVEN",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 423,
+"file_char_end": 429,
+"status": "located"
+}
+},
+{
+"text": "Jasper",
+"start": 64,
+"end": 70,
+"label": "NAME_GIVEN",
+"characters": [
+"p14"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 483,
+"file_char_end": 489,
+"status": "located"
+}
+},
+{
+"text": "Underhill",
+"start": 71,
+"end": 80,
+"label": "NAME_FAMILY",
+"characters": [
+"p14"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 490,
+"file_char_end": 499,
+"status": "located"
+}
+},
+{
+"text": "Willowmere Staffing",
+"start": 84,
+"end": 103,
+"label": "ORGANIZATION",
+"characters": [
+"org_4"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 503,
+"file_char_end": 522,
+"status": "located"
+}
+},
+{
+"text": "Jasper",
+"start": 134,
+"end": 140,
+"label": "NAME_GIVEN",
+"characters": [
+"p14"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 556,
+"file_char_end": 562,
+"status": "located"
+}
+},
+{
+"text": "Underhill",
+"start": 141,
+"end": 150,
+"label": "NAME_FAMILY",
+"characters": [
+"p14"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 563,
+"file_char_end": 572,
+"status": "located"
+}
+},
+{
+"text": "Willowmere Staffing",
+"start": 168,
+"end": 187,
+"label": "ORGANIZATION",
+"characters": [
+"org_4"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 591,
+"file_char_end": 610,
+"status": "located"
+}
+},
+{
+"text": "617.555.0191",
+"start": 188,
+"end": 200,
+"label": "PHONE_NUMBER",
+"characters": [
+"p14"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 612,
+"file_char_end": 624,
+"status": "located"
+}
+},
+{
+"text": "jasper@willowmere.test",
+"start": 203,
+"end": 225,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p14"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 627,
+"file_char_end": 649,
+"status": "located"
+}
+},
+{
+"text": "https://www.willowmere.test",
+"start": 226,
+"end": 253,
+"label": "URL",
+"characters": [
+"org_4"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 651,
+"file_char_end": 678,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "m00010e4957e18",
+"from": {
+"name": "Isolde Brannick",
+"email": "brannick.isolde@halvorsen-dynamics.test"
+},
+"to": [
+{
+"name": "Caspar Villanueva",
+"email": "villanueva.caspar@halvorsen-dynamics.test"
+}
+],
+"cc": [],
+"subject": "the Q3 vendor review",
+"datetime": "2026-03-12T12:24:00Z",
+"thread_id": "m00010e4957e18"
+},
+"text": "Dear Caspar,\n\nQuick note on the Q3 vendor review: the vendor needs a PO. Uriah Ashby of Saltmarsh Insurance Group Inc. will join the call.\n\nRegards,\nIsolde Brannick\nMarketing Associate | Halvorsen Dynamics\n+1 617 555 0193 | brannick.isolde@halvorsen-dynamics.test\nEmployee ID HD-75803\n1895 Wexford Court, Carverton, OH 43215\nhttps://www.halvorsen-dynamics.test\n\r",
+"file": {
+"kind": "eml",
+"path": "email/m00010e4957e18.eml",
+"sha256": "5e0fe87452ffea064018f9bbf11fe334232e6edb62c35c063d0572bd1a3b8f6a",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Caspar",
+"start": 5,
+"end": 11,
+"label": "NAME_GIVEN",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 356,
+"file_char_end": 362,
+"status": "located"
+}
+},
+{
+"text": "Uriah",
+"start": 73,
+"end": 78,
+"label": "NAME_GIVEN",
+"characters": [
+"p11"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 426,
+"file_char_end": 431,
+"status": "located"
+}
+},
+{
+"text": "Ashby",
+"start": 79,
+"end": 84,
+"label": "NAME_FAMILY",
+"characters": [
+"p11"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 432,
+"file_char_end": 437,
+"status": "located"
+}
+},
+{
+"text": "Saltmarsh Insurance Group Inc.",
+"start": 88,
+"end": 118,
+"label": "ORGANIZATION",
+"characters": [
+"org_1"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 441,
+"file_char_end": 471,
+"status": "located"
+}
+},
+{
+"text": "Isolde",
+"start": 149,
+"end": 155,
+"label": "NAME_GIVEN",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 505,
+"file_char_end": 511,
+"status": "located"
+}
+},
+{
+"text": "Brannick",
+"start": 156,
+"end": 164,
+"label": "NAME_FAMILY",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 512,
+"file_char_end": 520,
+"status": "located"
+}
+},
+{
+"text": "Halvorsen Dynamics",
+"start": 187,
+"end": 205,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 544,
+"file_char_end": 562,
+"status": "located"
+}
+},
+{
+"text": "+1 617 555 0193",
+"start": 206,
+"end": 221,
+"label": "PHONE_NUMBER",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 564,
+"file_char_end": 579,
+"status": "located"
+}
+},
+{
+"text": "brannick.isolde@halvorsen-dynamics.test",
+"start": 224,
+"end": 263,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 582,
+"file_char_end": 621,
+"status": "located"
+}
+},
+{
+"text": "HD-75803",
+"start": 276,
+"end": 284,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 635,
+"file_char_end": 643,
+"status": "located"
+}
+},
+{
+"text": "1895 Wexford Court",
+"start": 285,
+"end": 303,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 645,
+"file_char_end": 663,
+"status": "located"
+}
+},
+{
+"text": "https://www.halvorsen-dynamics.test",
+"start": 325,
+"end": 360,
+"label": "URL",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 686,
+"file_char_end": 721,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "m000119eb88a19",
+"from": {
+"name": "Gideon Holloway",
+"email": "gideon.holloway@saltmarsh.test"
+},
+"to": [
+{
+"name": "Ulric Ashcombe",
+"email": "uashcombe@old.test"
+}
+],
+"cc": [
+{
+"name": "Oswin Vickery",
+"email": "oswin.vickery@halvorsen-dynamics.test"
+}
+],
+"subject": "the training week",
+"datetime": "2026-03-13T15:09:00Z",
+"thread_id": "m000119eb88a19"
+},
+"text": "Hi Ulric Ashcombe,\n\nQuick note on the training week: we are on track. Romilly Quiroga of Ridgeback will join the call.\n\nRegards,\nGideon Holloway\nTraining Coordinator | Saltmarsh Insurance Group Inc.\n\r",
+"file": {
+"kind": "eml",
+"path": "email/m000119eb88a19.eml",
+"sha256": "90149b65656389373f0820716ba22600fa872e99ad38a4e2b040e2e0b454372f",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Ulric",
+"start": 3,
+"end": 8,
+"label": "NAME_GIVEN",
+"characters": [
+"p12"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 366,
+"file_char_end": 371,
+"status": "located"
+}
+},
+{
+"text": "Ashcombe",
+"start": 9,
+"end": 17,
+"label": "NAME_FAMILY",
+"characters": [
+"p12"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 372,
+"file_char_end": 380,
+"status": "located"
+}
+},
+{
+"text": "Romilly",
+"start": 70,
+"end": 77,
+"label": "NAME_GIVEN",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 435,
+"file_char_end": 442,
+"status": "located"
+}
+},
+{
+"text": "Quiroga",
+"start": 78,
+"end": 85,
+"label": "NAME_FAMILY",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 443,
+"file_char_end": 450,
+"status": "located"
+}
+},
+{
+"text": "Ridgeback",
+"start": 89,
+"end": 98,
+"label": "ORGANIZATION",
+"characters": [
+"org_2"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 454,
+"file_char_end": 463,
+"status": "located"
+}
+},
+{
+"text": "Gideon",
+"start": 129,
+"end": 135,
+"label": "NAME_GIVEN",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 497,
+"file_char_end": 503,
+"status": "located"
+}
+},
+{
+"text": "Holloway",
+"start": 136,
+"end": 144,
+"label": "NAME_FAMILY",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 504,
+"file_char_end": 512,
+"status": "located"
+}
+},
+{
+"text": "Saltmarsh Insurance Group Inc.",
+"start": 168,
+"end": 198,
+"label": "ORGANIZATION",
+"characters": [
+"org_1"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 537,
+"file_char_end": 567,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "m00012111ae4a3",
+"from": {
+"name": "Nerissa Osgood",
+"email": "nerissa@old.test"
+},
+"to": [
+{
+"name": "Ignatius Barrowcliffe",
+"email": "ignatius@halvorsen-dynamics.test"
+}
+],
+"cc": [
+{
+"name": "Isolde Brannick",
+"email": "brannick.isolde@halvorsen-dynamics.test"
+}
+],
+"subject": "the badge system rollout",
+"datetime": "2026-03-14T16:53:00Z",
+"thread_id": "m00012111ae4a3"
+},
+"text": "Hello Ignatius,\n\nQuick note on the badge system rollout: we are on track.\n\nRegards,\nNerissa Osgood\nProcurement Officer | Old Mill Accounting\n617-555-0107 | nerissa@old.test\n\r",
+"file": {
+"kind": "eml",
+"path": "email/m00012111ae4a3.eml",
+"sha256": "0b4233fda59ce5273700c17b50951843c9a90518347496d715ce9bcb51a1c7a7",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Ignatius",
+"start": 6,
+"end": 14,
+"label": "NAME_GIVEN",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 380,
+"file_char_end": 388,
+"status": "located"
+}
+},
+{
+"text": "Nerissa",
+"start": 84,
+"end": 91,
+"label": "NAME_GIVEN",
+"characters": [
+"p17"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 463,
+"file_char_end": 470,
+"status": "located"
+}
+},
+{
+"text": "Osgood",
+"start": 92,
+"end": 98,
+"label": "NAME_FAMILY",
+"characters": [
+"p17"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 471,
+"file_char_end": 477,
+"status": "located"
+}
+},
+{
+"text": "Old Mill Accounting",
+"start": 121,
+"end": 140,
+"label": "ORGANIZATION",
+"characters": [
+"org_3"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 501,
+"file_char_end": 520,
+"status": "located"
+}
+},
+{
+"text": "617-555-0107",
+"start": 141,
+"end": 153,
+"label": "PHONE_NUMBER",
+"characters": [
+"p17"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 522,
+"file_char_end": 534,
+"status": "located"
+}
+},
+{
+"text": "nerissa@old.test",
+"start": 156,
+"end": 172,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p17"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 537,
+"file_char_end": 553,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "m000136249ddd4",
+"from": {
+"name": "Sylvie Abernathy",
+"email": "sylvie.abernathy@halvorsen-dynamics.test"
+},
+"to": [
+{
+"name": "Nerissa Osgood",
+"email": "nerissa@old.test"
+}
+],
+"cc": [],
+"subject": "the client kickoff",
+"datetime": "2026-03-15T17:41:00Z",
+"thread_id": "m000136249ddd4"
+},
+"text": "Dear Nerissa Osgood,\n\nStatus for the client kickoff: the vendor needs a PO. Call me on +1 617 555 0137.\n\nRegards,\nSylvie Abernathy\nScheduler | Halvorsen Dynamics\n\r",
+"file": {
+"kind": "eml",
+"path": "email/m000136249ddd4.eml",
+"sha256": "5dae1cb6746e3fe8c3025c99c09b5331c6514723166e83bd56151dc292cd9b9d",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Nerissa",
+"start": 5,
+"end": 12,
+"label": "NAME_GIVEN",
+"characters": [
+"p17"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 328,
+"file_char_end": 335,
+"status": "located"
+}
+},
+{
+"text": "Osgood",
+"start": 13,
+"end": 19,
+"label": "NAME_FAMILY",
+"characters": [
+"p17"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 336,
+"file_char_end": 342,
+"status": "located"
+}
+},
+{
+"text": "+1 617 555 0137",
+"start": 87,
+"end": 102,
+"label": "PHONE_NUMBER",
+"characters": [
+"p18"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 412,
+"file_char_end": 427,
+"status": "located"
+}
+},
+{
+"text": "Sylvie",
+"start": 114,
+"end": 120,
+"label": "NAME_GIVEN",
+"characters": [
+"p18"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 442,
+"file_char_end": 448,
+"status": "located"
+}
+},
+{
+"text": "Abernathy",
+"start": 121,
+"end": 130,
+"label": "NAME_FAMILY",
+"characters": [
+"p18"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 449,
+"file_char_end": 458,
+"status": "located"
+}
+},
+{
+"text": "Halvorsen Dynamics",
+"start": 143,
+"end": 161,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 472,
+"file_char_end": 490,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772442000.161794",
+"from": {
+"user_id": "U3LH2KSFH",
+"name": "Oswin Vickery"
+},
+"channel": "dm-ibrannick",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772442000.161794"
+},
+"text": "ok isolde i sent it",
+"file": {
+"kind": "slack",
+"path": "slack/dm-ibrannick/2026-03-02.json",
+"sha256": "a24b416b42a0aeb66d50a658f8698e691053e636818eed901faa3cabd349c1ab",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "isolde",
+"start": 3,
+"end": 9,
+"label": "NAME_GIVEN",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 3,
+"end": 9,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772528437.686275",
+"from": {
+"user_id": "U7SFXCAT0",
+"name": "Isolde Brannick"
+},
+"channel": "dm-ibrannick",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772528437.686275"
+},
+"text": "ok oswin i sent it",
+"file": {
+"kind": "slack",
+"path": "slack/dm-ibrannick/2026-03-02.json",
+"sha256": "a24b416b42a0aeb66d50a658f8698e691053e636818eed901faa3cabd349c1ab",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "oswin",
+"start": 3,
+"end": 8,
+"label": "NAME_GIVEN",
+"characters": [
+"p08"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 3,
+"end": 8,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772614874.128786",
+"from": {
+"user_id": "U7SFXCAT0",
+"name": "Isolde Brannick"
+},
+"channel": "dm-ibrannick",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772614874.128786"
+},
+"text": "did Winterhalde reply?",
+"file": {
+"kind": "slack",
+"path": "slack/dm-ibrannick/2026-03-02.json",
+"sha256": "a24b416b42a0aeb66d50a658f8698e691053e636818eed901faa3cabd349c1ab",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Winterhalde",
+"start": 4,
+"end": 15,
+"label": "NAME_FAMILY",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 4,
+"end": 15,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772701311.501747",
+"from": {
+"user_id": "U3LH2KSFH",
+"name": "Oswin Vickery"
+},
+"channel": "dm-ibrannick",
+"datetime": "2026-03-04T09:00:00Z",
+"thread_ts": "1772701311.501747"
+},
+"text": "thx isolde see you at 2",
+"file": {
+"kind": "slack",
+"path": "slack/dm-ibrannick/2026-03-04.json",
+"sha256": "14f74eed4d664a769c554973072c1a21d92b765d52f66df065ac2ef660051b4f",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "isolde",
+"start": 4,
+"end": 10,
+"label": "NAME_GIVEN",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 4,
+"end": 10,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772787748.120145",
+"from": {
+"user_id": "U7SFXCAT0",
+"name": "Isolde Brannick"
+},
+"channel": "dm-ibrannick",
+"datetime": "2026-03-04T09:00:00Z",
+"thread_ts": "1772787748.120145"
+},
+"text": "use my personal one: isolde.brannick17@postwave.test",
+"file": {
+"kind": "slack",
+"path": "slack/dm-ibrannick/2026-03-04.json",
+"sha256": "14f74eed4d664a769c554973072c1a21d92b765d52f66df065ac2ef660051b4f",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "isolde.brannick17@postwave.test",
+"start": 21,
+"end": 52,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 21,
+"end": 52,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772874185.768104",
+"from": {
+"user_id": "U7SFXCAT0",
+"name": "Isolde Brannick"
+},
+"channel": "dm-ibrannick",
+"datetime": "2026-03-04T09:00:00Z",
+"thread_ts": "1772874185.768104"
+},
+"text": "use my personal one: isolde.brannick17@postwave.test",
+"file": {
+"kind": "slack",
+"path": "slack/dm-ibrannick/2026-03-04.json",
+"sha256": "14f74eed4d664a769c554973072c1a21d92b765d52f66df065ac2ef660051b4f",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "isolde.brannick17@postwave.test",
+"start": 21,
+"end": 52,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 21,
+"end": 52,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772960622.332507",
+"from": {
+"user_id": "U7SFXCAT0",
+"name": "Isolde Brannick"
+},
+"channel": "dm-ibrannick",
+"datetime": "2026-03-06T09:00:00Z",
+"thread_ts": "1772960622.332507"
+},
+"text": "thx oswin see you at 2",
+"file": {
+"kind": "slack",
+"path": "slack/dm-ibrannick/2026-03-06.json",
+"sha256": "fca3d05af4108c9d696ba4df9a651014b0a6b5c124fc206c4c423ff48bc8f5ca",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "oswin",
+"start": 4,
+"end": 9,
+"label": "NAME_GIVEN",
+"characters": [
+"p08"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 4,
+"end": 9,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773047059.252553",
+"from": {
+"user_id": "U3LH2KSFH",
+"name": "Oswin Vickery"
+},
+"channel": "dm-ibrannick",
+"datetime": "2026-03-06T09:00:00Z",
+"thread_ts": "1773047059.252553"
+},
+"text": "ok isolde see you at 2",
+"file": {
+"kind": "slack",
+"path": "slack/dm-ibrannick/2026-03-06.json",
+"sha256": "fca3d05af4108c9d696ba4df9a651014b0a6b5c124fc206c4c423ff48bc8f5ca",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "isolde",
+"start": 3,
+"end": 9,
+"label": "NAME_GIVEN",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 3,
+"end": 9,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773133496.981390",
+"from": {
+"user_id": "U3LH2KSFH",
+"name": "Oswin Vickery"
+},
+"channel": "dm-ibrannick",
+"datetime": "2026-03-06T09:00:00Z",
+"thread_ts": "1773133496.981390"
+},
+"text": "has Ashby called back?",
+"file": {
+"kind": "slack",
+"path": "slack/dm-ibrannick/2026-03-06.json",
+"sha256": "fca3d05af4108c9d696ba4df9a651014b0a6b5c124fc206c4c423ff48bc8f5ca",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Ashby",
+"start": 4,
+"end": 9,
+"label": "NAME_FAMILY",
+"characters": [
+"p11"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 4,
+"end": 9,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772442000.701978",
+"from": {
+"user_id": "U821QB1V0",
+"name": "Caspar Villanueva"
+},
+"channel": "finance",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772442000.701978"
+},
+"text": "Quiroga, Romilly still has no cost centre",
+"file": {
+"kind": "slack",
+"path": "slack/finance/2026-03-02.json",
+"sha256": "a9f6e6dde6f81e6aaa637e2fedd9bb0e568e5764a45c8269902a129770949d35",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Quiroga",
+"start": 0,
+"end": 7,
+"label": "NAME_FAMILY",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 0,
+"end": 7,
+"status": "located"
+}
+},
+{
+"text": "Romilly",
+"start": 9,
+"end": 16,
+"label": "NAME_GIVEN",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 9,
+"end": 16,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772528437.957802",
+"from": {
+"user_id": "U1BU68WU6",
+"name": "Romilly Quiroga"
+},
+"channel": "finance",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772528437.957802"
+},
+"text": "Ashby, Uriah still has no cost centre",
+"file": {
+"kind": "slack",
+"path": "slack/finance/2026-03-02.json",
+"sha256": "a9f6e6dde6f81e6aaa637e2fedd9bb0e568e5764a45c8269902a129770949d35",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Ashby",
+"start": 0,
+"end": 5,
+"label": "NAME_FAMILY",
+"characters": [
+"p11"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 0,
+"end": 5,
+"status": "located"
+}
+},
+{
+"text": "Uriah",
+"start": 7,
+"end": 12,
+"label": "NAME_GIVEN",
+"characters": [
+"p11"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 7,
+"end": 12,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772614874.934610",
+"from": {
+"user_id": "U821QB1V0",
+"name": "Caspar Villanueva"
+},
+"channel": "finance",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772614874.934610"
+},
+"text": "roster v2 is up: Eastwick, Horatio and Winterhalde, Quinlan moved teams",
+"file": {
+"kind": "slack",
+"path": "slack/finance/2026-03-02.json",
+"sha256": "a9f6e6dde6f81e6aaa637e2fedd9bb0e568e5764a45c8269902a129770949d35",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Eastwick",
+"start": 17,
+"end": 25,
+"label": "NAME_FAMILY",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 17,
+"end": 25,
+"status": "located"
+}
+},
+{
+"text": "Horatio",
+"start": 27,
+"end": 34,
+"label": "NAME_GIVEN",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 27,
+"end": 34,
+"status": "located"
+}
+},
+{
+"text": "Winterhalde",
+"start": 39,
+"end": 50,
+"label": "NAME_FAMILY",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 39,
+"end": 50,
+"status": "located"
+}
+},
+{
+"text": "Quinlan",
+"start": 52,
+"end": 59,
+"label": "NAME_GIVEN",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 52,
+"end": 59,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772701311.939666",
+"from": {
+"user_id": "U3LH2KSFH",
+"name": "Oswin Vickery"
+},
+"channel": "finance",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772701311.939666"
+},
+"text": "roster v2 is up: Eastwick, Horatio and Thornquist, Ophelia moved teams",
+"file": {
+"kind": "slack",
+"path": "slack/finance/2026-03-02.json",
+"sha256": "a9f6e6dde6f81e6aaa637e2fedd9bb0e568e5764a45c8269902a129770949d35",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Eastwick",
+"start": 17,
+"end": 25,
+"label": "NAME_FAMILY",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/3/text",
+"start": 17,
+"end": 25,
+"status": "located"
+}
+},
+{
+"text": "Horatio",
+"start": 27,
+"end": 34,
+"label": "NAME_GIVEN",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/3/text",
+"start": 27,
+"end": 34,
+"status": "located"
+}
+},
+{
+"text": "Thornquist",
+"start": 39,
+"end": 49,
+"label": "NAME_FAMILY",
+"characters": [
+"p06"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/3/text",
+"start": 39,
+"end": 49,
+"status": "located"
+}
+},
+{
+"text": "Ophelia",
+"start": 51,
+"end": 58,
+"label": "NAME_GIVEN",
+"characters": [
+"p06"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/3/text",
+"start": 51,
+"end": 58,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772787748.584250",
+"from": {
+"user_id": "U821QB1V0",
+"name": "Caspar Villanueva"
+},
+"channel": "finance",
+"datetime": "2026-03-04T09:00:00Z",
+"thread_ts": "1772787748.584250"
+},
+"text": "Underhill, Jasper still has no cost centre",
+"file": {
+"kind": "slack",
+"path": "slack/finance/2026-03-04.json",
+"sha256": "b0ee721b418ad56a95ed7ad64ff6c6a49d1dcc1f4b5a42ed06daa7df8948a6ec",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Underhill",
+"start": 0,
+"end": 9,
+"label": "NAME_FAMILY",
+"characters": [
+"p14"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 0,
+"end": 9,
+"status": "located"
+}
+},
+{
+"text": "Jasper",
+"start": 11,
+"end": 17,
+"label": "NAME_GIVEN",
+"characters": [
+"p14"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 11,
+"end": 17,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772874185.786147",
+"from": {
+"user_id": "U7SFXCAT0",
+"name": "Isolde Brannick"
+},
+"channel": "finance",
+"datetime": "2026-03-04T09:00:00Z",
+"thread_ts": "1772874185.786147"
+},
+"text": "pay Saltmarsh Insurance Group Inc. against 9825070395",
+"file": {
+"kind": "slack",
+"path": "slack/finance/2026-03-04.json",
+"sha256": "b0ee721b418ad56a95ed7ad64ff6c6a49d1dcc1f4b5a42ed06daa7df8948a6ec",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Saltmarsh Insurance Group Inc.",
+"start": 4,
+"end": 34,
+"label": "ORGANIZATION",
+"characters": [
+"org_1"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 4,
+"end": 34,
+"status": "located"
+}
+},
+{
+"text": "9825070395",
+"start": 43,
+"end": 53,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"org_1"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 43,
+"end": 53,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772960622.290182",
+"from": {
+"user_id": "U5GYXC1B4",
+"name": "Boyd Tallis"
+},
+"channel": "finance",
+"datetime": "2026-03-04T09:00:00Z",
+"thread_ts": "1772960622.290182"
+},
+"text": "Brannick, Isolde still has no cost centre",
+"file": {
+"kind": "slack",
+"path": "slack/finance/2026-03-04.json",
+"sha256": "b0ee721b418ad56a95ed7ad64ff6c6a49d1dcc1f4b5a42ed06daa7df8948a6ec",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Brannick",
+"start": 0,
+"end": 8,
+"label": "NAME_FAMILY",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 0,
+"end": 8,
+"status": "located"
+}
+},
+{
+"text": "Isolde",
+"start": 10,
+"end": 16,
+"label": "NAME_GIVEN",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 10,
+"end": 16,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773047059.923769",
+"from": {
+"user_id": "U1UFL0N9U",
+"name": "Ignatius Barrowcliffe"
+},
+"channel": "finance",
+"datetime": "2026-03-04T09:00:00Z",
+"thread_ts": "1773047059.923769"
+},
+"text": "reimbursement to Ignatius Barrowcliffe, account 47807603, approved",
+"file": {
+"kind": "slack",
+"path": "slack/finance/2026-03-04.json",
+"sha256": "b0ee721b418ad56a95ed7ad64ff6c6a49d1dcc1f4b5a42ed06daa7df8948a6ec",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Ignatius",
+"start": 17,
+"end": 25,
+"label": "NAME_GIVEN",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/3/text",
+"start": 17,
+"end": 25,
+"status": "located"
+}
+},
+{
+"text": "Barrowcliffe",
+"start": 26,
+"end": 38,
+"label": "NAME_FAMILY",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/3/text",
+"start": 26,
+"end": 38,
+"status": "located"
+}
+},
+{
+"text": "47807603",
+"start": 48,
+"end": 56,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/3/text",
+"start": 48,
+"end": 56,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773133496.234546",
+"from": {
+"user_id": "U78C2GH0F",
+"name": "Uriah Ashby"
+},
+"channel": "finance",
+"datetime": "2026-03-06T09:00:00Z",
+"thread_ts": "1773133496.234546"
+},
+"text": "send the statement to nina.grimshaw@halvorsen-dynamics.test (Nina)",
+"file": {
+"kind": "slack",
+"path": "slack/finance/2026-03-06.json",
+"sha256": "e4e2cdf8ff5cd73b906ae60fefcfd110938bdd3d9c30bed5d6c7ceb650d0b002",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "nina.grimshaw@halvorsen-dynamics.test",
+"start": 22,
+"end": 59,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p07"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 22,
+"end": 59,
+"status": "located"
+}
+},
+{
+"text": "Nina",
+"start": 61,
+"end": 65,
+"label": "NAME_GIVEN",
+"characters": [
+"p07"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 61,
+"end": 65,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773219933.668562",
+"from": {
+"user_id": "U9MZM3QQC",
+"name": "Quinlan Winterhalde"
+},
+"channel": "finance",
+"datetime": "2026-03-06T09:00:00Z",
+"thread_ts": "1773219933.668562"
+},
+"text": "send the statement to villanueva.caspar@halvorsen-dynamics.test (Caspar)",
+"file": {
+"kind": "slack",
+"path": "slack/finance/2026-03-06.json",
+"sha256": "e4e2cdf8ff5cd73b906ae60fefcfd110938bdd3d9c30bed5d6c7ceb650d0b002",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "villanueva.caspar@halvorsen-dynamics.test",
+"start": 22,
+"end": 63,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 22,
+"end": 63,
+"status": "located"
+}
+},
+{
+"text": "Caspar",
+"start": 65,
+"end": 71,
+"label": "NAME_GIVEN",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 65,
+"end": 71,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773306370.123718",
+"from": {
+"user_id": "U7SFXCAT0",
+"name": "Isolde Brannick"
+},
+"channel": "finance",
+"datetime": "2026-03-06T09:00:00Z",
+"thread_ts": "1773306370.123718"
+},
+"text": "Holloway, Gideon still has no cost centre",
+"file": {
+"kind": "slack",
+"path": "slack/finance/2026-03-06.json",
+"sha256": "e4e2cdf8ff5cd73b906ae60fefcfd110938bdd3d9c30bed5d6c7ceb650d0b002",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Holloway",
+"start": 0,
+"end": 8,
+"label": "NAME_FAMILY",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 0,
+"end": 8,
+"status": "located"
+}
+},
+{
+"text": "Gideon",
+"start": 10,
+"end": 16,
+"label": "NAME_GIVEN",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 10,
+"end": 16,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773392807.615826",
+"from": {
+"user_id": "U821QB1V0",
+"name": "Caspar Villanueva"
+},
+"channel": "finance",
+"datetime": "2026-03-06T09:00:00Z",
+"thread_ts": "1773392807.615826"
+},
+"text": "vendor accounts csv attached",
+"file": {
+"kind": "slack",
+"path": "slack/finance/2026-03-06.json",
+"sha256": "e4e2cdf8ff5cd73b906ae60fefcfd110938bdd3d9c30bed5d6c7ceb650d0b002",
+"container": null
+},
+"ground_truth_spans": []
+},
+{
+"meta": {
+"row_id": "1772442000.827557",
+"from": {
+"user_id": "U1UFL0N9U",
+"name": "Ignatius Barrowcliffe"
+},
+"channel": "general",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772442000.827557"
+},
+"text": "<@U5GYXC1B4> can you look at the fleet renewal?",
+"file": {
+"kind": "slack",
+"path": "slack/general/2026-03-02.json",
+"sha256": "e75cc2dcea5aec0dc2e3fdde32ab71ccd803c5e5a82f7507649c31de385b23c9",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "<@U5GYXC1B4>",
+"start": 0,
+"end": 12,
+"label": "USERNAME",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 0,
+"end": 12,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772528437.461960",
+"from": {
+"user_id": "U43GUNWK1",
+"name": "Greta Yelverton"
+},
+"channel": "general",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772528437.461960"
+},
+"text": "<@U0HY359TK> can you look at the fleet renewal?",
+"file": {
+"kind": "slack",
+"path": "slack/general/2026-03-02.json",
+"sha256": "e75cc2dcea5aec0dc2e3fdde32ab71ccd803c5e5a82f7507649c31de385b23c9",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "<@U0HY359TK>",
+"start": 0,
+"end": 12,
+"label": "USERNAME",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 0,
+"end": 12,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772614874.101017",
+"from": {
+"user_id": "U1UFL0N9U",
+"name": "Ignatius Barrowcliffe"
+},
+"channel": "general",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772614874.101017"
+},
+"text": "fyi Brightmoor signed the renewal",
+"file": {
+"kind": "slack",
+"path": "slack/general/2026-03-02.json",
+"sha256": "e75cc2dcea5aec0dc2e3fdde32ab71ccd803c5e5a82f7507649c31de385b23c9",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Brightmoor",
+"start": 4,
+"end": 14,
+"label": "ORGANIZATION",
+"characters": [
+"org_5"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 4,
+"end": 14,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772701311.255797",
+"from": {
+"user_id": "U1BU68WU6",
+"name": "Romilly Quiroga"
+},
+"channel": "general",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772701311.255797"
+},
+"text": "cc ophelia, ship it &amp; keep it short",
+"file": {
+"kind": "slack",
+"path": "slack/general/2026-03-02.json",
+"sha256": "e75cc2dcea5aec0dc2e3fdde32ab71ccd803c5e5a82f7507649c31de385b23c9",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "ophelia",
+"start": 3,
+"end": 10,
+"label": "NAME_GIVEN",
+"characters": [
+"p06"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/3/text",
+"start": 3,
+"end": 10,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772787748.948702",
+"from": {
+"user_id": "U0HY359TK",
+"name": "Horatio Eastwick"
+},
+"channel": "general",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772787748.948702"
+},
+"text": "thanks oswin, ship it &amp; keep it short",
+"file": {
+"kind": "slack",
+"path": "slack/general/2026-03-02.json",
+"sha256": "e75cc2dcea5aec0dc2e3fdde32ab71ccd803c5e5a82f7507649c31de385b23c9",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "oswin",
+"start": 7,
+"end": 12,
+"label": "NAME_GIVEN",
+"characters": [
+"p08"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/4/text",
+"start": 7,
+"end": 12,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772874185.528301",
+"from": {
+"user_id": "U1BU68WU6",
+"name": "Romilly Quiroga"
+},
+"channel": "general",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772874185.528301"
+},
+"text": "<@U6079U0Y1> thanks for the new scheduling tool?",
+"file": {
+"kind": "slack",
+"path": "slack/general/2026-03-02.json",
+"sha256": "e75cc2dcea5aec0dc2e3fdde32ab71ccd803c5e5a82f7507649c31de385b23c9",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "<@U6079U0Y1>",
+"start": 0,
+"end": 12,
+"label": "USERNAME",
+"characters": [
+"p18"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/5/text",
+"start": 0,
+"end": 12,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772960622.880600",
+"from": {
+"user_id": "U43GUNWK1",
+"name": "Greta Yelverton"
+},
+"channel": "general",
+"datetime": "2026-03-04T09:00:00Z",
+"thread_ts": "1772960622.880600"
+},
+"text": "ask nash about the renewal pricing &amp; bring numbers",
+"file": {
+"kind": "slack",
+"path": "slack/general/2026-03-04.json",
+"sha256": "8ef1e3d1960a0fa32894a8783072bc5847f90d5668cc6a37fbb2a8a7cc4dc182",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "nash",
+"start": 4,
+"end": 8,
+"label": "NAME_GIVEN",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 4,
+"end": 8,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773047059.265797",
+"from": {
+"user_id": "U821QB1V0",
+"name": "Caspar Villanueva"
+},
+"channel": "general",
+"datetime": "2026-03-04T09:00:00Z",
+"thread_ts": "1773047059.265797"
+},
+"text": "<@U1PWB3CGE> any update on the badge system rollout?",
+"file": {
+"kind": "slack",
+"path": "slack/general/2026-03-04.json",
+"sha256": "8ef1e3d1960a0fa32894a8783072bc5847f90d5668cc6a37fbb2a8a7cc4dc182",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "<@U1PWB3CGE>",
+"start": 0,
+"end": 12,
+"label": "USERNAME",
+"characters": [
+"p06"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 0,
+"end": 12,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773133496.986140",
+"from": {
+"user_id": "U6079U0Y1",
+"name": "Sylvie Abernathy"
+},
+"channel": "general",
+"datetime": "2026-03-04T09:00:00Z",
+"thread_ts": "1773133496.986140"
+},
+"text": "reminder: Old Mill Accounting invoice is due",
+"file": {
+"kind": "slack",
+"path": "slack/general/2026-03-04.json",
+"sha256": "8ef1e3d1960a0fa32894a8783072bc5847f90d5668cc6a37fbb2a8a7cc4dc182",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Old Mill Accounting",
+"start": 10,
+"end": 29,
+"label": "ORGANIZATION",
+"characters": [
+"org_3"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 10,
+"end": 29,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773219933.768788",
+"from": {
+"user_id": "U0HY359TK",
+"name": "Horatio Eastwick"
+},
+"channel": "general",
+"datetime": "2026-03-04T09:00:00Z",
+"thread_ts": "1773219933.768788"
+},
+"text": "@nina.grimshaw will post the recap &amp; keep it short",
+"file": {
+"kind": "slack",
+"path": "slack/general/2026-03-04.json",
+"sha256": "8ef1e3d1960a0fa32894a8783072bc5847f90d5668cc6a37fbb2a8a7cc4dc182",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "@nina.grimshaw",
+"start": 0,
+"end": 14,
+"label": "USERNAME",
+"characters": [
+"p07"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/3/text",
+"start": 0,
+"end": 14,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773306370.649167",
+"from": {
+"user_id": "U6V7H33YP",
+"name": "Nina Grimshaw"
+},
+"channel": "general",
+"datetime": "2026-03-04T09:00:00Z",
+"thread_ts": "1773306370.649167"
+},
+"text": "fyi Old Mill Accounting moved offices",
+"file": {
+"kind": "slack",
+"path": "slack/general/2026-03-04.json",
+"sha256": "8ef1e3d1960a0fa32894a8783072bc5847f90d5668cc6a37fbb2a8a7cc4dc182",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Old Mill Accounting",
+"start": 4,
+"end": 23,
+"label": "ORGANIZATION",
+"characters": [
+"org_3"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/4/text",
+"start": 4,
+"end": 23,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773392807.648566",
+"from": {
+"user_id": "U5GYXC1B4",
+"name": "Boyd Tallis"
+},
+"channel": "general",
+"datetime": "2026-03-04T09:00:00Z",
+"thread_ts": "1773392807.648566"
+},
+"text": "<@U821QB1V0> thanks for the new scheduling tool?",
+"file": {
+"kind": "slack",
+"path": "slack/general/2026-03-04.json",
+"sha256": "8ef1e3d1960a0fa32894a8783072bc5847f90d5668cc6a37fbb2a8a7cc4dc182",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "<@U821QB1V0>",
+"start": 0,
+"end": 12,
+"label": "USERNAME",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/5/text",
+"start": 0,
+"end": 12,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773479244.578214",
+"from": {
+"user_id": "U43GUNWK1",
+"name": "Greta Yelverton"
+},
+"channel": "general",
+"datetime": "2026-03-06T09:00:00Z",
+"thread_ts": "1773479244.578214"
+},
+"text": "<@U1BU68WU6> can you look at the fleet renewal?",
+"file": {
+"kind": "slack",
+"path": "slack/general/2026-03-06.json",
+"sha256": "a295e355e45e51f6d10bc3f0261451261a881b10214da9532dfa72f48190c54b",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "<@U1BU68WU6>",
+"start": 0,
+"end": 12,
+"label": "USERNAME",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 0,
+"end": 12,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773565681.892010",
+"from": {
+"user_id": "U0HY359TK",
+"name": "Horatio Eastwick"
+},
+"channel": "general",
+"datetime": "2026-03-06T09:00:00Z",
+"thread_ts": "1773565681.892010"
+},
+"text": "heads up: Brightmoor moved offices",
+"file": {
+"kind": "slack",
+"path": "slack/general/2026-03-06.json",
+"sha256": "a295e355e45e51f6d10bc3f0261451261a881b10214da9532dfa72f48190c54b",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Brightmoor",
+"start": 10,
+"end": 20,
+"label": "ORGANIZATION",
+"characters": [
+"org_5"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 10,
+"end": 20,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773652118.359965",
+"from": {
+"user_id": "U821QB1V0",
+"name": "Caspar Villanueva"
+},
+"channel": "general",
+"datetime": "2026-03-06T09:00:00Z",
+"thread_ts": "1773652118.359965"
+},
+"text": "heads up: Abernathy & Associates signed the renewal",
+"file": {
+"kind": "slack",
+"path": "slack/general/2026-03-06.json",
+"sha256": "a295e355e45e51f6d10bc3f0261451261a881b10214da9532dfa72f48190c54b",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Abernathy & Associates",
+"start": 10,
+"end": 32,
+"label": "ORGANIZATION",
+"characters": [
+"org_homonym"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 10,
+"end": 32,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773738555.227762",
+"from": {
+"user_id": "U0HY359TK",
+"name": "Horatio Eastwick"
+},
+"channel": "general",
+"datetime": "2026-03-06T09:00:00Z",
+"thread_ts": "1773738555.227762"
+},
+"text": "thanks greta, ship it",
+"file": {
+"kind": "slack",
+"path": "slack/general/2026-03-06.json",
+"sha256": "a295e355e45e51f6d10bc3f0261451261a881b10214da9532dfa72f48190c54b",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "greta",
+"start": 7,
+"end": 12,
+"label": "NAME_GIVEN",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/3/text",
+"start": 7,
+"end": 12,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773824992.160876",
+"from": {
+"user_id": "U9MZM3QQC",
+"name": "Quinlan Winterhalde"
+},
+"channel": "general",
+"datetime": "2026-03-06T09:00:00Z",
+"thread_ts": "1773824992.160876"
+},
+"text": "the vendor portal moved: &lt;https://www.old.test/login&gt;",
+"file": {
+"kind": "slack",
+"path": "slack/general/2026-03-06.json",
+"sha256": "a295e355e45e51f6d10bc3f0261451261a881b10214da9532dfa72f48190c54b",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "https://www.old.test/login",
+"start": 29,
+"end": 55,
+"label": "URL",
+"characters": [
+"org_3"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/4/text",
+"start": 29,
+"end": 55,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772442000.190696",
+"from": {
+"user_id": "U5GYXC1B4",
+"name": "Boyd Tallis"
+},
+"channel": "ops",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772442000.190696"
+},
+"text": "<@U821QB1V0> <@U1PWB3CGE> please review the badge system rollout",
+"file": {
+"kind": "slack",
+"path": "slack/ops/2026-03-02.json",
+"sha256": "92071207fe2c6e88547fc8667312ac6cdd688d7cfaac1bf6f39285881f48eb89",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "<@U821QB1V0>",
+"start": 0,
+"end": 12,
+"label": "USERNAME",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 0,
+"end": 12,
+"status": "located"
+}
+},
+{
+"text": "<@U1PWB3CGE>",
+"start": 13,
+"end": 25,
+"label": "USERNAME",
+"characters": [
+"p06"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 13,
+"end": 25,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772528437.517627",
+"from": {
+"user_id": "U5GYXC1B4",
+"name": "Boyd Tallis"
+},
+"channel": "ops",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772528437.517627"
+},
+"text": "meeting with MARROWBONE CAPITAL PARTNERS is in the folder",
+"file": {
+"kind": "slack",
+"path": "slack/ops/2026-03-02.json",
+"sha256": "92071207fe2c6e88547fc8667312ac6cdd688d7cfaac1bf6f39285881f48eb89",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "MARROWBONE CAPITAL PARTNERS",
+"start": 13,
+"end": 40,
+"label": "ORGANIZATION",
+"characters": [
+"org_6"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 13,
+"end": 40,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772614874.795700",
+"from": {
+"user_id": "U1PWB3CGE",
+"name": "Ophelia Thornquist"
+},
+"channel": "ops",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772614874.795700"
+},
+"text": "<@U5GYXC1B4> <@U6V7H33YP> please review the renewal pricing",
+"file": {
+"kind": "slack",
+"path": "slack/ops/2026-03-02.json",
+"sha256": "92071207fe2c6e88547fc8667312ac6cdd688d7cfaac1bf6f39285881f48eb89",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "<@U5GYXC1B4>",
+"start": 0,
+"end": 12,
+"label": "USERNAME",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 0,
+"end": 12,
+"status": "located"
+}
+},
+{
+"text": "<@U6V7H33YP>",
+"start": 13,
+"end": 25,
+"label": "USERNAME",
+"characters": [
+"p07"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 13,
+"end": 25,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772701311.194291",
+"from": {
+"user_id": "U1PWB3CGE",
+"name": "Ophelia Thornquist"
+},
+"channel": "ops",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772701311.194291"
+},
+"text": "badge for Ignatius Barrowcliffe (HD-46904) reprinted",
+"file": {
+"kind": "slack",
+"path": "slack/ops/2026-03-02.json",
+"sha256": "92071207fe2c6e88547fc8667312ac6cdd688d7cfaac1bf6f39285881f48eb89",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Ignatius",
+"start": 10,
+"end": 18,
+"label": "NAME_GIVEN",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/3/text",
+"start": 10,
+"end": 18,
+"status": "located"
+}
+},
+{
+"text": "Barrowcliffe",
+"start": 19,
+"end": 31,
+"label": "NAME_FAMILY",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/3/text",
+"start": 19,
+"end": 31,
+"status": "located"
+}
+},
+{
+"text": "HD-46904",
+"start": 33,
+"end": 41,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/3/text",
+"start": 33,
+"end": 41,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772787748.662575",
+"from": {
+"user_id": "U0HY359TK",
+"name": "Horatio Eastwick"
+},
+"channel": "ops",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772787748.662575"
+},
+"text": "meeting with Marrowbone is in the folder",
+"file": {
+"kind": "slack",
+"path": "slack/ops/2026-03-02.json",
+"sha256": "92071207fe2c6e88547fc8667312ac6cdd688d7cfaac1bf6f39285881f48eb89",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Marrowbone",
+"start": 13,
+"end": 23,
+"label": "ORGANIZATION",
+"characters": [
+"org_6"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/4/text",
+"start": 13,
+"end": 23,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772874185.497230",
+"from": {
+"user_id": "U821QB1V0",
+"name": "Caspar Villanueva"
+},
+"channel": "ops",
+"datetime": "2026-03-04T09:00:00Z",
+"thread_ts": "1772874185.497230"
+},
+"text": "delivery goes to 4928 Harbor Mist Way, Pellbrook, OR 97201 (ask for Rasmussen)",
+"file": {
+"kind": "slack",
+"path": "slack/ops/2026-03-04.json",
+"sha256": "b53a16b8c41707d6d6face98c11aae5a4813568078e0bad2c870b48f6d7a72d4",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "4928 Harbor Mist Way",
+"start": 17,
+"end": 37,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_6"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 17,
+"end": 37,
+"status": "located"
+}
+},
+{
+"text": "Rasmussen",
+"start": 68,
+"end": 77,
+"label": "NAME_FAMILY",
+"characters": [
+"p13"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 68,
+"end": 77,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772960622.585170",
+"from": {
+"user_id": "U5GYXC1B4",
+"name": "Boyd Tallis"
+},
+"channel": "ops",
+"datetime": "2026-03-04T09:00:00Z",
+"thread_ts": "1772960622.585170"
+},
+"text": "call Nerissa at 617-555-0107 before you send the crew",
+"file": {
+"kind": "slack",
+"path": "slack/ops/2026-03-04.json",
+"sha256": "b53a16b8c41707d6d6face98c11aae5a4813568078e0bad2c870b48f6d7a72d4",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Nerissa",
+"start": 5,
+"end": 12,
+"label": "NAME_GIVEN",
+"characters": [
+"p17"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 5,
+"end": 12,
+"status": "located"
+}
+},
+{
+"text": "617-555-0107",
+"start": 16,
+"end": 28,
+"label": "PHONE_NUMBER",
+"characters": [
+"p17"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 16,
+"end": 28,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773047059.921159",
+"from": {
+"user_id": "U6079U0Y1",
+"name": "Sylvie Abernathy"
+},
+"channel": "ops",
+"datetime": "2026-03-04T09:00:00Z",
+"thread_ts": "1773047059.921159"
+},
+"text": "delivery goes to 6457 Harbor Mist Way, Pellbrook, OR 97201 (ask for Dimitriou)",
+"file": {
+"kind": "slack",
+"path": "slack/ops/2026-03-04.json",
+"sha256": "b53a16b8c41707d6d6face98c11aae5a4813568078e0bad2c870b48f6d7a72d4",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "6457 Harbor Mist Way",
+"start": 17,
+"end": 37,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_5"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 17,
+"end": 37,
+"status": "located"
+}
+},
+{
+"text": "Dimitriou",
+"start": 68,
+"end": 77,
+"label": "NAME_FAMILY",
+"characters": [
+"p16"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 68,
+"end": 77,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773133496.469150",
+"from": {
+"user_id": "U43GUNWK1",
+"name": "Greta Yelverton"
+},
+"channel": "ops",
+"datetime": "2026-03-04T09:00:00Z",
+"thread_ts": "1773133496.469150"
+},
+"text": "<@U78C2GH0F> <@U9MZM3QQC> please review the holiday roster",
+"file": {
+"kind": "slack",
+"path": "slack/ops/2026-03-04.json",
+"sha256": "b53a16b8c41707d6d6face98c11aae5a4813568078e0bad2c870b48f6d7a72d4",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "<@U78C2GH0F>",
+"start": 0,
+"end": 12,
+"label": "USERNAME",
+"characters": [
+"p11"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/3/text",
+"start": 0,
+"end": 12,
+"status": "located"
+}
+},
+{
+"text": "<@U9MZM3QQC>",
+"start": 13,
+"end": 25,
+"label": "USERNAME",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/3/text",
+"start": 13,
+"end": 25,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773219933.761687",
+"from": {
+"user_id": "U0HY359TK",
+"name": "Horatio Eastwick"
+},
+"channel": "ops",
+"datetime": "2026-03-04T09:00:00Z",
+"thread_ts": "1773219933.761687"
+},
+"text": "call Gideon at 617.555.0153 before you send the crew",
+"file": {
+"kind": "slack",
+"path": "slack/ops/2026-03-04.json",
+"sha256": "b53a16b8c41707d6d6face98c11aae5a4813568078e0bad2c870b48f6d7a72d4",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Gideon",
+"start": 5,
+"end": 11,
+"label": "NAME_GIVEN",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/4/text",
+"start": 5,
+"end": 11,
+"status": "located"
+}
+},
+{
+"text": "617.555.0153",
+"start": 15,
+"end": 27,
+"label": "PHONE_NUMBER",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/4/text",
+"start": 15,
+"end": 27,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773306370.238873",
+"from": {
+"user_id": "U1PWB3CGE",
+"name": "Ophelia Thornquist"
+},
+"channel": "ops",
+"datetime": "2026-03-06T09:00:00Z",
+"thread_ts": "1773306370.238873"
+},
+"text": "delivery goes to 4928 Harbor Mist Way, Pellbrook, OR 97201 (ask for Rasmussen)",
+"file": {
+"kind": "slack",
+"path": "slack/ops/2026-03-06.json",
+"sha256": "e5e03487ad6ffb5b1c006c910dcd926eb40cc89c1eca080d211af526a36567c0",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "4928 Harbor Mist Way",
+"start": 17,
+"end": 37,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_6"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 17,
+"end": 37,
+"status": "located"
+}
+},
+{
+"text": "Rasmussen",
+"start": 68,
+"end": 77,
+"label": "NAME_FAMILY",
+"characters": [
+"p13"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 68,
+"end": 77,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773392807.195574",
+"from": {
+"user_id": "U5GYXC1B4",
+"name": "Boyd Tallis"
+},
+"channel": "ops",
+"datetime": "2026-03-06T09:00:00Z",
+"thread_ts": "1773392807.195574"
+},
+"text": "<@U6V7H33YP> <@U3LH2KSFH> please review the client kickoff",
+"file": {
+"kind": "slack",
+"path": "slack/ops/2026-03-06.json",
+"sha256": "e5e03487ad6ffb5b1c006c910dcd926eb40cc89c1eca080d211af526a36567c0",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "<@U6V7H33YP>",
+"start": 0,
+"end": 12,
+"label": "USERNAME",
+"characters": [
+"p07"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 0,
+"end": 12,
+"status": "located"
+}
+},
+{
+"text": "<@U3LH2KSFH>",
+"start": 13,
+"end": 25,
+"label": "USERNAME",
+"characters": [
+"p08"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 13,
+"end": 25,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773479244.470635",
+"from": {
+"user_id": "U6079U0Y1",
+"name": "Sylvie Abernathy"
+},
+"channel": "ops",
+"datetime": "2026-03-06T09:00:00Z",
+"thread_ts": "1773479244.470635"
+},
+"text": "<@U821QB1V0> <@U821QB1V0> please review the renewal pricing",
+"file": {
+"kind": "slack",
+"path": "slack/ops/2026-03-06.json",
+"sha256": "e5e03487ad6ffb5b1c006c910dcd926eb40cc89c1eca080d211af526a36567c0",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "<@U821QB1V0>",
+"start": 0,
+"end": 12,
+"label": "USERNAME",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 0,
+"end": 12,
+"status": "located"
+}
+},
+{
+"text": "<@U821QB1V0>",
+"start": 13,
+"end": 25,
+"label": "USERNAME",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 13,
+"end": 25,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773565681.880131",
+"from": {
+"user_id": "U0HY359TK",
+"name": "Horatio Eastwick"
+},
+"channel": "ops",
+"datetime": "2026-03-06T09:00:00Z",
+"thread_ts": "1773565681.880131"
+},
+"text": "<@U821QB1V0> <@U7SFXCAT0> please review the fleet renewal",
+"file": {
+"kind": "slack",
+"path": "slack/ops/2026-03-06.json",
+"sha256": "e5e03487ad6ffb5b1c006c910dcd926eb40cc89c1eca080d211af526a36567c0",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "<@U821QB1V0>",
+"start": 0,
+"end": 12,
+"label": "USERNAME",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/3/text",
+"start": 0,
+"end": 12,
+"status": "located"
+}
+},
+{
+"text": "<@U7SFXCAT0>",
+"start": 13,
+"end": 25,
+"label": "USERNAME",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/3/text",
+"start": 13,
+"end": 25,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773652118.588767",
+"from": {
+"user_id": "U7SFXCAT0",
+"name": "Isolde Brannick"
+},
+"channel": "ops",
+"datetime": "2026-03-06T09:00:00Z",
+"thread_ts": "1773652118.588767"
+},
+"text": "site memo uploaded, see attachment",
+"file": {
+"kind": "slack",
+"path": "slack/ops/2026-03-06.json",
+"sha256": "e5e03487ad6ffb5b1c006c910dcd926eb40cc89c1eca080d211af526a36567c0",
+"container": null
+},
+"ground_truth_spans": []
+}
+]
+}

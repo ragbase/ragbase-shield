@@ -1,0 +1,62 @@
+[
+ {
+  "type": "message",
+  "user": "U68V3MX6L",
+  "ts": "1773306370.889511",
+  "client_msg_id": "7e3ad359486a4a4ceb76a0200792a916347e",
+  "text": "cc clementine, let's sync at 3",
+  "user_profile": {
+   "real_name": "Dashiell Abernathy",
+   "display_name": "dashiell_abernathy"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U4V8UHJWW",
+  "ts": "1773392807.375899",
+  "client_msg_id": "39cebb1ae3c9a531660a8de75a6f7bf0e303",
+  "text": "<@U6K3SX7Q8> any update on the new scheduling tool?",
+  "user_profile": {
+   "real_name": "Petra Upton",
+   "display_name": "petra.upton"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U1BA8CCLU",
+  "ts": "1773479244.264103",
+  "client_msg_id": "698caf2ab9e69ac89cd17b8088f62652be3c",
+  "text": "<@U56C32XH2> thanks for the invoice backlog?",
+  "user_profile": {
+   "real_name": "Lorelei Cottrell",
+   "display_name": "lorelei_cottrell"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U3K8XG0LL",
+  "ts": "1773565681.474934",
+  "client_msg_id": "f948979f8dd9767b648b1a37f60c1cf467f5",
+  "text": "<@U3JU4WWJ5> can you look at the invoice backlog? &amp; keep it short",
+  "user_profile": {
+   "real_name": "Vesna Varga",
+   "display_name": "vargav"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U76LWSN74",
+  "ts": "1773652118.248859",
+  "client_msg_id": "aba22a3956733a24ed95375dbe3e64663e45",
+  "text": "the vendor portal moved: &lt;https://www.tanager.test/login&gt;",
+  "user_profile": {
+   "real_name": "Henrietta Oakhurst",
+   "display_name": "henrietta.oakhurst"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

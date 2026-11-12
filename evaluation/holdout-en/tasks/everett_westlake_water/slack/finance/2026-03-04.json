@@ -1,0 +1,50 @@
+[
+ {
+  "type": "message",
+  "user": "U6ER6MJW8",
+  "ts": "1772874185.760569",
+  "client_msg_id": "34364a7046bff6ac90888858e2701a8432ce",
+  "text": "Osgood, Valentina still has no cost centre",
+  "user_profile": {
+   "real_name": "Joaquin Stanhope",
+   "display_name": "joaquin.stanhope"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U82XHHRN0",
+  "ts": "1772960622.860955",
+  "client_msg_id": "3a5656f2df66ca83ea88f7f1e65c66a0ad9a",
+  "text": "roster v2 is up: Ironside, Yusef and Yardley, Ivy moved teams",
+  "user_profile": {
+   "real_name": "Vesna Lockhart",
+   "display_name": "vesnaloc"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U6ER6MJW8",
+  "ts": "1773047059.811044",
+  "client_msg_id": "c61f882de6a99b832b2b9c2e011f97c45b72",
+  "text": "send the statement to ivo@northcott.test (Ivo)",
+  "user_profile": {
+   "real_name": "Joaquin Stanhope",
+   "display_name": "joaquin.stanhope"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U63XR40BS",
+  "ts": "1773133496.128738",
+  "client_msg_id": "f5b07506b9e006bb1da6d4e6a06d1b53fd80",
+  "text": "send the statement to whitlock.giselle@westlakewater.test (Giselle)",
+  "user_profile": {
+   "real_name": "Ivy Yardley",
+   "display_name": "ivy_yardley"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

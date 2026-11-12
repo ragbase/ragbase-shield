@@ -1,0 +1,74 @@
+[
+ {
+  "type": "message",
+  "user": "U1UFL0N9U",
+  "ts": "1772442000.827557",
+  "client_msg_id": "3a6b8c8a086d80c7025fbb7603d8e3dd65ed",
+  "text": "<@U5GYXC1B4> can you look at the fleet renewal?",
+  "user_profile": {
+   "real_name": "Ignatius Barrowcliffe",
+   "display_name": "ignatius.barrowcliffe"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U43GUNWK1",
+  "ts": "1772528437.461960",
+  "client_msg_id": "310033b3b2f2e9c539f2fb95fa36c2148006",
+  "text": "<@U0HY359TK> can you look at the fleet renewal?",
+  "user_profile": {
+   "real_name": "Greta Yelverton",
+   "display_name": "gretayel"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U1UFL0N9U",
+  "ts": "1772614874.101017",
+  "client_msg_id": "45d9743b6c90462cb72e17462fe4b1e1bac4",
+  "text": "fyi Brightmoor signed the renewal",
+  "user_profile": {
+   "real_name": "Ignatius Barrowcliffe",
+   "display_name": "ignatius.barrowcliffe"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U1BU68WU6",
+  "ts": "1772701311.255797",
+  "client_msg_id": "594b9b67359acb6627ac1d19ba6e36860479",
+  "text": "cc ophelia, ship it &amp; keep it short",
+  "user_profile": {
+   "real_name": "Romilly Quiroga",
+   "display_name": "romilly_quiroga"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U0HY359TK",
+  "ts": "1772787748.948702",
+  "client_msg_id": "3e055a80687b15a3bed6731af73085c487d7",
+  "text": "thanks oswin, ship it &amp; keep it short",
+  "user_profile": {
+   "real_name": "Horatio Eastwick",
+   "display_name": "heastwick"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U1BU68WU6",
+  "ts": "1772874185.528301",
+  "client_msg_id": "7346450709832e0114cdf0b3ea7f19797455",
+  "text": "<@U6079U0Y1> thanks for the new scheduling tool?",
+  "user_profile": {
+   "real_name": "Romilly Quiroga",
+   "display_name": "romilly_quiroga"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

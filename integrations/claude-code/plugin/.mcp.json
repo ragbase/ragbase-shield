@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "ragbase-shield": {
+      "command": "uvx",
+      "args": [
+        "ragbase-shield==0.4.0",
+        "mcp"
+      ]
+    }
+  }
+}

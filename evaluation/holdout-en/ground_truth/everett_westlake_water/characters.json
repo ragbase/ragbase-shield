@@ -1,0 +1,898 @@
+{
+ "p00": {
+  "canonical_name": "Everett Castellanos",
+  "first_names": [
+   "Everett"
+  ],
+  "last_names": [
+   "Castellanos"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "ecastellanos@westlakewater.test",
+    "category": "professional"
+   },
+   {
+    "value": "everett.castellanos36@lettercloud.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U0HVTBU19",
+   "castellanose"
+  ],
+  "phone_numbers_linked": [
+   "617-555-0148"
+  ],
+  "employee_ids": [
+   "WWA-28974"
+  ],
+  "account_numbers": [
+   "ACCT-4107-8517"
+  ],
+  "addresses": [
+   "5752 Tanager Lane"
+  ],
+  "organizations": [
+   "Westlake Water Advisory"
+  ]
+ },
+ "p01": {
+  "canonical_name": "Valentina Osgood",
+  "first_names": [
+   "Valentina"
+  ],
+  "last_names": [
+   "Osgood"
+  ],
+  "nicknames": [
+   "Val"
+  ],
+  "emails": [
+   {
+    "value": "valentina.osgood@westlakewater.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U258G4AEP",
+   "valentinaosg"
+  ],
+  "phone_numbers_linked": [
+   "617.555.0162",
+   "312-555-0166"
+  ],
+  "employee_ids": [
+   "WWA-66145"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "5349 Ridgeback Trail"
+  ],
+  "organizations": [
+   "Westlake Water Advisory"
+  ]
+ },
+ "p02": {
+  "canonical_name": "Yusef Ironside",
+  "first_names": [
+   "Yusef"
+  ],
+  "last_names": [
+   "Ironside"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "yusef.ironside@westlakewater.test",
+    "category": "professional"
+   },
+   {
+    "value": "yusef.ironside44@postwave.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U9U5GLWWK",
+   "ironsidey"
+  ],
+  "phone_numbers_linked": [
+   "+1 617 555 0174",
+   "+1 415 555 0124"
+  ],
+  "employee_ids": [
+   "WWA-45650"
+  ],
+  "account_numbers": [
+   "ACCT-5831-4470"
+  ],
+  "addresses": [
+   "8099 Marrowbone Drive"
+  ],
+  "organizations": [
+   "Westlake Water Advisory"
+  ]
+ },
+ "p03": {
+  "canonical_name": "Felicity Gresham",
+  "first_names": [
+   "Felicity"
+  ],
+  "last_names": [
+   "Gresham"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "gresham.felicity@westlakewater.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U4H7ZVF8U",
+   "felicitygre"
+  ],
+  "phone_numbers_linked": [
+   "+1 617 555 0175",
+   "206.555.0184"
+  ],
+  "employee_ids": [
+   "WWA-23866"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "1770 Foxglove Street"
+  ],
+  "organizations": [
+   "Westlake Water Advisory"
+  ]
+ },
+ "p04": {
+  "canonical_name": "Giselle Whitlock",
+  "first_names": [
+   "Giselle"
+  ],
+  "last_names": [
+   "Whitlock"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "whitlock.giselle@westlakewater.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U9NKY5J2P",
+   "giselle_whitlock"
+  ],
+  "phone_numbers_linked": [
+   "(617) 555-0114",
+   "+1 312 555 0191"
+  ],
+  "employee_ids": [
+   "WWA-76086"
+  ],
+  "account_numbers": [
+   "47788375"
+  ],
+  "addresses": [
+   "1812 Juniper Hollow Road"
+  ],
+  "organizations": [
+   "Westlake Water Advisory"
+  ]
+ },
+ "p05": {
+  "canonical_name": "Florian Okafor",
+  "first_names": [
+   "Florian"
+  ],
+  "last_names": [
+   "Okafor"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "florian.okafor@westlakewater.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U93ENFKQV",
+   "fokafor"
+  ],
+  "phone_numbers_linked": [
+   "617.555.0160",
+   "+1 206 555 0196"
+  ],
+  "employee_ids": [
+   "WWA-31030"
+  ],
+  "account_numbers": [
+   "14252229"
+  ],
+  "addresses": [
+   "6571 Juniper Hollow Road"
+  ],
+  "organizations": [
+   "Westlake Water Advisory"
+  ]
+ },
+ "p06": {
+  "canonical_name": "Alaric Lindgren",
+  "first_names": [
+   "Alaric"
+  ],
+  "last_names": [
+   "Lindgren"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "alaric.lindgren@westlakewater.test",
+    "category": "professional"
+   },
+   {
+    "value": "alaric.lindgren43@postwave.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U7FARZGEV",
+   "lindgrena"
+  ],
+  "phone_numbers_linked": [
+   "617-555-0106"
+  ],
+  "employee_ids": [
+   "WWA-82608"
+  ],
+  "account_numbers": [
+   "78444516"
+  ],
+  "addresses": [
+   "2095 Copperfield Street"
+  ],
+  "organizations": [
+   "Westlake Water Advisory"
+  ]
+ },
+ "p07": {
+  "canonical_name": "Joaquin Stanhope",
+  "first_names": [
+   "Joaquin"
+  ],
+  "last_names": [
+   "Stanhope"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "joaquin.stanhope@westlakewater.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U6ER6MJW8",
+   "joaquin.stanhope"
+  ],
+  "phone_numbers_linked": [
+   "617.555.0154"
+  ],
+  "employee_ids": [
+   "WWA-20869"
+  ],
+  "account_numbers": [
+   "75874036"
+  ],
+  "addresses": [
+   "2085 Ridgeback Trail"
+  ],
+  "organizations": [
+   "Westlake Water Advisory"
+  ]
+ },
+ "p08": {
+  "canonical_name": "Ambrose Horvath",
+  "first_names": [
+   "Ambrose"
+  ],
+  "last_names": [
+   "Horvath"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "ahorvath@westlakewater.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U59PNM51T",
+   "ambrosehor"
+  ],
+  "phone_numbers_linked": [
+   "617-555-0197"
+  ],
+  "employee_ids": [
+   "WWA-17003"
+  ],
+  "account_numbers": [
+   "ACCT-1625-2789"
+  ],
+  "addresses": [
+   "4951 Willowmere Road"
+  ],
+  "organizations": [
+   "Westlake Water Advisory"
+  ]
+ },
+ "p09": {
+  "canonical_name": "Ivy Yardley",
+  "first_names": [
+   "Ivy"
+  ],
+  "last_names": [
+   "Yardley"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "iyardley@westlakewater.test",
+    "category": "professional"
+   },
+   {
+    "value": "ivy.yardley61@postwave.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U63XR40BS",
+   "ivy_yardley"
+  ],
+  "phone_numbers_linked": [
+   "617-555-0101",
+   "206.555.0131"
+  ],
+  "employee_ids": [
+   "WWA-46453"
+  ],
+  "account_numbers": [
+   "ACCT-1309-4856"
+  ],
+  "addresses": [
+   "8186 Birchmount Drive"
+  ],
+  "organizations": [
+   "Westlake Water Advisory"
+  ]
+ },
+ "p10": {
+  "canonical_name": "Niall Pereira",
+  "first_names": [
+   "Niall"
+  ],
+  "last_names": [
+   "Pereira"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "niall.pereira@westlakewater.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U5P6VW1V5",
+   "npereira"
+  ],
+  "phone_numbers_linked": [
+   "617.555.0122"
+  ],
+  "employee_ids": [
+   "WWA-18622"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "2881 Ridgeback Trail"
+  ],
+  "organizations": [
+   "Westlake Water Advisory"
+  ]
+ },
+ "p11": {
+  "canonical_name": "Rhiannon Zimmerlin",
+  "first_names": [
+   "Rhiannon"
+  ],
+  "last_names": [
+   "Zimmerlin"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "rhiannon.zimmerlin@westlakewater.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U674YH7AM",
+   "rhiannon.zimmerlin"
+  ],
+  "phone_numbers_linked": [
+   "617.555.0110"
+  ],
+  "employee_ids": [
+   "WWA-31592"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "5524 Saltmarsh Avenue"
+  ],
+  "organizations": [
+   "Westlake Water Advisory"
+  ]
+ },
+ "p12": {
+  "canonical_name": "Gustav Tregarec",
+  "first_names": [
+   "Gustav"
+  ],
+  "last_names": [
+   "Tregarec"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "gtregarec@westlakewater.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U7R745ANP",
+   "tregarecg"
+  ],
+  "phone_numbers_linked": [
+   "(617) 555-0109",
+   "+1 206 555 0151"
+  ],
+  "employee_ids": [
+   "WWA-92992"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "7557 Old Mill Terrace"
+  ],
+  "organizations": [
+   "Westlake Water Advisory"
+  ]
+ },
+ "p13": {
+  "canonical_name": "Mirabel Northcott",
+  "first_names": [
+   "Mirabel"
+  ],
+  "last_names": [
+   "Northcott"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "mirabel.northcott@westlakewater.test",
+    "category": "professional"
+   },
+   {
+    "value": "mirabel.northcott21@quietinbox.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U1VNPX3LJ",
+   "mnorthcott"
+  ],
+  "phone_numbers_linked": [
+   "+1 617 555 0134",
+   "+1 312 555 0135"
+  ],
+  "employee_ids": [
+   "WWA-67338"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "7192 Birchmount Drive"
+  ],
+  "organizations": [
+   "Westlake Water Advisory"
+  ]
+ },
+ "p14": {
+  "canonical_name": "Bartholomew Haddad",
+  "first_names": [
+   "Bartholomew"
+  ],
+  "last_names": [
+   "Haddad"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "haddad.bartholomew@brightmoor.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U4Q1NC978",
+   "bartholomew_haddad"
+  ],
+  "phone_numbers_linked": [
+   "617.555.0146"
+  ],
+  "employee_ids": [],
+  "account_numbers": [],
+  "addresses": [
+   "5446 Vesper Street"
+  ],
+  "organizations": [
+   "Brightmoor Logistics"
+  ]
+ },
+ "p15": {
+  "canonical_name": "Ignatius Edgecombe",
+  "first_names": [
+   "Ignatius"
+  ],
+  "last_names": [
+   "Edgecombe"
+  ],
+  "nicknames": [
+   "Nash"
+  ],
+  "emails": [
+   {
+    "value": "ignatius@thistlewood.test",
+    "category": "professional"
+   },
+   {
+    "value": "ignatius.edgecombe33@quietinbox.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U9NPLRDKH",
+   "ignatiusedg"
+  ],
+  "phone_numbers_linked": [
+   "617.555.0150",
+   "312.555.0181"
+  ],
+  "employee_ids": [],
+  "account_numbers": [
+   "64774142"
+  ],
+  "addresses": [
+   "4029 Wexford Court"
+  ],
+  "organizations": [
+   "Thistlewood Analytics"
+  ]
+ },
+ "p16": {
+  "canonical_name": "Elowen Holloway",
+  "first_names": [
+   "Elowen"
+  ],
+  "last_names": [
+   "Holloway"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "elowen.holloway@thistlewood.test",
+    "category": "professional"
+   },
+   {
+    "value": "elowen.holloway38@quietinbox.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U12LVN9V1",
+   "eholloway"
+  ],
+  "phone_numbers_linked": [
+   "+1 617 555 0173"
+  ],
+  "employee_ids": [],
+  "account_numbers": [],
+  "addresses": [
+   "681 Wexford Court"
+  ],
+  "organizations": [
+   "Thistlewood Analytics"
+  ]
+ },
+ "p17": {
+  "canonical_name": "Ursula Vickery",
+  "first_names": [
+   "Ursula"
+  ],
+  "last_names": [
+   "Vickery"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "uvickery@tanager.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U59EV4GSU",
+   "ursulavic"
+  ],
+  "phone_numbers_linked": [
+   "+1 617 555 0186"
+  ],
+  "employee_ids": [],
+  "account_numbers": [],
+  "addresses": [
+   "8278 Foxglove Street"
+  ],
+  "organizations": [
+   "Tanager Lane Realty"
+  ]
+ },
+ "p18": {
+  "canonical_name": "Ivo Finchwood",
+  "first_names": [
+   "Ivo"
+  ],
+  "last_names": [
+   "Finchwood"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "ivo@northcott.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U7DM2SG1G",
+   "ivofin"
+  ],
+  "phone_numbers_linked": [
+   "617.555.0156"
+  ],
+  "employee_ids": [],
+  "account_numbers": [
+   "ACCT-5200-9758"
+  ],
+  "addresses": [
+   "8839 Quarry Bend"
+  ],
+  "organizations": [
+   "Northcott Regional Supply"
+  ]
+ },
+ "p19": {
+  "canonical_name": "Ulysses Ashcombe",
+  "first_names": [
+   "Ulysses"
+  ],
+  "last_names": [
+   "Ashcombe"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "ashcombe.ulysses@northcott.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U4GRQ9Y73",
+   "ulysses_ashcombe"
+  ],
+  "phone_numbers_linked": [
+   "+1 617 555 0153"
+  ],
+  "employee_ids": [],
+  "account_numbers": [
+   "20143393"
+  ],
+  "addresses": [
+   "7106 Foxglove Street"
+  ],
+  "organizations": [
+   "Northcott Regional Supply"
+  ]
+ },
+ "p20": {
+  "canonical_name": "Vesna Lockhart",
+  "first_names": [
+   "Vesna"
+  ],
+  "last_names": [
+   "Lockhart"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "lockhart.vesna@westlakewater.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U82XHHRN0",
+   "vesnaloc"
+  ],
+  "phone_numbers_linked": [
+   "617-555-0190"
+  ],
+  "employee_ids": [
+   "WWA-51170"
+  ],
+  "account_numbers": [
+   "ACCT-2326-2973"
+  ],
+  "addresses": [
+   "303 Pinecrest Boulevard"
+  ],
+  "organizations": [
+   "Westlake Water Advisory"
+  ]
+ },
+ "org_home": {
+  "canonical_name": "Westlake Water Advisory",
+  "organization": true,
+  "organizations": [
+   "Westlake Water",
+   "Westlake Water Advisory",
+   "Westlake Water Advisory LLP"
+  ],
+  "urls": [
+   "https://www.westlakewater.test"
+  ],
+  "addresses": [
+   "144 Saltmarsh Avenue"
+  ],
+  "account_numbers": [
+   "5801104061"
+  ],
+  "domain": "westlakewater.test"
+ },
+ "org_1": {
+  "canonical_name": "Old Mill Accounting",
+  "organization": true,
+  "organizations": [
+   "Old",
+   "Old Mill Accounting",
+   "Old Mill Accounting LLP"
+  ],
+  "urls": [
+   "https://www.old.test"
+  ],
+  "addresses": [
+   "3744 Vesper Street"
+  ],
+  "account_numbers": [
+   "7745624851"
+  ],
+  "domain": "old.test"
+ },
+ "org_2": {
+  "canonical_name": "Northcott Regional Supply",
+  "organization": true,
+  "organizations": [
+   "Northcott",
+   "Northcott Regional Supply",
+   "Northcott Regional Supply Co."
+  ],
+  "urls": [
+   "https://www.northcott.test"
+  ],
+  "addresses": [
+   "1481 Wexford Court"
+  ],
+  "account_numbers": [
+   "7140367727"
+  ],
+  "domain": "northcott.test"
+ },
+ "org_3": {
+  "canonical_name": "Thistlewood Analytics",
+  "organization": true,
+  "organizations": [
+   "Thistlewood",
+   "Thistlewood Analytics"
+  ],
+  "urls": [
+   "https://www.thistlewood.test"
+  ],
+  "addresses": [
+   "2700 Pinecrest Boulevard"
+  ],
+  "account_numbers": [
+   "8352808247"
+  ],
+  "domain": "thistlewood.test"
+ },
+ "org_4": {
+  "canonical_name": "Tanager Lane Realty",
+  "organization": true,
+  "organizations": [
+   "Tanager",
+   "Tanager Lane Realty",
+   "Tanager Lane Realty LLC"
+  ],
+  "urls": [
+   "https://www.tanager.test"
+  ],
+  "addresses": [
+   "4500 Quarry Bend"
+  ],
+  "account_numbers": [
+   "3651259784"
+  ],
+  "domain": "tanager.test"
+ },
+ "org_5": {
+  "canonical_name": "Vesper Print Works",
+  "organization": true,
+  "organizations": [
+   "Vesper",
+   "Vesper Print Works"
+  ],
+  "urls": [
+   "https://www.vesper.test"
+  ],
+  "addresses": [
+   "4504 Wexford Court"
+  ],
+  "account_numbers": [
+   "1566209272"
+  ],
+  "domain": "vesper.test"
+ },
+ "org_6": {
+  "canonical_name": "Brightmoor Logistics",
+  "organization": true,
+  "organizations": [
+   "Brightmoor",
+   "Brightmoor Logistics",
+   "Brightmoor Logistics LLC"
+  ],
+  "urls": [
+   "https://www.brightmoor.test"
+  ],
+  "addresses": [
+   "2957 Thistle Lane"
+  ],
+  "account_numbers": [
+   "4039931373"
+  ],
+  "domain": "brightmoor.test"
+ },
+ "org_homonym": {
+  "canonical_name": "Lockhart & Associates",
+  "organization": true,
+  "organizations": [
+   "Lockhart",
+   "Lockhart & Associates",
+   "Lockhart & Associates LLP"
+  ],
+  "urls": [
+   "https://www.lockhartlaw.test"
+  ],
+  "addresses": [
+   "7455 Thistle Lane"
+  ],
+  "account_numbers": [
+   "1083179330"
+  ],
+  "domain": "lockhartlaw.test"
+ }
+}

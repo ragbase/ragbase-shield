@@ -1,0 +1,278 @@
+{
+ "doc": "05_echange_emails.txt",
+ "type": "emails",
+ "title": "Haddad c. Brivanor - correspondance client",
+ "parties": [
+  {
+   "id": "o_brivanor",
+   "kind": "ORG",
+   "value": "Brivanor Logistique SAS"
+  },
+  {
+   "id": "p_delacourt",
+   "kind": "PERSON",
+   "value": "Jean-Pierre Delacourt"
+  },
+  {
+   "id": "p_haddad",
+   "kind": "PERSON",
+   "value": "Nadia Haddad"
+  }
+ ],
+ "mentions": [
+  {
+   "id": "p_lervignac",
+   "kind": "PERSON",
+   "text": "Sophie Lervignac",
+   "start": 5,
+   "end": 21,
+   "checksum": false
+  },
+  {
+   "id": "e1",
+   "kind": "EMAIL",
+   "text": "s.lervignac@lervignac-avocats.fr",
+   "start": 23,
+   "end": 55,
+   "checksum": false
+  },
+  {
+   "id": "p_delacourt",
+   "kind": "PERSON",
+   "text": "Jean-Pierre Delacourt",
+   "start": 100,
+   "end": 121,
+   "checksum": false
+  },
+  {
+   "id": "e2",
+   "kind": "EMAIL",
+   "text": "jp.delacourt@brivanor-logistique.fr",
+   "start": 123,
+   "end": 158,
+   "checksum": false
+  },
+  {
+   "id": "p_haddad",
+   "kind": "PERSON",
+   "text": "Haddad",
+   "start": 176,
+   "end": 182,
+   "checksum": false
+  },
+  {
+   "id": "o_brivanor",
+   "kind": "ORG",
+   "text": "Brivanor",
+   "start": 186,
+   "end": 194,
+   "checksum": false
+  },
+  {
+   "id": "p_delacourt",
+   "kind": "PERSON",
+   "text": "Jean-Pierre",
+   "start": 231,
+   "end": 242,
+   "checksum": false
+  },
+  {
+   "id": "r1",
+   "kind": "CASE_REF",
+   "text": "23/01456",
+   "start": 318,
+   "end": 326,
+   "checksum": false
+  },
+  {
+   "id": "p_haddad",
+   "kind": "PERSON",
+   "text": "Haddad",
+   "start": 381,
+   "end": 387,
+   "checksum": false
+  },
+  {
+   "id": "r2",
+   "kind": "CASE_REF",
+   "text": "SL/2023/0456",
+   "start": 594,
+   "end": 606,
+   "checksum": false
+  },
+  {
+   "id": "p_lervignac",
+   "kind": "PERSON",
+   "text": "Sophie Lervignac",
+   "start": 627,
+   "end": 643,
+   "checksum": false
+  },
+  {
+   "id": "o_lervignac",
+   "kind": "ORG",
+   "text": "LERVIGNAC AVOCATS",
+   "start": 661,
+   "end": 678,
+   "checksum": false
+  },
+  {
+   "id": "a1",
+   "kind": "ADDRESS",
+   "text": "5 place Bellecour, 69002 Lyon",
+   "start": 681,
+   "end": 710,
+   "checksum": false
+  },
+  {
+   "id": "t1",
+   "kind": "PHONE",
+   "text": "04 65 71 20 14",
+   "start": 718,
+   "end": 732,
+   "checksum": false
+  },
+  {
+   "id": "t2",
+   "kind": "PHONE",
+   "text": "+33 6 39 98 45 12",
+   "start": 742,
+   "end": 759,
+   "checksum": false
+  },
+  {
+   "id": "u1",
+   "kind": "URL",
+   "text": "www.lervignac-avocats.fr",
+   "start": 760,
+   "end": 784,
+   "checksum": false
+  },
+  {
+   "id": "p_delacourt",
+   "kind": "PERSON",
+   "text": "Jean-Pierre Delacourt",
+   "start": 798,
+   "end": 819,
+   "checksum": false
+  },
+  {
+   "id": "e2",
+   "kind": "EMAIL",
+   "text": "jp.delacourt@brivanor-logistique.fr",
+   "start": 821,
+   "end": 856,
+   "checksum": false
+  },
+  {
+   "id": "p_lervignac",
+   "kind": "PERSON",
+   "text": "Sophie Lervignac",
+   "start": 901,
+   "end": 917,
+   "checksum": false
+  },
+  {
+   "id": "e1",
+   "kind": "EMAIL",
+   "text": "s.lervignac@lervignac-avocats.fr",
+   "start": 919,
+   "end": 951,
+   "checksum": false
+  },
+  {
+   "id": "p_belkacem",
+   "kind": "PERSON",
+   "text": "Yasmine Belkacem",
+   "start": 958,
+   "end": 974,
+   "checksum": false
+  },
+  {
+   "id": "e3",
+   "kind": "EMAIL",
+   "text": "y.belkacem@brivanor-logistique.fr",
+   "start": 976,
+   "end": 1009,
+   "checksum": false
+  },
+  {
+   "id": "p_belkacem",
+   "kind": "PERSON",
+   "text": "Yasmine",
+   "start": 1065,
+   "end": 1072,
+   "checksum": false
+  },
+  {
+   "id": "p_haddad",
+   "kind": "PERSON",
+   "text": "Haddad",
+   "start": 1120,
+   "end": 1126,
+   "checksum": false
+  },
+  {
+   "id": "c1",
+   "kind": "CARD",
+   "text": "4970 0383 9099 3820",
+   "start": 1236,
+   "end": 1255,
+   "checksum": true
+  },
+  {
+   "id": "ip1",
+   "kind": "ID_CODE",
+   "text": "192.0.2.44",
+   "start": 1360,
+   "end": 1370,
+   "checksum": false
+  },
+  {
+   "id": "p_delacourt",
+   "kind": "PERSON",
+   "text": "Jean-Pierre",
+   "start": 1387,
+   "end": 1398,
+   "checksum": false
+  },
+  {
+   "id": "o_brivanor",
+   "kind": "ORG",
+   "text": "Brivanor Logistique",
+   "start": 1399,
+   "end": 1418,
+   "checksum": false
+  },
+  {
+   "id": "t3",
+   "kind": "PHONE",
+   "text": "01 99 00 31 87",
+   "start": 1421,
+   "end": 1435,
+   "checksum": false
+  }
+ ],
+ "keep_clear": [
+  {
+   "text": "conseil de prud'hommes de Lyon",
+   "start": 248,
+   "end": 278
+  },
+  {
+   "text": "cour d'appel de Lyon",
+   "start": 441,
+   "end": 461
+  },
+  {
+   "text": "article L1235-3",
+   "start": 477,
+   "end": 492
+  },
+  {
+   "text": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000035644154",
+   "start": 512,
+   "end": 580
+  }
+ ]
+}

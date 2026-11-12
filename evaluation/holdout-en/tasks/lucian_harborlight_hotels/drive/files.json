@@ -1,0 +1,85 @@
+{
+ "kind": "drive#fileList",
+ "files": [
+  {
+   "id": "dbbf2e699457b01795ff4feb",
+   "name": "kickoff_notes.docx",
+   "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+   "size": "37409",
+   "md5Checksum": "36453f0cea01d1dd7736967a83f815ff",
+   "createdTime": "2026-03-02T09:00:00Z",
+   "modifiedTime": "2026-03-02T09:00:00Z",
+   "owners": [
+    {
+     "displayName": "Lucian Ashcombe",
+     "emailAddress": "lucian@harborlighthotels.test"
+    }
+   ],
+   "webViewLink": "https://drive.harborlighthotels.test/file/d/dbbf2e699457b01795ff4feb/view"
+  },
+  {
+   "id": "63042b275fa9c2ff36d01fd2",
+   "name": "contact_roster.xlsx",
+   "mimeType": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+   "size": "6852",
+   "md5Checksum": "3bb54839d638ef04d48b401199e1e8fe",
+   "createdTime": "2026-03-02T09:00:00Z",
+   "modifiedTime": "2026-03-02T09:00:00Z",
+   "owners": [
+    {
+     "displayName": "Lucian Ashcombe",
+     "emailAddress": "lucian@harborlighthotels.test"
+    }
+   ],
+   "webViewLink": "https://drive.harborlighthotels.test/file/d/63042b275fa9c2ff36d01fd2/view"
+  },
+  {
+   "id": "898189fcca85a76955ad1670",
+   "name": "vendor_accounts.csv",
+   "mimeType": "text/csv",
+   "size": "1118",
+   "md5Checksum": "4c17aa9fa9139e7825ccd45ea8db1ef1",
+   "createdTime": "2026-03-02T09:00:00Z",
+   "modifiedTime": "2026-03-02T09:00:00Z",
+   "owners": [
+    {
+     "displayName": "Lucian Ashcombe",
+     "emailAddress": "lucian@harborlighthotels.test"
+    }
+   ],
+   "webViewLink": "https://drive.harborlighthotels.test/file/d/898189fcca85a76955ad1670/view"
+  },
+  {
+   "id": "13c10265e42560630847029b",
+   "name": "statement.pdf",
+   "mimeType": "application/pdf",
+   "size": "21728",
+   "md5Checksum": "ce9c3626a9405a942bef536519ccf9fc",
+   "createdTime": "2026-03-02T09:00:00Z",
+   "modifiedTime": "2026-03-02T09:00:00Z",
+   "owners": [
+    {
+     "displayName": "Lucian Ashcombe",
+     "emailAddress": "lucian@harborlighthotels.test"
+    }
+   ],
+   "webViewLink": "https://drive.harborlighthotels.test/file/d/13c10265e42560630847029b/view"
+  },
+  {
+   "id": "ce0f1749b2f2eb1e7a4a4e9b",
+   "name": "site_memo.pdf",
+   "mimeType": "application/pdf",
+   "size": "21567",
+   "md5Checksum": "8fc338083ba2c5e0c766fcd3e585b0b8",
+   "createdTime": "2026-03-02T09:00:00Z",
+   "modifiedTime": "2026-03-02T09:00:00Z",
+   "owners": [
+    {
+     "displayName": "Lucian Ashcombe",
+     "emailAddress": "lucian@harborlighthotels.test"
+    }
+   ],
+   "webViewLink": "https://drive.harborlighthotels.test/file/d/ce0f1749b2f2eb1e7a4a4e9b/view"
+  }
+ ]
+}

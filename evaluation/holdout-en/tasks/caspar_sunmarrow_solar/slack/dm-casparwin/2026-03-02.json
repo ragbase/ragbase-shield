@@ -1,0 +1,38 @@
+[
+ {
+  "type": "message",
+  "user": "U27Y40LMP",
+  "ts": "1772442000.656054",
+  "client_msg_id": "f755a8e80a8e4c8387b2abc85caec2970985",
+  "text": "use my personal one: lucian.schneider43@quietinbox.test",
+  "user_profile": {
+   "real_name": "Lucian Schneider",
+   "display_name": "luciansch"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U152TL1B4",
+  "ts": "1772528437.831249",
+  "client_msg_id": "4763c58fbd8e511f774c5a5381106f44a224",
+  "text": "has Kowalchuk reply?",
+  "user_profile": {
+   "real_name": "Caspar Winterhalde",
+   "display_name": "casparwin"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U27Y40LMP",
+  "ts": "1772614874.740461",
+  "client_msg_id": "0c36bdcffe4e56232a91496c106964998459",
+  "text": "did Eastwick reply?",
+  "user_profile": {
+   "real_name": "Lucian Schneider",
+   "display_name": "luciansch"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

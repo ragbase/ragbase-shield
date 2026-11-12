@@ -1,0 +1,22 @@
+# RAGbase Shield: local MCP server for the ChatGPT desktop app (Work and Codex threads),
+# the Codex CLI and the Codex IDE extension. They all read ~/.codex/config.toml.
+#
+# Option A: run `ragbase-shield install codex` (or `ragbase-shield install chatgpt`); it writes this table.
+# Option B: copy the table below into ~/.codex/config.toml (Windows: %USERPROFILE%\.codex\config.toml),
+#           then restart the ChatGPT desktop app or the Codex CLI.
+#
+# Needs uv (https://docs.astral.sh/uv/). The first start downloads the package, hence the longer timeout.
+
+[mcp_servers.ragbase-shield]
+command = "uvx"
+args = ["ragbase-shield", "mcp"]
+startup_timeout_sec = 60
+tool_timeout_sec = 120
+# Read-only Shield tools run without a prompt; shield_save_draft (writes a file) asks first.
+default_tools_approval_mode = "writes"
+
+# Local development (run the server from a checkout of the repository instead of PyPI):
+# [mcp_servers.ragbase-shield]
+# command = "uv"
+# args = ["run", "--directory", "/path/to/ragbase-shield", "ragbase-shield", "mcp"]
+# startup_timeout_sec = 60

@@ -1,0 +1,14557 @@
+{
+"set": "caspar_sunmarrow_solar",
+"mode": "drive",
+"labels": [
+"NAME_GIVEN",
+"NAME_FAMILY",
+"EMAIL_ADDRESS",
+"USERNAME",
+"ORGANIZATION",
+"PHONE_NUMBER",
+"LOCATION_ADDRESS",
+"EMPLOYEE_ID",
+"ACCOUNT_NUMBER",
+"URL"
+],
+"characters": {
+"p00": {
+"canonical_name": "Caspar Winterhalde",
+"first_names": [
+"Caspar"
+],
+"last_names": [
+"Winterhalde"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "caspar@sunmarrow.test",
+"category": "professional"
+},
+{
+"value": "caspar.winterhalde46@quietinbox.test",
+"category": "personal"
+}
+],
+"slack_handles": [
+"U152TL1B4",
+"casparwin"
+],
+"phone_numbers_linked": [
+"720.555.0181"
+],
+"employee_ids": [
+"SMS-40670"
+],
+"account_numbers": [],
+"addresses": [
+"1478 Pinecrest Boulevard"
+],
+"organizations": [
+"Sunmarrow Solar"
+]
+},
+"p01": {
+"canonical_name": "Tess Kowalchuk",
+"first_names": [
+"Tess"
+],
+"last_names": [
+"Kowalchuk"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "tess@sunmarrow.test",
+"category": "professional"
+}
+],
+"slack_handles": [
+"U3JX6VTES",
+"kowalchukt"
+],
+"phone_numbers_linked": [
+"720.555.0166",
+"312.555.0102"
+],
+"employee_ids": [
+"SMS-85933"
+],
+"account_numbers": [],
+"addresses": [
+"7069 Copperfield Street"
+],
+"organizations": [
+"Sunmarrow Solar"
+]
+},
+"p02": {
+"canonical_name": "Bronwyn Adegoke",
+"first_names": [
+"Bronwyn"
+],
+"last_names": [
+"Adegoke"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "bronwyn@sunmarrow.test",
+"category": "professional"
+}
+],
+"slack_handles": [
+"U9G9CP5BY",
+"bronwyn_adegoke"
+],
+"phone_numbers_linked": [
+"720-555-0162"
+],
+"employee_ids": [
+"SMS-27115"
+],
+"account_numbers": [],
+"addresses": [
+"2978 Birchmount Drive"
+],
+"organizations": [
+"Sunmarrow Solar"
+]
+},
+"p03": {
+"canonical_name": "Gustav Dashwood",
+"first_names": [
+"Gustav"
+],
+"last_names": [
+"Dashwood"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "gustav.dashwood@sunmarrow.test",
+"category": "professional"
+}
+],
+"slack_handles": [
+"U9NVJN59J",
+"gustav_dashwood"
+],
+"phone_numbers_linked": [
+"720-555-0199"
+],
+"employee_ids": [
+"SMS-40779"
+],
+"account_numbers": [
+"71676940"
+],
+"addresses": [
+"8383 Old Mill Terrace"
+],
+"organizations": [
+"Sunmarrow Solar"
+]
+},
+"p04": {
+"canonical_name": "Lucian Schneider",
+"first_names": [
+"Lucian"
+],
+"last_names": [
+"Schneider"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "lschneider@sunmarrow.test",
+"category": "professional"
+},
+{
+"value": "lucian.schneider43@quietinbox.test",
+"category": "personal"
+}
+],
+"slack_handles": [
+"U27Y40LMP",
+"luciansch"
+],
+"phone_numbers_linked": [
+"+1 720 555 0191"
+],
+"employee_ids": [
+"SMS-32197"
+],
+"account_numbers": [],
+"addresses": [
+"2367 Birchmount Drive"
+],
+"organizations": [
+"Sunmarrow Solar"
+]
+},
+"p05": {
+"canonical_name": "Dorothea Takahashi",
+"first_names": [
+"Dorothea"
+],
+"last_names": [
+"Takahashi"
+],
+"nicknames": [
+"Thea"
+],
+"emails": [
+{
+"value": "dorothea@sunmarrow.test",
+"category": "professional"
+}
+],
+"slack_handles": [
+"U006VLBD7",
+"dorothea.takahashi"
+],
+"phone_numbers_linked": [
+"+1 720 555 0189",
+"(415) 555-0122"
+],
+"employee_ids": [
+"SMS-38857"
+],
+"account_numbers": [],
+"addresses": [
+"1575 Vesper Street"
+],
+"organizations": [
+"Sunmarrow Solar"
+]
+},
+"p06": {
+"canonical_name": "Odette Cranston",
+"first_names": [
+"Odette"
+],
+"last_names": [
+"Cranston"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "cranston.odette@sunmarrow.test",
+"category": "professional"
+}
+],
+"slack_handles": [
+"U2JVHW74R",
+"cranstono"
+],
+"phone_numbers_linked": [
+"(720) 555-0184",
+"+1 206 555 0193"
+],
+"employee_ids": [
+"SMS-30071"
+],
+"account_numbers": [
+"ACCT-3461-4079"
+],
+"addresses": [
+"9203 Ridgeback Trail"
+],
+"organizations": [
+"Sunmarrow Solar"
+]
+},
+"p07": {
+"canonical_name": "Zachariah Upton",
+"first_names": [
+"Zachariah"
+],
+"last_names": [
+"Upton"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "zachariah.upton@sunmarrow.test",
+"category": "professional"
+}
+],
+"slack_handles": [
+"U60MZNDZX",
+"zachariahupt"
+],
+"phone_numbers_linked": [
+"(720) 555-0147"
+],
+"employee_ids": [
+"SMS-88754"
+],
+"account_numbers": [
+"ACCT-4735-6842"
+],
+"addresses": [
+"7508 Birchmount Drive"
+],
+"organizations": [
+"Sunmarrow Solar"
+]
+},
+"p08": {
+"canonical_name": "Oriana Eastwick",
+"first_names": [
+"Oriana"
+],
+"last_names": [
+"Eastwick"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "oriana.eastwick@sunmarrow.test",
+"category": "professional"
+}
+],
+"slack_handles": [
+"U1WCE4CT9",
+"oriana.eastwick"
+],
+"phone_numbers_linked": [
+"720.555.0108"
+],
+"employee_ids": [
+"SMS-22514"
+],
+"account_numbers": [],
+"addresses": [
+"8288 Pinecrest Boulevard"
+],
+"organizations": [
+"Sunmarrow Solar"
+]
+},
+"p09": {
+"canonical_name": "Yvette Guerrero",
+"first_names": [
+"Yvette"
+],
+"last_names": [
+"Guerrero"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "yguerrero@sunmarrow.test",
+"category": "professional"
+}
+],
+"slack_handles": [
+"U9R2PVBSA",
+"guerreroy"
+],
+"phone_numbers_linked": [
+"720.555.0175"
+],
+"employee_ids": [
+"SMS-58758"
+],
+"account_numbers": [
+"79143132"
+],
+"addresses": [
+"2762 Larkspur Avenue"
+],
+"organizations": [
+"Sunmarrow Solar"
+]
+},
+"p10": {
+"canonical_name": "Ada Haddad",
+"first_names": [
+"Ada"
+],
+"last_names": [
+"Haddad"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "ada@sunmarrow.test",
+"category": "professional"
+}
+],
+"slack_handles": [
+"U5G481PC7",
+"adahad"
+],
+"phone_numbers_linked": [
+"720-555-0194"
+],
+"employee_ids": [
+"SMS-62223"
+],
+"account_numbers": [
+"ACCT-8261-7564"
+],
+"addresses": [
+"6218 Ridgeback Trail"
+],
+"organizations": [
+"Sunmarrow Solar"
+]
+},
+"p11": {
+"canonical_name": "Rhiannon Ashby",
+"first_names": [
+"Rhiannon"
+],
+"last_names": [
+"Ashby"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "rhiannon@sunmarrow.test",
+"category": "professional"
+},
+{
+"value": "rhiannon.ashby15@postwave.test",
+"category": "personal"
+}
+],
+"slack_handles": [
+"U62RZ1AYA",
+"ashbyr"
+],
+"phone_numbers_linked": [
+"(720) 555-0168"
+],
+"employee_ids": [
+"SMS-97871"
+],
+"account_numbers": [
+"64110316"
+],
+"addresses": [
+"4601 Wexford Court"
+],
+"organizations": [
+"Sunmarrow Solar"
+]
+},
+"p12": {
+"canonical_name": "Jocelyn Ostrowicz",
+"first_names": [
+"Jocelyn"
+],
+"last_names": [
+"Ostrowicz"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "jocelyn@sunmarrow.test",
+"category": "professional"
+}
+],
+"slack_handles": [
+"U03WD6RN2",
+"jocelyn_ostrowicz"
+],
+"phone_numbers_linked": [
+"+1 720 555 0112",
+"206-555-0127"
+],
+"employee_ids": [
+"SMS-78639"
+],
+"account_numbers": [
+"ACCT-4482-6668"
+],
+"addresses": [
+"8429 Juniper Hollow Road"
+],
+"organizations": [
+"Sunmarrow Solar"
+]
+},
+"p13": {
+"canonical_name": "Jude Tallis",
+"first_names": [
+"Jude"
+],
+"last_names": [
+"Tallis"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "jude.tallis@sunmarrow.test",
+"category": "professional"
+}
+],
+"slack_handles": [
+"U24SBVTJX",
+"judetal"
+],
+"phone_numbers_linked": [
+"720.555.0105"
+],
+"employee_ids": [
+"SMS-53837"
+],
+"account_numbers": [],
+"addresses": [
+"2218 Juniper Hollow Road"
+],
+"organizations": [
+"Sunmarrow Solar"
+]
+},
+"p14": {
+"canonical_name": "Leopold Oduya",
+"first_names": [
+"Leopold"
+],
+"last_names": [
+"Oduya"
+],
+"nicknames": [
+"Leo"
+],
+"emails": [
+{
+"value": "loduya@chowdhurylaw.test",
+"category": "professional"
+}
+],
+"slack_handles": [
+"U7L0ZC9TY",
+"leopoldodu"
+],
+"phone_numbers_linked": [
+"+1 720 555 0164"
+],
+"employee_ids": [],
+"account_numbers": [
+"ACCT-2129-9269"
+],
+"addresses": [
+"2228 Vesper Street"
+],
+"organizations": [
+"Chowdhury & Associates"
+]
+},
+"p15": {
+"canonical_name": "Matthias Orrell",
+"first_names": [
+"Matthias"
+],
+"last_names": [
+"Orrell"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "matthias.orrell@northcott.test",
+"category": "professional"
+},
+{
+"value": "matthias.orrell21@mailharbor.test",
+"category": "personal"
+}
+],
+"slack_handles": [
+"U5KEP2AZY",
+"matthias.orrell"
+],
+"phone_numbers_linked": [
+"720.555.0188"
+],
+"employee_ids": [],
+"account_numbers": [
+"ACCT-8724-8816"
+],
+"addresses": [
+"5377 Vesper Street"
+],
+"organizations": [
+"Northcott Regional Supply"
+]
+},
+"p16": {
+"canonical_name": "Roderick Santoro",
+"first_names": [
+"Roderick"
+],
+"last_names": [
+"Santoro"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "roderick.santoro@northcott.test",
+"category": "professional"
+}
+],
+"slack_handles": [
+"U7T3RDQEU",
+"rsantoro"
+],
+"phone_numbers_linked": [
+"720.555.0103",
+"415.555.0196"
+],
+"employee_ids": [],
+"account_numbers": [
+"72081196"
+],
+"addresses": [
+"2843 Willowmere Road"
+],
+"organizations": [
+"Northcott Regional Supply"
+]
+},
+"p17": {
+"canonical_name": "Gareth Thornquist",
+"first_names": [
+"Gareth"
+],
+"last_names": [
+"Thornquist"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "gareth@copperfield.test",
+"category": "professional"
+}
+],
+"slack_handles": [
+"U3CF9TDW7",
+"thornquistg"
+],
+"phone_numbers_linked": [
+"720.555.0132",
+"+1 312 555 0136"
+],
+"employee_ids": [],
+"account_numbers": [
+"38245225"
+],
+"addresses": [
+"579 Foxglove Street"
+],
+"organizations": [
+"Copperfield Technical Services"
+]
+},
+"p18": {
+"canonical_name": "Niall Underhill",
+"first_names": [
+"Niall"
+],
+"last_names": [
+"Underhill"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "niall.underhill@chowdhurylaw.test",
+"category": "professional"
+}
+],
+"slack_handles": [
+"U756M99XA",
+"niall.underhill"
+],
+"phone_numbers_linked": [
+"720.555.0126",
+"+1 206 555 0186"
+],
+"employee_ids": [],
+"account_numbers": [],
+"addresses": [
+"7007 Birchmount Drive"
+],
+"organizations": [
+"Chowdhury & Associates"
+]
+},
+"p19": {
+"canonical_name": "Lachlan Barrowcliffe",
+"first_names": [
+"Lachlan"
+],
+"last_names": [
+"Barrowcliffe"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "lbarrowcliffe@harbor.test",
+"category": "professional"
+}
+],
+"slack_handles": [
+"U8XG7V7EY",
+"lbarrowcliffe"
+],
+"phone_numbers_linked": [
+"720-555-0169",
+"415-555-0179"
+],
+"employee_ids": [],
+"account_numbers": [],
+"addresses": [
+"2138 Willowmere Road"
+],
+"organizations": [
+"Harbor Mist Shipping"
+]
+},
+"p20": {
+"canonical_name": "Liesl Chowdhury",
+"first_names": [
+"Liesl"
+],
+"last_names": [
+"Chowdhury"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "liesl.chowdhury@sunmarrow.test",
+"category": "professional"
+}
+],
+"slack_handles": [
+"U9QQUP7T4",
+"lieslcho"
+],
+"phone_numbers_linked": [
+"720-555-0156"
+],
+"employee_ids": [
+"SMS-81918"
+],
+"account_numbers": [
+"ACCT-2623-3155"
+],
+"addresses": [
+"568 Umberline Way"
+],
+"organizations": [
+"Sunmarrow Solar"
+]
+},
+"org_home": {
+"canonical_name": "Sunmarrow Solar",
+"organization": true,
+"organizations": [
+"Sunmarrow",
+"Sunmarrow Solar",
+"Sunmarrow Solar Co."
+],
+"urls": [
+"https://www.sunmarrow.test"
+],
+"addresses": [
+"7818 Old Mill Terrace"
+],
+"account_numbers": [
+"3762348959"
+],
+"domain": "sunmarrow.test"
+},
+"org_1": {
+"canonical_name": "Tanager Lane Realty",
+"organization": true,
+"organizations": [
+"Tanager",
+"Tanager Lane Realty",
+"Tanager Lane Realty LLC"
+],
+"urls": [
+"https://www.tanager.test"
+],
+"addresses": [
+"3960 Tanager Lane"
+],
+"account_numbers": [
+"8838270846"
+],
+"domain": "tanager.test"
+},
+"org_2": {
+"canonical_name": "Northcott Regional Supply",
+"organization": true,
+"organizations": [
+"Northcott",
+"Northcott Regional Supply",
+"Northcott Regional Supply Co."
+],
+"urls": [
+"https://www.northcott.test"
+],
+"addresses": [
+"710 Saltmarsh Avenue"
+],
+"account_numbers": [
+"6766931393"
+],
+"domain": "northcott.test"
+},
+"org_3": {
+"canonical_name": "Ashgrove Translation Bureau",
+"organization": true,
+"organizations": [
+"Ashgrove",
+"Ashgrove Translation Bureau"
+],
+"urls": [
+"https://www.ashgrove.test"
+],
+"addresses": [
+"2662 Thistle Lane"
+],
+"account_numbers": [
+"9604644606"
+],
+"domain": "ashgrove.test"
+},
+"org_4": {
+"canonical_name": "Harbor Mist Shipping",
+"organization": true,
+"organizations": [
+"Harbor",
+"Harbor Mist Shipping"
+],
+"urls": [
+"https://www.harbor.test"
+],
+"addresses": [
+"448 Quarry Bend"
+],
+"account_numbers": [
+"6953193230"
+],
+"domain": "harbor.test"
+},
+"org_5": {
+"canonical_name": "Copperfield Technical Services",
+"organization": true,
+"organizations": [
+"Copperfield",
+"Copperfield Technical Services",
+"Copperfield Technical Services Ltd"
+],
+"urls": [
+"https://www.copperfield.test"
+],
+"addresses": [
+"6230 Pinecrest Boulevard"
+],
+"account_numbers": [
+"5664506779"
+],
+"domain": "copperfield.test"
+},
+"org_6": {
+"canonical_name": "Marrowbone Capital Partners",
+"organization": true,
+"organizations": [
+"Marrowbone",
+"Marrowbone Capital Partners"
+],
+"urls": [
+"https://www.marrowbone.test"
+],
+"addresses": [
+"3159 Thistle Lane"
+],
+"account_numbers": [
+"4617709081"
+],
+"domain": "marrowbone.test"
+},
+"org_homonym": {
+"canonical_name": "Chowdhury & Associates",
+"organization": true,
+"organizations": [
+"Chowdhury",
+"Chowdhury & Associates",
+"Chowdhury & Associates LLP"
+],
+"urls": [
+"https://www.chowdhurylaw.test"
+],
+"addresses": [
+"5454 Willowmere Road"
+],
+"account_numbers": [
+"3733981941"
+],
+"domain": "chowdhurylaw.test"
+}
+},
+"rows": [
+{
+"meta": {
+"row_id": "m03000899401f2",
+"from": {
+"name": "Caspar Winterhalde",
+"email": "caspar@sunmarrow.test"
+},
+"to": [
+{
+"name": "Lucian Schneider",
+"email": "lschneider@sunmarrow.test"
+},
+{
+"name": "Jude Tallis",
+"email": "jude.tallis@sunmarrow.test"
+},
+{
+"name": "Ada Haddad",
+"email": "ada@sunmarrow.test"
+}
+],
+"cc": [
+{
+"name": "Niall Underhill",
+"email": "niall.underhill@chowdhurylaw.test"
+}
+],
+"subject": "Kickoff: the renewal pricing",
+"datetime": "2026-03-02T11:15:00Z",
+"thread_id": "m03000899401f2"
+},
+"text": "Hi all,\n\nKicking off the renewal pricing this week. Roles for the record:\n\n- Lucian Schneider (Dispatcher, lschneider@sunmarrow.test)\n- Jude Tallis (Customer Success Lead, jude.tallis@sunmarrow.test)\n- Ada Haddad (Office Manager, ada@sunmarrow.test)\n- Niall Underhill from Chowdhury & Associates LLP, our contact at the vendor (720.555.0126)\n\nThe shared folder is at https://www.sunmarrow.test/projects/pricing. Ping Lucian or me if a line item looks wrong.\n\nCheers,\nCaspar Winterhalde\nDispatcher | Sunmarrow Solar Co.\n720.555.0181 | caspar@sunmarrow.test\nEmployee ID SMS-40670\n7818 Old Mill Terrace, Dunmere, VT 05401\n\r",
+"file": {
+"kind": "eml",
+"path": "email/m03000899401f2.eml",
+"sha256": "5009965eeecbc9b9f2816dc226576eb110d72f7aefb2b73df3773684b3eeeb21",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Lucian",
+"start": 77,
+"end": 83,
+"label": "NAME_GIVEN",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 531,
+"file_char_end": 537,
+"status": "located"
+}
+},
+{
+"text": "Schneider",
+"start": 84,
+"end": 93,
+"label": "NAME_FAMILY",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 538,
+"file_char_end": 547,
+"status": "located"
+}
+},
+{
+"text": "lschneider@sunmarrow.test",
+"start": 107,
+"end": 132,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 561,
+"file_char_end": 586,
+"status": "located"
+}
+},
+{
+"text": "Jude",
+"start": 136,
+"end": 140,
+"label": "NAME_GIVEN",
+"characters": [
+"p13"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 591,
+"file_char_end": 595,
+"status": "located"
+}
+},
+{
+"text": "Tallis",
+"start": 141,
+"end": 147,
+"label": "NAME_FAMILY",
+"characters": [
+"p13"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 596,
+"file_char_end": 602,
+"status": "located"
+}
+},
+{
+"text": "jude.tallis@sunmarrow.test",
+"start": 172,
+"end": 198,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p13"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 627,
+"file_char_end": 653,
+"status": "located"
+}
+},
+{
+"text": "Ada",
+"start": 202,
+"end": 205,
+"label": "NAME_GIVEN",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 658,
+"file_char_end": 661,
+"status": "located"
+}
+},
+{
+"text": "Haddad",
+"start": 206,
+"end": 212,
+"label": "NAME_FAMILY",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 662,
+"file_char_end": 668,
+"status": "located"
+}
+},
+{
+"text": "ada@sunmarrow.test",
+"start": 230,
+"end": 248,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 686,
+"file_char_end": 704,
+"status": "located"
+}
+},
+{
+"text": "Niall",
+"start": 252,
+"end": 257,
+"label": "NAME_GIVEN",
+"characters": [
+"p18"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 709,
+"file_char_end": 714,
+"status": "located"
+}
+},
+{
+"text": "Underhill",
+"start": 258,
+"end": 267,
+"label": "NAME_FAMILY",
+"characters": [
+"p18"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 715,
+"file_char_end": 724,
+"status": "located"
+}
+},
+{
+"text": "Chowdhury & Associates LLP",
+"start": 273,
+"end": 299,
+"label": "ORGANIZATION",
+"characters": [
+"org_homonym"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 730,
+"file_char_end": 756,
+"status": "located"
+}
+},
+{
+"text": "720.555.0126",
+"start": 328,
+"end": 340,
+"label": "PHONE_NUMBER",
+"characters": [
+"p18"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 785,
+"file_char_end": 797,
+"status": "located"
+}
+},
+{
+"text": "https://www.sunmarrow.test/projects/pricing",
+"start": 367,
+"end": 410,
+"label": "URL",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 826,
+"file_char_end": 869,
+"status": "located"
+}
+},
+{
+"text": "Lucian",
+"start": 417,
+"end": 423,
+"label": "NAME_GIVEN",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 876,
+"file_char_end": 882,
+"status": "located"
+}
+},
+{
+"text": "Caspar",
+"start": 467,
+"end": 473,
+"label": "NAME_GIVEN",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 929,
+"file_char_end": 935,
+"status": "located"
+}
+},
+{
+"text": "Winterhalde",
+"start": 474,
+"end": 485,
+"label": "NAME_FAMILY",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 936,
+"file_char_end": 947,
+"status": "located"
+}
+},
+{
+"text": "Sunmarrow Solar Co.",
+"start": 499,
+"end": 518,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 962,
+"file_char_end": 981,
+"status": "located"
+}
+},
+{
+"text": "720.555.0181",
+"start": 519,
+"end": 531,
+"label": "PHONE_NUMBER",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 983,
+"file_char_end": 995,
+"status": "located"
+}
+},
+{
+"text": "caspar@sunmarrow.test",
+"start": 534,
+"end": 555,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 998,
+"file_char_end": 1019,
+"status": "located"
+}
+},
+{
+"text": "SMS-40670",
+"start": 568,
+"end": 577,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 1033,
+"file_char_end": 1042,
+"status": "located"
+}
+},
+{
+"text": "7818 Old Mill Terrace",
+"start": 578,
+"end": 599,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 1044,
+"file_char_end": 1065,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "m030010465475f",
+"from": {
+"name": "Lucian Schneider",
+"email": "lschneider@sunmarrow.test"
+},
+"to": [
+{
+"name": "Caspar Winterhalde",
+"email": "caspar@sunmarrow.test"
+}
+],
+"cc": [
+{
+"name": "Jude Tallis",
+"email": "jude.tallis@sunmarrow.test"
+},
+{
+"name": "Ada Haddad",
+"email": "ada@sunmarrow.test"
+}
+],
+"subject": "Re: Kickoff: the renewal pricing",
+"datetime": "2026-03-03T16:17:00Z",
+"thread_id": "thread-0"
+},
+"text": "Thanks Caspar! One correction: Haddad's extension changed, it is now 720-555-0194. Also Jude is out until Thursday.\n\n> Kicking off the renewal pricing this week.\n> Ping Lucian or me if a line item looks wrong.\n\nThanks,\nLucian Schneider\nDispatcher | Sunmarrow Solar Co.\n\r",
+"file": {
+"kind": "eml",
+"path": "email/m030010465475f.eml",
+"sha256": "0bdd7988e008b9a08c355d49fbcd1b3ed2ed993b9f76d5f1a7eb6a9466a4ecb1",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Caspar",
+"start": 7,
+"end": 13,
+"label": "NAME_GIVEN",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 454,
+"file_char_end": 460,
+"status": "located"
+}
+},
+{
+"text": "Haddad",
+"start": 31,
+"end": 37,
+"label": "NAME_FAMILY",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 478,
+"file_char_end": 484,
+"status": "located"
+}
+},
+{
+"text": "720-555-0194",
+"start": 69,
+"end": 81,
+"label": "PHONE_NUMBER",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 516,
+"file_char_end": 528,
+"status": "located"
+}
+},
+{
+"text": "Jude",
+"start": 88,
+"end": 92,
+"label": "NAME_GIVEN",
+"characters": [
+"p13"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 535,
+"file_char_end": 539,
+"status": "located"
+}
+},
+{
+"text": "Lucian",
+"start": 169,
+"end": 175,
+"label": "NAME_GIVEN",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 619,
+"file_char_end": 625,
+"status": "located"
+}
+},
+{
+"text": "Lucian",
+"start": 219,
+"end": 225,
+"label": "NAME_GIVEN",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 672,
+"file_char_end": 678,
+"status": "located"
+}
+},
+{
+"text": "Schneider",
+"start": 226,
+"end": 235,
+"label": "NAME_FAMILY",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 679,
+"file_char_end": 688,
+"status": "located"
+}
+},
+{
+"text": "Sunmarrow Solar Co.",
+"start": 249,
+"end": 268,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 703,
+"file_char_end": 722,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "m03002753a8aa4",
+"from": {
+"name": "Matthias Orrell",
+"email": "matthias.orrell@northcott.test"
+},
+"to": [
+{
+"name": "Liesl Chowdhury",
+"email": "liesl.chowdhury@sunmarrow.test"
+}
+],
+"cc": [],
+"subject": "Statement attached",
+"datetime": "2026-03-04T14:40:00Z",
+"thread_id": "m03002753a8aa4"
+},
+"text": "Dear Liesl,\n\nPlease find attached our statement for Sunmarrow Solar. The account reference on your side is 6766931393. Remit to Northcott Regional Supply Co., 710 Saltmarsh Avenue, New Harrow, NJ 07030.\n\nFor questions call me at 720.555.0188 or write to matthias.orrell@northcott.test.\n\nRegards,\nMatthias Orrell\nIT Administrator | Northcott Regional Supply\n720.555.0188 | matthias.orrell@northcott.test\nhttps://www.northcott.test\n\r",
+"file": {
+"kind": "eml",
+"path": "email/m03002753a8aa4.eml",
+"sha256": "5d7738cceb072726834665628395bc7b7d41b532682f323e50dad8b401f86a6d",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Liesl",
+"start": 5,
+"end": 10,
+"label": "NAME_GIVEN",
+"characters": [
+"p20"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 323,
+"file_char_end": 328,
+"status": "located"
+}
+},
+{
+"text": "Sunmarrow Solar",
+"start": 52,
+"end": 67,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 372,
+"file_char_end": 387,
+"status": "located"
+}
+},
+{
+"text": "6766931393",
+"start": 107,
+"end": 117,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"org_2"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 427,
+"file_char_end": 437,
+"status": "located"
+}
+},
+{
+"text": "Northcott Regional Supply Co.",
+"start": 128,
+"end": 157,
+"label": "ORGANIZATION",
+"characters": [
+"org_2"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 448,
+"file_char_end": 477,
+"status": "located"
+}
+},
+{
+"text": "710 Saltmarsh Avenue",
+"start": 159,
+"end": 179,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_2"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 479,
+"file_char_end": 499,
+"status": "located"
+}
+},
+{
+"text": "720.555.0188",
+"start": 229,
+"end": 241,
+"label": "PHONE_NUMBER",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 551,
+"file_char_end": 563,
+"status": "located"
+}
+},
+{
+"text": "matthias.orrell@northcott.test",
+"start": 254,
+"end": 284,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 576,
+"file_char_end": 606,
+"status": "located"
+}
+},
+{
+"text": "Matthias",
+"start": 296,
+"end": 304,
+"label": "NAME_GIVEN",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 621,
+"file_char_end": 629,
+"status": "located"
+}
+},
+{
+"text": "Orrell",
+"start": 305,
+"end": 311,
+"label": "NAME_FAMILY",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 630,
+"file_char_end": 636,
+"status": "located"
+}
+},
+{
+"text": "Northcott Regional Supply",
+"start": 331,
+"end": 356,
+"label": "ORGANIZATION",
+"characters": [
+"org_2"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 657,
+"file_char_end": 682,
+"status": "located"
+}
+},
+{
+"text": "720.555.0188",
+"start": 357,
+"end": 369,
+"label": "PHONE_NUMBER",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 684,
+"file_char_end": 696,
+"status": "located"
+}
+},
+{
+"text": "matthias.orrell@northcott.test",
+"start": 372,
+"end": 402,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 699,
+"file_char_end": 729,
+"status": "located"
+}
+},
+{
+"text": "https://www.northcott.test",
+"start": 403,
+"end": 429,
+"label": "URL",
+"characters": [
+"org_2"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 731,
+"file_char_end": 757,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "m03003662f6ce2",
+"from": {
+"name": "Dorothea Takahashi",
+"email": "dorothea@sunmarrow.test"
+},
+"to": [
+{
+"name": "Jude Tallis",
+"email": "jude.tallis@sunmarrow.test"
+}
+],
+"cc": [],
+"subject": "Welcome aboard",
+"datetime": "2026-03-05T14:41:00Z",
+"thread_id": "m03003662f6ce2"
+},
+"text": "Hello Jude,\n\nWelcome to Sunmarrow Solar Co.. Your employee ID is SMS-53837 and your badge will be ready at reception on Monday. Your workspace handle is @judetal and your mailbox jude.tallis@sunmarrow.test is active.\n\nIf anything is missing, Dorothea (dorothea@sunmarrow.test) can help. Our office is at 7818 Old Mill Terrace, Dunmere, VT 05401.\n\nThanks,\nDorothea Takahashi\nOperations Manager | Sunmarrow Solar\n+1 720 555 0189 | dorothea@sunmarrow.test\nEmployee ID SMS-38857\n\r",
+"file": {
+"kind": "eml",
+"path": "email/m03003662f6ce2.eml",
+"sha256": "cc6033a3cd7802ea6545335d6adfdcad9239a443154e6610b7432bfb12587b28",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Jude",
+"start": 6,
+"end": 10,
+"label": "NAME_GIVEN",
+"characters": [
+"p13"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 308,
+"file_char_end": 312,
+"status": "located"
+}
+},
+{
+"text": "Sunmarrow Solar Co.",
+"start": 24,
+"end": 43,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 328,
+"file_char_end": 347,
+"status": "located"
+}
+},
+{
+"text": "SMS-53837",
+"start": 65,
+"end": 74,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p13"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 369,
+"file_char_end": 378,
+"status": "located"
+}
+},
+{
+"text": "@judetal",
+"start": 153,
+"end": 161,
+"label": "USERNAME",
+"characters": [
+"p13"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 457,
+"file_char_end": 465,
+"status": "located"
+}
+},
+{
+"text": "jude.tallis@sunmarrow.test",
+"start": 179,
+"end": 205,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p13"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 483,
+"file_char_end": 509,
+"status": "located"
+}
+},
+{
+"text": "Dorothea",
+"start": 242,
+"end": 250,
+"label": "NAME_GIVEN",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 548,
+"file_char_end": 556,
+"status": "located"
+}
+},
+{
+"text": "dorothea@sunmarrow.test",
+"start": 252,
+"end": 275,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 558,
+"file_char_end": 581,
+"status": "located"
+}
+},
+{
+"text": "7818 Old Mill Terrace",
+"start": 304,
+"end": 325,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 610,
+"file_char_end": 631,
+"status": "located"
+}
+},
+{
+"text": "Dorothea",
+"start": 355,
+"end": 363,
+"label": "NAME_GIVEN",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 664,
+"file_char_end": 672,
+"status": "located"
+}
+},
+{
+"text": "Takahashi",
+"start": 364,
+"end": 373,
+"label": "NAME_FAMILY",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 673,
+"file_char_end": 682,
+"status": "located"
+}
+},
+{
+"text": "Sunmarrow Solar",
+"start": 395,
+"end": 410,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 705,
+"file_char_end": 720,
+"status": "located"
+}
+},
+{
+"text": "+1 720 555 0189",
+"start": 411,
+"end": 426,
+"label": "PHONE_NUMBER",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 722,
+"file_char_end": 737,
+"status": "located"
+}
+},
+{
+"text": "dorothea@sunmarrow.test",
+"start": 429,
+"end": 452,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 740,
+"file_char_end": 763,
+"status": "located"
+}
+},
+{
+"text": "SMS-38857",
+"start": 465,
+"end": 474,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 777,
+"file_char_end": 786,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "m03004bf20c3f8",
+"from": {
+"name": "Lucian Schneider",
+"email": "lschneider@sunmarrow.test"
+},
+"to": [
+{
+"name": "Bronwyn Adegoke",
+"email": "bronwyn@sunmarrow.test"
+}
+],
+"cc": [],
+"subject": "slides for the site survey",
+"datetime": "2026-03-06T17:49:00Z",
+"thread_id": "m03004bf20c3f8"
+},
+"text": "hey bronwyn,\n\nquick one: can you send the slides for the site survey to my personal mail (lucian.schneider43@quietinbox.test) before friday? caspar wants to review them over the weekend.\n\nalso ashgrove called again about the renewal.\n\nlucian\r",
+"file": {
+"kind": "eml",
+"path": "email/m03004bf20c3f8.eml",
+"sha256": "d6372ac6cab85121b56b8c5a8cb4c3ead27eaa5120d325a283095d3dce26388b",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "bronwyn",
+"start": 4,
+"end": 11,
+"label": "NAME_GIVEN",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 318,
+"file_char_end": 325,
+"status": "located"
+}
+},
+{
+"text": "lucian.schneider43@quietinbox.test",
+"start": 90,
+"end": 124,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 406,
+"file_char_end": 440,
+"status": "located"
+}
+},
+{
+"text": "caspar",
+"start": 141,
+"end": 147,
+"label": "NAME_GIVEN",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 457,
+"file_char_end": 463,
+"status": "located"
+}
+},
+{
+"text": "ashgrove",
+"start": 193,
+"end": 201,
+"label": "ORGANIZATION",
+"characters": [
+"org_3"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 511,
+"file_char_end": 519,
+"status": "located"
+}
+},
+{
+"text": "lucian",
+"start": 235,
+"end": 241,
+"label": "NAME_GIVEN",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 555,
+"file_char_end": 561,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "m030057cd5c097",
+"from": {
+"name": "Lucian Schneider",
+"email": "lschneider@sunmarrow.test"
+},
+"to": [
+{
+"name": "Caspar Winterhalde",
+"email": "caspar@sunmarrow.test"
+}
+],
+"cc": [
+{
+"name": "Liesl Chowdhury",
+"email": "liesl.chowdhury@sunmarrow.test"
+}
+],
+"subject": "Engagement letter",
+"datetime": "2026-03-07T10:51:00Z",
+"thread_id": "m030057cd5c097"
+},
+"text": "Hi Caspar,\n\nChowdhury & Associates LLP sent the engagement letter; Liesl Chowdhury from our team (no relation to the firm) will coordinate. The counterparty contact is Leopold \"Leo\" Oduya at Chowdhury & Associates, reachable at +1 720 555 0164.\n\nTheir portal: https://www.chowdhurylaw.test/portal.\n\nBest,\nOdette Cranston\nRegional Director | Sunmarrow Solar Co.\n(720) 555-0184 | cranston.odette@sunmarrow.test\n7818 Old Mill Terrace, Dunmere, VT 05401\nhttps://www.sunmarrow.test\n\r",
+"file": {
+"kind": "eml",
+"path": "email/m030057cd5c097.eml",
+"sha256": "ccac749558f30f0c60262370c2e3eaec3bb680a739af17917b6f4b7d359d67c8",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Caspar",
+"start": 3,
+"end": 9,
+"label": "NAME_GIVEN",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 364,
+"file_char_end": 370,
+"status": "located"
+}
+},
+{
+"text": "Chowdhury & Associates LLP",
+"start": 12,
+"end": 38,
+"label": "ORGANIZATION",
+"characters": [
+"org_homonym"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 375,
+"file_char_end": 401,
+"status": "located"
+}
+},
+{
+"text": "Liesl",
+"start": 67,
+"end": 72,
+"label": "NAME_GIVEN",
+"characters": [
+"p20"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 430,
+"file_char_end": 435,
+"status": "located"
+}
+},
+{
+"text": "Chowdhury",
+"start": 73,
+"end": 82,
+"label": "NAME_FAMILY",
+"characters": [
+"p20"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 436,
+"file_char_end": 445,
+"status": "located"
+}
+},
+{
+"text": "Leopold",
+"start": 168,
+"end": 175,
+"label": "NAME_GIVEN",
+"characters": [
+"p14"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 531,
+"file_char_end": 538,
+"status": "located"
+}
+},
+{
+"text": "Leo",
+"start": 177,
+"end": 180,
+"label": "NAME_GIVEN",
+"characters": [
+"p14"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 540,
+"file_char_end": 543,
+"status": "located"
+}
+},
+{
+"text": "Oduya",
+"start": 182,
+"end": 187,
+"label": "NAME_FAMILY",
+"characters": [
+"p14"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 545,
+"file_char_end": 550,
+"status": "located"
+}
+},
+{
+"text": "Chowdhury & Associates",
+"start": 191,
+"end": 213,
+"label": "ORGANIZATION",
+"characters": [
+"org_homonym"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 554,
+"file_char_end": 576,
+"status": "located"
+}
+},
+{
+"text": "+1 720 555 0164",
+"start": 228,
+"end": 243,
+"label": "PHONE_NUMBER",
+"characters": [
+"p14"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 591,
+"file_char_end": 606,
+"status": "located"
+}
+},
+{
+"text": "https://www.chowdhurylaw.test/portal",
+"start": 260,
+"end": 296,
+"label": "URL",
+"characters": [
+"org_homonym"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 625,
+"file_char_end": 661,
+"status": "located"
+}
+},
+{
+"text": "Odette",
+"start": 305,
+"end": 311,
+"label": "NAME_GIVEN",
+"characters": [
+"p06"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 673,
+"file_char_end": 679,
+"status": "located"
+}
+},
+{
+"text": "Cranston",
+"start": 312,
+"end": 320,
+"label": "NAME_FAMILY",
+"characters": [
+"p06"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 680,
+"file_char_end": 688,
+"status": "located"
+}
+},
+{
+"text": "Sunmarrow Solar Co.",
+"start": 341,
+"end": 360,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 710,
+"file_char_end": 729,
+"status": "located"
+}
+},
+{
+"text": "(720) 555-0184",
+"start": 361,
+"end": 375,
+"label": "PHONE_NUMBER",
+"characters": [
+"p06"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 731,
+"file_char_end": 745,
+"status": "located"
+}
+},
+{
+"text": "cranston.odette@sunmarrow.test",
+"start": 378,
+"end": 408,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p06"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 748,
+"file_char_end": 778,
+"status": "located"
+}
+},
+{
+"text": "7818 Old Mill Terrace",
+"start": 409,
+"end": 430,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 780,
+"file_char_end": 801,
+"status": "located"
+}
+},
+{
+"text": "https://www.sunmarrow.test",
+"start": 450,
+"end": 476,
+"label": "URL",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 822,
+"file_char_end": 848,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "m030064a3913df",
+"from": {
+"name": "Caspar Winterhalde",
+"email": "caspar@sunmarrow.test"
+},
+"to": [
+{
+"name": "Tess Kowalchuk",
+"email": "tess@sunmarrow.test"
+},
+{
+"name": "Bronwyn Adegoke",
+"email": "bronwyn@sunmarrow.test"
+},
+{
+"name": "Gustav Dashwood",
+"email": "gustav.dashwood@sunmarrow.test"
+},
+{
+"name": "Lucian Schneider",
+"email": "lschneider@sunmarrow.test"
+}
+],
+"cc": [],
+"subject": "Contact roster",
+"datetime": "2026-03-08T12:13:00Z",
+"thread_id": "m030064a3913df"
+},
+"text": "Team,\n\nThe updated contact roster is attached (contact_roster.xlsx). Please check your own row: name, employee ID, phone. Guerrero, Yvette already flagged a wrong number.\n\nRegards,\nCaspar Winterhalde\nDispatcher | Sunmarrow Solar\n720.555.0181 | caspar@sunmarrow.test\nEmployee ID SMS-40670\n\r",
+"file": {
+"kind": "eml",
+"path": "email/m030064a3913df.eml",
+"sha256": "67a661e92b3abf5ba9cc3b3b715cb3d752a7cb1585fd9c8634d5b5279b405fef",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Guerrero",
+"start": 122,
+"end": 130,
+"label": "NAME_FAMILY",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 558,
+"file_char_end": 566,
+"status": "located"
+}
+},
+{
+"text": "Yvette",
+"start": 132,
+"end": 138,
+"label": "NAME_GIVEN",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 568,
+"file_char_end": 574,
+"status": "located"
+}
+},
+{
+"text": "Caspar",
+"start": 181,
+"end": 187,
+"label": "NAME_GIVEN",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 620,
+"file_char_end": 626,
+"status": "located"
+}
+},
+{
+"text": "Winterhalde",
+"start": 188,
+"end": 199,
+"label": "NAME_FAMILY",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 627,
+"file_char_end": 638,
+"status": "located"
+}
+},
+{
+"text": "Sunmarrow Solar",
+"start": 213,
+"end": 228,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 653,
+"file_char_end": 668,
+"status": "located"
+}
+},
+{
+"text": "720.555.0181",
+"start": 229,
+"end": 241,
+"label": "PHONE_NUMBER",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 670,
+"file_char_end": 682,
+"status": "located"
+}
+},
+{
+"text": "caspar@sunmarrow.test",
+"start": 244,
+"end": 265,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 685,
+"file_char_end": 706,
+"status": "located"
+}
+},
+{
+"text": "SMS-40670",
+"start": 278,
+"end": 287,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 720,
+"file_char_end": 729,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "m03007ec87fa55",
+"from": {
+"name": "Caspar Winterhalde",
+"email": "caspar@sunmarrow.test"
+},
+"to": [
+{
+"name": "Caspar Winterhalde",
+"email": "caspar@sunmarrow.test"
+}
+],
+"cc": [],
+"subject": "Reimbursements",
+"datetime": "2026-03-09T14:39:00Z",
+"thread_id": "m03007ec87fa55"
+},
+"text": "Hi,\n\nReimbursement for Yvette Guerrero (employee ID SMS-58758, account 79143132) goes out Friday. The vendor list with account numbers is in vendor_accounts.csv.\n\nQuestions to L. Schneider.\n\nCheers,\nTess Kowalchuk\nScheduler | Sunmarrow Solar\n720.555.0166 | tess@sunmarrow.test\n7818 Old Mill Terrace, Dunmere, VT 05401\n\r",
+"file": {
+"kind": "eml",
+"path": "email/m03007ec87fa55.eml",
+"sha256": "7cdd959fabdc684d2a7329aaff6e23369cfb02846c288daf0eb2f8cb3f15e2e1",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Yvette",
+"start": 23,
+"end": 29,
+"label": "NAME_GIVEN",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 327,
+"file_char_end": 333,
+"status": "located"
+}
+},
+{
+"text": "Guerrero",
+"start": 30,
+"end": 38,
+"label": "NAME_FAMILY",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 334,
+"file_char_end": 342,
+"status": "located"
+}
+},
+{
+"text": "SMS-58758",
+"start": 52,
+"end": 61,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 356,
+"file_char_end": 365,
+"status": "located"
+}
+},
+{
+"text": "79143132",
+"start": 71,
+"end": 79,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 375,
+"file_char_end": 383,
+"status": "located"
+}
+},
+{
+"text": "L.",
+"start": 176,
+"end": 178,
+"label": "NAME_GIVEN",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 482,
+"file_char_end": 484,
+"status": "located"
+}
+},
+{
+"text": "Schneider",
+"start": 179,
+"end": 188,
+"label": "NAME_FAMILY",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 485,
+"file_char_end": 494,
+"status": "located"
+}
+},
+{
+"text": "Tess",
+"start": 199,
+"end": 203,
+"label": "NAME_GIVEN",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 508,
+"file_char_end": 512,
+"status": "located"
+}
+},
+{
+"text": "Kowalchuk",
+"start": 204,
+"end": 213,
+"label": "NAME_FAMILY",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 513,
+"file_char_end": 522,
+"status": "located"
+}
+},
+{
+"text": "Sunmarrow Solar",
+"start": 226,
+"end": 241,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 536,
+"file_char_end": 551,
+"status": "located"
+}
+},
+{
+"text": "720.555.0166",
+"start": 242,
+"end": 254,
+"label": "PHONE_NUMBER",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 553,
+"file_char_end": 565,
+"status": "located"
+}
+},
+{
+"text": "tess@sunmarrow.test",
+"start": 257,
+"end": 276,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 568,
+"file_char_end": 587,
+"status": "located"
+}
+},
+{
+"text": "7818 Old Mill Terrace",
+"start": 277,
+"end": 298,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 589,
+"file_char_end": 610,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "m0300831bf1a58",
+"from": {
+"name": "Caspar Winterhalde",
+"email": "caspar@sunmarrow.test"
+},
+"to": [
+{
+"name": "Jude Tallis",
+"email": "jude.tallis@sunmarrow.test"
+},
+{
+"name": "Rhiannon Ashby",
+"email": "rhiannon@sunmarrow.test"
+}
+],
+"cc": [],
+"subject": "FW: memo on the client kickoff",
+"datetime": "2026-03-10T13:07:00Z",
+"thread_id": "m0300831bf1a58"
+},
+"text": "Forwarding the memo from Northcott Regional Supply about the client kickoff. Read page 2, Santoro quotes our old address 7818 Old Mill Terrace, Dunmere, VT 05401.\n\nThanks,\nCaspar Winterhalde\nDispatcher | Sunmarrow Solar Co.\n\r",
+"file": {
+"kind": "eml",
+"path": "email/m0300831bf1a58.eml",
+"sha256": "f59dff3392051f067d5d05eb6f60811d766282f82ebab060e87b76cdbc6764af",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Northcott Regional Supply",
+"start": 25,
+"end": 50,
+"label": "ORGANIZATION",
+"characters": [
+"org_2"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 383,
+"file_char_end": 408,
+"status": "located"
+}
+},
+{
+"text": "Santoro",
+"start": 90,
+"end": 97,
+"label": "NAME_FAMILY",
+"characters": [
+"p16"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 448,
+"file_char_end": 455,
+"status": "located"
+}
+},
+{
+"text": "7818 Old Mill Terrace",
+"start": 121,
+"end": 142,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 479,
+"file_char_end": 500,
+"status": "located"
+}
+},
+{
+"text": "Caspar",
+"start": 172,
+"end": 178,
+"label": "NAME_GIVEN",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 533,
+"file_char_end": 539,
+"status": "located"
+}
+},
+{
+"text": "Winterhalde",
+"start": 179,
+"end": 190,
+"label": "NAME_FAMILY",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 540,
+"file_char_end": 551,
+"status": "located"
+}
+},
+{
+"text": "Sunmarrow Solar Co.",
+"start": 204,
+"end": 223,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 566,
+"file_char_end": 585,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "m03009e4957e18",
+"from": {
+"name": "Lachlan Barrowcliffe",
+"email": "lbarrowcliffe@harbor.test"
+},
+"to": [
+{
+"name": "Rhiannon Ashby",
+"email": "rhiannon@sunmarrow.test"
+}
+],
+"cc": [
+{
+"name": "Lucian Schneider",
+"email": "lschneider@sunmarrow.test"
+},
+{
+"name": "Niall Underhill",
+"email": "niall.underhill@chowdhurylaw.test"
+}
+],
+"subject": "the Q3 vendor review",
+"datetime": "2026-03-11T15:08:00Z",
+"thread_id": "m03009e4957e18"
+},
+"text": "Dear Rhiannon,\n\nFollowing up on the Q3 vendor review: all signed off. Zachariah Upton of Sunmarrow Solar Co. sent the revised quote.\n\nThanks,\nLachlan Barrowcliffe\nFinance Controller | Harbor Mist Shipping\n720-555-0169 | lbarrowcliffe@harbor.test\n\r",
+"file": {
+"kind": "eml",
+"path": "email/m03009e4957e18.eml",
+"sha256": "df64e43337a515f01ad5479551cef62878b70efbf73782b46ac0dca6ba622bcf",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Rhiannon",
+"start": 5,
+"end": 13,
+"label": "NAME_GIVEN",
+"characters": [
+"p11"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 417,
+"file_char_end": 425,
+"status": "located"
+}
+},
+{
+"text": "Zachariah",
+"start": 70,
+"end": 79,
+"label": "NAME_GIVEN",
+"characters": [
+"p07"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 484,
+"file_char_end": 493,
+"status": "located"
+}
+},
+{
+"text": "Upton",
+"start": 80,
+"end": 85,
+"label": "NAME_FAMILY",
+"characters": [
+"p07"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 494,
+"file_char_end": 499,
+"status": "located"
+}
+},
+{
+"text": "Sunmarrow Solar Co.",
+"start": 89,
+"end": 108,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 503,
+"file_char_end": 522,
+"status": "located"
+}
+},
+{
+"text": "Lachlan",
+"start": 142,
+"end": 149,
+"label": "NAME_GIVEN",
+"characters": [
+"p19"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 559,
+"file_char_end": 566,
+"status": "located"
+}
+},
+{
+"text": "Barrowcliffe",
+"start": 150,
+"end": 162,
+"label": "NAME_FAMILY",
+"characters": [
+"p19"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 567,
+"file_char_end": 579,
+"status": "located"
+}
+},
+{
+"text": "Harbor Mist Shipping",
+"start": 184,
+"end": 204,
+"label": "ORGANIZATION",
+"characters": [
+"org_4"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 602,
+"file_char_end": 622,
+"status": "located"
+}
+},
+{
+"text": "720-555-0169",
+"start": 205,
+"end": 217,
+"label": "PHONE_NUMBER",
+"characters": [
+"p19"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 624,
+"file_char_end": 636,
+"status": "located"
+}
+},
+{
+"text": "lbarrowcliffe@harbor.test",
+"start": 220,
+"end": 245,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p19"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 639,
+"file_char_end": 664,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "m030103f0a485e",
+"from": {
+"name": "Bronwyn Adegoke",
+"email": "bronwyn@sunmarrow.test"
+},
+"to": [
+{
+"name": "Ada Haddad",
+"email": "ada@sunmarrow.test"
+}
+],
+"cc": [
+{
+"name": "Lucian Schneider",
+"email": "lschneider@sunmarrow.test"
+}
+],
+"subject": "the office move",
+"datetime": "2026-03-12T16:41:00Z",
+"thread_id": "m030103f0a485e"
+},
+"text": "Hi Ada Haddad,\n\nFollowing up on the office move: the vendor needs a PO. Call me on 720-555-0162.\n\nBest,\nBronwyn Adegoke\nMarketing Associate | Sunmarrow Solar Co.\n720-555-0162 | bronwyn@sunmarrow.test\nEmployee ID SMS-27115\n\r",
+"file": {
+"kind": "eml",
+"path": "email/m030103f0a485e.eml",
+"sha256": "8dd3fc8e8cd18701cd8fb14110ecb4df02f790d93126706eb59b1178120a3c8a",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Ada",
+"start": 3,
+"end": 6,
+"label": "NAME_GIVEN",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 343,
+"file_char_end": 346,
+"status": "located"
+}
+},
+{
+"text": "Haddad",
+"start": 7,
+"end": 13,
+"label": "NAME_FAMILY",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 347,
+"file_char_end": 353,
+"status": "located"
+}
+},
+{
+"text": "720-555-0162",
+"start": 83,
+"end": 95,
+"label": "PHONE_NUMBER",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 425,
+"file_char_end": 437,
+"status": "located"
+}
+},
+{
+"text": "Bronwyn",
+"start": 104,
+"end": 111,
+"label": "NAME_GIVEN",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 449,
+"file_char_end": 456,
+"status": "located"
+}
+},
+{
+"text": "Adegoke",
+"start": 112,
+"end": 119,
+"label": "NAME_FAMILY",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 457,
+"file_char_end": 464,
+"status": "located"
+}
+},
+{
+"text": "Sunmarrow Solar Co.",
+"start": 142,
+"end": 161,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 488,
+"file_char_end": 507,
+"status": "located"
+}
+},
+{
+"text": "720-555-0162",
+"start": 162,
+"end": 174,
+"label": "PHONE_NUMBER",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 509,
+"file_char_end": 521,
+"status": "located"
+}
+},
+{
+"text": "bronwyn@sunmarrow.test",
+"start": 177,
+"end": 199,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 524,
+"file_char_end": 546,
+"status": "located"
+}
+},
+{
+"text": "SMS-27115",
+"start": 212,
+"end": 221,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 560,
+"file_char_end": 569,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "m03011b01ea2b3",
+"from": {
+"name": "Liesl Chowdhury",
+"email": "liesl.chowdhury@sunmarrow.test"
+},
+"to": [
+{
+"name": "Bronwyn Adegoke",
+"email": "bronwyn@sunmarrow.test"
+}
+],
+"cc": [
+{
+"name": "Liesl Chowdhury",
+"email": "liesl.chowdhury@sunmarrow.test"
+},
+{
+"name": "Rhiannon Ashby",
+"email": "rhiannon@sunmarrow.test"
+}
+],
+"subject": "the onboarding checklist",
+"datetime": "2026-03-13T14:32:00Z",
+"thread_id": "m03011b01ea2b3"
+},
+"text": "Dear Bronwyn,\n\nStatus for the onboarding checklist: we are on track.\n\nRegards,\nLiesl Chowdhury\nScheduler | Sunmarrow Solar Co.\n720-555-0156 | liesl.chowdhury@sunmarrow.test\nhttps://www.sunmarrow.test\n\r",
+"file": {
+"kind": "eml",
+"path": "email/m03011b01ea2b3.eml",
+"sha256": "dd17301fca8bf37cc28c0529da2ebeaedc3bb83d075c150de42c31d6191894d4",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Bronwyn",
+"start": 5,
+"end": 12,
+"label": "NAME_GIVEN",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 417,
+"file_char_end": 424,
+"status": "located"
+}
+},
+{
+"text": "Liesl",
+"start": 79,
+"end": 84,
+"label": "NAME_GIVEN",
+"characters": [
+"p20"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 496,
+"file_char_end": 501,
+"status": "located"
+}
+},
+{
+"text": "Chowdhury",
+"start": 85,
+"end": 94,
+"label": "NAME_FAMILY",
+"characters": [
+"p20"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 502,
+"file_char_end": 511,
+"status": "located"
+}
+},
+{
+"text": "Sunmarrow Solar Co.",
+"start": 107,
+"end": 126,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 525,
+"file_char_end": 544,
+"status": "located"
+}
+},
+{
+"text": "720-555-0156",
+"start": 127,
+"end": 139,
+"label": "PHONE_NUMBER",
+"characters": [
+"p20"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 546,
+"file_char_end": 558,
+"status": "located"
+}
+},
+{
+"text": "liesl.chowdhury@sunmarrow.test",
+"start": 142,
+"end": 172,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p20"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 561,
+"file_char_end": 591,
+"status": "located"
+}
+},
+{
+"text": "https://www.sunmarrow.test",
+"start": 173,
+"end": 199,
+"label": "URL",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 593,
+"file_char_end": 619,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "m03012ba5c8269",
+"from": {
+"name": "Liesl Chowdhury",
+"email": "liesl.chowdhury@sunmarrow.test"
+},
+"to": [
+{
+"name": "Niall Underhill",
+"email": "niall.underhill@chowdhurylaw.test"
+}
+],
+"cc": [
+{
+"name": "Zachariah Upton",
+"email": "zachariah.upton@sunmarrow.test"
+}
+],
+"subject": "the budget freeze",
+"datetime": "2026-03-14T12:38:00Z",
+"thread_id": "m03012ba5c8269"
+},
+"text": "Dear Niall Underhill,\n\nFollowing up on the budget freeze: all signed off. Jude Tallis of Chowdhury & Associates LLP asked for the invoice. Call me on 720-555-0156.\n\nCheers,\nLiesl Chowdhury\nScheduler | Sunmarrow Solar\n720-555-0156 | liesl.chowdhury@sunmarrow.test\nEmployee ID SMS-81918\n\r",
+"file": {
+"kind": "eml",
+"path": "email/m03012ba5c8269.eml",
+"sha256": "37ac1dfe0d5713bc0790da9a4168841235b40fc67932a4b0361ab682ee97e92b",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Niall",
+"start": 5,
+"end": 10,
+"label": "NAME_GIVEN",
+"characters": [
+"p18"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 379,
+"file_char_end": 384,
+"status": "located"
+}
+},
+{
+"text": "Underhill",
+"start": 11,
+"end": 20,
+"label": "NAME_FAMILY",
+"characters": [
+"p18"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 385,
+"file_char_end": 394,
+"status": "located"
+}
+},
+{
+"text": "Jude",
+"start": 74,
+"end": 78,
+"label": "NAME_GIVEN",
+"characters": [
+"p13"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 450,
+"file_char_end": 454,
+"status": "located"
+}
+},
+{
+"text": "Tallis",
+"start": 79,
+"end": 85,
+"label": "NAME_FAMILY",
+"characters": [
+"p13"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 455,
+"file_char_end": 461,
+"status": "located"
+}
+},
+{
+"text": "Chowdhury & Associates LLP",
+"start": 89,
+"end": 115,
+"label": "ORGANIZATION",
+"characters": [
+"org_homonym"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 465,
+"file_char_end": 491,
+"status": "located"
+}
+},
+{
+"text": "720-555-0156",
+"start": 150,
+"end": 162,
+"label": "PHONE_NUMBER",
+"characters": [
+"p20"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 526,
+"file_char_end": 538,
+"status": "located"
+}
+},
+{
+"text": "Liesl",
+"start": 173,
+"end": 178,
+"label": "NAME_GIVEN",
+"characters": [
+"p20"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 552,
+"file_char_end": 557,
+"status": "located"
+}
+},
+{
+"text": "Chowdhury",
+"start": 179,
+"end": 188,
+"label": "NAME_FAMILY",
+"characters": [
+"p20"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 558,
+"file_char_end": 567,
+"status": "located"
+}
+},
+{
+"text": "Sunmarrow Solar",
+"start": 201,
+"end": 216,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 581,
+"file_char_end": 596,
+"status": "located"
+}
+},
+{
+"text": "720-555-0156",
+"start": 217,
+"end": 229,
+"label": "PHONE_NUMBER",
+"characters": [
+"p20"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 598,
+"file_char_end": 610,
+"status": "located"
+}
+},
+{
+"text": "liesl.chowdhury@sunmarrow.test",
+"start": 232,
+"end": 262,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p20"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 613,
+"file_char_end": 643,
+"status": "located"
+}
+},
+{
+"text": "SMS-81918",
+"start": 275,
+"end": 284,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p20"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 657,
+"file_char_end": 666,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "m0301331d39927",
+"from": {
+"name": "Bronwyn Adegoke",
+"email": "bronwyn@sunmarrow.test"
+},
+"to": [
+{
+"name": "Ada Haddad",
+"email": "ada@sunmarrow.test"
+}
+],
+"cc": [],
+"subject": "the audit prep",
+"datetime": "2026-03-15T16:04:00Z",
+"thread_id": "m0301331d39927"
+},
+"text": "Hello Ada Haddad,\n\nQuick note on the audit prep: all signed off. Call me on 720-555-0162.\n\nBest,\nBronwyn Adegoke\nMarketing Associate | Sunmarrow Solar Co.\n720-555-0162 | bronwyn@sunmarrow.test\nEmployee ID SMS-27115\n7818 Old Mill Terrace, Dunmere, VT 05401\nhttps://www.sunmarrow.test\n\r",
+"file": {
+"kind": "eml",
+"path": "email/m0301331d39927.eml",
+"sha256": "5427de75f3e757b26c1c4930f3918adc293c236c491e8cf48b9f46cf07cd32da",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Ada",
+"start": 6,
+"end": 9,
+"label": "NAME_GIVEN",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 295,
+"file_char_end": 298,
+"status": "located"
+}
+},
+{
+"text": "Haddad",
+"start": 10,
+"end": 16,
+"label": "NAME_FAMILY",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 299,
+"file_char_end": 305,
+"status": "located"
+}
+},
+{
+"text": "720-555-0162",
+"start": 76,
+"end": 88,
+"label": "PHONE_NUMBER",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 367,
+"file_char_end": 379,
+"status": "located"
+}
+},
+{
+"text": "Bronwyn",
+"start": 97,
+"end": 104,
+"label": "NAME_GIVEN",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 391,
+"file_char_end": 398,
+"status": "located"
+}
+},
+{
+"text": "Adegoke",
+"start": 105,
+"end": 112,
+"label": "NAME_FAMILY",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 399,
+"file_char_end": 406,
+"status": "located"
+}
+},
+{
+"text": "Sunmarrow Solar Co.",
+"start": 135,
+"end": 154,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 430,
+"file_char_end": 449,
+"status": "located"
+}
+},
+{
+"text": "720-555-0162",
+"start": 155,
+"end": 167,
+"label": "PHONE_NUMBER",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 451,
+"file_char_end": 463,
+"status": "located"
+}
+},
+{
+"text": "bronwyn@sunmarrow.test",
+"start": 170,
+"end": 192,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 466,
+"file_char_end": 488,
+"status": "located"
+}
+},
+{
+"text": "SMS-27115",
+"start": 205,
+"end": 214,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 502,
+"file_char_end": 511,
+"status": "located"
+}
+},
+{
+"text": "7818 Old Mill Terrace",
+"start": 215,
+"end": 236,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 513,
+"file_char_end": 534,
+"status": "located"
+}
+},
+{
+"text": "https://www.sunmarrow.test",
+"start": 256,
+"end": 282,
+"label": "URL",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 555,
+"file_char_end": 581,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772442000.656054",
+"from": {
+"user_id": "U27Y40LMP",
+"name": "Lucian Schneider"
+},
+"channel": "dm-casparwin",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772442000.656054"
+},
+"text": "use my personal one: lucian.schneider43@quietinbox.test",
+"file": {
+"kind": "slack",
+"path": "slack/dm-casparwin/2026-03-02.json",
+"sha256": "5b24fbf3ff9dd81b32d8c7e7f3e535a5c75af6995a5070ded39e8f61ab0e07a0",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "lucian.schneider43@quietinbox.test",
+"start": 21,
+"end": 55,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 21,
+"end": 55,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772528437.831249",
+"from": {
+"user_id": "U152TL1B4",
+"name": "Caspar Winterhalde"
+},
+"channel": "dm-casparwin",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772528437.831249"
+},
+"text": "has Kowalchuk reply?",
+"file": {
+"kind": "slack",
+"path": "slack/dm-casparwin/2026-03-02.json",
+"sha256": "5b24fbf3ff9dd81b32d8c7e7f3e535a5c75af6995a5070ded39e8f61ab0e07a0",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Kowalchuk",
+"start": 4,
+"end": 13,
+"label": "NAME_FAMILY",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 4,
+"end": 13,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772614874.740461",
+"from": {
+"user_id": "U27Y40LMP",
+"name": "Lucian Schneider"
+},
+"channel": "dm-casparwin",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772614874.740461"
+},
+"text": "did Eastwick reply?",
+"file": {
+"kind": "slack",
+"path": "slack/dm-casparwin/2026-03-02.json",
+"sha256": "5b24fbf3ff9dd81b32d8c7e7f3e535a5c75af6995a5070ded39e8f61ab0e07a0",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Eastwick",
+"start": 4,
+"end": 12,
+"label": "NAME_FAMILY",
+"characters": [
+"p08"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 4,
+"end": 12,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772701311.398450",
+"from": {
+"user_id": "U152TL1B4",
+"name": "Caspar Winterhalde"
+},
+"channel": "dm-casparwin",
+"datetime": "2026-03-04T09:00:00Z",
+"thread_ts": "1772701311.398450"
+},
+"text": "has Santoro signed?",
+"file": {
+"kind": "slack",
+"path": "slack/dm-casparwin/2026-03-04.json",
+"sha256": "1c002c51eabf9ef8830e3848e611fd59a0ee31a62ab9a1b0eddf29149f3a5343",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Santoro",
+"start": 4,
+"end": 11,
+"label": "NAME_FAMILY",
+"characters": [
+"p16"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 4,
+"end": 11,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772787748.336308",
+"from": {
+"user_id": "U27Y40LMP",
+"name": "Lucian Schneider"
+},
+"channel": "dm-casparwin",
+"datetime": "2026-03-04T09:00:00Z",
+"thread_ts": "1772787748.336308"
+},
+"text": "has Cranston called back?",
+"file": {
+"kind": "slack",
+"path": "slack/dm-casparwin/2026-03-04.json",
+"sha256": "1c002c51eabf9ef8830e3848e611fd59a0ee31a62ab9a1b0eddf29149f3a5343",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Cranston",
+"start": 4,
+"end": 12,
+"label": "NAME_FAMILY",
+"characters": [
+"p06"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 4,
+"end": 12,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772874185.690087",
+"from": {
+"user_id": "U152TL1B4",
+"name": "Caspar Winterhalde"
+},
+"channel": "dm-casparwin",
+"datetime": "2026-03-04T09:00:00Z",
+"thread_ts": "1772874185.690087"
+},
+"text": "thx lucian, lunch?",
+"file": {
+"kind": "slack",
+"path": "slack/dm-casparwin/2026-03-04.json",
+"sha256": "1c002c51eabf9ef8830e3848e611fd59a0ee31a62ab9a1b0eddf29149f3a5343",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "lucian",
+"start": 4,
+"end": 10,
+"label": "NAME_GIVEN",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 4,
+"end": 10,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772960622.800942",
+"from": {
+"user_id": "U152TL1B4",
+"name": "Caspar Winterhalde"
+},
+"channel": "dm-casparwin",
+"datetime": "2026-03-06T09:00:00Z",
+"thread_ts": "1772960622.800942"
+},
+"text": "use my personal one: caspar.winterhalde46@quietinbox.test",
+"file": {
+"kind": "slack",
+"path": "slack/dm-casparwin/2026-03-06.json",
+"sha256": "1f060979189967ae4b614288fed6e7adfbe6ca6f9ace4cbe2473eddc8619ffb1",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "caspar.winterhalde46@quietinbox.test",
+"start": 21,
+"end": 57,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 21,
+"end": 57,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773047059.674935",
+"from": {
+"user_id": "U27Y40LMP",
+"name": "Lucian Schneider"
+},
+"channel": "dm-casparwin",
+"datetime": "2026-03-06T09:00:00Z",
+"thread_ts": "1773047059.674935"
+},
+"text": "has Cranston reply?",
+"file": {
+"kind": "slack",
+"path": "slack/dm-casparwin/2026-03-06.json",
+"sha256": "1f060979189967ae4b614288fed6e7adfbe6ca6f9ace4cbe2473eddc8619ffb1",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Cranston",
+"start": 4,
+"end": 12,
+"label": "NAME_FAMILY",
+"characters": [
+"p06"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 4,
+"end": 12,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773133496.444370",
+"from": {
+"user_id": "U152TL1B4",
+"name": "Caspar Winterhalde"
+},
+"channel": "dm-casparwin",
+"datetime": "2026-03-06T09:00:00Z",
+"thread_ts": "1773133496.444370"
+},
+"text": "use my personal one: caspar.winterhalde46@quietinbox.test",
+"file": {
+"kind": "slack",
+"path": "slack/dm-casparwin/2026-03-06.json",
+"sha256": "1f060979189967ae4b614288fed6e7adfbe6ca6f9ace4cbe2473eddc8619ffb1",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "caspar.winterhalde46@quietinbox.test",
+"start": 21,
+"end": 57,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 21,
+"end": 57,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772442000.485696",
+"from": {
+"user_id": "U1WCE4CT9",
+"name": "Oriana Eastwick"
+},
+"channel": "finance",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772442000.485696"
+},
+"text": "send the statement to ada@sunmarrow.test (Ada)",
+"file": {
+"kind": "slack",
+"path": "slack/finance/2026-03-02.json",
+"sha256": "7c82ea796fcc9e5f00dbe22cbc7403441065adc1359e04fd3e529ab068587d05",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "ada@sunmarrow.test",
+"start": 22,
+"end": 40,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 22,
+"end": 40,
+"status": "located"
+}
+},
+{
+"text": "Ada",
+"start": 42,
+"end": 45,
+"label": "NAME_GIVEN",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 42,
+"end": 45,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772528437.390764",
+"from": {
+"user_id": "U3JX6VTES",
+"name": "Tess Kowalchuk"
+},
+"channel": "finance",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772528437.390764"
+},
+"text": "Barrowcliffe, Lachlan still has no cost centre",
+"file": {
+"kind": "slack",
+"path": "slack/finance/2026-03-02.json",
+"sha256": "7c82ea796fcc9e5f00dbe22cbc7403441065adc1359e04fd3e529ab068587d05",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Barrowcliffe",
+"start": 0,
+"end": 12,
+"label": "NAME_FAMILY",
+"characters": [
+"p19"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 0,
+"end": 12,
+"status": "located"
+}
+},
+{
+"text": "Lachlan",
+"start": 14,
+"end": 21,
+"label": "NAME_GIVEN",
+"characters": [
+"p19"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 14,
+"end": 21,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772614874.364541",
+"from": {
+"user_id": "U152TL1B4",
+"name": "Caspar Winterhalde"
+},
+"channel": "finance",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772614874.364541"
+},
+"text": "Dashwood, Gustav still has no cost centre",
+"file": {
+"kind": "slack",
+"path": "slack/finance/2026-03-02.json",
+"sha256": "7c82ea796fcc9e5f00dbe22cbc7403441065adc1359e04fd3e529ab068587d05",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Dashwood",
+"start": 0,
+"end": 8,
+"label": "NAME_FAMILY",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 0,
+"end": 8,
+"status": "located"
+}
+},
+{
+"text": "Gustav",
+"start": 10,
+"end": 16,
+"label": "NAME_GIVEN",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 10,
+"end": 16,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772701311.381738",
+"from": {
+"user_id": "U006VLBD7",
+"name": "Dorothea Takahashi"
+},
+"channel": "finance",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772701311.381738"
+},
+"text": "send the statement to yguerrero@sunmarrow.test (Yvette)",
+"file": {
+"kind": "slack",
+"path": "slack/finance/2026-03-02.json",
+"sha256": "7c82ea796fcc9e5f00dbe22cbc7403441065adc1359e04fd3e529ab068587d05",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "yguerrero@sunmarrow.test",
+"start": 22,
+"end": 46,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/3/text",
+"start": 22,
+"end": 46,
+"status": "located"
+}
+},
+{
+"text": "Yvette",
+"start": 48,
+"end": 54,
+"label": "NAME_GIVEN",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/3/text",
+"start": 48,
+"end": 54,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772787748.812136",
+"from": {
+"user_id": "U9G9CP5BY",
+"name": "Bronwyn Adegoke"
+},
+"channel": "finance",
+"datetime": "2026-03-04T09:00:00Z",
+"thread_ts": "1772787748.812136"
+},
+"text": "Orrell, Matthias still has no cost centre",
+"file": {
+"kind": "slack",
+"path": "slack/finance/2026-03-04.json",
+"sha256": "da4efc49bb557042d8eb84248ab11b9483b7dd7e052cb78bad0dcd6a0cdd7ae8",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Orrell",
+"start": 0,
+"end": 6,
+"label": "NAME_FAMILY",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 0,
+"end": 6,
+"status": "located"
+}
+},
+{
+"text": "Matthias",
+"start": 8,
+"end": 16,
+"label": "NAME_GIVEN",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 8,
+"end": 16,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772874185.965306",
+"from": {
+"user_id": "U27Y40LMP",
+"name": "Lucian Schneider"
+},
+"channel": "finance",
+"datetime": "2026-03-04T09:00:00Z",
+"thread_ts": "1772874185.965306"
+},
+"text": "send the statement to zachariah.upton@sunmarrow.test (Zachariah)",
+"file": {
+"kind": "slack",
+"path": "slack/finance/2026-03-04.json",
+"sha256": "da4efc49bb557042d8eb84248ab11b9483b7dd7e052cb78bad0dcd6a0cdd7ae8",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "zachariah.upton@sunmarrow.test",
+"start": 22,
+"end": 52,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p07"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 22,
+"end": 52,
+"status": "located"
+}
+},
+{
+"text": "Zachariah",
+"start": 54,
+"end": 63,
+"label": "NAME_GIVEN",
+"characters": [
+"p07"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 54,
+"end": 63,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772960622.823400",
+"from": {
+"user_id": "U9G9CP5BY",
+"name": "Bronwyn Adegoke"
+},
+"channel": "finance",
+"datetime": "2026-03-04T09:00:00Z",
+"thread_ts": "1772960622.823400"
+},
+"text": "roster v2 is up: Haddad, Ada and Cranston, Odette moved teams",
+"file": {
+"kind": "slack",
+"path": "slack/finance/2026-03-04.json",
+"sha256": "da4efc49bb557042d8eb84248ab11b9483b7dd7e052cb78bad0dcd6a0cdd7ae8",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Haddad",
+"start": 17,
+"end": 23,
+"label": "NAME_FAMILY",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 17,
+"end": 23,
+"status": "located"
+}
+},
+{
+"text": "Ada",
+"start": 25,
+"end": 28,
+"label": "NAME_GIVEN",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 25,
+"end": 28,
+"status": "located"
+}
+},
+{
+"text": "Cranston",
+"start": 33,
+"end": 41,
+"label": "NAME_FAMILY",
+"characters": [
+"p06"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 33,
+"end": 41,
+"status": "located"
+}
+},
+{
+"text": "Odette",
+"start": 43,
+"end": 49,
+"label": "NAME_GIVEN",
+"characters": [
+"p06"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 43,
+"end": 49,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773047059.737319",
+"from": {
+"user_id": "U9NVJN59J",
+"name": "Gustav Dashwood"
+},
+"channel": "finance",
+"datetime": "2026-03-04T09:00:00Z",
+"thread_ts": "1773047059.737319"
+},
+"text": "pay Chowdhury & Associates LLP against 3733981941",
+"file": {
+"kind": "slack",
+"path": "slack/finance/2026-03-04.json",
+"sha256": "da4efc49bb557042d8eb84248ab11b9483b7dd7e052cb78bad0dcd6a0cdd7ae8",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Chowdhury & Associates LLP",
+"start": 4,
+"end": 30,
+"label": "ORGANIZATION",
+"characters": [
+"org_homonym"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/3/text",
+"start": 4,
+"end": 30,
+"status": "located"
+}
+},
+{
+"text": "3733981941",
+"start": 39,
+"end": 49,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"org_homonym"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/3/text",
+"start": 39,
+"end": 49,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773133496.588110",
+"from": {
+"user_id": "U5G481PC7",
+"name": "Ada Haddad"
+},
+"channel": "finance",
+"datetime": "2026-03-06T09:00:00Z",
+"thread_ts": "1773133496.588110"
+},
+"text": "send the statement to liesl.chowdhury@sunmarrow.test (Liesl)",
+"file": {
+"kind": "slack",
+"path": "slack/finance/2026-03-06.json",
+"sha256": "8d44131de36ca4c37c794fd705ce3a460a96ec2402dcea389e82f7c8f328cfd1",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "liesl.chowdhury@sunmarrow.test",
+"start": 22,
+"end": 52,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p20"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 22,
+"end": 52,
+"status": "located"
+}
+},
+{
+"text": "Liesl",
+"start": 54,
+"end": 59,
+"label": "NAME_GIVEN",
+"characters": [
+"p20"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 54,
+"end": 59,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773219933.487181",
+"from": {
+"user_id": "U006VLBD7",
+"name": "Dorothea Takahashi"
+},
+"channel": "finance",
+"datetime": "2026-03-06T09:00:00Z",
+"thread_ts": "1773219933.487181"
+},
+"text": "send the statement to matthias.orrell@northcott.test (Matthias)",
+"file": {
+"kind": "slack",
+"path": "slack/finance/2026-03-06.json",
+"sha256": "8d44131de36ca4c37c794fd705ce3a460a96ec2402dcea389e82f7c8f328cfd1",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "matthias.orrell@northcott.test",
+"start": 22,
+"end": 52,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 22,
+"end": 52,
+"status": "located"
+}
+},
+{
+"text": "Matthias",
+"start": 54,
+"end": 62,
+"label": "NAME_GIVEN",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 54,
+"end": 62,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773306370.918634",
+"from": {
+"user_id": "U1WCE4CT9",
+"name": "Oriana Eastwick"
+},
+"channel": "finance",
+"datetime": "2026-03-06T09:00:00Z",
+"thread_ts": "1773306370.918634"
+},
+"text": "vendor accounts csv attached",
+"file": {
+"kind": "slack",
+"path": "slack/finance/2026-03-06.json",
+"sha256": "8d44131de36ca4c37c794fd705ce3a460a96ec2402dcea389e82f7c8f328cfd1",
+"container": null
+},
+"ground_truth_spans": []
+},
+{
+"meta": {
+"row_id": "1772442000.778352",
+"from": {
+"user_id": "U9NVJN59J",
+"name": "Gustav Dashwood"
+},
+"channel": "general",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772442000.778352"
+},
+"text": "heads up: Ashgrove Translation Bureau invoice is due",
+"file": {
+"kind": "slack",
+"path": "slack/general/2026-03-02.json",
+"sha256": "ed40ab37137fdd499ee8be96af20ecd07fa46f047090d0314c7ef19bfd9bf300",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Ashgrove Translation Bureau",
+"start": 10,
+"end": 37,
+"label": "ORGANIZATION",
+"characters": [
+"org_3"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 10,
+"end": 37,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772528437.439744",
+"from": {
+"user_id": "U5G481PC7",
+"name": "Ada Haddad"
+},
+"channel": "general",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772528437.439744"
+},
+"text": "<@U9G9CP5BY> any update on the renewal pricing?",
+"file": {
+"kind": "slack",
+"path": "slack/general/2026-03-02.json",
+"sha256": "ed40ab37137fdd499ee8be96af20ecd07fa46f047090d0314c7ef19bfd9bf300",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "<@U9G9CP5BY>",
+"start": 0,
+"end": 12,
+"label": "USERNAME",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 0,
+"end": 12,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772614874.264028",
+"from": {
+"user_id": "U2JVHW74R",
+"name": "Odette Cranston"
+},
+"channel": "general",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772614874.264028"
+},
+"text": "ask thea about the audit prep",
+"file": {
+"kind": "slack",
+"path": "slack/general/2026-03-02.json",
+"sha256": "ed40ab37137fdd499ee8be96af20ecd07fa46f047090d0314c7ef19bfd9bf300",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "thea",
+"start": 4,
+"end": 8,
+"label": "NAME_GIVEN",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 4,
+"end": 8,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772701311.442791",
+"from": {
+"user_id": "U1WCE4CT9",
+"name": "Oriana Eastwick"
+},
+"channel": "general",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772701311.442791"
+},
+"text": "heads up: Harbor moved offices",
+"file": {
+"kind": "slack",
+"path": "slack/general/2026-03-02.json",
+"sha256": "ed40ab37137fdd499ee8be96af20ecd07fa46f047090d0314c7ef19bfd9bf300",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Harbor",
+"start": 10,
+"end": 16,
+"label": "ORGANIZATION",
+"characters": [
+"org_4"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/3/text",
+"start": 10,
+"end": 16,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772787748.228559",
+"from": {
+"user_id": "U9G9CP5BY",
+"name": "Bronwyn Adegoke"
+},
+"channel": "general",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772787748.228559"
+},
+"text": "agreed with odette, good catch",
+"file": {
+"kind": "slack",
+"path": "slack/general/2026-03-02.json",
+"sha256": "ed40ab37137fdd499ee8be96af20ecd07fa46f047090d0314c7ef19bfd9bf300",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "odette",
+"start": 12,
+"end": 18,
+"label": "NAME_GIVEN",
+"characters": [
+"p06"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/4/text",
+"start": 12,
+"end": 18,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772874185.528999",
+"from": {
+"user_id": "U9NVJN59J",
+"name": "Gustav Dashwood"
+},
+"channel": "general",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772874185.528999"
+},
+"text": "fyi Ashgrove Translation Bureau invoice is due",
+"file": {
+"kind": "slack",
+"path": "slack/general/2026-03-02.json",
+"sha256": "ed40ab37137fdd499ee8be96af20ecd07fa46f047090d0314c7ef19bfd9bf300",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Ashgrove Translation Bureau",
+"start": 4,
+"end": 31,
+"label": "ORGANIZATION",
+"characters": [
+"org_3"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/5/text",
+"start": 4,
+"end": 31,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772960622.959508",
+"from": {
+"user_id": "U9QQUP7T4",
+"name": "Liesl Chowdhury"
+},
+"channel": "general",
+"datetime": "2026-03-04T09:00:00Z",
+"thread_ts": "1772960622.959508"
+},
+"text": "reminder: Northcott visit tomorrow &amp; no slides please",
+"file": {
+"kind": "slack",
+"path": "slack/general/2026-03-04.json",
+"sha256": "6be32c05af01108ffd2a7f4c31576f67b74790a3dea826384d3a1c003e3edd39",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Northcott",
+"start": 10,
+"end": 19,
+"label": "ORGANIZATION",
+"characters": [
+"org_2"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 10,
+"end": 19,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773047059.923935",
+"from": {
+"user_id": "U9NVJN59J",
+"name": "Gustav Dashwood"
+},
+"channel": "general",
+"datetime": "2026-03-04T09:00:00Z",
+"thread_ts": "1773047059.923935"
+},
+"text": "@guerreroy will post the recap",
+"file": {
+"kind": "slack",
+"path": "slack/general/2026-03-04.json",
+"sha256": "6be32c05af01108ffd2a7f4c31576f67b74790a3dea826384d3a1c003e3edd39",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "@guerreroy",
+"start": 0,
+"end": 10,
+"label": "USERNAME",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 0,
+"end": 10,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773133496.682601",
+"from": {
+"user_id": "U006VLBD7",
+"name": "Dorothea Takahashi"
+},
+"channel": "general",
+"datetime": "2026-03-04T09:00:00Z",
+"thread_ts": "1773133496.682601"
+},
+"text": "<@U152TL1B4> thanks for the invoice backlog?",
+"file": {
+"kind": "slack",
+"path": "slack/general/2026-03-04.json",
+"sha256": "6be32c05af01108ffd2a7f4c31576f67b74790a3dea826384d3a1c003e3edd39",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "<@U152TL1B4>",
+"start": 0,
+"end": 12,
+"label": "USERNAME",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 0,
+"end": 12,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773219933.801245",
+"from": {
+"user_id": "U9NVJN59J",
+"name": "Gustav Dashwood"
+},
+"channel": "general",
+"datetime": "2026-03-04T09:00:00Z",
+"thread_ts": "1773219933.801245"
+},
+"text": "@bronwyn_adegoke has the doc",
+"file": {
+"kind": "slack",
+"path": "slack/general/2026-03-04.json",
+"sha256": "6be32c05af01108ffd2a7f4c31576f67b74790a3dea826384d3a1c003e3edd39",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "@bronwyn_adegoke",
+"start": 0,
+"end": 16,
+"label": "USERNAME",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/3/text",
+"start": 0,
+"end": 16,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773306370.578498",
+"from": {
+"user_id": "U1WCE4CT9",
+"name": "Oriana Eastwick"
+},
+"channel": "general",
+"datetime": "2026-03-04T09:00:00Z",
+"thread_ts": "1773306370.578498"
+},
+"text": "thanks jude, good catch",
+"file": {
+"kind": "slack",
+"path": "slack/general/2026-03-04.json",
+"sha256": "6be32c05af01108ffd2a7f4c31576f67b74790a3dea826384d3a1c003e3edd39",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "jude",
+"start": 7,
+"end": 11,
+"label": "NAME_GIVEN",
+"characters": [
+"p13"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/4/text",
+"start": 7,
+"end": 11,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773392807.876610",
+"from": {
+"user_id": "U27Y40LMP",
+"name": "Lucian Schneider"
+},
+"channel": "general",
+"datetime": "2026-03-06T09:00:00Z",
+"thread_ts": "1773392807.876610"
+},
+"text": "@dorothea.takahashi owns this one &amp; bring numbers",
+"file": {
+"kind": "slack",
+"path": "slack/general/2026-03-06.json",
+"sha256": "e4806a3825ccc8f25e17ab0bdc69c3d1346d665368d3c5207fafb1cb487cb0e5",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "@dorothea.takahashi",
+"start": 0,
+"end": 19,
+"label": "USERNAME",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 0,
+"end": 19,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773479244.666855",
+"from": {
+"user_id": "U9NVJN59J",
+"name": "Gustav Dashwood"
+},
+"channel": "general",
+"datetime": "2026-03-06T09:00:00Z",
+"thread_ts": "1773479244.666855"
+},
+"text": "@oriana.eastwick is on PTO",
+"file": {
+"kind": "slack",
+"path": "slack/general/2026-03-06.json",
+"sha256": "e4806a3825ccc8f25e17ab0bdc69c3d1346d665368d3c5207fafb1cb487cb0e5",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "@oriana.eastwick",
+"start": 0,
+"end": 16,
+"label": "USERNAME",
+"characters": [
+"p08"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 0,
+"end": 16,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773565681.288939",
+"from": {
+"user_id": "U5G481PC7",
+"name": "Ada Haddad"
+},
+"channel": "general",
+"datetime": "2026-03-06T09:00:00Z",
+"thread_ts": "1773565681.288939"
+},
+"text": "<@U9R2PVBSA> can you look at the invoice backlog?",
+"file": {
+"kind": "slack",
+"path": "slack/general/2026-03-06.json",
+"sha256": "e4806a3825ccc8f25e17ab0bdc69c3d1346d665368d3c5207fafb1cb487cb0e5",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "<@U9R2PVBSA>",
+"start": 0,
+"end": 12,
+"label": "USERNAME",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 0,
+"end": 12,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773652118.856090",
+"from": {
+"user_id": "U9NVJN59J",
+"name": "Gustav Dashwood"
+},
+"channel": "general",
+"datetime": "2026-03-06T09:00:00Z",
+"thread_ts": "1773652118.856090"
+},
+"text": "reminder: Tanager visit tomorrow",
+"file": {
+"kind": "slack",
+"path": "slack/general/2026-03-06.json",
+"sha256": "e4806a3825ccc8f25e17ab0bdc69c3d1346d665368d3c5207fafb1cb487cb0e5",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Tanager",
+"start": 10,
+"end": 17,
+"label": "ORGANIZATION",
+"characters": [
+"org_1"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/3/text",
+"start": 10,
+"end": 17,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773738555.501865",
+"from": {
+"user_id": "U1WCE4CT9",
+"name": "Oriana Eastwick"
+},
+"channel": "general",
+"datetime": "2026-03-06T09:00:00Z",
+"thread_ts": "1773738555.501865"
+},
+"text": "the vendor portal moved: &lt;https://www.tanager.test/login&gt;",
+"file": {
+"kind": "slack",
+"path": "slack/general/2026-03-06.json",
+"sha256": "e4806a3825ccc8f25e17ab0bdc69c3d1346d665368d3c5207fafb1cb487cb0e5",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "https://www.tanager.test/login",
+"start": 29,
+"end": 59,
+"label": "URL",
+"characters": [
+"org_1"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/4/text",
+"start": 29,
+"end": 59,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772442000.213907",
+"from": {
+"user_id": "U2JVHW74R",
+"name": "Odette Cranston"
+},
+"channel": "ops",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772442000.213907"
+},
+"text": "delivery goes to 710 Saltmarsh Avenue, New Harrow, NJ 07030 (ask for Santoro)",
+"file": {
+"kind": "slack",
+"path": "slack/ops/2026-03-02.json",
+"sha256": "91a4f8b506c05d23befd32585610505318124fe8c1f8e1ca56169aaea9137d44",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "710 Saltmarsh Avenue",
+"start": 17,
+"end": 37,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_2"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 17,
+"end": 37,
+"status": "located"
+}
+},
+{
+"text": "Santoro",
+"start": 69,
+"end": 76,
+"label": "NAME_FAMILY",
+"characters": [
+"p16"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 69,
+"end": 76,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772528437.544008",
+"from": {
+"user_id": "U27Y40LMP",
+"name": "Lucian Schneider"
+},
+"channel": "ops",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772528437.544008"
+},
+"text": "badge for Ada Haddad (SMS-62223) reprinted",
+"file": {
+"kind": "slack",
+"path": "slack/ops/2026-03-02.json",
+"sha256": "91a4f8b506c05d23befd32585610505318124fe8c1f8e1ca56169aaea9137d44",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Ada",
+"start": 10,
+"end": 13,
+"label": "NAME_GIVEN",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 10,
+"end": 13,
+"status": "located"
+}
+},
+{
+"text": "Haddad",
+"start": 14,
+"end": 20,
+"label": "NAME_FAMILY",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 14,
+"end": 20,
+"status": "located"
+}
+},
+{
+"text": "SMS-62223",
+"start": 22,
+"end": 31,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 22,
+"end": 31,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772614874.951940",
+"from": {
+"user_id": "U9R2PVBSA",
+"name": "Yvette Guerrero"
+},
+"channel": "ops",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772614874.951940"
+},
+"text": "Matthias Orrell from Northcott Regional Supply confirmed the training week",
+"file": {
+"kind": "slack",
+"path": "slack/ops/2026-03-02.json",
+"sha256": "91a4f8b506c05d23befd32585610505318124fe8c1f8e1ca56169aaea9137d44",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Matthias",
+"start": 0,
+"end": 8,
+"label": "NAME_GIVEN",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 0,
+"end": 8,
+"status": "located"
+}
+},
+{
+"text": "Orrell",
+"start": 9,
+"end": 15,
+"label": "NAME_FAMILY",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 9,
+"end": 15,
+"status": "located"
+}
+},
+{
+"text": "Northcott Regional Supply",
+"start": 21,
+"end": 46,
+"label": "ORGANIZATION",
+"characters": [
+"org_2"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 21,
+"end": 46,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772701311.199351",
+"from": {
+"user_id": "U5G481PC7",
+"name": "Ada Haddad"
+},
+"channel": "ops",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772701311.199351"
+},
+"text": "Matthias Orrell from Northcott Regional Supply Co. confirmed the training week",
+"file": {
+"kind": "slack",
+"path": "slack/ops/2026-03-02.json",
+"sha256": "91a4f8b506c05d23befd32585610505318124fe8c1f8e1ca56169aaea9137d44",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Matthias",
+"start": 0,
+"end": 8,
+"label": "NAME_GIVEN",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/3/text",
+"start": 0,
+"end": 8,
+"status": "located"
+}
+},
+{
+"text": "Orrell",
+"start": 9,
+"end": 15,
+"label": "NAME_FAMILY",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/3/text",
+"start": 9,
+"end": 15,
+"status": "located"
+}
+},
+{
+"text": "Northcott Regional Supply Co.",
+"start": 21,
+"end": 50,
+"label": "ORGANIZATION",
+"characters": [
+"org_2"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/3/text",
+"start": 21,
+"end": 50,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772787748.895224",
+"from": {
+"user_id": "U2JVHW74R",
+"name": "Odette Cranston"
+},
+"channel": "ops",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772787748.895224"
+},
+"text": "Gareth Thornquist from Copperfield Technical Services Ltd confirmed the training week",
+"file": {
+"kind": "slack",
+"path": "slack/ops/2026-03-02.json",
+"sha256": "91a4f8b506c05d23befd32585610505318124fe8c1f8e1ca56169aaea9137d44",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Gareth",
+"start": 0,
+"end": 6,
+"label": "NAME_GIVEN",
+"characters": [
+"p17"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/4/text",
+"start": 0,
+"end": 6,
+"status": "located"
+}
+},
+{
+"text": "Thornquist",
+"start": 7,
+"end": 17,
+"label": "NAME_FAMILY",
+"characters": [
+"p17"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/4/text",
+"start": 7,
+"end": 17,
+"status": "located"
+}
+},
+{
+"text": "Copperfield Technical Services Ltd",
+"start": 23,
+"end": 57,
+"label": "ORGANIZATION",
+"characters": [
+"org_5"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/4/text",
+"start": 23,
+"end": 57,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772874185.201793",
+"from": {
+"user_id": "U03WD6RN2",
+"name": "Jocelyn Ostrowicz"
+},
+"channel": "ops",
+"datetime": "2026-03-04T09:00:00Z",
+"thread_ts": "1772874185.201793"
+},
+"text": "<@U62RZ1AYA> <@U152TL1B4> please review the onboarding checklist",
+"file": {
+"kind": "slack",
+"path": "slack/ops/2026-03-04.json",
+"sha256": "38f9353cb6555b74117dd1eac85d7f1121c828d75dc8d77d99c32d5bc8121b6e",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "<@U62RZ1AYA>",
+"start": 0,
+"end": 12,
+"label": "USERNAME",
+"characters": [
+"p11"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 0,
+"end": 12,
+"status": "located"
+}
+},
+{
+"text": "<@U152TL1B4>",
+"start": 13,
+"end": 25,
+"label": "USERNAME",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 13,
+"end": 25,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772960622.127631",
+"from": {
+"user_id": "U60MZNDZX",
+"name": "Zachariah Upton"
+},
+"channel": "ops",
+"datetime": "2026-03-04T09:00:00Z",
+"thread_ts": "1772960622.127631"
+},
+"text": "delivery goes to 710 Saltmarsh Avenue, New Harrow, NJ 07030 (ask for Orrell)",
+"file": {
+"kind": "slack",
+"path": "slack/ops/2026-03-04.json",
+"sha256": "38f9353cb6555b74117dd1eac85d7f1121c828d75dc8d77d99c32d5bc8121b6e",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "710 Saltmarsh Avenue",
+"start": 17,
+"end": 37,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_2"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 17,
+"end": 37,
+"status": "located"
+}
+},
+{
+"text": "Orrell",
+"start": 69,
+"end": 75,
+"label": "NAME_FAMILY",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 69,
+"end": 75,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773047059.867686",
+"from": {
+"user_id": "U9G9CP5BY",
+"name": "Bronwyn Adegoke"
+},
+"channel": "ops",
+"datetime": "2026-03-04T09:00:00Z",
+"thread_ts": "1773047059.867686"
+},
+"text": "call Lachlan at 720-555-0169 before you send the crew",
+"file": {
+"kind": "slack",
+"path": "slack/ops/2026-03-04.json",
+"sha256": "38f9353cb6555b74117dd1eac85d7f1121c828d75dc8d77d99c32d5bc8121b6e",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Lachlan",
+"start": 5,
+"end": 12,
+"label": "NAME_GIVEN",
+"characters": [
+"p19"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 5,
+"end": 12,
+"status": "located"
+}
+},
+{
+"text": "720-555-0169",
+"start": 16,
+"end": 28,
+"label": "PHONE_NUMBER",
+"characters": [
+"p19"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 16,
+"end": 28,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773133496.657548",
+"from": {
+"user_id": "U1WCE4CT9",
+"name": "Oriana Eastwick"
+},
+"channel": "ops",
+"datetime": "2026-03-04T09:00:00Z",
+"thread_ts": "1773133496.657548"
+},
+"text": "call Lachlan at 720-555-0169 before you send the crew",
+"file": {
+"kind": "slack",
+"path": "slack/ops/2026-03-04.json",
+"sha256": "38f9353cb6555b74117dd1eac85d7f1121c828d75dc8d77d99c32d5bc8121b6e",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Lachlan",
+"start": 5,
+"end": 12,
+"label": "NAME_GIVEN",
+"characters": [
+"p19"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/3/text",
+"start": 5,
+"end": 12,
+"status": "located"
+}
+},
+{
+"text": "720-555-0169",
+"start": 16,
+"end": 28,
+"label": "PHONE_NUMBER",
+"characters": [
+"p19"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/3/text",
+"start": 16,
+"end": 28,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773219933.658584",
+"from": {
+"user_id": "U9R2PVBSA",
+"name": "Yvette Guerrero"
+},
+"channel": "ops",
+"datetime": "2026-03-06T09:00:00Z",
+"thread_ts": "1773219933.658584"
+},
+"text": "<@U62RZ1AYA> <@U9NVJN59J> please review the office move",
+"file": {
+"kind": "slack",
+"path": "slack/ops/2026-03-06.json",
+"sha256": "715f267065813aedc12c42955071adb5c432394a9bdd867cc6875d610277e314",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "<@U62RZ1AYA>",
+"start": 0,
+"end": 12,
+"label": "USERNAME",
+"characters": [
+"p11"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 0,
+"end": 12,
+"status": "located"
+}
+},
+{
+"text": "<@U9NVJN59J>",
+"start": 13,
+"end": 25,
+"label": "USERNAME",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 13,
+"end": 25,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773306370.184849",
+"from": {
+"user_id": "U2JVHW74R",
+"name": "Odette Cranston"
+},
+"channel": "ops",
+"datetime": "2026-03-06T09:00:00Z",
+"thread_ts": "1773306370.184849"
+},
+"text": "<@U9QQUP7T4> <@U2JVHW74R> please review the office move",
+"file": {
+"kind": "slack",
+"path": "slack/ops/2026-03-06.json",
+"sha256": "715f267065813aedc12c42955071adb5c432394a9bdd867cc6875d610277e314",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "<@U9QQUP7T4>",
+"start": 0,
+"end": 12,
+"label": "USERNAME",
+"characters": [
+"p20"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 0,
+"end": 12,
+"status": "located"
+}
+},
+{
+"text": "<@U2JVHW74R>",
+"start": 13,
+"end": 25,
+"label": "USERNAME",
+"characters": [
+"p06"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 13,
+"end": 25,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773392807.259049",
+"from": {
+"user_id": "U2JVHW74R",
+"name": "Odette Cranston"
+},
+"channel": "ops",
+"datetime": "2026-03-06T09:00:00Z",
+"thread_ts": "1773392807.259049"
+},
+"text": "quote from Copperfield Technical Services is in the folder",
+"file": {
+"kind": "slack",
+"path": "slack/ops/2026-03-06.json",
+"sha256": "715f267065813aedc12c42955071adb5c432394a9bdd867cc6875d610277e314",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Copperfield Technical Services",
+"start": 11,
+"end": 41,
+"label": "ORGANIZATION",
+"characters": [
+"org_5"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 11,
+"end": 41,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773479244.984831",
+"from": {
+"user_id": "U152TL1B4",
+"name": "Caspar Winterhalde"
+},
+"channel": "ops",
+"datetime": "2026-03-06T09:00:00Z",
+"thread_ts": "1773479244.984831"
+},
+"text": "site memo uploaded, see attachment",
+"file": {
+"kind": "slack",
+"path": "slack/ops/2026-03-06.json",
+"sha256": "715f267065813aedc12c42955071adb5c432394a9bdd867cc6875d610277e314",
+"container": null
+},
+"ground_truth_spans": []
+},
+{
+"meta": {
+"row_id": "63042b275fa9c2ff36d01fd2",
+"filename": "contact_roster.xlsx",
+"format": "xlsx",
+"mime_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+"attached_to": null
+},
+"text": "Sheet: Roster\nName | Title | Organisation | Email | Phone | Employee ID | Account\nCaspar Winterhalde | Dispatcher | Sunmarrow Solar | caspar@sunmarrow.test | 720.555.0181 | SMS-40670\nTess Kowalchuk | Scheduler | Sunmarrow Solar | tess@sunmarrow.test | 720.555.0166 | SMS-85933\nBronwyn Adegoke | Marketing Associate | Sunmarrow Solar | bronwyn@sunmarrow.test | 720-555-0162 | SMS-27115\nGustav Dashwood | Finance Controller | Sunmarrow Solar | gustav.dashwood@sunmarrow.test | 720-555-0199 | SMS-40779 | 71676940\nLucian Schneider | Dispatcher | Sunmarrow Solar | lschneider@sunmarrow.test | +1 720 555 0191 | SMS-32197\nDorothea Takahashi | Operations Manager | Sunmarrow Solar | dorothea@sunmarrow.test | +1 720 555 0189 | SMS-38857\nOdette Cranston | Regional Director | Sunmarrow Solar | cranston.odette@sunmarrow.test | (720) 555-0184 | SMS-30071 | ACCT-3461-4079\nZachariah Upton | Scheduler | Sunmarrow Solar | zachariah.upton@sunmarrow.test | (720) 555-0147 | SMS-88754 | ACCT-4735-6842\nOriana Eastwick | Marketing Associate | Sunmarrow Solar | oriana.eastwick@sunmarrow.test | 720.555.0108 | SMS-22514\nYvette Guerrero | Payroll Specialist | Sunmarrow Solar | yguerrero@sunmarrow.test | 720.555.0175 | SMS-58758 | 79143132\nAda Haddad | Office Manager | Sunmarrow Solar | ada@sunmarrow.test | 720-555-0194 | SMS-62223 | ACCT-8261-7564\nRhiannon Ashby | Field Technician | Sunmarrow Solar | rhiannon@sunmarrow.test | (720) 555-0168 | SMS-97871 | 64110316\nJocelyn Ostrowicz | Marketing Associate | Sunmarrow Solar | jocelyn@sunmarrow.test | +1 720 555 0112 | SMS-78639 | ACCT-4482-6668\nJude Tallis | Customer Success Lead | Sunmarrow Solar | jude.tallis@sunmarrow.test | 720.555.0105 | SMS-53837\nLiesl Chowdhury | Scheduler | Sunmarrow Solar | liesl.chowdhury@sunmarrow.test | 720-555-0156 | SMS-81918 | ACCT-2623-3155\nSheet: Handles\nHandle | Last, First | Personal email\n@casparwin | Winterhalde, Caspar | caspar.winterhalde46@quietinbox.test\n@kowalchukt | Kowalchuk, Tess\n@bronwyn_adegoke | Adegoke, Bronwyn\n@gustav_dashwood | Dashwood, Gustav\n@luciansch | Schneider, Lucian | lucian.schneider43@quietinbox.test\n@dorothea.takahashi | Takahashi, Dorothea\n@cranstono | Cranston, Odette\n@zachariahupt | Upton, Zachariah\n",
+"file": {
+"kind": "xlsx",
+"path": "drive/contact_roster.xlsx",
+"sha256": "c1a78fc5f9207e178fba0ed287fb6b8e9170831aff7b085bdfa409708181fab5",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Caspar",
+"start": 82,
+"end": 88,
+"label": "NAME_GIVEN",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A2",
+"char_start": 0,
+"char_end": 6,
+"status": "located"
+}
+},
+{
+"text": "Winterhalde",
+"start": 89,
+"end": 100,
+"label": "NAME_FAMILY",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A2",
+"char_start": 7,
+"char_end": 18,
+"status": "located"
+}
+},
+{
+"text": "Sunmarrow Solar",
+"start": 116,
+"end": 131,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "C2",
+"char_start": 0,
+"char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "caspar@sunmarrow.test",
+"start": 134,
+"end": 155,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "D2",
+"char_start": 0,
+"char_end": 21,
+"status": "located"
+}
+},
+{
+"text": "720.555.0181",
+"start": 158,
+"end": 170,
+"label": "PHONE_NUMBER",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "E2",
+"char_start": 0,
+"char_end": 12,
+"status": "located"
+}
+},
+{
+"text": "SMS-40670",
+"start": 173,
+"end": 182,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "F2",
+"char_start": 0,
+"char_end": 9,
+"status": "located"
+}
+},
+{
+"text": "Tess",
+"start": 183,
+"end": 187,
+"label": "NAME_GIVEN",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A3",
+"char_start": 0,
+"char_end": 4,
+"status": "located"
+}
+},
+{
+"text": "Kowalchuk",
+"start": 188,
+"end": 197,
+"label": "NAME_FAMILY",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A3",
+"char_start": 5,
+"char_end": 14,
+"status": "located"
+}
+},
+{
+"text": "Sunmarrow Solar",
+"start": 212,
+"end": 227,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "C3",
+"char_start": 0,
+"char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "tess@sunmarrow.test",
+"start": 230,
+"end": 249,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "D3",
+"char_start": 0,
+"char_end": 19,
+"status": "located"
+}
+},
+{
+"text": "720.555.0166",
+"start": 252,
+"end": 264,
+"label": "PHONE_NUMBER",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "E3",
+"char_start": 0,
+"char_end": 12,
+"status": "located"
+}
+},
+{
+"text": "SMS-85933",
+"start": 267,
+"end": 276,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "F3",
+"char_start": 0,
+"char_end": 9,
+"status": "located"
+}
+},
+{
+"text": "Bronwyn",
+"start": 277,
+"end": 284,
+"label": "NAME_GIVEN",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A4",
+"char_start": 0,
+"char_end": 7,
+"status": "located"
+}
+},
+{
+"text": "Adegoke",
+"start": 285,
+"end": 292,
+"label": "NAME_FAMILY",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A4",
+"char_start": 8,
+"char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "Sunmarrow Solar",
+"start": 317,
+"end": 332,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "C4",
+"char_start": 0,
+"char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "bronwyn@sunmarrow.test",
+"start": 335,
+"end": 357,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "D4",
+"char_start": 0,
+"char_end": 22,
+"status": "located"
+}
+},
+{
+"text": "720-555-0162",
+"start": 360,
+"end": 372,
+"label": "PHONE_NUMBER",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "E4",
+"char_start": 0,
+"char_end": 12,
+"status": "located"
+}
+},
+{
+"text": "SMS-27115",
+"start": 375,
+"end": 384,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "F4",
+"char_start": 0,
+"char_end": 9,
+"status": "located"
+}
+},
+{
+"text": "Gustav",
+"start": 385,
+"end": 391,
+"label": "NAME_GIVEN",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A5",
+"char_start": 0,
+"char_end": 6,
+"status": "located"
+}
+},
+{
+"text": "Dashwood",
+"start": 392,
+"end": 400,
+"label": "NAME_FAMILY",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A5",
+"char_start": 7,
+"char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "Sunmarrow Solar",
+"start": 424,
+"end": 439,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "C5",
+"char_start": 0,
+"char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "gustav.dashwood@sunmarrow.test",
+"start": 442,
+"end": 472,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "D5",
+"char_start": 0,
+"char_end": 30,
+"status": "located"
+}
+},
+{
+"text": "720-555-0199",
+"start": 475,
+"end": 487,
+"label": "PHONE_NUMBER",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "E5",
+"char_start": 0,
+"char_end": 12,
+"status": "located"
+}
+},
+{
+"text": "SMS-40779",
+"start": 490,
+"end": 499,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "F5",
+"char_start": 0,
+"char_end": 9,
+"status": "located"
+}
+},
+{
+"text": "71676940",
+"start": 502,
+"end": 510,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "G5",
+"char_start": 0,
+"char_end": 8,
+"status": "located"
+}
+},
+{
+"text": "Lucian",
+"start": 511,
+"end": 517,
+"label": "NAME_GIVEN",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A6",
+"char_start": 0,
+"char_end": 6,
+"status": "located"
+}
+},
+{
+"text": "Schneider",
+"start": 518,
+"end": 527,
+"label": "NAME_FAMILY",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A6",
+"char_start": 7,
+"char_end": 16,
+"status": "located"
+}
+},
+{
+"text": "Sunmarrow Solar",
+"start": 543,
+"end": 558,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "C6",
+"char_start": 0,
+"char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "lschneider@sunmarrow.test",
+"start": 561,
+"end": 586,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "D6",
+"char_start": 0,
+"char_end": 25,
+"status": "located"
+}
+},
+{
+"text": "+1 720 555 0191",
+"start": 589,
+"end": 604,
+"label": "PHONE_NUMBER",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "E6",
+"char_start": 0,
+"char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "SMS-32197",
+"start": 607,
+"end": 616,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "F6",
+"char_start": 0,
+"char_end": 9,
+"status": "located"
+}
+},
+{
+"text": "Dorothea",
+"start": 617,
+"end": 625,
+"label": "NAME_GIVEN",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A7",
+"char_start": 0,
+"char_end": 8,
+"status": "located"
+}
+},
+{
+"text": "Takahashi",
+"start": 626,
+"end": 635,
+"label": "NAME_FAMILY",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A7",
+"char_start": 9,
+"char_end": 18,
+"status": "located"
+}
+},
+{
+"text": "Sunmarrow Solar",
+"start": 659,
+"end": 674,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "C7",
+"char_start": 0,
+"char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "dorothea@sunmarrow.test",
+"start": 677,
+"end": 700,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "D7",
+"char_start": 0,
+"char_end": 23,
+"status": "located"
+}
+},
+{
+"text": "+1 720 555 0189",
+"start": 703,
+"end": 718,
+"label": "PHONE_NUMBER",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "E7",
+"char_start": 0,
+"char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "SMS-38857",
+"start": 721,
+"end": 730,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "F7",
+"char_start": 0,
+"char_end": 9,
+"status": "located"
+}
+},
+{
+"text": "Odette",
+"start": 731,
+"end": 737,
+"label": "NAME_GIVEN",
+"characters": [
+"p06"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A8",
+"char_start": 0,
+"char_end": 6,
+"status": "located"
+}
+},
+{
+"text": "Cranston",
+"start": 738,
+"end": 746,
+"label": "NAME_FAMILY",
+"characters": [
+"p06"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A8",
+"char_start": 7,
+"char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "Sunmarrow Solar",
+"start": 769,
+"end": 784,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "C8",
+"char_start": 0,
+"char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "cranston.odette@sunmarrow.test",
+"start": 787,
+"end": 817,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p06"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "D8",
+"char_start": 0,
+"char_end": 30,
+"status": "located"
+}
+},
+{
+"text": "(720) 555-0184",
+"start": 820,
+"end": 834,
+"label": "PHONE_NUMBER",
+"characters": [
+"p06"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "E8",
+"char_start": 0,
+"char_end": 14,
+"status": "located"
+}
+},
+{
+"text": "SMS-30071",
+"start": 837,
+"end": 846,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p06"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "F8",
+"char_start": 0,
+"char_end": 9,
+"status": "located"
+}
+},
+{
+"text": "ACCT-3461-4079",
+"start": 849,
+"end": 863,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"p06"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "G8",
+"char_start": 0,
+"char_end": 14,
+"status": "located"
+}
+},
+{
+"text": "Zachariah",
+"start": 864,
+"end": 873,
+"label": "NAME_GIVEN",
+"characters": [
+"p07"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A9",
+"char_start": 0,
+"char_end": 9,
+"status": "located"
+}
+},
+{
+"text": "Upton",
+"start": 874,
+"end": 879,
+"label": "NAME_FAMILY",
+"characters": [
+"p07"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A9",
+"char_start": 10,
+"char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "Sunmarrow Solar",
+"start": 894,
+"end": 909,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "C9",
+"char_start": 0,
+"char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "zachariah.upton@sunmarrow.test",
+"start": 912,
+"end": 942,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p07"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "D9",
+"char_start": 0,
+"char_end": 30,
+"status": "located"
+}
+},
+{
+"text": "(720) 555-0147",
+"start": 945,
+"end": 959,
+"label": "PHONE_NUMBER",
+"characters": [
+"p07"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "E9",
+"char_start": 0,
+"char_end": 14,
+"status": "located"
+}
+},
+{
+"text": "SMS-88754",
+"start": 962,
+"end": 971,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p07"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "F9",
+"char_start": 0,
+"char_end": 9,
+"status": "located"
+}
+},
+{
+"text": "ACCT-4735-6842",
+"start": 974,
+"end": 988,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"p07"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "G9",
+"char_start": 0,
+"char_end": 14,
+"status": "located"
+}
+},
+{
+"text": "Oriana",
+"start": 989,
+"end": 995,
+"label": "NAME_GIVEN",
+"characters": [
+"p08"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A10",
+"char_start": 0,
+"char_end": 6,
+"status": "located"
+}
+},
+{
+"text": "Eastwick",
+"start": 996,
+"end": 1004,
+"label": "NAME_FAMILY",
+"characters": [
+"p08"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A10",
+"char_start": 7,
+"char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "Sunmarrow Solar",
+"start": 1029,
+"end": 1044,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "C10",
+"char_start": 0,
+"char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "oriana.eastwick@sunmarrow.test",
+"start": 1047,
+"end": 1077,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p08"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "D10",
+"char_start": 0,
+"char_end": 30,
+"status": "located"
+}
+},
+{
+"text": "720.555.0108",
+"start": 1080,
+"end": 1092,
+"label": "PHONE_NUMBER",
+"characters": [
+"p08"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "E10",
+"char_start": 0,
+"char_end": 12,
+"status": "located"
+}
+},
+{
+"text": "SMS-22514",
+"start": 1095,
+"end": 1104,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p08"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "F10",
+"char_start": 0,
+"char_end": 9,
+"status": "located"
+}
+},
+{
+"text": "Yvette",
+"start": 1105,
+"end": 1111,
+"label": "NAME_GIVEN",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A11",
+"char_start": 0,
+"char_end": 6,
+"status": "located"
+}
+},
+{
+"text": "Guerrero",
+"start": 1112,
+"end": 1120,
+"label": "NAME_FAMILY",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A11",
+"char_start": 7,
+"char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "Sunmarrow Solar",
+"start": 1144,
+"end": 1159,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "C11",
+"char_start": 0,
+"char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "yguerrero@sunmarrow.test",
+"start": 1162,
+"end": 1186,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "D11",
+"char_start": 0,
+"char_end": 24,
+"status": "located"
+}
+},
+{
+"text": "720.555.0175",
+"start": 1189,
+"end": 1201,
+"label": "PHONE_NUMBER",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "E11",
+"char_start": 0,
+"char_end": 12,
+"status": "located"
+}
+},
+{
+"text": "SMS-58758",
+"start": 1204,
+"end": 1213,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "F11",
+"char_start": 0,
+"char_end": 9,
+"status": "located"
+}
+},
+{
+"text": "79143132",
+"start": 1216,
+"end": 1224,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "G11",
+"char_start": 0,
+"char_end": 8,
+"status": "located"
+}
+},
+{
+"text": "Ada",
+"start": 1225,
+"end": 1228,
+"label": "NAME_GIVEN",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A12",
+"char_start": 0,
+"char_end": 3,
+"status": "located"
+}
+},
+{
+"text": "Haddad",
+"start": 1229,
+"end": 1235,
+"label": "NAME_FAMILY",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A12",
+"char_start": 4,
+"char_end": 10,
+"status": "located"
+}
+},
+{
+"text": "Sunmarrow Solar",
+"start": 1255,
+"end": 1270,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "C12",
+"char_start": 0,
+"char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "ada@sunmarrow.test",
+"start": 1273,
+"end": 1291,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "D12",
+"char_start": 0,
+"char_end": 18,
+"status": "located"
+}
+},
+{
+"text": "720-555-0194",
+"start": 1294,
+"end": 1306,
+"label": "PHONE_NUMBER",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "E12",
+"char_start": 0,
+"char_end": 12,
+"status": "located"
+}
+},
+{
+"text": "SMS-62223",
+"start": 1309,
+"end": 1318,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "F12",
+"char_start": 0,
+"char_end": 9,
+"status": "located"
+}
+},
+{
+"text": "ACCT-8261-7564",
+"start": 1321,
+"end": 1335,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "G12",
+"char_start": 0,
+"char_end": 14,
+"status": "located"
+}
+},
+{
+"text": "Rhiannon",
+"start": 1336,
+"end": 1344,
+"label": "NAME_GIVEN",
+"characters": [
+"p11"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A13",
+"char_start": 0,
+"char_end": 8,
+"status": "located"
+}
+},
+{
+"text": "Ashby",
+"start": 1345,
+"end": 1350,
+"label": "NAME_FAMILY",
+"characters": [
+"p11"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A13",
+"char_start": 9,
+"char_end": 14,
+"status": "located"
+}
+},
+{
+"text": "Sunmarrow Solar",
+"start": 1372,
+"end": 1387,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "C13",
+"char_start": 0,
+"char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "rhiannon@sunmarrow.test",
+"start": 1390,
+"end": 1413,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p11"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "D13",
+"char_start": 0,
+"char_end": 23,
+"status": "located"
+}
+},
+{
+"text": "(720) 555-0168",
+"start": 1416,
+"end": 1430,
+"label": "PHONE_NUMBER",
+"characters": [
+"p11"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "E13",
+"char_start": 0,
+"char_end": 14,
+"status": "located"
+}
+},
+{
+"text": "SMS-97871",
+"start": 1433,
+"end": 1442,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p11"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "F13",
+"char_start": 0,
+"char_end": 9,
+"status": "located"
+}
+},
+{
+"text": "64110316",
+"start": 1445,
+"end": 1453,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"p11"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "G13",
+"char_start": 0,
+"char_end": 8,
+"status": "located"
+}
+},
+{
+"text": "Jocelyn",
+"start": 1454,
+"end": 1461,
+"label": "NAME_GIVEN",
+"characters": [
+"p12"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A14",
+"char_start": 0,
+"char_end": 7,
+"status": "located"
+}
+},
+{
+"text": "Ostrowicz",
+"start": 1462,
+"end": 1471,
+"label": "NAME_FAMILY",
+"characters": [
+"p12"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A14",
+"char_start": 8,
+"char_end": 17,
+"status": "located"
+}
+},
+{
+"text": "Sunmarrow Solar",
+"start": 1496,
+"end": 1511,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "C14",
+"char_start": 0,
+"char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "jocelyn@sunmarrow.test",
+"start": 1514,
+"end": 1536,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p12"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "D14",
+"char_start": 0,
+"char_end": 22,
+"status": "located"
+}
+},
+{
+"text": "+1 720 555 0112",
+"start": 1539,
+"end": 1554,
+"label": "PHONE_NUMBER",
+"characters": [
+"p12"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "E14",
+"char_start": 0,
+"char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "SMS-78639",
+"start": 1557,
+"end": 1566,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p12"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "F14",
+"char_start": 0,
+"char_end": 9,
+"status": "located"
+}
+},
+{
+"text": "ACCT-4482-6668",
+"start": 1569,
+"end": 1583,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"p12"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "G14",
+"char_start": 0,
+"char_end": 14,
+"status": "located"
+}
+},
+{
+"text": "Jude",
+"start": 1584,
+"end": 1588,
+"label": "NAME_GIVEN",
+"characters": [
+"p13"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A15",
+"char_start": 0,
+"char_end": 4,
+"status": "located"
+}
+},
+{
+"text": "Tallis",
+"start": 1589,
+"end": 1595,
+"label": "NAME_FAMILY",
+"characters": [
+"p13"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A15",
+"char_start": 5,
+"char_end": 11,
+"status": "located"
+}
+},
+{
+"text": "Sunmarrow Solar",
+"start": 1622,
+"end": 1637,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "C15",
+"char_start": 0,
+"char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "jude.tallis@sunmarrow.test",
+"start": 1640,
+"end": 1666,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p13"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "D15",
+"char_start": 0,
+"char_end": 26,
+"status": "located"
+}
+},
+{
+"text": "720.555.0105",
+"start": 1669,
+"end": 1681,
+"label": "PHONE_NUMBER",
+"characters": [
+"p13"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "E15",
+"char_start": 0,
+"char_end": 12,
+"status": "located"
+}
+},
+{
+"text": "SMS-53837",
+"start": 1684,
+"end": 1693,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p13"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "F15",
+"char_start": 0,
+"char_end": 9,
+"status": "located"
+}
+},
+{
+"text": "Liesl",
+"start": 1694,
+"end": 1699,
+"label": "NAME_GIVEN",
+"characters": [
+"p20"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A16",
+"char_start": 0,
+"char_end": 5,
+"status": "located"
+}
+},
+{
+"text": "Chowdhury",
+"start": 1700,
+"end": 1709,
+"label": "NAME_FAMILY",
+"characters": [
+"p20"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A16",
+"char_start": 6,
+"char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "Sunmarrow Solar",
+"start": 1724,
+"end": 1739,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "C16",
+"char_start": 0,
+"char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "liesl.chowdhury@sunmarrow.test",
+"start": 1742,
+"end": 1772,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p20"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "D16",
+"char_start": 0,
+"char_end": 30,
+"status": "located"
+}
+},
+{
+"text": "720-555-0156",
+"start": 1775,
+"end": 1787,
+"label": "PHONE_NUMBER",
+"characters": [
+"p20"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "E16",
+"char_start": 0,
+"char_end": 12,
+"status": "located"
+}
+},
+{
+"text": "SMS-81918",
+"start": 1790,
+"end": 1799,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p20"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "F16",
+"char_start": 0,
+"char_end": 9,
+"status": "located"
+}
+},
+{
+"text": "ACCT-2623-3155",
+"start": 1802,
+"end": 1816,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"p20"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "G16",
+"char_start": 0,
+"char_end": 14,
+"status": "located"
+}
+},
+{
+"text": "@casparwin",
+"start": 1870,
+"end": 1880,
+"label": "USERNAME",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "A2",
+"char_start": 0,
+"char_end": 10,
+"status": "located"
+}
+},
+{
+"text": "Winterhalde",
+"start": 1883,
+"end": 1894,
+"label": "NAME_FAMILY",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "B2",
+"char_start": 0,
+"char_end": 11,
+"status": "located"
+}
+},
+{
+"text": "Caspar",
+"start": 1896,
+"end": 1902,
+"label": "NAME_GIVEN",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "B2",
+"char_start": 13,
+"char_end": 19,
+"status": "located"
+}
+},
+{
+"text": "caspar.winterhalde46@quietinbox.test",
+"start": 1905,
+"end": 1941,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "C2",
+"char_start": 0,
+"char_end": 36,
+"status": "located"
+}
+},
+{
+"text": "@kowalchukt",
+"start": 1942,
+"end": 1953,
+"label": "USERNAME",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "A3",
+"char_start": 0,
+"char_end": 11,
+"status": "located"
+}
+},
+{
+"text": "Kowalchuk",
+"start": 1956,
+"end": 1965,
+"label": "NAME_FAMILY",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "B3",
+"char_start": 0,
+"char_end": 9,
+"status": "located"
+}
+},
+{
+"text": "Tess",
+"start": 1967,
+"end": 1971,
+"label": "NAME_GIVEN",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "B3",
+"char_start": 11,
+"char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "@bronwyn_adegoke",
+"start": 1972,
+"end": 1988,
+"label": "USERNAME",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "A4",
+"char_start": 0,
+"char_end": 16,
+"status": "located"
+}
+},
+{
+"text": "Adegoke",
+"start": 1991,
+"end": 1998,
+"label": "NAME_FAMILY",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "B4",
+"char_start": 0,
+"char_end": 7,
+"status": "located"
+}
+},
+{
+"text": "Bronwyn",
+"start": 2000,
+"end": 2007,
+"label": "NAME_GIVEN",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "B4",
+"char_start": 9,
+"char_end": 16,
+"status": "located"
+}
+},
+{
+"text": "@gustav_dashwood",
+"start": 2008,
+"end": 2024,
+"label": "USERNAME",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "A5",
+"char_start": 0,
+"char_end": 16,
+"status": "located"
+}
+},
+{
+"text": "Dashwood",
+"start": 2027,
+"end": 2035,
+"label": "NAME_FAMILY",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "B5",
+"char_start": 0,
+"char_end": 8,
+"status": "located"
+}
+},
+{
+"text": "Gustav",
+"start": 2037,
+"end": 2043,
+"label": "NAME_GIVEN",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "B5",
+"char_start": 10,
+"char_end": 16,
+"status": "located"
+}
+},
+{
+"text": "@luciansch",
+"start": 2044,
+"end": 2054,
+"label": "USERNAME",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "A6",
+"char_start": 0,
+"char_end": 10,
+"status": "located"
+}
+},
+{
+"text": "Schneider",
+"start": 2057,
+"end": 2066,
+"label": "NAME_FAMILY",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "B6",
+"char_start": 0,
+"char_end": 9,
+"status": "located"
+}
+},
+{
+"text": "Lucian",
+"start": 2068,
+"end": 2074,
+"label": "NAME_GIVEN",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "B6",
+"char_start": 11,
+"char_end": 17,
+"status": "located"
+}
+},
+{
+"text": "lucian.schneider43@quietinbox.test",
+"start": 2077,
+"end": 2111,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "C6",
+"char_start": 0,
+"char_end": 34,
+"status": "located"
+}
+},
+{
+"text": "@dorothea.takahashi",
+"start": 2112,
+"end": 2131,
+"label": "USERNAME",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "A7",
+"char_start": 0,
+"char_end": 19,
+"status": "located"
+}
+},
+{
+"text": "Takahashi",
+"start": 2134,
+"end": 2143,
+"label": "NAME_FAMILY",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "B7",
+"char_start": 0,
+"char_end": 9,
+"status": "located"
+}
+},
+{
+"text": "Dorothea",
+"start": 2145,
+"end": 2153,
+"label": "NAME_GIVEN",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "B7",
+"char_start": 11,
+"char_end": 19,
+"status": "located"
+}
+},
+{
+"text": "@cranstono",
+"start": 2154,
+"end": 2164,
+"label": "USERNAME",
+"characters": [
+"p06"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "A8",
+"char_start": 0,
+"char_end": 10,
+"status": "located"
+}
+},
+{
+"text": "Cranston",
+"start": 2167,
+"end": 2175,
+"label": "NAME_FAMILY",
+"characters": [
+"p06"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "B8",
+"char_start": 0,
+"char_end": 8,
+"status": "located"
+}
+},
+{
+"text": "Odette",
+"start": 2177,
+"end": 2183,
+"label": "NAME_GIVEN",
+"characters": [
+"p06"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "B8",
+"char_start": 10,
+"char_end": 16,
+"status": "located"
+}
+},
+{
+"text": "@zachariahupt",
+"start": 2184,
+"end": 2197,
+"label": "USERNAME",
+"characters": [
+"p07"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "A9",
+"char_start": 0,
+"char_end": 13,
+"status": "located"
+}
+},
+{
+"text": "Upton",
+"start": 2200,
+"end": 2205,
+"label": "NAME_FAMILY",
+"characters": [
+"p07"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "B9",
+"char_start": 0,
+"char_end": 5,
+"status": "located"
+}
+},
+{
+"text": "Zachariah",
+"start": 2207,
+"end": 2216,
+"label": "NAME_GIVEN",
+"characters": [
+"p07"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "B9",
+"char_start": 7,
+"char_end": 16,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "dbbf2e699457b01795ff4feb",
+"filename": "kickoff_notes.docx",
+"format": "docx",
+"mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+"attached_to": null
+},
+"text": "Kickoff notes\nPrepared by Caspar Winterhalde (caspar@sunmarrow.test) for Sunmarrow Solar Co..\nAttendees\nName | Role | Email | Phone\nTess Kowalchuk | Scheduler | tess@sunmarrow.test | 720.555.0166\nBronwyn Adegoke | Marketing Associate | bronwyn@sunmarrow.test | 720-555-0162\nGustav Dashwood | Finance Controller | gustav.dashwood@sunmarrow.test | 720-555-0199\nLucian Schneider | Dispatcher | lschneider@sunmarrow.test | +1 720 555 0191\nDorothea Takahashi | Operations Manager | dorothea@sunmarrow.test | +1 720 555 0189\nMatthias Orrell | IT Administrator | matthias.orrell@northcott.test | 720.555.0188\nNiall Underhill | Regional Director | niall.underhill@chowdhurylaw.test | 720.555.0126\nLeopold Oduya | Legal Counsel | loduya@chowdhurylaw.test | +1 720 555 0164\nDecisions\nNorthcott Regional Supply Co. delivers the first batch to 7818 Old Mill Terrace, Dunmere, VT 05401. Contact on their side: Orrell, Matthias (720.555.0188).\nBronwyn (employee ID SMS-27115) owns the budget tracker at https://www.sunmarrow.test/budget.\nOpen question: does Ashgrove still invoice through Ashgrove Translation Bureau? Gustav to confirm.",
+"file": {
+"kind": "docx",
+"path": "drive/kickoff_notes.docx",
+"sha256": "c0725ab4062078e4dffd5678a827159ab768569a38ce6f912176836032de1f21",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Caspar",
+"start": 26,
+"end": 32,
+"label": "NAME_GIVEN",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:p[2]/w:r/w:t",
+"start": 12,
+"end": 18
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Winterhalde",
+"start": 33,
+"end": 44,
+"label": "NAME_FAMILY",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:p[2]/w:r/w:t",
+"start": 19,
+"end": 30
+}
+],
+"status": "located"
+}
+},
+{
+"text": "caspar@sunmarrow.test",
+"start": 46,
+"end": 67,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:p[2]/w:r/w:t",
+"start": 32,
+"end": 53
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Sunmarrow Solar Co.",
+"start": 73,
+"end": 92,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:p[2]/w:r/w:t",
+"start": 59,
+"end": 78
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Tess",
+"start": 132,
+"end": 136,
+"label": "NAME_GIVEN",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[2]/w:tc/w:p/w:r/w:t",
+"start": 0,
+"end": 4
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Kowalchuk",
+"start": 137,
+"end": 146,
+"label": "NAME_FAMILY",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[2]/w:tc/w:p/w:r/w:t",
+"start": 5,
+"end": 14
+}
+],
+"status": "located"
+}
+},
+{
+"text": "tess@sunmarrow.test",
+"start": 161,
+"end": 180,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[2]/w:tc[3]/w:p/w:r/w:t",
+"start": 0,
+"end": 19
+}
+],
+"status": "located"
+}
+},
+{
+"text": "720.555.0166",
+"start": 183,
+"end": 195,
+"label": "PHONE_NUMBER",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[2]/w:tc[4]/w:p/w:r/w:t",
+"start": 0,
+"end": 12
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Bronwyn",
+"start": 196,
+"end": 203,
+"label": "NAME_GIVEN",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[3]/w:tc/w:p/w:r/w:t",
+"start": 0,
+"end": 7
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Adegoke",
+"start": 204,
+"end": 211,
+"label": "NAME_FAMILY",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[3]/w:tc/w:p/w:r/w:t",
+"start": 8,
+"end": 15
+}
+],
+"status": "located"
+}
+},
+{
+"text": "bronwyn@sunmarrow.test",
+"start": 236,
+"end": 258,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[3]/w:tc[3]/w:p/w:r/w:t",
+"start": 0,
+"end": 22
+}
+],
+"status": "located"
+}
+},
+{
+"text": "720-555-0162",
+"start": 261,
+"end": 273,
+"label": "PHONE_NUMBER",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[3]/w:tc[4]/w:p/w:r/w:t",
+"start": 0,
+"end": 12
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Gustav",
+"start": 274,
+"end": 280,
+"label": "NAME_GIVEN",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[4]/w:tc/w:p/w:r/w:t",
+"start": 0,
+"end": 6
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Dashwood",
+"start": 281,
+"end": 289,
+"label": "NAME_FAMILY",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[4]/w:tc/w:p/w:r/w:t",
+"start": 7,
+"end": 15
+}
+],
+"status": "located"
+}
+},
+{
+"text": "gustav.dashwood@sunmarrow.test",
+"start": 313,
+"end": 343,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[4]/w:tc[3]/w:p/w:r/w:t",
+"start": 0,
+"end": 30
+}
+],
+"status": "located"
+}
+},
+{
+"text": "720-555-0199",
+"start": 346,
+"end": 358,
+"label": "PHONE_NUMBER",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[4]/w:tc[4]/w:p/w:r/w:t",
+"start": 0,
+"end": 12
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Lucian",
+"start": 359,
+"end": 365,
+"label": "NAME_GIVEN",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[5]/w:tc/w:p/w:r/w:t",
+"start": 0,
+"end": 6
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Schneider",
+"start": 366,
+"end": 375,
+"label": "NAME_FAMILY",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[5]/w:tc/w:p/w:r/w:t",
+"start": 7,
+"end": 16
+}
+],
+"status": "located"
+}
+},
+{
+"text": "lschneider@sunmarrow.test",
+"start": 391,
+"end": 416,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[5]/w:tc[3]/w:p/w:r/w:t",
+"start": 0,
+"end": 25
+}
+],
+"status": "located"
+}
+},
+{
+"text": "+1 720 555 0191",
+"start": 419,
+"end": 434,
+"label": "PHONE_NUMBER",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[5]/w:tc[4]/w:p/w:r/w:t",
+"start": 0,
+"end": 15
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Dorothea",
+"start": 435,
+"end": 443,
+"label": "NAME_GIVEN",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[6]/w:tc/w:p/w:r/w:t",
+"start": 0,
+"end": 8
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Takahashi",
+"start": 444,
+"end": 453,
+"label": "NAME_FAMILY",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[6]/w:tc/w:p/w:r/w:t",
+"start": 9,
+"end": 18
+}
+],
+"status": "located"
+}
+},
+{
+"text": "dorothea@sunmarrow.test",
+"start": 477,
+"end": 500,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[6]/w:tc[3]/w:p/w:r/w:t",
+"start": 0,
+"end": 23
+}
+],
+"status": "located"
+}
+},
+{
+"text": "+1 720 555 0189",
+"start": 503,
+"end": 518,
+"label": "PHONE_NUMBER",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[6]/w:tc[4]/w:p/w:r/w:t",
+"start": 0,
+"end": 15
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Matthias",
+"start": 519,
+"end": 527,
+"label": "NAME_GIVEN",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[7]/w:tc/w:p/w:r/w:t",
+"start": 0,
+"end": 8
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Orrell",
+"start": 528,
+"end": 534,
+"label": "NAME_FAMILY",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[7]/w:tc/w:p/w:r/w:t",
+"start": 9,
+"end": 15
+}
+],
+"status": "located"
+}
+},
+{
+"text": "matthias.orrell@northcott.test",
+"start": 556,
+"end": 586,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[7]/w:tc[3]/w:p/w:r/w:t",
+"start": 0,
+"end": 30
+}
+],
+"status": "located"
+}
+},
+{
+"text": "720.555.0188",
+"start": 589,
+"end": 601,
+"label": "PHONE_NUMBER",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[7]/w:tc[4]/w:p/w:r/w:t",
+"start": 0,
+"end": 12
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Niall",
+"start": 602,
+"end": 607,
+"label": "NAME_GIVEN",
+"characters": [
+"p18"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[8]/w:tc/w:p/w:r/w:t",
+"start": 0,
+"end": 5
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Underhill",
+"start": 608,
+"end": 617,
+"label": "NAME_FAMILY",
+"characters": [
+"p18"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[8]/w:tc/w:p/w:r/w:t",
+"start": 6,
+"end": 15
+}
+],
+"status": "located"
+}
+},
+{
+"text": "niall.underhill@chowdhurylaw.test",
+"start": 640,
+"end": 673,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p18"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[8]/w:tc[3]/w:p/w:r/w:t",
+"start": 0,
+"end": 33
+}
+],
+"status": "located"
+}
+},
+{
+"text": "720.555.0126",
+"start": 676,
+"end": 688,
+"label": "PHONE_NUMBER",
+"characters": [
+"p18"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[8]/w:tc[4]/w:p/w:r/w:t",
+"start": 0,
+"end": 12
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Leopold",
+"start": 689,
+"end": 696,
+"label": "NAME_GIVEN",
+"characters": [
+"p14"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[9]/w:tc/w:p/w:r/w:t",
+"start": 0,
+"end": 7
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Oduya",
+"start": 697,
+"end": 702,
+"label": "NAME_FAMILY",
+"characters": [
+"p14"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[9]/w:tc/w:p/w:r/w:t",
+"start": 8,
+"end": 13
+}
+],
+"status": "located"
+}
+},
+{
+"text": "loduya@chowdhurylaw.test",
+"start": 721,
+"end": 745,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p14"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[9]/w:tc[3]/w:p/w:r/w:t",
+"start": 0,
+"end": 24
+}
+],
+"status": "located"
+}
+},
+{
+"text": "+1 720 555 0164",
+"start": 748,
+"end": 763,
+"label": "PHONE_NUMBER",
+"characters": [
+"p14"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[9]/w:tc[4]/w:p/w:r/w:t",
+"start": 0,
+"end": 15
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Northcott Regional Supply Co.",
+"start": 774,
+"end": 803,
+"label": "ORGANIZATION",
+"characters": [
+"org_2"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:p[5]/w:r/w:t",
+"start": 0,
+"end": 29
+}
+],
+"status": "located"
+}
+},
+{
+"text": "7818 Old Mill Terrace",
+"start": 832,
+"end": 853,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:p[5]/w:r/w:t",
+"start": 58,
+"end": 79
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Orrell",
+"start": 897,
+"end": 903,
+"label": "NAME_FAMILY",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:p[5]/w:r/w:t",
+"start": 123,
+"end": 129
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Matthias",
+"start": 905,
+"end": 913,
+"label": "NAME_GIVEN",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:p[5]/w:r/w:t",
+"start": 131,
+"end": 139
+}
+],
+"status": "located"
+}
+},
+{
+"text": "720.555.0188",
+"start": 915,
+"end": 927,
+"label": "PHONE_NUMBER",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:p[5]/w:r/w:t",
+"start": 141,
+"end": 153
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Bronwyn",
+"start": 930,
+"end": 937,
+"label": "NAME_GIVEN",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:p[6]/w:r/w:t",
+"start": 0,
+"end": 7
+}
+],
+"status": "located"
+}
+},
+{
+"text": "SMS-27115",
+"start": 951,
+"end": 960,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:p[6]/w:r/w:t",
+"start": 21,
+"end": 30
+}
+],
+"status": "located"
+}
+},
+{
+"text": "https://www.sunmarrow.test/budget",
+"start": 989,
+"end": 1022,
+"label": "URL",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:p[6]/w:r/w:t",
+"start": 59,
+"end": 92
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Ashgrove",
+"start": 1044,
+"end": 1052,
+"label": "ORGANIZATION",
+"characters": [
+"org_3"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:p[7]/w:r/w:t",
+"start": 20,
+"end": 28
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Ashgrove Translation Bureau",
+"start": 1075,
+"end": 1102,
+"label": "ORGANIZATION",
+"characters": [
+"org_3"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:p[7]/w:r/w:t",
+"start": 51,
+"end": 78
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Gustav",
+"start": 1104,
+"end": 1110,
+"label": "NAME_GIVEN",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:p[7]/w:r/w:t",
+"start": 80,
+"end": 86
+}
+],
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "ce0f1749b2f2eb1e7a4a4e9b",
+"filename": "site_memo.pdf",
+"format": "pdf",
+"mime_type": "application/pdf",
+"attached_to": null
+},
+"text": "Harbor Mist Shipping\nMEMORANDUM\nTo: Yvette Guerrero, Sunmarrow Solar\nCc: Winterhalde, Caspar\nFrom: Lachlan Barrowcliffe\nRe: site visit\nWe visited the premises at\n7818 Old Mill Terrace, Dunmere\non the agreed date. Yvette walked us through\nthe loading area; CASPAR WINTERHALDE\njoined for the second half.\nFindings\n1. Access control works; badge readers logged two visitors.\n2. The emergency contact sheet lists 720.555.0175\nfor Guerrero and 720.555.0181 for Winterhalde.\n3. Deliveries from Harbor Mist Shipping\nwill use the rear entrance from next month.\nOur invoice goes to account 3762348959.\nYour purchase order should quote Harbor.\nLachlan Barrowcliffe\nFinance Controller, Harbor Mist Shipping\nlbarrowcliffe@harbor.test | 720-555-0169\nhttps://www.harbor.test\n\n",
+"file": {
+"kind": "pdf",
+"path": "drive/site_memo.pdf",
+"sha256": "9393373cbb6a42f0bfec3da7d254decdc62236a2f286e9caf1548acb5945bf15",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Harbor Mist Shipping",
+"start": 0,
+"end": 20,
+"label": "ORGANIZATION",
+"characters": [
+"org_4"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"H",
+1,
+16.6,
+19.72,
+23.8,
+31.72
+],
+[
+"a",
+1,
+23.8,
+19.72,
+31.0,
+31.72
+],
+[
+"r",
+1,
+31.0,
+19.72,
+38.2,
+31.72
+],
+[
+"b",
+1,
+38.2,
+19.72,
+45.4,
+31.72
+],
+[
+"o",
+1,
+45.4,
+19.72,
+52.6,
+31.72
+],
+[
+"r",
+1,
+52.61,
+19.72,
+59.81,
+31.72
+],
+[
+"M",
+1,
+67.01,
+19.72,
+74.21,
+31.72
+],
+[
+"i",
+1,
+74.21,
+19.72,
+81.41,
+31.72
+],
+[
+"s",
+1,
+81.41,
+19.72,
+88.61,
+31.72
+],
+[
+"t",
+1,
+88.61,
+19.72,
+95.81,
+31.72
+],
+[
+"S",
+1,
+103.01,
+19.72,
+110.21,
+31.72
+],
+[
+"h",
+1,
+110.22,
+19.72,
+117.42,
+31.72
+],
+[
+"i",
+1,
+117.42,
+19.72,
+124.62,
+31.72
+],
+[
+"p",
+1,
+124.62,
+19.72,
+131.82,
+31.72
+],
+[
+"p",
+1,
+131.82,
+19.72,
+139.02,
+31.72
+],
+[
+"i",
+1,
+139.02,
+19.72,
+146.22,
+31.72
+],
+[
+"n",
+1,
+146.22,
+19.72,
+153.42,
+31.72
+],
+[
+"g",
+1,
+153.42,
+19.72,
+160.62,
+31.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Yvette",
+"start": 36,
+"end": 42,
+"label": "NAME_GIVEN",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"Y",
+1,
+45.4,
+55.72,
+52.6,
+67.72
+],
+[
+"v",
+1,
+52.61,
+55.72,
+59.81,
+67.72
+],
+[
+"e",
+1,
+59.81,
+55.72,
+67.01,
+67.72
+],
+[
+"t",
+1,
+67.01,
+55.72,
+74.21,
+67.72
+],
+[
+"t",
+1,
+74.21,
+55.72,
+81.41,
+67.72
+],
+[
+"e",
+1,
+81.41,
+55.72,
+88.61,
+67.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Guerrero",
+"start": 43,
+"end": 51,
+"label": "NAME_FAMILY",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"G",
+1,
+95.81,
+55.72,
+103.01,
+67.72
+],
+[
+"u",
+1,
+103.01,
+55.72,
+110.21,
+67.72
+],
+[
+"e",
+1,
+110.22,
+55.72,
+117.42,
+67.72
+],
+[
+"r",
+1,
+117.42,
+55.72,
+124.62,
+67.72
+],
+[
+"r",
+1,
+124.62,
+55.72,
+131.82,
+67.72
+],
+[
+"e",
+1,
+131.82,
+55.72,
+139.02,
+67.72
+],
+[
+"r",
+1,
+139.02,
+55.72,
+146.22,
+67.72
+],
+[
+"o",
+1,
+146.22,
+55.72,
+153.42,
+67.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Sunmarrow Solar",
+"start": 53,
+"end": 68,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"S",
+1,
+167.83,
+55.72,
+175.03,
+67.72
+],
+[
+"u",
+1,
+175.03,
+55.72,
+182.23,
+67.72
+],
+[
+"n",
+1,
+182.23,
+55.72,
+189.43,
+67.72
+],
+[
+"m",
+1,
+189.43,
+55.72,
+196.63,
+67.72
+],
+[
+"a",
+1,
+196.63,
+55.72,
+203.83,
+67.72
+],
+[
+"r",
+1,
+203.83,
+55.72,
+211.03,
+67.72
+],
+[
+"r",
+1,
+211.03,
+55.72,
+218.23,
+67.72
+],
+[
+"o",
+1,
+218.23,
+55.72,
+225.43,
+67.72
+],
+[
+"w",
+1,
+225.43,
+55.72,
+232.63,
+67.72
+],
+[
+"S",
+1,
+239.84,
+55.72,
+247.04,
+67.72
+],
+[
+"o",
+1,
+247.04,
+55.72,
+254.24,
+67.72
+],
+[
+"l",
+1,
+254.24,
+55.72,
+261.44,
+67.72
+],
+[
+"a",
+1,
+261.44,
+55.72,
+268.64,
+67.72
+],
+[
+"r",
+1,
+268.64,
+55.72,
+275.84,
+67.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Winterhalde",
+"start": 73,
+"end": 84,
+"label": "NAME_FAMILY",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"W",
+1,
+45.4,
+67.72,
+52.6,
+79.72
+],
+[
+"i",
+1,
+52.61,
+67.72,
+59.81,
+79.72
+],
+[
+"n",
+1,
+59.81,
+67.72,
+67.01,
+79.72
+],
+[
+"t",
+1,
+67.01,
+67.72,
+74.21,
+79.72
+],
+[
+"e",
+1,
+74.21,
+67.72,
+81.41,
+79.72
+],
+[
+"r",
+1,
+81.41,
+67.72,
+88.61,
+79.72
+],
+[
+"h",
+1,
+88.61,
+67.72,
+95.81,
+79.72
+],
+[
+"a",
+1,
+95.81,
+67.72,
+103.01,
+79.72
+],
+[
+"l",
+1,
+103.01,
+67.72,
+110.21,
+79.72
+],
+[
+"d",
+1,
+110.22,
+67.72,
+117.42,
+79.72
+],
+[
+"e",
+1,
+117.42,
+67.72,
+124.62,
+79.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Caspar",
+"start": 86,
+"end": 92,
+"label": "NAME_GIVEN",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"C",
+1,
+139.02,
+67.72,
+146.22,
+79.72
+],
+[
+"a",
+1,
+146.22,
+67.72,
+153.42,
+79.72
+],
+[
+"s",
+1,
+153.42,
+67.72,
+160.62,
+79.72
+],
+[
+"p",
+1,
+160.62,
+67.72,
+167.82,
+79.72
+],
+[
+"a",
+1,
+167.83,
+67.72,
+175.03,
+79.72
+],
+[
+"r",
+1,
+175.03,
+67.72,
+182.23,
+79.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Lachlan",
+"start": 99,
+"end": 106,
+"label": "NAME_GIVEN",
+"characters": [
+"p19"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"L",
+1,
+59.81,
+79.72,
+67.01,
+91.72
+],
+[
+"a",
+1,
+67.01,
+79.72,
+74.21,
+91.72
+],
+[
+"c",
+1,
+74.21,
+79.72,
+81.41,
+91.72
+],
+[
+"h",
+1,
+81.41,
+79.72,
+88.61,
+91.72
+],
+[
+"l",
+1,
+88.61,
+79.72,
+95.81,
+91.72
+],
+[
+"a",
+1,
+95.81,
+79.72,
+103.01,
+91.72
+],
+[
+"n",
+1,
+103.01,
+79.72,
+110.21,
+91.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Barrowcliffe",
+"start": 107,
+"end": 119,
+"label": "NAME_FAMILY",
+"characters": [
+"p19"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"B",
+1,
+117.42,
+79.72,
+124.62,
+91.72
+],
+[
+"a",
+1,
+124.62,
+79.72,
+131.82,
+91.72
+],
+[
+"r",
+1,
+131.82,
+79.72,
+139.02,
+91.72
+],
+[
+"r",
+1,
+139.02,
+79.72,
+146.22,
+91.72
+],
+[
+"o",
+1,
+146.22,
+79.72,
+153.42,
+91.72
+],
+[
+"w",
+1,
+153.42,
+79.72,
+160.62,
+91.72
+],
+[
+"c",
+1,
+160.62,
+79.72,
+167.82,
+91.72
+],
+[
+"l",
+1,
+167.83,
+79.72,
+175.03,
+91.72
+],
+[
+"i",
+1,
+175.03,
+79.72,
+182.23,
+91.72
+],
+[
+"f",
+1,
+182.23,
+79.72,
+189.43,
+91.72
+],
+[
+"f",
+1,
+189.43,
+79.72,
+196.63,
+91.72
+],
+[
+"e",
+1,
+196.63,
+79.72,
+203.83,
+91.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "7818 Old Mill Terrace",
+"start": 162,
+"end": 183,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"7",
+1,
+16.6,
+127.72,
+23.8,
+139.72
+],
+[
+"8",
+1,
+23.8,
+127.72,
+31.0,
+139.72
+],
+[
+"1",
+1,
+31.0,
+127.72,
+38.2,
+139.72
+],
+[
+"8",
+1,
+38.2,
+127.72,
+45.4,
+139.72
+],
+[
+"O",
+1,
+52.61,
+127.72,
+59.81,
+139.72
+],
+[
+"l",
+1,
+59.81,
+127.72,
+67.01,
+139.72
+],
+[
+"d",
+1,
+67.01,
+127.72,
+74.21,
+139.72
+],
+[
+"M",
+1,
+81.41,
+127.72,
+88.61,
+139.72
+],
+[
+"i",
+1,
+88.61,
+127.72,
+95.81,
+139.72
+],
+[
+"l",
+1,
+95.81,
+127.72,
+103.01,
+139.72
+],
+[
+"l",
+1,
+103.01,
+127.72,
+110.21,
+139.72
+],
+[
+"T",
+1,
+117.42,
+127.72,
+124.62,
+139.72
+],
+[
+"e",
+1,
+124.62,
+127.72,
+131.82,
+139.72
+],
+[
+"r",
+1,
+131.82,
+127.72,
+139.02,
+139.72
+],
+[
+"r",
+1,
+139.02,
+127.72,
+146.22,
+139.72
+],
+[
+"a",
+1,
+146.22,
+127.72,
+153.42,
+139.72
+],
+[
+"c",
+1,
+153.42,
+127.72,
+160.62,
+139.72
+],
+[
+"e",
+1,
+160.62,
+127.72,
+167.82,
+139.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Yvette",
+"start": 213,
+"end": 219,
+"label": "NAME_GIVEN",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"Y",
+1,
+160.62,
+139.72,
+167.82,
+151.72
+],
+[
+"v",
+1,
+167.83,
+139.72,
+175.03,
+151.72
+],
+[
+"e",
+1,
+175.03,
+139.72,
+182.23,
+151.72
+],
+[
+"t",
+1,
+182.23,
+139.72,
+189.43,
+151.72
+],
+[
+"t",
+1,
+189.43,
+139.72,
+196.63,
+151.72
+],
+[
+"e",
+1,
+196.63,
+139.72,
+203.83,
+151.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "CASPAR",
+"start": 256,
+"end": 262,
+"label": "NAME_GIVEN",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"C",
+1,
+146.22,
+151.72,
+153.42,
+163.72
+],
+[
+"A",
+1,
+153.42,
+151.72,
+160.62,
+163.72
+],
+[
+"S",
+1,
+160.62,
+151.72,
+167.82,
+163.72
+],
+[
+"P",
+1,
+167.83,
+151.72,
+175.03,
+163.72
+],
+[
+"A",
+1,
+175.03,
+151.72,
+182.23,
+163.72
+],
+[
+"R",
+1,
+182.23,
+151.72,
+189.43,
+163.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "WINTERHALDE",
+"start": 263,
+"end": 274,
+"label": "NAME_FAMILY",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"W",
+1,
+196.63,
+151.72,
+203.83,
+163.72
+],
+[
+"I",
+1,
+203.83,
+151.72,
+211.03,
+163.72
+],
+[
+"N",
+1,
+211.03,
+151.72,
+218.23,
+163.72
+],
+[
+"T",
+1,
+218.23,
+151.72,
+225.43,
+163.72
+],
+[
+"E",
+1,
+225.43,
+151.72,
+232.63,
+163.72
+],
+[
+"R",
+1,
+232.64,
+151.72,
+239.84,
+163.72
+],
+[
+"H",
+1,
+239.84,
+151.72,
+247.04,
+163.72
+],
+[
+"A",
+1,
+247.04,
+151.72,
+254.24,
+163.72
+],
+[
+"L",
+1,
+254.24,
+151.72,
+261.44,
+163.72
+],
+[
+"D",
+1,
+261.44,
+151.72,
+268.64,
+163.72
+],
+[
+"E",
+1,
+268.64,
+151.72,
+275.84,
+163.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "720.555.0175",
+"start": 409,
+"end": 421,
+"label": "PHONE_NUMBER",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"7",
+1,
+283.04,
+211.72,
+290.24,
+223.72
+],
+[
+"2",
+1,
+290.25,
+211.72,
+297.45,
+223.72
+],
+[
+"0",
+1,
+297.45,
+211.72,
+304.65,
+223.72
+],
+[
+".",
+1,
+304.65,
+211.72,
+311.85,
+223.72
+],
+[
+"5",
+1,
+311.85,
+211.72,
+319.05,
+223.72
+],
+[
+"5",
+1,
+319.05,
+211.72,
+326.25,
+223.72
+],
+[
+"5",
+1,
+326.25,
+211.72,
+333.45,
+223.72
+],
+[
+".",
+1,
+333.45,
+211.72,
+340.65,
+223.72
+],
+[
+"0",
+1,
+340.65,
+211.72,
+347.85,
+223.72
+],
+[
+"1",
+1,
+347.86,
+211.72,
+355.06,
+223.72
+],
+[
+"7",
+1,
+355.06,
+211.72,
+362.26,
+223.72
+],
+[
+"5",
+1,
+362.26,
+211.72,
+369.46,
+223.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Guerrero",
+"start": 426,
+"end": 434,
+"label": "NAME_FAMILY",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"G",
+1,
+67.01,
+223.72,
+74.21,
+235.72
+],
+[
+"u",
+1,
+74.21,
+223.72,
+81.41,
+235.72
+],
+[
+"e",
+1,
+81.41,
+223.72,
+88.61,
+235.72
+],
+[
+"r",
+1,
+88.61,
+223.72,
+95.81,
+235.72
+],
+[
+"r",
+1,
+95.81,
+223.72,
+103.01,
+235.72
+],
+[
+"e",
+1,
+103.01,
+223.72,
+110.21,
+235.72
+],
+[
+"r",
+1,
+110.22,
+223.72,
+117.42,
+235.72
+],
+[
+"o",
+1,
+117.42,
+223.72,
+124.62,
+235.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "720.555.0181",
+"start": 439,
+"end": 451,
+"label": "PHONE_NUMBER",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"7",
+1,
+160.62,
+223.72,
+167.82,
+235.72
+],
+[
+"2",
+1,
+167.83,
+223.72,
+175.03,
+235.72
+],
+[
+"0",
+1,
+175.03,
+223.72,
+182.23,
+235.72
+],
+[
+".",
+1,
+182.23,
+223.72,
+189.43,
+235.72
+],
+[
+"5",
+1,
+189.43,
+223.72,
+196.63,
+235.72
+],
+[
+"5",
+1,
+196.63,
+223.72,
+203.83,
+235.72
+],
+[
+"5",
+1,
+203.83,
+223.72,
+211.03,
+235.72
+],
+[
+".",
+1,
+211.03,
+223.72,
+218.23,
+235.72
+],
+[
+"0",
+1,
+218.23,
+223.72,
+225.43,
+235.72
+],
+[
+"1",
+1,
+225.43,
+223.72,
+232.63,
+235.72
+],
+[
+"8",
+1,
+232.64,
+223.72,
+239.84,
+235.72
+],
+[
+"1",
+1,
+239.84,
+223.72,
+247.04,
+235.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Winterhalde",
+"start": 456,
+"end": 467,
+"label": "NAME_FAMILY",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"W",
+1,
+283.04,
+223.72,
+290.24,
+235.72
+],
+[
+"i",
+1,
+290.25,
+223.72,
+297.45,
+235.72
+],
+[
+"n",
+1,
+297.45,
+223.72,
+304.65,
+235.72
+],
+[
+"t",
+1,
+304.65,
+223.72,
+311.85,
+235.72
+],
+[
+"e",
+1,
+311.85,
+223.72,
+319.05,
+235.72
+],
+[
+"r",
+1,
+319.05,
+223.72,
+326.25,
+235.72
+],
+[
+"h",
+1,
+326.25,
+223.72,
+333.45,
+235.72
+],
+[
+"a",
+1,
+333.45,
+223.72,
+340.65,
+235.72
+],
+[
+"l",
+1,
+340.65,
+223.72,
+347.85,
+235.72
+],
+[
+"d",
+1,
+347.86,
+223.72,
+355.06,
+235.72
+],
+[
+"e",
+1,
+355.06,
+223.72,
+362.26,
+235.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Harbor Mist Shipping",
+"start": 488,
+"end": 508,
+"label": "ORGANIZATION",
+"characters": [
+"org_4"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"H",
+1,
+153.42,
+235.72,
+160.62,
+247.72
+],
+[
+"a",
+1,
+160.62,
+235.72,
+167.82,
+247.72
+],
+[
+"r",
+1,
+167.83,
+235.72,
+175.03,
+247.72
+],
+[
+"b",
+1,
+175.03,
+235.72,
+182.23,
+247.72
+],
+[
+"o",
+1,
+182.23,
+235.72,
+189.43,
+247.72
+],
+[
+"r",
+1,
+189.43,
+235.72,
+196.63,
+247.72
+],
+[
+"M",
+1,
+203.83,
+235.72,
+211.03,
+247.72
+],
+[
+"i",
+1,
+211.03,
+235.72,
+218.23,
+247.72
+],
+[
+"s",
+1,
+218.23,
+235.72,
+225.43,
+247.72
+],
+[
+"t",
+1,
+225.43,
+235.72,
+232.63,
+247.72
+],
+[
+"S",
+1,
+239.84,
+235.72,
+247.04,
+247.72
+],
+[
+"h",
+1,
+247.04,
+235.72,
+254.24,
+247.72
+],
+[
+"i",
+1,
+254.24,
+235.72,
+261.44,
+247.72
+],
+[
+"p",
+1,
+261.44,
+235.72,
+268.64,
+247.72
+],
+[
+"p",
+1,
+268.64,
+235.72,
+275.84,
+247.72
+],
+[
+"i",
+1,
+275.84,
+235.72,
+283.04,
+247.72
+],
+[
+"n",
+1,
+283.04,
+235.72,
+290.24,
+247.72
+],
+[
+"g",
+1,
+290.25,
+235.72,
+297.45,
+247.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "3762348959",
+"start": 581,
+"end": 591,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"3",
+1,
+218.23,
+271.72,
+225.43,
+283.72
+],
+[
+"7",
+1,
+225.43,
+271.72,
+232.63,
+283.72
+],
+[
+"6",
+1,
+232.64,
+271.72,
+239.84,
+283.72
+],
+[
+"2",
+1,
+239.84,
+271.72,
+247.04,
+283.72
+],
+[
+"3",
+1,
+247.04,
+271.72,
+254.24,
+283.72
+],
+[
+"4",
+1,
+254.24,
+271.72,
+261.44,
+283.72
+],
+[
+"8",
+1,
+261.44,
+271.72,
+268.64,
+283.72
+],
+[
+"9",
+1,
+268.64,
+271.72,
+275.84,
+283.72
+],
+[
+"5",
+1,
+275.84,
+271.72,
+283.04,
+283.72
+],
+[
+"9",
+1,
+283.04,
+271.72,
+290.24,
+283.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Harbor",
+"start": 626,
+"end": 632,
+"label": "ORGANIZATION",
+"characters": [
+"org_4"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"H",
+1,
+254.24,
+283.72,
+261.44,
+295.72
+],
+[
+"a",
+1,
+261.44,
+283.72,
+268.64,
+295.72
+],
+[
+"r",
+1,
+268.64,
+283.72,
+275.84,
+295.72
+],
+[
+"b",
+1,
+275.84,
+283.72,
+283.04,
+295.72
+],
+[
+"o",
+1,
+283.04,
+283.72,
+290.24,
+295.72
+],
+[
+"r",
+1,
+290.25,
+283.72,
+297.45,
+295.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Lachlan",
+"start": 634,
+"end": 641,
+"label": "NAME_GIVEN",
+"characters": [
+"p19"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"L",
+1,
+16.6,
+307.72,
+23.8,
+319.72
+],
+[
+"a",
+1,
+23.8,
+307.72,
+31.0,
+319.72
+],
+[
+"c",
+1,
+31.0,
+307.72,
+38.2,
+319.72
+],
+[
+"h",
+1,
+38.2,
+307.72,
+45.4,
+319.72
+],
+[
+"l",
+1,
+45.4,
+307.72,
+52.6,
+319.72
+],
+[
+"a",
+1,
+52.61,
+307.72,
+59.81,
+319.72
+],
+[
+"n",
+1,
+59.81,
+307.72,
+67.01,
+319.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Barrowcliffe",
+"start": 642,
+"end": 654,
+"label": "NAME_FAMILY",
+"characters": [
+"p19"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"B",
+1,
+74.21,
+307.72,
+81.41,
+319.72
+],
+[
+"a",
+1,
+81.41,
+307.72,
+88.61,
+319.72
+],
+[
+"r",
+1,
+88.61,
+307.72,
+95.81,
+319.72
+],
+[
+"r",
+1,
+95.81,
+307.72,
+103.01,
+319.72
+],
+[
+"o",
+1,
+103.01,
+307.72,
+110.21,
+319.72
+],
+[
+"w",
+1,
+110.22,
+307.72,
+117.42,
+319.72
+],
+[
+"c",
+1,
+117.42,
+307.72,
+124.62,
+319.72
+],
+[
+"l",
+1,
+124.62,
+307.72,
+131.82,
+319.72
+],
+[
+"i",
+1,
+131.82,
+307.72,
+139.02,
+319.72
+],
+[
+"f",
+1,
+139.02,
+307.72,
+146.22,
+319.72
+],
+[
+"f",
+1,
+146.22,
+307.72,
+153.42,
+319.72
+],
+[
+"e",
+1,
+153.42,
+307.72,
+160.62,
+319.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Harbor Mist Shipping",
+"start": 675,
+"end": 695,
+"label": "ORGANIZATION",
+"characters": [
+"org_4"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"H",
+1,
+160.62,
+319.72,
+167.82,
+331.72
+],
+[
+"a",
+1,
+167.83,
+319.72,
+175.03,
+331.72
+],
+[
+"r",
+1,
+175.03,
+319.72,
+182.23,
+331.72
+],
+[
+"b",
+1,
+182.23,
+319.72,
+189.43,
+331.72
+],
+[
+"o",
+1,
+189.43,
+319.72,
+196.63,
+331.72
+],
+[
+"r",
+1,
+196.63,
+319.72,
+203.83,
+331.72
+],
+[
+"M",
+1,
+211.03,
+319.72,
+218.23,
+331.72
+],
+[
+"i",
+1,
+218.23,
+319.72,
+225.43,
+331.72
+],
+[
+"s",
+1,
+225.43,
+319.72,
+232.63,
+331.72
+],
+[
+"t",
+1,
+232.64,
+319.72,
+239.84,
+331.72
+],
+[
+"S",
+1,
+247.04,
+319.72,
+254.24,
+331.72
+],
+[
+"h",
+1,
+254.24,
+319.72,
+261.44,
+331.72
+],
+[
+"i",
+1,
+261.44,
+319.72,
+268.64,
+331.72
+],
+[
+"p",
+1,
+268.64,
+319.72,
+275.84,
+331.72
+],
+[
+"p",
+1,
+275.84,
+319.72,
+283.04,
+331.72
+],
+[
+"i",
+1,
+283.04,
+319.72,
+290.24,
+331.72
+],
+[
+"n",
+1,
+290.25,
+319.72,
+297.45,
+331.72
+],
+[
+"g",
+1,
+297.45,
+319.72,
+304.65,
+331.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "lbarrowcliffe@harbor.test",
+"start": 696,
+"end": 721,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p19"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"l",
+1,
+16.6,
+331.72,
+23.8,
+343.72
+],
+[
+"b",
+1,
+23.8,
+331.72,
+31.0,
+343.72
+],
+[
+"a",
+1,
+31.0,
+331.72,
+38.2,
+343.72
+],
+[
+"r",
+1,
+38.2,
+331.72,
+45.4,
+343.72
+],
+[
+"r",
+1,
+45.4,
+331.72,
+52.6,
+343.72
+],
+[
+"o",
+1,
+52.61,
+331.72,
+59.81,
+343.72
+],
+[
+"w",
+1,
+59.81,
+331.72,
+67.01,
+343.72
+],
+[
+"c",
+1,
+67.01,
+331.72,
+74.21,
+343.72
+],
+[
+"l",
+1,
+74.21,
+331.72,
+81.41,
+343.72
+],
+[
+"i",
+1,
+81.41,
+331.72,
+88.61,
+343.72
+],
+[
+"f",
+1,
+88.61,
+331.72,
+95.81,
+343.72
+],
+[
+"f",
+1,
+95.81,
+331.72,
+103.01,
+343.72
+],
+[
+"e",
+1,
+103.01,
+331.72,
+110.21,
+343.72
+],
+[
+"@",
+1,
+110.22,
+331.72,
+117.42,
+343.72
+],
+[
+"h",
+1,
+117.42,
+331.72,
+124.62,
+343.72
+],
+[
+"a",
+1,
+124.62,
+331.72,
+131.82,
+343.72
+],
+[
+"r",
+1,
+131.82,
+331.72,
+139.02,
+343.72
+],
+[
+"b",
+1,
+139.02,
+331.72,
+146.22,
+343.72
+],
+[
+"o",
+1,
+146.22,
+331.72,
+153.42,
+343.72
+],
+[
+"r",
+1,
+153.42,
+331.72,
+160.62,
+343.72
+],
+[
+".",
+1,
+160.62,
+331.72,
+167.82,
+343.72
+],
+[
+"t",
+1,
+167.83,
+331.72,
+175.03,
+343.72
+],
+[
+"e",
+1,
+175.03,
+331.72,
+182.23,
+343.72
+],
+[
+"s",
+1,
+182.23,
+331.72,
+189.43,
+343.72
+],
+[
+"t",
+1,
+189.43,
+331.72,
+196.63,
+343.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "720-555-0169",
+"start": 724,
+"end": 736,
+"label": "PHONE_NUMBER",
+"characters": [
+"p19"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"7",
+1,
+218.23,
+331.72,
+225.43,
+343.72
+],
+[
+"2",
+1,
+225.43,
+331.72,
+232.63,
+343.72
+],
+[
+"0",
+1,
+232.64,
+331.72,
+239.84,
+343.72
+],
+[
+"-",
+1,
+239.84,
+331.72,
+247.04,
+343.72
+],
+[
+"5",
+1,
+247.04,
+331.72,
+254.24,
+343.72
+],
+[
+"5",
+1,
+254.24,
+331.72,
+261.44,
+343.72
+],
+[
+"5",
+1,
+261.44,
+331.72,
+268.64,
+343.72
+],
+[
+"-",
+1,
+268.64,
+331.72,
+275.84,
+343.72
+],
+[
+"0",
+1,
+275.84,
+331.72,
+283.04,
+343.72
+],
+[
+"1",
+1,
+283.04,
+331.72,
+290.24,
+343.72
+],
+[
+"6",
+1,
+290.25,
+331.72,
+297.45,
+343.72
+],
+[
+"9",
+1,
+297.45,
+331.72,
+304.65,
+343.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "https://www.harbor.test",
+"start": 737,
+"end": 760,
+"label": "URL",
+"characters": [
+"org_4"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"h",
+1,
+16.6,
+343.72,
+23.8,
+355.72
+],
+[
+"t",
+1,
+23.8,
+343.72,
+31.0,
+355.72
+],
+[
+"t",
+1,
+31.0,
+343.72,
+38.2,
+355.72
+],
+[
+"p",
+1,
+38.2,
+343.72,
+45.4,
+355.72
+],
+[
+"s",
+1,
+45.4,
+343.72,
+52.6,
+355.72
+],
+[
+":",
+1,
+52.61,
+343.72,
+59.81,
+355.72
+],
+[
+"/",
+1,
+59.81,
+343.72,
+67.01,
+355.72
+],
+[
+"/",
+1,
+67.01,
+343.72,
+74.21,
+355.72
+],
+[
+"w",
+1,
+74.21,
+343.72,
+81.41,
+355.72
+],
+[
+"w",
+1,
+81.41,
+343.72,
+88.61,
+355.72
+],
+[
+"w",
+1,
+88.61,
+343.72,
+95.81,
+355.72
+],
+[
+".",
+1,
+95.81,
+343.72,
+103.01,
+355.72
+],
+[
+"h",
+1,
+103.01,
+343.72,
+110.21,
+355.72
+],
+[
+"a",
+1,
+110.22,
+343.72,
+117.42,
+355.72
+],
+[
+"r",
+1,
+117.42,
+343.72,
+124.62,
+355.72
+],
+[
+"b",
+1,
+124.62,
+343.72,
+131.82,
+355.72
+],
+[
+"o",
+1,
+131.82,
+343.72,
+139.02,
+355.72
+],
+[
+"r",
+1,
+139.02,
+343.72,
+146.22,
+355.72
+],
+[
+".",
+1,
+146.22,
+343.72,
+153.42,
+355.72
+],
+[
+"t",
+1,
+153.42,
+343.72,
+160.62,
+355.72
+],
+[
+"e",
+1,
+160.62,
+343.72,
+167.82,
+355.72
+],
+[
+"s",
+1,
+167.83,
+343.72,
+175.03,
+355.72
+],
+[
+"t",
+1,
+175.03,
+343.72,
+182.23,
+355.72
+]
+],
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "13c10265e42560630847029b",
+"filename": "statement.pdf",
+"format": "pdf",
+"mime_type": "application/pdf",
+"attached_to": null
+},
+"text": "Chowdhury & Associates LLP\n5454 Willowmere Road\nLindell Falls, MN 55401\nSTATEMENT OF ACCOUNT\nBill to: Sunmarrow Solar Co.\nAttn: Zachariah Upton (Scheduler)\n7818 Old Mill Terrace, Dunmere, VT 05401\nCustomer account: 3733981941\nYour reference: SMS-88754\nDate Description Amount\n2026-07-16 Service visit, week 1 $1003.00\n2026-02-27 Service visit, week 2 $3043.00\n2026-05-19 Service visit, week 3 $4595.00\n2026-09-23 Service visit, week 4 $4539.00\n2026-09-22 Service visit, week 5 $4013.00\nQuestions: Leopold Oduya\nPhone: +1 720 555 0164\nE-mail: loduya@chowdhurylaw.test\nOnline: https://www.chowdhurylaw.test/statements\nPrepared by Leopold for Chowdhury.\n\n",
+"file": {
+"kind": "pdf",
+"path": "drive/statement.pdf",
+"sha256": "9417b6266ec4b1c91944c56a91d754881167005adaa655d43155381799e4fd0b",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Chowdhury & Associates LLP",
+"start": 0,
+"end": 26,
+"label": "ORGANIZATION",
+"characters": [
+"org_homonym"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"C",
+1,
+16.6,
+19.72,
+23.8,
+31.72
+],
+[
+"h",
+1,
+23.8,
+19.72,
+31.0,
+31.72
+],
+[
+"o",
+1,
+31.0,
+19.72,
+38.2,
+31.72
+],
+[
+"w",
+1,
+38.2,
+19.72,
+45.4,
+31.72
+],
+[
+"d",
+1,
+45.4,
+19.72,
+52.6,
+31.72
+],
+[
+"h",
+1,
+52.61,
+19.72,
+59.81,
+31.72
+],
+[
+"u",
+1,
+59.81,
+19.72,
+67.01,
+31.72
+],
+[
+"r",
+1,
+67.01,
+19.72,
+74.21,
+31.72
+],
+[
+"y",
+1,
+74.21,
+19.72,
+81.41,
+31.72
+],
+[
+"&",
+1,
+88.61,
+19.72,
+95.81,
+31.72
+],
+[
+"A",
+1,
+103.01,
+19.72,
+110.21,
+31.72
+],
+[
+"s",
+1,
+110.22,
+19.72,
+117.42,
+31.72
+],
+[
+"s",
+1,
+117.42,
+19.72,
+124.62,
+31.72
+],
+[
+"o",
+1,
+124.62,
+19.72,
+131.82,
+31.72
+],
+[
+"c",
+1,
+131.82,
+19.72,
+139.02,
+31.72
+],
+[
+"i",
+1,
+139.02,
+19.72,
+146.22,
+31.72
+],
+[
+"a",
+1,
+146.22,
+19.72,
+153.42,
+31.72
+],
+[
+"t",
+1,
+153.42,
+19.72,
+160.62,
+31.72
+],
+[
+"e",
+1,
+160.62,
+19.72,
+167.82,
+31.72
+],
+[
+"s",
+1,
+167.83,
+19.72,
+175.03,
+31.72
+],
+[
+"L",
+1,
+182.23,
+19.72,
+189.43,
+31.72
+],
+[
+"L",
+1,
+189.43,
+19.72,
+196.63,
+31.72
+],
+[
+"P",
+1,
+196.63,
+19.72,
+203.83,
+31.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "5454 Willowmere Road",
+"start": 27,
+"end": 47,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_homonym"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"5",
+1,
+16.6,
+31.72,
+23.8,
+43.72
+],
+[
+"4",
+1,
+23.8,
+31.72,
+31.0,
+43.72
+],
+[
+"5",
+1,
+31.0,
+31.72,
+38.2,
+43.72
+],
+[
+"4",
+1,
+38.2,
+31.72,
+45.4,
+43.72
+],
+[
+"W",
+1,
+52.61,
+31.72,
+59.81,
+43.72
+],
+[
+"i",
+1,
+59.81,
+31.72,
+67.01,
+43.72
+],
+[
+"l",
+1,
+67.01,
+31.72,
+74.21,
+43.72
+],
+[
+"l",
+1,
+74.21,
+31.72,
+81.41,
+43.72
+],
+[
+"o",
+1,
+81.41,
+31.72,
+88.61,
+43.72
+],
+[
+"w",
+1,
+88.61,
+31.72,
+95.81,
+43.72
+],
+[
+"m",
+1,
+95.81,
+31.72,
+103.01,
+43.72
+],
+[
+"e",
+1,
+103.01,
+31.72,
+110.21,
+43.72
+],
+[
+"r",
+1,
+110.22,
+31.72,
+117.42,
+43.72
+],
+[
+"e",
+1,
+117.42,
+31.72,
+124.62,
+43.72
+],
+[
+"R",
+1,
+131.82,
+31.72,
+139.02,
+43.72
+],
+[
+"o",
+1,
+139.02,
+31.72,
+146.22,
+43.72
+],
+[
+"a",
+1,
+146.22,
+31.72,
+153.42,
+43.72
+],
+[
+"d",
+1,
+153.42,
+31.72,
+160.62,
+43.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Sunmarrow Solar Co.",
+"start": 102,
+"end": 121,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"S",
+1,
+81.41,
+91.72,
+88.61,
+103.72
+],
+[
+"u",
+1,
+88.61,
+91.72,
+95.81,
+103.72
+],
+[
+"n",
+1,
+95.81,
+91.72,
+103.01,
+103.72
+],
+[
+"m",
+1,
+103.01,
+91.72,
+110.21,
+103.72
+],
+[
+"a",
+1,
+110.22,
+91.72,
+117.42,
+103.72
+],
+[
+"r",
+1,
+117.42,
+91.72,
+124.62,
+103.72
+],
+[
+"r",
+1,
+124.62,
+91.72,
+131.82,
+103.72
+],
+[
+"o",
+1,
+131.82,
+91.72,
+139.02,
+103.72
+],
+[
+"w",
+1,
+139.02,
+91.72,
+146.22,
+103.72
+],
+[
+"S",
+1,
+153.42,
+91.72,
+160.62,
+103.72
+],
+[
+"o",
+1,
+160.62,
+91.72,
+167.82,
+103.72
+],
+[
+"l",
+1,
+167.83,
+91.72,
+175.03,
+103.72
+],
+[
+"a",
+1,
+175.03,
+91.72,
+182.23,
+103.72
+],
+[
+"r",
+1,
+182.23,
+91.72,
+189.43,
+103.72
+],
+[
+"C",
+1,
+196.63,
+91.72,
+203.83,
+103.72
+],
+[
+"o",
+1,
+203.83,
+91.72,
+211.03,
+103.72
+],
+[
+".",
+1,
+211.03,
+91.72,
+218.23,
+103.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Zachariah",
+"start": 128,
+"end": 137,
+"label": "NAME_GIVEN",
+"characters": [
+"p07"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"Z",
+1,
+59.81,
+103.72,
+67.01,
+115.72
+],
+[
+"a",
+1,
+67.01,
+103.72,
+74.21,
+115.72
+],
+[
+"c",
+1,
+74.21,
+103.72,
+81.41,
+115.72
+],
+[
+"h",
+1,
+81.41,
+103.72,
+88.61,
+115.72
+],
+[
+"a",
+1,
+88.61,
+103.72,
+95.81,
+115.72
+],
+[
+"r",
+1,
+95.81,
+103.72,
+103.01,
+115.72
+],
+[
+"i",
+1,
+103.01,
+103.72,
+110.21,
+115.72
+],
+[
+"a",
+1,
+110.22,
+103.72,
+117.42,
+115.72
+],
+[
+"h",
+1,
+117.42,
+103.72,
+124.62,
+115.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Upton",
+"start": 138,
+"end": 143,
+"label": "NAME_FAMILY",
+"characters": [
+"p07"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"U",
+1,
+131.82,
+103.72,
+139.02,
+115.72
+],
+[
+"p",
+1,
+139.02,
+103.72,
+146.22,
+115.72
+],
+[
+"t",
+1,
+146.22,
+103.72,
+153.42,
+115.72
+],
+[
+"o",
+1,
+153.42,
+103.72,
+160.62,
+115.72
+],
+[
+"n",
+1,
+160.62,
+103.72,
+167.82,
+115.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "7818 Old Mill Terrace",
+"start": 156,
+"end": 177,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"7",
+1,
+16.6,
+115.72,
+23.8,
+127.72
+],
+[
+"8",
+1,
+23.8,
+115.72,
+31.0,
+127.72
+],
+[
+"1",
+1,
+31.0,
+115.72,
+38.2,
+127.72
+],
+[
+"8",
+1,
+38.2,
+115.72,
+45.4,
+127.72
+],
+[
+"O",
+1,
+52.61,
+115.72,
+59.81,
+127.72
+],
+[
+"l",
+1,
+59.81,
+115.72,
+67.01,
+127.72
+],
+[
+"d",
+1,
+67.01,
+115.72,
+74.21,
+127.72
+],
+[
+"M",
+1,
+81.41,
+115.72,
+88.61,
+127.72
+],
+[
+"i",
+1,
+88.61,
+115.72,
+95.81,
+127.72
+],
+[
+"l",
+1,
+95.81,
+115.72,
+103.01,
+127.72
+],
+[
+"l",
+1,
+103.01,
+115.72,
+110.21,
+127.72
+],
+[
+"T",
+1,
+117.42,
+115.72,
+124.62,
+127.72
+],
+[
+"e",
+1,
+124.62,
+115.72,
+131.82,
+127.72
+],
+[
+"r",
+1,
+131.82,
+115.72,
+139.02,
+127.72
+],
+[
+"r",
+1,
+139.02,
+115.72,
+146.22,
+127.72
+],
+[
+"a",
+1,
+146.22,
+115.72,
+153.42,
+127.72
+],
+[
+"c",
+1,
+153.42,
+115.72,
+160.62,
+127.72
+],
+[
+"e",
+1,
+160.62,
+115.72,
+167.82,
+127.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "3733981941",
+"start": 215,
+"end": 225,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"org_homonym"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"3",
+1,
+146.22,
+139.72,
+153.42,
+151.72
+],
+[
+"7",
+1,
+153.42,
+139.72,
+160.62,
+151.72
+],
+[
+"3",
+1,
+160.62,
+139.72,
+167.82,
+151.72
+],
+[
+"3",
+1,
+167.83,
+139.72,
+175.03,
+151.72
+],
+[
+"9",
+1,
+175.03,
+139.72,
+182.23,
+151.72
+],
+[
+"8",
+1,
+182.23,
+139.72,
+189.43,
+151.72
+],
+[
+"1",
+1,
+189.43,
+139.72,
+196.63,
+151.72
+],
+[
+"9",
+1,
+196.63,
+139.72,
+203.83,
+151.72
+],
+[
+"4",
+1,
+203.83,
+139.72,
+211.03,
+151.72
+],
+[
+"1",
+1,
+211.03,
+139.72,
+218.23,
+151.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "SMS-88754",
+"start": 242,
+"end": 251,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p07"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"S",
+1,
+131.82,
+151.72,
+139.02,
+163.72
+],
+[
+"M",
+1,
+139.02,
+151.72,
+146.22,
+163.72
+],
+[
+"S",
+1,
+146.22,
+151.72,
+153.42,
+163.72
+],
+[
+"-",
+1,
+153.42,
+151.72,
+160.62,
+163.72
+],
+[
+"8",
+1,
+160.62,
+151.72,
+167.82,
+163.72
+],
+[
+"8",
+1,
+167.83,
+151.72,
+175.03,
+163.72
+],
+[
+"7",
+1,
+175.03,
+151.72,
+182.23,
+163.72
+],
+[
+"5",
+1,
+182.23,
+151.72,
+189.43,
+163.72
+],
+[
+"4",
+1,
+189.43,
+151.72,
+196.63,
+163.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Leopold",
+"start": 497,
+"end": 504,
+"label": "NAME_GIVEN",
+"characters": [
+"p14"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"L",
+1,
+95.81,
+259.72,
+103.01,
+271.72
+],
+[
+"e",
+1,
+103.01,
+259.72,
+110.21,
+271.72
+],
+[
+"o",
+1,
+110.22,
+259.72,
+117.42,
+271.72
+],
+[
+"p",
+1,
+117.42,
+259.72,
+124.62,
+271.72
+],
+[
+"o",
+1,
+124.62,
+259.72,
+131.82,
+271.72
+],
+[
+"l",
+1,
+131.82,
+259.72,
+139.02,
+271.72
+],
+[
+"d",
+1,
+139.02,
+259.72,
+146.22,
+271.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Oduya",
+"start": 505,
+"end": 510,
+"label": "NAME_FAMILY",
+"characters": [
+"p14"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"O",
+1,
+153.42,
+259.72,
+160.62,
+271.72
+],
+[
+"d",
+1,
+160.62,
+259.72,
+167.82,
+271.72
+],
+[
+"u",
+1,
+167.83,
+259.72,
+175.03,
+271.72
+],
+[
+"y",
+1,
+175.03,
+259.72,
+182.23,
+271.72
+],
+[
+"a",
+1,
+182.23,
+259.72,
+189.43,
+271.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "+1 720 555 0164",
+"start": 518,
+"end": 533,
+"label": "PHONE_NUMBER",
+"characters": [
+"p14"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"+",
+1,
+67.01,
+271.72,
+74.21,
+283.72
+],
+[
+"1",
+1,
+74.21,
+271.72,
+81.41,
+283.72
+],
+[
+"7",
+1,
+88.61,
+271.72,
+95.81,
+283.72
+],
+[
+"2",
+1,
+95.81,
+271.72,
+103.01,
+283.72
+],
+[
+"0",
+1,
+103.01,
+271.72,
+110.21,
+283.72
+],
+[
+"5",
+1,
+117.42,
+271.72,
+124.62,
+283.72
+],
+[
+"5",
+1,
+124.62,
+271.72,
+131.82,
+283.72
+],
+[
+"5",
+1,
+131.82,
+271.72,
+139.02,
+283.72
+],
+[
+"0",
+1,
+146.22,
+271.72,
+153.42,
+283.72
+],
+[
+"1",
+1,
+153.42,
+271.72,
+160.62,
+283.72
+],
+[
+"6",
+1,
+160.62,
+271.72,
+167.82,
+283.72
+],
+[
+"4",
+1,
+167.83,
+271.72,
+175.03,
+283.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "loduya@chowdhurylaw.test",
+"start": 542,
+"end": 566,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p14"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"l",
+1,
+74.21,
+283.72,
+81.41,
+295.72
+],
+[
+"o",
+1,
+81.41,
+283.72,
+88.61,
+295.72
+],
+[
+"d",
+1,
+88.61,
+283.72,
+95.81,
+295.72
+],
+[
+"u",
+1,
+95.81,
+283.72,
+103.01,
+295.72
+],
+[
+"y",
+1,
+103.01,
+283.72,
+110.21,
+295.72
+],
+[
+"a",
+1,
+110.22,
+283.72,
+117.42,
+295.72
+],
+[
+"@",
+1,
+117.42,
+283.72,
+124.62,
+295.72
+],
+[
+"c",
+1,
+124.62,
+283.72,
+131.82,
+295.72
+],
+[
+"h",
+1,
+131.82,
+283.72,
+139.02,
+295.72
+],
+[
+"o",
+1,
+139.02,
+283.72,
+146.22,
+295.72
+],
+[
+"w",
+1,
+146.22,
+283.72,
+153.42,
+295.72
+],
+[
+"d",
+1,
+153.42,
+283.72,
+160.62,
+295.72
+],
+[
+"h",
+1,
+160.62,
+283.72,
+167.82,
+295.72
+],
+[
+"u",
+1,
+167.83,
+283.72,
+175.03,
+295.72
+],
+[
+"r",
+1,
+175.03,
+283.72,
+182.23,
+295.72
+],
+[
+"y",
+1,
+182.23,
+283.72,
+189.43,
+295.72
+],
+[
+"l",
+1,
+189.43,
+283.72,
+196.63,
+295.72
+],
+[
+"a",
+1,
+196.63,
+283.72,
+203.83,
+295.72
+],
+[
+"w",
+1,
+203.83,
+283.72,
+211.03,
+295.72
+],
+[
+".",
+1,
+211.03,
+283.72,
+218.23,
+295.72
+],
+[
+"t",
+1,
+218.23,
+283.72,
+225.43,
+295.72
+],
+[
+"e",
+1,
+225.43,
+283.72,
+232.63,
+295.72
+],
+[
+"s",
+1,
+232.64,
+283.72,
+239.84,
+295.72
+],
+[
+"t",
+1,
+239.84,
+283.72,
+247.04,
+295.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "https://www.chowdhurylaw.test/statements",
+"start": 575,
+"end": 615,
+"label": "URL",
+"characters": [
+"org_homonym"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"h",
+1,
+74.21,
+295.72,
+81.41,
+307.72
+],
+[
+"t",
+1,
+81.41,
+295.72,
+88.61,
+307.72
+],
+[
+"t",
+1,
+88.61,
+295.72,
+95.81,
+307.72
+],
+[
+"p",
+1,
+95.81,
+295.72,
+103.01,
+307.72
+],
+[
+"s",
+1,
+103.01,
+295.72,
+110.21,
+307.72
+],
+[
+":",
+1,
+110.22,
+295.72,
+117.42,
+307.72
+],
+[
+"/",
+1,
+117.42,
+295.72,
+124.62,
+307.72
+],
+[
+"/",
+1,
+124.62,
+295.72,
+131.82,
+307.72
+],
+[
+"w",
+1,
+131.82,
+295.72,
+139.02,
+307.72
+],
+[
+"w",
+1,
+139.02,
+295.72,
+146.22,
+307.72
+],
+[
+"w",
+1,
+146.22,
+295.72,
+153.42,
+307.72
+],
+[
+".",
+1,
+153.42,
+295.72,
+160.62,
+307.72
+],
+[
+"c",
+1,
+160.62,
+295.72,
+167.82,
+307.72
+],
+[
+"h",
+1,
+167.83,
+295.72,
+175.03,
+307.72
+],
+[
+"o",
+1,
+175.03,
+295.72,
+182.23,
+307.72
+],
+[
+"w",
+1,
+182.23,
+295.72,
+189.43,
+307.72
+],
+[
+"d",
+1,
+189.43,
+295.72,
+196.63,
+307.72
+],
+[
+"h",
+1,
+196.63,
+295.72,
+203.83,
+307.72
+],
+[
+"u",
+1,
+203.83,
+295.72,
+211.03,
+307.72
+],
+[
+"r",
+1,
+211.03,
+295.72,
+218.23,
+307.72
+],
+[
+"y",
+1,
+218.23,
+295.72,
+225.43,
+307.72
+],
+[
+"l",
+1,
+225.43,
+295.72,
+232.63,
+307.72
+],
+[
+"a",
+1,
+232.64,
+295.72,
+239.84,
+307.72
+],
+[
+"w",
+1,
+239.84,
+295.72,
+247.04,
+307.72
+],
+[
+".",
+1,
+247.04,
+295.72,
+254.24,
+307.72
+],
+[
+"t",
+1,
+254.24,
+295.72,
+261.44,
+307.72
+],
+[
+"e",
+1,
+261.44,
+295.72,
+268.64,
+307.72
+],
+[
+"s",
+1,
+268.64,
+295.72,
+275.84,
+307.72
+],
+[
+"t",
+1,
+275.84,
+295.72,
+283.04,
+307.72
+],
+[
+"/",
+1,
+283.04,
+295.72,
+290.24,
+307.72
+],
+[
+"s",
+1,
+290.25,
+295.72,
+297.45,
+307.72
+],
+[
+"t",
+1,
+297.45,
+295.72,
+304.65,
+307.72
+],
+[
+"a",
+1,
+304.65,
+295.72,
+311.85,
+307.72
+],
+[
+"t",
+1,
+311.85,
+295.72,
+319.05,
+307.72
+],
+[
+"e",
+1,
+319.05,
+295.72,
+326.25,
+307.72
+],
+[
+"m",
+1,
+326.25,
+295.72,
+333.45,
+307.72
+],
+[
+"e",
+1,
+333.45,
+295.72,
+340.65,
+307.72
+],
+[
+"n",
+1,
+340.65,
+295.72,
+347.85,
+307.72
+],
+[
+"t",
+1,
+347.86,
+295.72,
+355.06,
+307.72
+],
+[
+"s",
+1,
+355.06,
+295.72,
+362.26,
+307.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Leopold",
+"start": 628,
+"end": 635,
+"label": "NAME_GIVEN",
+"characters": [
+"p14"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"L",
+1,
+103.01,
+319.72,
+110.21,
+331.72
+],
+[
+"e",
+1,
+110.22,
+319.72,
+117.42,
+331.72
+],
+[
+"o",
+1,
+117.42,
+319.72,
+124.62,
+331.72
+],
+[
+"p",
+1,
+124.62,
+319.72,
+131.82,
+331.72
+],
+[
+"o",
+1,
+131.82,
+319.72,
+139.02,
+331.72
+],
+[
+"l",
+1,
+139.02,
+319.72,
+146.22,
+331.72
+],
+[
+"d",
+1,
+146.22,
+319.72,
+153.42,
+331.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Chowdhury",
+"start": 640,
+"end": 649,
+"label": "ORGANIZATION",
+"characters": [
+"org_homonym"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"C",
+1,
+189.43,
+319.72,
+196.63,
+331.72
+],
+[
+"h",
+1,
+196.63,
+319.72,
+203.83,
+331.72
+],
+[
+"o",
+1,
+203.83,
+319.72,
+211.03,
+331.72
+],
+[
+"w",
+1,
+211.03,
+319.72,
+218.23,
+331.72
+],
+[
+"d",
+1,
+218.23,
+319.72,
+225.43,
+331.72
+],
+[
+"h",
+1,
+225.43,
+319.72,
+232.63,
+331.72
+],
+[
+"u",
+1,
+232.64,
+319.72,
+239.84,
+331.72
+],
+[
+"r",
+1,
+239.84,
+319.72,
+247.04,
+331.72
+],
+[
+"y",
+1,
+247.04,
+319.72,
+254.24,
+331.72
+]
+],
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "898189fcca85a76955ad1670",
+"filename": "vendor_accounts.csv",
+"format": "csv",
+"mime_type": "text/csv",
+"attached_to": null
+},
+"text": "vendor | contact | contact_email | contact_phone | account_number | remit_address | website\nTanager Lane Realty LLC |  |  |  | 8838270846 | 3960 Tanager Lane, Sagemont, AZ 85004 | https://www.tanager.test\nNorthcott Regional Supply Co. | Matthias Orrell | matthias.orrell@northcott.test | 720.555.0188 | 6766931393 | 710 Saltmarsh Avenue, New Harrow, NJ 07030 | https://www.northcott.test\nAshgrove Translation Bureau |  |  |  | 9604644606 | 2662 Thistle Lane, Carverton, OH 43215 | https://www.ashgrove.test\nHarbor Mist Shipping | Lachlan Barrowcliffe | lbarrowcliffe@harbor.test | 720-555-0169 | 6953193230 | 448 Quarry Bend, Dunmere, VT 05401 | https://www.harbor.test\nCopperfield Technical Services Ltd | Gareth Thornquist | gareth@copperfield.test | 720.555.0132 | 5664506779 | 6230 Pinecrest Boulevard, Kessler City, CO 80202 | https://www.copperfield.test\nMarrowbone Capital Partners |  |  |  | 4617709081 | 3159 Thistle Lane, Marlow Heights, MD 20748 | https://www.marrowbone.test\nChowdhury & Associates LLP | Leopold Oduya | loduya@chowdhurylaw.test | +1 720 555 0164 | 3733981941 | 5454 Willowmere Road, Lindell Falls, MN 55401 | https://www.chowdhurylaw.test",
+"file": {
+"kind": "csv",
+"path": "drive/vendor_accounts.csv",
+"sha256": "5b07cffd4003e4f610812f98d98ba8ec0d1baec37915b8d5080deece30d33a46",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Tanager Lane Realty LLC",
+"start": 92,
+"end": 115,
+"label": "ORGANIZATION",
+"characters": [
+"org_1"
+],
+"location": {
+"kind": "csv",
+"row": 1,
+"col": 0,
+"value_char_start": 0,
+"value_char_end": 23,
+"status": "located"
+}
+},
+{
+"text": "8838270846",
+"start": 127,
+"end": 137,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"org_1"
+],
+"location": {
+"kind": "csv",
+"row": 1,
+"col": 4,
+"value_char_start": 0,
+"value_char_end": 10,
+"status": "located"
+}
+},
+{
+"text": "3960 Tanager Lane",
+"start": 140,
+"end": 157,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_1"
+],
+"location": {
+"kind": "csv",
+"row": 1,
+"col": 5,
+"value_char_start": 0,
+"value_char_end": 17,
+"status": "located"
+}
+},
+{
+"text": "https://www.tanager.test",
+"start": 180,
+"end": 204,
+"label": "URL",
+"characters": [
+"org_1"
+],
+"location": {
+"kind": "csv",
+"row": 1,
+"col": 6,
+"value_char_start": 0,
+"value_char_end": 24,
+"status": "located"
+}
+},
+{
+"text": "Northcott Regional Supply Co.",
+"start": 205,
+"end": 234,
+"label": "ORGANIZATION",
+"characters": [
+"org_2"
+],
+"location": {
+"kind": "csv",
+"row": 2,
+"col": 0,
+"value_char_start": 0,
+"value_char_end": 29,
+"status": "located"
+}
+},
+{
+"text": "Matthias",
+"start": 237,
+"end": 245,
+"label": "NAME_GIVEN",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "csv",
+"row": 2,
+"col": 1,
+"value_char_start": 0,
+"value_char_end": 8,
+"status": "located"
+}
+},
+{
+"text": "Orrell",
+"start": 246,
+"end": 252,
+"label": "NAME_FAMILY",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "csv",
+"row": 2,
+"col": 1,
+"value_char_start": 9,
+"value_char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "matthias.orrell@northcott.test",
+"start": 255,
+"end": 285,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "csv",
+"row": 2,
+"col": 2,
+"value_char_start": 0,
+"value_char_end": 30,
+"status": "located"
+}
+},
+{
+"text": "720.555.0188",
+"start": 288,
+"end": 300,
+"label": "PHONE_NUMBER",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "csv",
+"row": 2,
+"col": 3,
+"value_char_start": 0,
+"value_char_end": 12,
+"status": "located"
+}
+},
+{
+"text": "6766931393",
+"start": 303,
+"end": 313,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"org_2"
+],
+"location": {
+"kind": "csv",
+"row": 2,
+"col": 4,
+"value_char_start": 0,
+"value_char_end": 10,
+"status": "located"
+}
+},
+{
+"text": "710 Saltmarsh Avenue",
+"start": 316,
+"end": 336,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_2"
+],
+"location": {
+"kind": "csv",
+"row": 2,
+"col": 5,
+"value_char_start": 0,
+"value_char_end": 20,
+"status": "located"
+}
+},
+{
+"text": "https://www.northcott.test",
+"start": 361,
+"end": 387,
+"label": "URL",
+"characters": [
+"org_2"
+],
+"location": {
+"kind": "csv",
+"row": 2,
+"col": 6,
+"value_char_start": 0,
+"value_char_end": 26,
+"status": "located"
+}
+},
+{
+"text": "Ashgrove Translation Bureau",
+"start": 388,
+"end": 415,
+"label": "ORGANIZATION",
+"characters": [
+"org_3"
+],
+"location": {
+"kind": "csv",
+"row": 3,
+"col": 0,
+"value_char_start": 0,
+"value_char_end": 27,
+"status": "located"
+}
+},
+{
+"text": "9604644606",
+"start": 427,
+"end": 437,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"org_3"
+],
+"location": {
+"kind": "csv",
+"row": 3,
+"col": 4,
+"value_char_start": 0,
+"value_char_end": 10,
+"status": "located"
+}
+},
+{
+"text": "2662 Thistle Lane",
+"start": 440,
+"end": 457,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_3"
+],
+"location": {
+"kind": "csv",
+"row": 3,
+"col": 5,
+"value_char_start": 0,
+"value_char_end": 17,
+"status": "located"
+}
+},
+{
+"text": "https://www.ashgrove.test",
+"start": 481,
+"end": 506,
+"label": "URL",
+"characters": [
+"org_3"
+],
+"location": {
+"kind": "csv",
+"row": 3,
+"col": 6,
+"value_char_start": 0,
+"value_char_end": 25,
+"status": "located"
+}
+},
+{
+"text": "Harbor Mist Shipping",
+"start": 507,
+"end": 527,
+"label": "ORGANIZATION",
+"characters": [
+"org_4"
+],
+"location": {
+"kind": "csv",
+"row": 4,
+"col": 0,
+"value_char_start": 0,
+"value_char_end": 20,
+"status": "located"
+}
+},
+{
+"text": "Lachlan",
+"start": 530,
+"end": 537,
+"label": "NAME_GIVEN",
+"characters": [
+"p19"
+],
+"location": {
+"kind": "csv",
+"row": 4,
+"col": 1,
+"value_char_start": 0,
+"value_char_end": 7,
+"status": "located"
+}
+},
+{
+"text": "Barrowcliffe",
+"start": 538,
+"end": 550,
+"label": "NAME_FAMILY",
+"characters": [
+"p19"
+],
+"location": {
+"kind": "csv",
+"row": 4,
+"col": 1,
+"value_char_start": 8,
+"value_char_end": 20,
+"status": "located"
+}
+},
+{
+"text": "lbarrowcliffe@harbor.test",
+"start": 553,
+"end": 578,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p19"
+],
+"location": {
+"kind": "csv",
+"row": 4,
+"col": 2,
+"value_char_start": 0,
+"value_char_end": 25,
+"status": "located"
+}
+},
+{
+"text": "720-555-0169",
+"start": 581,
+"end": 593,
+"label": "PHONE_NUMBER",
+"characters": [
+"p19"
+],
+"location": {
+"kind": "csv",
+"row": 4,
+"col": 3,
+"value_char_start": 0,
+"value_char_end": 12,
+"status": "located"
+}
+},
+{
+"text": "6953193230",
+"start": 596,
+"end": 606,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"org_4"
+],
+"location": {
+"kind": "csv",
+"row": 4,
+"col": 4,
+"value_char_start": 0,
+"value_char_end": 10,
+"status": "located"
+}
+},
+{
+"text": "448 Quarry Bend",
+"start": 609,
+"end": 624,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_4"
+],
+"location": {
+"kind": "csv",
+"row": 4,
+"col": 5,
+"value_char_start": 0,
+"value_char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "https://www.harbor.test",
+"start": 646,
+"end": 669,
+"label": "URL",
+"characters": [
+"org_4"
+],
+"location": {
+"kind": "csv",
+"row": 4,
+"col": 6,
+"value_char_start": 0,
+"value_char_end": 23,
+"status": "located"
+}
+},
+{
+"text": "Copperfield Technical Services Ltd",
+"start": 670,
+"end": 704,
+"label": "ORGANIZATION",
+"characters": [
+"org_5"
+],
+"location": {
+"kind": "csv",
+"row": 5,
+"col": 0,
+"value_char_start": 0,
+"value_char_end": 34,
+"status": "located"
+}
+},
+{
+"text": "Gareth",
+"start": 707,
+"end": 713,
+"label": "NAME_GIVEN",
+"characters": [
+"p17"
+],
+"location": {
+"kind": "csv",
+"row": 5,
+"col": 1,
+"value_char_start": 0,
+"value_char_end": 6,
+"status": "located"
+}
+},
+{
+"text": "Thornquist",
+"start": 714,
+"end": 724,
+"label": "NAME_FAMILY",
+"characters": [
+"p17"
+],
+"location": {
+"kind": "csv",
+"row": 5,
+"col": 1,
+"value_char_start": 7,
+"value_char_end": 17,
+"status": "located"
+}
+},
+{
+"text": "gareth@copperfield.test",
+"start": 727,
+"end": 750,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p17"
+],
+"location": {
+"kind": "csv",
+"row": 5,
+"col": 2,
+"value_char_start": 0,
+"value_char_end": 23,
+"status": "located"
+}
+},
+{
+"text": "720.555.0132",
+"start": 753,
+"end": 765,
+"label": "PHONE_NUMBER",
+"characters": [
+"p17"
+],
+"location": {
+"kind": "csv",
+"row": 5,
+"col": 3,
+"value_char_start": 0,
+"value_char_end": 12,
+"status": "located"
+}
+},
+{
+"text": "5664506779",
+"start": 768,
+"end": 778,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"org_5"
+],
+"location": {
+"kind": "csv",
+"row": 5,
+"col": 4,
+"value_char_start": 0,
+"value_char_end": 10,
+"status": "located"
+}
+},
+{
+"text": "6230 Pinecrest Boulevard",
+"start": 781,
+"end": 805,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_5"
+],
+"location": {
+"kind": "csv",
+"row": 5,
+"col": 5,
+"value_char_start": 0,
+"value_char_end": 24,
+"status": "located"
+}
+},
+{
+"text": "https://www.copperfield.test",
+"start": 832,
+"end": 860,
+"label": "URL",
+"characters": [
+"org_5"
+],
+"location": {
+"kind": "csv",
+"row": 5,
+"col": 6,
+"value_char_start": 0,
+"value_char_end": 28,
+"status": "located"
+}
+},
+{
+"text": "Marrowbone Capital Partners",
+"start": 861,
+"end": 888,
+"label": "ORGANIZATION",
+"characters": [
+"org_6"
+],
+"location": {
+"kind": "csv",
+"row": 6,
+"col": 0,
+"value_char_start": 0,
+"value_char_end": 27,
+"status": "located"
+}
+},
+{
+"text": "4617709081",
+"start": 900,
+"end": 910,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"org_6"
+],
+"location": {
+"kind": "csv",
+"row": 6,
+"col": 4,
+"value_char_start": 0,
+"value_char_end": 10,
+"status": "located"
+}
+},
+{
+"text": "3159 Thistle Lane",
+"start": 913,
+"end": 930,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_6"
+],
+"location": {
+"kind": "csv",
+"row": 6,
+"col": 5,
+"value_char_start": 0,
+"value_char_end": 17,
+"status": "located"
+}
+},
+{
+"text": "https://www.marrowbone.test",
+"start": 959,
+"end": 986,
+"label": "URL",
+"characters": [
+"org_6"
+],
+"location": {
+"kind": "csv",
+"row": 6,
+"col": 6,
+"value_char_start": 0,
+"value_char_end": 27,
+"status": "located"
+}
+},
+{
+"text": "Chowdhury & Associates LLP",
+"start": 987,
+"end": 1013,
+"label": "ORGANIZATION",
+"characters": [
+"org_homonym"
+],
+"location": {
+"kind": "csv",
+"row": 7,
+"col": 0,
+"value_char_start": 0,
+"value_char_end": 26,
+"status": "located"
+}
+},
+{
+"text": "Leopold",
+"start": 1016,
+"end": 1023,
+"label": "NAME_GIVEN",
+"characters": [
+"p14"
+],
+"location": {
+"kind": "csv",
+"row": 7,
+"col": 1,
+"value_char_start": 0,
+"value_char_end": 7,
+"status": "located"
+}
+},
+{
+"text": "Oduya",
+"start": 1024,
+"end": 1029,
+"label": "NAME_FAMILY",
+"characters": [
+"p14"
+],
+"location": {
+"kind": "csv",
+"row": 7,
+"col": 1,
+"value_char_start": 8,
+"value_char_end": 13,
+"status": "located"
+}
+},
+{
+"text": "loduya@chowdhurylaw.test",
+"start": 1032,
+"end": 1056,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p14"
+],
+"location": {
+"kind": "csv",
+"row": 7,
+"col": 2,
+"value_char_start": 0,
+"value_char_end": 24,
+"status": "located"
+}
+},
+{
+"text": "+1 720 555 0164",
+"start": 1059,
+"end": 1074,
+"label": "PHONE_NUMBER",
+"characters": [
+"p14"
+],
+"location": {
+"kind": "csv",
+"row": 7,
+"col": 3,
+"value_char_start": 0,
+"value_char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "3733981941",
+"start": 1077,
+"end": 1087,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"org_homonym"
+],
+"location": {
+"kind": "csv",
+"row": 7,
+"col": 4,
+"value_char_start": 0,
+"value_char_end": 10,
+"status": "located"
+}
+},
+{
+"text": "5454 Willowmere Road",
+"start": 1090,
+"end": 1110,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_homonym"
+],
+"location": {
+"kind": "csv",
+"row": 7,
+"col": 5,
+"value_char_start": 0,
+"value_char_end": 20,
+"status": "located"
+}
+},
+{
+"text": "https://www.chowdhurylaw.test",
+"start": 1138,
+"end": 1167,
+"label": "URL",
+"characters": [
+"org_homonym"
+],
+"location": {
+"kind": "csv",
+"row": 7,
+"col": 6,
+"value_char_start": 0,
+"value_char_end": 29,
+"status": "located"
+}
+}
+]
+}
+]
+}

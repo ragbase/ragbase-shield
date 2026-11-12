@@ -1,0 +1,946 @@
+{
+ "p00": {
+  "canonical_name": "Lucian Ashcombe",
+  "first_names": [
+   "Lucian"
+  ],
+  "last_names": [
+   "Ashcombe"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "lucian@harborlighthotels.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U7P78ZPFF",
+   "lucianash"
+  ],
+  "phone_numbers_linked": [
+   "(617) 555-0123"
+  ],
+  "employee_ids": [
+   "HBH-17943"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "8311 Marrowbone Drive"
+  ],
+  "organizations": [
+   "Harborlight Hotels"
+  ]
+ },
+ "p01": {
+  "canonical_name": "Clementine Quarrington",
+  "first_names": [
+   "Clementine"
+  ],
+  "last_names": [
+   "Quarrington"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "clementine.quarrington@harborlighthotels.test",
+    "category": "professional"
+   },
+   {
+    "value": "clementine.quarrington85@lettercloud.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U4N67WRDF",
+   "clementine.quarrington"
+  ],
+  "phone_numbers_linked": [
+   "617-555-0113",
+   "415.555.0194"
+  ],
+  "employee_ids": [
+   "HBH-71081"
+  ],
+  "account_numbers": [
+   "54685006"
+  ],
+  "addresses": [
+   "9684 Copperfield Street"
+  ],
+  "organizations": [
+   "Harborlight Hotels"
+  ]
+ },
+ "p02": {
+  "canonical_name": "Rowan Daventry",
+  "first_names": [
+   "Rowan"
+  ],
+  "last_names": [
+   "Daventry"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "daventry.rowan@harborlighthotels.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U3JU4WWJ5",
+   "rowan.daventry"
+  ],
+  "phone_numbers_linked": [
+   "617.555.0126"
+  ],
+  "employee_ids": [
+   "HBH-32524"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "6520 Old Mill Terrace"
+  ],
+  "organizations": [
+   "Harborlight Hotels"
+  ]
+ },
+ "p03": {
+  "canonical_name": "Valerian Ironside",
+  "first_names": [
+   "Valerian"
+  ],
+  "last_names": [
+   "Ironside"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "valerian@harborlighthotels.test",
+    "category": "professional"
+   },
+   {
+    "value": "valerian.ironside28@mailharbor.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U56C32XH2",
+   "vironside"
+  ],
+  "phone_numbers_linked": [
+   "617.555.0152"
+  ],
+  "employee_ids": [
+   "HBH-92349"
+  ],
+  "account_numbers": [
+   "90229165"
+  ],
+  "addresses": [
+   "8008 Ashgrove Place"
+  ],
+  "organizations": [
+   "Harborlight Hotels"
+  ]
+ },
+ "p04": {
+  "canonical_name": "Desmond Barrowcliffe",
+  "first_names": [
+   "Desmond"
+  ],
+  "last_names": [
+   "Barrowcliffe"
+  ],
+  "nicknames": [
+   "Des"
+  ],
+  "emails": [
+   {
+    "value": "dbarrowcliffe@harborlighthotels.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U7WKZXCJH",
+   "desmond_barrowcliffe"
+  ],
+  "phone_numbers_linked": [
+   "617-555-0179"
+  ],
+  "employee_ids": [
+   "HBH-55785"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "7560 Juniper Hollow Road"
+  ],
+  "organizations": [
+   "Harborlight Hotels"
+  ]
+ },
+ "p05": {
+  "canonical_name": "Dorothea Horvath",
+  "first_names": [
+   "Dorothea"
+  ],
+  "last_names": [
+   "Horvath"
+  ],
+  "nicknames": [
+   "Thea"
+  ],
+  "emails": [
+   {
+    "value": "dorothea@harborlighthotels.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U8KR2E8X8",
+   "dhorvath"
+  ],
+  "phone_numbers_linked": [
+   "617.555.0112"
+  ],
+  "employee_ids": [
+   "HBH-79647"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "8309 Birchmount Drive"
+  ],
+  "organizations": [
+   "Harborlight Hotels"
+  ]
+ },
+ "p06": {
+  "canonical_name": "Henrietta Oakhurst",
+  "first_names": [
+   "Henrietta"
+  ],
+  "last_names": [
+   "Oakhurst"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "henrietta@harborlighthotels.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U76LWSN74",
+   "henrietta.oakhurst"
+  ],
+  "phone_numbers_linked": [
+   "617.555.0132"
+  ],
+  "employee_ids": [
+   "HBH-23075"
+  ],
+  "account_numbers": [
+   "ACCT-8169-2718"
+  ],
+  "addresses": [
+   "7843 Wexford Court"
+  ],
+  "organizations": [
+   "Harborlight Hotels"
+  ]
+ },
+ "p07": {
+  "canonical_name": "Wesley Fairweather",
+  "first_names": [
+   "Wesley"
+  ],
+  "last_names": [
+   "Fairweather"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "wesley.fairweather@harborlighthotels.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U2BHN2GYM",
+   "fairweatherw"
+  ],
+  "phone_numbers_linked": [
+   "617-555-0172"
+  ],
+  "employee_ids": [
+   "HBH-29992"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "5715 Pinecrest Boulevard"
+  ],
+  "organizations": [
+   "Harborlight Hotels"
+  ]
+ },
+ "p08": {
+  "canonical_name": "Harriet Umber",
+  "first_names": [
+   "Harriet"
+  ],
+  "last_names": [
+   "Umber"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "umber.harriet@harborlighthotels.test",
+    "category": "professional"
+   },
+   {
+    "value": "harriet.umber51@quietinbox.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U23668F91",
+   "humber"
+  ],
+  "phone_numbers_linked": [
+   "+1 617 555 0170",
+   "(206) 555-0116"
+  ],
+  "employee_ids": [
+   "HBH-22849"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "192 Copperfield Street"
+  ],
+  "organizations": [
+   "Harborlight Hotels"
+  ]
+ },
+ "p09": {
+  "canonical_name": "Percival Brannick",
+  "first_names": [
+   "Percival"
+  ],
+  "last_names": [
+   "Brannick"
+  ],
+  "nicknames": [
+   "Percy"
+  ],
+  "emails": [
+   {
+    "value": "brannick.percival@harborlighthotels.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U93F1NM26",
+   "brannickp"
+  ],
+  "phone_numbers_linked": [
+   "(617) 555-0149"
+  ],
+  "employee_ids": [
+   "HBH-35991"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "2745 Ashgrove Place"
+  ],
+  "organizations": [
+   "Harborlight Hotels"
+  ]
+ },
+ "p10": {
+  "canonical_name": "Florian Kowalchuk",
+  "first_names": [
+   "Florian"
+  ],
+  "last_names": [
+   "Kowalchuk"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "florian@harborlighthotels.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U6QT4UJA5",
+   "fkowalchuk"
+  ],
+  "phone_numbers_linked": [
+   "617.555.0155"
+  ],
+  "employee_ids": [
+   "HBH-15358"
+  ],
+  "account_numbers": [
+   "59563602"
+  ],
+  "addresses": [
+   "6562 Foxglove Street"
+  ],
+  "organizations": [
+   "Harborlight Hotels"
+  ]
+ },
+ "p11": {
+  "canonical_name": "Otis Tregarec",
+  "first_names": [
+   "Otis"
+  ],
+  "last_names": [
+   "Tregarec"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "tregarec.otis@harborlighthotels.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U6K3SX7Q8",
+   "tregareco"
+  ],
+  "phone_numbers_linked": [
+   "+1 617 555 0104",
+   "312-555-0110"
+  ],
+  "employee_ids": [
+   "HBH-23162"
+  ],
+  "account_numbers": [
+   "ACCT-9101-8123"
+  ],
+  "addresses": [
+   "7267 Ridgeback Trail"
+  ],
+  "organizations": [
+   "Harborlight Hotels"
+  ]
+ },
+ "p12": {
+  "canonical_name": "Lorelei Cottrell",
+  "first_names": [
+   "Lorelei"
+  ],
+  "last_names": [
+   "Cottrell"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "lorelei.cottrell@harborlighthotels.test",
+    "category": "professional"
+   },
+   {
+    "value": "lorelei.cottrell74@quietinbox.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U1BA8CCLU",
+   "lorelei_cottrell"
+  ],
+  "phone_numbers_linked": [
+   "(617) 555-0192",
+   "+1 415 555 0196"
+  ],
+  "employee_ids": [
+   "HBH-82972"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "4528 Candlewick Road"
+  ],
+  "organizations": [
+   "Harborlight Hotels"
+  ]
+ },
+ "p13": {
+  "canonical_name": "Dashiell Abernathy",
+  "first_names": [
+   "Dashiell"
+  ],
+  "last_names": [
+   "Abernathy"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "dabernathy@harborlighthotels.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U68V3MX6L",
+   "dashiell_abernathy"
+  ],
+  "phone_numbers_linked": [
+   "617.555.0187"
+  ],
+  "employee_ids": [
+   "HBH-82822"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "1583 Saltmarsh Avenue"
+  ],
+  "organizations": [
+   "Harborlight Hotels"
+  ]
+ },
+ "p14": {
+  "canonical_name": "Vesna Varga",
+  "first_names": [
+   "Vesna"
+  ],
+  "last_names": [
+   "Varga"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "vvarga@harborlighthotels.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U3K8XG0LL",
+   "vargav"
+  ],
+  "phone_numbers_linked": [
+   "617.555.0183"
+  ],
+  "employee_ids": [
+   "HBH-64413"
+  ],
+  "account_numbers": [
+   "ACCT-1022-5397"
+  ],
+  "addresses": [
+   "3531 Ridgeback Trail"
+  ],
+  "organizations": [
+   "Harborlight Hotels"
+  ]
+ },
+ "p15": {
+  "canonical_name": "Ezra Lanchester",
+  "first_names": [
+   "Ezra"
+  ],
+  "last_names": [
+   "Lanchester"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "lanchester.ezra@marrowbone.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U584YWZJF",
+   "lanchestere"
+  ],
+  "phone_numbers_linked": [
+   "+1 617 555 0164",
+   "+1 312 555 0186"
+  ],
+  "employee_ids": [],
+  "account_numbers": [],
+  "addresses": [
+   "9035 Umberline Way"
+  ],
+  "organizations": [
+   "Marrowbone Capital Partners"
+  ]
+ },
+ "p16": {
+  "canonical_name": "Yusef Kingsley",
+  "first_names": [
+   "Yusef"
+  ],
+  "last_names": [
+   "Kingsley"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "yusef@foxglove.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U38T77V78",
+   "yusefkin"
+  ],
+  "phone_numbers_linked": [
+   "617-555-0105"
+  ],
+  "employee_ids": [],
+  "account_numbers": [
+   "76469356"
+  ],
+  "addresses": [
+   "1722 Pinecrest Boulevard"
+  ],
+  "organizations": [
+   "Foxglove Catering"
+  ]
+ },
+ "p17": {
+  "canonical_name": "Nell Ramaswamy",
+  "first_names": [
+   "Nell"
+  ],
+  "last_names": [
+   "Ramaswamy"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "nell@uptonlaw.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U3396JUAQ",
+   "ramaswamyn"
+  ],
+  "phone_numbers_linked": [
+   "(617) 555-0127"
+  ],
+  "employee_ids": [],
+  "account_numbers": [],
+  "addresses": [
+   "1316 Ridgeback Trail"
+  ],
+  "organizations": [
+   "Upton & Associates"
+  ]
+ },
+ "p18": {
+  "canonical_name": "Wren Mortlake",
+  "first_names": [
+   "Wren"
+  ],
+  "last_names": [
+   "Mortlake"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "mortlake.wren@foxglove.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U9AK49LCB",
+   "wrenmor"
+  ],
+  "phone_numbers_linked": [
+   "617-555-0171"
+  ],
+  "employee_ids": [],
+  "account_numbers": [
+   "41494247"
+  ],
+  "addresses": [
+   "3007 Marrowbone Drive"
+  ],
+  "organizations": [
+   "Foxglove Catering"
+  ]
+ },
+ "p19": {
+  "canonical_name": "Yara Nightingale",
+  "first_names": [
+   "Yara"
+  ],
+  "last_names": [
+   "Nightingale"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "yara.nightingale@northcott.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U4L981W64",
+   "yaranig"
+  ],
+  "phone_numbers_linked": [
+   "+1 617 555 0162",
+   "415.555.0111"
+  ],
+  "employee_ids": [],
+  "account_numbers": [],
+  "addresses": [
+   "3181 Foxglove Street"
+  ],
+  "organizations": [
+   "Northcott Regional Supply"
+  ]
+ },
+ "p20": {
+  "canonical_name": "Barnaby Stanhope",
+  "first_names": [
+   "Barnaby"
+  ],
+  "last_names": [
+   "Stanhope"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "bstanhope@willowmere.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U6G391SH7",
+   "barnabysta"
+  ],
+  "phone_numbers_linked": [
+   "+1 617 555 0199"
+  ],
+  "employee_ids": [],
+  "account_numbers": [
+   "43302592"
+  ],
+  "addresses": [
+   "7420 Pinecrest Boulevard"
+  ],
+  "organizations": [
+   "Willowmere Staffing"
+  ]
+ },
+ "p21": {
+  "canonical_name": "Ione Ridgewell",
+  "first_names": [
+   "Ione"
+  ],
+  "last_names": [
+   "Ridgewell"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "ione@uptonlaw.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U28GJCN4A",
+   "iridgewell"
+  ],
+  "phone_numbers_linked": [
+   "617-555-0143"
+  ],
+  "employee_ids": [],
+  "account_numbers": [],
+  "addresses": [
+   "3742 Umberline Way"
+  ],
+  "organizations": [
+   "Upton & Associates"
+  ]
+ },
+ "p22": {
+  "canonical_name": "Petra Upton",
+  "first_names": [
+   "Petra"
+  ],
+  "last_names": [
+   "Upton"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "upton.petra@harborlighthotels.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U4V8UHJWW",
+   "petra.upton"
+  ],
+  "phone_numbers_linked": [
+   "(617) 555-0125",
+   "206-555-0180"
+  ],
+  "employee_ids": [
+   "HBH-39414"
+  ],
+  "account_numbers": [
+   "ACCT-8634-4392"
+  ],
+  "addresses": [
+   "4387 Juniper Hollow Road"
+  ],
+  "organizations": [
+   "Harborlight Hotels"
+  ]
+ },
+ "org_home": {
+  "canonical_name": "Harborlight Hotels",
+  "organization": true,
+  "organizations": [
+   "Harborlight",
+   "Harborlight Hotels",
+   "Harborlight Hotels Ltd"
+  ],
+  "urls": [
+   "https://www.harborlighthotels.test"
+  ],
+  "addresses": [
+   "2016 Willowmere Road"
+  ],
+  "account_numbers": [
+   "4126426732"
+  ],
+  "domain": "harborlighthotels.test"
+ },
+ "org_1": {
+  "canonical_name": "Willowmere Staffing",
+  "organization": true,
+  "organizations": [
+   "Willowmere",
+   "Willowmere Staffing"
+  ],
+  "urls": [
+   "https://www.willowmere.test"
+  ],
+  "addresses": [
+   "6361 Quarry Bend"
+  ],
+  "account_numbers": [
+   "2367570052"
+  ],
+  "domain": "willowmere.test"
+ },
+ "org_2": {
+  "canonical_name": "Northcott Regional Supply",
+  "organization": true,
+  "organizations": [
+   "Northcott",
+   "Northcott Regional Supply",
+   "Northcott Regional Supply Co."
+  ],
+  "urls": [
+   "https://www.northcott.test"
+  ],
+  "addresses": [
+   "1178 Quarry Bend"
+  ],
+  "account_numbers": [
+   "5483063481"
+  ],
+  "domain": "northcott.test"
+ },
+ "org_3": {
+  "canonical_name": "Marrowbone Capital Partners",
+  "organization": true,
+  "organizations": [
+   "Marrowbone",
+   "Marrowbone Capital Partners"
+  ],
+  "urls": [
+   "https://www.marrowbone.test"
+  ],
+  "addresses": [
+   "6889 Quarry Bend"
+  ],
+  "account_numbers": [
+   "6848992484"
+  ],
+  "domain": "marrowbone.test"
+ },
+ "org_4": {
+  "canonical_name": "Foxglove Catering",
+  "organization": true,
+  "organizations": [
+   "Foxglove",
+   "Foxglove Catering",
+   "Foxglove Catering Co."
+  ],
+  "urls": [
+   "https://www.foxglove.test"
+  ],
+  "addresses": [
+   "9294 Tanager Lane"
+  ],
+  "account_numbers": [
+   "1792557801"
+  ],
+  "domain": "foxglove.test"
+ },
+ "org_5": {
+  "canonical_name": "Tanager Lane Realty",
+  "organization": true,
+  "organizations": [
+   "Tanager",
+   "Tanager Lane Realty",
+   "Tanager Lane Realty LLC"
+  ],
+  "urls": [
+   "https://www.tanager.test"
+  ],
+  "addresses": [
+   "6723 Larkspur Avenue"
+  ],
+  "account_numbers": [
+   "1169612057"
+  ],
+  "domain": "tanager.test"
+ },
+ "org_6": {
+  "canonical_name": "Quarry Bend Engineering",
+  "organization": true,
+  "organizations": [
+   "Quarry",
+   "Quarry Bend Engineering",
+   "Quarry Bend Engineering Inc."
+  ],
+  "urls": [
+   "https://www.quarry.test"
+  ],
+  "addresses": [
+   "6664 Quarry Bend"
+  ],
+  "account_numbers": [
+   "8943235628"
+  ],
+  "domain": "quarry.test"
+ },
+ "org_homonym": {
+  "canonical_name": "Upton & Associates",
+  "organization": true,
+  "organizations": [
+   "Upton",
+   "Upton & Associates",
+   "Upton & Associates LLP"
+  ],
+  "urls": [
+   "https://www.uptonlaw.test"
+  ],
+  "addresses": [
+   "6925 Harbor Mist Way"
+  ],
+  "account_numbers": [
+   "7593913130"
+  ],
+  "domain": "uptonlaw.test"
+ }
+}

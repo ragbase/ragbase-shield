@@ -1,0 +1,26 @@
+[
+ {
+  "type": "message",
+  "user": "U5TLKKGQS",
+  "ts": "1772787748.170130",
+  "client_msg_id": "00e871ed58acf83f8245098f7685854db938",
+  "text": "use my personal one: imogen.ravelston17@lettercloud.test",
+  "user_profile": {
+   "real_name": "Imogen Ravelston",
+   "display_name": "ravelstoni"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U6QM11724",
+  "ts": "1772874185.287122",
+  "client_msg_id": "b7e242c3ba9a171048a6261996d3b3aa94a6",
+  "text": "thx imogen see you at 2",
+  "user_profile": {
+   "real_name": "Soren Northcott",
+   "display_name": "snorthcott"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

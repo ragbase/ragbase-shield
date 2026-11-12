@@ -1,0 +1,74 @@
+[
+ {
+  "type": "message",
+  "user": "U87UN3R4Z",
+  "ts": "1773479244.867173",
+  "client_msg_id": "319d8df72bf26e7aaf5c4c45e0b047ea68d2",
+  "text": "ask tad about the office move",
+  "user_profile": {
+   "real_name": "Theodora Pendergast",
+   "display_name": "theodora_pendergast"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U2U761DVC",
+  "ts": "1773565681.873411",
+  "client_msg_id": "d6b02d1e4787be17835b331042bda1139956",
+  "text": "<@U781AS1N8> any update on the renewal pricing?",
+  "user_profile": {
+   "real_name": "Valerian Lockhart",
+   "display_name": "valerian_lockhart"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U7X6N2GEZ",
+  "ts": "1773652118.760296",
+  "client_msg_id": "44a6cfe7c29d00d35405229a66ef9611a260",
+  "text": "<@U35LN9YD7> thanks for the renewal pricing?",
+  "user_profile": {
+   "real_name": "Xanthe Finchwood",
+   "display_name": "finchwoodx"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U2C5CPS2G",
+  "ts": "1773738555.277044",
+  "client_msg_id": "04d638e5085a0571b7b579871ad12942de04",
+  "text": "morning eleanora, i'll take it",
+  "user_profile": {
+   "real_name": "Thaddeus Osgood",
+   "display_name": "tosgood"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U2U761DVC",
+  "ts": "1773824992.651312",
+  "client_msg_id": "e8fc9de6b03e137c1fd619f72f0129b35405",
+  "text": "heads up: Copperfield Technical Services signed the renewal",
+  "user_profile": {
+   "real_name": "Valerian Lockhart",
+   "display_name": "valerian_lockhart"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U35LN9YD7",
+  "ts": "1773911429.808515",
+  "client_msg_id": "2a5a7d5e9791b11abb30a25050bf7a0be66b",
+  "text": "the vendor portal moved: &lt;https://www.ashgrove.test/login&gt;",
+  "user_profile": {
+   "real_name": "Noor Yelverton",
+   "display_name": "noor_yelverton"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

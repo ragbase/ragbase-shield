@@ -1,0 +1,821 @@
+{
+ "p00": {
+  "canonical_name": "Isolde Brannick",
+  "first_names": [
+   "Isolde"
+  ],
+  "last_names": [
+   "Brannick"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "brannick.isolde@halvorsen-dynamics.test",
+    "category": "professional"
+   },
+   {
+    "value": "isolde.brannick17@postwave.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U7SFXCAT0",
+   "ibrannick"
+  ],
+  "phone_numbers_linked": [
+   "+1 617 555 0193"
+  ],
+  "employee_ids": [
+   "HD-75803"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "7654 Birchmount Drive"
+  ],
+  "organizations": [
+   "Halvorsen Dynamics"
+  ]
+ },
+ "p01": {
+  "canonical_name": "Romilly Quiroga",
+  "first_names": [
+   "Romilly"
+  ],
+  "last_names": [
+   "Quiroga"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "romilly@halvorsen-dynamics.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U1BU68WU6",
+   "romilly_quiroga"
+  ],
+  "phone_numbers_linked": [
+   "617-555-0195"
+  ],
+  "employee_ids": [
+   "HD-16869"
+  ],
+  "account_numbers": [
+   "50839135"
+  ],
+  "addresses": [
+   "9385 Wexford Court"
+  ],
+  "organizations": [
+   "Halvorsen Dynamics"
+  ]
+ },
+ "p02": {
+  "canonical_name": "Horatio Eastwick",
+  "first_names": [
+   "Horatio"
+  ],
+  "last_names": [
+   "Eastwick"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "eastwick.horatio@halvorsen-dynamics.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U0HY359TK",
+   "heastwick"
+  ],
+  "phone_numbers_linked": [
+   "+1 617 555 0176"
+  ],
+  "employee_ids": [
+   "HD-54021"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "539 Ridgeback Trail"
+  ],
+  "organizations": [
+   "Halvorsen Dynamics"
+  ]
+ },
+ "p03": {
+  "canonical_name": "Caspar Villanueva",
+  "first_names": [
+   "Caspar"
+  ],
+  "last_names": [
+   "Villanueva"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "villanueva.caspar@halvorsen-dynamics.test",
+    "category": "professional"
+   },
+   {
+    "value": "caspar.villanueva80@lettercloud.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U821QB1V0",
+   "cvillanueva"
+  ],
+  "phone_numbers_linked": [
+   "617-555-0162"
+  ],
+  "employee_ids": [
+   "HD-26321"
+  ],
+  "account_numbers": [
+   "ACCT-8339-9799"
+  ],
+  "addresses": [
+   "5815 Harbor Mist Way"
+  ],
+  "organizations": [
+   "Halvorsen Dynamics"
+  ]
+ },
+ "p04": {
+  "canonical_name": "Quinlan Winterhalde",
+  "first_names": [
+   "Quinlan"
+  ],
+  "last_names": [
+   "Winterhalde"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "quinlan@halvorsen-dynamics.test",
+    "category": "professional"
+   },
+   {
+    "value": "quinlan.winterhalde84@lettercloud.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U9MZM3QQC",
+   "winterhaldeq"
+  ],
+  "phone_numbers_linked": [
+   "+1 617 555 0156"
+  ],
+  "employee_ids": [
+   "HD-52201"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "5264 Foxglove Street"
+  ],
+  "organizations": [
+   "Halvorsen Dynamics"
+  ]
+ },
+ "p05": {
+  "canonical_name": "Boyd Tallis",
+  "first_names": [
+   "Boyd"
+  ],
+  "last_names": [
+   "Tallis"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "tallis.boyd@halvorsen-dynamics.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U5GYXC1B4",
+   "boydtal"
+  ],
+  "phone_numbers_linked": [
+   "617-555-0135"
+  ],
+  "employee_ids": [
+   "HD-23966"
+  ],
+  "account_numbers": [
+   "87905170"
+  ],
+  "addresses": [
+   "84 Marrowbone Drive"
+  ],
+  "organizations": [
+   "Halvorsen Dynamics"
+  ]
+ },
+ "p06": {
+  "canonical_name": "Ophelia Thornquist",
+  "first_names": [
+   "Ophelia"
+  ],
+  "last_names": [
+   "Thornquist"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "thornquist.ophelia@halvorsen-dynamics.test",
+    "category": "professional"
+   },
+   {
+    "value": "ophelia.thornquist11@quietinbox.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U1PWB3CGE",
+   "ophelia_thornquist"
+  ],
+  "phone_numbers_linked": [
+   "617.555.0136"
+  ],
+  "employee_ids": [
+   "HD-99062"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "1692 Ashgrove Place"
+  ],
+  "organizations": [
+   "Halvorsen Dynamics"
+  ]
+ },
+ "p07": {
+  "canonical_name": "Nina Grimshaw",
+  "first_names": [
+   "Nina"
+  ],
+  "last_names": [
+   "Grimshaw"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "nina.grimshaw@halvorsen-dynamics.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U6V7H33YP",
+   "nina.grimshaw"
+  ],
+  "phone_numbers_linked": [
+   "+1 617 555 0152"
+  ],
+  "employee_ids": [
+   "HD-14260"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "7103 Candlewick Road"
+  ],
+  "organizations": [
+   "Halvorsen Dynamics"
+  ]
+ },
+ "p08": {
+  "canonical_name": "Oswin Vickery",
+  "first_names": [
+   "Oswin"
+  ],
+  "last_names": [
+   "Vickery"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "oswin.vickery@halvorsen-dynamics.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U3LH2KSFH",
+   "vickeryo"
+  ],
+  "phone_numbers_linked": [
+   "(617) 555-0125"
+  ],
+  "employee_ids": [
+   "HD-96789"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "5941 Harbor Mist Way"
+  ],
+  "organizations": [
+   "Halvorsen Dynamics"
+  ]
+ },
+ "p09": {
+  "canonical_name": "Greta Yelverton",
+  "first_names": [
+   "Greta"
+  ],
+  "last_names": [
+   "Yelverton"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "yelverton.greta@halvorsen-dynamics.test",
+    "category": "professional"
+   },
+   {
+    "value": "greta.yelverton70@lettercloud.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U43GUNWK1",
+   "gretayel"
+  ],
+  "phone_numbers_linked": [
+   "(617) 555-0167"
+  ],
+  "employee_ids": [
+   "HD-31412"
+  ],
+  "account_numbers": [
+   "69854859"
+  ],
+  "addresses": [
+   "1359 Harbor Mist Way"
+  ],
+  "organizations": [
+   "Halvorsen Dynamics"
+  ]
+ },
+ "p10": {
+  "canonical_name": "Ignatius Barrowcliffe",
+  "first_names": [
+   "Ignatius"
+  ],
+  "last_names": [
+   "Barrowcliffe"
+  ],
+  "nicknames": [
+   "Nash"
+  ],
+  "emails": [
+   {
+    "value": "ignatius@halvorsen-dynamics.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U1UFL0N9U",
+   "ignatius.barrowcliffe"
+  ],
+  "phone_numbers_linked": [
+   "(617) 555-0138"
+  ],
+  "employee_ids": [
+   "HD-46904"
+  ],
+  "account_numbers": [
+   "47807603"
+  ],
+  "addresses": [
+   "1702 Larkspur Avenue"
+  ],
+  "organizations": [
+   "Halvorsen Dynamics"
+  ]
+ },
+ "p11": {
+  "canonical_name": "Uriah Ashby",
+  "first_names": [
+   "Uriah"
+  ],
+  "last_names": [
+   "Ashby"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "ashby.uriah@halvorsen-dynamics.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U78C2GH0F",
+   "uriahash"
+  ],
+  "phone_numbers_linked": [
+   "+1 617 555 0101"
+  ],
+  "employee_ids": [
+   "HD-40927"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "1675 Ridgeback Trail"
+  ],
+  "organizations": [
+   "Halvorsen Dynamics"
+  ]
+ },
+ "p12": {
+  "canonical_name": "Ulric Ashcombe",
+  "first_names": [
+   "Ulric"
+  ],
+  "last_names": [
+   "Ashcombe"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "uashcombe@old.test",
+    "category": "professional"
+   },
+   {
+    "value": "ulric.ashcombe32@quietinbox.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U0K3KB2UB",
+   "ulric_ashcombe"
+  ],
+  "phone_numbers_linked": [
+   "617.555.0124"
+  ],
+  "employee_ids": [],
+  "account_numbers": [
+   "ACCT-9931-3669"
+  ],
+  "addresses": [
+   "4037 Marrowbone Drive"
+  ],
+  "organizations": [
+   "Old Mill Accounting"
+  ]
+ },
+ "p13": {
+  "canonical_name": "Florian Rasmussen",
+  "first_names": [
+   "Florian"
+  ],
+  "last_names": [
+   "Rasmussen"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "rasmussen.florian@marrowbone.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U90K0QLA4",
+   "rasmussenf"
+  ],
+  "phone_numbers_linked": [
+   "+1 617 555 0187",
+   "(312) 555-0169"
+  ],
+  "employee_ids": [],
+  "account_numbers": [
+   "ACCT-4599-3649"
+  ],
+  "addresses": [
+   "8838 Juniper Hollow Road"
+  ],
+  "organizations": [
+   "Marrowbone Capital Partners"
+  ]
+ },
+ "p14": {
+  "canonical_name": "Jasper Underhill",
+  "first_names": [
+   "Jasper"
+  ],
+  "last_names": [
+   "Underhill"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "jasper@willowmere.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U3WT2QWED",
+   "jasperund"
+  ],
+  "phone_numbers_linked": [
+   "617.555.0191"
+  ],
+  "employee_ids": [],
+  "account_numbers": [
+   "71861105"
+  ],
+  "addresses": [
+   "1695 Ashgrove Place"
+  ],
+  "organizations": [
+   "Willowmere Staffing"
+  ]
+ },
+ "p15": {
+  "canonical_name": "Gideon Holloway",
+  "first_names": [
+   "Gideon"
+  ],
+  "last_names": [
+   "Holloway"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "gideon.holloway@saltmarsh.test",
+    "category": "professional"
+   },
+   {
+    "value": "gideon.holloway82@mailharbor.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U4R5N5EL1",
+   "gholloway"
+  ],
+  "phone_numbers_linked": [
+   "617.555.0153"
+  ],
+  "employee_ids": [],
+  "account_numbers": [],
+  "addresses": [
+   "8382 Willowmere Road"
+  ],
+  "organizations": [
+   "Saltmarsh Insurance Group"
+  ]
+ },
+ "p16": {
+  "canonical_name": "Ezra Dimitriou",
+  "first_names": [
+   "Ezra"
+  ],
+  "last_names": [
+   "Dimitriou"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "dimitriou.ezra@brightmoor.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U4KD43TSE",
+   "dimitrioue"
+  ],
+  "phone_numbers_linked": [
+   "+1 617 555 0134"
+  ],
+  "employee_ids": [],
+  "account_numbers": [
+   "85602311"
+  ],
+  "addresses": [
+   "3571 Foxglove Street"
+  ],
+  "organizations": [
+   "Brightmoor Logistics"
+  ]
+ },
+ "p17": {
+  "canonical_name": "Nerissa Osgood",
+  "first_names": [
+   "Nerissa"
+  ],
+  "last_names": [
+   "Osgood"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "nerissa@old.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U5Z0GTJEG",
+   "nerissa.osgood"
+  ],
+  "phone_numbers_linked": [
+   "617-555-0107",
+   "+1 415 555 0158"
+  ],
+  "employee_ids": [],
+  "account_numbers": [
+   "ACCT-3548-3097"
+  ],
+  "addresses": [
+   "3076 Harbor Mist Way"
+  ],
+  "organizations": [
+   "Old Mill Accounting"
+  ]
+ },
+ "p18": {
+  "canonical_name": "Sylvie Abernathy",
+  "first_names": [
+   "Sylvie"
+  ],
+  "last_names": [
+   "Abernathy"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "sylvie.abernathy@halvorsen-dynamics.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U6079U0Y1",
+   "sylvie.abernathy"
+  ],
+  "phone_numbers_linked": [
+   "+1 617 555 0137",
+   "+1 415 555 0196"
+  ],
+  "employee_ids": [
+   "HD-34870"
+  ],
+  "account_numbers": [
+   "ACCT-1244-5855"
+  ],
+  "addresses": [
+   "210 Marrowbone Drive"
+  ],
+  "organizations": [
+   "Halvorsen Dynamics"
+  ]
+ },
+ "org_home": {
+  "canonical_name": "Halvorsen Dynamics",
+  "organization": true,
+  "organizations": [
+   "Halvorsen",
+   "Halvorsen Dynamics",
+   "Halvorsen Dynamics Inc."
+  ],
+  "urls": [
+   "https://www.halvorsen-dynamics.test"
+  ],
+  "addresses": [
+   "1895 Wexford Court"
+  ],
+  "account_numbers": [
+   "8233753977"
+  ],
+  "domain": "halvorsen-dynamics.test"
+ },
+ "org_1": {
+  "canonical_name": "Saltmarsh Insurance Group",
+  "organization": true,
+  "organizations": [
+   "Saltmarsh",
+   "Saltmarsh Insurance Group",
+   "Saltmarsh Insurance Group Inc."
+  ],
+  "urls": [
+   "https://www.saltmarsh.test"
+  ],
+  "addresses": [
+   "7051 Ashgrove Place"
+  ],
+  "account_numbers": [
+   "9825070395"
+  ],
+  "domain": "saltmarsh.test"
+ },
+ "org_2": {
+  "canonical_name": "Ridgeback Security",
+  "organization": true,
+  "organizations": [
+   "Ridgeback",
+   "Ridgeback Security"
+  ],
+  "urls": [
+   "https://www.ridgeback.test"
+  ],
+  "addresses": [
+   "1907 Candlewick Road"
+  ],
+  "account_numbers": [
+   "6295340421"
+  ],
+  "domain": "ridgeback.test"
+ },
+ "org_3": {
+  "canonical_name": "Old Mill Accounting",
+  "organization": true,
+  "organizations": [
+   "Old",
+   "Old Mill Accounting",
+   "Old Mill Accounting LLP"
+  ],
+  "urls": [
+   "https://www.old.test"
+  ],
+  "addresses": [
+   "2725 Harbor Mist Way"
+  ],
+  "account_numbers": [
+   "5956618361"
+  ],
+  "domain": "old.test"
+ },
+ "org_4": {
+  "canonical_name": "Willowmere Staffing",
+  "organization": true,
+  "organizations": [
+   "Willowmere",
+   "Willowmere Staffing"
+  ],
+  "urls": [
+   "https://www.willowmere.test"
+  ],
+  "addresses": [
+   "2386 Harbor Mist Way"
+  ],
+  "account_numbers": [
+   "1417642306"
+  ],
+  "domain": "willowmere.test"
+ },
+ "org_5": {
+  "canonical_name": "Brightmoor Logistics",
+  "organization": true,
+  "organizations": [
+   "Brightmoor",
+   "Brightmoor Logistics",
+   "Brightmoor Logistics LLC"
+  ],
+  "urls": [
+   "https://www.brightmoor.test"
+  ],
+  "addresses": [
+   "6457 Harbor Mist Way"
+  ],
+  "account_numbers": [
+   "5249153006"
+  ],
+  "domain": "brightmoor.test"
+ },
+ "org_6": {
+  "canonical_name": "Marrowbone Capital Partners",
+  "organization": true,
+  "organizations": [
+   "Marrowbone",
+   "Marrowbone Capital Partners"
+  ],
+  "urls": [
+   "https://www.marrowbone.test"
+  ],
+  "addresses": [
+   "4928 Harbor Mist Way"
+  ],
+  "account_numbers": [
+   "8683826193"
+  ],
+  "domain": "marrowbone.test"
+ },
+ "org_homonym": {
+  "canonical_name": "Abernathy & Associates",
+  "organization": true,
+  "organizations": [
+   "Abernathy",
+   "Abernathy & Associates",
+   "Abernathy & Associates LLP"
+  ],
+  "urls": [
+   "https://www.abernathylaw.test"
+  ],
+  "addresses": [
+   "6274 Old Mill Terrace"
+  ],
+  "account_numbers": [
+   "7246949452"
+  ],
+  "domain": "abernathylaw.test"
+ }
+}

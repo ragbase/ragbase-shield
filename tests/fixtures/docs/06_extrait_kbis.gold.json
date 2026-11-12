@@ -1,0 +1,156 @@
+{
+ "doc": "06_extrait_kbis.txt",
+ "type": "kbis",
+ "title": "Quantorive SA",
+ "parties": [
+  {
+   "id": "o_quantorive",
+   "kind": "ORG",
+   "value": "Quantorive SA"
+  },
+  {
+   "id": "p_ferrandou",
+   "kind": "PERSON",
+   "value": "Lucien Ferrandou"
+  },
+  {
+   "id": "p_belkacem",
+   "kind": "PERSON",
+   "value": "Yasmine Belkacem"
+  }
+ ],
+ "mentions": [
+  {
+   "id": "s1",
+   "kind": "SIREN",
+   "text": "938 402 005",
+   "start": 214,
+   "end": 225,
+   "checksum": true
+  },
+  {
+   "id": "o_quantorive",
+   "kind": "ORG",
+   "text": "QUANTORIVE",
+   "start": 307,
+   "end": 317,
+   "checksum": false
+  },
+  {
+   "id": "a1",
+   "kind": "ADDRESS",
+   "text": "27 avenue Jean Jaurès, 69007 Lyon",
+   "start": 434,
+   "end": 467,
+   "checksum": false
+  },
+  {
+   "id": "v1",
+   "kind": "VAT",
+   "text": "FR53938402005",
+   "start": 575,
+   "end": 588,
+   "checksum": true
+  },
+  {
+   "id": "l1",
+   "kind": "ID_CODE",
+   "text": "969500TKCW5C60GBZU53",
+   "start": 607,
+   "end": 627,
+   "checksum": true
+  },
+  {
+   "id": "l2",
+   "kind": "ID_CODE",
+   "text": "FR0014190252",
+   "start": 652,
+   "end": 664,
+   "checksum": true
+  },
+  {
+   "id": "p_ferrandou",
+   "kind": "PERSON",
+   "text": "FERRANDOU Lucien Marcel",
+   "start": 786,
+   "end": 809,
+   "checksum": false
+  },
+  {
+   "id": "b1",
+   "kind": "BIRTHDATE",
+   "text": "11 février 1962",
+   "start": 841,
+   "end": 856,
+   "checksum": false
+  },
+  {
+   "id": "a2",
+   "kind": "ADDRESS",
+   "text": "9 chemin des Vignes, 69890 La Tour-de-Salvagny",
+   "start": 926,
+   "end": 972,
+   "checksum": false
+  },
+  {
+   "id": "p_belkacem",
+   "kind": "PERSON",
+   "text": "BELKACEM Yasmine",
+   "start": 1007,
+   "end": 1023,
+   "checksum": false
+  },
+  {
+   "id": "b2",
+   "kind": "BIRTHDATE",
+   "text": "2 août 1979",
+   "start": 1055,
+   "end": 1066,
+   "checksum": false
+  },
+  {
+   "id": "a3",
+   "kind": "ADDRESS",
+   "text": "31 boulevard des Belges, 69006 Lyon",
+   "start": 1133,
+   "end": 1168,
+   "checksum": false
+  },
+  {
+   "id": "o_auditia",
+   "kind": "ORG",
+   "text": "AUDITIA RHÔNE",
+   "start": 1219,
+   "end": 1232,
+   "checksum": false
+  },
+  {
+   "id": "a1",
+   "kind": "ADDRESS",
+   "text": "27 avenue Jean Jaurès, 69007 Lyon",
+   "start": 1381,
+   "end": 1414,
+   "checksum": false
+  },
+  {
+   "id": "s2",
+   "kind": "SIRET",
+   "text": "938 402 005 00095",
+   "start": 1423,
+   "end": 1440,
+   "checksum": true
+  }
+ ],
+ "keep_clear": [
+  {
+   "text": "Greffe du Tribunal de commerce de Lyon",
+   "start": 0,
+   "end": 38
+  },
+  {
+   "text": "REGISTRE DU COMMERCE ET DES SOCIÉTÉS",
+   "start": 80,
+   "end": 116
+  }
+ ]
+}

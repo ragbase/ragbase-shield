@@ -1,0 +1,74 @@
+[
+ {
+  "type": "message",
+  "user": "U43GUNWK1",
+  "ts": "1772960622.880600",
+  "client_msg_id": "045dfd4755dab0f56efa3422bf090e5d8889",
+  "text": "ask nash about the renewal pricing &amp; bring numbers",
+  "user_profile": {
+   "real_name": "Greta Yelverton",
+   "display_name": "gretayel"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U821QB1V0",
+  "ts": "1773047059.265797",
+  "client_msg_id": "faf9c75b2868d71e3473533575daa193af5c",
+  "text": "<@U1PWB3CGE> any update on the badge system rollout?",
+  "user_profile": {
+   "real_name": "Caspar Villanueva",
+   "display_name": "cvillanueva"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U6079U0Y1",
+  "ts": "1773133496.986140",
+  "client_msg_id": "827566dadad7a175d6d476b5c7afea0ae93a",
+  "text": "reminder: Old Mill Accounting invoice is due",
+  "user_profile": {
+   "real_name": "Sylvie Abernathy",
+   "display_name": "sylvie.abernathy"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U0HY359TK",
+  "ts": "1773219933.768788",
+  "client_msg_id": "f455e750b3373719a82f69c791bafba9edbf",
+  "text": "@nina.grimshaw will post the recap &amp; keep it short",
+  "user_profile": {
+   "real_name": "Horatio Eastwick",
+   "display_name": "heastwick"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U6V7H33YP",
+  "ts": "1773306370.649167",
+  "client_msg_id": "36b6fcb513aaab00f918fbea4abeedc81675",
+  "text": "fyi Old Mill Accounting moved offices",
+  "user_profile": {
+   "real_name": "Nina Grimshaw",
+   "display_name": "nina.grimshaw"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U5GYXC1B4",
+  "ts": "1773392807.648566",
+  "client_msg_id": "6f81f7b3964ebbc80369d92da95ea592ffe4",
+  "text": "<@U821QB1V0> thanks for the new scheduling tool?",
+  "user_profile": {
+   "real_name": "Boyd Tallis",
+   "display_name": "boydtal"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

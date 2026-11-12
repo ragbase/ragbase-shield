@@ -1,0 +1,62 @@
+[
+ {
+  "type": "message",
+  "user": "U08CVJP4A",
+  "ts": "1772874185.423941",
+  "client_msg_id": "ae814b14e7effb3d4177b2333589be1cf028",
+  "text": "fyi Thistlewood invoice is due",
+  "user_profile": {
+   "real_name": "Dagny Marlowe",
+   "display_name": "dagny.marlowe"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U4NFAEEQE",
+  "ts": "1772960622.409205",
+  "client_msg_id": "6c91142569d3b4e91d9ea81eb309af8a5970",
+  "text": "reminder: Birchmount visit tomorrow",
+  "user_profile": {
+   "real_name": "Rowan Kestrelbury",
+   "display_name": "rowan.kestrelbury"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U7WYZ6RUH",
+  "ts": "1773047059.542602",
+  "client_msg_id": "3d705d344260c00f67727482ddb4e04b2cd2",
+  "text": "<@U9FWB4KU6> thanks for the new scheduling tool?",
+  "user_profile": {
+   "real_name": "Cora Adegoke",
+   "display_name": "cora.adegoke"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U9FWB4KU6",
+  "ts": "1773133496.946417",
+  "client_msg_id": "7cf160713bb28dd9e74d00ee05d38df23458",
+  "text": "@dagny.marlowe is on PTO",
+  "user_profile": {
+   "real_name": "Lorelei Tanaka",
+   "display_name": "lorelei.tanaka"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U0UN8H5ZR",
+  "ts": "1773219933.393798",
+  "client_msg_id": "a90ba8e560f3a05d41d4674fb883632f225e",
+  "text": "@rowan.kestrelbury will post the recap",
+  "user_profile": {
+   "real_name": "Hilde Iverson",
+   "display_name": "hildeive"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

@@ -1,0 +1,50 @@
+[
+ {
+  "type": "message",
+  "user": "U3FD6JHXD",
+  "ts": "1772442000.721597",
+  "client_msg_id": "e10d3f0704deac0772297369910f4fa0e9ce",
+  "text": "send the statement to rhys.prendergast@vesper.test (Rhys)",
+  "user_profile": {
+   "real_name": "Ulysses Quarrington",
+   "display_name": "uquarrington"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U1JCHD3AD",
+  "ts": "1772528437.422067",
+  "client_msg_id": "d9b753d452357d0b28a9d12a3250a1994e79",
+  "text": "roster v2 is up: Rutherford, Xavier and Kestrelbury, Wilfred moved teams",
+  "user_profile": {
+   "real_name": "Yara Jansen",
+   "display_name": "yjansen"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U8T14AEKF",
+  "ts": "1772614874.308304",
+  "client_msg_id": "cc25fec4a4c32ab7f35dce6f64779d2f7481",
+  "text": "Yeardley, Sebastian still has no cost centre",
+  "user_profile": {
+   "real_name": "Clementine Blackwood",
+   "display_name": "clementine_blackwood"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U6SRNXDQC",
+  "ts": "1772701311.688640",
+  "client_msg_id": "c16d9163e83dfb5023b67c3e8dd4880d9b21",
+  "text": "pay Candlewick Office Interiors against 6151222862",
+  "user_profile": {
+   "real_name": "Sebastian Yeardley",
+   "display_name": "sebastianyea"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

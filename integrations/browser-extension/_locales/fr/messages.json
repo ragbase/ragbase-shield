@@ -1,0 +1,84 @@
+{
+  "extName": { "message": "RAGbase Shield" },
+  "extDescription": { "message": "Masque les données clients quand vous collez du texte dans ChatGPT, Claude, Copilot ou Gemini. Masquage local, avec Shield Desk." },
+  "actionTitle": { "message": "RAGbase Shield : restaurer les noms" },
+
+  "badgeMasked": {
+    "message": "RAGbase Shield: texte masqué ($COUNT$ éléments)",
+    "placeholders": { "count": { "content": "$1", "example": "3" } }
+  },
+  "badgeMaskedOne": { "message": "RAGbase Shield: texte masqué (1 élément)" },
+  "badgeNothing": { "message": "RAGbase Shield: texte vérifié (aucun élément détecté)" },
+
+  "errDeskDown": { "message": "Shield Desk n'est pas lancé" },
+  "errDeskTimeout": { "message": "Shield Desk ne répond pas" },
+  "errDeskDownHelp": { "message": "Le texte n'a pas été collé. Lancez « uvx ragbase-shield desk », puis collez à nouveau." },
+  "errNoToken": { "message": "Jeton Shield non configuré" },
+  "errBadToken": { "message": "Jeton Shield refusé par Shield Desk" },
+  "errTokenHelp": { "message": "Le texte n'a pas été collé. Ouvrez les options de l'extension et collez le jeton affiché par Shield Desk." },
+  "errTooLarge": { "message": "Texte trop long pour Shield" },
+  "errDesk": { "message": "Shield Desk a renvoyé une erreur" },
+  "errNotPasted": { "message": "Le texte n'a pas été collé." },
+  "errExtension": { "message": "L'extension RAGbase Shield a redémarré" },
+  "errExtensionHelp": { "message": "Le texte n'a pas été collé. Rechargez la page, puis collez à nouveau." },
+  "errFileBlocked": { "message": "Fichier bloqué par RAGbase Shield" },
+  "errFileBlockedHelp": { "message": "Un fichier joint part chez le fournisseur sans masquage. Connectez plutôt le dossier dans Shield Desk, ou masquez le fichier dans l'onglet Fichiers de Shield Desk." },
+  "btnAttachAnyway": { "message": "Joindre quand même (non masqué)" },
+  "optDossierWarn": { "message": "Aucun dossier choisi : les noms enregistrés deviennent [PERSONNE] ou [SOCIETE], et les codes changent à chaque collage. La restauration est alors impossible. Choisissez le dossier client." },
+  "btnPasteAnyway": { "message": "Coller quand même (non masqué)" },
+  "btnCancel": { "message": "Annuler" },
+  "btnOptions": { "message": "Options" },
+
+  "optTitle": { "message": "RAGbase Shield : options" },
+  "optIntro": { "message": "L'extension masque le texte que vous collez dans les chats d'IA, grâce à Shield Desk qui tourne sur votre ordinateur." },
+  "optEnabled": { "message": "Masquer automatiquement le texte collé" },
+  "optPort": { "message": "Port de Shield Desk" },
+  "optToken": { "message": "Jeton Shield Desk" },
+  "optTokenHelp": { "message": "Copiez le jeton depuis Shield Desk (« uvx ragbase-shield desk »). Il reste dans ce navigateur." },
+  "optShow": { "message": "Afficher" },
+  "optHide": { "message": "Masquer" },
+  "optDossier": { "message": "Dossier utilisé pour le masquage" },
+  "optDossierNone": { "message": "Aucun (masquage temporaire : restauration impossible)" },
+  "optDossierHelp": { "message": "Choisissez le dossier client : les mêmes codes serviront ensuite à restaurer les noms dans le panneau latéral." },
+  "optReload": { "message": "Recharger la liste" },
+  "optTest": { "message": "Tester la connexion" },
+  "optSaved": { "message": "Enregistré" },
+  "optSites": { "message": "Sites protégés : chatgpt.com, claude.ai, copilot.microsoft.com, m365.cloud.microsoft, gemini.google.com." },
+  "optPrivacy": { "message": "L'extension ne contacte que Shield Desk, sur 127.0.0.1. Aucune télémétrie. Il s'agit d'une pseudonymisation locale et réversible, pas d'une anonymisation." },
+  "optWarning": { "message": "Ne joignez pas de fichiers clients au chat : seul le texte collé est masqué." },
+
+  "statusOk": {
+    "message": "Connecté à Shield Desk (version $VERSION$)",
+    "placeholders": { "version": { "content": "$1", "example": "0.4.0" } }
+  },
+  "statusDown": { "message": "Shield Desk n'est pas lancé. Lancez « uvx ragbase-shield desk »." },
+  "statusTimeout": { "message": "Shield Desk ne répond pas." },
+  "statusNoToken": { "message": "Collez d'abord le jeton." },
+  "statusBadToken": { "message": "Jeton refusé : copiez-le à nouveau depuis Shield Desk." },
+  "statusError": { "message": "Erreur de Shield Desk." },
+  "statusChecking": { "message": "Vérification…" },
+
+  "spTitle": { "message": "Restaurer les noms" },
+  "spIntro": { "message": "Collez la réponse de l'IA (avec des codes comme PERSONNE_A). Les vrais noms s'affichent ici seulement." },
+  "spDossier": { "message": "Dossier" },
+  "spChoose": { "message": "Choisissez un dossier" },
+  "spInput": { "message": "Réponse de l'IA" },
+  "spInputPlaceholder": { "message": "Collez ici la réponse de l'IA…" },
+  "spRestore": { "message": "Restaurer les noms" },
+  "spResult": { "message": "Texte avec les vrais noms" },
+  "spCopy": { "message": "Copier" },
+  "spCopied": { "message": "Copié" },
+  "spClear": { "message": "Effacer" },
+  "spRestored": {
+    "message": "$N$ code(s) remplacé(s).",
+    "placeholders": { "n": { "content": "$1", "example": "4" } }
+  },
+  "spUnknown": {
+    "message": "Codes inconnus dans ce dossier, à vérifier : $CODES$",
+    "placeholders": { "codes": { "content": "$1", "example": "PERSONNE_Z" } }
+  },
+  "spLocalOnly": { "message": "Ne collez pas ce texte restauré dans le chat de l'IA." },
+  "spNeedDossier": { "message": "Choisissez d'abord un dossier." },
+  "spEmpty": { "message": "Collez d'abord une réponse." },
+  "spOptions": { "message": "Options" }
+}

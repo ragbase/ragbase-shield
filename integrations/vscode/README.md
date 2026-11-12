@@ -1,0 +1,100 @@
+# RAGbase Shield in GitHub Copilot (VS Code)
+
+Copilot Chat in agent mode can use the RAGbase Shield tools through a local MCP server (stdio). The server
+runs on your computer; Copilot only receives masked text (codes such as `PERSONNE_A`).
+
+Status: config files written from the official VS Code docs, **not tested yet** in VS Code.
+
+## Before you start
+
+- Install [uv](https://docs.astral.sh/uv/getting-started/installation/) (it provides `uvx`).
+- Register at least one dossier folder: `ragbase-shield add <folder>` or Shield Desk.
+- **Copilot Business and Copilot Enterprise:** an organization or enterprise owner must turn on the
+  **"MCP servers in Copilot"** policy in the GitHub Copilot policy settings. It is off by default for
+  these plans, and Copilot will not start MCP servers until it is on. (GitHub announced a new global default
+  for unconfigured Copilot features from 22 October 2026: check with your admin which value applies.)
+  Copilot Free, Pro and Pro+ users do not need an admin.
+
+## Option 1: one-click install
+
+Open this link (VS Code must be installed). VS Code asks you to confirm, then adds the server to your
+user profile:
+
+```
+vscode:mcp/install?%7B%22name%22%3A%22ragbase-shield%22%2C%22type%22%3A%22stdio%22%2C%22command%22%3A%22uvx%22%2C%22args%22%3A%5B%22ragbase-shield%22%2C%22mcp%22%5D%7D
+```
+
+VS Code Insiders:
+
+```
+vscode-insiders:mcp/install?%7B%22name%22%3A%22ragbase-shield%22%2C%22type%22%3A%22stdio%22%2C%22command%22%3A%22uvx%22%2C%22args%22%3A%5B%22ragbase-shield%22%2C%22mcp%22%5D%7D
+```
+
+The link is `vscode:mcp/install?` followed by the URL-encoded JSON of the server
+(`encodeURIComponent(JSON.stringify(config))`), here:
+
+```json
+{"name":"ragbase-shield","type":"stdio","command":"uvx","args":["ragbase-shield","mcp"]}
+```
+
+GitHub pages do not open `vscode:` links. For a README button, use the web redirect that many MCP
+READMEs use (it opens VS Code with the same configuration):
+
+```
+https://insiders.vscode.dev/redirect/mcp/install?name=ragbase-shield&config=%7B%22type%22%3A%22stdio%22%2C%22command%22%3A%22uvx%22%2C%22args%22%3A%5B%22ragbase-shield%22%2C%22mcp%22%5D%7D
+```
+
+Command line alternative:
+
+```bash
+code --add-mcp '{"name":"ragbase-shield","type":"stdio","command":"uvx","args":["ragbase-shield","mcp"]}'
+```
+
+## Option 2: `ragbase-shield install vscode`
+
+The Shield CLI writes the server into your VS Code user `mcp.json`. Use `--dry-run` to see the change first.
+
+## Option 3: by hand
+
+Current VS Code docs prefer two portable places and call the older ones "deprecated, kept for compatibility":
+
+- the workspace file `.mcp.json` at the project root, or `$COPILOT_HOME/mcp-config.json`
+  (`~/.copilot/mcp-config.json`) for every project, with a top-level `"mcpServers"` key:
+
+  ```json
+  {"mcpServers": {"ragbase-shield": {"type": "stdio", "command": "uvx", "args": ["ragbase-shield", "mcp"]}}}
+  ```
+
+- the older `.vscode/mcp.json` and the user-profile `mcp.json` (top-level `"servers"`) still work today.
+  `ragbase-shield install vscode` writes the user-profile file.
+
+- For all your projects: run **MCP: Open User Configuration** from the Command Palette and add the
+  `ragbase-shield` entry from [`mcp.json.example`](mcp.json.example) under `"servers"`.
+- For one project only: copy [`mcp.json.example`](mcp.json.example) to `.vscode/mcp.json` in that project.
+
+VS Code shows a trust dialog the first time the server starts. Accept it for `ragbase-shield`.
+
+Local development (run from a checkout of the repository instead of PyPI):
+
+```json
+{
+  "servers": {
+    "ragbase-shield": {
+      "type": "stdio",
+      "command": "uv",
+      "args": ["run", "--directory", "/path/to/ragbase-shield", "ragbase-shield", "mcp"]
+    }
+  }
+}
+```
+
+## Use it
+
+1. Open Copilot Chat and choose **Agent** mode.
+2. Click the tools icon and check that the `ragbase-shield` tools are enabled.
+3. Ask: "List my RAGbase Shield dossiers, read DOSSIER_1 and draft a summary, then save it with
+   shield_save_draft."
+4. Open the restored file in the `Shield - sorties` folder of your dossier.
+
+Rules: work with codes, never type real names in the chat, never attach or paste raw client files.
+Copilot hooks are not used: the Claude Code hooks (block real names in prompts) do not exist in VS Code.

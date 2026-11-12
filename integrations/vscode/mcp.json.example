@@ -1,0 +1,9 @@
+{
+  "servers": {
+    "ragbase-shield": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": ["ragbase-shield", "mcp"]
+    }
+  }
+}

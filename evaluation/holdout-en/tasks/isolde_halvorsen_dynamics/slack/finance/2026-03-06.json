@@ -1,0 +1,50 @@
+[
+ {
+  "type": "message",
+  "user": "U78C2GH0F",
+  "ts": "1773133496.234546",
+  "client_msg_id": "ba3e6c3552f5c7f1af2da902d32700321aac",
+  "text": "send the statement to nina.grimshaw@halvorsen-dynamics.test (Nina)",
+  "user_profile": {
+   "real_name": "Uriah Ashby",
+   "display_name": "uriahash"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U9MZM3QQC",
+  "ts": "1773219933.668562",
+  "client_msg_id": "df92638ca3cfee153a7ff2df5c0513d6f97c",
+  "text": "send the statement to villanueva.caspar@halvorsen-dynamics.test (Caspar)",
+  "user_profile": {
+   "real_name": "Quinlan Winterhalde",
+   "display_name": "winterhaldeq"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U7SFXCAT0",
+  "ts": "1773306370.123718",
+  "client_msg_id": "a9bff6babc8f83246e556529e32840ed4681",
+  "text": "Holloway, Gideon still has no cost centre",
+  "user_profile": {
+   "real_name": "Isolde Brannick",
+   "display_name": "ibrannick"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U821QB1V0",
+  "ts": "1773392807.615826",
+  "client_msg_id": "cb177d4712c582464ccbeb5ddf00657cb966",
+  "text": "vendor accounts csv attached",
+  "user_profile": {
+   "real_name": "Caspar Villanueva",
+   "display_name": "cvillanueva"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

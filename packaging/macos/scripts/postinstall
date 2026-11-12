@@ -1,0 +1,57 @@
+#!/bin/sh
+# RAGbase Shield postinstall. Installer passes $2 = the install location (<app>).
+# 1. Keeps the runtime and licence folders of this Mac's architecture (universal package).
+# 2. Registers the background service: "ragbase-shield service install" writes the RAGbase Shield.app
+#    shell, the LaunchAgent ai.ragbase.shield and <data>/install.json, then starts Shield Desk.
+# SHIELD_POSTINSTALL_ARGS is empty in production (the level-1 test sets "--no-login-item --no-start").
+APP="$2"
+case "${APP%/}" in
+  */"RAGbase Shield") ;;
+  *) echo "RAGbase Shield: unexpected install location" >&2; exit 1 ;;   # delete nothing elsewhere
+esac
+# The CPU, not "uname -m": an Installer run under Rosetta reports x86_64 on Apple Silicon, and the Intel runtime
+# would then need Rosetta at every login (or fail where Rosetta is not installed).
+if [ "$(sysctl -n hw.optional.arm64 2>/dev/null)" = "1" ]; then
+  keep=arm64; drop=x86_64
+else
+  keep=x86_64; drop=arm64
+fi
+for part in runtime LICENSES; do
+  if [ -d "$APP/$part-$keep" ]; then
+    rm -rf "$APP/$part"
+    mv "$APP/$part-$keep" "$APP/$part"
+  fi
+  rm -rf "$APP/$part-$drop"
+done
+PY="$APP/runtime/bin/python3.12"
+if [ ! -x "$PY" ]; then
+  echo "RAGbase Shield: runtime missing for $(uname -m)" >&2
+  exit 1
+fi
+if [ "$(id -u)" = "0" ]; then
+  # Scripts ran as root (not expected for a home-domain package): register for the owner of the folder.
+  # Files copied as root into a home folder: give them to the logged-in user whose home holds <app> (exact
+  # path only). Root-owned files would block the service, updates and "Désinstaller..." for that user.
+  if [ "$(stat -f %u "$APP")" = "0" ]; then
+    CU="$(stat -f %Su /dev/console 2>/dev/null)"
+    CU_HOME="$(dscl . -read "/Users/$CU" NFSHomeDirectory 2>/dev/null | sed -n 's/^NFSHomeDirectory: //p')"
+    if [ -n "$CU" ] && [ "$CU" != "root" ] && [ -n "$CU_HOME" ] && \
+       [ "${APP%/}" = "$CU_HOME/Library/Application Support/RAGbase Shield" ]; then
+      # As root in a folder the user controls: never follow a link, and stop if a file has a second hard link
+      # (a planted hard link would hand a system file to the user). The payload has no hard links.
+      if [ -z "$(find "$APP" -xdev -type f -links +1 -print 2>/dev/null | head -n 1)" ]; then
+        chown -R -P "$CU" "$APP"
+      fi
+    fi
+  fi
+  OWNER="$(stat -f %Su "$APP")"
+  OWNER_UID="$(stat -f %u "$APP")"
+  if [ "$OWNER_UID" != "0" ]; then
+    OWNER_HOME="$(dscl . -read "/Users/$OWNER" NFSHomeDirectory 2>/dev/null | sed -n 's/^NFSHomeDirectory: //p')"
+    launchctl asuser "$OWNER_UID" sudo -u "$OWNER" env HOME="$OWNER_HOME" "$PY" -E -s -P -m ragbase_shield \
+      service install --quiet ${SHIELD_POSTINSTALL_ARGS:-}
+  fi
+  exit 0
+fi
+"$PY" -E -s -P -m ragbase_shield service install --quiet ${SHIELD_POSTINSTALL_ARGS:-}
+exit 0   # a start failure is logged by "service install"; the LaunchAgent still loads at the next login

@@ -1,0 +1,74 @@
+[
+ {
+  "type": "message",
+  "user": "U980CBRQ5",
+  "ts": "1772960622.878913",
+  "client_msg_id": "f52142acc21ca662b9350bda4411fe041253",
+  "text": "@uriah.yamamoto will post the recap",
+  "user_profile": {
+   "real_name": "Ulysses Abernathy",
+   "display_name": "ulysses.abernathy"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U1SXYQQJ9",
+  "ts": "1773047059.340984",
+  "client_msg_id": "89290e17c215c076d0d747e06e137c238174",
+  "text": "ask margo about the new scheduling tool",
+  "user_profile": {
+   "real_name": "Silas Tanaka",
+   "display_name": "stanaka"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U2C5CPS2G",
+  "ts": "1773133496.477097",
+  "client_msg_id": "97ab1e58578aacaf7d20c08d63bb829a59b9",
+  "text": "<@U61V6AGDQ> can you look at the renewal pricing?",
+  "user_profile": {
+   "real_name": "Thaddeus Osgood",
+   "display_name": "tosgood"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U04970F6D",
+  "ts": "1773219933.574932",
+  "client_msg_id": "62d5e5e56ccf717f8c910b889d6c88a92bc2",
+  "text": "ask nora about the invoice backlog &amp; bring numbers",
+  "user_profile": {
+   "real_name": "Philippa Jansen",
+   "display_name": "philippa_jansen"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U980CBRQ5",
+  "ts": "1773306370.856773",
+  "client_msg_id": "90ea94d9bdd74ea3ecad0bd2494520807d36",
+  "text": "thanks ione, let's sync at 3",
+  "user_profile": {
+   "real_name": "Ulysses Abernathy",
+   "display_name": "ulysses.abernathy"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U2C5CPS2G",
+  "ts": "1773392807.542638",
+  "client_msg_id": "042a056eef4952f37c66d77c031875402fa0",
+  "text": "<@U6FHHJLP7> can you look at the holiday roster?",
+  "user_profile": {
+   "real_name": "Thaddeus Osgood",
+   "display_name": "tosgood"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

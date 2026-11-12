@@ -1,0 +1,50 @@
+[
+ {
+  "type": "message",
+  "user": "U03WD6RN2",
+  "ts": "1772874185.201793",
+  "client_msg_id": "206b1e5af58d3f3ff517d0aafde3a1a305dd",
+  "text": "<@U62RZ1AYA> <@U152TL1B4> please review the onboarding checklist",
+  "user_profile": {
+   "real_name": "Jocelyn Ostrowicz",
+   "display_name": "jocelyn_ostrowicz"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U60MZNDZX",
+  "ts": "1772960622.127631",
+  "client_msg_id": "08029635028980ece13de75948f43eedd904",
+  "text": "delivery goes to 710 Saltmarsh Avenue, New Harrow, NJ 07030 (ask for Orrell)",
+  "user_profile": {
+   "real_name": "Zachariah Upton",
+   "display_name": "zachariahupt"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U9G9CP5BY",
+  "ts": "1773047059.867686",
+  "client_msg_id": "ad9df276278c51437a4137a83d2389790944",
+  "text": "call Lachlan at 720-555-0169 before you send the crew",
+  "user_profile": {
+   "real_name": "Bronwyn Adegoke",
+   "display_name": "bronwyn_adegoke"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U1WCE4CT9",
+  "ts": "1773133496.657548",
+  "client_msg_id": "a1771e04b63afc68b1b7e139c5d59a817364",
+  "text": "call Lachlan at 720-555-0169 before you send the crew",
+  "user_profile": {
+   "real_name": "Oriana Eastwick",
+   "display_name": "oriana.eastwick"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

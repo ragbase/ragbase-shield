@@ -1,0 +1,62 @@
+[
+ {
+  "type": "message",
+  "user": "U43GUNWK1",
+  "ts": "1773479244.578214",
+  "client_msg_id": "2d77d0cf039c60f2958c47ee920a4ac67aa8",
+  "text": "<@U1BU68WU6> can you look at the fleet renewal?",
+  "user_profile": {
+   "real_name": "Greta Yelverton",
+   "display_name": "gretayel"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U0HY359TK",
+  "ts": "1773565681.892010",
+  "client_msg_id": "6a0b4422e1e5585d0da4de97eb74a6a2a57b",
+  "text": "heads up: Brightmoor moved offices",
+  "user_profile": {
+   "real_name": "Horatio Eastwick",
+   "display_name": "heastwick"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U821QB1V0",
+  "ts": "1773652118.359965",
+  "client_msg_id": "0c6137eef48c947cab047f9ed73497d1d3f4",
+  "text": "heads up: Abernathy & Associates signed the renewal",
+  "user_profile": {
+   "real_name": "Caspar Villanueva",
+   "display_name": "cvillanueva"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U0HY359TK",
+  "ts": "1773738555.227762",
+  "client_msg_id": "1ef97dbfcf6a3f5e506cc88471e2632311c4",
+  "text": "thanks greta, ship it",
+  "user_profile": {
+   "real_name": "Horatio Eastwick",
+   "display_name": "heastwick"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U9MZM3QQC",
+  "ts": "1773824992.160876",
+  "client_msg_id": "785e1b36224f6bc2c88a7def364338c948ae",
+  "text": "the vendor portal moved: &lt;https://www.old.test/login&gt;",
+  "user_profile": {
+   "real_name": "Quinlan Winterhalde",
+   "display_name": "winterhaldeq"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

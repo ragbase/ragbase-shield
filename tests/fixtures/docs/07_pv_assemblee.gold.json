@@ -1,0 +1,179 @@
+{
+ "doc": "07_pv_assemblee.txt",
+ "type": "pv_ag",
+ "title": "SCI Les Tilleuls de Saône",
+ "parties": [
+  {
+   "id": "o_tilleuls",
+   "kind": "ORG",
+   "value": "SCI Les Tilleuls de Saône"
+  },
+  {
+   "id": "p_quere",
+   "kind": "PERSON",
+   "value": "Mathilde Quéré-Lansac"
+  },
+  {
+   "id": "p_martin",
+   "kind": "PERSON",
+   "value": "Louise Martin"
+  },
+  {
+   "id": "p_blanc",
+   "kind": "PERSON",
+   "value": "Paul Blanc"
+  }
+ ],
+ "mentions": [
+  {
+   "id": "o_tilleuls",
+   "kind": "ORG",
+   "text": "LES TILLEULS DE SAÔNE",
+   "start": 4,
+   "end": 25,
+   "checksum": false
+  },
+  {
+   "id": "a1",
+   "kind": "ADDRESS",
+   "text": "3 quai des Marans, 71000 Mâcon",
+   "start": 94,
+   "end": 124,
+   "checksum": false
+  },
+  {
+   "id": "s1",
+   "kind": "SIREN",
+   "text": "765 089 305",
+   "start": 125,
+   "end": 136,
+   "checksum": true
+  },
+  {
+   "id": "o_tilleuls",
+   "kind": "ORG",
+   "text": "Les Tilleuls de Saône",
+   "start": 328,
+   "end": 349,
+   "checksum": false
+  },
+  {
+   "id": "p_quere",
+   "kind": "PERSON",
+   "text": "Mathilde QUÉRÉ-LANSAC",
+   "start": 417,
+   "end": 438,
+   "checksum": false
+  },
+  {
+   "id": "p_quere",
+   "kind": "PERSON",
+   "text": "Mathilde QUÉRÉ-LANSAC",
+   "start": 463,
+   "end": 484,
+   "checksum": false
+  },
+  {
+   "id": "p_martin",
+   "kind": "PERSON",
+   "text": "Louise MARTIN",
+   "start": 517,
+   "end": 530,
+   "checksum": false
+  },
+  {
+   "id": "p_blanc",
+   "kind": "PERSON",
+   "text": "Paul BLANC",
+   "start": 562,
+   "end": 572,
+   "checksum": false
+  },
+  {
+   "id": "p_quere",
+   "kind": "PERSON",
+   "text": "Quéré-Lansac",
+   "start": 603,
+   "end": 615,
+   "checksum": false
+  },
+  {
+   "id": "p_blanc",
+   "kind": "PERSON",
+   "text": "Blanc",
+   "start": 638,
+   "end": 643,
+   "checksum": false
+  },
+  {
+   "id": "p_martin",
+   "kind": "PERSON",
+   "text": "Martin",
+   "start": 930,
+   "end": 936,
+   "checksum": false
+  },
+  {
+   "id": "o_kervalon",
+   "kind": "ORG",
+   "text": "KERVALON CONSEIL",
+   "start": 961,
+   "end": 977,
+   "checksum": false
+  },
+  {
+   "id": "i1",
+   "kind": "IBAN",
+   "text": "FR76 9355 7128 9795 3707 7166 002",
+   "start": 1063,
+   "end": 1096,
+   "checksum": true
+  },
+  {
+   "id": "p1",
+   "kind": "ID_CODE",
+   "text": "GH-482-KT",
+   "start": 1264,
+   "end": 1273,
+   "checksum": false
+  },
+  {
+   "id": "p_quere",
+   "kind": "PERSON",
+   "text": "QUÉRÉ-LANSAC",
+   "start": 1620,
+   "end": 1632,
+   "checksum": false
+  },
+  {
+   "id": "p_blanc",
+   "kind": "PERSON",
+   "text": "P. BLANC",
+   "start": 1659,
+   "end": 1667,
+   "checksum": false
+  }
+ ],
+ "keep_clear": [
+  {
+   "text": "RCS",
+   "start": 137,
+   "end": 140
+  },
+  {
+   "text": "le 11 novembre, jour de la Saint-Martin",
+   "start": 783,
+   "end": 822
+  },
+  {
+   "text": "chèque en blanc",
+   "start": 1281,
+   "end": 1296
+  },
+  {
+   "text": "greffe du Tribunal de commerce de Mâcon",
+   "start": 1518,
+   "end": 1557
+  }
+ ]
+}

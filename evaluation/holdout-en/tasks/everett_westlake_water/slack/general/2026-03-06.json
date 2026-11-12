@@ -1,0 +1,62 @@
+[
+ {
+  "type": "message",
+  "user": "U6ER6MJW8",
+  "ts": "1773479244.530782",
+  "client_msg_id": "040585a48bc61585c8da9e3964e0893081ee",
+  "text": "heads up: Vesper Print Works moved offices",
+  "user_profile": {
+   "real_name": "Joaquin Stanhope",
+   "display_name": "joaquin.stanhope"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U9NKY5J2P",
+  "ts": "1773565681.893244",
+  "client_msg_id": "48c494cca3bd0aacd396b7df3705f711d698",
+  "text": "agreed with rhiannon, good catch &amp; no slides please",
+  "user_profile": {
+   "real_name": "Giselle Whitlock",
+   "display_name": "giselle_whitlock"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U258G4AEP",
+  "ts": "1773652118.119154",
+  "client_msg_id": "f7fd48fd4fea3c03c22c34990e1884458243",
+  "text": "@mnorthcott will post the recap",
+  "user_profile": {
+   "real_name": "Valentina Osgood",
+   "display_name": "valentinaosg"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U258G4AEP",
+  "ts": "1773738555.469486",
+  "client_msg_id": "f4579b645433f0d76d030b836df70a2ca6ba",
+  "text": "@castellanose has the doc",
+  "user_profile": {
+   "real_name": "Valentina Osgood",
+   "display_name": "valentinaosg"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U258G4AEP",
+  "ts": "1773824992.493940",
+  "client_msg_id": "2ab1870a8b5aae12ea5cad3e34e22c2cf484",
+  "text": "the vendor portal moved: &lt;https://www.brightmoor.test/login&gt;",
+  "user_profile": {
+   "real_name": "Valentina Osgood",
+   "display_name": "valentinaosg"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

@@ -1,0 +1,52 @@
+[
+ {
+  "doc": "01_assignation.txt",
+  "gold": "01_assignation.gold.json",
+  "type": "assignation"
+ },
+ {
+  "doc": "02_conclusions_appel.txt",
+  "gold": "02_conclusions_appel.gold.json",
+  "type": "conclusions"
+ },
+ {
+  "doc": "03_contrat_travail.txt",
+  "gold": "03_contrat_travail.gold.json",
+  "type": "contrat"
+ },
+ {
+  "doc": "04_jugement_cph.txt",
+  "gold": "04_jugement_cph.gold.json",
+  "type": "jugement"
+ },
+ {
+  "doc": "05_echange_emails.txt",
+  "gold": "05_echange_emails.gold.json",
+  "type": "emails"
+ },
+ {
+  "doc": "06_extrait_kbis.txt",
+  "gold": "06_extrait_kbis.gold.json",
+  "type": "kbis"
+ },
+ {
+  "doc": "07_pv_assemblee.txt",
+  "gold": "07_pv_assemblee.gold.json",
+  "type": "pv_ag"
+ },
+ {
+  "doc": "08_mise_en_demeure.txt",
+  "gold": "08_mise_en_demeure.gold.json",
+  "type": "lettre"
+ },
+ {
+  "doc": "09_constat_internet.txt",
+  "gold": "09_constat_internet.gold.json",
+  "type": "constat"
+ },
+ {
+  "doc": "10_formes_difficiles.txt",
+  "gold": "10_formes_difficiles.gold.json",
+  "type": "note"
+ }
+]

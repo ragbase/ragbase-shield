@@ -1,0 +1,38 @@
+[
+ {
+  "type": "message",
+  "user": "U08CVJP4A",
+  "ts": "1773133496.703815",
+  "client_msg_id": "84cc45aacd607f340e03f9ee29f5a115a154",
+  "text": "pay Thistlewood Analytics against 4833511264",
+  "user_profile": {
+   "real_name": "Dagny Marlowe",
+   "display_name": "dagny.marlowe"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U29MC4HE4",
+  "ts": "1773219933.701161",
+  "client_msg_id": "85f5038018c85bf34e42dcf949853d2b5a93",
+  "text": "roster v2 is up: Pickering, Fitzgerald and Yardley, Sabrina moved teams",
+  "user_profile": {
+   "real_name": "Gareth Merriweather",
+   "display_name": "gareth.merriweather"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U29MC4HE4",
+  "ts": "1773306370.550048",
+  "client_msg_id": "41f69c9d25296c56f528c464afc704855313",
+  "text": "vendor accounts csv attached",
+  "user_profile": {
+   "real_name": "Gareth Merriweather",
+   "display_name": "gareth.merriweather"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

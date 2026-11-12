@@ -1,0 +1,62 @@
+[
+ {
+  "type": "message",
+  "user": "U3V3ENQCT",
+  "ts": "1772442000.384753",
+  "client_msg_id": "46408b2db7e3f11cf0131847cd9323b0cb50",
+  "text": "delivery goes to 2458 Marrowbone Drive, Pellbrook, OR 97201 (ask for Kettering)",
+  "user_profile": {
+   "real_name": "Xavier Rutherford",
+   "display_name": "xavierrut"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U5KSJALS6",
+  "ts": "1772528437.371759",
+  "client_msg_id": "e80b7c8cb7e8a3d1ebd914e7c67d0f7017b4",
+  "text": "badge for Felix Petrov (CSB-66329) reprinted",
+  "user_profile": {
+   "real_name": "Joaquin Quayle",
+   "display_name": "joaquinqua"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U5KSJALS6",
+  "ts": "1772614874.482742",
+  "client_msg_id": "38b40cbdc9d881f216d932b9506b069eb124",
+  "text": "badge for Yara Jansen (CSB-36892) reprinted",
+  "user_profile": {
+   "real_name": "Joaquin Quayle",
+   "display_name": "joaquinqua"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U1JCHD3AD",
+  "ts": "1772701311.651332",
+  "client_msg_id": "98e00f591b422c0b61236bde0396377577ca",
+  "text": "call Dashiell at (720) 555-0142 before you send the crew",
+  "user_profile": {
+   "real_name": "Yara Jansen",
+   "display_name": "yjansen"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U6SRNXDQC",
+  "ts": "1772787748.498936",
+  "client_msg_id": "87acee092f78bd8e302dabd6622604716c44",
+  "text": "Ione Kettering from Ridgeback Security confirmed the client kickoff",
+  "user_profile": {
+   "real_name": "Sebastian Yeardley",
+   "display_name": "sebastianyea"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

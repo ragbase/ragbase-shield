@@ -1,0 +1,50 @@
+[
+ {
+  "type": "message",
+  "user": "U7X6N2GEZ",
+  "ts": "1772442000.305031",
+  "client_msg_id": "efb7e6d80c0fd25556045930216a0390581b",
+  "text": "reimbursement to Ulysses Abernathy, account 15028548, approved",
+  "user_profile": {
+   "real_name": "Xanthe Finchwood",
+   "display_name": "finchwoodx"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U980CBRQ5",
+  "ts": "1772528437.896390",
+  "client_msg_id": "709e56d5b989195ecb0085bf88702ac9d57c",
+  "text": "Haddad, Yolanda still has no cost centre",
+  "user_profile": {
+   "real_name": "Ulysses Abernathy",
+   "display_name": "ulysses.abernathy"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U03T0WHEU",
+  "ts": "1772614874.725500",
+  "client_msg_id": "66e1a440cd60231e590003366f82b490c2e7",
+  "text": "roster v2 is up: Jansen, Philippa and Yelverton, Noor moved teams",
+  "user_profile": {
+   "real_name": "Uriah Yamamoto",
+   "display_name": "uriah.yamamoto"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U7X6N2GEZ",
+  "ts": "1772701311.783663",
+  "client_msg_id": "fedb332a3e81d1702f2fb98f67ddafd21116",
+  "text": "reimbursement to Noor Yelverton, account ACCT-7790-3535, approved",
+  "user_profile": {
+   "real_name": "Xanthe Finchwood",
+   "display_name": "finchwoodx"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

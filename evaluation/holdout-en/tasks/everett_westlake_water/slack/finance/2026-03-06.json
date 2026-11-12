@@ -1,0 +1,50 @@
+[
+ {
+  "type": "message",
+  "user": "U5P6VW1V5",
+  "ts": "1773219933.275447",
+  "client_msg_id": "69c15ed564f6fdd1c361de8139364d6cfdbe",
+  "text": "roster v2 is up: Northcott, Mirabel and Pereira, Niall moved teams",
+  "user_profile": {
+   "real_name": "Niall Pereira",
+   "display_name": "npereira"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U9NKY5J2P",
+  "ts": "1773306370.710064",
+  "client_msg_id": "b299badf8ee0a12699040e3728fdac67d38b",
+  "text": "reimbursement to Joaquin Stanhope, account 75874036, approved",
+  "user_profile": {
+   "real_name": "Giselle Whitlock",
+   "display_name": "giselle_whitlock"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U93ENFKQV",
+  "ts": "1773392807.694334",
+  "client_msg_id": "1fb049ae5ad7d92dd8898e6cbd0b44385c89",
+  "text": "Osgood, Valentina still has no cost centre",
+  "user_profile": {
+   "real_name": "Florian Okafor",
+   "display_name": "fokafor"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U59PNM51T",
+  "ts": "1773479244.209564",
+  "client_msg_id": "9325ecb046fd27ad899f2f23aad52e3caa0e",
+  "text": "vendor accounts csv attached",
+  "user_profile": {
+   "real_name": "Ambrose Horvath",
+   "display_name": "ambrosehor"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

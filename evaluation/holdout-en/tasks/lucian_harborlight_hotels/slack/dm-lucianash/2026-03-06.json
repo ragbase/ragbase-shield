@@ -1,0 +1,38 @@
+[
+ {
+  "type": "message",
+  "user": "U76LWSN74",
+  "ts": "1772960622.338312",
+  "client_msg_id": "1f704aca64b5b18c4c9286ef224455629eaa",
+  "text": "has Mortlake signed?",
+  "user_profile": {
+   "real_name": "Henrietta Oakhurst",
+   "display_name": "henrietta.oakhurst"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U76LWSN74",
+  "ts": "1773047059.494466",
+  "client_msg_id": "f5b7a69d6e553a6b61346f195b9addd6f72c",
+  "text": "has Horvath signed?",
+  "user_profile": {
+   "real_name": "Henrietta Oakhurst",
+   "display_name": "henrietta.oakhurst"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U7P78ZPFF",
+  "ts": "1773133496.236104",
+  "client_msg_id": "2b39da2e26ae35d7a700c90db724b1017b1a",
+  "text": "ok henrietta, lunch?",
+  "user_profile": {
+   "real_name": "Lucian Ashcombe",
+   "display_name": "lucianash"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

@@ -1,0 +1,74 @@
+[
+ {
+  "type": "message",
+  "user": "U674YH7AM",
+  "ts": "1772960622.751133",
+  "client_msg_id": "b9a90e61c994431baaf34750cec6ce7453fc",
+  "text": "<@U9U5GLWWK> can you look at the badge system rollout?",
+  "user_profile": {
+   "real_name": "Rhiannon Zimmerlin",
+   "display_name": "rhiannon.zimmerlin"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U9NKY5J2P",
+  "ts": "1773047059.559822",
+  "client_msg_id": "e1e67ea365285a534f43772d93bfc354a8ec",
+  "text": "agreed with valentina, i'll take it",
+  "user_profile": {
+   "real_name": "Giselle Whitlock",
+   "display_name": "giselle_whitlock"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U0HVTBU19",
+  "ts": "1773133496.653538",
+  "client_msg_id": "0e41042a4e2d04c7a91f1cca4e85f36b582d",
+  "text": "<@U5P6VW1V5> thanks for the holiday roster?",
+  "user_profile": {
+   "real_name": "Everett Castellanos",
+   "display_name": "castellanose"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U9NKY5J2P",
+  "ts": "1773219933.551706",
+  "client_msg_id": "0b85892b52bdef7980dab1dac6eb10c539e2",
+  "text": "fyi Brightmoor Logistics signed the renewal &amp; keep it short",
+  "user_profile": {
+   "real_name": "Giselle Whitlock",
+   "display_name": "giselle_whitlock"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U674YH7AM",
+  "ts": "1773306370.552926",
+  "client_msg_id": "88f125b141c84859ee608fe7dc01ae01ea44",
+  "text": "heads up: Old moved offices",
+  "user_profile": {
+   "real_name": "Rhiannon Zimmerlin",
+   "display_name": "rhiannon.zimmerlin"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U9NKY5J2P",
+  "ts": "1773392807.852075",
+  "client_msg_id": "6162ca0b426dbec5a8add81efb0109c45a8e",
+  "text": "@joaquin.stanhope will post the recap",
+  "user_profile": {
+   "real_name": "Giselle Whitlock",
+   "display_name": "giselle_whitlock"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "ragbase-shield": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": ["ragbase-shield", "mcp"],
+      "cwd": "${PLUGIN_ROOT}"
+    }
+  }
+}

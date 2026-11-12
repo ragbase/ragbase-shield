@@ -1,0 +1,49 @@
+{
+  "description": "RAGbase Shield: block real client names in prompts, deny direct reads of registered dossier folders (built-in tools and other MCP servers), mask registered values left in tool results.",
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "uvx ragbase-shield==0.4.0 hook user-prompt-submit",
+            "timeout": 60
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Read|Grep|Glob|LS|LSP|Bash|PowerShell|Monitor|Edit|MultiEdit|Write|NotebookRead|NotebookEdit|Artifact|SendUserFile",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "uvx ragbase-shield==0.4.0 hook pre-tool-use",
+            "timeout": 60
+          }
+        ]
+      },
+      {
+        "matcher": "mcp__.*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "uvx ragbase-shield==0.4.0 hook pre-tool-use",
+            "timeout": 60
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "uvx ragbase-shield==0.4.0 hook post-tool-use",
+            "timeout": 60
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "ragbase",
+  "owner": {
+    "name": "RAGbase",
+    "url": "https://ragbase.ai"
+  },
+  "description": "RAGbase plugins. RAGbase Shield: local pseudonymisation so Claude works on client files with codes for the names Shield detects or you register.",
+  "plugins": [
+    {
+      "name": "ragbase-shield",
+      "source": "./integrations/claude-code/plugin",
+      "description": "Local pseudonymisation for client files: masked document reading through MCP tools, hooks that block real names in prompts and direct reads of dossier folders, and a skill for the safe workflow.",
+      "category": "security",
+      "tags": ["privacy", "pseudonymisation", "gdpr", "rgpd", "legal", "avocat"]
+    }
+  ]
+}

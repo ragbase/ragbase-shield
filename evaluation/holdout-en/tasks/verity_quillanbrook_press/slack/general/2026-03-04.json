@@ -1,0 +1,74 @@
+[
+ {
+  "type": "message",
+  "user": "U2ALJHQT2",
+  "ts": "1772960622.941512",
+  "client_msg_id": "1cd4827e2465720b9e17b779d10da2e1e67f",
+  "text": "@dashwoodl is on PTO",
+  "user_profile": {
+   "real_name": "Tabitha Hartigan",
+   "display_name": "tabitha_hartigan"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U05J19KSF",
+  "ts": "1773047059.189667",
+  "client_msg_id": "33cc177f53d35a833e6a39c321b09d64b93b",
+  "text": "heads up: Willowmere Staffing signed the renewal &amp; bring numbers",
+  "user_profile": {
+   "real_name": "Edith Takahashi",
+   "display_name": "etakahashi"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U86ZCVBQF",
+  "ts": "1773133496.914708",
+  "client_msg_id": "833293b1ccb94f6c9d67994990c07b7f145a",
+  "text": "reminder: Thistlewood moved offices",
+  "user_profile": {
+   "real_name": "Wilfred Santoro",
+   "display_name": "wilfred.santoro"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U36RC6NVE",
+  "ts": "1773219933.422244",
+  "client_msg_id": "3581ed93cd08821b9cd982e2eb9aca6e05ae",
+  "text": "@verity.okafor will post the recap",
+  "user_profile": {
+   "real_name": "Gareth Rutherford",
+   "display_name": "grutherford"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U3QDHE9G8",
+  "ts": "1773306370.746636",
+  "client_msg_id": "4e394b3ddd1487dacda441de227f9f7d18a0",
+  "text": "cc tristan, let's sync at 3",
+  "user_profile": {
+   "real_name": "Wren Iverson",
+   "display_name": "wren_iverson"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U3QDHE9G8",
+  "ts": "1773392807.365086",
+  "client_msg_id": "62c8e224ce58cac5bd3f8082083a747523ce",
+  "text": "reminder: Willowmere invoice is due",
+  "user_profile": {
+   "real_name": "Wren Iverson",
+   "display_name": "wren_iverson"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

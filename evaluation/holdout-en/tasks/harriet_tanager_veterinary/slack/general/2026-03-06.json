@@ -1,0 +1,62 @@
+[
+ {
+  "type": "message",
+  "user": "U0RUCU3M8",
+  "ts": "1773306370.110494",
+  "client_msg_id": "22b5e887532d6f38d736162e30a9832cf5f5",
+  "text": "heads up: Marrowbone Capital Partners visit tomorrow",
+  "user_profile": {
+   "real_name": "Nikolai Mortlake",
+   "display_name": "nikolai_mortlake"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U0RUCU3M8",
+  "ts": "1773392807.622228",
+  "client_msg_id": "5e6c06d512277ca0101b1da0aa3a9d4a235d",
+  "text": "cc joaquin, i'll take it",
+  "user_profile": {
+   "real_name": "Nikolai Mortlake",
+   "display_name": "nikolai_mortlake"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U1VJ83N19",
+  "ts": "1773479244.411593",
+  "client_msg_id": "d89e7d40879af4b688d462f737f8082b5bf3",
+  "text": "fyi Copperfield moved offices",
+  "user_profile": {
+   "real_name": "Vaughn Holloway",
+   "display_name": "vaughn_holloway"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U9FNE78VE",
+  "ts": "1773565681.605883",
+  "client_msg_id": "c14074640fa3ae69f41bbd5797c0905c88ab",
+  "text": "fyi Ridgeback Security moved offices",
+  "user_profile": {
+   "real_name": "Zara Yeardley",
+   "display_name": "zara.yeardley"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U4ZW87RSW",
+  "ts": "1773652118.954334",
+  "client_msg_id": "0b28cc155a747b5634663f5bf52bb5a5046d",
+  "text": "the vendor portal moved: &lt;https://www.marrowbone.test/login&gt;",
+  "user_profile": {
+   "real_name": "Ivo Hartigan",
+   "display_name": "ivohar"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

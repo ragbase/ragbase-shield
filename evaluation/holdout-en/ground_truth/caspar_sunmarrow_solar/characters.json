@@ -1,0 +1,884 @@
+{
+ "p00": {
+  "canonical_name": "Caspar Winterhalde",
+  "first_names": [
+   "Caspar"
+  ],
+  "last_names": [
+   "Winterhalde"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "caspar@sunmarrow.test",
+    "category": "professional"
+   },
+   {
+    "value": "caspar.winterhalde46@quietinbox.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U152TL1B4",
+   "casparwin"
+  ],
+  "phone_numbers_linked": [
+   "720.555.0181"
+  ],
+  "employee_ids": [
+   "SMS-40670"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "1478 Pinecrest Boulevard"
+  ],
+  "organizations": [
+   "Sunmarrow Solar"
+  ]
+ },
+ "p01": {
+  "canonical_name": "Tess Kowalchuk",
+  "first_names": [
+   "Tess"
+  ],
+  "last_names": [
+   "Kowalchuk"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "tess@sunmarrow.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U3JX6VTES",
+   "kowalchukt"
+  ],
+  "phone_numbers_linked": [
+   "720.555.0166",
+   "312.555.0102"
+  ],
+  "employee_ids": [
+   "SMS-85933"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "7069 Copperfield Street"
+  ],
+  "organizations": [
+   "Sunmarrow Solar"
+  ]
+ },
+ "p02": {
+  "canonical_name": "Bronwyn Adegoke",
+  "first_names": [
+   "Bronwyn"
+  ],
+  "last_names": [
+   "Adegoke"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "bronwyn@sunmarrow.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U9G9CP5BY",
+   "bronwyn_adegoke"
+  ],
+  "phone_numbers_linked": [
+   "720-555-0162"
+  ],
+  "employee_ids": [
+   "SMS-27115"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "2978 Birchmount Drive"
+  ],
+  "organizations": [
+   "Sunmarrow Solar"
+  ]
+ },
+ "p03": {
+  "canonical_name": "Gustav Dashwood",
+  "first_names": [
+   "Gustav"
+  ],
+  "last_names": [
+   "Dashwood"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "gustav.dashwood@sunmarrow.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U9NVJN59J",
+   "gustav_dashwood"
+  ],
+  "phone_numbers_linked": [
+   "720-555-0199"
+  ],
+  "employee_ids": [
+   "SMS-40779"
+  ],
+  "account_numbers": [
+   "71676940"
+  ],
+  "addresses": [
+   "8383 Old Mill Terrace"
+  ],
+  "organizations": [
+   "Sunmarrow Solar"
+  ]
+ },
+ "p04": {
+  "canonical_name": "Lucian Schneider",
+  "first_names": [
+   "Lucian"
+  ],
+  "last_names": [
+   "Schneider"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "lschneider@sunmarrow.test",
+    "category": "professional"
+   },
+   {
+    "value": "lucian.schneider43@quietinbox.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U27Y40LMP",
+   "luciansch"
+  ],
+  "phone_numbers_linked": [
+   "+1 720 555 0191"
+  ],
+  "employee_ids": [
+   "SMS-32197"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "2367 Birchmount Drive"
+  ],
+  "organizations": [
+   "Sunmarrow Solar"
+  ]
+ },
+ "p05": {
+  "canonical_name": "Dorothea Takahashi",
+  "first_names": [
+   "Dorothea"
+  ],
+  "last_names": [
+   "Takahashi"
+  ],
+  "nicknames": [
+   "Thea"
+  ],
+  "emails": [
+   {
+    "value": "dorothea@sunmarrow.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U006VLBD7",
+   "dorothea.takahashi"
+  ],
+  "phone_numbers_linked": [
+   "+1 720 555 0189",
+   "(415) 555-0122"
+  ],
+  "employee_ids": [
+   "SMS-38857"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "1575 Vesper Street"
+  ],
+  "organizations": [
+   "Sunmarrow Solar"
+  ]
+ },
+ "p06": {
+  "canonical_name": "Odette Cranston",
+  "first_names": [
+   "Odette"
+  ],
+  "last_names": [
+   "Cranston"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "cranston.odette@sunmarrow.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U2JVHW74R",
+   "cranstono"
+  ],
+  "phone_numbers_linked": [
+   "(720) 555-0184",
+   "+1 206 555 0193"
+  ],
+  "employee_ids": [
+   "SMS-30071"
+  ],
+  "account_numbers": [
+   "ACCT-3461-4079"
+  ],
+  "addresses": [
+   "9203 Ridgeback Trail"
+  ],
+  "organizations": [
+   "Sunmarrow Solar"
+  ]
+ },
+ "p07": {
+  "canonical_name": "Zachariah Upton",
+  "first_names": [
+   "Zachariah"
+  ],
+  "last_names": [
+   "Upton"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "zachariah.upton@sunmarrow.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U60MZNDZX",
+   "zachariahupt"
+  ],
+  "phone_numbers_linked": [
+   "(720) 555-0147"
+  ],
+  "employee_ids": [
+   "SMS-88754"
+  ],
+  "account_numbers": [
+   "ACCT-4735-6842"
+  ],
+  "addresses": [
+   "7508 Birchmount Drive"
+  ],
+  "organizations": [
+   "Sunmarrow Solar"
+  ]
+ },
+ "p08": {
+  "canonical_name": "Oriana Eastwick",
+  "first_names": [
+   "Oriana"
+  ],
+  "last_names": [
+   "Eastwick"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "oriana.eastwick@sunmarrow.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U1WCE4CT9",
+   "oriana.eastwick"
+  ],
+  "phone_numbers_linked": [
+   "720.555.0108"
+  ],
+  "employee_ids": [
+   "SMS-22514"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "8288 Pinecrest Boulevard"
+  ],
+  "organizations": [
+   "Sunmarrow Solar"
+  ]
+ },
+ "p09": {
+  "canonical_name": "Yvette Guerrero",
+  "first_names": [
+   "Yvette"
+  ],
+  "last_names": [
+   "Guerrero"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "yguerrero@sunmarrow.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U9R2PVBSA",
+   "guerreroy"
+  ],
+  "phone_numbers_linked": [
+   "720.555.0175"
+  ],
+  "employee_ids": [
+   "SMS-58758"
+  ],
+  "account_numbers": [
+   "79143132"
+  ],
+  "addresses": [
+   "2762 Larkspur Avenue"
+  ],
+  "organizations": [
+   "Sunmarrow Solar"
+  ]
+ },
+ "p10": {
+  "canonical_name": "Ada Haddad",
+  "first_names": [
+   "Ada"
+  ],
+  "last_names": [
+   "Haddad"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "ada@sunmarrow.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U5G481PC7",
+   "adahad"
+  ],
+  "phone_numbers_linked": [
+   "720-555-0194"
+  ],
+  "employee_ids": [
+   "SMS-62223"
+  ],
+  "account_numbers": [
+   "ACCT-8261-7564"
+  ],
+  "addresses": [
+   "6218 Ridgeback Trail"
+  ],
+  "organizations": [
+   "Sunmarrow Solar"
+  ]
+ },
+ "p11": {
+  "canonical_name": "Rhiannon Ashby",
+  "first_names": [
+   "Rhiannon"
+  ],
+  "last_names": [
+   "Ashby"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "rhiannon@sunmarrow.test",
+    "category": "professional"
+   },
+   {
+    "value": "rhiannon.ashby15@postwave.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U62RZ1AYA",
+   "ashbyr"
+  ],
+  "phone_numbers_linked": [
+   "(720) 555-0168"
+  ],
+  "employee_ids": [
+   "SMS-97871"
+  ],
+  "account_numbers": [
+   "64110316"
+  ],
+  "addresses": [
+   "4601 Wexford Court"
+  ],
+  "organizations": [
+   "Sunmarrow Solar"
+  ]
+ },
+ "p12": {
+  "canonical_name": "Jocelyn Ostrowicz",
+  "first_names": [
+   "Jocelyn"
+  ],
+  "last_names": [
+   "Ostrowicz"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "jocelyn@sunmarrow.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U03WD6RN2",
+   "jocelyn_ostrowicz"
+  ],
+  "phone_numbers_linked": [
+   "+1 720 555 0112",
+   "206-555-0127"
+  ],
+  "employee_ids": [
+   "SMS-78639"
+  ],
+  "account_numbers": [
+   "ACCT-4482-6668"
+  ],
+  "addresses": [
+   "8429 Juniper Hollow Road"
+  ],
+  "organizations": [
+   "Sunmarrow Solar"
+  ]
+ },
+ "p13": {
+  "canonical_name": "Jude Tallis",
+  "first_names": [
+   "Jude"
+  ],
+  "last_names": [
+   "Tallis"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "jude.tallis@sunmarrow.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U24SBVTJX",
+   "judetal"
+  ],
+  "phone_numbers_linked": [
+   "720.555.0105"
+  ],
+  "employee_ids": [
+   "SMS-53837"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "2218 Juniper Hollow Road"
+  ],
+  "organizations": [
+   "Sunmarrow Solar"
+  ]
+ },
+ "p14": {
+  "canonical_name": "Leopold Oduya",
+  "first_names": [
+   "Leopold"
+  ],
+  "last_names": [
+   "Oduya"
+  ],
+  "nicknames": [
+   "Leo"
+  ],
+  "emails": [
+   {
+    "value": "loduya@chowdhurylaw.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U7L0ZC9TY",
+   "leopoldodu"
+  ],
+  "phone_numbers_linked": [
+   "+1 720 555 0164"
+  ],
+  "employee_ids": [],
+  "account_numbers": [
+   "ACCT-2129-9269"
+  ],
+  "addresses": [
+   "2228 Vesper Street"
+  ],
+  "organizations": [
+   "Chowdhury & Associates"
+  ]
+ },
+ "p15": {
+  "canonical_name": "Matthias Orrell",
+  "first_names": [
+   "Matthias"
+  ],
+  "last_names": [
+   "Orrell"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "matthias.orrell@northcott.test",
+    "category": "professional"
+   },
+   {
+    "value": "matthias.orrell21@mailharbor.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U5KEP2AZY",
+   "matthias.orrell"
+  ],
+  "phone_numbers_linked": [
+   "720.555.0188"
+  ],
+  "employee_ids": [],
+  "account_numbers": [
+   "ACCT-8724-8816"
+  ],
+  "addresses": [
+   "5377 Vesper Street"
+  ],
+  "organizations": [
+   "Northcott Regional Supply"
+  ]
+ },
+ "p16": {
+  "canonical_name": "Roderick Santoro",
+  "first_names": [
+   "Roderick"
+  ],
+  "last_names": [
+   "Santoro"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "roderick.santoro@northcott.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U7T3RDQEU",
+   "rsantoro"
+  ],
+  "phone_numbers_linked": [
+   "720.555.0103",
+   "415.555.0196"
+  ],
+  "employee_ids": [],
+  "account_numbers": [
+   "72081196"
+  ],
+  "addresses": [
+   "2843 Willowmere Road"
+  ],
+  "organizations": [
+   "Northcott Regional Supply"
+  ]
+ },
+ "p17": {
+  "canonical_name": "Gareth Thornquist",
+  "first_names": [
+   "Gareth"
+  ],
+  "last_names": [
+   "Thornquist"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "gareth@copperfield.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U3CF9TDW7",
+   "thornquistg"
+  ],
+  "phone_numbers_linked": [
+   "720.555.0132",
+   "+1 312 555 0136"
+  ],
+  "employee_ids": [],
+  "account_numbers": [
+   "38245225"
+  ],
+  "addresses": [
+   "579 Foxglove Street"
+  ],
+  "organizations": [
+   "Copperfield Technical Services"
+  ]
+ },
+ "p18": {
+  "canonical_name": "Niall Underhill",
+  "first_names": [
+   "Niall"
+  ],
+  "last_names": [
+   "Underhill"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "niall.underhill@chowdhurylaw.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U756M99XA",
+   "niall.underhill"
+  ],
+  "phone_numbers_linked": [
+   "720.555.0126",
+   "+1 206 555 0186"
+  ],
+  "employee_ids": [],
+  "account_numbers": [],
+  "addresses": [
+   "7007 Birchmount Drive"
+  ],
+  "organizations": [
+   "Chowdhury & Associates"
+  ]
+ },
+ "p19": {
+  "canonical_name": "Lachlan Barrowcliffe",
+  "first_names": [
+   "Lachlan"
+  ],
+  "last_names": [
+   "Barrowcliffe"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "lbarrowcliffe@harbor.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U8XG7V7EY",
+   "lbarrowcliffe"
+  ],
+  "phone_numbers_linked": [
+   "720-555-0169",
+   "415-555-0179"
+  ],
+  "employee_ids": [],
+  "account_numbers": [],
+  "addresses": [
+   "2138 Willowmere Road"
+  ],
+  "organizations": [
+   "Harbor Mist Shipping"
+  ]
+ },
+ "p20": {
+  "canonical_name": "Liesl Chowdhury",
+  "first_names": [
+   "Liesl"
+  ],
+  "last_names": [
+   "Chowdhury"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "liesl.chowdhury@sunmarrow.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U9QQUP7T4",
+   "lieslcho"
+  ],
+  "phone_numbers_linked": [
+   "720-555-0156"
+  ],
+  "employee_ids": [
+   "SMS-81918"
+  ],
+  "account_numbers": [
+   "ACCT-2623-3155"
+  ],
+  "addresses": [
+   "568 Umberline Way"
+  ],
+  "organizations": [
+   "Sunmarrow Solar"
+  ]
+ },
+ "org_home": {
+  "canonical_name": "Sunmarrow Solar",
+  "organization": true,
+  "organizations": [
+   "Sunmarrow",
+   "Sunmarrow Solar",
+   "Sunmarrow Solar Co."
+  ],
+  "urls": [
+   "https://www.sunmarrow.test"
+  ],
+  "addresses": [
+   "7818 Old Mill Terrace"
+  ],
+  "account_numbers": [
+   "3762348959"
+  ],
+  "domain": "sunmarrow.test"
+ },
+ "org_1": {
+  "canonical_name": "Tanager Lane Realty",
+  "organization": true,
+  "organizations": [
+   "Tanager",
+   "Tanager Lane Realty",
+   "Tanager Lane Realty LLC"
+  ],
+  "urls": [
+   "https://www.tanager.test"
+  ],
+  "addresses": [
+   "3960 Tanager Lane"
+  ],
+  "account_numbers": [
+   "8838270846"
+  ],
+  "domain": "tanager.test"
+ },
+ "org_2": {
+  "canonical_name": "Northcott Regional Supply",
+  "organization": true,
+  "organizations": [
+   "Northcott",
+   "Northcott Regional Supply",
+   "Northcott Regional Supply Co."
+  ],
+  "urls": [
+   "https://www.northcott.test"
+  ],
+  "addresses": [
+   "710 Saltmarsh Avenue"
+  ],
+  "account_numbers": [
+   "6766931393"
+  ],
+  "domain": "northcott.test"
+ },
+ "org_3": {
+  "canonical_name": "Ashgrove Translation Bureau",
+  "organization": true,
+  "organizations": [
+   "Ashgrove",
+   "Ashgrove Translation Bureau"
+  ],
+  "urls": [
+   "https://www.ashgrove.test"
+  ],
+  "addresses": [
+   "2662 Thistle Lane"
+  ],
+  "account_numbers": [
+   "9604644606"
+  ],
+  "domain": "ashgrove.test"
+ },
+ "org_4": {
+  "canonical_name": "Harbor Mist Shipping",
+  "organization": true,
+  "organizations": [
+   "Harbor",
+   "Harbor Mist Shipping"
+  ],
+  "urls": [
+   "https://www.harbor.test"
+  ],
+  "addresses": [
+   "448 Quarry Bend"
+  ],
+  "account_numbers": [
+   "6953193230"
+  ],
+  "domain": "harbor.test"
+ },
+ "org_5": {
+  "canonical_name": "Copperfield Technical Services",
+  "organization": true,
+  "organizations": [
+   "Copperfield",
+   "Copperfield Technical Services",
+   "Copperfield Technical Services Ltd"
+  ],
+  "urls": [
+   "https://www.copperfield.test"
+  ],
+  "addresses": [
+   "6230 Pinecrest Boulevard"
+  ],
+  "account_numbers": [
+   "5664506779"
+  ],
+  "domain": "copperfield.test"
+ },
+ "org_6": {
+  "canonical_name": "Marrowbone Capital Partners",
+  "organization": true,
+  "organizations": [
+   "Marrowbone",
+   "Marrowbone Capital Partners"
+  ],
+  "urls": [
+   "https://www.marrowbone.test"
+  ],
+  "addresses": [
+   "3159 Thistle Lane"
+  ],
+  "account_numbers": [
+   "4617709081"
+  ],
+  "domain": "marrowbone.test"
+ },
+ "org_homonym": {
+  "canonical_name": "Chowdhury & Associates",
+  "organization": true,
+  "organizations": [
+   "Chowdhury",
+   "Chowdhury & Associates",
+   "Chowdhury & Associates LLP"
+  ],
+  "urls": [
+   "https://www.chowdhurylaw.test"
+  ],
+  "addresses": [
+   "5454 Willowmere Road"
+  ],
+  "account_numbers": [
+   "3733981941"
+  ],
+  "domain": "chowdhurylaw.test"
+ }
+}

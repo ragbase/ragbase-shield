@@ -1,0 +1,969 @@
+{
+ "p00": {
+  "canonical_name": "Verity Okafor",
+  "first_names": [
+   "Verity"
+  ],
+  "last_names": [
+   "Okafor"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "verity.okafor@quillanbrookpress.test",
+    "category": "professional"
+   },
+   {
+    "value": "verity.okafor56@quietinbox.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U5SFVCMNK",
+   "verity.okafor"
+  ],
+  "phone_numbers_linked": [
+   "+1 646 555 0139"
+  ],
+  "employee_ids": [
+   "QLP-52430"
+  ],
+  "account_numbers": [
+   "ACCT-8473-6898"
+  ],
+  "addresses": [
+   "5144 Thistle Lane"
+  ],
+  "organizations": [
+   "Quillanbrook Legal Press"
+  ]
+ },
+ "p01": {
+  "canonical_name": "Wilfred Santoro",
+  "first_names": [
+   "Wilfred"
+  ],
+  "last_names": [
+   "Santoro"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "wilfred.santoro@quillanbrookpress.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U86ZCVBQF",
+   "wilfred.santoro"
+  ],
+  "phone_numbers_linked": [
+   "+1 646 555 0178",
+   "+1 312 555 0114"
+  ],
+  "employee_ids": [
+   "QLP-71313"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "1057 Vesper Street"
+  ],
+  "organizations": [
+   "Quillanbrook Legal Press"
+  ]
+ },
+ "p02": {
+  "canonical_name": "Lorcan Kovacs",
+  "first_names": [
+   "Lorcan"
+  ],
+  "last_names": [
+   "Kovacs"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "lorcan.kovacs@quillanbrookpress.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U2Z9749HN",
+   "kovacsl"
+  ],
+  "phone_numbers_linked": [
+   "646-555-0105"
+  ],
+  "employee_ids": [
+   "QLP-15678"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "6575 Wexford Court"
+  ],
+  "organizations": [
+   "Quillanbrook Legal Press"
+  ]
+ },
+ "p03": {
+  "canonical_name": "Tristan Yilmaz",
+  "first_names": [
+   "Tristan"
+  ],
+  "last_names": [
+   "Yilmaz"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "tyilmaz@quillanbrookpress.test",
+    "category": "professional"
+   },
+   {
+    "value": "tristan.yilmaz54@postwave.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U5QA0U95L",
+   "tyilmaz"
+  ],
+  "phone_numbers_linked": [
+   "+1 646 555 0103"
+  ],
+  "employee_ids": [
+   "QLP-87377"
+  ],
+  "account_numbers": [
+   "ACCT-1348-8817"
+  ],
+  "addresses": [
+   "8579 Juniper Hollow Road"
+  ],
+  "organizations": [
+   "Quillanbrook Legal Press"
+  ]
+ },
+ "p04": {
+  "canonical_name": "Romilly Ironside",
+  "first_names": [
+   "Romilly"
+  ],
+  "last_names": [
+   "Ironside"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "romilly@quillanbrookpress.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U8K3S94AC",
+   "rironside"
+  ],
+  "phone_numbers_linked": [
+   "(646) 555-0185"
+  ],
+  "employee_ids": [
+   "QLP-12857"
+  ],
+  "account_numbers": [
+   "21415305"
+  ],
+  "addresses": [
+   "5080 Thistle Lane"
+  ],
+  "organizations": [
+   "Quillanbrook Legal Press"
+  ]
+ },
+ "p05": {
+  "canonical_name": "Cormac Uribe",
+  "first_names": [
+   "Cormac"
+  ],
+  "last_names": [
+   "Uribe"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "uribe.cormac@quillanbrookpress.test",
+    "category": "professional"
+   },
+   {
+    "value": "cormac.uribe96@mailharbor.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U3SA2G32A",
+   "uribec"
+  ],
+  "phone_numbers_linked": [
+   "646.555.0199"
+  ],
+  "employee_ids": [
+   "QLP-49332"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "306 Harbor Mist Way"
+  ],
+  "organizations": [
+   "Quillanbrook Legal Press"
+  ]
+ },
+ "p06": {
+  "canonical_name": "Tabitha Hartigan",
+  "first_names": [
+   "Tabitha"
+  ],
+  "last_names": [
+   "Hartigan"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "tabitha@quillanbrookpress.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U2ALJHQT2",
+   "tabitha_hartigan"
+  ],
+  "phone_numbers_linked": [
+   "646.555.0153",
+   "206-555-0154"
+  ],
+  "employee_ids": [
+   "QLP-11048"
+  ],
+  "account_numbers": [
+   "ACCT-2025-9585"
+  ],
+  "addresses": [
+   "1300 Juniper Hollow Road"
+  ],
+  "organizations": [
+   "Quillanbrook Legal Press"
+  ]
+ },
+ "p07": {
+  "canonical_name": "Gareth Rutherford",
+  "first_names": [
+   "Gareth"
+  ],
+  "last_names": [
+   "Rutherford"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "gareth.rutherford@quillanbrookpress.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U36RC6NVE",
+   "grutherford"
+  ],
+  "phone_numbers_linked": [
+   "646-555-0113"
+  ],
+  "employee_ids": [
+   "QLP-35625"
+  ],
+  "account_numbers": [
+   "ACCT-2041-7394"
+  ],
+  "addresses": [
+   "8458 Willowmere Road"
+  ],
+  "organizations": [
+   "Quillanbrook Legal Press"
+  ]
+ },
+ "p08": {
+  "canonical_name": "Edith Takahashi",
+  "first_names": [
+   "Edith"
+  ],
+  "last_names": [
+   "Takahashi"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "edith@quillanbrookpress.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U05J19KSF",
+   "etakahashi"
+  ],
+  "phone_numbers_linked": [
+   "(646) 555-0144",
+   "+1 415 555 0174"
+  ],
+  "employee_ids": [
+   "QLP-89125"
+  ],
+  "account_numbers": [
+   "95851053"
+  ],
+  "addresses": [
+   "5400 Pinecrest Boulevard"
+  ],
+  "organizations": [
+   "Quillanbrook Legal Press"
+  ]
+ },
+ "p09": {
+  "canonical_name": "Lucian Dashwood",
+  "first_names": [
+   "Lucian"
+  ],
+  "last_names": [
+   "Dashwood"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "lucian@quillanbrookpress.test",
+    "category": "professional"
+   },
+   {
+    "value": "lucian.dashwood13@quietinbox.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U51YPVPZZ",
+   "dashwoodl"
+  ],
+  "phone_numbers_linked": [
+   "+1 646 555 0155"
+  ],
+  "employee_ids": [
+   "QLP-89274"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "2076 Old Mill Terrace"
+  ],
+  "organizations": [
+   "Quillanbrook Legal Press"
+  ]
+ },
+ "p10": {
+  "canonical_name": "Ursula Schneider",
+  "first_names": [
+   "Ursula"
+  ],
+  "last_names": [
+   "Schneider"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "ursula.schneider@quillanbrookpress.test",
+    "category": "professional"
+   },
+   {
+    "value": "ursula.schneider17@lettercloud.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U4U7JWGRB",
+   "ursulasch"
+  ],
+  "phone_numbers_linked": [
+   "+1 646 555 0104"
+  ],
+  "employee_ids": [
+   "QLP-81496"
+  ],
+  "account_numbers": [
+   "ACCT-7355-6049"
+  ],
+  "addresses": [
+   "5067 Harbor Mist Way"
+  ],
+  "organizations": [
+   "Quillanbrook Legal Press"
+  ]
+ },
+ "p11": {
+  "canonical_name": "Wren Iverson",
+  "first_names": [
+   "Wren"
+  ],
+  "last_names": [
+   "Iverson"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "wren.iverson@quillanbrookpress.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U3QDHE9G8",
+   "wren_iverson"
+  ],
+  "phone_numbers_linked": [
+   "(646) 555-0188"
+  ],
+  "employee_ids": [
+   "QLP-79953"
+  ],
+  "account_numbers": [
+   "69894153"
+  ],
+  "addresses": [
+   "3882 Harbor Mist Way"
+  ],
+  "organizations": [
+   "Quillanbrook Legal Press"
+  ]
+ },
+ "p12": {
+  "canonical_name": "Finn Hawthorne",
+  "first_names": [
+   "Finn"
+  ],
+  "last_names": [
+   "Hawthorne"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "fhawthorne@quillanbrookpress.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U80BAX7W9",
+   "fhawthorne"
+  ],
+  "phone_numbers_linked": [
+   "(646) 555-0182"
+  ],
+  "employee_ids": [
+   "QLP-91721"
+  ],
+  "account_numbers": [
+   "ACCT-8994-2018"
+  ],
+  "addresses": [
+   "3224 Larkspur Avenue"
+  ],
+  "organizations": [
+   "Quillanbrook Legal Press"
+  ]
+ },
+ "p13": {
+  "canonical_name": "Wendell Edgecombe",
+  "first_names": [
+   "Wendell"
+  ],
+  "last_names": [
+   "Edgecombe"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "wendell@vesper.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U1VKQYLHN",
+   "wendell.edgecombe"
+  ],
+  "phone_numbers_linked": [
+   "+1 646 555 0169"
+  ],
+  "employee_ids": [],
+  "account_numbers": [],
+  "addresses": [
+   "8602 Thistle Lane"
+  ],
+  "organizations": [
+   "Vesper Print Works"
+  ]
+ },
+ "p14": {
+  "canonical_name": "Petra Ostrowicz",
+  "first_names": [
+   "Petra"
+  ],
+  "last_names": [
+   "Ostrowicz"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "postrowicz@quarry.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U5JRWY6ZU",
+   "petra.ostrowicz"
+  ],
+  "phone_numbers_linked": [
+   "646-555-0168",
+   "(206) 555-0156"
+  ],
+  "employee_ids": [],
+  "account_numbers": [
+   "99385362"
+  ],
+  "addresses": [
+   "7040 Copperfield Street"
+  ],
+  "organizations": [
+   "Quarry Bend Engineering"
+  ]
+ },
+ "p15": {
+  "canonical_name": "Orson Grimshaw",
+  "first_names": [
+   "Orson"
+  ],
+  "last_names": [
+   "Grimshaw"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "grimshaw.orson@thistlewood.test",
+    "category": "professional"
+   },
+   {
+    "value": "orson.grimshaw96@mailharbor.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U0PXL0R7N",
+   "orson.grimshaw"
+  ],
+  "phone_numbers_linked": [
+   "+1 646 555 0173",
+   "(415) 555-0151"
+  ],
+  "employee_ids": [],
+  "account_numbers": [
+   "ACCT-2489-1150"
+  ],
+  "addresses": [
+   "4037 Vesper Street"
+  ],
+  "organizations": [
+   "Thistlewood Analytics"
+  ]
+ },
+ "p16": {
+  "canonical_name": "Matthias Whitlock",
+  "first_names": [
+   "Matthias"
+  ],
+  "last_names": [
+   "Whitlock"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "matthias.whitlock@tanager.test",
+    "category": "professional"
+   },
+   {
+    "value": "matthias.whitlock89@mailharbor.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U9DY0471G",
+   "matthiaswhi"
+  ],
+  "phone_numbers_linked": [
+   "646.555.0159",
+   "(415) 555-0117"
+  ],
+  "employee_ids": [],
+  "account_numbers": [],
+  "addresses": [
+   "6084 Larkspur Avenue"
+  ],
+  "organizations": [
+   "Tanager Lane Realty"
+  ]
+ },
+ "p17": {
+  "canonical_name": "Alaric Lindgren",
+  "first_names": [
+   "Alaric"
+  ],
+  "last_names": [
+   "Lindgren"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "alaric.lindgren@nightingalelaw.test",
+    "category": "professional"
+   },
+   {
+    "value": "alaric.lindgren59@lettercloud.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U3TFS87UC",
+   "alariclin"
+  ],
+  "phone_numbers_linked": [
+   "+1 646 555 0137"
+  ],
+  "employee_ids": [],
+  "account_numbers": [],
+  "addresses": [
+   "9563 Harbor Mist Way"
+  ],
+  "organizations": [
+   "Nightingale & Associates"
+  ]
+ },
+ "p18": {
+  "canonical_name": "Soren Petrov",
+  "first_names": [
+   "Soren"
+  ],
+  "last_names": [
+   "Petrov"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "soren@vesper.test",
+    "category": "professional"
+   },
+   {
+    "value": "soren.petrov64@lettercloud.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U0USD4EUX",
+   "spetrov"
+  ],
+  "phone_numbers_linked": [
+   "646.555.0109"
+  ],
+  "employee_ids": [],
+  "account_numbers": [],
+  "addresses": [
+   "62 Saltmarsh Avenue"
+  ],
+  "organizations": [
+   "Vesper Print Works"
+  ]
+ },
+ "p19": {
+  "canonical_name": "Hugo Yelverton",
+  "first_names": [
+   "Hugo"
+  ],
+  "last_names": [
+   "Yelverton"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "hyelverton@quarry.test",
+    "category": "professional"
+   },
+   {
+    "value": "hugo.yelverton4@postwave.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U8LFHPTZH",
+   "hyelverton"
+  ],
+  "phone_numbers_linked": [
+   "646.555.0179",
+   "+1 312 555 0191"
+  ],
+  "employee_ids": [],
+  "account_numbers": [],
+  "addresses": [
+   "7021 Willowmere Road"
+  ],
+  "organizations": [
+   "Quarry Bend Engineering"
+  ]
+ },
+ "p20": {
+  "canonical_name": "Yvette Castellanos",
+  "first_names": [
+   "Yvette"
+  ],
+  "last_names": [
+   "Castellanos"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "castellanos.yvette@quarry.test",
+    "category": "professional"
+   },
+   {
+    "value": "yvette.castellanos37@quietinbox.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U5UF77R2B",
+   "yvette_castellanos"
+  ],
+  "phone_numbers_linked": [
+   "+1 646 555 0197"
+  ],
+  "employee_ids": [],
+  "account_numbers": [
+   "89965807"
+  ],
+  "addresses": [
+   "8958 Saltmarsh Avenue"
+  ],
+  "organizations": [
+   "Quarry Bend Engineering"
+  ]
+ },
+ "p21": {
+  "canonical_name": "Zara Rowntree",
+  "first_names": [
+   "Zara"
+  ],
+  "last_names": [
+   "Rowntree"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "zrowntree@quarry.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U1G8NAY83",
+   "rowntreez"
+  ],
+  "phone_numbers_linked": [
+   "646.555.0163"
+  ],
+  "employee_ids": [],
+  "account_numbers": [
+   "46174295"
+  ],
+  "addresses": [
+   "2997 Tanager Lane"
+  ],
+  "organizations": [
+   "Quarry Bend Engineering"
+  ]
+ },
+ "p22": {
+  "canonical_name": "Tamsin Nightingale",
+  "first_names": [
+   "Tamsin"
+  ],
+  "last_names": [
+   "Nightingale"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "tnightingale@quillanbrookpress.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U53957MAD",
+   "tamsinnig"
+  ],
+  "phone_numbers_linked": [
+   "+1 646 555 0193"
+  ],
+  "employee_ids": [
+   "QLP-62917"
+  ],
+  "account_numbers": [
+   "ACCT-5986-3994"
+  ],
+  "addresses": [
+   "4757 Harbor Mist Way"
+  ],
+  "organizations": [
+   "Quillanbrook Legal Press"
+  ]
+ },
+ "org_home": {
+  "canonical_name": "Quillanbrook Legal Press",
+  "organization": true,
+  "organizations": [
+   "Quillanbrook Legal Press",
+   "Quillanbrook Press"
+  ],
+  "urls": [
+   "https://www.quillanbrookpress.test"
+  ],
+  "addresses": [
+   "5274 Old Mill Terrace"
+  ],
+  "account_numbers": [
+   "5711095941"
+  ],
+  "domain": "quillanbrookpress.test"
+ },
+ "org_1": {
+  "canonical_name": "Thistlewood Analytics",
+  "organization": true,
+  "organizations": [
+   "Thistlewood",
+   "Thistlewood Analytics"
+  ],
+  "urls": [
+   "https://www.thistlewood.test"
+  ],
+  "addresses": [
+   "5411 Pinecrest Boulevard"
+  ],
+  "account_numbers": [
+   "2692013592"
+  ],
+  "domain": "thistlewood.test"
+ },
+ "org_2": {
+  "canonical_name": "Willowmere Staffing",
+  "organization": true,
+  "organizations": [
+   "Willowmere",
+   "Willowmere Staffing"
+  ],
+  "urls": [
+   "https://www.willowmere.test"
+  ],
+  "addresses": [
+   "9470 Umberline Way"
+  ],
+  "account_numbers": [
+   "4761086791"
+  ],
+  "domain": "willowmere.test"
+ },
+ "org_3": {
+  "canonical_name": "Quarry Bend Engineering",
+  "organization": true,
+  "organizations": [
+   "Quarry",
+   "Quarry Bend Engineering",
+   "Quarry Bend Engineering Inc."
+  ],
+  "urls": [
+   "https://www.quarry.test"
+  ],
+  "addresses": [
+   "8674 Pinecrest Boulevard"
+  ],
+  "account_numbers": [
+   "5909510382"
+  ],
+  "domain": "quarry.test"
+ },
+ "org_4": {
+  "canonical_name": "Vesper Print Works",
+  "organization": true,
+  "organizations": [
+   "Vesper",
+   "Vesper Print Works"
+  ],
+  "urls": [
+   "https://www.vesper.test"
+  ],
+  "addresses": [
+   "2033 Pinecrest Boulevard"
+  ],
+  "account_numbers": [
+   "2812169265"
+  ],
+  "domain": "vesper.test"
+ },
+ "org_5": {
+  "canonical_name": "Ashgrove Translation Bureau",
+  "organization": true,
+  "organizations": [
+   "Ashgrove",
+   "Ashgrove Translation Bureau"
+  ],
+  "urls": [
+   "https://www.ashgrove.test"
+  ],
+  "addresses": [
+   "7734 Ridgeback Trail"
+  ],
+  "account_numbers": [
+   "5565604516"
+  ],
+  "domain": "ashgrove.test"
+ },
+ "org_6": {
+  "canonical_name": "Tanager Lane Realty",
+  "organization": true,
+  "organizations": [
+   "Tanager",
+   "Tanager Lane Realty",
+   "Tanager Lane Realty LLC"
+  ],
+  "urls": [
+   "https://www.tanager.test"
+  ],
+  "addresses": [
+   "5041 Marrowbone Drive"
+  ],
+  "account_numbers": [
+   "9690955901"
+  ],
+  "domain": "tanager.test"
+ },
+ "org_homonym": {
+  "canonical_name": "Nightingale & Associates",
+  "organization": true,
+  "organizations": [
+   "Nightingale",
+   "Nightingale & Associates",
+   "Nightingale & Associates LLP"
+  ],
+  "urls": [
+   "https://www.nightingalelaw.test"
+  ],
+  "addresses": [
+   "4893 Tanager Lane"
+  ],
+  "account_numbers": [
+   "7638742377"
+  ],
+  "domain": "nightingalelaw.test"
+ }
+}

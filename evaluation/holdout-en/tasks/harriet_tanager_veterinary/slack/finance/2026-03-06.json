@@ -1,0 +1,38 @@
+[
+ {
+  "type": "message",
+  "user": "U5CZD241H",
+  "ts": "1773047059.758222",
+  "client_msg_id": "4e26f0a0b3f1496188be32afd6531ea3dcc9",
+  "text": "reimbursement to Harriet Nakashima, account ACCT-2671-2161, approved",
+  "user_profile": {
+   "real_name": "Sylvie Castellanos",
+   "display_name": "sylvie_castellanos"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U8WG6C06H",
+  "ts": "1773133496.602350",
+  "client_msg_id": "7c7a66ee0c7355daf2818b51fe57ad98c2fd",
+  "text": "send the statement to ziverson@tanagervet.test (Zane)",
+  "user_profile": {
+   "real_name": "Joaquin Kingsley",
+   "display_name": "joaquin_kingsley"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U7FH4CK9F",
+  "ts": "1773219933.930833",
+  "client_msg_id": "3d698835a8718884a062c4a7d46b61429912",
+  "text": "vendor accounts csv attached",
+  "user_profile": {
+   "real_name": "Matthias Dashwood",
+   "display_name": "matthias.dashwood"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

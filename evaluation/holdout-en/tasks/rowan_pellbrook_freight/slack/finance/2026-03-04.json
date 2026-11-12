@@ -1,0 +1,50 @@
+[
+ {
+  "type": "message",
+  "user": "U29MC4HE4",
+  "ts": "1772787748.497536",
+  "client_msg_id": "5f5d6e1daa2ee3e05aef503e69fe4030dc42",
+  "text": "Wainwright, Freya still has no cost centre",
+  "user_profile": {
+   "real_name": "Gareth Merriweather",
+   "display_name": "gareth.merriweather"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U9D8VKZWR",
+  "ts": "1772874185.367517",
+  "client_msg_id": "681409ee6dc1d48fbc2b30be6494e4338d6a",
+  "text": "send the statement to leopold@thistlewood.test (Leopold)",
+  "user_profile": {
+   "real_name": "Sebastian Tregarec",
+   "display_name": "sebastian_tregarec"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U29MC4HE4",
+  "ts": "1772960622.555754",
+  "client_msg_id": "ca136a111fae9ea10e1b3a93ad638e4554eb",
+  "text": "send the statement to takahashi.peregrine@marrowbone.test (Peregrine)",
+  "user_profile": {
+   "real_name": "Gareth Merriweather",
+   "display_name": "gareth.merriweather"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U7FS0W4QA",
+  "ts": "1773047059.904184",
+  "client_msg_id": "cf5ca1a80d151ca6a16dcc7c612f88d59f23",
+  "text": "reimbursement to Gareth Merriweather, account ACCT-2047-9563, approved",
+  "user_profile": {
+   "real_name": "Perpetua Finchwood",
+   "display_name": "perpetuafin"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

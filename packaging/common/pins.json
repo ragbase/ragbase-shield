@@ -1,0 +1,127 @@
+{
+  "schema": 1,
+  "comment": "Every downloaded build input is pinned here. fetch.py fails when a hash differs, unless --repin is given. Values for Windows (upgrade_code, shield_ns) never change once released.",
+  "python": {
+    "version": "3.12.15",
+    "release_tag": "20261021",
+    "variant": "install_only_stripped",
+    "source": "https://github.com/astral-sh/python-build-standalone",
+    "base_url": "https://github.com/astral-sh/python-build-standalone/releases/download/20261021/",
+    "targets": {
+      "macos-x86_64": {
+        "triple": "x86_64-apple-darwin",
+        "file": "cpython-3.12.15+20261021-x86_64-apple-darwin-install_only_stripped.tar.gz",
+        "sha256": "f12e0504397683d6be0745ffd4c39ef45a455cec169adf35c628840d06133773",
+        "size": 24740782
+      },
+      "macos-arm64": {
+        "triple": "aarch64-apple-darwin",
+        "file": "cpython-3.12.15+20261021-aarch64-apple-darwin-install_only_stripped.tar.gz",
+        "sha256": "7b8d00b751db21cea87dc551a8f8165147c5fbc5251d5537d7e5497dde00a219",
+        "size": 25017408
+      },
+      "windows-x64": {
+        "triple": "x86_64-pc-windows-msvc",
+        "file": "cpython-3.12.15+20261021-x86_64-pc-windows-msvc-install_only_stripped.tar.gz",
+        "sha256": "aac5d331fc3307343f95928fdbea4583f0d53973d08c7e1d081884fbd229a0e1",
+        "size": 21990627
+      }
+    }
+  },
+  "build_tools": {
+    "uv_min_version": "0.6.2",
+    "uv_used": "0.6.2",
+    "build_constraints": "build-constraints.txt",
+    "build_constraints_note": "Hashed pins of hatchling (Shield wheel) and setuptools + wheel (sdists of source_build_allowed), compiled by relock.sh from build-constraints.in. Build tools only, never shipped.",
+    "note": "uv is a build-time tool only. It is never shipped."
+  },
+  "wheels": {
+    "locks": {
+      "macos-x86_64": "requirements-macos-x86_64.lock",
+      "macos-arm64": "requirements-macos-arm64.lock",
+      "windows-x64": "requirements-windows-x64.lock"
+    },
+    "extras": {
+      "macos-x86_64": "tray-mac",
+      "macos-arm64": "tray-mac",
+      "windows-x64": "tray-win"
+    },
+    "source_build_allowed": [
+      "rumps",
+      "infi-systray"
+    ],
+    "source_build_note": "rumps 0.4.0 (macOS) and infi.systray 0.1.12.1 (Windows) are published as sdists only (pure Python). They are built at build time from the hashed sdist; every other package must be a binary wheel."
+  },
+  "macos": {
+    "min_version": "13.0",
+    "min_version_note": "pypdfium2 5.x ships macosx_13_0 wheels only, so the payload needs macOS 13 (Ventura) or newer.",
+    "bundle_id": "ai.ragbase.shield",
+    "launchd_label": "ai.ragbase.shield",
+    "pkg_identifier": "ai.ragbase.shield",
+    "install_location": "/Library/Application Support/RAGbase Shield",
+    "thin_universal_binaries": true
+  },
+  "windows": {
+    "upgrade_code": "7143B2B1-CCE6-40A1-9BA0-F244A3ABEBA6",
+    "shield_ns": "56d2c43c-f5b3-4492-9d60-953ada6adba3",
+    "product_code_rule": "uuid5(shield_ns, 'ragbase-shield-win64-' + version)"
+  },
+  "prune": {
+    "posix": [
+      "lib/python3.12/idlelib",
+      "lib/python3.12/tkinter",
+      "lib/python3.12/turtledemo",
+      "lib/python3.12/test",
+      "lib/python3.12/pydoc_data",
+      "lib/python3.12/lib2to3/tests",
+      "lib/python3.12/ensurepip/_bundled",
+      "lib/python3.12/lib-dynload/_tkinter*",
+      "lib/tcl*",
+      "lib/tk*",
+      "lib/libtcl*",
+      "lib/libtk*",
+      "lib/itcl*",
+      "lib/thread*",
+      "lib/Tix*",
+      "lib/pkgconfig",
+      "share",
+      "include",
+      "bin/idle3*",
+      "bin/2to3*",
+      "bin/pydoc3*",
+      "bin/python3*-config",
+      "bin/pip*",
+      "lib/python3.12/config-3.12-darwin",
+      "lib/libpython3*.dylib"
+    ],
+    "windows": [
+      "Lib/idlelib",
+      "Lib/tkinter",
+      "Lib/turtledemo",
+      "Lib/test",
+      "Lib/pydoc_data",
+      "Lib/lib2to3/tests",
+      "Lib/ensurepip/_bundled",
+      "tcl",
+      "DLLs/_tkinter.pyd",
+      "DLLs/tcl86t.dll",
+      "DLLs/tk86t.dll",
+      "DLLs/tcl9*.dll",
+      "DLLs/tk9*.dll",
+      "include",
+      "Scripts/idle*",
+      "Scripts/pip*"
+    ],
+    "site_packages": [
+      "bin",
+      "Scripts",
+      "PyObjCTest",
+      "objc/test",
+      "*.dist-info/direct_url.json",
+      "*.dist-info/uv_cache.json",
+      ".lock",
+      "**/*.dSYM"
+    ],
+    "posix_note": "lib/libpython3.12.dylib is only for embedding: bin/python3.12 of python-build-standalone is statically linked and extension modules do not link it (checked with otool -L)."
+  }
+}

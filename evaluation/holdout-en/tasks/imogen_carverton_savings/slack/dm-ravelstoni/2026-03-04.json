@@ -1,0 +1,26 @@
+[
+ {
+  "type": "message",
+  "user": "U5TLKKGQS",
+  "ts": "1772614874.671983",
+  "client_msg_id": "1928c1430948f1f92445277f3318b2fd8fe9",
+  "text": "use my personal one: imogen.ravelston17@lettercloud.test",
+  "user_profile": {
+   "real_name": "Imogen Ravelston",
+   "display_name": "ravelstoni"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U6QM11724",
+  "ts": "1772701311.646417",
+  "client_msg_id": "5c1e754ee9e6f4a638d22a1b413188f1c38f",
+  "text": "did Jansen reply?",
+  "user_profile": {
+   "real_name": "Soren Northcott",
+   "display_name": "snorthcott"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

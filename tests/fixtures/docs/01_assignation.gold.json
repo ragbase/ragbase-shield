@@ -1,0 +1,237 @@
+{
+ "doc": "01_assignation.txt",
+ "type": "assignation",
+ "title": "Brivanor Logistique SAS c. Vasseur-Garnier",
+ "parties": [
+  {
+   "id": "o_brivanor",
+   "kind": "ORG",
+   "value": "Brivanor Logistique SAS"
+  },
+  {
+   "id": "p_vasseur",
+   "kind": "PERSON",
+   "value": "Hélène Vasseur-Garnier"
+  },
+  {
+   "id": "p_delacourt",
+   "kind": "PERSON",
+   "value": "Jean-Pierre Delacourt"
+  }
+ ],
+ "mentions": [
+  {
+   "id": "o_brivanor",
+   "kind": "ORG",
+   "text": "BRIVANOR LOGISTIQUE",
+   "start": 125,
+   "end": 144,
+   "checksum": false
+  },
+  {
+   "id": "s1",
+   "kind": "SIREN",
+   "text": "388 684 722",
+   "start": 253,
+   "end": 264,
+   "checksum": true
+  },
+  {
+   "id": "a1",
+   "kind": "ADDRESS",
+   "text": "18 rue Victor Lagrange, 69007 Lyon",
+   "start": 297,
+   "end": 331,
+   "checksum": false
+  },
+  {
+   "id": "p_delacourt",
+   "kind": "PERSON",
+   "text": "Jean-Pierre DELACOURT",
+   "start": 385,
+   "end": 406,
+   "checksum": false
+  },
+  {
+   "id": "p_lervignac",
+   "kind": "PERSON",
+   "text": "Sophie LERVIGNAC",
+   "start": 474,
+   "end": 490,
+   "checksum": false
+  },
+  {
+   "id": "o_lervignac",
+   "kind": "ORG",
+   "text": "LERVIGNAC AVOCATS",
+   "start": 519,
+   "end": 536,
+   "checksum": false
+  },
+  {
+   "id": "a2",
+   "kind": "ADDRESS",
+   "text": "5 place Bellecour, 69002 Lyon",
+   "start": 545,
+   "end": 574,
+   "checksum": false
+  },
+  {
+   "id": "t1",
+   "kind": "PHONE",
+   "text": "04 65 71 20 14",
+   "start": 581,
+   "end": 595,
+   "checksum": false
+  },
+  {
+   "id": "e1",
+   "kind": "EMAIL",
+   "text": "s.lervignac@lervignac-avocats.fr",
+   "start": 606,
+   "end": 638,
+   "checksum": false
+  },
+  {
+   "id": "p_marchal",
+   "kind": "PERSON",
+   "text": "Étienne Marchal",
+   "start": 647,
+   "end": 662,
+   "checksum": false
+  },
+  {
+   "id": "p_vasseur",
+   "kind": "PERSON",
+   "text": "Hélène VASSEUR-GARNIER",
+   "start": 738,
+   "end": 760,
+   "checksum": false
+  },
+  {
+   "id": "b1",
+   "kind": "BIRTHDATE",
+   "text": "3 mai 1975",
+   "start": 769,
+   "end": 779,
+   "checksum": false
+  },
+  {
+   "id": "a3",
+   "kind": "ADDRESS",
+   "text": "4 allée des Peupliers, 71000 Mâcon",
+   "start": 830,
+   "end": 864,
+   "checksum": false
+  },
+  {
+   "id": "o_brivanor",
+   "kind": "ORG",
+   "text": "Brivanor Logistique",
+   "start": 1045,
+   "end": 1064,
+   "checksum": false
+  },
+  {
+   "id": "p_vasseur",
+   "kind": "PERSON",
+   "text": "Vasseur-Garnier",
+   "start": 1080,
+   "end": 1095,
+   "checksum": false
+  },
+  {
+   "id": "i1",
+   "kind": "IBAN",
+   "text": "FR76 3885 2248 8216 7714 2124 569",
+   "start": 1224,
+   "end": 1257,
+   "checksum": true
+  },
+  {
+   "id": "p_vasseur",
+   "kind": "PERSON",
+   "text": "VASSEUR-GARNIER",
+   "start": 1376,
+   "end": 1391,
+   "checksum": false
+  },
+  {
+   "id": "o_brivanor",
+   "kind": "ORG",
+   "text": "Brivanor",
+   "start": 1504,
+   "end": 1512,
+   "checksum": false
+  },
+  {
+   "id": "p_vasseur",
+   "kind": "PERSON",
+   "text": "Hélène Vasseur-Garnier",
+   "start": 1741,
+   "end": 1763,
+   "checksum": false
+  },
+  {
+   "id": "o_brivanor",
+   "kind": "ORG",
+   "text": "BRIVANOR LOGISTIQUE",
+   "start": 1785,
+   "end": 1804,
+   "checksum": false
+  },
+  {
+   "id": "o_brivanor",
+   "kind": "ORG",
+   "text": "BRIVANOR LOGISTIQUE",
+   "start": 2073,
+   "end": 2092,
+   "checksum": false
+  },
+  {
+   "id": "s2",
+   "kind": "SIRET",
+   "text": "388 684 722 00019",
+   "start": 2100,
+   "end": 2117,
+   "checksum": true
+  }
+ ],
+ "keep_clear": [
+  {
+   "text": "TRIBUNAL JUDICIAIRE DE LYON",
+   "start": 22,
+   "end": 49
+  },
+  {
+   "text": "RCS",
+   "start": 226,
+   "end": 229
+  },
+  {
+   "text": "barreau de Lyon",
+   "start": 502,
+   "end": 517
+  },
+  {
+   "text": "Tribunal judiciaire de Lyon",
+   "start": 899,
+   "end": 926
+  },
+  {
+   "text": "articles 1217 et 1231-1 du Code civil",
+   "start": 1454,
+   "end": 1491
+  },
+  {
+   "text": "Tribunal judiciaire de Lyon",
+   "start": 1635,
+   "end": 1662
+  },
+  {
+   "text": "article 700 du Code de procédure civile",
+   "start": 1888,
+   "end": 1927
+  }
+ ]
+}

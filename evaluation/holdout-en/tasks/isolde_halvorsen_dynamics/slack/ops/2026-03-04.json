@@ -1,0 +1,62 @@
+[
+ {
+  "type": "message",
+  "user": "U821QB1V0",
+  "ts": "1772874185.497230",
+  "client_msg_id": "c07fc3db8e28b50f49cbcb4bc92ee0eec95c",
+  "text": "delivery goes to 4928 Harbor Mist Way, Pellbrook, OR 97201 (ask for Rasmussen)",
+  "user_profile": {
+   "real_name": "Caspar Villanueva",
+   "display_name": "cvillanueva"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U5GYXC1B4",
+  "ts": "1772960622.585170",
+  "client_msg_id": "ec61014138dddc0579a6654cb2e76745bacb",
+  "text": "call Nerissa at 617-555-0107 before you send the crew",
+  "user_profile": {
+   "real_name": "Boyd Tallis",
+   "display_name": "boydtal"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U6079U0Y1",
+  "ts": "1773047059.921159",
+  "client_msg_id": "ca3d27e70232d8b41ca070cbb44c1ea38c40",
+  "text": "delivery goes to 6457 Harbor Mist Way, Pellbrook, OR 97201 (ask for Dimitriou)",
+  "user_profile": {
+   "real_name": "Sylvie Abernathy",
+   "display_name": "sylvie.abernathy"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U43GUNWK1",
+  "ts": "1773133496.469150",
+  "client_msg_id": "4153d9c068459367b1d05cb6ad8314fd92a1",
+  "text": "<@U78C2GH0F> <@U9MZM3QQC> please review the holiday roster",
+  "user_profile": {
+   "real_name": "Greta Yelverton",
+   "display_name": "gretayel"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U0HY359TK",
+  "ts": "1773219933.761687",
+  "client_msg_id": "bec0b68c2ca2051b76f0a51d186b0b8dbce9",
+  "text": "call Gideon at 617.555.0153 before you send the crew",
+  "user_profile": {
+   "real_name": "Horatio Eastwick",
+   "display_name": "heastwick"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

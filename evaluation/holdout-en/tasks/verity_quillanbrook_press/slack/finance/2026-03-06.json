@@ -1,0 +1,38 @@
+[
+ {
+  "type": "message",
+  "user": "U8K3S94AC",
+  "ts": "1773133496.695361",
+  "client_msg_id": "89ae52da43a1a111a67921335f8db8ce6765",
+  "text": "send the statement to edith@quillanbrookpress.test (Edith)",
+  "user_profile": {
+   "real_name": "Romilly Ironside",
+   "display_name": "rironside"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U3SA2G32A",
+  "ts": "1773219933.493978",
+  "client_msg_id": "f6092c625f4a0bb59965be043368a9a3d6f9",
+  "text": "reimbursement to Edith Takahashi, account 95851053, approved",
+  "user_profile": {
+   "real_name": "Cormac Uribe",
+   "display_name": "uribec"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U53957MAD",
+  "ts": "1773306370.936692",
+  "client_msg_id": "8516c808a44c73d5cda2a698691f496a1c9c",
+  "text": "vendor accounts csv attached",
+  "user_profile": {
+   "real_name": "Tamsin Nightingale",
+   "display_name": "tamsinnig"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

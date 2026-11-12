@@ -1,0 +1,62 @@
+[
+ {
+  "type": "message",
+  "user": "U5KSJALS6",
+  "ts": "1773306370.966124",
+  "client_msg_id": "cf3f6bf01c0ae2496c97a23d710df81af739",
+  "text": "reminder: Birchmount invoice is due &amp; keep it short",
+  "user_profile": {
+   "real_name": "Joaquin Quayle",
+   "display_name": "joaquinqua"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U3RK48NXC",
+  "ts": "1773392807.853163",
+  "client_msg_id": "d678445367acff5c9defde91bbc4723448af",
+  "text": "ask bas about the site survey",
+  "user_profile": {
+   "real_name": "Felix Petrov",
+   "display_name": "petrovf"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U6QM11724",
+  "ts": "1773479244.264708",
+  "client_msg_id": "11937e0ab4cb372d1fff69858ebad41ac675",
+  "text": "ask clem about the safety drill",
+  "user_profile": {
+   "real_name": "Soren Northcott",
+   "display_name": "snorthcott"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U3FD6JHXD",
+  "ts": "1773565681.721525",
+  "client_msg_id": "19868903fea6a6e5ebb603375033ab4dec1a",
+  "text": "@clementine_blackwood has the doc",
+  "user_profile": {
+   "real_name": "Ulysses Quarrington",
+   "display_name": "uquarrington"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U5TLKKGQS",
+  "ts": "1773652118.499522",
+  "client_msg_id": "7acbb4dff65fd0f98f3f2db71da023213a37",
+  "text": "the vendor portal moved: &lt;https://www.ashgrove.test/login&gt;",
+  "user_profile": {
+   "real_name": "Imogen Ravelston",
+   "display_name": "ravelstoni"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

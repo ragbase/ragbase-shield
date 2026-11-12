@@ -1,0 +1,74 @@
+[
+ {
+  "type": "message",
+  "user": "U817FX22N",
+  "ts": "1773047059.722235",
+  "client_msg_id": "a97f6c9c25c471cb8b47488a8c94acf9b03a",
+  "text": "<@U690QRVEP> can you look at the site survey?",
+  "user_profile": {
+   "real_name": "Ambrose Westbrook",
+   "display_name": "ambrose.westbrook"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U0J5JA0W9",
+  "ts": "1773133496.738883",
+  "client_msg_id": "268655fcf67ae5b3b38ed432552e5b3aedd5",
+  "text": "heads up: Eastwick & Associates visit tomorrow &amp; keep it short",
+  "user_profile": {
+   "real_name": "Florian Sallow",
+   "display_name": "florian.sallow"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U2S6Y7Z3W",
+  "ts": "1773219933.286021",
+  "client_msg_id": "21ea71dbfff3da9a3061b19c91c616359b8e",
+  "text": "<@U1SXX09U7> any update on the holiday roster?",
+  "user_profile": {
+   "real_name": "Cormac Orrell",
+   "display_name": "correll"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U0J5JA0W9",
+  "ts": "1773306370.204640",
+  "client_msg_id": "7c128d5aef9001f30a643b33e877d7d891d9",
+  "text": "ask thea about the invoice backlog",
+  "user_profile": {
+   "real_name": "Florian Sallow",
+   "display_name": "florian.sallow"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U003AY17F",
+  "ts": "1773392807.637624",
+  "client_msg_id": "68bec07ad27a0a9291905992241b766d5e7f",
+  "text": "thanks ambrose, ship it &amp; bring numbers",
+  "user_profile": {
+   "real_name": "Hazel Sorensen",
+   "display_name": "hazelsor"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U7P68FS6E",
+  "ts": "1773479244.402172",
+  "client_msg_id": "b5a23979355ec3213577f706a1f8befe7c24",
+  "text": "<@U817FX22N> thanks for the training week? &amp; bring numbers",
+  "user_profile": {
+   "real_name": "Dorothea Gresham",
+   "display_name": "dorothea.gresham"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

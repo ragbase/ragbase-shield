@@ -1,0 +1,62 @@
+[
+ {
+  "type": "message",
+  "user": "U5X5DN0GT",
+  "ts": "1772874185.251071",
+  "client_msg_id": "878ebd2975edb01726480d9ca31a5b16e3c9",
+  "text": "@ridgewellk owns this one &amp; no slides please",
+  "user_profile": {
+   "real_name": "Zachariah Ostrowicz",
+   "display_name": "zachariah.ostrowicz"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U5CZD241H",
+  "ts": "1772960622.521758",
+  "client_msg_id": "8055b5e5a760d31f303fd7d50057e7c5e64e",
+  "text": "fyi Quarry visit tomorrow",
+  "user_profile": {
+   "real_name": "Sylvie Castellanos",
+   "display_name": "sylvie_castellanos"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U2NZE99RZ",
+  "ts": "1773047059.113671",
+  "client_msg_id": "e9f80cb55812290abb4d974ad03f497eaaa4",
+  "text": "reminder: Quarry moved offices",
+  "user_profile": {
+   "real_name": "Jocelyn Kowalchuk",
+   "display_name": "jocelyn_kowalchuk"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U5X5DN0GT",
+  "ts": "1773133496.775556",
+  "client_msg_id": "2fb10ac44552491343dc130978ef8bf09529",
+  "text": "<@U2NZE99RZ> can you look at the site survey? &amp; bring numbers",
+  "user_profile": {
+   "real_name": "Zachariah Ostrowicz",
+   "display_name": "zachariah.ostrowicz"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U1VJ83N19",
+  "ts": "1773219933.902607",
+  "client_msg_id": "8dd72abef18febfc22d4d40cfe9729ebce71",
+  "text": "fyi Copperfield invoice is due",
+  "user_profile": {
+   "real_name": "Vaughn Holloway",
+   "display_name": "vaughn_holloway"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

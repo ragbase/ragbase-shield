@@ -1,0 +1,26 @@
+[
+ {
+  "type": "message",
+  "user": "U0HVTBU19",
+  "ts": "1772442000.536949",
+  "client_msg_id": "6c675ced1c3d6e0e8363b4ff9900870e293f",
+  "text": "did Lindgren signed?",
+  "user_profile": {
+   "real_name": "Everett Castellanos",
+   "display_name": "castellanose"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U7FARZGEV",
+  "ts": "1772528437.585350",
+  "client_msg_id": "d6566ef851966a5f118f757bb9d619526380",
+  "text": "use my personal one: alaric.lindgren43@postwave.test",
+  "user_profile": {
+   "real_name": "Alaric Lindgren",
+   "display_name": "lindgrena"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

@@ -1,0 +1,38 @@
+[
+ {
+  "type": "message",
+  "user": "U5G481PC7",
+  "ts": "1773133496.588110",
+  "client_msg_id": "e25968c4ed849761dba03f02d1e9bec3d2a1",
+  "text": "send the statement to liesl.chowdhury@sunmarrow.test (Liesl)",
+  "user_profile": {
+   "real_name": "Ada Haddad",
+   "display_name": "adahad"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U006VLBD7",
+  "ts": "1773219933.487181",
+  "client_msg_id": "9da82882e16ea0278a425e6ed2c382d3b20f",
+  "text": "send the statement to matthias.orrell@northcott.test (Matthias)",
+  "user_profile": {
+   "real_name": "Dorothea Takahashi",
+   "display_name": "dorothea.takahashi"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U1WCE4CT9",
+  "ts": "1773306370.918634",
+  "client_msg_id": "5ee172172ef79878368bd1b60cf8f88d271d",
+  "text": "vendor accounts csv attached",
+  "user_profile": {
+   "real_name": "Oriana Eastwick",
+   "display_name": "oriana.eastwick"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

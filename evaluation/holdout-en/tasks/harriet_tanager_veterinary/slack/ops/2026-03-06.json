@@ -1,0 +1,62 @@
+[
+ {
+  "type": "message",
+  "user": "U4ZW87RSW",
+  "ts": "1773392807.181177",
+  "client_msg_id": "5a2df6439a3aae73475cb14523436443e5b0",
+  "text": "delivery goes to 1008 Willowmere Road, Kessler City, CO 80202 (ask for Yardley)",
+  "user_profile": {
+   "real_name": "Ivo Hartigan",
+   "display_name": "ivohar"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U5V5NJC7F",
+  "ts": "1773479244.361161",
+  "client_msg_id": "341ef60447387a33b04bd44495e7a9e37307",
+  "text": "call Verity at 646.555.0172 before you send the crew",
+  "user_profile": {
+   "real_name": "Bea Inchbald",
+   "display_name": "binchbald"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U3S6YUNAT",
+  "ts": "1773565681.212967",
+  "client_msg_id": "8e21c2c0622ff1a6726f72a03ce5ef1d182e",
+  "text": "meeting with Copperfield is in the folder",
+  "user_profile": {
+   "real_name": "Harriet Nakashima",
+   "display_name": "nakashimah"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U8WG6C06H",
+  "ts": "1773652118.157322",
+  "client_msg_id": "22231694069bbfaffb061c752a8e2b62393a",
+  "text": "meeting with Copperfield Technical Services is in the folder",
+  "user_profile": {
+   "real_name": "Joaquin Kingsley",
+   "display_name": "joaquin_kingsley"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U3S6YUNAT",
+  "ts": "1773738555.851829",
+  "client_msg_id": "9ae2c2bafd128d3f0764ad1d07aa95b4b380",
+  "text": "site memo uploaded, see attachment",
+  "user_profile": {
+   "real_name": "Harriet Nakashima",
+   "display_name": "nakashimah"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

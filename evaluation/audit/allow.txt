@@ -1,0 +1,1138 @@
+# Allow list of evaluation/audit/audit_bench.py. One entry per line: "value | reason". Matching is case- and
+# accent-insensitive, on the whole value: allowing a first name never clears a full name that holds it.
+# An identifier needs an explicit "id:" prefix.
+#
+# What may enter this list (each line says which rule it uses):
+# 1. A common first name: US Census 1990 first-name list (public domain) or the INSEE first-name file that was
+#    already in the tree at v0.1 (tag 4fdde84, before any benchmark was held).
+# 2. A common word: Webster's 2nd dictionary (public domain, /usr/share/dict/words), a French word list of v0.1,
+#    or a word checked by hand (programming words, product nouns), with its reason.
+# 3. A public place name (city, region, country), a public company or product name named for what it is, or a
+#    public person named in the docs.
+# 4. A value already in the tree before the benchmark that holds it was downloaded (v0.1 4fdde84 for all of them;
+#    R1 8ce038d for PrivacyBench) that is a common surname or a generic example: it cannot come from that
+#    benchmark. The reason gives the commit.
+# 5. id: placeholders only: sequential digits, published example IBANs, fiction-range or placeholder phone numbers,
+#    and the few v0.1 references the reason names.
+# 6. A given name or diminutive of the engine's first-name lexicon (en_first_names.txt [supplement] and [nicknames],
+#    v0.2 and S5) that is a common given name of its language or region, checked by hand by the integrator
+#    (2026-10-23, v0.3.1). Those sections were written by region of origin, with no data set behind them (header of
+#    the lexicon). The v0.3 adversarial check (privacybench/RESULTS_V03.md section 1) found that they cover only 4
+#    of the 56 benchmark first names and nicknames that v0.2 missed: they were not written from a miss list. Each
+#    reason names the language or region, and a public macOS word list that also holds the name when one does.
+#    The strict choice (remove these names from the lexicon, then measure again) stays open (SCOREBOARD section 15).
+# A detection-lexicon entry that is a gold value and fits none of these rules is NOT listed here: the audit keeps
+# reporting it (see the report of the run), and the lexicon owner removes it.
+# Never: a distinctive name, an identifier or an address of a benchmark. Those are replaced by invented values.
+#
+# ---- entries
+# 1. common first names (716)
+aaron | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+achour | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+adam | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+adelaide | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+adele | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+adrien | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+adrienne | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+agathe | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+agnes | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+ahmad | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+ahmed | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+ahmet | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+aiko | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+aime | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+aimee | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+aisha | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+aissatou | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+akira | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+alain | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+albert | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+alejandra | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+alejandro | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+alessandra | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+alessandro | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+alex | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+alexa | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+alexander | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+alexandra | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+alexandre | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+alexandria | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+alexandrie | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+alexei | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+alfred | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+alice | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+alicia | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+alina | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+allain | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+allison | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+alphonse | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+amber | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+amira | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+anais | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+anastasie | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+anderson | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+andre | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+andreas | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+andree | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+angela | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+angie | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+anil | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+anita | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+anna | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+anna maria | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+anne | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+anne marie | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+annemarie | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+annika | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+anouk | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+anthony | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+antoine | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+antonio | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+anya | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+arnaud | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+arthur | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+arun | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+ashley | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+astrid | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+atlas | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+aubert | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+aubry | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+audrey | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+auguste | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+augustin | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+aurelie | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+aurore | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+ayse | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+baptiste | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+barbe | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+barthelemy | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+beatriz | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+bell | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+bella | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+benali | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+benjamin | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+benoit | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+bernadette | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+bernard | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+bertin | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+bertrand | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+beth | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+bethany | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+bianca | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+bibi | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+bill | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+bjorn | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+bouziane | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+boyd | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+brad | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+bradley | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+brenda | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+brian | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+bridget | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+brooks | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+bruneau | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+bryce | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+burak | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+caitlin | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+callie | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+camila | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+camilla | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+camille | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+canan | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+carl | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+carla | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+carlos | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+carmen | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+carol | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+carolina | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+caroline | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+carter | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+catherine | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+cecile | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+chantal | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+charles | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+charlotte | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+chiara | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+chretien | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+chris | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+christelle | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+christian | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+christiane | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+christina | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+christine | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+christophe | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+christopher | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+chuck | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+claire | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+clara | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+claude | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+claudia | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+claudine | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+clemence | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+clement | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+clementine | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+clotilde | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+colas | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+cole | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+coleman | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+colette | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+colin | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+collin | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+constance | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+coralie | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+cordelia | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+corinne | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+costa | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+crystal | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+curt | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+curtis | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+dana | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+dani | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+daniel | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+daniela | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+danielle | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+danny | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+dave | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+david | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+debbie | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+deborah | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+delta | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+denis | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+denise | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+deniz | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+denver | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+derek | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+desmond | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+devin | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+devon | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+diane | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+didier | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+diego | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+dogan | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+dolores | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+dominic | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+dominique | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+donna | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+donovan | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+doreen | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+dorothee | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+doug | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+douglas | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+doyle | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+dylan | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+eddie | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+edouard | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+eduardo | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+edwige | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+eleanor | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+elena | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+eleonora | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+elijah | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+elisa | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+elisabeth | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+elise | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+elizabeth | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+ellsworth | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+elodie | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+eloise | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+emery | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+emile | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+emilie | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+emily | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+emma | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+emmanuel | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+emmanuelle | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+emre | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+enrique | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+eric | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+erik | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+ethan | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+etienne | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+eugene | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+evrard | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+fabio | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+fabrice | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+fanch | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+farouk | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+fatima | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+fatma | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+fatoumata | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+felix | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+fernanda | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+fernando | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+fleury | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+foster | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+francesca | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+francesco | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+francois | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+francoise | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+frank | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+fred | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+frederic | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+frederick | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+frederique | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+gabriela | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+gabrielle | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+gaetan | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+garrett | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+gary | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+gautier | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+genevieve | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+georges | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+gerald | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+gerard | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+germain | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+gerry | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+gigi | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+gilbert | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+gilles | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+gina | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+giorgio | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+giovanni | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+girard | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+giulia | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+giuliana | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+giuliano | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+gloria | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+gontrand | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+grace | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+gracie | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+greg | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+gregoire | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+gregory | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+greta | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+guillaume | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+gwen | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+gwenaelle | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+gwendoline | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+gwenola | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+hamel | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+hana | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+hank | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+hannah | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+harold | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+harriet | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+hasan | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+hassan | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+hebert | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+hector | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+helen | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+helena | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+helene | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+helga | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+henri | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+henriette | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+henrik | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+henrique | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+henry | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+herve | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+hilton | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+hoang | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+hollis | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+honore | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+hortense | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+howard | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+hubert | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+hugues | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+ignacio | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+ines | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+ingrid | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+isaac | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+isabella | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+isabelle | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+ivan | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+izzy | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+jacob | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+jacqueline | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+jacques | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+jaime | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+jakub | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+jamal | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+james | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+jana | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+janet | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+janne | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+jared | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+javier | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+jean | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+jean francois | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+jean luc | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+jean marc | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+jean philippe | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+jeannine | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+jeff | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+jeffrey | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+jenna | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+jennifer | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+jerry | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+jess | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+jessica | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+jill | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+joana | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+joao | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+joel | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+johan | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+johanna | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+john | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+johnson | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+jonas | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+jonathan | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+jordan | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+jordy | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+josee | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+joseph | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+josephine | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+josette | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+juan carlos | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+jules | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+julia | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+juliana | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+julie | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+julien | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+jurgen | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+kara | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+karel | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+karen | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+kari | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+karim | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+karin | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+karolina | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+katarina | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+kate | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+katerina | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+katharina | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+katherine | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+kathleen | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+kaya | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+keiko | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+kenji | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+kevin | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+khadija | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+khalid | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+kimberly | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+klara | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+klaus | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+kristian | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+kristine | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+krystal | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+laetitia | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+laine | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+lambert | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+larry | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+lars | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+laura | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+laure | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+lauren | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+laurence | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+laurent | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+lawrence | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+leena | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+leger | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+lena | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+leroy | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+levi | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+levy | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+lien | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+lilly | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+lilou | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+lina | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+lincoln | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+linda | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+lindsey | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+lior | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+lisa | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+lise | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+loic | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+lorenzo | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+lorraine | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+louis | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+louise | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+luca | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+lucas | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+luce | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+lucia | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+luciana | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+lucie | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+lucy | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+luiza | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+lukas | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+luna | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+madeleine | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+madonna | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+maelle | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+maggie | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+mahe | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+mai linh | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+maja | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+mali | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+malik | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+manon | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+mansour | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+mara | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+marc | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+marc andre | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+marc antoine | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+marcel | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+marcelle | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+marco | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+marcos | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+marcus | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+marek | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+margaret | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+margarida | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+margaud | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+margaux | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+margie | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+margot | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+marguerite | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+mari | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+maria | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+maria luisa | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+mariana | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+marianne | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+marie | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+marie claude | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+marieke | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+marin | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+marine | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+marion | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+marisa | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+marisol | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+marko | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+markus | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+marla | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+marlene | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+marta | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+marthe | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+martin | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+martina | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+martine | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+mary | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+masako | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+mason | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+mateo | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+mathieu | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+mathis | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+matt | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+matthew | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+matthias | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+matthieu | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+matti | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+maurice | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+maximilian | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+maya | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+megan | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+mehdi | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+mehmet | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+meredith | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+merle | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+meyer | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+michael | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+michel | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+michelle | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+mika | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+mikael | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+mike | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+milan | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+milano | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+minh | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+minna | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+mitchell | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+mohammed | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+monique | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+morgan | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+murat | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+nadege | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+nadia | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+natalie | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+nathalie | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+nathan | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+nathaniel | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+nell | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+nicholas | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+nicolas | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+nicole | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+niko | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+noel | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+noemi | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+nora | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+normand | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+nour | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+novak | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+oceane | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+odette | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+oliver | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+olivia | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+olivier | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+ollivier | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+omar | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+ombeline | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+ophelie | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+orion | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+osman | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+owen | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+pascal | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+pascale | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+patricia | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+patrick | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+paul | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+paulette | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+paulo | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+pavel | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+pedro | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+peggy | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+penelope | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+peter | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+petra | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+philippe | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+philippine | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+pierre | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+piotr | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+priscilla | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+priya | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+priyanka | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+quentin | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+rachel | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+rafael | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+rahman | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+ramona | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+raul | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+ravi | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+raymond | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+rebecca | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+remi | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+remy | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+rena | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+renata | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+renaud | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+rene | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+renee | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+reyes | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+ricardo | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+richard | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+robert | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+roberto | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+robin | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+rodrigo | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+roger | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+rohan | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+roland | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+rolland | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+roma | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+rosa | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+ruffin | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+sabine | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+sacha | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+salman | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+salomon | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+salvador | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+samantha | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+samir | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+samira | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+sammy | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+samson | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+samuel | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+sandra | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+sandrine | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+sandy | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+sanjay | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+sanna | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+santiago | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+santos | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+sarah | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+sari | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+sean | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+sebastian | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+sebastien | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+selim | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+serena | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+serkan | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+sheryl | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+silva | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+simone | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+siobhan | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+sloane | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+sofia | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+solene | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+solveig | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+sophie | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+soren | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+stanley | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+stefan | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+stephane | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+stephanie | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+stephen | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+steve | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+steven | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+sullivan | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+sung | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+susan | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+susanne | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+suzanne | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+sylvain | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+sylvie | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+talia | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+tanguy | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+tanya | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+tasha | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+teddy | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+teresa | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+terrence | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+terri | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+terry | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+theo | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+theodore | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+theophile | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+theresa | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+therese | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+thiago | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+thibault | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+thibaut | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+thierry | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+thomas | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+timeo | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+timothee | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+tina | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+tobias | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+toby | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+tomas | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+tony | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+toussaint | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+tran | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+trevor | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+trish | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+tristan | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+tyler | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+tyson | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+ulysse | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+valencia | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+valentin | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+valentina | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+valerie | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+vance | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+vanessa | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+veronique | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+victor | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+vince | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+vincent | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+vinny | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+vivian | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+viviane | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+walter | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+warner | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+wendell | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+wendy | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+whitney | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+wilfried | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+willem | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+william | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+williams | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+xavier | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+yael | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+yanis | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+yann | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+yasmina | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+yolanda | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+youssef | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+yuki | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+yung | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+yusuf | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+yves | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+yvette | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+yvon | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+yvonne | first name, US Census 1990 first-name list (public domain; en_first_names.txt [census])
+zacharie | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+zeynep | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84
+# 2. common words (177)
+administrateur | common French word checked by hand (a role, place or trade noun), not a name
+advantage | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+advisory | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+american | common word or phrase checked by hand (not in the 1934 dictionary list: a modern or plural form, a programming word, a generic office phrase)
+avocat | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+avocate | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+barbier | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+baron | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+benefits | common word or phrase checked by hand (not in the 1934 dictionary list: a modern or plural form, a programming word, a generic office phrase)
+berger | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+blanc | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+boucher | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+boulanger | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+bouvier | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+brand | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+breton | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+bridge | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+brun | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+caisse primaire d assurance maladie | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+carpentier | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+carre | common French word checked by hand (a role, place or trade noun), not a name
+case | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+cass | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+cave | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+central | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+charpentier | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+chevalier | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+chevallier | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+clerc | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+cliente | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+coco | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+compensation | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+conseiller | common French word checked by hand (a role, place or trade noun), not a name
+cooper | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+cordier | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+corporate | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+cousin | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+couturier | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+cpam | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+crane | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+customer service | common word or phrase checked by hand (not in the 1934 dictionary list: a modern or plural form, a programming word, a generic office phrase)
+dashboard | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+dashboards | common word or phrase checked by hand (not in the 1934 dictionary list: a modern or plural form, a programming word, a generic office phrase)
+defense | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+defunt | common French word checked by hand (a role, place or trade noun), not a name
+design team | common word or phrase checked by hand (not in the 1934 dictionary list: a modern or plural form, a programming word, a generic office phrase)
+directeur | common French word checked by hand (a role, place or trade noun), not a name
+docs | common word or phrase checked by hand (not in the 1934 dictionary list: a modern or plural form, a programming word, a generic office phrase)
+eleve | common French word checked by hand (a role, place or trade noun), not a name
+elif | common word or phrase checked by hand (not in the 1934 dictionary list: a modern or plural form, a programming word, a generic office phrase)
+fabre | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+faure | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+ferrand | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+fields | common word or phrase checked by hand (not in the 1934 dictionary list: a modern or plural form, a programming word, a generic office phrase)
+fils | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+finance | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+fintech | common word or phrase checked by hand (not in the 1934 dictionary list: a modern or plural form, a programming word, a generic office phrase)
+fontaine | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+foundation | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+frost | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+gabby | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+gain | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+gateway | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+goff | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+greenfield | common word or phrase checked by hand (not in the 1934 dictionary list: a modern or plural form, a programming word, a generic office phrase)
+grenier | common French word checked by hand (a role, place or trade noun), not a name
+gros | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+guardian | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+guardrail | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+hale | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+hardy | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+hart | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+hill | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+home office | common word or phrase checked by hand (not in the 1934 dictionary list: a modern or plural form, a programming word, a generic office phrase)
+horizon | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+human resources | common word or phrase checked by hand (not in the 1934 dictionary list: a modern or plural form, a programming word, a generic office phrase)
+ideas | common word or phrase checked by hand (not in the 1934 dictionary list: a modern or plural form, a programming word, a generic office phrase)
+immigration services | common word or phrase checked by hand (not in the 1934 dictionary list: a modern or plural form, a programming word, a generic office phrase)
+institute | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+intelligent | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+jumeau | common French word checked by hand (a role, place or trade noun), not a name
+jumelle | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+la banque | common word or phrase checked by hand (not in the 1934 dictionary list: a modern or plural form, a programming word, a generic office phrase)
+lang | common word or phrase checked by hand (not in the 1934 dictionary list: a modern or plural form, a programming word, a generic office phrase)
+leader | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+leadership | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+leblanc | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+lebon | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+lebrun | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+legal and | common word or phrase checked by hand (not in the 1934 dictionary list: a modern or plural form, a programming word, a generic office phrase)
+legal | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+legataire | common French word checked by hand (a role, place or trade noun), not a name
+legrand | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+lejeune | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+lenoir | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+lesage | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+line | common word or phrase checked by hand (not in the 1934 dictionary list: a modern or plural form, a programming word, a generic office phrase)
+lion | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+logistique | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+lombard | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+loyalty | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+main st | common word or phrase checked by hand (not in the 1934 dictionary list: a modern or plural form, a programming word, a generic office phrase)
+mandataire judiciaire | common word or phrase checked by hand (not in the 1934 dictionary list: a modern or plural form, a programming word, a generic office phrase)
+marchand | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+mariage | common French word checked by hand (a role, place or trade noun), not a name
+mark | common word or phrase checked by hand (not in the 1934 dictionary list: a modern or plural form, a programming word, a generic office phrase)
+marketing | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+marsh | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+masson | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+menuiserie | common French word checked by hand (a role, place or trade noun), not a name
+mercer | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+mercier | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+meridian | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+meunier | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+mills | common word or phrase checked by hand (not in the 1934 dictionary list: a modern or plural form, a programming word, a generic office phrase)
+morel | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+moulin | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+neveu | common French word checked by hand (a role, place or trade noun), not a name
+nick | common word or phrase checked by hand (not in the 1934 dictionary list: a modern or plural form, a programming word, a generic office phrase)
+noel toussaint | generic placeholder text, not a value of any record
+north | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+northern | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+notaire | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+notre | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+ops team | common word or phrase checked by hand (not in the 1934 dictionary list: a modern or plural form, a programming word, a generic office phrase)
+paddy | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+pages | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+park | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+payroll | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+pelletier | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+picard | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+pike | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+pinnacle | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+poirier | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+potier | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+premier | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+prenom nom | generic placeholder text, not a value of any record
+president | common French word checked by hand (a role, place or trade noun), not a name
+puis | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+regional | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+renard | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+republic | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+resource | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+riviere | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+robotics | common word or phrase checked by hand (not in the 1934 dictionary list: a modern or plural form, a programming word, a generic office phrase)
+roche | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+rocher | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+rosewood | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+roux | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+saga | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+salmon | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+service client | common word or phrase checked by hand (not in the 1934 dictionary list: a modern or plural form, a programming word, a generic office phrase)
+skip | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+smith | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+societe | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+southeast | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+southern | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+standard | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+standup | common word or phrase checked by hand (not in the 1934 dictionary list: a modern or plural form, a programming word, a generic office phrase)
+steward | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+strategy | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+target | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+territory | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+thai | common word or phrase checked by hand (not in the 1934 dictionary list: a modern or plural form, a programming word, a generic office phrase)
+the standard | common word or phrase checked by hand (not in the 1934 dictionary list: a modern or plural form, a programming word, a generic office phrase)
+tidewater | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+tier | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+transports | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+underwriting | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+united | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+vallee | common French word (many are also surnames), in a French word list of v0.1 4fdde84
+voisin | common French word checked by hand (a role, place or trade noun), not a name
+wells | common word or phrase checked by hand (not in the 1934 dictionary list: a modern or plural form, a programming word, a generic office phrase)
+west | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+will | common word or phrase checked by hand (not in the 1934 dictionary list: a modern or plural form, a programming word, a generic office phrase)
+winters | common word or phrase checked by hand (not in the 1934 dictionary list: a modern or plural form, a programming word, a generic office phrase)
+wren | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words)
+# 3a. public places (66)
+aix en provence | public place name (city, region or country), not a person or a record
+albany | public place name (city, region or country), not a person or a record
+albuquerque | public place name (city, region or country), not a person or a record
+amazon | public place name (city, region or country), not a person or a record
+amiens | public place name (city, region or country), not a person or a record
+amsterdam | public place name (city, region or country), not a person or a record
+austin | public place name (city, region or country), not a person or a record
+barcelona | public place name (city, region or country), not a person or a record
+berlin | public place name (city, region or country), not a person or a record
+bogota | public place name (city, region or country), not a person or a record
+bordeaux | public place name (city, region or country), not a person or a record
+boulogne billancourt | public place name (city, region or country), not a person or a record
+budapest | public place name (city, region or country), not a person or a record
+caen | public place name (city, region or country), not a person or a record
+chennai | public place name (city, region or country), not a person or a record
+chicago | public place name (city, region or country), not a person or a record
+colorado | public place name (city, region or country), not a person or a record
+dubai | public place name (city, region or country), not a person or a record
+dublin | public place name (city, region or country), not a person or a record
+france | public place name (city, region or country), not a person or a record
+frankfurt | public place name (city, region or country), not a person or a record
+hartford | public place name (city, region or country), not a person or a record
+helsinki | public place name (city, region or country), not a person or a record
+istanbul | public place name (city, region or country), not a person or a record
+kansas | public place name (city, region or country), not a person or a record
+la reunion | public place name (city, region or country), not a person or a record
+la rochelle | public place name (city, region or country), not a person or a record
+lagos | public place name (city, region or country), not a person or a record
+laval | public place name (city, region or country), not a person or a record
+lisbon | public place name (city, region or country), not a person or a record
+london | public place name (city, region or country), not a person or a record
+los angeles | public place name (city, region or country), not a person or a record
+lyon | public place name (city, region or country), not a person or a record
+madagascar | public place name (city, region or country), not a person or a record
+madrid | public place name (city, region or country), not a person or a record
+marseille | public place name (city, region or country), not a person or a record
+melbourne | public place name (city, region or country), not a person or a record
+miami | public place name (city, region or country), not a person or a record
+montpellier | public place name (city, region or country), not a person or a record
+mumbai | public place name (city, region or country), not a person or a record
+nantes | public place name (city, region or country), not a person or a record
+new york | public place name (city, region or country), not a person or a record
+nimes | public place name (city, region or country), not a person or a record
+niort | public place name (city, region or country), not a person or a record
+north carolina | public place name (city, region or country), not a person or a record
+oslo | public place name (city, region or country), not a person or a record
+ottawa | public place name (city, region or country), not a person or a record
+paris | public place name (city, region or country), not a person or a record
+phoenix | public place name (city, region or country), not a person or a record
+poitiers | public place name (city, region or country), not a person or a record
+polynesie francaise | public place name (city, region or country), not a person or a record
+portugal | public place name (city, region or country), not a person or a record
+prague | public place name (city, region or country), not a person or a record
+quebec | public place name (city, region or country), not a person or a record
+saint denis | public place name (city, region or country), not a person or a record
+san francisco | public place name (city, region or country), not a person or a record
+senegal | public place name (city, region or country), not a person or a record
+stockholm | public place name (city, region or country), not a person or a record
+suisse | public place name (city, region or country), not a person or a record
+tarbes | public place name (city, region or country), not a person or a record
+tokyo | public place name (city, region or country), not a person or a record
+toronto | public place name (city, region or country), not a person or a record
+toulouse | public place name (city, region or country), not a person or a record
+versailles | public place name (city, region or country), not a person or a record
+wellington | public place name (city, region or country), not a person or a record
+zurich | public place name (city, region or country), not a person or a record
+# 3b. public companies and products (17)
+amex | public company, product or regulator name, named for what it is (an integration, a tool, a card brand)
+apple | public company, product or regulator name, named for what it is (an integration, a tool, a card brand)
+credit agricole | public company, product or regulator name, named for what it is (an integration, a tool, a card brand)
+docusign | public company, product or regulator name, named for what it is (an integration, a tool, a card brand)
+finra | public company, product or regulator name, named for what it is (an integration, a tool, a card brand)
+google | public company, product or regulator name, named for what it is (an integration, a tool, a card brand)
+instagram | public company, product or regulator name, named for what it is (an integration, a tool, a card brand)
+intel | public company, product or regulator name, named for what it is (an integration, a tool, a card brand)
+jetbrains | public company, product or regulator name, named for what it is (an integration, a tool, a card brand)
+linkedin | public company, product or regulator name, named for what it is (an integration, a tool, a card brand)
+microsoft | public company, product or regulator name, named for what it is (an integration, a tool, a card brand)
+nvidia | public company, product or regulator name, named for what it is (an integration, a tool, a card brand)
+salesforce | public company, product or regulator name, named for what it is (an integration, a tool, a card brand)
+slack | public company, product or regulator name, named for what it is (an integration, a tool, a card brand)
+swift | public company, product or regulator name, named for what it is (an integration, a tool, a card brand)
+teams | public company, product or regulator name, named for what it is (an integration, a tool, a card brand)
+zoom | public company, product or regulator name, named for what it is (an integration, a tool, a card brand)
+# 3c. common surnames (1)
+lopez | common Spanish surname
+# 4. values already in the tree before the benchmark was held (21)
+claire fontaine | common surname or example already in the v0.1 tree (4fdde84), before any benchmark was held
+coulon | common surname or example already in the v0.1 tree (4fdde84), before any benchmark was held
+dupont | common surname or example already in the v0.1 tree (4fdde84), before any benchmark was held
+durand | common surname or example already in the v0.1 tree (4fdde84), before any benchmark was held
+duval | common surname or example already in the v0.1 tree (4fdde84), before any benchmark was held
+garnier | common surname or example already in the v0.1 tree (4fdde84), before any benchmark was held
+haddad | common surname or example already in the v0.1 tree (4fdde84), before any benchmark was held
+jean pierre | common surname or example already in the v0.1 tree (4fdde84), before any benchmark was held
+karim benali | common surname or example already in the v0.1 tree (4fdde84), before any benchmark was held
+le goff | common surname or example already in the v0.1 tree (4fdde84), before any benchmark was held
+leclerc | common surname or example already in the v0.1 tree (4fdde84), before any benchmark was held
+lefebvre | common surname or example already in the v0.1 tree (4fdde84), before any benchmark was held
+lefevre | common surname or example already in the v0.1 tree (4fdde84), before any benchmark was held
+m blanc | common surname or example already in the v0.1 tree (4fdde84), before any benchmark was held
+m thomas | common surname or example already in the v0.1 tree (4fdde84), before any benchmark was held
+marie claire | common surname or example already in the v0.1 tree (4fdde84), before any benchmark was held
+o brien | common surname or example already in the v0.1 tree (4fdde84), before any benchmark was held
+perrin | common surname or example already in the v0.1 tree (4fdde84), before any benchmark was held
+prevost | common surname or example already in the v0.1 tree (4fdde84), before any benchmark was held
+steph | common diminutive of Stephanie/Stephane, in the tests since R1 (8ce038d, 2026-10-17), before PrivacyBench was downloaded (9906175, 2026-10-18)
+vasseur | common surname or example already in the v0.1 tree (4fdde84), before any benchmark was held
+# 5. identifier placeholders (18)
+id:0123456789 | sequential-digit placeholder, not a value of any record
+id:0612345678 | French placeholder mobile number 06 12 34 56 78, in the v0.1 tests (4fdde84)
+id:0639984127 | demo phone of the v0.1 CLI sample (4fdde84), before the Max corpus was written
+id:0987654321 | sequential-digit placeholder, not a value of any record
+id:123456 | sequential-digit placeholder, not a value of any record
+id:1234567 | sequential-digit placeholder, not a value of any record
+id:12345678 | sequential-digit placeholder, not a value of any record
+id:123456789 | sequential-digit placeholder, not a value of any record
+id:1234567890 | sequential-digit placeholder, not a value of any record
+id:20260117 | date-shaped reference in the v0.1 fixtures (4fdde84), before the Max corpus was written
+id:33612345678 | international form of the placeholder mobile number 06 12 34 56 78
+id:442079460958 | UK number in the Ofcom range reserved for drama (020 7946 0xxx), in the v0.1 tests (4fdde84)
+id:98765432 | sequential-digit placeholder, not a value of any record
+id:CH9300762011623852957 | published example IBAN (Wikipedia IBAN article), in the v0.1 tests (4fdde84)
+id:DE89370400440532013000 | published example IBAN (Wikipedia IBAN article), in the v0.1 tests (4fdde84)
+id:FR7630006000011234567890189 | published example IBAN (French banks' and Wikipedia's IBAN example), in the v0.1 tests (4fdde84)
+id:NL91ABNA0417164300 | published example IBAN (Wikipedia IBAN article), in the v0.1 tests (4fdde84)
+id:mdurand | handle built from the v0.1 example surname, in the v0.1 tests (4fdde84)
+# 6. common given names and diminutives of the first-name lexicon, checked by hand (66)
+aarav | Indian given name (Hindi), checked by hand (rule 6); en_first_names.txt [supplement] of v0.2 (81f41e6, 2026-10-18)
+aino | Finnish given name, checked by hand (rule 6); en_first_names.txt [supplement] of S5 (89e0b6c, 2026-10-20)
+aleksei | Russian given name, checked by hand (rule 6); en_first_names.txt [supplement] of S5 (89e0b6c, 2026-10-20)
+amit | Indian given name, checked by hand (rule 6); en_first_names.txt [supplement] of v0.2 (81f41e6, 2026-10-18)
+ananya | Indian given name, checked by hand (rule 6); en_first_names.txt [supplement] of v0.2 (81f41e6, 2026-10-18)
+anders | Scandinavian given name (Swedish, Danish, Norwegian), checked by hand (rule 6); en_first_names.txt [supplement] of v0.2 (81f41e6, 2026-10-18)
+antti | Finnish given name, checked by hand (rule 6); en_first_names.txt [supplement] of S5 (89e0b6c, 2026-10-20)
+balazs | Hungarian given name, checked by hand (rule 6); en_first_names.txt [supplement] of S5 (89e0b6c, 2026-10-20)
+becca | English diminutive of Rebecca, checked by hand (rule 6); en_first_names.txt [nicknames] of v0.2 (81f41e6, 2026-10-18)
+beckett | English given name, common in the US since the 2000s, checked by hand (rule 6); en_first_names.txt [supplement] of v0.2 (81f41e6, 2026-10-18)
+bence | Hungarian given name, checked by hand (rule 6); en_first_names.txt [supplement] of S5 (89e0b6c, 2026-10-20)
+chen | Chinese given name (also a family name), checked by hand (rule 6); en_first_names.txt [supplement] of v0.2 (81f41e6, 2026-10-18); also in Webster's 2nd as a proper name
+chidinma | Nigerian given name (Igbo), checked by hand (rule 6); en_first_names.txt [supplement] of S5 (89e0b6c, 2026-10-20)
+deepa | Indian given name, checked by hand (rule 6); en_first_names.txt [supplement] of v0.2 (81f41e6, 2026-10-18)
+dmitri | Russian given name, checked by hand (rule 6); en_first_names.txt [supplement] of v0.2 (81f41e6, 2026-10-18)
+eszter | Hungarian given name, checked by hand (rule 6); en_first_names.txt [supplement] of S5 (89e0b6c, 2026-10-20)
+gabor | Hungarian given name, checked by hand (rule 6); en_first_names.txt [supplement] of S5 (89e0b6c, 2026-10-20)
+gianluca | Italian given name, checked by hand (rule 6); en_first_names.txt [supplement] of S5 (89e0b6c, 2026-10-20)
+gurpreet | Indian given name (Punjabi), checked by hand (rule 6); en_first_names.txt [supplement] of S5 (89e0b6c, 2026-10-20)
+hamish | Scottish given name, checked by hand (rule 6); en_first_names.txt [supplement] of v0.2 (81f41e6, 2026-10-18)
+hanne | Danish, Norwegian and German given name, checked by hand (rule 6); en_first_names.txt [supplement] of S5 (89e0b6c, 2026-10-20)
+heinrich | German given name, checked by hand (rule 6); en_first_names.txt [nicknames] of S5 (89e0b6c, 2026-10-20), the full form of Heinz
+istvan | Hungarian given name, checked by hand (rule 6); en_first_names.txt [supplement] of S5 (89e0b6c, 2026-10-20)
+jari | Finnish given name, checked by hand (rule 6); en_first_names.txt [supplement] of S5 (89e0b6c, 2026-10-20)
+ji-woo | Korean given name, checked by hand (rule 6); en_first_names.txt [supplement] of S5 (89e0b6c, 2026-10-20)
+jiri | Czech given name, checked by hand (rule 6); en_first_names.txt [supplement] of S5 (89e0b6c, 2026-10-20); also in /usr/share/dict/propernames (BSD)
+joost | Dutch given name, checked by hand (rule 6); en_first_names.txt [supplement] of v0.2 (81f41e6, 2026-10-18)
+kasper | Danish and Dutch given name, checked by hand (rule 6); en_first_names.txt [supplement] of v0.2 (81f41e6, 2026-10-18)
+katrin | German, Estonian and Icelandic given name, checked by hand (rule 6); en_first_names.txt [supplement] of v0.2 (81f41e6, 2026-10-18)
+koen | Dutch and Flemish given name, checked by hand (rule 6); en_first_names.txt [supplement] of S5 (89e0b6c, 2026-10-20)
+kumar | Indian given name (also a family name), checked by hand (rule 6); en_first_names.txt [supplement] of S5 (89e0b6c, 2026-10-20)
+kwame | Ghanaian given name (Akan day name), checked by hand (rule 6); en_first_names.txt [supplement] of v0.2 (81f41e6, 2026-10-18)
+kwan | Korean and Chinese given name (also a family name), checked by hand (rule 6); en_first_names.txt [supplement] of S5 (89e0b6c, 2026-10-20)
+lakshmi | Indian given name, checked by hand (rule 6); en_first_names.txt [supplement] of v0.2 (81f41e6, 2026-10-18); also in Webster's 2nd as a proper name
+liang | Chinese given name (also a family name), checked by hand (rule 6); en_first_names.txt [supplement] of S5 (89e0b6c, 2026-10-20)
+lotte | Dutch, Danish and German given name, checked by hand (rule 6); en_first_names.txt [supplement] of v0.2 (81f41e6, 2026-10-18); also in Webster's 2nd as a proper name
+maddox | English given name, common in the US since the 2000s, checked by hand (rule 6); en_first_names.txt [supplement] of S5 (89e0b6c, 2026-10-20)
+magnus | Scandinavian given name, checked by hand (rule 6); en_first_names.txt [supplement] of v0.2 (81f41e6, 2026-10-18); also in /usr/share/dict/propernames (BSD)
+marketa | Czech given name, checked by hand (rule 6); en_first_names.txt [supplement] of S5 (89e0b6c, 2026-10-20)
+martins | Latvian given name (Martins); also a Portuguese family name, checked by hand (rule 6); en_first_names.txt [supplement] of S5 (89e0b6c, 2026-10-20)
+mette | Danish and Norwegian given name, checked by hand (rule 6); en_first_names.txt [supplement] of S5 (89e0b6c, 2026-10-20)
+mikkel | Danish and Norwegian given name, checked by hand (rule 6); en_first_names.txt [supplement] of v0.2 (81f41e6, 2026-10-18)
+mikko | Finnish given name, checked by hand (rule 6); en_first_names.txt [supplement] of S5 (89e0b6c, 2026-10-20)
+morten | Danish and Norwegian given name, checked by hand (rule 6); en_first_names.txt [supplement] of S5 (89e0b6c, 2026-10-20)
+mwangi | Kenyan name (Kikuyu, given and family name), checked by hand (rule 6); en_first_names.txt [supplement] of S5 (89e0b6c, 2026-10-20)
+nate | English diminutive of Nathan and Nathaniel, checked by hand (rule 6); en_first_names.txt [nicknames] of v0.2 (81f41e6, 2026-10-18); also in /usr/share/dict/propernames (BSD)
+nattapong | Thai given name, checked by hand (rule 6); en_first_names.txt [supplement] of S5 (89e0b6c, 2026-10-20)
+nguyen | Vietnamese name (the most common Vietnamese family name, also in given names), checked by hand (rule 6); en_first_names.txt [supplement] of v0.2 (81f41e6, 2026-10-18); also in /usr/share/dict/propernames (BSD)
+nikolaus | German given name, checked by hand (rule 6); en_first_names.txt [nicknames] of S5 (89e0b6c, 2026-10-20), the full form of Klaus
+oleksandr | Ukrainian given name, checked by hand (rule 6); en_first_names.txt [supplement] of S5 (89e0b6c, 2026-10-20)
+pancho | Spanish diminutive of Francisco, checked by hand (rule 6); en_first_names.txt [nicknames] of S5 (89e0b6c, 2026-10-20)
+petr | Czech and Russian given name, checked by hand (rule 6); en_first_names.txt [supplement] of S5 (89e0b6c, 2026-10-20); also in /usr/share/dict/propernames (BSD)
+pieter | Dutch and Afrikaans given name, checked by hand (rule 6); en_first_names.txt [supplement] of v0.2 (81f41e6, 2026-10-18); also in /usr/share/dict/propernames (BSD)
+rajesh | Indian given name, checked by hand (rule 6); en_first_names.txt [supplement] of v0.2 (81f41e6, 2026-10-18); also in /usr/share/dict/propernames (BSD)
+ramesh | Indian given name, checked by hand (rule 6); en_first_names.txt [supplement] of v0.2 (81f41e6, 2026-10-18); also in /usr/share/dict/propernames (BSD)
+sandeep | Indian given name, checked by hand (rule 6); en_first_names.txt [supplement] of v0.2 (81f41e6, 2026-10-18); also in /usr/share/dict/propernames (BSD)
+sergei | Russian given name, checked by hand (rule 6); en_first_names.txt [supplement] of v0.2 (81f41e6, 2026-10-18); also in /usr/share/dict/propernames (BSD)
+sofie | Danish, Norwegian, Dutch and German given name, checked by hand (rule 6); en_first_names.txt [supplement] of S5 (89e0b6c, 2026-10-20)
+sunita | Indian given name, checked by hand (rule 6); en_first_names.txt [supplement] of v0.2 (81f41e6, 2026-10-18)
+takeshi | Japanese given name, checked by hand (rule 6); en_first_names.txt [supplement] of S5 (89e0b6c, 2026-10-20)
+tamas | Hungarian given name, checked by hand (rule 6); en_first_names.txt [supplement] of S5 (89e0b6c, 2026-10-20)
+tereza | Czech given name, checked by hand (rule 6); en_first_names.txt [supplement] of S5 (89e0b6c, 2026-10-20)
+tomasz | Polish given name, checked by hand (rule 6); en_first_names.txt [supplement] of v0.2 (81f41e6, 2026-10-18)
+venkat | Indian given name (South India, short for Venkatesh), checked by hand (rule 6); en_first_names.txt [supplement] of v0.2 (81f41e6, 2026-10-18)
+vikram | Indian given name, checked by hand (rule 6); en_first_names.txt [supplement] of v0.2 (81f41e6, 2026-10-18)
+walt | English diminutive of Walter, checked by hand (rule 6); en_first_names.txt [nicknames] of v0.2 (81f41e6, 2026-10-18); also in /usr/share/dict/propernames (BSD)
+# 7. three-letter person-name values (v0.4 S0, 2026-10-24): the audit reads them since S0, written in Title case
+#    as a whole word. Each one is a common given name or word under rule 1 or 2, checked against the US Census 1990
+#    lists (public domain) and /usr/share/dict/words (17)
+ben | first name, US Census 1990 first-name list (public domain); also a common English word (rule 1)
+bob | first name, US Census 1990 first-name list (public domain); also a common English word (rule 1)
+dev | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words) (rule 2)
+hal | first name, US Census 1990 first-name list (public domain) (rule 1)
+jan | first name, US Census 1990 first-name list (public domain); also a month abbreviation (rule 1)
+jay | first name, US Census 1990 first-name list (public domain); also a common English word (rule 1)
+lea | first name, US Census 1990 first-name list (public domain); also a common English word (rule 1)
+leo | first name, US Census 1990 first-name list (public domain) (rule 1)
+luc | common word (Webster's 2nd dictionary, public domain, /usr/share/dict/words); US Census 1990 surname list (rule 2)
+mar | common English word (Webster's 2nd dictionary, public domain, /usr/share/dict/words) (rule 2)
+pat | first name, US Census 1990 first-name list (public domain); also a common English word (rule 1)
+ray | first name, US Census 1990 first-name list (public domain); also a common English word (rule 1)
+sam | first name, US Census 1990 first-name list (public domain) (rule 1)
+san | common word (Webster's 2nd dictionary, public domain, /usr/share/dict/words) (rule 2)
+tom | first name, US Census 1990 first-name list (public domain); also a common English word (rule 1)
+ugo | first name, INSEE first-name file (Licence Ouverte), in first_names_fr.txt at v0.1 4fdde84 (rule 1)
+wei | first name, US Census 1990 first-name list (public domain) (rule 1)

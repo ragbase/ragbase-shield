@@ -1,0 +1,62 @@
+[
+ {
+  "type": "message",
+  "user": "U2NZE99RZ",
+  "ts": "1772442000.410622",
+  "client_msg_id": "2e8ae81390aa87aa7713a2336dac30defd8e",
+  "text": "@ridgewellk owns this one",
+  "user_profile": {
+   "real_name": "Jocelyn Kowalchuk",
+   "display_name": "jocelyn_kowalchuk"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U9FNE78VE",
+  "ts": "1772528437.318443",
+  "client_msg_id": "1c6778735a8d71bfae863d52b5b410172552",
+  "text": "<@U1VJ83N19> any update on the holiday roster? &amp; no slides please",
+  "user_profile": {
+   "real_name": "Zara Yeardley",
+   "display_name": "zara.yeardley"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U2NZE99RZ",
+  "ts": "1772614874.902163",
+  "client_msg_id": "2138b3eac03a6154222f27531a9a1a80cf30",
+  "text": "morning fenella, i'll take it",
+  "user_profile": {
+   "real_name": "Jocelyn Kowalchuk",
+   "display_name": "jocelyn_kowalchuk"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U2NZE99RZ",
+  "ts": "1772701311.845348",
+  "client_msg_id": "3aa2a841762ca53f1ab4ea6fb33bc7790007",
+  "text": "<@U7FH4CK9F> can you look at the audit prep? &amp; no slides please",
+  "user_profile": {
+   "real_name": "Jocelyn Kowalchuk",
+   "display_name": "jocelyn_kowalchuk"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U8WG6C06H",
+  "ts": "1772787748.875214",
+  "client_msg_id": "2b5a38c7af059b1c799e4b4394734e2d4151",
+  "text": "@blackwoodt will post the recap",
+  "user_profile": {
+   "real_name": "Joaquin Kingsley",
+   "display_name": "joaquin_kingsley"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

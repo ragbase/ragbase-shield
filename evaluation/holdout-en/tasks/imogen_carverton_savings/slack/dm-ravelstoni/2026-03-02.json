@@ -1,0 +1,26 @@
+[
+ {
+  "type": "message",
+  "user": "U5TLKKGQS",
+  "ts": "1772442000.338652",
+  "client_msg_id": "2fc6af811d410c6f720ae806902a5b00777b",
+  "text": "thx soren see you at 2",
+  "user_profile": {
+   "real_name": "Imogen Ravelston",
+   "display_name": "ravelstoni"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U6QM11724",
+  "ts": "1772528437.731130",
+  "client_msg_id": "25a90dada7efa01a7df262d317a695fb4076",
+  "text": "use my personal one: soren.northcott87@postwave.test",
+  "user_profile": {
+   "real_name": "Soren Northcott",
+   "display_name": "snorthcott"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

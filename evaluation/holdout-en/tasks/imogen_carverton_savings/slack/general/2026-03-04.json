@@ -1,0 +1,62 @@
+[
+ {
+  "type": "message",
+  "user": "U1JCHD3AD",
+  "ts": "1772874185.747195",
+  "client_msg_id": "32a4274f99743ff9d0f7ef1e92c9e57b863b",
+  "text": "fyi Ashgrove Translation Bureau moved offices",
+  "user_profile": {
+   "real_name": "Yara Jansen",
+   "display_name": "yjansen"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U6QM11724",
+  "ts": "1772960622.800455",
+  "client_msg_id": "3bff60444d9c6d0d617460294a612e973548",
+  "text": "thanks joaquin, let's sync at 3 &amp; bring numbers",
+  "user_profile": {
+   "real_name": "Soren Northcott",
+   "display_name": "snorthcott"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U5KSJALS6",
+  "ts": "1773047059.811150",
+  "client_msg_id": "e8ceebce26141736715bb1a0939a8226fc62",
+  "text": "heads up: Candlewick visit tomorrow",
+  "user_profile": {
+   "real_name": "Joaquin Quayle",
+   "display_name": "joaquinqua"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U3RK48NXC",
+  "ts": "1773133496.334005",
+  "client_msg_id": "fe6a6b1b7845bd6174eac743cc11b0271b4d",
+  "text": "thanks yara, ship it &amp; bring numbers",
+  "user_profile": {
+   "real_name": "Felix Petrov",
+   "display_name": "petrovf"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U8HW0Q7EZ",
+  "ts": "1773219933.636723",
+  "client_msg_id": "89daf6d9416839e805a783da3006bca38b91",
+  "text": "<@U3RK48NXC> thanks for the new scheduling tool?",
+  "user_profile": {
+   "real_name": "Bea Upton",
+   "display_name": "bupton"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

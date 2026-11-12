@@ -1,0 +1,38 @@
+[
+ {
+  "type": "message",
+  "user": "U87UN3R4Z",
+  "ts": "1772442000.585040",
+  "client_msg_id": "3b18e28cdc924ebf03289d29b8b1d2b681f1",
+  "text": "ok eleanora see you at 2",
+  "user_profile": {
+   "real_name": "Theodora Pendergast",
+   "display_name": "theodora_pendergast"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U61V6AGDQ",
+  "ts": "1772528437.897624",
+  "client_msg_id": "c993611aa2e3c1583b8a22c83b2c5092bea8",
+  "text": "hey theodora i sent it",
+  "user_profile": {
+   "real_name": "Eleanora Nightingale",
+   "display_name": "eleanoranig"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U61V6AGDQ",
+  "ts": "1772614874.362858",
+  "client_msg_id": "e7e8c13ae4f4966fdc55794737ffffdf049e",
+  "text": "teddy the doc is wrong",
+  "user_profile": {
+   "real_name": "Eleanora Nightingale",
+   "display_name": "eleanoranig"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

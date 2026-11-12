@@ -1,0 +1,62 @@
+[
+ {
+  "type": "message",
+  "user": "U7P68FS6E",
+  "ts": "1772442000.210949",
+  "client_msg_id": "fb8f96cfbadb5bfc631a57cc27370f5d44b2",
+  "text": "send the statement to sallow.florian@embervale.test (Florian)",
+  "user_profile": {
+   "real_name": "Dorothea Gresham",
+   "display_name": "dorothea.gresham"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U7218QPQ5",
+  "ts": "1772528437.919929",
+  "client_msg_id": "8f41369f4e91e8c8534b4a681551d561fc35",
+  "text": "reimbursement to Florian Sallow, account ACCT-8376-7782, approved",
+  "user_profile": {
+   "real_name": "Silas Galbraith",
+   "display_name": "sgalbraith"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U17QDA8NK",
+  "ts": "1772614874.753929",
+  "client_msg_id": "f99a19606a58c5087bc8bf4211a3023102c6",
+  "text": "send the statement to jocelyn.whitlock@embervale.test (Jocelyn)",
+  "user_profile": {
+   "real_name": "Jasper Moreau",
+   "display_name": "jmoreau"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U4SS833JC",
+  "ts": "1772701311.205462",
+  "client_msg_id": "152e03bcc67de2bbd775f1613816a1fea189",
+  "text": "send the statement to roderick.daventry@embervale.test (Roderick)",
+  "user_profile": {
+   "real_name": "Clementine Tanaka",
+   "display_name": "clementine_tanaka"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U1SXX09U7",
+  "ts": "1772787748.494199",
+  "client_msg_id": "caee34bf890465fe546ea050656da04b0761",
+  "text": "send the statement to lucian.petrov@embervale.test (Lucian)",
+  "user_profile": {
+   "real_name": "Ingrid Ostrowicz",
+   "display_name": "ingridost"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

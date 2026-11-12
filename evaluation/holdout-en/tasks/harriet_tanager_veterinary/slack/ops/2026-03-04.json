@@ -1,0 +1,62 @@
+[
+ {
+  "type": "message",
+  "user": "U2V7G6WUM",
+  "ts": "1772960622.454358",
+  "client_msg_id": "9ab2e0c24758e479e68e49a9eaa60bfe4b48",
+  "text": "call Greta at (646) 555-0158 before you send the crew",
+  "user_profile": {
+   "real_name": "Zane Iverson",
+   "display_name": "ziverson"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U8G7PAHN3",
+  "ts": "1773047059.847312",
+  "client_msg_id": "20465549126bce4d1035c46663617a7d127e",
+  "text": "<@U5X5DN0GT> <@U1VJ83N19> please review the renewal pricing",
+  "user_profile": {
+   "real_name": "Kieran Ridgewell",
+   "display_name": "ridgewellk"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U8WG6C06H",
+  "ts": "1773133496.500244",
+  "client_msg_id": "db6a52de31da73325e72620c4fcce4808fb6",
+  "text": "<@U5CZD241H> <@U8WG6C06H> please review the onboarding checklist",
+  "user_profile": {
+   "real_name": "Joaquin Kingsley",
+   "display_name": "joaquin_kingsley"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U3S6YUNAT",
+  "ts": "1773219933.346485",
+  "client_msg_id": "f98257251b818bf2361fea329b4cc2e5a9a2",
+  "text": "delivery goes to 1008 Willowmere Road, Kessler City, CO 80202 (ask for Yardley)",
+  "user_profile": {
+   "real_name": "Harriet Nakashima",
+   "display_name": "nakashimah"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U5V5NJC7F",
+  "ts": "1773306370.958236",
+  "client_msg_id": "913247d296052a9fa4d416371b283af5c1ab",
+  "text": "delivery goes to 1008 Willowmere Road, Kessler City, CO 80202 (ask for Yardley)",
+  "user_profile": {
+   "real_name": "Bea Inchbald",
+   "display_name": "binchbald"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

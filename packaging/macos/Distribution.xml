@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- RAGbase Shield: home-domain installer (no administrator password). build.sh fills __VERSION__ and
+     __ARCHS__ into build/macos/Distribution.xml. -->
+<installer-gui-script minSpecVersion="2">
+  <title>RAGbase Shield</title>
+  <organization>ai.ragbase</organization>
+  <domains enable_anywhere="false" enable_currentUserHome="true" enable_localSystem="false"/>
+  <options customize="never" require-scripts="true" hostArchitectures="__ARCHS__"/>
+  <welcome file="welcome.html" mime-type="text/html"/>
+  <license file="LICENSE.txt" mime-type="text/plain"/>
+  <conclusion file="conclusion.html" mime-type="text/html"/>
+  <installation-check script="shieldCheck()"/>
+  <script><![CDATA[
+function shieldCheck() {
+  if (system.compareVersions(system.version.ProductVersion, '13.0') < 0) {
+    my.result.title = 'macOS 13 ou plus récent requis (macOS 13 or later required)';
+    my.result.message = 'RAGbase Shield demande macOS 13 (Ventura) ou une version plus récente. ' +
+                        'RAGbase Shield needs macOS 13 (Ventura) or later.';
+    my.result.type = 'Fatal';
+    return false;
+  }
+  return true;
+}
+  ]]></script>
+  <choices-outline>
+    <line choice="ai.ragbase.shield"/>
+  </choices-outline>
+  <choice id="ai.ragbase.shield" visible="false" title="RAGbase Shield">
+    <pkg-ref id="ai.ragbase.shield"/>
+  </choice>
+  <pkg-ref id="ai.ragbase.shield" version="__VERSION__" onConclusion="none">RAGbase-Shield-component.pkg</pkg-ref>
+</installer-gui-script>

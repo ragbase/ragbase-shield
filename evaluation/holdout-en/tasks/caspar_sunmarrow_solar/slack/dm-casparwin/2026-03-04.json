@@ -1,0 +1,38 @@
+[
+ {
+  "type": "message",
+  "user": "U152TL1B4",
+  "ts": "1772701311.398450",
+  "client_msg_id": "6b518f540349cadaa449c7fe935005370e90",
+  "text": "has Santoro signed?",
+  "user_profile": {
+   "real_name": "Caspar Winterhalde",
+   "display_name": "casparwin"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U27Y40LMP",
+  "ts": "1772787748.336308",
+  "client_msg_id": "fb94920904b43c415a29c0b9eeaf7092de2d",
+  "text": "has Cranston called back?",
+  "user_profile": {
+   "real_name": "Lucian Schneider",
+   "display_name": "luciansch"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U152TL1B4",
+  "ts": "1772874185.690087",
+  "client_msg_id": "6d6c502eb51a2ab9e54790e5b033300e00a3",
+  "text": "thx lucian, lunch?",
+  "user_profile": {
+   "real_name": "Caspar Winterhalde",
+   "display_name": "casparwin"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

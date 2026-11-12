@@ -1,0 +1,50 @@
+[
+ {
+  "type": "message",
+  "user": "U7WKZXCJH",
+  "ts": "1773219933.280686",
+  "client_msg_id": "70a71d4797bc063f0bd12236abdfc5ee4a8b",
+  "text": "meeting with FOXGLOVE CATERING is in the folder",
+  "user_profile": {
+   "real_name": "Desmond Barrowcliffe",
+   "display_name": "desmond_barrowcliffe"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U8KR2E8X8",
+  "ts": "1773306370.689047",
+  "client_msg_id": "097b478aba5b080ba6814828ea63e3ca949d",
+  "text": "PO raised for Northcott Regional Supply is in the folder",
+  "user_profile": {
+   "real_name": "Dorothea Horvath",
+   "display_name": "dhorvath"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U6QT4UJA5",
+  "ts": "1773392807.155831",
+  "client_msg_id": "f52613b25208e7db05e0d57c81d05be277cb",
+  "text": "call Wren at 617-555-0171 before you send the crew",
+  "user_profile": {
+   "real_name": "Florian Kowalchuk",
+   "display_name": "fkowalchuk"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U7P78ZPFF",
+  "ts": "1773479244.643728",
+  "client_msg_id": "3bc4740eafc68e617dbc38a6cc1688b89f65",
+  "text": "site memo uploaded, see attachment",
+  "user_profile": {
+   "real_name": "Lucian Ashcombe",
+   "display_name": "lucianash"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

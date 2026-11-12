@@ -1,0 +1,38 @@
+[
+ {
+  "type": "message",
+  "user": "U87UN3R4Z",
+  "ts": "1772701311.466151",
+  "client_msg_id": "86e08490033b7952caadcf21f2f32de10bb1",
+  "text": "nora call me",
+  "user_profile": {
+   "real_name": "Theodora Pendergast",
+   "display_name": "theodora_pendergast"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U61V6AGDQ",
+  "ts": "1772787748.433768",
+  "client_msg_id": "60ff7609b8291fc80a989fc02d5ddeb767ae",
+  "text": "has Oakhurst signed?",
+  "user_profile": {
+   "real_name": "Eleanora Nightingale",
+   "display_name": "eleanoranig"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U61V6AGDQ",
+  "ts": "1772874185.890790",
+  "client_msg_id": "7b65d02039eeee0752290904413f376030e7",
+  "text": "teddy the doc is wrong",
+  "user_profile": {
+   "real_name": "Eleanora Nightingale",
+   "display_name": "eleanoranig"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

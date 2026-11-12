@@ -1,0 +1,38 @@
+[
+ {
+  "type": "message",
+  "user": "U1BA8CCLU",
+  "ts": "1772960622.441904",
+  "client_msg_id": "d53818b84351f47396bf600a10bc706b4b95",
+  "text": "Ashcombe, Lucian still has no cost centre",
+  "user_profile": {
+   "real_name": "Lorelei Cottrell",
+   "display_name": "lorelei_cottrell"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U8KR2E8X8",
+  "ts": "1773047059.540786",
+  "client_msg_id": "ce39121b59996c562c809957da1425bedbf7",
+  "text": "reimbursement to Otis Tregarec, account ACCT-9101-8123, approved",
+  "user_profile": {
+   "real_name": "Dorothea Horvath",
+   "display_name": "dhorvath"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U68V3MX6L",
+  "ts": "1773133496.102220",
+  "client_msg_id": "93e5a0a34d999c121d9384c50ad917f4d229",
+  "text": "vendor accounts csv attached",
+  "user_profile": {
+   "real_name": "Dashiell Abernathy",
+   "display_name": "dashiell_abernathy"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

@@ -1,0 +1,50 @@
+[
+ {
+  "type": "message",
+  "user": "U9R2PVBSA",
+  "ts": "1773219933.658584",
+  "client_msg_id": "f247133dda5867fed660c3b7ef7ad6df6796",
+  "text": "<@U62RZ1AYA> <@U9NVJN59J> please review the office move",
+  "user_profile": {
+   "real_name": "Yvette Guerrero",
+   "display_name": "guerreroy"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U2JVHW74R",
+  "ts": "1773306370.184849",
+  "client_msg_id": "a496533c26e7097d691ae250f5b1532edee6",
+  "text": "<@U9QQUP7T4> <@U2JVHW74R> please review the office move",
+  "user_profile": {
+   "real_name": "Odette Cranston",
+   "display_name": "cranstono"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U2JVHW74R",
+  "ts": "1773392807.259049",
+  "client_msg_id": "780de6ea759c4859cfd10cc4df153013df88",
+  "text": "quote from Copperfield Technical Services is in the folder",
+  "user_profile": {
+   "real_name": "Odette Cranston",
+   "display_name": "cranstono"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U152TL1B4",
+  "ts": "1773479244.984831",
+  "client_msg_id": "0bd21b386bc5d44f820ca01b77eedf04ee94",
+  "text": "site memo uploaded, see attachment",
+  "user_profile": {
+   "real_name": "Caspar Winterhalde",
+   "display_name": "casparwin"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

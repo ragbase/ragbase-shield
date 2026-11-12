@@ -1,0 +1,995 @@
+{
+ "p00": {
+  "canonical_name": "Silas Galbraith",
+  "first_names": [
+   "Silas"
+  ],
+  "last_names": [
+   "Galbraith"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "silas@embervale.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U7218QPQ5",
+   "sgalbraith"
+  ],
+  "phone_numbers_linked": [
+   "+1 720 555 0113"
+  ],
+  "employee_ids": [
+   "EVR-50338"
+  ],
+  "account_numbers": [
+   "44181057"
+  ],
+  "addresses": [
+   "2914 Umberline Way"
+  ],
+  "organizations": [
+   "Ember & Vale Roasters"
+  ]
+ },
+ "p01": {
+  "canonical_name": "Jasper Moreau",
+  "first_names": [
+   "Jasper"
+  ],
+  "last_names": [
+   "Moreau"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "jasper@embervale.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U17QDA8NK",
+   "jmoreau"
+  ],
+  "phone_numbers_linked": [
+   "+1 720 555 0171"
+  ],
+  "employee_ids": [
+   "EVR-31257"
+  ],
+  "account_numbers": [
+   "ACCT-6399-9750"
+  ],
+  "addresses": [
+   "6338 Candlewick Road"
+  ],
+  "organizations": [
+   "Ember & Vale Roasters"
+  ]
+ },
+ "p02": {
+  "canonical_name": "Jocelyn Whitlock",
+  "first_names": [
+   "Jocelyn"
+  ],
+  "last_names": [
+   "Whitlock"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "jocelyn.whitlock@embervale.test",
+    "category": "professional"
+   },
+   {
+    "value": "jocelyn.whitlock99@lettercloud.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U2NAW34JH",
+   "jocelyn.whitlock"
+  ],
+  "phone_numbers_linked": [
+   "+1 720 555 0137",
+   "+1 206 555 0183"
+  ],
+  "employee_ids": [
+   "EVR-25789"
+  ],
+  "account_numbers": [
+   "ACCT-9085-1434"
+  ],
+  "addresses": [
+   "874 Old Mill Terrace"
+  ],
+  "organizations": [
+   "Ember & Vale Roasters"
+  ]
+ },
+ "p03": {
+  "canonical_name": "Cormac Orrell",
+  "first_names": [
+   "Cormac"
+  ],
+  "last_names": [
+   "Orrell"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "correll@embervale.test",
+    "category": "professional"
+   },
+   {
+    "value": "cormac.orrell64@mailharbor.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U2S6Y7Z3W",
+   "correll"
+  ],
+  "phone_numbers_linked": [
+   "720.555.0172",
+   "206-555-0131"
+  ],
+  "employee_ids": [
+   "EVR-78132"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "2116 Thistle Lane"
+  ],
+  "organizations": [
+   "Ember & Vale Roasters"
+  ]
+ },
+ "p04": {
+  "canonical_name": "Ingrid Ostrowicz",
+  "first_names": [
+   "Ingrid"
+  ],
+  "last_names": [
+   "Ostrowicz"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "iostrowicz@embervale.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U1SXX09U7",
+   "ingridost"
+  ],
+  "phone_numbers_linked": [
+   "(720) 555-0154"
+  ],
+  "employee_ids": [
+   "EVR-70586"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "5539 Thistle Lane"
+  ],
+  "organizations": [
+   "Ember & Vale Roasters"
+  ]
+ },
+ "p05": {
+  "canonical_name": "Roderick Daventry",
+  "first_names": [
+   "Roderick"
+  ],
+  "last_names": [
+   "Daventry"
+  ],
+  "nicknames": [
+   "Rod"
+  ],
+  "emails": [
+   {
+    "value": "roderick.daventry@embervale.test",
+    "category": "professional"
+   },
+   {
+    "value": "roderick.daventry34@mailharbor.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U0FX48D1G",
+   "daventryr"
+  ],
+  "phone_numbers_linked": [
+   "720-555-0196"
+  ],
+  "employee_ids": [
+   "EVR-65489"
+  ],
+  "account_numbers": [
+   "ACCT-6584-4071"
+  ],
+  "addresses": [
+   "1022 Wexford Court"
+  ],
+  "organizations": [
+   "Ember & Vale Roasters"
+  ]
+ },
+ "p06": {
+  "canonical_name": "Dorothea Gresham",
+  "first_names": [
+   "Dorothea"
+  ],
+  "last_names": [
+   "Gresham"
+  ],
+  "nicknames": [
+   "Thea"
+  ],
+  "emails": [
+   {
+    "value": "gresham.dorothea@embervale.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U7P68FS6E",
+   "dorothea.gresham"
+  ],
+  "phone_numbers_linked": [
+   "(720) 555-0186"
+  ],
+  "employee_ids": [
+   "EVR-88850"
+  ],
+  "account_numbers": [
+   "ACCT-5575-6927"
+  ],
+  "addresses": [
+   "5121 Tanager Lane"
+  ],
+  "organizations": [
+   "Ember & Vale Roasters"
+  ]
+ },
+ "p07": {
+  "canonical_name": "Hazel Sorensen",
+  "first_names": [
+   "Hazel"
+  ],
+  "last_names": [
+   "Sorensen"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "hazel.sorensen@embervale.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U003AY17F",
+   "hazelsor"
+  ],
+  "phone_numbers_linked": [
+   "+1 720 555 0130"
+  ],
+  "employee_ids": [
+   "EVR-66661"
+  ],
+  "account_numbers": [
+   "46479612"
+  ],
+  "addresses": [
+   "5130 Quarry Bend"
+  ],
+  "organizations": [
+   "Ember & Vale Roasters"
+  ]
+ },
+ "p08": {
+  "canonical_name": "Ambrose Westbrook",
+  "first_names": [
+   "Ambrose"
+  ],
+  "last_names": [
+   "Westbrook"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "awestbrook@embervale.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U817FX22N",
+   "ambrose.westbrook"
+  ],
+  "phone_numbers_linked": [
+   "+1 720 555 0112",
+   "+1 312 555 0152"
+  ],
+  "employee_ids": [
+   "EVR-48577"
+  ],
+  "account_numbers": [
+   "21192831"
+  ],
+  "addresses": [
+   "8135 Foxglove Street"
+  ],
+  "organizations": [
+   "Ember & Vale Roasters"
+  ]
+ },
+ "p09": {
+  "canonical_name": "Ignatius Holloway",
+  "first_names": [
+   "Ignatius"
+  ],
+  "last_names": [
+   "Holloway"
+  ],
+  "nicknames": [
+   "Nash"
+  ],
+  "emails": [
+   {
+    "value": "ignatius.holloway@embervale.test",
+    "category": "professional"
+   },
+   {
+    "value": "ignatius.holloway73@lettercloud.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U690QRVEP",
+   "hollowayi"
+  ],
+  "phone_numbers_linked": [
+   "720-555-0101"
+  ],
+  "employee_ids": [
+   "EVR-56206"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "7752 Copperfield Street"
+  ],
+  "organizations": [
+   "Ember & Vale Roasters"
+  ]
+ },
+ "p10": {
+  "canonical_name": "Clementine Tanaka",
+  "first_names": [
+   "Clementine"
+  ],
+  "last_names": [
+   "Tanaka"
+  ],
+  "nicknames": [
+   "Clem"
+  ],
+  "emails": [
+   {
+    "value": "ctanaka@embervale.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U4SS833JC",
+   "clementine_tanaka"
+  ],
+  "phone_numbers_linked": [
+   "720.555.0144",
+   "206.555.0193"
+  ],
+  "employee_ids": [
+   "EVR-70058"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "2348 Old Mill Terrace"
+  ],
+  "organizations": [
+   "Ember & Vale Roasters"
+  ]
+ },
+ "p11": {
+  "canonical_name": "Florian Sallow",
+  "first_names": [
+   "Florian"
+  ],
+  "last_names": [
+   "Sallow"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "sallow.florian@embervale.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U0J5JA0W9",
+   "florian.sallow"
+  ],
+  "phone_numbers_linked": [
+   "+1 720 555 0123"
+  ],
+  "employee_ids": [
+   "EVR-35290"
+  ],
+  "account_numbers": [
+   "ACCT-8376-7782"
+  ],
+  "addresses": [
+   "8535 Candlewick Road"
+  ],
+  "organizations": [
+   "Ember & Vale Roasters"
+  ]
+ },
+ "p12": {
+  "canonical_name": "Hilde Rowntree",
+  "first_names": [
+   "Hilde"
+  ],
+  "last_names": [
+   "Rowntree"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "rowntree.hilde@embervale.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U7LEQPGUG",
+   "hilde.rowntree"
+  ],
+  "phone_numbers_linked": [
+   "(720) 555-0195"
+  ],
+  "employee_ids": [
+   "EVR-28596"
+  ],
+  "account_numbers": [
+   "ACCT-7978-9559"
+  ],
+  "addresses": [
+   "1295 Marrowbone Drive"
+  ],
+  "organizations": [
+   "Ember & Vale Roasters"
+  ]
+ },
+ "p13": {
+  "canonical_name": "Lucian Petrov",
+  "first_names": [
+   "Lucian"
+  ],
+  "last_names": [
+   "Petrov"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "lucian.petrov@embervale.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U4CC1J4PS",
+   "lucianpet"
+  ],
+  "phone_numbers_linked": [
+   "(720) 555-0176"
+  ],
+  "employee_ids": [
+   "EVR-22531"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "4427 Quarry Bend"
+  ],
+  "organizations": [
+   "Ember & Vale Roasters"
+  ]
+ },
+ "p14": {
+  "canonical_name": "Kerensa Kingsley",
+  "first_names": [
+   "Kerensa"
+  ],
+  "last_names": [
+   "Kingsley"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "kingsley.kerensa@candlewick.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U1YZY8YTY",
+   "kingsleyk"
+  ],
+  "phone_numbers_linked": [
+   "+1 720 555 0158"
+  ],
+  "employee_ids": [],
+  "account_numbers": [],
+  "addresses": [
+   "724 Saltmarsh Avenue"
+  ],
+  "organizations": [
+   "Candlewick Office Interiors"
+  ]
+ },
+ "p15": {
+  "canonical_name": "Zelda Fontaine",
+  "first_names": [
+   "Zelda"
+  ],
+  "last_names": [
+   "Fontaine"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "zfontaine@vesper.test",
+    "category": "professional"
+   },
+   {
+    "value": "zelda.fontaine4@mailharbor.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U13SG76VQ",
+   "zeldafon"
+  ],
+  "phone_numbers_linked": [
+   "(720) 555-0140",
+   "312.555.0108"
+  ],
+  "employee_ids": [],
+  "account_numbers": [],
+  "addresses": [
+   "4985 Marrowbone Drive"
+  ],
+  "organizations": [
+   "Vesper Print Works"
+  ]
+ },
+ "p16": {
+  "canonical_name": "Felix Wozniak",
+  "first_names": [
+   "Felix"
+  ],
+  "last_names": [
+   "Wozniak"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "felix@brightmoor.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U47A7JQB6",
+   "fwozniak"
+  ],
+  "phone_numbers_linked": [
+   "720.555.0122"
+  ],
+  "employee_ids": [],
+  "account_numbers": [],
+  "addresses": [
+   "3785 Vesper Street"
+  ],
+  "organizations": [
+   "Brightmoor Logistics"
+  ]
+ },
+ "p17": {
+  "canonical_name": "Horatio Mabaso",
+  "first_names": [
+   "Horatio"
+  ],
+  "last_names": [
+   "Mabaso"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "horatio.mabaso@eastwicklaw.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U1KCW2Z2K",
+   "horatio_mabaso"
+  ],
+  "phone_numbers_linked": [
+   "(720) 555-0147"
+  ],
+  "employee_ids": [],
+  "account_numbers": [],
+  "addresses": [
+   "1850 Marrowbone Drive"
+  ],
+  "organizations": [
+   "Eastwick & Associates"
+  ]
+ },
+ "p18": {
+  "canonical_name": "Fitzgerald Zielinski",
+  "first_names": [
+   "Fitzgerald"
+  ],
+  "last_names": [
+   "Zielinski"
+  ],
+  "nicknames": [
+   "Fitz"
+  ],
+  "emails": [
+   {
+    "value": "fitzgerald@tanager.test",
+    "category": "professional"
+   },
+   {
+    "value": "fitzgerald.zielinski31@quietinbox.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U6ZTTUEZE",
+   "fitzgerald_zielinski"
+  ],
+  "phone_numbers_linked": [
+   "720-555-0197",
+   "(415) 555-0192"
+  ],
+  "employee_ids": [],
+  "account_numbers": [],
+  "addresses": [
+   "2180 Birchmount Drive"
+  ],
+  "organizations": [
+   "Tanager Lane Realty"
+  ]
+ },
+ "p19": {
+  "canonical_name": "Juniper Abernathy",
+  "first_names": [
+   "Juniper"
+  ],
+  "last_names": [
+   "Abernathy"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "juniper@tanager.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U58XXP1NY",
+   "juniper_abernathy"
+  ],
+  "phone_numbers_linked": [
+   "720-555-0156"
+  ],
+  "employee_ids": [],
+  "account_numbers": [
+   "90796005"
+  ],
+  "addresses": [
+   "1171 Marrowbone Drive"
+  ],
+  "organizations": [
+   "Tanager Lane Realty"
+  ]
+ },
+ "p20": {
+  "canonical_name": "Ursula Farrow",
+  "first_names": [
+   "Ursula"
+  ],
+  "last_names": [
+   "Farrow"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "ursula.farrow@tanager.test",
+    "category": "professional"
+   },
+   {
+    "value": "ursula.farrow41@mailharbor.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U6X1T1BFF",
+   "farrowu"
+  ],
+  "phone_numbers_linked": [
+   "720-555-0106"
+  ],
+  "employee_ids": [],
+  "account_numbers": [],
+  "addresses": [
+   "792 Marrowbone Drive"
+  ],
+  "organizations": [
+   "Tanager Lane Realty"
+  ]
+ },
+ "p21": {
+  "canonical_name": "Caius Ashby",
+  "first_names": [
+   "Caius"
+  ],
+  "last_names": [
+   "Ashby"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "ashby.caius@tanager.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U55HLE38H",
+   "caius.ashby"
+  ],
+  "phone_numbers_linked": [
+   "(720) 555-0124"
+  ],
+  "employee_ids": [],
+  "account_numbers": [],
+  "addresses": [
+   "9257 Willowmere Road"
+  ],
+  "organizations": [
+   "Tanager Lane Realty"
+  ]
+ },
+ "p22": {
+  "canonical_name": "Saoirse Yilmaz",
+  "first_names": [
+   "Saoirse"
+  ],
+  "last_names": [
+   "Yilmaz"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "saoirse@birchmount.test",
+    "category": "professional"
+   },
+   {
+    "value": "saoirse.yilmaz29@quietinbox.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U3WWH4ED1",
+   "syilmaz"
+  ],
+  "phone_numbers_linked": [
+   "+1 720 555 0115",
+   "206-555-0133"
+  ],
+  "employee_ids": [],
+  "account_numbers": [
+   "18404471"
+  ],
+  "addresses": [
+   "5878 Candlewick Road"
+  ],
+  "organizations": [
+   "Birchmount Software"
+  ]
+ },
+ "p23": {
+  "canonical_name": "Soren Eastwick",
+  "first_names": [
+   "Soren"
+  ],
+  "last_names": [
+   "Eastwick"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "soren@embervale.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U8Q26L0LX",
+   "seastwick"
+  ],
+  "phone_numbers_linked": [
+   "720-555-0111"
+  ],
+  "employee_ids": [
+   "EVR-85031"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "5797 Foxglove Street"
+  ],
+  "organizations": [
+   "Ember & Vale Roasters"
+  ]
+ },
+ "org_home": {
+  "canonical_name": "Ember & Vale Roasters",
+  "organization": true,
+  "organizations": [
+   "Ember & Vale",
+   "Ember & Vale Roasters",
+   "Ember & Vale Roasters LLC"
+  ],
+  "urls": [
+   "https://www.embervale.test"
+  ],
+  "addresses": [
+   "9577 Tanager Lane"
+  ],
+  "account_numbers": [
+   "2505002103"
+  ],
+  "domain": "embervale.test"
+ },
+ "org_1": {
+  "canonical_name": "Vesper Print Works",
+  "organization": true,
+  "organizations": [
+   "Vesper",
+   "Vesper Print Works"
+  ],
+  "urls": [
+   "https://www.vesper.test"
+  ],
+  "addresses": [
+   "8443 Saltmarsh Avenue"
+  ],
+  "account_numbers": [
+   "2839734320"
+  ],
+  "domain": "vesper.test"
+ },
+ "org_2": {
+  "canonical_name": "Candlewick Office Interiors",
+  "organization": true,
+  "organizations": [
+   "Candlewick",
+   "Candlewick Office Interiors"
+  ],
+  "urls": [
+   "https://www.candlewick.test"
+  ],
+  "addresses": [
+   "5790 Larkspur Avenue"
+  ],
+  "account_numbers": [
+   "5785965332"
+  ],
+  "domain": "candlewick.test"
+ },
+ "org_3": {
+  "canonical_name": "Birchmount Software",
+  "organization": true,
+  "organizations": [
+   "Birchmount",
+   "Birchmount Software"
+  ],
+  "urls": [
+   "https://www.birchmount.test"
+  ],
+  "addresses": [
+   "7738 Ashgrove Place"
+  ],
+  "account_numbers": [
+   "6592025623"
+  ],
+  "domain": "birchmount.test"
+ },
+ "org_4": {
+  "canonical_name": "Tanager Lane Realty",
+  "organization": true,
+  "organizations": [
+   "Tanager",
+   "Tanager Lane Realty",
+   "Tanager Lane Realty LLC"
+  ],
+  "urls": [
+   "https://www.tanager.test"
+  ],
+  "addresses": [
+   "5290 Saltmarsh Avenue"
+  ],
+  "account_numbers": [
+   "3619168441"
+  ],
+  "domain": "tanager.test"
+ },
+ "org_5": {
+  "canonical_name": "Thistlewood Analytics",
+  "organization": true,
+  "organizations": [
+   "Thistlewood",
+   "Thistlewood Analytics"
+  ],
+  "urls": [
+   "https://www.thistlewood.test"
+  ],
+  "addresses": [
+   "6057 Willowmere Road"
+  ],
+  "account_numbers": [
+   "5824565813"
+  ],
+  "domain": "thistlewood.test"
+ },
+ "org_6": {
+  "canonical_name": "Brightmoor Logistics",
+  "organization": true,
+  "organizations": [
+   "Brightmoor",
+   "Brightmoor Logistics",
+   "Brightmoor Logistics LLC"
+  ],
+  "urls": [
+   "https://www.brightmoor.test"
+  ],
+  "addresses": [
+   "4091 Juniper Hollow Road"
+  ],
+  "account_numbers": [
+   "8166712724"
+  ],
+  "domain": "brightmoor.test"
+ },
+ "org_homonym": {
+  "canonical_name": "Eastwick & Associates",
+  "organization": true,
+  "organizations": [
+   "Eastwick",
+   "Eastwick & Associates",
+   "Eastwick & Associates LLP"
+  ],
+  "urls": [
+   "https://www.eastwicklaw.test"
+  ],
+  "addresses": [
+   "8417 Copperfield Street"
+  ],
+  "account_numbers": [
+   "3662390076"
+  ],
+  "domain": "eastwicklaw.test"
+ }
+}

@@ -1,0 +1,26 @@
+[
+ {
+  "type": "message",
+  "user": "U1SXX09U7",
+  "ts": "1772701311.154157",
+  "client_msg_id": "a884cfe5d97a3fe97b02825ea3033a923dc4",
+  "text": "thx silas i sent it",
+  "user_profile": {
+   "real_name": "Ingrid Ostrowicz",
+   "display_name": "ingridost"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U1SXX09U7",
+  "ts": "1772787748.645693",
+  "client_msg_id": "45f4b5739818a6538d33ee549c5998000915",
+  "text": "did Kingsley called back?",
+  "user_profile": {
+   "real_name": "Ingrid Ostrowicz",
+   "display_name": "ingridost"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

@@ -1,0 +1,38 @@
+[
+ {
+  "type": "message",
+  "user": "U7P78ZPFF",
+  "ts": "1772701311.256806",
+  "client_msg_id": "4f1b98de5d9fd2f3aeed02a801bd82b29275",
+  "text": "has Cottrell reply?",
+  "user_profile": {
+   "real_name": "Lucian Ashcombe",
+   "display_name": "lucianash"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U7P78ZPFF",
+  "ts": "1772787748.621055",
+  "client_msg_id": "434d0fecc15e4588012fe892aefb46f998b9",
+  "text": "has Varga called back?",
+  "user_profile": {
+   "real_name": "Lucian Ashcombe",
+   "display_name": "lucianash"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U7P78ZPFF",
+  "ts": "1772874185.256344",
+  "client_msg_id": "55f409c870d493840e818c68e3da4fccedc6",
+  "text": "did Quarrington reply?",
+  "user_profile": {
+   "real_name": "Lucian Ashcombe",
+   "display_name": "lucianash"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

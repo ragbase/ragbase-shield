@@ -1,0 +1,1032 @@
+{
+ "p00": {
+  "canonical_name": "Rowan Kestrelbury",
+  "first_names": [
+   "Rowan"
+  ],
+  "last_names": [
+   "Kestrelbury"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "rkestrelbury@pellbrookfreight.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U4NFAEEQE",
+   "rowan.kestrelbury"
+  ],
+  "phone_numbers_linked": [
+   "503.555.0189",
+   "+1 206 555 0190"
+  ],
+  "employee_ids": [
+   "PF-41809"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "5334 Umberline Way"
+  ],
+  "organizations": [
+   "Pellbrook Freight"
+  ]
+ },
+ "p01": {
+  "canonical_name": "Gareth Merriweather",
+  "first_names": [
+   "Gareth"
+  ],
+  "last_names": [
+   "Merriweather"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "gmerriweather@pellbrookfreight.test",
+    "category": "professional"
+   },
+   {
+    "value": "gareth.merriweather72@quietinbox.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U29MC4HE4",
+   "gareth.merriweather"
+  ],
+  "phone_numbers_linked": [
+   "(503) 555-0132"
+  ],
+  "employee_ids": [
+   "PF-73118"
+  ],
+  "account_numbers": [
+   "ACCT-2047-9563"
+  ],
+  "addresses": [
+   "6236 Larkspur Avenue"
+  ],
+  "organizations": [
+   "Pellbrook Freight"
+  ]
+ },
+ "p02": {
+  "canonical_name": "Sabrina Yardley",
+  "first_names": [
+   "Sabrina"
+  ],
+  "last_names": [
+   "Yardley"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "yardley.sabrina@pellbrookfreight.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U2M0UAZNY",
+   "sabrinayar"
+  ],
+  "phone_numbers_linked": [
+   "(503) 555-0106"
+  ],
+  "employee_ids": [
+   "PF-73592"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "3999 Willowmere Road"
+  ],
+  "organizations": [
+   "Pellbrook Freight"
+  ]
+ },
+ "p03": {
+  "canonical_name": "Sebastian Tregarec",
+  "first_names": [
+   "Sebastian"
+  ],
+  "last_names": [
+   "Tregarec"
+  ],
+  "nicknames": [
+   "Bas"
+  ],
+  "emails": [
+   {
+    "value": "tregarec.sebastian@pellbrookfreight.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U9D8VKZWR",
+   "sebastian_tregarec"
+  ],
+  "phone_numbers_linked": [
+   "(503) 555-0117"
+  ],
+  "employee_ids": [
+   "PF-98787"
+  ],
+  "account_numbers": [
+   "99546398"
+  ],
+  "addresses": [
+   "2796 Willowmere Road"
+  ],
+  "organizations": [
+   "Pellbrook Freight"
+  ]
+ },
+ "p04": {
+  "canonical_name": "Felix Guerrero",
+  "first_names": [
+   "Felix"
+  ],
+  "last_names": [
+   "Guerrero"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "felix.guerrero@pellbrookfreight.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U4GWP11LS",
+   "fguerrero"
+  ],
+  "phone_numbers_linked": [
+   "503-555-0142"
+  ],
+  "employee_ids": [
+   "PF-53703"
+  ],
+  "account_numbers": [
+   "94555130"
+  ],
+  "addresses": [
+   "7180 Tanager Lane"
+  ],
+  "organizations": [
+   "Pellbrook Freight"
+  ]
+ },
+ "p05": {
+  "canonical_name": "Dagny Marlowe",
+  "first_names": [
+   "Dagny"
+  ],
+  "last_names": [
+   "Marlowe"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "marlowe.dagny@pellbrookfreight.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U08CVJP4A",
+   "dagny.marlowe"
+  ],
+  "phone_numbers_linked": [
+   "(503) 555-0172"
+  ],
+  "employee_ids": [
+   "PF-63092"
+  ],
+  "account_numbers": [
+   "ACCT-2615-3196"
+  ],
+  "addresses": [
+   "9485 Pinecrest Boulevard"
+  ],
+  "organizations": [
+   "Pellbrook Freight"
+  ]
+ },
+ "p06": {
+  "canonical_name": "Freya Wainwright",
+  "first_names": [
+   "Freya"
+  ],
+  "last_names": [
+   "Wainwright"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "freya.wainwright@pellbrookfreight.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U1E2WNWBK",
+   "freya.wainwright"
+  ],
+  "phone_numbers_linked": [
+   "503.555.0147"
+  ],
+  "employee_ids": [
+   "PF-57528"
+  ],
+  "account_numbers": [
+   "70251656"
+  ],
+  "addresses": [
+   "3318 Old Mill Terrace"
+  ],
+  "organizations": [
+   "Pellbrook Freight"
+  ]
+ },
+ "p07": {
+  "canonical_name": "Fitzgerald Pickering",
+  "first_names": [
+   "Fitzgerald"
+  ],
+  "last_names": [
+   "Pickering"
+  ],
+  "nicknames": [
+   "Fitz"
+  ],
+  "emails": [
+   {
+    "value": "fitzgerald.pickering@pellbrookfreight.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U88PPGWU9",
+   "fitzgerald.pickering"
+  ],
+  "phone_numbers_linked": [
+   "503.555.0130"
+  ],
+  "employee_ids": [
+   "PF-43096"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "45 Harbor Mist Way"
+  ],
+  "organizations": [
+   "Pellbrook Freight"
+  ]
+ },
+ "p08": {
+  "canonical_name": "Perpetua Finchwood",
+  "first_names": [
+   "Perpetua"
+  ],
+  "last_names": [
+   "Finchwood"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "finchwood.perpetua@pellbrookfreight.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U7FS0W4QA",
+   "perpetuafin"
+  ],
+  "phone_numbers_linked": [
+   "503.555.0128"
+  ],
+  "employee_ids": [
+   "PF-39047"
+  ],
+  "account_numbers": [
+   "ACCT-1347-1339"
+  ],
+  "addresses": [
+   "2960 Thistle Lane"
+  ],
+  "organizations": [
+   "Pellbrook Freight"
+  ]
+ },
+ "p09": {
+  "canonical_name": "Lucian Inchbald",
+  "first_names": [
+   "Lucian"
+  ],
+  "last_names": [
+   "Inchbald"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "lucian.inchbald@pellbrookfreight.test",
+    "category": "professional"
+   },
+   {
+    "value": "lucian.inchbald34@quietinbox.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U2B9DQJJW",
+   "lucian_inchbald"
+  ],
+  "phone_numbers_linked": [
+   "503-555-0191"
+  ],
+  "employee_ids": [
+   "PF-11820"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "7638 Copperfield Street"
+  ],
+  "organizations": [
+   "Pellbrook Freight"
+  ]
+ },
+ "p10": {
+  "canonical_name": "Joaquin Gresham",
+  "first_names": [
+   "Joaquin"
+  ],
+  "last_names": [
+   "Gresham"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "joaquin.gresham@pellbrookfreight.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U87AP3Q9K",
+   "joaquin_gresham"
+  ],
+  "phone_numbers_linked": [
+   "+1 503 555 0108"
+  ],
+  "employee_ids": [
+   "PF-23466"
+  ],
+  "account_numbers": [
+   "84378678"
+  ],
+  "addresses": [
+   "310 Quarry Bend"
+  ],
+  "organizations": [
+   "Pellbrook Freight"
+  ]
+ },
+ "p11": {
+  "canonical_name": "Ursula Yelverton",
+  "first_names": [
+   "Ursula"
+  ],
+  "last_names": [
+   "Yelverton"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "ursula.yelverton@pellbrookfreight.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U10DEEQQ9",
+   "ursula.yelverton"
+  ],
+  "phone_numbers_linked": [
+   "+1 503 555 0140",
+   "312-555-0109"
+  ],
+  "employee_ids": [
+   "PF-69703"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "7543 Saltmarsh Avenue"
+  ],
+  "organizations": [
+   "Pellbrook Freight"
+  ]
+ },
+ "p12": {
+  "canonical_name": "Cora Adegoke",
+  "first_names": [
+   "Cora"
+  ],
+  "last_names": [
+   "Adegoke"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "cora.adegoke@pellbrookfreight.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U7WYZ6RUH",
+   "cora.adegoke"
+  ],
+  "phone_numbers_linked": [
+   "(503) 555-0181"
+  ],
+  "employee_ids": [
+   "PF-95232"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "709 Vesper Street"
+  ],
+  "organizations": [
+   "Pellbrook Freight"
+  ]
+ },
+ "p13": {
+  "canonical_name": "Owen Oakhurst",
+  "first_names": [
+   "Owen"
+  ],
+  "last_names": [
+   "Oakhurst"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "owen.oakhurst@pellbrookfreight.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U8KDWLQT4",
+   "owen.oakhurst"
+  ],
+  "phone_numbers_linked": [
+   "(503) 555-0125"
+  ],
+  "employee_ids": [
+   "PF-42654"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "4934 Old Mill Terrace"
+  ],
+  "organizations": [
+   "Pellbrook Freight"
+  ]
+ },
+ "p14": {
+  "canonical_name": "Hilde Iverson",
+  "first_names": [
+   "Hilde"
+  ],
+  "last_names": [
+   "Iverson"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "hilde.iverson@pellbrookfreight.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U0UN8H5ZR",
+   "hildeive"
+  ],
+  "phone_numbers_linked": [
+   "503.555.0199"
+  ],
+  "employee_ids": [
+   "PF-47523"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "33 Thistle Lane"
+  ],
+  "organizations": [
+   "Pellbrook Freight"
+  ]
+ },
+ "p15": {
+  "canonical_name": "Beatrix Castellanos",
+  "first_names": [
+   "Beatrix"
+  ],
+  "last_names": [
+   "Castellanos"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "beatrix.castellanos@marrowbone.test",
+    "category": "professional"
+   },
+   {
+    "value": "beatrix.castellanos74@lettercloud.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U70UYPHR7",
+   "beatrix_castellanos"
+  ],
+  "phone_numbers_linked": [
+   "(503) 555-0151"
+  ],
+  "employee_ids": [],
+  "account_numbers": [
+   "28425411"
+  ],
+  "addresses": [
+   "905 Juniper Hollow Road"
+  ],
+  "organizations": [
+   "Marrowbone Capital Partners"
+  ]
+ },
+ "p16": {
+  "canonical_name": "Xavier Varga",
+  "first_names": [
+   "Xavier"
+  ],
+  "last_names": [
+   "Varga"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "varga.xavier@umberline.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U0BJY2WTY",
+   "xavier_varga"
+  ],
+  "phone_numbers_linked": [
+   "+1 503 555 0197"
+  ],
+  "employee_ids": [],
+  "account_numbers": [],
+  "addresses": [
+   "1945 Foxglove Street"
+  ],
+  "organizations": [
+   "Umberline Media"
+  ]
+ },
+ "p17": {
+  "canonical_name": "Rosalind Dimitriou",
+  "first_names": [
+   "Rosalind"
+  ],
+  "last_names": [
+   "Dimitriou"
+  ],
+  "nicknames": [
+   "Roz"
+  ],
+  "emails": [
+   {
+    "value": "rosalind@marrowbone.test",
+    "category": "professional"
+   },
+   {
+    "value": "rosalind.dimitriou61@lettercloud.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U9VZXZDTA",
+   "rosalind.dimitriou"
+  ],
+  "phone_numbers_linked": [
+   "+1 503 555 0116",
+   "+1 312 555 0176"
+  ],
+  "employee_ids": [],
+  "account_numbers": [],
+  "addresses": [
+   "3391 Candlewick Road"
+  ],
+  "organizations": [
+   "Marrowbone Capital Partners"
+  ]
+ },
+ "p18": {
+  "canonical_name": "Peregrine Takahashi",
+  "first_names": [
+   "Peregrine"
+  ],
+  "last_names": [
+   "Takahashi"
+  ],
+  "nicknames": [
+   "Perry"
+  ],
+  "emails": [
+   {
+    "value": "takahashi.peregrine@marrowbone.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U0JMSRNGR",
+   "peregrine.takahashi"
+  ],
+  "phone_numbers_linked": [
+   "503-555-0159"
+  ],
+  "employee_ids": [],
+  "account_numbers": [
+   "94809165"
+  ],
+  "addresses": [
+   "9138 Candlewick Road"
+  ],
+  "organizations": [
+   "Marrowbone Capital Partners"
+  ]
+ },
+ "p19": {
+  "canonical_name": "Leopold Eastwick",
+  "first_names": [
+   "Leopold"
+  ],
+  "last_names": [
+   "Eastwick"
+  ],
+  "nicknames": [
+   "Leo"
+  ],
+  "emails": [
+   {
+    "value": "leopold@thistlewood.test",
+    "category": "professional"
+   },
+   {
+    "value": "leopold.eastwick55@quietinbox.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U6SET6K5A",
+   "leopold_eastwick"
+  ],
+  "phone_numbers_linked": [
+   "(503) 555-0105"
+  ],
+  "employee_ids": [],
+  "account_numbers": [
+   "63397457"
+  ],
+  "addresses": [
+   "2192 Harbor Mist Way"
+  ],
+  "organizations": [
+   "Thistlewood Analytics"
+  ]
+ },
+ "p20": {
+  "canonical_name": "Piers Underhill",
+  "first_names": [
+   "Piers"
+  ],
+  "last_names": [
+   "Underhill"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "piers.underhill@foxglove.test",
+    "category": "professional"
+   },
+   {
+    "value": "piers.underhill32@mailharbor.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U6LC7YQBB",
+   "underhillp"
+  ],
+  "phone_numbers_linked": [
+   "(503) 555-0139"
+  ],
+  "employee_ids": [],
+  "account_numbers": [
+   "ACCT-4699-1354"
+  ],
+  "addresses": [
+   "9344 Birchmount Drive"
+  ],
+  "organizations": [
+   "Foxglove Catering"
+  ]
+ },
+ "p21": {
+  "canonical_name": "Tabitha Barrowcliffe",
+  "first_names": [
+   "Tabitha"
+  ],
+  "last_names": [
+   "Barrowcliffe"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "tabitha.barrowcliffe@umberline.test",
+    "category": "professional"
+   },
+   {
+    "value": "tabitha.barrowcliffe51@quietinbox.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U3HQFJWN4",
+   "tabitha_barrowcliffe"
+  ],
+  "phone_numbers_linked": [
+   "+1 503 555 0158"
+  ],
+  "employee_ids": [],
+  "account_numbers": [],
+  "addresses": [
+   "2030 Juniper Hollow Road"
+  ],
+  "organizations": [
+   "Umberline Media"
+  ]
+ },
+ "p22": {
+  "canonical_name": "Ivy Hawthorne",
+  "first_names": [
+   "Ivy"
+  ],
+  "last_names": [
+   "Hawthorne"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "ihawthorne@foxglove.test",
+    "category": "professional"
+   },
+   {
+    "value": "ivy.hawthorne43@mailharbor.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U7YT577ZY",
+   "ivy.hawthorne"
+  ],
+  "phone_numbers_linked": [
+   "503.555.0163"
+  ],
+  "employee_ids": [],
+  "account_numbers": [
+   "75194170"
+  ],
+  "addresses": [
+   "7761 Thistle Lane"
+  ],
+  "organizations": [
+   "Foxglove Catering"
+  ]
+ },
+ "p23": {
+  "canonical_name": "Elowen Novak",
+  "first_names": [
+   "Elowen"
+  ],
+  "last_names": [
+   "Novak"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "elowen.novak@birchmount.test",
+    "category": "professional"
+   },
+   {
+    "value": "elowen.novak40@lettercloud.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U3RZ750EG",
+   "enovak"
+  ],
+  "phone_numbers_linked": [
+   "+1 503 555 0118",
+   "312-555-0103"
+  ],
+  "employee_ids": [],
+  "account_numbers": [
+   "ACCT-1882-2033"
+  ],
+  "addresses": [
+   "5421 Ashgrove Place"
+  ],
+  "organizations": [
+   "Birchmount Software"
+  ]
+ },
+ "p24": {
+  "canonical_name": "Lorelei Tanaka",
+  "first_names": [
+   "Lorelei"
+  ],
+  "last_names": [
+   "Tanaka"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "ltanaka@pellbrookfreight.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U9FWB4KU6",
+   "lorelei.tanaka"
+  ],
+  "phone_numbers_linked": [
+   "+1 503 555 0146"
+  ],
+  "employee_ids": [
+   "PF-19353"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "3882 Marrowbone Drive"
+  ],
+  "organizations": [
+   "Pellbrook Freight"
+  ]
+ },
+ "org_home": {
+  "canonical_name": "Pellbrook Freight",
+  "organization": true,
+  "organizations": [
+   "Pellbrook Freight",
+   "Pellbrook Freight LLC"
+  ],
+  "urls": [
+   "https://www.pellbrookfreight.test"
+  ],
+  "addresses": [
+   "8593 Old Mill Terrace"
+  ],
+  "account_numbers": [
+   "6109343223"
+  ],
+  "domain": "pellbrookfreight.test"
+ },
+ "org_1": {
+  "canonical_name": "Foxglove Catering",
+  "organization": true,
+  "organizations": [
+   "Foxglove",
+   "Foxglove Catering",
+   "Foxglove Catering Co."
+  ],
+  "urls": [
+   "https://www.foxglove.test"
+  ],
+  "addresses": [
+   "8095 Ashgrove Place"
+  ],
+  "account_numbers": [
+   "3250116546"
+  ],
+  "domain": "foxglove.test"
+ },
+ "org_2": {
+  "canonical_name": "Birchmount Software",
+  "organization": true,
+  "organizations": [
+   "Birchmount",
+   "Birchmount Software"
+  ],
+  "urls": [
+   "https://www.birchmount.test"
+  ],
+  "addresses": [
+   "5622 Saltmarsh Avenue"
+  ],
+  "account_numbers": [
+   "5787675605"
+  ],
+  "domain": "birchmount.test"
+ },
+ "org_3": {
+  "canonical_name": "Marrowbone Capital Partners",
+  "organization": true,
+  "organizations": [
+   "Marrowbone",
+   "Marrowbone Capital Partners"
+  ],
+  "urls": [
+   "https://www.marrowbone.test"
+  ],
+  "addresses": [
+   "3939 Candlewick Road"
+  ],
+  "account_numbers": [
+   "3164390478"
+  ],
+  "domain": "marrowbone.test"
+ },
+ "org_4": {
+  "canonical_name": "Umberline Media",
+  "organization": true,
+  "organizations": [
+   "Umberline",
+   "Umberline Media",
+   "Umberline Media LLC"
+  ],
+  "urls": [
+   "https://www.umberline.test"
+  ],
+  "addresses": [
+   "7125 Saltmarsh Avenue"
+  ],
+  "account_numbers": [
+   "6256343965"
+  ],
+  "domain": "umberline.test"
+ },
+ "org_5": {
+  "canonical_name": "Thistlewood Analytics",
+  "organization": true,
+  "organizations": [
+   "Thistlewood",
+   "Thistlewood Analytics"
+  ],
+  "urls": [
+   "https://www.thistlewood.test"
+  ],
+  "addresses": [
+   "5749 Ridgeback Trail"
+  ],
+  "account_numbers": [
+   "4833511264"
+  ],
+  "domain": "thistlewood.test"
+ },
+ "org_6": {
+  "canonical_name": "Willowmere Staffing",
+  "organization": true,
+  "organizations": [
+   "Willowmere",
+   "Willowmere Staffing"
+  ],
+  "urls": [
+   "https://www.willowmere.test"
+  ],
+  "addresses": [
+   "7914 Ashgrove Place"
+  ],
+  "account_numbers": [
+   "7429249452"
+  ],
+  "domain": "willowmere.test"
+ },
+ "org_homonym": {
+  "canonical_name": "Tanaka & Associates",
+  "organization": true,
+  "organizations": [
+   "Tanaka",
+   "Tanaka & Associates",
+   "Tanaka & Associates LLP"
+  ],
+  "urls": [
+   "https://www.tanakalaw.test"
+  ],
+  "addresses": [
+   "5337 Thistle Lane"
+  ],
+  "account_numbers": [
+   "9064071873"
+  ],
+  "domain": "tanakalaw.test"
+ }
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "ragbase-shield",
+  "version": "0.4.0",
+  "description": "Local pseudonymisation for client files. The model reads dossier documents masked (PERSONNE_A, SOCIETE_B, IBAN_1) through a local MCP server; the table of codes and real names stays on your computer.",
+  "author": {
+    "name": "RAGbase",
+    "url": "https://ragbase.ai"
+  },
+  "homepage": "https://ragbase.ai",
+  "license": "Apache-2.0",
+  "keywords": ["privacy", "pseudonymisation", "gdpr", "rgpd", "legal", "avocat", "mcp"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "RAGbase Shield",
+        "shortDescription": "Work on client files with codes for detected names",
+        "longDescription": "RAGbase Shield pseudonymises client data on your computer before the model sees it. Register a dossier folder with Shield Desk, then ask for work on DOSSIER_n: the model reads masked documents through the Shield tools and saves the final draft with shield_save_draft. The real names are restored locally, in the 'Shield - sorties' folder of the dossier. No telemetry, no network calls. Pseudonymisation (reversible), not anonymisation.",
+        "developerName": "RAGbase",
+        "category": "Productivity",
+        "capabilities": ["Read", "Write"],
+        "websiteURL": "https://ragbase.ai",
+        "defaultPrompt": [
+          "List my RAGbase Shield dossiers.",
+          "Read the documents of DOSSIER_1 and draft a summary, then save it with shield_save_draft."
+        ],
+        "brandColor": "#17324D",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/icon.png"
+      }
+    }
+  }
+}

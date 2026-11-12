@@ -1,0 +1,50 @@
+[
+ {
+  "type": "message",
+  "user": "U4CC1J4PS",
+  "ts": "1772874185.945137",
+  "client_msg_id": "75bf33b3d92f2366a53a3bcfd017d4c54f59",
+  "text": "send the statement to fitzgerald@tanager.test (Fitzgerald)",
+  "user_profile": {
+   "real_name": "Lucian Petrov",
+   "display_name": "lucianpet"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U4CC1J4PS",
+  "ts": "1772960622.945516",
+  "client_msg_id": "0dcb3663ae72707b862e8e903280a0389aa0",
+  "text": "send the statement to saoirse@birchmount.test (Saoirse)",
+  "user_profile": {
+   "real_name": "Lucian Petrov",
+   "display_name": "lucianpet"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U0J5JA0W9",
+  "ts": "1773047059.381115",
+  "client_msg_id": "66cd684d9a3288e8efd8fa808f901eb6f3a1",
+  "text": "send the statement to horatio.mabaso@eastwicklaw.test (Horatio)",
+  "user_profile": {
+   "real_name": "Florian Sallow",
+   "display_name": "florian.sallow"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U17QDA8NK",
+  "ts": "1773133496.899633",
+  "client_msg_id": "5f43abf512812ad35603475f0e9e9c13f3de",
+  "text": "reimbursement to Roderick Daventry, account ACCT-6584-4071, approved",
+  "user_profile": {
+   "real_name": "Jasper Moreau",
+   "display_name": "jmoreau"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

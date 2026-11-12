@@ -1,0 +1,50 @@
+[
+ {
+  "type": "message",
+  "user": "U8HW0Q7EZ",
+  "ts": "1773133496.729487",
+  "client_msg_id": "1d98666fbb3967b18a5479ad8e1ff462d991",
+  "text": "reimbursement to June Iverson, account ACCT-2505-4392, approved",
+  "user_profile": {
+   "real_name": "Bea Upton",
+   "display_name": "bupton"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U3FD6JHXD",
+  "ts": "1773219933.662566",
+  "client_msg_id": "638ae1f1ae6920f018d0b11bc8c367968574",
+  "text": "roster v2 is up: Rutherford, Xavier and Yelverton, Nerissa moved teams",
+  "user_profile": {
+   "real_name": "Ulysses Quarrington",
+   "display_name": "uquarrington"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U8T14AEKF",
+  "ts": "1773306370.106386",
+  "client_msg_id": "7ddf243144a59e43d9c81e62f4e09146a59e",
+  "text": "pay Ridgeback Security against 2946558063",
+  "user_profile": {
+   "real_name": "Clementine Blackwood",
+   "display_name": "clementine_blackwood"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U8T14AEKF",
+  "ts": "1773392807.878060",
+  "client_msg_id": "621d6386abc1a77680b68f624cec83dcd269",
+  "text": "vendor accounts csv attached",
+  "user_profile": {
+   "real_name": "Clementine Blackwood",
+   "display_name": "clementine_blackwood"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

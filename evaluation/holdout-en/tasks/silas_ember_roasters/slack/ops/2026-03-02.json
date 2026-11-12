@@ -1,0 +1,74 @@
+[
+ {
+  "type": "message",
+  "user": "U2S6Y7Z3W",
+  "ts": "1772442000.786405",
+  "client_msg_id": "c789978d9de7d6c6f8aab155f60dd4e4cd06",
+  "text": "delivery goes to 8417 Copperfield Street, Pellbrook, OR 97201 (ask for Mabaso)",
+  "user_profile": {
+   "real_name": "Cormac Orrell",
+   "display_name": "correll"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U4CC1J4PS",
+  "ts": "1772528437.555634",
+  "client_msg_id": "21c0b9a5f6c17c7a4f2e48797a725a700632",
+  "text": "badge for Hilde Rowntree (EVR-28596) reprinted",
+  "user_profile": {
+   "real_name": "Lucian Petrov",
+   "display_name": "lucianpet"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U690QRVEP",
+  "ts": "1772614874.958412",
+  "client_msg_id": "55010bfc7a98a419d636a29e219c46ead1b1",
+  "text": "Ursula Farrow from Tanager Lane Realty LLC confirmed the invoice backlog",
+  "user_profile": {
+   "real_name": "Ignatius Holloway",
+   "display_name": "hollowayi"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U7218QPQ5",
+  "ts": "1772701311.443609",
+  "client_msg_id": "7abb0d385582c3d22229d00b09489a7305b0",
+  "text": "call Kerensa at +1 720 555 0158 before you send the crew",
+  "user_profile": {
+   "real_name": "Silas Galbraith",
+   "display_name": "sgalbraith"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U4SS833JC",
+  "ts": "1772787748.984375",
+  "client_msg_id": "a2ae62bb8f0e4e74bb93634ff802de84a374",
+  "text": "call Caius at (720) 555-0124 before you send the crew",
+  "user_profile": {
+   "real_name": "Clementine Tanaka",
+   "display_name": "clementine_tanaka"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U0FX48D1G",
+  "ts": "1772874185.154377",
+  "client_msg_id": "54bf37d2d216e84eff6f6535bc8140e9dc2d",
+  "text": "Zelda Fontaine from Vesper Print Works confirmed the training week",
+  "user_profile": {
+   "real_name": "Roderick Daventry",
+   "display_name": "daventryr"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

@@ -1,0 +1,244 @@
+{
+ "doc": "02_conclusions_appel.txt",
+ "type": "conclusions",
+ "title": "Benali c. Quantorive SA",
+ "parties": [
+  {
+   "id": "p_benali",
+   "kind": "PERSON",
+   "value": "Karim Benali"
+  },
+  {
+   "id": "o_quantorive",
+   "kind": "ORG",
+   "value": "Quantorive SA"
+  }
+ ],
+ "mentions": [
+  {
+   "id": "r1",
+   "kind": "CASE_REF",
+   "text": "24/03187",
+   "start": 46,
+   "end": 54,
+   "checksum": false
+  },
+  {
+   "id": "r2",
+   "kind": "CASE_REF",
+   "text": "DBVX-V-B7I-PQ3R",
+   "start": 69,
+   "end": 84,
+   "checksum": false
+  },
+  {
+   "id": "p_benali",
+   "kind": "PERSON",
+   "text": "Karim BENALI",
+   "start": 132,
+   "end": 144,
+   "checksum": false
+  },
+  {
+   "id": "b1",
+   "kind": "BIRTHDATE",
+   "text": "17/11/1984",
+   "start": 152,
+   "end": 162,
+   "checksum": false
+  },
+  {
+   "id": "a1",
+   "kind": "ADDRESS",
+   "text": "27 rue Paul Bert, 69003 Lyon",
+   "start": 192,
+   "end": 220,
+   "checksum": false
+  },
+  {
+   "id": "p_morvillier",
+   "kind": "PERSON",
+   "text": "Gaëtan MORVILLIER",
+   "start": 258,
+   "end": 275,
+   "checksum": false
+  },
+  {
+   "id": "e1",
+   "kind": "EMAIL",
+   "text": "contact@morvillier-avocat.fr",
+   "start": 304,
+   "end": 332,
+   "checksum": false
+  },
+  {
+   "id": "o_quantorive",
+   "kind": "ORG",
+   "text": "QUANTORIVE",
+   "start": 355,
+   "end": 365,
+   "checksum": false
+  },
+  {
+   "id": "s1",
+   "kind": "SIREN",
+   "text": "938 402 005",
+   "start": 442,
+   "end": 453,
+   "checksum": true
+  },
+  {
+   "id": "p_lervignac",
+   "kind": "PERSON",
+   "text": "Sophie LERVIGNAC",
+   "start": 540,
+   "end": 556,
+   "checksum": false
+  },
+  {
+   "id": "p_benali",
+   "kind": "PERSON",
+   "text": "Benali",
+   "start": 629,
+   "end": 635,
+   "checksum": false
+  },
+  {
+   "id": "o_quantorive",
+   "kind": "ORG",
+   "text": "Quantorive",
+   "start": 664,
+   "end": 674,
+   "checksum": false
+  },
+  {
+   "id": "p_benali",
+   "kind": "PERSON",
+   "text": "BENALI",
+   "start": 807,
+   "end": 813,
+   "checksum": false
+  },
+  {
+   "id": "p_benali",
+   "kind": "PERSON",
+   "text": "Karim Benali",
+   "start": 997,
+   "end": 1009,
+   "checksum": false
+  },
+  {
+   "id": "r3",
+   "kind": "CASE_REF",
+   "text": "22-18.734",
+   "start": 1262,
+   "end": 1271,
+   "checksum": false
+  },
+  {
+   "id": "r4",
+   "kind": "CASE_REF",
+   "text": "ECLI:FR:CCASS:2024:SO00187",
+   "start": 1274,
+   "end": 1300,
+   "checksum": false
+  },
+  {
+   "id": "o_quantorive",
+   "kind": "ORG",
+   "text": "QUANTORIVE",
+   "start": 1328,
+   "end": 1338,
+   "checksum": false
+  },
+  {
+   "id": "p_benali",
+   "kind": "PERSON",
+   "text": "Benali",
+   "start": 1487,
+   "end": 1493,
+   "checksum": false
+  },
+  {
+   "id": "o_quantorive",
+   "kind": "ORG",
+   "text": "Quantorive",
+   "start": 1617,
+   "end": 1627,
+   "checksum": false
+  },
+  {
+   "id": "p_benali",
+   "kind": "PERSON",
+   "text": "BENALI",
+   "start": 1641,
+   "end": 1647,
+   "checksum": false
+  },
+  {
+   "id": "p_morvillier",
+   "kind": "PERSON",
+   "text": "Gaëtan MORVILLIER",
+   "start": 1748,
+   "end": 1765,
+   "checksum": false
+  }
+ ],
+ "keep_clear": [
+  {
+   "text": "COUR D'APPEL DE LYON",
+   "start": 0,
+   "end": 20
+  },
+  {
+   "text": "Chambre sociale",
+   "start": 21,
+   "end": 36
+  },
+  {
+   "text": "barreau de Lyon",
+   "start": 287,
+   "end": 302
+  },
+  {
+   "text": "638 168 369 euros",
+   "start": 384,
+   "end": 401
+  },
+  {
+   "text": "RCS",
+   "start": 419,
+   "end": 422
+  },
+  {
+   "text": "barreau de Lyon",
+   "start": 568,
+   "end": 583
+  },
+  {
+   "text": "conseil de prud'hommes de Lyon",
+   "start": 953,
+   "end": 983
+  },
+  {
+   "text": "Cass. soc.",
+   "start": 1222,
+   "end": 1232
+  },
+  {
+   "text": "cause réelle et sérieuse",
+   "start": 1409,
+   "end": 1433
+  },
+  {
+   "text": "article L1235-3 du Code du travail",
+   "start": 1447,
+   "end": 1481
+  },
+  {
+   "text": "France Travail",
+   "start": 1514,
+   "end": 1528
+  }
+ ]
+}

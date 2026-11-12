@@ -1,0 +1,62 @@
+[
+ {
+  "type": "message",
+  "user": "U8J75K42U",
+  "ts": "1773306370.913452",
+  "client_msg_id": "225cb214706f7abb7774243941068bed8b2e",
+  "text": "Rhys Prendergast from Vesper Print Works confirmed the invoice backlog",
+  "user_profile": {
+   "real_name": "Nerissa Yelverton",
+   "display_name": "nerissayel"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U8T14AEKF",
+  "ts": "1773392807.104272",
+  "client_msg_id": "2b66b560267f350869de8d50b751f7785bc3",
+  "text": "call Emrys at (720) 555-0191 before you send the crew",
+  "user_profile": {
+   "real_name": "Clementine Blackwood",
+   "display_name": "clementine_blackwood"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U5TLKKGQS",
+  "ts": "1773479244.933609",
+  "client_msg_id": "3fb745f22971ee9e3508a4a9dd1cb6479f71",
+  "text": "quote from Birchmount is in the folder",
+  "user_profile": {
+   "real_name": "Imogen Ravelston",
+   "display_name": "ravelstoni"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U8HW0Q7EZ",
+  "ts": "1773565681.566028",
+  "client_msg_id": "22824921bb43b1a806f71d29864ce8eaddf6",
+  "text": "delivery goes to 2458 Marrowbone Drive, Pellbrook, OR 97201 (ask for Kettering)",
+  "user_profile": {
+   "real_name": "Bea Upton",
+   "display_name": "bupton"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U5TLKKGQS",
+  "ts": "1773652118.409294",
+  "client_msg_id": "13c11136f1133267ce410c9005ca4e559d75",
+  "text": "site memo uploaded, see attachment",
+  "user_profile": {
+   "real_name": "Imogen Ravelston",
+   "display_name": "ravelstoni"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

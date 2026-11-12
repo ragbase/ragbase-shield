@@ -1,0 +1,62 @@
+[
+ {
+  "type": "message",
+  "user": "U8Q26L0LX",
+  "ts": "1773392807.203587",
+  "client_msg_id": "9b084cc5d95da596ff58bb328868829ed7da",
+  "text": "Zelda Fontaine from Vesper Print Works confirmed the holiday roster",
+  "user_profile": {
+   "real_name": "Soren Eastwick",
+   "display_name": "seastwick"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U7P68FS6E",
+  "ts": "1773479244.434287",
+  "client_msg_id": "dbeeed0d1d4efd7a40e21d69643eb88ecd56",
+  "text": "badge for Jocelyn Whitlock (EVR-25789) reprinted",
+  "user_profile": {
+   "real_name": "Dorothea Gresham",
+   "display_name": "dorothea.gresham"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U17QDA8NK",
+  "ts": "1773565681.396103",
+  "client_msg_id": "e2c26a8e125fae1750b8fdbf2619ae8c37d7",
+  "text": "PO raised for TANAGER LANE REALTY is in the folder",
+  "user_profile": {
+   "real_name": "Jasper Moreau",
+   "display_name": "jmoreau"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U7218QPQ5",
+  "ts": "1773652118.507438",
+  "client_msg_id": "0f5bc6936dcddd096dc615a45b7691b5d146",
+  "text": "Ursula Farrow from Tanager Lane Realty confirmed the invoice backlog",
+  "user_profile": {
+   "real_name": "Silas Galbraith",
+   "display_name": "sgalbraith"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U7218QPQ5",
+  "ts": "1773738555.296442",
+  "client_msg_id": "11efb796db008cdd45bf538876bb9d005f2c",
+  "text": "site memo uploaded, see attachment",
+  "user_profile": {
+   "real_name": "Silas Galbraith",
+   "display_name": "sgalbraith"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

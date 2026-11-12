@@ -1,0 +1,161 @@
+{
+ "doc": "09_constat_internet.txt",
+ "type": "constat",
+ "title": "Brivanor Logistique SAS c. Vasseur-Garnier - constat",
+ "parties": [
+  {
+   "id": "o_brivanor",
+   "kind": "ORG",
+   "value": "Brivanor Logistique SAS"
+  },
+  {
+   "id": "p_vasseur",
+   "kind": "PERSON",
+   "value": "Hélène Vasseur-Garnier"
+  }
+ ],
+ "mentions": [
+  {
+   "id": "o_brivanor",
+   "kind": "ORG",
+   "text": "BRIVANOR LOGISTIQUE",
+   "start": 122,
+   "end": 141,
+   "checksum": false
+  },
+  {
+   "id": "s1",
+   "kind": "SIREN",
+   "text": "388684722",
+   "start": 147,
+   "end": 156,
+   "checksum": true
+  },
+  {
+   "id": "p_marchal",
+   "kind": "PERSON",
+   "text": "Étienne MARCHAL",
+   "start": 172,
+   "end": 187,
+   "checksum": false
+  },
+  {
+   "id": "ip1",
+   "kind": "ID_CODE",
+   "text": "198.51.100.23",
+   "start": 330,
+   "end": 343,
+   "checksum": false
+  },
+  {
+   "id": "ip2",
+   "kind": "ID_CODE",
+   "text": "2001:db8:85a3::8a2e:370:7334",
+   "start": 358,
+   "end": 386,
+   "checksum": false
+  },
+  {
+   "id": "u1",
+   "kind": "URL",
+   "text": "https://www.brivanor-logistique.fr/equipe",
+   "start": 417,
+   "end": 458,
+   "checksum": false
+  },
+  {
+   "id": "p_vasseur",
+   "kind": "PERSON",
+   "text": "Hélène Vasseur-Garnier",
+   "start": 496,
+   "end": 518,
+   "checksum": false
+  },
+  {
+   "id": "u2",
+   "kind": "URL",
+   "text": "https://www.reseau-pro.example/in/helene-vasseur-garnier",
+   "start": 614,
+   "end": 670,
+   "checksum": false
+  },
+  {
+   "id": "u3",
+   "kind": "URL",
+   "text": "quantorive-conseil.fr",
+   "start": 709,
+   "end": 730,
+   "checksum": false
+  },
+  {
+   "id": "i1",
+   "kind": "IBAN",
+   "text": "DE30 4617 6688 5303 3550 06",
+   "start": 1036,
+   "end": 1063,
+   "checksum": true
+  },
+  {
+   "id": "p_santoni",
+   "kind": "PERSON",
+   "text": "Pierre-Antoine SANTONI",
+   "start": 1083,
+   "end": 1105,
+   "checksum": false
+  },
+  {
+   "id": "b1",
+   "kind": "BIRTHDATE",
+   "text": "8 avril 1975",
+   "start": 1113,
+   "end": 1125,
+   "checksum": false
+  },
+  {
+   "id": "n1",
+   "kind": "NIR",
+   "text": "1 75 04 2A 004 087 81",
+   "start": 1164,
+   "end": 1185,
+   "checksum": true
+  },
+  {
+   "id": "id1",
+   "kind": "ID_CODE",
+   "text": "19AB52817",
+   "start": 1232,
+   "end": 1241,
+   "checksum": false
+  },
+  {
+   "id": "p_marchal",
+   "kind": "PERSON",
+   "text": "É. MARCHAL",
+   "start": 1318,
+   "end": 1328,
+   "checksum": false
+  }
+ ],
+ "keep_clear": [
+  {
+   "text": "RCS",
+   "start": 157,
+   "end": 160
+  },
+  {
+   "text": "https://annuaire-entreprises.data.gouv.fr",
+   "start": 786,
+   "end": 827
+  },
+  {
+   "text": "article L. 441-10 du Code de commerce",
+   "start": 845,
+   "end": 882
+  },
+  {
+   "text": "www.legifrance.gouv.fr",
+   "start": 887,
+   "end": 909
+  }
+ ]
+}

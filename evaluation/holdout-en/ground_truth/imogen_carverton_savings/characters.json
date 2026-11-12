@@ -1,0 +1,946 @@
+{
+ "p00": {
+  "canonical_name": "Imogen Ravelston",
+  "first_names": [
+   "Imogen"
+  ],
+  "last_names": [
+   "Ravelston"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "imogen.ravelston@carvertonsavings.test",
+    "category": "professional"
+   },
+   {
+    "value": "imogen.ravelston17@lettercloud.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U5TLKKGQS",
+   "ravelstoni"
+  ],
+  "phone_numbers_linked": [
+   "+1 720 555 0162"
+  ],
+  "employee_ids": [
+   "CSB-52442"
+  ],
+  "account_numbers": [
+   "87302268"
+  ],
+  "addresses": [
+   "9780 Juniper Hollow Road"
+  ],
+  "organizations": [
+   "Carverton Savings Bank"
+  ]
+ },
+ "p01": {
+  "canonical_name": "Felix Petrov",
+  "first_names": [
+   "Felix"
+  ],
+  "last_names": [
+   "Petrov"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "felix.petrov@carvertonsavings.test",
+    "category": "professional"
+   },
+   {
+    "value": "felix.petrov91@lettercloud.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U3RK48NXC",
+   "petrovf"
+  ],
+  "phone_numbers_linked": [
+   "720-555-0177",
+   "(312) 555-0113"
+  ],
+  "employee_ids": [
+   "CSB-66329"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "7760 Vesper Street"
+  ],
+  "organizations": [
+   "Carverton Savings Bank"
+  ]
+ },
+ "p02": {
+  "canonical_name": "Clementine Blackwood",
+  "first_names": [
+   "Clementine"
+  ],
+  "last_names": [
+   "Blackwood"
+  ],
+  "nicknames": [
+   "Clem"
+  ],
+  "emails": [
+   {
+    "value": "blackwood.clementine@carvertonsavings.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U8T14AEKF",
+   "clementine_blackwood"
+  ],
+  "phone_numbers_linked": [
+   "720.555.0178"
+  ],
+  "employee_ids": [
+   "CSB-96446"
+  ],
+  "account_numbers": [
+   "93016094"
+  ],
+  "addresses": [
+   "3314 Juniper Hollow Road"
+  ],
+  "organizations": [
+   "Carverton Savings Bank"
+  ]
+ },
+ "p03": {
+  "canonical_name": "Ulysses Quarrington",
+  "first_names": [
+   "Ulysses"
+  ],
+  "last_names": [
+   "Quarrington"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "quarrington.ulysses@carvertonsavings.test",
+    "category": "professional"
+   },
+   {
+    "value": "ulysses.quarrington11@mailharbor.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U3FD6JHXD",
+   "uquarrington"
+  ],
+  "phone_numbers_linked": [
+   "720-555-0157"
+  ],
+  "employee_ids": [
+   "CSB-34802"
+  ],
+  "account_numbers": [
+   "16133822"
+  ],
+  "addresses": [
+   "7567 Copperfield Street"
+  ],
+  "organizations": [
+   "Carverton Savings Bank"
+  ]
+ },
+ "p04": {
+  "canonical_name": "Yara Jansen",
+  "first_names": [
+   "Yara"
+  ],
+  "last_names": [
+   "Jansen"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "jansen.yara@carvertonsavings.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U1JCHD3AD",
+   "yjansen"
+  ],
+  "phone_numbers_linked": [
+   "(720) 555-0140"
+  ],
+  "employee_ids": [
+   "CSB-36892"
+  ],
+  "account_numbers": [
+   "ACCT-9771-1652"
+  ],
+  "addresses": [
+   "6118 Quarry Bend"
+  ],
+  "organizations": [
+   "Carverton Savings Bank"
+  ]
+ },
+ "p05": {
+  "canonical_name": "Xavier Rutherford",
+  "first_names": [
+   "Xavier"
+  ],
+  "last_names": [
+   "Rutherford"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "xrutherford@carvertonsavings.test",
+    "category": "professional"
+   },
+   {
+    "value": "xavier.rutherford81@quietinbox.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U3V3ENQCT",
+   "xavierrut"
+  ],
+  "phone_numbers_linked": [
+   "720-555-0160"
+  ],
+  "employee_ids": [
+   "CSB-58454"
+  ],
+  "account_numbers": [
+   "94233062"
+  ],
+  "addresses": [
+   "3796 Birchmount Drive"
+  ],
+  "organizations": [
+   "Carverton Savings Bank"
+  ]
+ },
+ "p06": {
+  "canonical_name": "Sebastian Yeardley",
+  "first_names": [
+   "Sebastian"
+  ],
+  "last_names": [
+   "Yeardley"
+  ],
+  "nicknames": [
+   "Bas"
+  ],
+  "emails": [
+   {
+    "value": "yeardley.sebastian@carvertonsavings.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U6SRNXDQC",
+   "sebastianyea"
+  ],
+  "phone_numbers_linked": [
+   "720.555.0192"
+  ],
+  "employee_ids": [
+   "CSB-82762"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "4712 Saltmarsh Avenue"
+  ],
+  "organizations": [
+   "Carverton Savings Bank"
+  ]
+ },
+ "p07": {
+  "canonical_name": "Joaquin Quayle",
+  "first_names": [
+   "Joaquin"
+  ],
+  "last_names": [
+   "Quayle"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "quayle.joaquin@carvertonsavings.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U5KSJALS6",
+   "joaquinqua"
+  ],
+  "phone_numbers_linked": [
+   "720-555-0159"
+  ],
+  "employee_ids": [
+   "CSB-89889"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "6987 Thistle Lane"
+  ],
+  "organizations": [
+   "Carverton Savings Bank"
+  ]
+ },
+ "p08": {
+  "canonical_name": "Mae Verlaine",
+  "first_names": [
+   "Mae"
+  ],
+  "last_names": [
+   "Verlaine"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "mae.verlaine@carvertonsavings.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U6K115DB0",
+   "mae_verlaine"
+  ],
+  "phone_numbers_linked": [
+   "720-555-0123"
+  ],
+  "employee_ids": [
+   "CSB-37757"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "4318 Larkspur Avenue"
+  ],
+  "organizations": [
+   "Carverton Savings Bank"
+  ]
+ },
+ "p09": {
+  "canonical_name": "Orson Papadakis",
+  "first_names": [
+   "Orson"
+  ],
+  "last_names": [
+   "Papadakis"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "opapadakis@carvertonsavings.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U8M45PH4R",
+   "papadakiso"
+  ],
+  "phone_numbers_linked": [
+   "720.555.0194"
+  ],
+  "employee_ids": [
+   "CSB-29489"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "3842 Thistle Lane"
+  ],
+  "organizations": [
+   "Carverton Savings Bank"
+  ]
+ },
+ "p10": {
+  "canonical_name": "Soren Northcott",
+  "first_names": [
+   "Soren"
+  ],
+  "last_names": [
+   "Northcott"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "northcott.soren@carvertonsavings.test",
+    "category": "professional"
+   },
+   {
+    "value": "soren.northcott87@postwave.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U6QM11724",
+   "snorthcott"
+  ],
+  "phone_numbers_linked": [
+   "+1 720 555 0163"
+  ],
+  "employee_ids": [
+   "CSB-41872"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "7665 Umberline Way"
+  ],
+  "organizations": [
+   "Carverton Savings Bank"
+  ]
+ },
+ "p11": {
+  "canonical_name": "Bea Upton",
+  "first_names": [
+   "Bea"
+  ],
+  "last_names": [
+   "Upton"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "bea@carvertonsavings.test",
+    "category": "professional"
+   },
+   {
+    "value": "bea.upton18@mailharbor.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U8HW0Q7EZ",
+   "bupton"
+  ],
+  "phone_numbers_linked": [
+   "+1 720 555 0152"
+  ],
+  "employee_ids": [
+   "CSB-65436"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "5517 Juniper Hollow Road"
+  ],
+  "organizations": [
+   "Carverton Savings Bank"
+  ]
+ },
+ "p12": {
+  "canonical_name": "Nerissa Yelverton",
+  "first_names": [
+   "Nerissa"
+  ],
+  "last_names": [
+   "Yelverton"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "nyelverton@carvertonsavings.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U8J75K42U",
+   "nerissayel"
+  ],
+  "phone_numbers_linked": [
+   "+1 720 555 0149",
+   "+1 312 555 0154"
+  ],
+  "employee_ids": [
+   "CSB-57888"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "7908 Ashgrove Place"
+  ],
+  "organizations": [
+   "Carverton Savings Bank"
+  ]
+ },
+ "p13": {
+  "canonical_name": "Wilfred Kestrelbury",
+  "first_names": [
+   "Wilfred"
+  ],
+  "last_names": [
+   "Kestrelbury"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "kestrelbury.wilfred@carvertonsavings.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U7GQFWH1U",
+   "kestrelburyw"
+  ],
+  "phone_numbers_linked": [
+   "720.555.0126"
+  ],
+  "employee_ids": [
+   "CSB-23554"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "968 Larkspur Avenue"
+  ],
+  "organizations": [
+   "Carverton Savings Bank"
+  ]
+ },
+ "p14": {
+  "canonical_name": "Piers Sedgwick",
+  "first_names": [
+   "Piers"
+  ],
+  "last_names": [
+   "Sedgwick"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "psedgwick@willowmere.test",
+    "category": "professional"
+   },
+   {
+    "value": "piers.sedgwick60@mailharbor.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U6ES20VHZ",
+   "psedgwick"
+  ],
+  "phone_numbers_linked": [
+   "+1 720 555 0183",
+   "206-555-0145"
+  ],
+  "employee_ids": [],
+  "account_numbers": [],
+  "addresses": [
+   "1207 Quarry Bend"
+  ],
+  "organizations": [
+   "Willowmere Staffing"
+  ]
+ },
+ "p15": {
+  "canonical_name": "Rhys Prendergast",
+  "first_names": [
+   "Rhys"
+  ],
+  "last_names": [
+   "Prendergast"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "rhys.prendergast@vesper.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U5MXWY3N6",
+   "prendergastr"
+  ],
+  "phone_numbers_linked": [
+   "+1 720 555 0150"
+  ],
+  "employee_ids": [],
+  "account_numbers": [],
+  "addresses": [
+   "6460 Quarry Bend"
+  ],
+  "organizations": [
+   "Vesper Print Works"
+  ]
+ },
+ "p16": {
+  "canonical_name": "June Iverson",
+  "first_names": [
+   "June"
+  ],
+  "last_names": [
+   "Iverson"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "iverson.june@birchmount.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U8MQMKN1C",
+   "iversonj"
+  ],
+  "phone_numbers_linked": [
+   "720.555.0168",
+   "415-555-0109"
+  ],
+  "employee_ids": [],
+  "account_numbers": [
+   "ACCT-2505-4392"
+  ],
+  "addresses": [
+   "3693 Quarry Bend"
+  ],
+  "organizations": [
+   "Birchmount Software"
+  ]
+ },
+ "p17": {
+  "canonical_name": "Emrys Adegoke",
+  "first_names": [
+   "Emrys"
+  ],
+  "last_names": [
+   "Adegoke"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "eadegoke@candlewick.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U9BEGNNSH",
+   "adegokee"
+  ],
+  "phone_numbers_linked": [
+   "(720) 555-0191"
+  ],
+  "employee_ids": [],
+  "account_numbers": [
+   "ACCT-8696-7411"
+  ],
+  "addresses": [
+   "6068 Copperfield Street"
+  ],
+  "organizations": [
+   "Candlewick Office Interiors"
+  ]
+ },
+ "p18": {
+  "canonical_name": "Reid Uribe",
+  "first_names": [
+   "Reid"
+  ],
+  "last_names": [
+   "Uribe"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "ruribe@candlewick.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U9KAQVJKK",
+   "ruribe"
+  ],
+  "phone_numbers_linked": [
+   "720-555-0186",
+   "+1 206 555 0156"
+  ],
+  "employee_ids": [],
+  "account_numbers": [
+   "ACCT-4237-7255"
+  ],
+  "addresses": [
+   "9446 Tanager Lane"
+  ],
+  "organizations": [
+   "Candlewick Office Interiors"
+  ]
+ },
+ "p19": {
+  "canonical_name": "Quill Pereira",
+  "first_names": [
+   "Quill"
+  ],
+  "last_names": [
+   "Pereira"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "quill@ridgeback.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U598WT651",
+   "quill.pereira"
+  ],
+  "phone_numbers_linked": [
+   "720.555.0131",
+   "(312) 555-0124"
+  ],
+  "employee_ids": [],
+  "account_numbers": [],
+  "addresses": [
+   "6115 Larkspur Avenue"
+  ],
+  "organizations": [
+   "Ridgeback Security"
+  ]
+ },
+ "p20": {
+  "canonical_name": "Dashiell Moreau",
+  "first_names": [
+   "Dashiell"
+  ],
+  "last_names": [
+   "Moreau"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "moreau.dashiell@willowmere.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U292BB6PV",
+   "dashiell_moreau"
+  ],
+  "phone_numbers_linked": [
+   "(720) 555-0142",
+   "312-555-0198"
+  ],
+  "employee_ids": [],
+  "account_numbers": [],
+  "addresses": [
+   "7882 Tanager Lane"
+  ],
+  "organizations": [
+   "Willowmere Staffing"
+  ]
+ },
+ "p21": {
+  "canonical_name": "Ione Kettering",
+  "first_names": [
+   "Ione"
+  ],
+  "last_names": [
+   "Kettering"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "ione.kettering@ridgeback.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U7MUC03PF",
+   "ioneket"
+  ],
+  "phone_numbers_linked": [
+   "720-555-0116",
+   "(415) 555-0134"
+  ],
+  "employee_ids": [],
+  "account_numbers": [],
+  "addresses": [
+   "7611 Ashgrove Place"
+  ],
+  "organizations": [
+   "Ridgeback Security"
+  ]
+ },
+ "p22": {
+  "canonical_name": "Yannick Bellweather",
+  "first_names": [
+   "Yannick"
+  ],
+  "last_names": [
+   "Bellweather"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "ybellweather@carvertonsavings.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U01717QXX",
+   "yannick_bellweather"
+  ],
+  "phone_numbers_linked": [
+   "(720) 555-0185"
+  ],
+  "employee_ids": [
+   "CSB-17732"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "877 Quarry Bend"
+  ],
+  "organizations": [
+   "Carverton Savings Bank"
+  ]
+ },
+ "org_home": {
+  "canonical_name": "Carverton Savings Bank",
+  "organization": true,
+  "organizations": [
+   "Carverton Savings",
+   "Carverton Savings Bank"
+  ],
+  "urls": [
+   "https://www.carvertonsavings.test"
+  ],
+  "addresses": [
+   "6451 Harbor Mist Way"
+  ],
+  "account_numbers": [
+   "8679689508"
+  ],
+  "domain": "carvertonsavings.test"
+ },
+ "org_1": {
+  "canonical_name": "Ridgeback Security",
+  "organization": true,
+  "organizations": [
+   "Ridgeback",
+   "Ridgeback Security"
+  ],
+  "urls": [
+   "https://www.ridgeback.test"
+  ],
+  "addresses": [
+   "2458 Marrowbone Drive"
+  ],
+  "account_numbers": [
+   "2946558063"
+  ],
+  "domain": "ridgeback.test"
+ },
+ "org_2": {
+  "canonical_name": "Willowmere Staffing",
+  "organization": true,
+  "organizations": [
+   "Willowmere",
+   "Willowmere Staffing"
+  ],
+  "urls": [
+   "https://www.willowmere.test"
+  ],
+  "addresses": [
+   "5179 Juniper Hollow Road"
+  ],
+  "account_numbers": [
+   "7708123613"
+  ],
+  "domain": "willowmere.test"
+ },
+ "org_3": {
+  "canonical_name": "Birchmount Software",
+  "organization": true,
+  "organizations": [
+   "Birchmount",
+   "Birchmount Software"
+  ],
+  "urls": [
+   "https://www.birchmount.test"
+  ],
+  "addresses": [
+   "8023 Candlewick Road"
+  ],
+  "account_numbers": [
+   "3442838071"
+  ],
+  "domain": "birchmount.test"
+ },
+ "org_4": {
+  "canonical_name": "Vesper Print Works",
+  "organization": true,
+  "organizations": [
+   "Vesper",
+   "Vesper Print Works"
+  ],
+  "urls": [
+   "https://www.vesper.test"
+  ],
+  "addresses": [
+   "7072 Quarry Bend"
+  ],
+  "account_numbers": [
+   "7095748356"
+  ],
+  "domain": "vesper.test"
+ },
+ "org_5": {
+  "canonical_name": "Ashgrove Translation Bureau",
+  "organization": true,
+  "organizations": [
+   "Ashgrove",
+   "Ashgrove Translation Bureau"
+  ],
+  "urls": [
+   "https://www.ashgrove.test"
+  ],
+  "addresses": [
+   "2451 Willowmere Road"
+  ],
+  "account_numbers": [
+   "3098855407"
+  ],
+  "domain": "ashgrove.test"
+ },
+ "org_6": {
+  "canonical_name": "Candlewick Office Interiors",
+  "organization": true,
+  "organizations": [
+   "Candlewick",
+   "Candlewick Office Interiors"
+  ],
+  "urls": [
+   "https://www.candlewick.test"
+  ],
+  "addresses": [
+   "623 Saltmarsh Avenue"
+  ],
+  "account_numbers": [
+   "6151222862"
+  ],
+  "domain": "candlewick.test"
+ },
+ "org_homonym": {
+  "canonical_name": "Bellweather & Associates",
+  "organization": true,
+  "organizations": [
+   "Bellweather",
+   "Bellweather & Associates",
+   "Bellweather & Associates LLP"
+  ],
+  "urls": [
+   "https://www.bellweatherlaw.test"
+  ],
+  "addresses": [
+   "3939 Saltmarsh Avenue"
+  ],
+  "account_numbers": [
+   "3273965365"
+  ],
+  "domain": "bellweatherlaw.test"
+ }
+}

@@ -1,0 +1,50 @@
+[
+ {
+  "type": "message",
+  "user": "U5SFVCMNK",
+  "ts": "1772442000.288327",
+  "client_msg_id": "9e01c6fd250847521895d064f6f509790298",
+  "text": "send the statement to uribe.cormac@quillanbrookpress.test (Cormac)",
+  "user_profile": {
+   "real_name": "Verity Okafor",
+   "display_name": "verity.okafor"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U80BAX7W9",
+  "ts": "1772528437.588652",
+  "client_msg_id": "7a029e7f3c1b49d2d3f9912d1ffd66edda98",
+  "text": "roster v2 is up: Schneider, Ursula and Ironside, Romilly moved teams",
+  "user_profile": {
+   "real_name": "Finn Hawthorne",
+   "display_name": "fhawthorne"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U3QDHE9G8",
+  "ts": "1772614874.839510",
+  "client_msg_id": "ab2dbe464150fc5e08e4483a3676953f4f92",
+  "text": "send the statement to ursula.schneider@quillanbrookpress.test (Ursula)",
+  "user_profile": {
+   "real_name": "Wren Iverson",
+   "display_name": "wren_iverson"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U36RC6NVE",
+  "ts": "1772701311.329105",
+  "client_msg_id": "26b6b8d8650a881d09fac63f09e1e9154698",
+  "text": "Edgecombe, Wendell still has no cost centre",
+  "user_profile": {
+   "real_name": "Gareth Rutherford",
+   "display_name": "grutherford"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

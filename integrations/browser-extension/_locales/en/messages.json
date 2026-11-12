@@ -1,0 +1,84 @@
+{
+  "extName": { "message": "RAGbase Shield" },
+  "extDescription": { "message": "Masks client data when you paste text into ChatGPT, Claude, Copilot or Gemini. Masking runs on your computer, with Shield Desk." },
+  "actionTitle": { "message": "RAGbase Shield: restore names" },
+
+  "badgeMasked": {
+    "message": "RAGbase Shield: text masked ($COUNT$ items)",
+    "placeholders": { "count": { "content": "$1", "example": "3" } }
+  },
+  "badgeMaskedOne": { "message": "RAGbase Shield: text masked (1 item)" },
+  "badgeNothing": { "message": "RAGbase Shield: text checked (nothing detected)" },
+
+  "errDeskDown": { "message": "Shield Desk is not running" },
+  "errDeskTimeout": { "message": "Shield Desk does not answer" },
+  "errDeskDownHelp": { "message": "The text was not pasted. Start \"uvx ragbase-shield desk\", then paste again." },
+  "errNoToken": { "message": "Shield token not set" },
+  "errBadToken": { "message": "Shield Desk refused the token" },
+  "errTokenHelp": { "message": "The text was not pasted. Open the extension options and paste the token shown by Shield Desk." },
+  "errTooLarge": { "message": "Text too long for Shield" },
+  "errDesk": { "message": "Shield Desk returned an error" },
+  "errNotPasted": { "message": "The text was not pasted." },
+  "errExtension": { "message": "The RAGbase Shield extension restarted" },
+  "errExtensionHelp": { "message": "The text was not pasted. Reload the page, then paste again." },
+  "errFileBlocked": { "message": "File blocked by RAGbase Shield" },
+  "errFileBlockedHelp": { "message": "An attached file reaches the provider unmasked. Connect the folder in Shield Desk instead, or mask the file in the Files tab of Shield Desk." },
+  "btnAttachAnyway": { "message": "Attach anyway (not masked)" },
+  "optDossierWarn": { "message": "No matter chosen: registered names become [PERSON] or [COMPANY], and the codes change at every paste, so restore is not possible. Choose the client matter." },
+  "btnPasteAnyway": { "message": "Paste anyway (not masked)" },
+  "btnCancel": { "message": "Cancel" },
+  "btnOptions": { "message": "Options" },
+
+  "optTitle": { "message": "RAGbase Shield: options" },
+  "optIntro": { "message": "The extension masks the text you paste into AI chats, with Shield Desk running on your computer." },
+  "optEnabled": { "message": "Mask pasted text automatically" },
+  "optPort": { "message": "Shield Desk port" },
+  "optToken": { "message": "Shield Desk token" },
+  "optTokenHelp": { "message": "Copy the token from Shield Desk (\"uvx ragbase-shield desk\"). It stays in this browser." },
+  "optShow": { "message": "Show" },
+  "optHide": { "message": "Hide" },
+  "optDossier": { "message": "Dossier used for masking" },
+  "optDossierNone": { "message": "None (temporary masking: names cannot be restored)" },
+  "optDossierHelp": { "message": "Choose the client dossier: the same codes are then used to restore the names in the side panel." },
+  "optReload": { "message": "Reload the list" },
+  "optTest": { "message": "Test the connection" },
+  "optSaved": { "message": "Saved" },
+  "optSites": { "message": "Protected sites: chatgpt.com, claude.ai, copilot.microsoft.com, m365.cloud.microsoft, gemini.google.com." },
+  "optPrivacy": { "message": "The extension only talks to Shield Desk, on 127.0.0.1. No telemetry. This is local, reversible pseudonymisation, not anonymisation." },
+  "optWarning": { "message": "Do not attach client files to the chat: only pasted text is masked." },
+
+  "statusOk": {
+    "message": "Connected to Shield Desk (version $VERSION$)",
+    "placeholders": { "version": { "content": "$1", "example": "0.4.0" } }
+  },
+  "statusDown": { "message": "Shield Desk is not running. Start \"uvx ragbase-shield desk\"." },
+  "statusTimeout": { "message": "Shield Desk does not answer." },
+  "statusNoToken": { "message": "Paste the token first." },
+  "statusBadToken": { "message": "Token refused: copy it again from Shield Desk." },
+  "statusError": { "message": "Shield Desk error." },
+  "statusChecking": { "message": "Checking…" },
+
+  "spTitle": { "message": "Restore names" },
+  "spIntro": { "message": "Paste the AI answer (with codes such as PERSONNE_A). The real names are shown here only." },
+  "spDossier": { "message": "Dossier" },
+  "spChoose": { "message": "Choose a dossier" },
+  "spInput": { "message": "AI answer" },
+  "spInputPlaceholder": { "message": "Paste the AI answer here…" },
+  "spRestore": { "message": "Restore names" },
+  "spResult": { "message": "Text with the real names" },
+  "spCopy": { "message": "Copy" },
+  "spCopied": { "message": "Copied" },
+  "spClear": { "message": "Clear" },
+  "spRestored": {
+    "message": "$N$ code(s) replaced.",
+    "placeholders": { "n": { "content": "$1", "example": "4" } }
+  },
+  "spUnknown": {
+    "message": "Codes not in this dossier, please check: $CODES$",
+    "placeholders": { "codes": { "content": "$1", "example": "PERSONNE_Z" } }
+  },
+  "spLocalOnly": { "message": "Do not paste this restored text into the AI chat." },
+  "spNeedDossier": { "message": "Choose a dossier first." },
+  "spEmpty": { "message": "Paste an answer first." },
+  "spOptions": { "message": "Options" }
+}

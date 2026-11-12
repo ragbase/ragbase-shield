@@ -1,0 +1,62 @@
+[
+ {
+  "type": "message",
+  "user": "U27Y40LMP",
+  "ts": "1773392807.876610",
+  "client_msg_id": "f97b2f09cf57a99e323288ee721002ee0aba",
+  "text": "@dorothea.takahashi owns this one &amp; bring numbers",
+  "user_profile": {
+   "real_name": "Lucian Schneider",
+   "display_name": "luciansch"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U9NVJN59J",
+  "ts": "1773479244.666855",
+  "client_msg_id": "9d45f0f4e69e94a11b64c21557da59bd2846",
+  "text": "@oriana.eastwick is on PTO",
+  "user_profile": {
+   "real_name": "Gustav Dashwood",
+   "display_name": "gustav_dashwood"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U5G481PC7",
+  "ts": "1773565681.288939",
+  "client_msg_id": "ec77135dd9c7166b7d9c97a9908232f2a4b7",
+  "text": "<@U9R2PVBSA> can you look at the invoice backlog?",
+  "user_profile": {
+   "real_name": "Ada Haddad",
+   "display_name": "adahad"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U9NVJN59J",
+  "ts": "1773652118.856090",
+  "client_msg_id": "e0d11ab12543db88a980c1c2d52354a840c6",
+  "text": "reminder: Tanager visit tomorrow",
+  "user_profile": {
+   "real_name": "Gustav Dashwood",
+   "display_name": "gustav_dashwood"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U1WCE4CT9",
+  "ts": "1773738555.501865",
+  "client_msg_id": "44f27d6d8660b2c4feb967b106fd0a7e9e76",
+  "text": "the vendor portal moved: &lt;https://www.tanager.test/login&gt;",
+  "user_profile": {
+   "real_name": "Oriana Eastwick",
+   "display_name": "oriana.eastwick"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

@@ -1,0 +1,50 @@
+[
+ {
+  "type": "message",
+  "user": "U8T14AEKF",
+  "ts": "1772787748.794290",
+  "client_msg_id": "2c4692376a1edb68c2cfa1ec06769042599a",
+  "text": "send the statement to ione.kettering@ridgeback.test (Ione)",
+  "user_profile": {
+   "real_name": "Clementine Blackwood",
+   "display_name": "clementine_blackwood"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U3RK48NXC",
+  "ts": "1772874185.503444",
+  "client_msg_id": "ca0edaf1a7ce263f70976ab0cebd2933b58a",
+  "text": "reimbursement to Xavier Rutherford, account 94233062, approved",
+  "user_profile": {
+   "real_name": "Felix Petrov",
+   "display_name": "petrovf"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U1JCHD3AD",
+  "ts": "1772960622.458753",
+  "client_msg_id": "646b4c62f766ca158ec4d487d17f9cce2998",
+  "text": "pay Birchmount Software against 3442838071",
+  "user_profile": {
+   "real_name": "Yara Jansen",
+   "display_name": "yjansen"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U1JCHD3AD",
+  "ts": "1773047059.262689",
+  "client_msg_id": "af6974ff9d7c7f47ecc37e5f619c0e8488ff",
+  "text": "Papadakis, Orson still has no cost centre",
+  "user_profile": {
+   "real_name": "Yara Jansen",
+   "display_name": "yjansen"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

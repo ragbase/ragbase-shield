@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- LaunchAgent written by "ragbase-shield service install" (desk/service_manager.py render_plist).
+     NAME is the macOS account. tests/test_service_login_item.py checks that the code renders exactly this. -->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>RAGBASE_SHIELD_SERVICE</key>
+		<string>1</string>
+	</dict>
+	<key>KeepAlive</key>
+	<dict>
+		<key>SuccessfulExit</key>
+		<false/>
+	</dict>
+	<key>Label</key>
+	<string>ai.ragbase.shield</string>
+	<key>LimitLoadToSessionType</key>
+	<string>Aqua</string>
+	<key>ProcessType</key>
+	<string>Interactive</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/Users/NAME/Library/Application Support/RAGbase Shield/RAGbase Shield.app/Contents/MacOS/RAGbase Shield</string>
+		<string>-E</string>
+		<string>-s</string>
+		<string>-P</string>
+		<string>-X</string>
+		<string>utf8</string>
+		<string>-m</string>
+		<string>ragbase_shield</string>
+		<string>service</string>
+		<string>run</string>
+	</array>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>StandardErrorPath</key>
+	<string>/Users/NAME/.ragbase-shield/logs/launchd.err.log</string>
+	<key>StandardOutPath</key>
+	<string>/Users/NAME/.ragbase-shield/logs/launchd.out.log</string>
+</dict>
+</plist>

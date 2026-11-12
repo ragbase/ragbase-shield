@@ -1,0 +1,62 @@
+[
+ {
+  "type": "message",
+  "user": "U1E2WNWBK",
+  "ts": "1772442000.475410",
+  "client_msg_id": "83256171378a5d8abd450691fef490eecaa8",
+  "text": "cc felix, i'll take it",
+  "user_profile": {
+   "real_name": "Freya Wainwright",
+   "display_name": "freya.wainwright"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U1E2WNWBK",
+  "ts": "1772528437.844563",
+  "client_msg_id": "fda4798a3e16c08af6fd1d5f64d3779b807f",
+  "text": "heads up: Umberline Media invoice is due",
+  "user_profile": {
+   "real_name": "Freya Wainwright",
+   "display_name": "freya.wainwright"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U8KDWLQT4",
+  "ts": "1772614874.556997",
+  "client_msg_id": "7f344833efd86472aeca6694e69c8ff99621",
+  "text": "cc sebastian, ship it",
+  "user_profile": {
+   "real_name": "Owen Oakhurst",
+   "display_name": "owen.oakhurst"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U0UN8H5ZR",
+  "ts": "1772701311.541273",
+  "client_msg_id": "5cf780a8fd0bf7510e59409de6591813a3c1",
+  "text": "heads up: Thistlewood moved offices &amp; no slides please",
+  "user_profile": {
+   "real_name": "Hilde Iverson",
+   "display_name": "hildeive"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U2B9DQJJW",
+  "ts": "1772787748.306394",
+  "client_msg_id": "6205dbef7d842251ba9f4a0cadba211174ac",
+  "text": "ask fitz about the client kickoff",
+  "user_profile": {
+   "real_name": "Lucian Inchbald",
+   "display_name": "lucian_inchbald"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

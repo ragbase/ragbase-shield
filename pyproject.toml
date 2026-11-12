@@ -1,0 +1,80 @@
+[build-system]
+requires = ["hatchling>=1.24"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ragbase-shield"
+version = "0.4.0"
+description = "Local, reversible pseudonymisation of client files for Claude, ChatGPT and Copilot. Free and open source."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+authors = [{ name = "RAGbase" }]
+keywords = ["pseudonymisation", "pseudonymization", "privacy", "gdpr", "rgpd", "mcp", "claude", "chatgpt", "copilot", "legal", "avocat"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Legal Industry",
+  "License :: OSI Approved :: Apache Software License",
+  "Natural Language :: French",
+  "Natural Language :: English",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Topic :: Security",
+  "Topic :: Text Processing",
+]
+dependencies = [
+  "mcp>=2.3,<3",
+  "pypdf>=4.0",
+  "pdfplumber>=0.11",
+  "python-docx>=1.1",
+  "cryptography>=42; sys_platform != 'darwin' or platform_machine != 'x86_64'",
+  "cryptography>=42,<49; sys_platform == 'darwin' and platform_machine == 'x86_64'",
+  "keyring>=24",
+  "lxml>=5",
+  "starlette>=0.40",
+  "uvicorn>=0.31",
+  "python-multipart>=0.0.18",
+]
+
+[project.optional-dependencies]
+# Optional NER (v0.2): GLiNER2 and GLiNER encoders on CPU. Models are downloaded once with
+# "ragbase-shield ner download" (Apache-2.0, about 1.2 GB each) and run offline. torch is the CPU build from
+# PyPI; on Intel macOS the last torch is 2.2.2, which needs transformers 4.x. All licences: Apache-2.0 / BSD.
+ner = [
+  "gliner2>=2.1,<3",
+  "gliner>=0.2.29,<0.3",
+  "torch>=2.2",
+  "transformers>=4.57,<5",
+  "huggingface_hub>=0.25",
+  "sentencepiece>=0.2",
+  "protobuf>=5",
+]
+# The v0.1 spaCy backend stays available as an alternative (install a French model too: fr_core_news_md).
+ner-spacy = ["spacy>=3.7"]
+dev = ["pytest>=8", "httpx>=0.27"]
+# Menu bar (macOS) and tray icon (Windows) of the desktop installers (packaging/README.md). Licences: rumps BSD-3,
+# pyobjc MIT, infi.systray BSD-3. pystray is LGPL-3.0 and is not used (ARCHITECTURE.md section 7).
+tray-mac = ["rumps>=0.4,<0.5; sys_platform == 'darwin'"]
+tray-win = ["infi.systray>=0.1.12,<0.2; sys_platform == 'win32'"]
+
+[project.scripts]
+ragbase-shield = "ragbase_shield.cli:main"
+
+[project.urls]
+Homepage = "https://shield.ragbase.ai"
+Source = "https://github.com/ragbase/ragbase-shield"
+Issues = "https://github.com/ragbase/ragbase-shield/issues"
+Changelog = "https://github.com/ragbase/ragbase-shield/blob/main/CHANGELOG.md"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ragbase_shield"]
+
+[tool.hatch.build.targets.sdist]
+# Anchored ("/src", not "src"): an unanchored pattern also matches folders named "src" deeper in the tree.
+include = ["/src", "/tests", "/bench", "/integrations", "/docs", "/.claude-plugin", "/.agents", "/README.md", "/README.fr.md", "/LICENSE", "/NOTICE", "/ARCHITECTURE.md", "/SECURITY.md", "/CHANGELOG.md", "/pyproject.toml"]
+exclude = ["bench/out", "**/__pycache__", "**/.DS_Store"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

@@ -1,0 +1,977 @@
+{
+ "p00": {
+  "canonical_name": "Harriet Nakashima",
+  "first_names": [
+   "Harriet"
+  ],
+  "last_names": [
+   "Nakashima"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "hnakashima@tanagervet.test",
+    "category": "professional"
+   },
+   {
+    "value": "harriet.nakashima8@quietinbox.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U3S6YUNAT",
+   "nakashimah"
+  ],
+  "phone_numbers_linked": [
+   "646.555.0143"
+  ],
+  "employee_ids": [
+   "TVN-22344"
+  ],
+  "account_numbers": [
+   "ACCT-2671-2161"
+  ],
+  "addresses": [
+   "6112 Ashgrove Place"
+  ],
+  "organizations": [
+   "Tanager Veterinary Network"
+  ]
+ },
+ "p01": {
+  "canonical_name": "Matthias Dashwood",
+  "first_names": [
+   "Matthias"
+  ],
+  "last_names": [
+   "Dashwood"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "matthias@tanagervet.test",
+    "category": "professional"
+   },
+   {
+    "value": "matthias.dashwood94@mailharbor.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U7FH4CK9F",
+   "matthias.dashwood"
+  ],
+  "phone_numbers_linked": [
+   "(646) 555-0189",
+   "312.555.0182"
+  ],
+  "employee_ids": [
+   "TVN-79184"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "6141 Copperfield Street"
+  ],
+  "organizations": [
+   "Tanager Veterinary Network"
+  ]
+ },
+ "p02": {
+  "canonical_name": "Bea Inchbald",
+  "first_names": [
+   "Bea"
+  ],
+  "last_names": [
+   "Inchbald"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "bea@tanagervet.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U5V5NJC7F",
+   "binchbald"
+  ],
+  "phone_numbers_linked": [
+   "(646) 555-0185",
+   "(415) 555-0144"
+  ],
+  "employee_ids": [
+   "TVN-67200"
+  ],
+  "account_numbers": [
+   "ACCT-3699-6102"
+  ],
+  "addresses": [
+   "9680 Old Mill Terrace"
+  ],
+  "organizations": [
+   "Tanager Veterinary Network"
+  ]
+ },
+ "p03": {
+  "canonical_name": "Ivo Hartigan",
+  "first_names": [
+   "Ivo"
+  ],
+  "last_names": [
+   "Hartigan"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "ivo@tanagervet.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U4ZW87RSW",
+   "ivohar"
+  ],
+  "phone_numbers_linked": [
+   "646-555-0102"
+  ],
+  "employee_ids": [
+   "TVN-58573"
+  ],
+  "account_numbers": [
+   "ACCT-1676-8546"
+  ],
+  "addresses": [
+   "4373 Juniper Hollow Road"
+  ],
+  "organizations": [
+   "Tanager Veterinary Network"
+  ]
+ },
+ "p04": {
+  "canonical_name": "Kieran Ridgewell",
+  "first_names": [
+   "Kieran"
+  ],
+  "last_names": [
+   "Ridgewell"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "kieran@tanagervet.test",
+    "category": "professional"
+   },
+   {
+    "value": "kieran.ridgewell70@postwave.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U8G7PAHN3",
+   "ridgewellk"
+  ],
+  "phone_numbers_linked": [
+   "646.555.0135"
+  ],
+  "employee_ids": [
+   "TVN-65141"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "7386 Willowmere Road"
+  ],
+  "organizations": [
+   "Tanager Veterinary Network"
+  ]
+ },
+ "p05": {
+  "canonical_name": "Zane Iverson",
+  "first_names": [
+   "Zane"
+  ],
+  "last_names": [
+   "Iverson"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "ziverson@tanagervet.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U2V7G6WUM",
+   "ziverson"
+  ],
+  "phone_numbers_linked": [
+   "646-555-0136",
+   "312-555-0106"
+  ],
+  "employee_ids": [
+   "TVN-72729"
+  ],
+  "account_numbers": [
+   "ACCT-6030-6603"
+  ],
+  "addresses": [
+   "3973 Willowmere Road"
+  ],
+  "organizations": [
+   "Tanager Veterinary Network"
+  ]
+ },
+ "p06": {
+  "canonical_name": "Zara Yeardley",
+  "first_names": [
+   "Zara"
+  ],
+  "last_names": [
+   "Yeardley"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "zara.yeardley@tanagervet.test",
+    "category": "professional"
+   },
+   {
+    "value": "zara.yeardley8@lettercloud.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U9FNE78VE",
+   "zara.yeardley"
+  ],
+  "phone_numbers_linked": [
+   "646-555-0118",
+   "415.555.0121"
+  ],
+  "employee_ids": [
+   "TVN-58860"
+  ],
+  "account_numbers": [
+   "88576741"
+  ],
+  "addresses": [
+   "9775 Marrowbone Drive"
+  ],
+  "organizations": [
+   "Tanager Veterinary Network"
+  ]
+ },
+ "p07": {
+  "canonical_name": "Joaquin Kingsley",
+  "first_names": [
+   "Joaquin"
+  ],
+  "last_names": [
+   "Kingsley"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "joaquin.kingsley@tanagervet.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U8WG6C06H",
+   "joaquin_kingsley"
+  ],
+  "phone_numbers_linked": [
+   "646-555-0139"
+  ],
+  "employee_ids": [
+   "TVN-10476"
+  ],
+  "account_numbers": [
+   "ACCT-3973-2502"
+  ],
+  "addresses": [
+   "864 Quarry Bend"
+  ],
+  "organizations": [
+   "Tanager Veterinary Network"
+  ]
+ },
+ "p08": {
+  "canonical_name": "Fenella Yamamoto",
+  "first_names": [
+   "Fenella"
+  ],
+  "last_names": [
+   "Yamamoto"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "yamamoto.fenella@tanagervet.test",
+    "category": "professional"
+   },
+   {
+    "value": "fenella.yamamoto16@postwave.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U5Q7TD3EK",
+   "fyamamoto"
+  ],
+  "phone_numbers_linked": [
+   "(646) 555-0146"
+  ],
+  "employee_ids": [
+   "TVN-46460"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "9551 Pinecrest Boulevard"
+  ],
+  "organizations": [
+   "Tanager Veterinary Network"
+  ]
+ },
+ "p09": {
+  "canonical_name": "Nikolai Mortlake",
+  "first_names": [
+   "Nikolai"
+  ],
+  "last_names": [
+   "Mortlake"
+  ],
+  "nicknames": [
+   "Nik"
+  ],
+  "emails": [
+   {
+    "value": "nikolai.mortlake@tanagervet.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U0RUCU3M8",
+   "nikolai_mortlake"
+  ],
+  "phone_numbers_linked": [
+   "+1 646 555 0124",
+   "+1 206 555 0176"
+  ],
+  "employee_ids": [
+   "TVN-81354"
+  ],
+  "account_numbers": [
+   "ACCT-8733-7912"
+  ],
+  "addresses": [
+   "6377 Harbor Mist Way"
+  ],
+  "organizations": [
+   "Tanager Veterinary Network"
+  ]
+ },
+ "p10": {
+  "canonical_name": "Tess Blackwood",
+  "first_names": [
+   "Tess"
+  ],
+  "last_names": [
+   "Blackwood"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "blackwood.tess@tanagervet.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U8G55HDQ5",
+   "blackwoodt"
+  ],
+  "phone_numbers_linked": [
+   "(646) 555-0116"
+  ],
+  "employee_ids": [
+   "TVN-41683"
+  ],
+  "account_numbers": [
+   "53476332"
+  ],
+  "addresses": [
+   "5341 Umberline Way"
+  ],
+  "organizations": [
+   "Tanager Veterinary Network"
+  ]
+ },
+ "p11": {
+  "canonical_name": "Vaughn Holloway",
+  "first_names": [
+   "Vaughn"
+  ],
+  "last_names": [
+   "Holloway"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "vaughn.holloway@tanagervet.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U1VJ83N19",
+   "vaughn_holloway"
+  ],
+  "phone_numbers_linked": [
+   "646.555.0156"
+  ],
+  "employee_ids": [
+   "TVN-21550"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "4951 Marrowbone Drive"
+  ],
+  "organizations": [
+   "Tanager Veterinary Network"
+  ]
+ },
+ "p12": {
+  "canonical_name": "Jocelyn Kowalchuk",
+  "first_names": [
+   "Jocelyn"
+  ],
+  "last_names": [
+   "Kowalchuk"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "jocelyn@tanagervet.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U2NZE99RZ",
+   "jocelyn_kowalchuk"
+  ],
+  "phone_numbers_linked": [
+   "646-555-0145",
+   "+1 312 555 0171"
+  ],
+  "employee_ids": [
+   "TVN-91509"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "1907 Copperfield Street"
+  ],
+  "organizations": [
+   "Tanager Veterinary Network"
+  ]
+ },
+ "p13": {
+  "canonical_name": "Zachariah Ostrowicz",
+  "first_names": [
+   "Zachariah"
+  ],
+  "last_names": [
+   "Ostrowicz"
+  ],
+  "nicknames": [
+   "Zach"
+  ],
+  "emails": [
+   {
+    "value": "ostrowicz.zachariah@tanagervet.test",
+    "category": "professional"
+   },
+   {
+    "value": "zachariah.ostrowicz9@mailharbor.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U5X5DN0GT",
+   "zachariah.ostrowicz"
+  ],
+  "phone_numbers_linked": [
+   "(646) 555-0159",
+   "+1 312 555 0104"
+  ],
+  "employee_ids": [
+   "TVN-45858"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "956 Quarry Bend"
+  ],
+  "organizations": [
+   "Tanager Veterinary Network"
+  ]
+ },
+ "p14": {
+  "canonical_name": "Clementine Yardley",
+  "first_names": [
+   "Clementine"
+  ],
+  "last_names": [
+   "Yardley"
+  ],
+  "nicknames": [
+   "Clem"
+  ],
+  "emails": [
+   {
+    "value": "clementine@quarry.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U03CY52YF",
+   "clementine.yardley"
+  ],
+  "phone_numbers_linked": [
+   "+1 646 555 0119"
+  ],
+  "employee_ids": [],
+  "account_numbers": [
+   "80706381"
+  ],
+  "addresses": [
+   "3866 Birchmount Drive"
+  ],
+  "organizations": [
+   "Quarry Bend Engineering"
+  ]
+ },
+ "p15": {
+  "canonical_name": "Elowen Farrow",
+  "first_names": [
+   "Elowen"
+  ],
+  "last_names": [
+   "Farrow"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "efarrow@harbor.test",
+    "category": "professional"
+   },
+   {
+    "value": "elowen.farrow22@postwave.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U7MXMJXTL",
+   "elowen_farrow"
+  ],
+  "phone_numbers_linked": [
+   "646-555-0181"
+  ],
+  "employee_ids": [],
+  "account_numbers": [],
+  "addresses": [
+   "4741 Pinecrest Boulevard"
+  ],
+  "organizations": [
+   "Harbor Mist Shipping"
+  ]
+ },
+ "p16": {
+  "canonical_name": "Yolanda Lindgren",
+  "first_names": [
+   "Yolanda"
+  ],
+  "last_names": [
+   "Lindgren"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "ylindgren@copperfield.test",
+    "category": "professional"
+   },
+   {
+    "value": "yolanda.lindgren52@postwave.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U2DYP8032",
+   "yolanda_lindgren"
+  ],
+  "phone_numbers_linked": [
+   "646.555.0195",
+   "415-555-0107"
+  ],
+  "employee_ids": [],
+  "account_numbers": [
+   "60274347"
+  ],
+  "addresses": [
+   "4020 Ridgeback Trail"
+  ],
+  "organizations": [
+   "Copperfield Technical Services"
+  ]
+ },
+ "p17": {
+  "canonical_name": "Ambrose Tennant",
+  "first_names": [
+   "Ambrose"
+  ],
+  "last_names": [
+   "Tennant"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "tennant.ambrose@harbor.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U5ZS8FTL9",
+   "ambrose.tennant"
+  ],
+  "phone_numbers_linked": [
+   "646.555.0154"
+  ],
+  "employee_ids": [],
+  "account_numbers": [],
+  "addresses": [
+   "256 Copperfield Street"
+  ],
+  "organizations": [
+   "Harbor Mist Shipping"
+  ]
+ },
+ "p18": {
+  "canonical_name": "Sebastian Underhill",
+  "first_names": [
+   "Sebastian"
+  ],
+  "last_names": [
+   "Underhill"
+  ],
+  "nicknames": [
+   "Bas"
+  ],
+  "emails": [
+   {
+    "value": "underhill.sebastian@tanager.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U2FU0GBN1",
+   "sebastian_underhill"
+  ],
+  "phone_numbers_linked": [
+   "(646) 555-0162",
+   "+1 206 555 0149"
+  ],
+  "employee_ids": [],
+  "account_numbers": [],
+  "addresses": [
+   "920 Vesper Street"
+  ],
+  "organizations": [
+   "Tanager Lane Realty"
+  ]
+ },
+ "p19": {
+  "canonical_name": "Verity Kestrelbury",
+  "first_names": [
+   "Verity"
+  ],
+  "last_names": [
+   "Kestrelbury"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "kestrelbury.verity@copperfield.test",
+    "category": "professional"
+   }
+  ],
+  "slack_handles": [
+   "U9G6DYX16",
+   "kestrelburyv"
+  ],
+  "phone_numbers_linked": [
+   "646.555.0172",
+   "415-555-0133"
+  ],
+  "employee_ids": [],
+  "account_numbers": [
+   "ACCT-4756-4953"
+  ],
+  "addresses": [
+   "1422 Saltmarsh Avenue"
+  ],
+  "organizations": [
+   "Copperfield Technical Services"
+  ]
+ },
+ "p20": {
+  "canonical_name": "Ursula Lockhart",
+  "first_names": [
+   "Ursula"
+  ],
+  "last_names": [
+   "Lockhart"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "lockhart.ursula@copperfield.test",
+    "category": "professional"
+   },
+   {
+    "value": "ursula.lockhart91@quietinbox.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U9PQBG5FB",
+   "lockhartu"
+  ],
+  "phone_numbers_linked": [
+   "+1 646 555 0168"
+  ],
+  "employee_ids": [],
+  "account_numbers": [],
+  "addresses": [
+   "4904 Quarry Bend"
+  ],
+  "organizations": [
+   "Copperfield Technical Services"
+  ]
+ },
+ "p21": {
+  "canonical_name": "Greta Sorensen",
+  "first_names": [
+   "Greta"
+  ],
+  "last_names": [
+   "Sorensen"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "greta.sorensen@copperfield.test",
+    "category": "professional"
+   },
+   {
+    "value": "greta.sorensen10@mailharbor.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U7P7D41FM",
+   "gretasor"
+  ],
+  "phone_numbers_linked": [
+   "(646) 555-0158"
+  ],
+  "employee_ids": [],
+  "account_numbers": [],
+  "addresses": [
+   "4041 Harbor Mist Way"
+  ],
+  "organizations": [
+   "Copperfield Technical Services"
+  ]
+ },
+ "p22": {
+  "canonical_name": "Sylvie Castellanos",
+  "first_names": [
+   "Sylvie"
+  ],
+  "last_names": [
+   "Castellanos"
+  ],
+  "nicknames": [],
+  "emails": [
+   {
+    "value": "scastellanos@tanagervet.test",
+    "category": "professional"
+   },
+   {
+    "value": "sylvie.castellanos89@mailharbor.test",
+    "category": "personal"
+   }
+  ],
+  "slack_handles": [
+   "U5CZD241H",
+   "sylvie_castellanos"
+  ],
+  "phone_numbers_linked": [
+   "+1 646 555 0196"
+  ],
+  "employee_ids": [
+   "TVN-53800"
+  ],
+  "account_numbers": [],
+  "addresses": [
+   "2748 Pinecrest Boulevard"
+  ],
+  "organizations": [
+   "Tanager Veterinary Network"
+  ]
+ },
+ "org_home": {
+  "canonical_name": "Tanager Veterinary Network",
+  "organization": true,
+  "organizations": [
+   "Tanager",
+   "Tanager Veterinary Network"
+  ],
+  "urls": [
+   "https://www.tanagervet.test"
+  ],
+  "addresses": [
+   "3773 Vesper Street"
+  ],
+  "account_numbers": [
+   "2684649518"
+  ],
+  "domain": "tanagervet.test"
+ },
+ "org_1": {
+  "canonical_name": "Tanager Lane Realty",
+  "organization": true,
+  "organizations": [
+   "Tanager",
+   "Tanager Lane Realty",
+   "Tanager Lane Realty LLC"
+  ],
+  "urls": [
+   "https://www.tanager.test"
+  ],
+  "addresses": [
+   "4294 Juniper Hollow Road"
+  ],
+  "account_numbers": [
+   "2343157992"
+  ],
+  "domain": "tanager.test"
+ },
+ "org_2": {
+  "canonical_name": "Harbor Mist Shipping",
+  "organization": true,
+  "organizations": [
+   "Harbor",
+   "Harbor Mist Shipping"
+  ],
+  "urls": [
+   "https://www.harbor.test"
+  ],
+  "addresses": [
+   "6338 Foxglove Street"
+  ],
+  "account_numbers": [
+   "7701937352"
+  ],
+  "domain": "harbor.test"
+ },
+ "org_3": {
+  "canonical_name": "Marrowbone Capital Partners",
+  "organization": true,
+  "organizations": [
+   "Marrowbone",
+   "Marrowbone Capital Partners"
+  ],
+  "urls": [
+   "https://www.marrowbone.test"
+  ],
+  "addresses": [
+   "4622 Saltmarsh Avenue"
+  ],
+  "account_numbers": [
+   "9310675922"
+  ],
+  "domain": "marrowbone.test"
+ },
+ "org_4": {
+  "canonical_name": "Quarry Bend Engineering",
+  "organization": true,
+  "organizations": [
+   "Quarry",
+   "Quarry Bend Engineering",
+   "Quarry Bend Engineering Inc."
+  ],
+  "urls": [
+   "https://www.quarry.test"
+  ],
+  "addresses": [
+   "1008 Willowmere Road"
+  ],
+  "account_numbers": [
+   "7436977272"
+  ],
+  "domain": "quarry.test"
+ },
+ "org_5": {
+  "canonical_name": "Copperfield Technical Services",
+  "organization": true,
+  "organizations": [
+   "Copperfield",
+   "Copperfield Technical Services",
+   "Copperfield Technical Services Ltd"
+  ],
+  "urls": [
+   "https://www.copperfield.test"
+  ],
+  "addresses": [
+   "3560 Wexford Court"
+  ],
+  "account_numbers": [
+   "4029095724"
+  ],
+  "domain": "copperfield.test"
+ },
+ "org_6": {
+  "canonical_name": "Ridgeback Security",
+  "organization": true,
+  "organizations": [
+   "Ridgeback",
+   "Ridgeback Security"
+  ],
+  "urls": [
+   "https://www.ridgeback.test"
+  ],
+  "addresses": [
+   "7214 Tanager Lane"
+  ],
+  "account_numbers": [
+   "3423380562"
+  ],
+  "domain": "ridgeback.test"
+ },
+ "org_homonym": {
+  "canonical_name": "Castellanos & Associates",
+  "organization": true,
+  "organizations": [
+   "Castellanos",
+   "Castellanos & Associates",
+   "Castellanos & Associates LLP"
+  ],
+  "urls": [
+   "https://www.castellanoslaw.test"
+  ],
+  "addresses": [
+   "1477 Vesper Street"
+  ],
+  "account_numbers": [
+   "4031222335"
+  ],
+  "domain": "castellanoslaw.test"
+ }
+}

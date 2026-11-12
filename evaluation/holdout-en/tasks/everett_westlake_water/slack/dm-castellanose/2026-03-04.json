@@ -1,0 +1,26 @@
+[
+ {
+  "type": "message",
+  "user": "U7FARZGEV",
+  "ts": "1772614874.562703",
+  "client_msg_id": "da7e5fa3e84b4b58292f6296deb2bfd0bb9c",
+  "text": "did Whitlock called back?",
+  "user_profile": {
+   "real_name": "Alaric Lindgren",
+   "display_name": "lindgrena"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U7FARZGEV",
+  "ts": "1772701311.254395",
+  "client_msg_id": "f29b9fc26aa8af65e727d940fca5d8e78e83",
+  "text": "did Lindgren signed?",
+  "user_profile": {
+   "real_name": "Alaric Lindgren",
+   "display_name": "lindgrena"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

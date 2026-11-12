@@ -1,0 +1,8 @@
+# Build backends of the desktop installers, pinned. relock.sh compiles this file into build-constraints.txt
+# (with hashes); build.sh and build_payload.py pass it to uv as --build-constraints. Build tools only, never
+# shipped. hatchling (MIT) builds the Shield wheel; setuptools (MIT) and wheel (MIT) build the pure-Python
+# sdists of pins.json "source_build_allowed" (rumps, infi.systray). Their own dependencies (packaging,
+# pathspec, pluggy, tomlkit, trove-classifiers) come in through the compiled file.
+hatchling==1.32.4
+setuptools==84.2.1
+wheel==0.45.1

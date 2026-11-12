@@ -1,0 +1,50 @@
+[
+ {
+  "type": "message",
+  "user": "U5UUL12VP",
+  "ts": "1772787748.285581",
+  "client_msg_id": "a0144b17fe317d3e93ea48056f61fcb53f93",
+  "text": "reimbursement to Ulysses Abernathy, account 15028548, approved",
+  "user_profile": {
+   "real_name": "Rhiannon Oakhurst",
+   "display_name": "rhiannonoak"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U2C5CPS2G",
+  "ts": "1772874185.482144",
+  "client_msg_id": "c0349644e9798c5e7c6ede151d2b8622af18",
+  "text": "send the statement to lzielinski@thornquistdental.test (Lorelei)",
+  "user_profile": {
+   "real_name": "Thaddeus Osgood",
+   "display_name": "tosgood"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U87UN3R4Z",
+  "ts": "1772960622.233203",
+  "client_msg_id": "d9b2ef12197def1259470034cb87f0be2952",
+  "text": "roster v2 is up: Cottrell, Elowen and Jansen, Philippa moved teams",
+  "user_profile": {
+   "real_name": "Theodora Pendergast",
+   "display_name": "theodora_pendergast"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U6FHHJLP7",
+  "ts": "1773047059.529098",
+  "client_msg_id": "cec2d5c0a8efa84d07a85cfe009eaf34ff35",
+  "text": "roster v2 is up: Tanaka, Silas and Zielinski, Lorelei moved teams",
+  "user_profile": {
+   "real_name": "Yolanda Haddad",
+   "display_name": "yhaddad"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

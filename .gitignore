@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+*.pyc
+dist/
+build/
+*.egg-info/
+.pytest_cache/
+*.mcpb
+bench/out/
+# local benchmark data and run outputs (downloaded by evaluation/public/*/download.py)
+.bench_data/
+
+# AI agent transcripts can hold private host context: never commit them
+**/*agent_transcript*

@@ -1,0 +1,62 @@
+[
+ {
+  "type": "message",
+  "user": "U3K8XG0LL",
+  "ts": "1772442000.630564",
+  "client_msg_id": "6d519baa08b7b5bbdcc60b66521ce6c434e5",
+  "text": "@brannickp will post the recap",
+  "user_profile": {
+   "real_name": "Vesna Varga",
+   "display_name": "vargav"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U6QT4UJA5",
+  "ts": "1772528437.204830",
+  "client_msg_id": "917fa45658064e65fa5453f499e6d0976e93",
+  "text": "morning lorelei, ship it",
+  "user_profile": {
+   "real_name": "Florian Kowalchuk",
+   "display_name": "fkowalchuk"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U1BA8CCLU",
+  "ts": "1772614874.664166",
+  "client_msg_id": "60f1f78aebff27d14302e918ba6d0cf678f3",
+  "text": "heads up: Marrowbone Capital Partners signed the renewal &amp; bring numbers",
+  "user_profile": {
+   "real_name": "Lorelei Cottrell",
+   "display_name": "lorelei_cottrell"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U68V3MX6L",
+  "ts": "1772701311.792956",
+  "client_msg_id": "1659c004fc85f226aa1a1b945ca9f650ea60",
+  "text": "heads up: Willowmere signed the renewal",
+  "user_profile": {
+   "real_name": "Dashiell Abernathy",
+   "display_name": "dashiell_abernathy"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U2BHN2GYM",
+  "ts": "1772787748.134754",
+  "client_msg_id": "fdea857b8ca066d73588cd75bbb8abcf6e2b",
+  "text": "fyi Upton & Associates signed the renewal &amp; no slides please",
+  "user_profile": {
+   "real_name": "Wesley Fairweather",
+   "display_name": "fairweatherw"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

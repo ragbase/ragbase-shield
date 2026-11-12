@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- Hardened runtime exceptions for the Python runtime of RAGbase Shield (used only by
+     sign_and_notarize_TODO.sh, not yet run).
+     allow-unsigned-executable-memory: cffi callbacks (cryptography) and pyobjc closures.
+     disable-library-validation: extension modules installed later into <app>/extras by
+     "ragbase-shield ner install" (torch and others, signed by their own teams or ad hoc). -->
+<plist version="1.0">
+<dict>
+	<key>com.apple.security.cs.allow-unsigned-executable-memory</key>
+	<true/>
+	<key>com.apple.security.cs.disable-library-validation</key>
+	<true/>
+</dict>
+</plist>

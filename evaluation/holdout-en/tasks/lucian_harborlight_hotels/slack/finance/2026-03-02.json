@@ -1,0 +1,38 @@
+[
+ {
+  "type": "message",
+  "user": "U4N67WRDF",
+  "ts": "1772442000.893320",
+  "client_msg_id": "7bfcc50bc4a1c92bbc7468f1dc1277ed2ccb",
+  "text": "reimbursement to Petra Upton, account ACCT-8634-4392, approved",
+  "user_profile": {
+   "real_name": "Clementine Quarrington",
+   "display_name": "clementine.quarrington"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U23668F91",
+  "ts": "1772528437.506929",
+  "client_msg_id": "318b63ae0db4095988e4608e3636c382168b",
+  "text": "pay Northcott Regional Supply Co. against 5483063481",
+  "user_profile": {
+   "real_name": "Harriet Umber",
+   "display_name": "humber"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U68V3MX6L",
+  "ts": "1772614874.215986",
+  "client_msg_id": "c5f130c7c2af35c82ef4a5125e064837e2cd",
+  "text": "send the statement to florian@harborlighthotels.test (Florian)",
+  "user_profile": {
+   "real_name": "Dashiell Abernathy",
+   "display_name": "dashiell_abernathy"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

@@ -1,0 +1,74 @@
+[
+ {
+  "type": "message",
+  "user": "U0J5JA0W9",
+  "ts": "1773565681.753756",
+  "client_msg_id": "0472038c378f0d9b315c8b71567abcf4e7c3",
+  "text": "<@U7P68FS6E> thanks for the client kickoff? &amp; bring numbers",
+  "user_profile": {
+   "real_name": "Florian Sallow",
+   "display_name": "florian.sallow"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U8Q26L0LX",
+  "ts": "1773652118.302026",
+  "client_msg_id": "dc72780ab88936d9c0be0fb638925d93e239",
+  "text": "<@U2NAW34JH> can you look at the client kickoff?",
+  "user_profile": {
+   "real_name": "Soren Eastwick",
+   "display_name": "seastwick"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U7P68FS6E",
+  "ts": "1773738555.277843",
+  "client_msg_id": "6baf72365769d37a87ca3f372d84e13a5f8f",
+  "text": "heads up: Birchmount visit tomorrow",
+  "user_profile": {
+   "real_name": "Dorothea Gresham",
+   "display_name": "dorothea.gresham"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U17QDA8NK",
+  "ts": "1773824992.238059",
+  "client_msg_id": "b737db3f154c09842090a0726b8a568b3273",
+  "text": "@florian.sallow has the doc",
+  "user_profile": {
+   "real_name": "Jasper Moreau",
+   "display_name": "jmoreau"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U4CC1J4PS",
+  "ts": "1773911429.521251",
+  "client_msg_id": "a66940acfaa8126f80fc3b628fd714e423af",
+  "text": "@seastwick has the doc &amp; no slides please",
+  "user_profile": {
+   "real_name": "Lucian Petrov",
+   "display_name": "lucianpet"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U2NAW34JH",
+  "ts": "1773997866.815469",
+  "client_msg_id": "e773f7cb98b86cf8149776204caf9f155b84",
+  "text": "the vendor portal moved: &lt;https://www.tanager.test/login&gt;",
+  "user_profile": {
+   "real_name": "Jocelyn Whitlock",
+   "display_name": "jocelyn.whitlock"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

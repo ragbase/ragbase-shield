@@ -1,0 +1,86 @@
+[
+ {
+  "type": "message",
+  "user": "U0FX48D1G",
+  "ts": "1772442000.311877",
+  "client_msg_id": "567bffab92133746f66ef0372901ff4ae303",
+  "text": "reminder: Candlewick Office Interiors moved offices",
+  "user_profile": {
+   "real_name": "Roderick Daventry",
+   "display_name": "daventryr"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U2S6Y7Z3W",
+  "ts": "1772528437.890673",
+  "client_msg_id": "1f7a41d70629a2379f0b91a31db43cd31b97",
+  "text": "<@U0J5JA0W9> thanks for the site survey?",
+  "user_profile": {
+   "real_name": "Cormac Orrell",
+   "display_name": "correll"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U0J5JA0W9",
+  "ts": "1772614874.319521",
+  "client_msg_id": "c5350f03705a1b4b6684026723785748fc13",
+  "text": "ask clem about the holiday roster",
+  "user_profile": {
+   "real_name": "Florian Sallow",
+   "display_name": "florian.sallow"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U7P68FS6E",
+  "ts": "1772701311.287054",
+  "client_msg_id": "73982bfb24177a80782c8f56d248d39db27b",
+  "text": "reminder: Brightmoor Logistics invoice is due",
+  "user_profile": {
+   "real_name": "Dorothea Gresham",
+   "display_name": "dorothea.gresham"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U7218QPQ5",
+  "ts": "1772787748.437738",
+  "client_msg_id": "ad74cedb1dd04eae83f29374fcbd35ed6989",
+  "text": "morning jasper, i'll take it",
+  "user_profile": {
+   "real_name": "Silas Galbraith",
+   "display_name": "sgalbraith"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U4CC1J4PS",
+  "ts": "1772874185.670424",
+  "client_msg_id": "4d2d7d137d973031172e7ea19a7a2ecd383a",
+  "text": "heads up: Eastwick moved offices &amp; no slides please",
+  "user_profile": {
+   "real_name": "Lucian Petrov",
+   "display_name": "lucianpet"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U2NAW34JH",
+  "ts": "1772960622.504496",
+  "client_msg_id": "df4b8e373edc9254090e5eada2b93bc81ee4",
+  "text": "<@U690QRVEP> thanks for the invoice backlog?",
+  "user_profile": {
+   "real_name": "Jocelyn Whitlock",
+   "display_name": "jocelyn.whitlock"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

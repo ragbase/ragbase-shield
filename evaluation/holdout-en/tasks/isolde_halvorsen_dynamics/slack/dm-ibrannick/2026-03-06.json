@@ -1,0 +1,38 @@
+[
+ {
+  "type": "message",
+  "user": "U7SFXCAT0",
+  "ts": "1772960622.332507",
+  "client_msg_id": "9bf6d5cbb1c791b82ca0a4513046c5f58117",
+  "text": "thx oswin see you at 2",
+  "user_profile": {
+   "real_name": "Isolde Brannick",
+   "display_name": "ibrannick"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U3LH2KSFH",
+  "ts": "1773047059.252553",
+  "client_msg_id": "11461d5991123e2746ccff589b6e0fcf4f1e",
+  "text": "ok isolde see you at 2",
+  "user_profile": {
+   "real_name": "Oswin Vickery",
+   "display_name": "vickeryo"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U3LH2KSFH",
+  "ts": "1773133496.981390",
+  "client_msg_id": "72b4204cbbb8b5ceb5a1102681dda7b9b14e",
+  "text": "has Ashby called back?",
+  "user_profile": {
+   "real_name": "Oswin Vickery",
+   "display_name": "vickeryo"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

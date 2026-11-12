@@ -1,0 +1,62 @@
+[
+ {
+  "type": "message",
+  "user": "U87AP3Q9K",
+  "ts": "1773306370.627948",
+  "client_msg_id": "126ba4b20b8c33811e2808ba16e8e589ef45",
+  "text": "<@U2B9DQJJW> can you look at the renewal pricing?",
+  "user_profile": {
+   "real_name": "Joaquin Gresham",
+   "display_name": "joaquin_gresham"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U9D8VKZWR",
+  "ts": "1773392807.124667",
+  "client_msg_id": "e3e83fd7d2839fe64e51c4280420da8e580a",
+  "text": "fyi Tanaka visit tomorrow",
+  "user_profile": {
+   "real_name": "Sebastian Tregarec",
+   "display_name": "sebastian_tregarec"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U9FWB4KU6",
+  "ts": "1773479244.938365",
+  "client_msg_id": "259328a9f3aba529661612e26c190d067c18",
+  "text": "cc fitzgerald, i'll take it &amp; no slides please",
+  "user_profile": {
+   "real_name": "Lorelei Tanaka",
+   "display_name": "lorelei.tanaka"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U4NFAEEQE",
+  "ts": "1773565681.217400",
+  "client_msg_id": "635d07983b534a22254a1fa23cad203ea28a",
+  "text": "morning owen, ship it",
+  "user_profile": {
+   "real_name": "Rowan Kestrelbury",
+   "display_name": "rowan.kestrelbury"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U2M0UAZNY",
+  "ts": "1773652118.129282",
+  "client_msg_id": "9e3d2996e6b01309883074005770354030de",
+  "text": "the vendor portal moved: &lt;https://www.foxglove.test/login&gt;",
+  "user_profile": {
+   "real_name": "Sabrina Yardley",
+   "display_name": "sabrinayar"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

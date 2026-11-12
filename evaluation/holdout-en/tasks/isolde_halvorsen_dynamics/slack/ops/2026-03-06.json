@@ -1,0 +1,62 @@
+[
+ {
+  "type": "message",
+  "user": "U1PWB3CGE",
+  "ts": "1773306370.238873",
+  "client_msg_id": "5cf9cbed839429d6bd593f6074b04ca178fc",
+  "text": "delivery goes to 4928 Harbor Mist Way, Pellbrook, OR 97201 (ask for Rasmussen)",
+  "user_profile": {
+   "real_name": "Ophelia Thornquist",
+   "display_name": "ophelia_thornquist"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U5GYXC1B4",
+  "ts": "1773392807.195574",
+  "client_msg_id": "8b99c71265d015c21b587d2a3c40a1af64ac",
+  "text": "<@U6V7H33YP> <@U3LH2KSFH> please review the client kickoff",
+  "user_profile": {
+   "real_name": "Boyd Tallis",
+   "display_name": "boydtal"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U6079U0Y1",
+  "ts": "1773479244.470635",
+  "client_msg_id": "f18c5cae880bc903abae98db22514b573d70",
+  "text": "<@U821QB1V0> <@U821QB1V0> please review the renewal pricing",
+  "user_profile": {
+   "real_name": "Sylvie Abernathy",
+   "display_name": "sylvie.abernathy"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U0HY359TK",
+  "ts": "1773565681.880131",
+  "client_msg_id": "18e7731c49fe34d67d81b749cbdb75cd7e65",
+  "text": "<@U821QB1V0> <@U7SFXCAT0> please review the fleet renewal",
+  "user_profile": {
+   "real_name": "Horatio Eastwick",
+   "display_name": "heastwick"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U7SFXCAT0",
+  "ts": "1773652118.588767",
+  "client_msg_id": "da654e65018e904cf814525a4d2d3e7e8b05",
+  "text": "site memo uploaded, see attachment",
+  "user_profile": {
+   "real_name": "Isolde Brannick",
+   "display_name": "ibrannick"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

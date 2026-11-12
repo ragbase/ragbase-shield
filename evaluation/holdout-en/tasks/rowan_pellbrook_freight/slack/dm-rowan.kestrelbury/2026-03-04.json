@@ -1,0 +1,26 @@
+[
+ {
+  "type": "message",
+  "user": "U7WYZ6RUH",
+  "ts": "1772701311.529814",
+  "client_msg_id": "4a7a86eaf8570841c6648b9c0e1894f16048",
+  "text": "has Castellanos called back?",
+  "user_profile": {
+   "real_name": "Cora Adegoke",
+   "display_name": "cora.adegoke"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U7WYZ6RUH",
+  "ts": "1772787748.392896",
+  "client_msg_id": "3f1b36610a2925c67290775a2fabb6498250",
+  "text": "has Dimitriou reply?",
+  "user_profile": {
+   "real_name": "Cora Adegoke",
+   "display_name": "cora.adegoke"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

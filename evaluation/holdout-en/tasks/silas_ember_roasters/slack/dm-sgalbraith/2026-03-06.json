@@ -1,0 +1,26 @@
+[
+ {
+  "type": "message",
+  "user": "U1SXX09U7",
+  "ts": "1772874185.553908",
+  "client_msg_id": "ea2a2f7a17d1fc1d748509154995565aa722",
+  "text": "did Orrell reply?",
+  "user_profile": {
+   "real_name": "Ingrid Ostrowicz",
+   "display_name": "ingridost"
+  },
+  "team": "T0HOLDOUT"
+ },
+ {
+  "type": "message",
+  "user": "U7218QPQ5",
+  "ts": "1772960622.453387",
+  "client_msg_id": "8e78656196972eac540113426eb1c51679bc",
+  "text": "did Mabaso reply?",
+  "user_profile": {
+   "real_name": "Silas Galbraith",
+   "display_name": "sgalbraith"
+  },
+  "team": "T0HOLDOUT"
+ }
+]

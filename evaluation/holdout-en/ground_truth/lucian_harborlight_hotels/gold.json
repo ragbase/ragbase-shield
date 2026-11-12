@@ -1,0 +1,14564 @@
+{
+"set": "lucian_harborlight_hotels",
+"mode": "drive",
+"labels": [
+"NAME_GIVEN",
+"NAME_FAMILY",
+"EMAIL_ADDRESS",
+"USERNAME",
+"ORGANIZATION",
+"PHONE_NUMBER",
+"LOCATION_ADDRESS",
+"EMPLOYEE_ID",
+"ACCOUNT_NUMBER",
+"URL"
+],
+"characters": {
+"p00": {
+"canonical_name": "Lucian Ashcombe",
+"first_names": [
+"Lucian"
+],
+"last_names": [
+"Ashcombe"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "lucian@harborlighthotels.test",
+"category": "professional"
+}
+],
+"slack_handles": [
+"U7P78ZPFF",
+"lucianash"
+],
+"phone_numbers_linked": [
+"(617) 555-0123"
+],
+"employee_ids": [
+"HBH-17943"
+],
+"account_numbers": [],
+"addresses": [
+"8311 Marrowbone Drive"
+],
+"organizations": [
+"Harborlight Hotels"
+]
+},
+"p01": {
+"canonical_name": "Clementine Quarrington",
+"first_names": [
+"Clementine"
+],
+"last_names": [
+"Quarrington"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "clementine.quarrington@harborlighthotels.test",
+"category": "professional"
+},
+{
+"value": "clementine.quarrington85@lettercloud.test",
+"category": "personal"
+}
+],
+"slack_handles": [
+"U4N67WRDF",
+"clementine.quarrington"
+],
+"phone_numbers_linked": [
+"617-555-0113",
+"415.555.0194"
+],
+"employee_ids": [
+"HBH-71081"
+],
+"account_numbers": [
+"54685006"
+],
+"addresses": [
+"9684 Copperfield Street"
+],
+"organizations": [
+"Harborlight Hotels"
+]
+},
+"p02": {
+"canonical_name": "Rowan Daventry",
+"first_names": [
+"Rowan"
+],
+"last_names": [
+"Daventry"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "daventry.rowan@harborlighthotels.test",
+"category": "professional"
+}
+],
+"slack_handles": [
+"U3JU4WWJ5",
+"rowan.daventry"
+],
+"phone_numbers_linked": [
+"617.555.0126"
+],
+"employee_ids": [
+"HBH-32524"
+],
+"account_numbers": [],
+"addresses": [
+"6520 Old Mill Terrace"
+],
+"organizations": [
+"Harborlight Hotels"
+]
+},
+"p03": {
+"canonical_name": "Valerian Ironside",
+"first_names": [
+"Valerian"
+],
+"last_names": [
+"Ironside"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "valerian@harborlighthotels.test",
+"category": "professional"
+},
+{
+"value": "valerian.ironside28@mailharbor.test",
+"category": "personal"
+}
+],
+"slack_handles": [
+"U56C32XH2",
+"vironside"
+],
+"phone_numbers_linked": [
+"617.555.0152"
+],
+"employee_ids": [
+"HBH-92349"
+],
+"account_numbers": [
+"90229165"
+],
+"addresses": [
+"8008 Ashgrove Place"
+],
+"organizations": [
+"Harborlight Hotels"
+]
+},
+"p04": {
+"canonical_name": "Desmond Barrowcliffe",
+"first_names": [
+"Desmond"
+],
+"last_names": [
+"Barrowcliffe"
+],
+"nicknames": [
+"Des"
+],
+"emails": [
+{
+"value": "dbarrowcliffe@harborlighthotels.test",
+"category": "professional"
+}
+],
+"slack_handles": [
+"U7WKZXCJH",
+"desmond_barrowcliffe"
+],
+"phone_numbers_linked": [
+"617-555-0179"
+],
+"employee_ids": [
+"HBH-55785"
+],
+"account_numbers": [],
+"addresses": [
+"7560 Juniper Hollow Road"
+],
+"organizations": [
+"Harborlight Hotels"
+]
+},
+"p05": {
+"canonical_name": "Dorothea Horvath",
+"first_names": [
+"Dorothea"
+],
+"last_names": [
+"Horvath"
+],
+"nicknames": [
+"Thea"
+],
+"emails": [
+{
+"value": "dorothea@harborlighthotels.test",
+"category": "professional"
+}
+],
+"slack_handles": [
+"U8KR2E8X8",
+"dhorvath"
+],
+"phone_numbers_linked": [
+"617.555.0112"
+],
+"employee_ids": [
+"HBH-79647"
+],
+"account_numbers": [],
+"addresses": [
+"8309 Birchmount Drive"
+],
+"organizations": [
+"Harborlight Hotels"
+]
+},
+"p06": {
+"canonical_name": "Henrietta Oakhurst",
+"first_names": [
+"Henrietta"
+],
+"last_names": [
+"Oakhurst"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "henrietta@harborlighthotels.test",
+"category": "professional"
+}
+],
+"slack_handles": [
+"U76LWSN74",
+"henrietta.oakhurst"
+],
+"phone_numbers_linked": [
+"617.555.0132"
+],
+"employee_ids": [
+"HBH-23075"
+],
+"account_numbers": [
+"ACCT-8169-2718"
+],
+"addresses": [
+"7843 Wexford Court"
+],
+"organizations": [
+"Harborlight Hotels"
+]
+},
+"p07": {
+"canonical_name": "Wesley Fairweather",
+"first_names": [
+"Wesley"
+],
+"last_names": [
+"Fairweather"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "wesley.fairweather@harborlighthotels.test",
+"category": "professional"
+}
+],
+"slack_handles": [
+"U2BHN2GYM",
+"fairweatherw"
+],
+"phone_numbers_linked": [
+"617-555-0172"
+],
+"employee_ids": [
+"HBH-29992"
+],
+"account_numbers": [],
+"addresses": [
+"5715 Pinecrest Boulevard"
+],
+"organizations": [
+"Harborlight Hotels"
+]
+},
+"p08": {
+"canonical_name": "Harriet Umber",
+"first_names": [
+"Harriet"
+],
+"last_names": [
+"Umber"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "umber.harriet@harborlighthotels.test",
+"category": "professional"
+},
+{
+"value": "harriet.umber51@quietinbox.test",
+"category": "personal"
+}
+],
+"slack_handles": [
+"U23668F91",
+"humber"
+],
+"phone_numbers_linked": [
+"+1 617 555 0170",
+"(206) 555-0116"
+],
+"employee_ids": [
+"HBH-22849"
+],
+"account_numbers": [],
+"addresses": [
+"192 Copperfield Street"
+],
+"organizations": [
+"Harborlight Hotels"
+]
+},
+"p09": {
+"canonical_name": "Percival Brannick",
+"first_names": [
+"Percival"
+],
+"last_names": [
+"Brannick"
+],
+"nicknames": [
+"Percy"
+],
+"emails": [
+{
+"value": "brannick.percival@harborlighthotels.test",
+"category": "professional"
+}
+],
+"slack_handles": [
+"U93F1NM26",
+"brannickp"
+],
+"phone_numbers_linked": [
+"(617) 555-0149"
+],
+"employee_ids": [
+"HBH-35991"
+],
+"account_numbers": [],
+"addresses": [
+"2745 Ashgrove Place"
+],
+"organizations": [
+"Harborlight Hotels"
+]
+},
+"p10": {
+"canonical_name": "Florian Kowalchuk",
+"first_names": [
+"Florian"
+],
+"last_names": [
+"Kowalchuk"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "florian@harborlighthotels.test",
+"category": "professional"
+}
+],
+"slack_handles": [
+"U6QT4UJA5",
+"fkowalchuk"
+],
+"phone_numbers_linked": [
+"617.555.0155"
+],
+"employee_ids": [
+"HBH-15358"
+],
+"account_numbers": [
+"59563602"
+],
+"addresses": [
+"6562 Foxglove Street"
+],
+"organizations": [
+"Harborlight Hotels"
+]
+},
+"p11": {
+"canonical_name": "Otis Tregarec",
+"first_names": [
+"Otis"
+],
+"last_names": [
+"Tregarec"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "tregarec.otis@harborlighthotels.test",
+"category": "professional"
+}
+],
+"slack_handles": [
+"U6K3SX7Q8",
+"tregareco"
+],
+"phone_numbers_linked": [
+"+1 617 555 0104",
+"312-555-0110"
+],
+"employee_ids": [
+"HBH-23162"
+],
+"account_numbers": [
+"ACCT-9101-8123"
+],
+"addresses": [
+"7267 Ridgeback Trail"
+],
+"organizations": [
+"Harborlight Hotels"
+]
+},
+"p12": {
+"canonical_name": "Lorelei Cottrell",
+"first_names": [
+"Lorelei"
+],
+"last_names": [
+"Cottrell"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "lorelei.cottrell@harborlighthotels.test",
+"category": "professional"
+},
+{
+"value": "lorelei.cottrell74@quietinbox.test",
+"category": "personal"
+}
+],
+"slack_handles": [
+"U1BA8CCLU",
+"lorelei_cottrell"
+],
+"phone_numbers_linked": [
+"(617) 555-0192",
+"+1 415 555 0196"
+],
+"employee_ids": [
+"HBH-82972"
+],
+"account_numbers": [],
+"addresses": [
+"4528 Candlewick Road"
+],
+"organizations": [
+"Harborlight Hotels"
+]
+},
+"p13": {
+"canonical_name": "Dashiell Abernathy",
+"first_names": [
+"Dashiell"
+],
+"last_names": [
+"Abernathy"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "dabernathy@harborlighthotels.test",
+"category": "professional"
+}
+],
+"slack_handles": [
+"U68V3MX6L",
+"dashiell_abernathy"
+],
+"phone_numbers_linked": [
+"617.555.0187"
+],
+"employee_ids": [
+"HBH-82822"
+],
+"account_numbers": [],
+"addresses": [
+"1583 Saltmarsh Avenue"
+],
+"organizations": [
+"Harborlight Hotels"
+]
+},
+"p14": {
+"canonical_name": "Vesna Varga",
+"first_names": [
+"Vesna"
+],
+"last_names": [
+"Varga"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "vvarga@harborlighthotels.test",
+"category": "professional"
+}
+],
+"slack_handles": [
+"U3K8XG0LL",
+"vargav"
+],
+"phone_numbers_linked": [
+"617.555.0183"
+],
+"employee_ids": [
+"HBH-64413"
+],
+"account_numbers": [
+"ACCT-1022-5397"
+],
+"addresses": [
+"3531 Ridgeback Trail"
+],
+"organizations": [
+"Harborlight Hotels"
+]
+},
+"p15": {
+"canonical_name": "Ezra Lanchester",
+"first_names": [
+"Ezra"
+],
+"last_names": [
+"Lanchester"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "lanchester.ezra@marrowbone.test",
+"category": "professional"
+}
+],
+"slack_handles": [
+"U584YWZJF",
+"lanchestere"
+],
+"phone_numbers_linked": [
+"+1 617 555 0164",
+"+1 312 555 0186"
+],
+"employee_ids": [],
+"account_numbers": [],
+"addresses": [
+"9035 Umberline Way"
+],
+"organizations": [
+"Marrowbone Capital Partners"
+]
+},
+"p16": {
+"canonical_name": "Yusef Kingsley",
+"first_names": [
+"Yusef"
+],
+"last_names": [
+"Kingsley"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "yusef@foxglove.test",
+"category": "professional"
+}
+],
+"slack_handles": [
+"U38T77V78",
+"yusefkin"
+],
+"phone_numbers_linked": [
+"617-555-0105"
+],
+"employee_ids": [],
+"account_numbers": [
+"76469356"
+],
+"addresses": [
+"1722 Pinecrest Boulevard"
+],
+"organizations": [
+"Foxglove Catering"
+]
+},
+"p17": {
+"canonical_name": "Nell Ramaswamy",
+"first_names": [
+"Nell"
+],
+"last_names": [
+"Ramaswamy"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "nell@uptonlaw.test",
+"category": "professional"
+}
+],
+"slack_handles": [
+"U3396JUAQ",
+"ramaswamyn"
+],
+"phone_numbers_linked": [
+"(617) 555-0127"
+],
+"employee_ids": [],
+"account_numbers": [],
+"addresses": [
+"1316 Ridgeback Trail"
+],
+"organizations": [
+"Upton & Associates"
+]
+},
+"p18": {
+"canonical_name": "Wren Mortlake",
+"first_names": [
+"Wren"
+],
+"last_names": [
+"Mortlake"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "mortlake.wren@foxglove.test",
+"category": "professional"
+}
+],
+"slack_handles": [
+"U9AK49LCB",
+"wrenmor"
+],
+"phone_numbers_linked": [
+"617-555-0171"
+],
+"employee_ids": [],
+"account_numbers": [
+"41494247"
+],
+"addresses": [
+"3007 Marrowbone Drive"
+],
+"organizations": [
+"Foxglove Catering"
+]
+},
+"p19": {
+"canonical_name": "Yara Nightingale",
+"first_names": [
+"Yara"
+],
+"last_names": [
+"Nightingale"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "yara.nightingale@northcott.test",
+"category": "professional"
+}
+],
+"slack_handles": [
+"U4L981W64",
+"yaranig"
+],
+"phone_numbers_linked": [
+"+1 617 555 0162",
+"415.555.0111"
+],
+"employee_ids": [],
+"account_numbers": [],
+"addresses": [
+"3181 Foxglove Street"
+],
+"organizations": [
+"Northcott Regional Supply"
+]
+},
+"p20": {
+"canonical_name": "Barnaby Stanhope",
+"first_names": [
+"Barnaby"
+],
+"last_names": [
+"Stanhope"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "bstanhope@willowmere.test",
+"category": "professional"
+}
+],
+"slack_handles": [
+"U6G391SH7",
+"barnabysta"
+],
+"phone_numbers_linked": [
+"+1 617 555 0199"
+],
+"employee_ids": [],
+"account_numbers": [
+"43302592"
+],
+"addresses": [
+"7420 Pinecrest Boulevard"
+],
+"organizations": [
+"Willowmere Staffing"
+]
+},
+"p21": {
+"canonical_name": "Ione Ridgewell",
+"first_names": [
+"Ione"
+],
+"last_names": [
+"Ridgewell"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "ione@uptonlaw.test",
+"category": "professional"
+}
+],
+"slack_handles": [
+"U28GJCN4A",
+"iridgewell"
+],
+"phone_numbers_linked": [
+"617-555-0143"
+],
+"employee_ids": [],
+"account_numbers": [],
+"addresses": [
+"3742 Umberline Way"
+],
+"organizations": [
+"Upton & Associates"
+]
+},
+"p22": {
+"canonical_name": "Petra Upton",
+"first_names": [
+"Petra"
+],
+"last_names": [
+"Upton"
+],
+"nicknames": [],
+"emails": [
+{
+"value": "upton.petra@harborlighthotels.test",
+"category": "professional"
+}
+],
+"slack_handles": [
+"U4V8UHJWW",
+"petra.upton"
+],
+"phone_numbers_linked": [
+"(617) 555-0125",
+"206-555-0180"
+],
+"employee_ids": [
+"HBH-39414"
+],
+"account_numbers": [
+"ACCT-8634-4392"
+],
+"addresses": [
+"4387 Juniper Hollow Road"
+],
+"organizations": [
+"Harborlight Hotels"
+]
+},
+"org_home": {
+"canonical_name": "Harborlight Hotels",
+"organization": true,
+"organizations": [
+"Harborlight",
+"Harborlight Hotels",
+"Harborlight Hotels Ltd"
+],
+"urls": [
+"https://www.harborlighthotels.test"
+],
+"addresses": [
+"2016 Willowmere Road"
+],
+"account_numbers": [
+"4126426732"
+],
+"domain": "harborlighthotels.test"
+},
+"org_1": {
+"canonical_name": "Willowmere Staffing",
+"organization": true,
+"organizations": [
+"Willowmere",
+"Willowmere Staffing"
+],
+"urls": [
+"https://www.willowmere.test"
+],
+"addresses": [
+"6361 Quarry Bend"
+],
+"account_numbers": [
+"2367570052"
+],
+"domain": "willowmere.test"
+},
+"org_2": {
+"canonical_name": "Northcott Regional Supply",
+"organization": true,
+"organizations": [
+"Northcott",
+"Northcott Regional Supply",
+"Northcott Regional Supply Co."
+],
+"urls": [
+"https://www.northcott.test"
+],
+"addresses": [
+"1178 Quarry Bend"
+],
+"account_numbers": [
+"5483063481"
+],
+"domain": "northcott.test"
+},
+"org_3": {
+"canonical_name": "Marrowbone Capital Partners",
+"organization": true,
+"organizations": [
+"Marrowbone",
+"Marrowbone Capital Partners"
+],
+"urls": [
+"https://www.marrowbone.test"
+],
+"addresses": [
+"6889 Quarry Bend"
+],
+"account_numbers": [
+"6848992484"
+],
+"domain": "marrowbone.test"
+},
+"org_4": {
+"canonical_name": "Foxglove Catering",
+"organization": true,
+"organizations": [
+"Foxglove",
+"Foxglove Catering",
+"Foxglove Catering Co."
+],
+"urls": [
+"https://www.foxglove.test"
+],
+"addresses": [
+"9294 Tanager Lane"
+],
+"account_numbers": [
+"1792557801"
+],
+"domain": "foxglove.test"
+},
+"org_5": {
+"canonical_name": "Tanager Lane Realty",
+"organization": true,
+"organizations": [
+"Tanager",
+"Tanager Lane Realty",
+"Tanager Lane Realty LLC"
+],
+"urls": [
+"https://www.tanager.test"
+],
+"addresses": [
+"6723 Larkspur Avenue"
+],
+"account_numbers": [
+"1169612057"
+],
+"domain": "tanager.test"
+},
+"org_6": {
+"canonical_name": "Quarry Bend Engineering",
+"organization": true,
+"organizations": [
+"Quarry",
+"Quarry Bend Engineering",
+"Quarry Bend Engineering Inc."
+],
+"urls": [
+"https://www.quarry.test"
+],
+"addresses": [
+"6664 Quarry Bend"
+],
+"account_numbers": [
+"8943235628"
+],
+"domain": "quarry.test"
+},
+"org_homonym": {
+"canonical_name": "Upton & Associates",
+"organization": true,
+"organizations": [
+"Upton",
+"Upton & Associates",
+"Upton & Associates LLP"
+],
+"urls": [
+"https://www.uptonlaw.test"
+],
+"addresses": [
+"6925 Harbor Mist Way"
+],
+"account_numbers": [
+"7593913130"
+],
+"domain": "uptonlaw.test"
+}
+},
+"rows": [
+{
+"meta": {
+"row_id": "m0500012813759",
+"from": {
+"name": "Lucian Ashcombe",
+"email": "lucian@harborlighthotels.test"
+},
+"to": [
+{
+"name": "Valerian Ironside",
+"email": "valerian@harborlighthotels.test"
+},
+{
+"name": "Dashiell Abernathy",
+"email": "dabernathy@harborlighthotels.test"
+},
+{
+"name": "Clementine Quarrington",
+"email": "clementine.quarrington@harborlighthotels.test"
+}
+],
+"cc": [
+{
+"name": "Ione Ridgewell",
+"email": "ione@uptonlaw.test"
+}
+],
+"subject": "Kickoff: the Q3 vendor review",
+"datetime": "2026-03-02T12:14:00Z",
+"thread_id": "m0500012813759"
+},
+"text": "Hi all,\n\nKicking off the Q3 vendor review this week. Roles for the record:\n\n- Valerian Ironside (Office Manager, valerian@harborlighthotels.test)\n- Dashiell Abernathy (Quality Inspector, dabernathy@harborlighthotels.test)\n- Clementine Quarrington (Compliance Analyst, clementine.quarrington@harborlighthotels.test)\n- Ione Ridgewell from Upton & Associates LLP, our contact at the vendor (617-555-0143)\n\nThe shared folder is at https://www.harborlighthotels.test/projects/review. Ping Valerian or me if a line item looks wrong.\n\nBest,\nLucian Ashcombe\nProject Coordinator | Harborlight Hotels Ltd\n(617) 555-0123 | lucian@harborlighthotels.test\n2016 Willowmere Road, Kessler City, CO 80202\n\r",
+"file": {
+"kind": "eml",
+"path": "email/m0500012813759.eml",
+"sha256": "77273d43bfb07f3e086a4ae6ef6671163cc26d3f78d50e15e371a0428de406d6",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Valerian",
+"start": 78,
+"end": 86,
+"label": "NAME_GIVEN",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 590,
+"file_char_end": 598,
+"status": "located"
+}
+},
+{
+"text": "Ironside",
+"start": 87,
+"end": 95,
+"label": "NAME_FAMILY",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 599,
+"file_char_end": 607,
+"status": "located"
+}
+},
+{
+"text": "valerian@harborlighthotels.test",
+"start": 113,
+"end": 144,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 625,
+"file_char_end": 656,
+"status": "located"
+}
+},
+{
+"text": "Dashiell",
+"start": 148,
+"end": 156,
+"label": "NAME_GIVEN",
+"characters": [
+"p13"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 661,
+"file_char_end": 669,
+"status": "located"
+}
+},
+{
+"text": "Abernathy",
+"start": 157,
+"end": 166,
+"label": "NAME_FAMILY",
+"characters": [
+"p13"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 670,
+"file_char_end": 679,
+"status": "located"
+}
+},
+{
+"text": "dabernathy@harborlighthotels.test",
+"start": 187,
+"end": 220,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p13"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 700,
+"file_char_end": 733,
+"status": "located"
+}
+},
+{
+"text": "Clementine",
+"start": 224,
+"end": 234,
+"label": "NAME_GIVEN",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 738,
+"file_char_end": 748,
+"status": "located"
+}
+},
+{
+"text": "Quarrington",
+"start": 235,
+"end": 246,
+"label": "NAME_FAMILY",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 749,
+"file_char_end": 760,
+"status": "located"
+}
+},
+{
+"text": "clementine.quarrington@harborlighthotels.test",
+"start": 268,
+"end": 313,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 782,
+"file_char_end": 827,
+"status": "located"
+}
+},
+{
+"text": "Ione",
+"start": 317,
+"end": 321,
+"label": "NAME_GIVEN",
+"characters": [
+"p21"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 832,
+"file_char_end": 836,
+"status": "located"
+}
+},
+{
+"text": "Ridgewell",
+"start": 322,
+"end": 331,
+"label": "NAME_FAMILY",
+"characters": [
+"p21"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 837,
+"file_char_end": 846,
+"status": "located"
+}
+},
+{
+"text": "Upton & Associates LLP",
+"start": 337,
+"end": 359,
+"label": "ORGANIZATION",
+"characters": [
+"org_homonym"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 852,
+"file_char_end": 874,
+"status": "located"
+}
+},
+{
+"text": "617-555-0143",
+"start": 388,
+"end": 400,
+"label": "PHONE_NUMBER",
+"characters": [
+"p21"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 903,
+"file_char_end": 915,
+"status": "located"
+}
+},
+{
+"text": "https://www.harborlighthotels.test/projects/review",
+"start": 427,
+"end": 477,
+"label": "URL",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 944,
+"file_char_end": 994,
+"status": "located"
+}
+},
+{
+"text": "Valerian",
+"start": 484,
+"end": 492,
+"label": "NAME_GIVEN",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 1001,
+"file_char_end": 1009,
+"status": "located"
+}
+},
+{
+"text": "Lucian",
+"start": 534,
+"end": 540,
+"label": "NAME_GIVEN",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 1054,
+"file_char_end": 1060,
+"status": "located"
+}
+},
+{
+"text": "Ashcombe",
+"start": 541,
+"end": 549,
+"label": "NAME_FAMILY",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 1061,
+"file_char_end": 1069,
+"status": "located"
+}
+},
+{
+"text": "Harborlight Hotels Ltd",
+"start": 572,
+"end": 594,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 1093,
+"file_char_end": 1115,
+"status": "located"
+}
+},
+{
+"text": "(617) 555-0123",
+"start": 595,
+"end": 609,
+"label": "PHONE_NUMBER",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 1117,
+"file_char_end": 1131,
+"status": "located"
+}
+},
+{
+"text": "lucian@harborlighthotels.test",
+"start": 612,
+"end": 641,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 1134,
+"file_char_end": 1163,
+"status": "located"
+}
+},
+{
+"text": "2016 Willowmere Road",
+"start": 642,
+"end": 662,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 1165,
+"file_char_end": 1185,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "m05001fa090112",
+"from": {
+"name": "Valerian Ironside",
+"email": "valerian@harborlighthotels.test"
+},
+"to": [
+{
+"name": "Lucian Ashcombe",
+"email": "lucian@harborlighthotels.test"
+}
+],
+"cc": [
+{
+"name": "Dashiell Abernathy",
+"email": "dabernathy@harborlighthotels.test"
+},
+{
+"name": "Clementine Quarrington",
+"email": "clementine.quarrington@harborlighthotels.test"
+}
+],
+"subject": "Re: Kickoff: the Q3 vendor review",
+"datetime": "2026-03-03T15:03:00Z",
+"thread_id": "thread-0"
+},
+"text": "Thanks Lucian! One correction: Quarrington's extension changed, it is now 415.555.0194. Also Dashiell is out until Thursday.\n\n> Kicking off the Q3 vendor review this week.\n> Ping Valerian or me if a line item looks wrong.\n\nRegards,\nValerian Ironside\nOffice Manager | Harborlight Hotels Ltd\n\r",
+"file": {
+"kind": "eml",
+"path": "email/m05001fa090112.eml",
+"sha256": "e5f949f15be89dbd792ac8702e2e05d1ec9587297d139f5eb68d79b56dc3c7b1",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Lucian",
+"start": 7,
+"end": 13,
+"label": "NAME_GIVEN",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 536,
+"file_char_end": 542,
+"status": "located"
+}
+},
+{
+"text": "Quarrington",
+"start": 31,
+"end": 42,
+"label": "NAME_FAMILY",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 560,
+"file_char_end": 571,
+"status": "located"
+}
+},
+{
+"text": "415.555.0194",
+"start": 74,
+"end": 86,
+"label": "PHONE_NUMBER",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 603,
+"file_char_end": 615,
+"status": "located"
+}
+},
+{
+"text": "Dashiell",
+"start": 93,
+"end": 101,
+"label": "NAME_GIVEN",
+"characters": [
+"p13"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 622,
+"file_char_end": 630,
+"status": "located"
+}
+},
+{
+"text": "Valerian",
+"start": 179,
+"end": 187,
+"label": "NAME_GIVEN",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 711,
+"file_char_end": 719,
+"status": "located"
+}
+},
+{
+"text": "Valerian",
+"start": 232,
+"end": 240,
+"label": "NAME_GIVEN",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 767,
+"file_char_end": 775,
+"status": "located"
+}
+},
+{
+"text": "Ironside",
+"start": 241,
+"end": 249,
+"label": "NAME_FAMILY",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 776,
+"file_char_end": 784,
+"status": "located"
+}
+},
+{
+"text": "Harborlight Hotels Ltd",
+"start": 267,
+"end": 289,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 803,
+"file_char_end": 825,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "m05002753a8aa4",
+"from": {
+"name": "Ione Ridgewell",
+"email": "ione@uptonlaw.test"
+},
+"to": [
+{
+"name": "Dashiell Abernathy",
+"email": "dabernathy@harborlighthotels.test"
+}
+],
+"cc": [],
+"subject": "Statement attached",
+"datetime": "2026-03-04T17:17:00Z",
+"thread_id": "m05002753a8aa4"
+},
+"text": "Dear Dashiell,\n\nPlease find attached our statement for Harborlight Hotels. The account reference on your side is 7593913130. Remit to Upton & Associates LLP, 6925 Harbor Mist Way, Westlake Hollow, TX 78701.\n\nFor questions call me at 617-555-0143 or write to ione@uptonlaw.test.\n\nCheers,\nIone Ridgewell\nTraining Coordinator | Upton & Associates\n617-555-0143 | ione@uptonlaw.test\n\r",
+"file": {
+"kind": "eml",
+"path": "email/m05002753a8aa4.eml",
+"sha256": "8150bd193be30659b8118741cd81d9edfa20d41259ce3953403b10badf073a63",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Dashiell",
+"start": 5,
+"end": 13,
+"label": "NAME_GIVEN",
+"characters": [
+"p13"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 315,
+"file_char_end": 323,
+"status": "located"
+}
+},
+{
+"text": "Harborlight Hotels",
+"start": 55,
+"end": 73,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 367,
+"file_char_end": 385,
+"status": "located"
+}
+},
+{
+"text": "7593913130",
+"start": 113,
+"end": 123,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"org_homonym"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 425,
+"file_char_end": 435,
+"status": "located"
+}
+},
+{
+"text": "Upton & Associates LLP",
+"start": 134,
+"end": 156,
+"label": "ORGANIZATION",
+"characters": [
+"org_homonym"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 446,
+"file_char_end": 468,
+"status": "located"
+}
+},
+{
+"text": "6925 Harbor Mist Way",
+"start": 158,
+"end": 178,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_homonym"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 470,
+"file_char_end": 490,
+"status": "located"
+}
+},
+{
+"text": "617-555-0143",
+"start": 233,
+"end": 245,
+"label": "PHONE_NUMBER",
+"characters": [
+"p21"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 547,
+"file_char_end": 559,
+"status": "located"
+}
+},
+{
+"text": "ione@uptonlaw.test",
+"start": 258,
+"end": 276,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p21"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 572,
+"file_char_end": 590,
+"status": "located"
+}
+},
+{
+"text": "Ione",
+"start": 287,
+"end": 291,
+"label": "NAME_GIVEN",
+"characters": [
+"p21"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 604,
+"file_char_end": 608,
+"status": "located"
+}
+},
+{
+"text": "Ridgewell",
+"start": 292,
+"end": 301,
+"label": "NAME_FAMILY",
+"characters": [
+"p21"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 609,
+"file_char_end": 618,
+"status": "located"
+}
+},
+{
+"text": "Upton & Associates",
+"start": 325,
+"end": 343,
+"label": "ORGANIZATION",
+"characters": [
+"org_homonym"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 643,
+"file_char_end": 661,
+"status": "located"
+}
+},
+{
+"text": "617-555-0143",
+"start": 344,
+"end": 356,
+"label": "PHONE_NUMBER",
+"characters": [
+"p21"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 663,
+"file_char_end": 675,
+"status": "located"
+}
+},
+{
+"text": "ione@uptonlaw.test",
+"start": 359,
+"end": 377,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p21"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 678,
+"file_char_end": 696,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "m05003662f6ce2",
+"from": {
+"name": "Wesley Fairweather",
+"email": "wesley.fairweather@harborlighthotels.test"
+},
+"to": [
+{
+"name": "Percival Brannick",
+"email": "brannick.percival@harborlighthotels.test"
+}
+],
+"cc": [],
+"subject": "Welcome aboard",
+"datetime": "2026-03-05T11:51:00Z",
+"thread_id": "m05003662f6ce2"
+},
+"text": "Hello Percival,\n\nWelcome to Harborlight Hotels Ltd. Your employee ID is HBH-35991 and your badge will be ready at reception on Monday. Your workspace handle is @brannickp and your mailbox brannick.percival@harborlighthotels.test is active.\n\nIf anything is missing, Wesley (wesley.fairweather@harborlighthotels.test) can help. Our office is at 2016 Willowmere Road, Kessler City, CO 80202.\n\nBest,\nWesley Fairweather\nQuality Inspector | Harborlight Hotels\n617-555-0172 | wesley.fairweather@harborlighthotels.test\nEmployee ID HBH-29992\n\r",
+"file": {
+"kind": "eml",
+"path": "email/m05003662f6ce2.eml",
+"sha256": "a8f4b2333ffd8e4cb8d2489a4899dd42e2c0fa03e1a5e683668f17d0335c4ab7",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Percival",
+"start": 6,
+"end": 14,
+"label": "NAME_GIVEN",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 354,
+"file_char_end": 362,
+"status": "located"
+}
+},
+{
+"text": "Harborlight Hotels Ltd",
+"start": 28,
+"end": 50,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 378,
+"file_char_end": 400,
+"status": "located"
+}
+},
+{
+"text": "HBH-35991",
+"start": 72,
+"end": 81,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 422,
+"file_char_end": 431,
+"status": "located"
+}
+},
+{
+"text": "@brannickp",
+"start": 160,
+"end": 170,
+"label": "USERNAME",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 510,
+"file_char_end": 520,
+"status": "located"
+}
+},
+{
+"text": "brannick.percival@harborlighthotels.test",
+"start": 188,
+"end": 228,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 538,
+"file_char_end": 578,
+"status": "located"
+}
+},
+{
+"text": "Wesley",
+"start": 265,
+"end": 271,
+"label": "NAME_GIVEN",
+"characters": [
+"p07"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 617,
+"file_char_end": 623,
+"status": "located"
+}
+},
+{
+"text": "wesley.fairweather@harborlighthotels.test",
+"start": 273,
+"end": 314,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p07"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 625,
+"file_char_end": 666,
+"status": "located"
+}
+},
+{
+"text": "2016 Willowmere Road",
+"start": 343,
+"end": 363,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 695,
+"file_char_end": 715,
+"status": "located"
+}
+},
+{
+"text": "Wesley",
+"start": 396,
+"end": 402,
+"label": "NAME_GIVEN",
+"characters": [
+"p07"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 751,
+"file_char_end": 757,
+"status": "located"
+}
+},
+{
+"text": "Fairweather",
+"start": 403,
+"end": 414,
+"label": "NAME_FAMILY",
+"characters": [
+"p07"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 758,
+"file_char_end": 769,
+"status": "located"
+}
+},
+{
+"text": "Harborlight Hotels",
+"start": 435,
+"end": 453,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 791,
+"file_char_end": 809,
+"status": "located"
+}
+},
+{
+"text": "617-555-0172",
+"start": 454,
+"end": 466,
+"label": "PHONE_NUMBER",
+"characters": [
+"p07"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 811,
+"file_char_end": 823,
+"status": "located"
+}
+},
+{
+"text": "wesley.fairweather@harborlighthotels.test",
+"start": 469,
+"end": 510,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p07"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 826,
+"file_char_end": 867,
+"status": "located"
+}
+},
+{
+"text": "HBH-29992",
+"start": 523,
+"end": 532,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p07"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 881,
+"file_char_end": 890,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "m050042138afb4",
+"from": {
+"name": "Lorelei Cottrell",
+"email": "lorelei.cottrell@harborlighthotels.test"
+},
+"to": [
+{
+"name": "Florian Kowalchuk",
+"email": "florian@harborlighthotels.test"
+}
+],
+"cc": [],
+"subject": "slides for the fleet renewal",
+"datetime": "2026-03-06T12:15:00Z",
+"thread_id": "m050042138afb4"
+},
+"text": "hey florian,\n\nquick one: can you send the slides for the fleet renewal to my personal mail (lorelei.cottrell74@quietinbox.test) before friday? lucian wants to review them over the weekend.\n\nalso quarry called again about the renewal.\n\nlorelei\r",
+"file": {
+"kind": "eml",
+"path": "email/m050042138afb4.eml",
+"sha256": "5f0f4510c735b37b3677377b33e8f6cef43e55a9ea5efdd55db9def575e676c7",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "florian",
+"start": 4,
+"end": 11,
+"label": "NAME_GIVEN",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 352,
+"file_char_end": 359,
+"status": "located"
+}
+},
+{
+"text": "lorelei.cottrell74@quietinbox.test",
+"start": 92,
+"end": 126,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p12"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 442,
+"file_char_end": 476,
+"status": "located"
+}
+},
+{
+"text": "lucian",
+"start": 143,
+"end": 149,
+"label": "NAME_GIVEN",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 493,
+"file_char_end": 499,
+"status": "located"
+}
+},
+{
+"text": "quarry",
+"start": 195,
+"end": 201,
+"label": "ORGANIZATION",
+"characters": [
+"org_6"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 547,
+"file_char_end": 553,
+"status": "located"
+}
+},
+{
+"text": "lorelei",
+"start": 235,
+"end": 242,
+"label": "NAME_GIVEN",
+"characters": [
+"p12"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 589,
+"file_char_end": 596,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "m050057cd5c097",
+"from": {
+"name": "Lorelei Cottrell",
+"email": "lorelei.cottrell@harborlighthotels.test"
+},
+"to": [
+{
+"name": "Lucian Ashcombe",
+"email": "lucian@harborlighthotels.test"
+}
+],
+"cc": [
+{
+"name": "Petra Upton",
+"email": "upton.petra@harborlighthotels.test"
+}
+],
+"subject": "Engagement letter",
+"datetime": "2026-03-07T11:43:00Z",
+"thread_id": "m050057cd5c097"
+},
+"text": "Hi Lucian,\n\nUpton & Associates LLP sent the engagement letter; Petra Upton from our team (no relation to the firm) will coordinate. The counterparty contact is Barnaby Stanhope at Willowmere Staffing, reachable at +1 617 555 0199.\n\nTheir portal: https://www.willowmere.test/portal.\n\nBest,\nVesna Varga\nQuality Inspector | Harborlight Hotels Ltd\n617.555.0183 | vvarga@harborlighthotels.test\n\r",
+"file": {
+"kind": "eml",
+"path": "email/m050057cd5c097.eml",
+"sha256": "4fb2dc30a3c4870f43c50b370b126167bbbfce88f490ba1597bfb675aacf0c51",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Lucian",
+"start": 3,
+"end": 9,
+"label": "NAME_GIVEN",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 391,
+"file_char_end": 397,
+"status": "located"
+}
+},
+{
+"text": "Upton & Associates LLP",
+"start": 12,
+"end": 34,
+"label": "ORGANIZATION",
+"characters": [
+"org_homonym"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 402,
+"file_char_end": 424,
+"status": "located"
+}
+},
+{
+"text": "Petra",
+"start": 63,
+"end": 68,
+"label": "NAME_GIVEN",
+"characters": [
+"p22"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 453,
+"file_char_end": 458,
+"status": "located"
+}
+},
+{
+"text": "Upton",
+"start": 69,
+"end": 74,
+"label": "NAME_FAMILY",
+"characters": [
+"p22"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 459,
+"file_char_end": 464,
+"status": "located"
+}
+},
+{
+"text": "Barnaby",
+"start": 160,
+"end": 167,
+"label": "NAME_GIVEN",
+"characters": [
+"p20"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 550,
+"file_char_end": 557,
+"status": "located"
+}
+},
+{
+"text": "Stanhope",
+"start": 168,
+"end": 176,
+"label": "NAME_FAMILY",
+"characters": [
+"p20"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 558,
+"file_char_end": 566,
+"status": "located"
+}
+},
+{
+"text": "Willowmere Staffing",
+"start": 180,
+"end": 199,
+"label": "ORGANIZATION",
+"characters": [
+"org_1"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 570,
+"file_char_end": 589,
+"status": "located"
+}
+},
+{
+"text": "+1 617 555 0199",
+"start": 214,
+"end": 229,
+"label": "PHONE_NUMBER",
+"characters": [
+"p20"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 604,
+"file_char_end": 619,
+"status": "located"
+}
+},
+{
+"text": "https://www.willowmere.test/portal",
+"start": 246,
+"end": 280,
+"label": "URL",
+"characters": [
+"org_1"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 638,
+"file_char_end": 672,
+"status": "located"
+}
+},
+{
+"text": "Vesna",
+"start": 289,
+"end": 294,
+"label": "NAME_GIVEN",
+"characters": [
+"p14"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 684,
+"file_char_end": 689,
+"status": "located"
+}
+},
+{
+"text": "Varga",
+"start": 295,
+"end": 300,
+"label": "NAME_FAMILY",
+"characters": [
+"p14"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 690,
+"file_char_end": 695,
+"status": "located"
+}
+},
+{
+"text": "Harborlight Hotels Ltd",
+"start": 321,
+"end": 343,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 717,
+"file_char_end": 739,
+"status": "located"
+}
+},
+{
+"text": "617.555.0183",
+"start": 344,
+"end": 356,
+"label": "PHONE_NUMBER",
+"characters": [
+"p14"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 741,
+"file_char_end": 753,
+"status": "located"
+}
+},
+{
+"text": "vvarga@harborlighthotels.test",
+"start": 359,
+"end": 388,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p14"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 756,
+"file_char_end": 785,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "m050064a3913df",
+"from": {
+"name": "Lucian Ashcombe",
+"email": "lucian@harborlighthotels.test"
+},
+"to": [
+{
+"name": "Clementine Quarrington",
+"email": "clementine.quarrington@harborlighthotels.test"
+},
+{
+"name": "Rowan Daventry",
+"email": "daventry.rowan@harborlighthotels.test"
+},
+{
+"name": "Valerian Ironside",
+"email": "valerian@harborlighthotels.test"
+},
+{
+"name": "Desmond Barrowcliffe",
+"email": "dbarrowcliffe@harborlighthotels.test"
+}
+],
+"cc": [],
+"subject": "Contact roster",
+"datetime": "2026-03-08T15:51:00Z",
+"thread_id": "m050064a3913df"
+},
+"text": "Team,\n\nThe updated contact roster is attached (contact_roster.xlsx). Please check your own row: name, employee ID, phone. Quarrington, Clementine already flagged a wrong number.\n\nBest,\nLucian Ashcombe\nProject Coordinator | Harborlight Hotels\n(617) 555-0123 | lucian@harborlighthotels.test\n\r",
+"file": {
+"kind": "eml",
+"path": "email/m050064a3913df.eml",
+"sha256": "06e9e7942fb96a94833687b92b44056c2d31995d043267ddd4f98a94e5bbdd9d",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Quarrington",
+"start": 122,
+"end": 133,
+"label": "NAME_FAMILY",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 637,
+"file_char_end": 648,
+"status": "located"
+}
+},
+{
+"text": "Clementine",
+"start": 135,
+"end": 145,
+"label": "NAME_GIVEN",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 650,
+"file_char_end": 660,
+"status": "located"
+}
+},
+{
+"text": "Lucian",
+"start": 185,
+"end": 191,
+"label": "NAME_GIVEN",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 703,
+"file_char_end": 709,
+"status": "located"
+}
+},
+{
+"text": "Ashcombe",
+"start": 192,
+"end": 200,
+"label": "NAME_FAMILY",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 710,
+"file_char_end": 718,
+"status": "located"
+}
+},
+{
+"text": "Harborlight Hotels",
+"start": 223,
+"end": 241,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 742,
+"file_char_end": 760,
+"status": "located"
+}
+},
+{
+"text": "(617) 555-0123",
+"start": 242,
+"end": 256,
+"label": "PHONE_NUMBER",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 762,
+"file_char_end": 776,
+"status": "located"
+}
+},
+{
+"text": "lucian@harborlighthotels.test",
+"start": 259,
+"end": 288,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 779,
+"file_char_end": 808,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "m05007ec87fa55",
+"from": {
+"name": "Lucian Ashcombe",
+"email": "lucian@harborlighthotels.test"
+},
+"to": [
+{
+"name": "Lucian Ashcombe",
+"email": "lucian@harborlighthotels.test"
+}
+],
+"cc": [],
+"subject": "Reimbursements",
+"datetime": "2026-03-09T12:24:00Z",
+"thread_id": "m05007ec87fa55"
+},
+"text": "Hi,\n\nReimbursement for Florian Kowalchuk (employee ID HBH-15358, account 59563602) goes out Friday. The vendor list with account numbers is in vendor_accounts.csv.\n\nQuestions to H. Oakhurst.\n\nBest,\nHarriet Umber\nDispatcher | Harborlight Hotels\n+1 617 555 0170 | umber.harriet@harborlighthotels.test\n\r",
+"file": {
+"kind": "eml",
+"path": "email/m05007ec87fa55.eml",
+"sha256": "3e77ed400ad100262fb4d1b4a83620e67322fbcf1cc84d5c11677573a7a83a99",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Florian",
+"start": 23,
+"end": 30,
+"label": "NAME_GIVEN",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 345,
+"file_char_end": 352,
+"status": "located"
+}
+},
+{
+"text": "Kowalchuk",
+"start": 31,
+"end": 40,
+"label": "NAME_FAMILY",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 353,
+"file_char_end": 362,
+"status": "located"
+}
+},
+{
+"text": "HBH-15358",
+"start": 54,
+"end": 63,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 376,
+"file_char_end": 385,
+"status": "located"
+}
+},
+{
+"text": "59563602",
+"start": 73,
+"end": 81,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 395,
+"file_char_end": 403,
+"status": "located"
+}
+},
+{
+"text": "H.",
+"start": 178,
+"end": 180,
+"label": "NAME_GIVEN",
+"characters": [
+"p06"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 502,
+"file_char_end": 504,
+"status": "located"
+}
+},
+{
+"text": "Oakhurst",
+"start": 181,
+"end": 189,
+"label": "NAME_FAMILY",
+"characters": [
+"p06"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 505,
+"file_char_end": 513,
+"status": "located"
+}
+},
+{
+"text": "Harriet",
+"start": 198,
+"end": 205,
+"label": "NAME_GIVEN",
+"characters": [
+"p08"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 525,
+"file_char_end": 532,
+"status": "located"
+}
+},
+{
+"text": "Umber",
+"start": 206,
+"end": 211,
+"label": "NAME_FAMILY",
+"characters": [
+"p08"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 533,
+"file_char_end": 538,
+"status": "located"
+}
+},
+{
+"text": "Harborlight Hotels",
+"start": 225,
+"end": 243,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 553,
+"file_char_end": 571,
+"status": "located"
+}
+},
+{
+"text": "+1 617 555 0170",
+"start": 244,
+"end": 259,
+"label": "PHONE_NUMBER",
+"characters": [
+"p08"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 573,
+"file_char_end": 588,
+"status": "located"
+}
+},
+{
+"text": "umber.harriet@harborlighthotels.test",
+"start": 262,
+"end": 298,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p08"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 591,
+"file_char_end": 627,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "m0500831bf1a58",
+"from": {
+"name": "Lucian Ashcombe",
+"email": "lucian@harborlighthotels.test"
+},
+"to": [
+{
+"name": "Henrietta Oakhurst",
+"email": "henrietta@harborlighthotels.test"
+},
+{
+"name": "Desmond Barrowcliffe",
+"email": "dbarrowcliffe@harborlighthotels.test"
+}
+],
+"cc": [],
+"subject": "FW: memo on the client kickoff",
+"datetime": "2026-03-10T15:16:00Z",
+"thread_id": "m0500831bf1a58"
+},
+"text": "Forwarding the memo from Upton & Associates about the client kickoff. Read page 2, Stanhope quotes our old address 2016 Willowmere Road, Kessler City, CO 80202.\n\nCheers,\nLucian Ashcombe\nProject Coordinator | Harborlight Hotels Ltd\n\r",
+"file": {
+"kind": "eml",
+"path": "email/m0500831bf1a58.eml",
+"sha256": "6ea3b19c4adaaac4d155075d0ecbd68f62e020a5a6b86e5bb8a9b4f06f702f8d",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Upton & Associates",
+"start": 25,
+"end": 43,
+"label": "ORGANIZATION",
+"characters": [
+"org_homonym"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 428,
+"file_char_end": 446,
+"status": "located"
+}
+},
+{
+"text": "Stanhope",
+"start": 83,
+"end": 91,
+"label": "NAME_FAMILY",
+"characters": [
+"p20"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 486,
+"file_char_end": 494,
+"status": "located"
+}
+},
+{
+"text": "2016 Willowmere Road",
+"start": 115,
+"end": 135,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 518,
+"file_char_end": 538,
+"status": "located"
+}
+},
+{
+"text": "Lucian",
+"start": 170,
+"end": 176,
+"label": "NAME_GIVEN",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 576,
+"file_char_end": 582,
+"status": "located"
+}
+},
+{
+"text": "Ashcombe",
+"start": 177,
+"end": 185,
+"label": "NAME_FAMILY",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 583,
+"file_char_end": 591,
+"status": "located"
+}
+},
+{
+"text": "Harborlight Hotels Ltd",
+"start": 208,
+"end": 230,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 615,
+"file_char_end": 637,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "m05009ba5c8269",
+"from": {
+"name": "Nell Ramaswamy",
+"email": "nell@uptonlaw.test"
+},
+"to": [
+{
+"name": "Barnaby Stanhope",
+"email": "bstanhope@willowmere.test"
+}
+],
+"cc": [
+{
+"name": "Rowan Daventry",
+"email": "daventry.rowan@harborlighthotels.test"
+}
+],
+"subject": "the budget freeze",
+"datetime": "2026-03-11T13:18:00Z",
+"thread_id": "m05009ba5c8269"
+},
+"text": "Hello Barnaby,\n\nFollowing up on the budget freeze: we are on track. Nell Ramaswamy of Foxglove sent the revised quote. Call me on (617) 555-0127.\n\nRegards,\nNell Ramaswamy\nOffice Manager | Upton & Associates\n(617) 555-0127 | nell@uptonlaw.test\n6925 Harbor Mist Way, Westlake Hollow, TX 78701\nhttps://www.uptonlaw.test\n\r",
+"file": {
+"kind": "eml",
+"path": "email/m05009ba5c8269.eml",
+"sha256": "5f1953eb0e69410b2bbb942b19a3cdef9ab3da3cc8b57d30e289d9044d564c79",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Barnaby",
+"start": 6,
+"end": 13,
+"label": "NAME_GIVEN",
+"characters": [
+"p20"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 365,
+"file_char_end": 372,
+"status": "located"
+}
+},
+{
+"text": "Nell",
+"start": 68,
+"end": 72,
+"label": "NAME_GIVEN",
+"characters": [
+"p17"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 429,
+"file_char_end": 433,
+"status": "located"
+}
+},
+{
+"text": "Ramaswamy",
+"start": 73,
+"end": 82,
+"label": "NAME_FAMILY",
+"characters": [
+"p17"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 434,
+"file_char_end": 443,
+"status": "located"
+}
+},
+{
+"text": "Foxglove",
+"start": 86,
+"end": 94,
+"label": "ORGANIZATION",
+"characters": [
+"org_4"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 447,
+"file_char_end": 455,
+"status": "located"
+}
+},
+{
+"text": "(617) 555-0127",
+"start": 130,
+"end": 144,
+"label": "PHONE_NUMBER",
+"characters": [
+"p17"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 491,
+"file_char_end": 505,
+"status": "located"
+}
+},
+{
+"text": "Nell",
+"start": 156,
+"end": 160,
+"label": "NAME_GIVEN",
+"characters": [
+"p17"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 520,
+"file_char_end": 524,
+"status": "located"
+}
+},
+{
+"text": "Ramaswamy",
+"start": 161,
+"end": 170,
+"label": "NAME_FAMILY",
+"characters": [
+"p17"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 525,
+"file_char_end": 534,
+"status": "located"
+}
+},
+{
+"text": "Upton & Associates",
+"start": 188,
+"end": 206,
+"label": "ORGANIZATION",
+"characters": [
+"org_homonym"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 553,
+"file_char_end": 571,
+"status": "located"
+}
+},
+{
+"text": "(617) 555-0127",
+"start": 207,
+"end": 221,
+"label": "PHONE_NUMBER",
+"characters": [
+"p17"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 573,
+"file_char_end": 587,
+"status": "located"
+}
+},
+{
+"text": "nell@uptonlaw.test",
+"start": 224,
+"end": 242,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p17"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 590,
+"file_char_end": 608,
+"status": "located"
+}
+},
+{
+"text": "6925 Harbor Mist Way",
+"start": 243,
+"end": 263,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_homonym"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 610,
+"file_char_end": 630,
+"status": "located"
+}
+},
+{
+"text": "https://www.uptonlaw.test",
+"start": 291,
+"end": 316,
+"label": "URL",
+"characters": [
+"org_homonym"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 659,
+"file_char_end": 684,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "m05010111ae4a3",
+"from": {
+"name": "Harriet Umber",
+"email": "umber.harriet@harborlighthotels.test"
+},
+"to": [
+{
+"name": "Ezra Lanchester",
+"email": "lanchester.ezra@marrowbone.test"
+}
+],
+"cc": [],
+"subject": "the badge system rollout",
+"datetime": "2026-03-12T09:33:00Z",
+"thread_id": "m05010111ae4a3"
+},
+"text": "Dear Ezra Lanchester,\n\nQuick note on the badge system rollout: we are on track. Yara Nightingale of Marrowbone Capital Partners will join the call. Call me on +1 617 555 0170.\n\nThanks,\nHarriet Umber\nDispatcher | Harborlight Hotels\n+1 617 555 0170 | umber.harriet@harborlighthotels.test\n2016 Willowmere Road, Kessler City, CO 80202\n\r",
+"file": {
+"kind": "eml",
+"path": "email/m05010111ae4a3.eml",
+"sha256": "3a38daaae036157d03c2a8ea6b6bfcf1efbeb788d9168fa7fab7f0457dacb558",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Ezra",
+"start": 5,
+"end": 9,
+"label": "NAME_GIVEN",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 342,
+"file_char_end": 346,
+"status": "located"
+}
+},
+{
+"text": "Lanchester",
+"start": 10,
+"end": 20,
+"label": "NAME_FAMILY",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 347,
+"file_char_end": 357,
+"status": "located"
+}
+},
+{
+"text": "Yara",
+"start": 80,
+"end": 84,
+"label": "NAME_GIVEN",
+"characters": [
+"p19"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 419,
+"file_char_end": 423,
+"status": "located"
+}
+},
+{
+"text": "Nightingale",
+"start": 85,
+"end": 96,
+"label": "NAME_FAMILY",
+"characters": [
+"p19"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 424,
+"file_char_end": 435,
+"status": "located"
+}
+},
+{
+"text": "Marrowbone Capital Partners",
+"start": 100,
+"end": 127,
+"label": "ORGANIZATION",
+"characters": [
+"org_3"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 439,
+"file_char_end": 466,
+"status": "located"
+}
+},
+{
+"text": "+1 617 555 0170",
+"start": 159,
+"end": 174,
+"label": "PHONE_NUMBER",
+"characters": [
+"p08"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 498,
+"file_char_end": 513,
+"status": "located"
+}
+},
+{
+"text": "Harriet",
+"start": 185,
+"end": 192,
+"label": "NAME_GIVEN",
+"characters": [
+"p08"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 527,
+"file_char_end": 534,
+"status": "located"
+}
+},
+{
+"text": "Umber",
+"start": 193,
+"end": 198,
+"label": "NAME_FAMILY",
+"characters": [
+"p08"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 535,
+"file_char_end": 540,
+"status": "located"
+}
+},
+{
+"text": "Harborlight Hotels",
+"start": 212,
+"end": 230,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 555,
+"file_char_end": 573,
+"status": "located"
+}
+},
+{
+"text": "+1 617 555 0170",
+"start": 231,
+"end": 246,
+"label": "PHONE_NUMBER",
+"characters": [
+"p08"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 575,
+"file_char_end": 590,
+"status": "located"
+}
+},
+{
+"text": "umber.harriet@harborlighthotels.test",
+"start": 249,
+"end": 285,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p08"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 593,
+"file_char_end": 629,
+"status": "located"
+}
+},
+{
+"text": "2016 Willowmere Road",
+"start": 286,
+"end": 306,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 631,
+"file_char_end": 651,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "m05011229acc25",
+"from": {
+"name": "Percival Brannick",
+"email": "brannick.percival@harborlighthotels.test"
+},
+"to": [
+{
+"name": "Dorothea Horvath",
+"email": "dorothea@harborlighthotels.test"
+}
+],
+"cc": [
+{
+"name": "Wren Mortlake",
+"email": "mortlake.wren@foxglove.test"
+},
+{
+"name": "Lorelei Cottrell",
+"email": "lorelei.cottrell@harborlighthotels.test"
+}
+],
+"subject": "the safety drill",
+"datetime": "2026-03-13T10:03:00Z",
+"thread_id": "m05011229acc25"
+},
+"text": "Dear Dorothea Horvath,\n\nFollowing up on the safety drill: we are on track. Henrietta Oakhurst of Upton asked for the invoice. Call me on (617) 555-0149.\n\nThanks,\nPercival Brannick\nCustomer Success Lead | Harborlight Hotels\n\r",
+"file": {
+"kind": "eml",
+"path": "email/m05011229acc25.eml",
+"sha256": "a059e6c3f428870a7d035c663d95dca33ca17eb85196f0a57d64d30fe233028b",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Dorothea",
+"start": 5,
+"end": 13,
+"label": "NAME_GIVEN",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 452,
+"file_char_end": 460,
+"status": "located"
+}
+},
+{
+"text": "Horvath",
+"start": 14,
+"end": 21,
+"label": "NAME_FAMILY",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 461,
+"file_char_end": 468,
+"status": "located"
+}
+},
+{
+"text": "Henrietta",
+"start": 75,
+"end": 84,
+"label": "NAME_GIVEN",
+"characters": [
+"p06"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 524,
+"file_char_end": 533,
+"status": "located"
+}
+},
+{
+"text": "Oakhurst",
+"start": 85,
+"end": 93,
+"label": "NAME_FAMILY",
+"characters": [
+"p06"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 534,
+"file_char_end": 542,
+"status": "located"
+}
+},
+{
+"text": "Upton",
+"start": 97,
+"end": 102,
+"label": "ORGANIZATION",
+"characters": [
+"org_homonym"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 546,
+"file_char_end": 551,
+"status": "located"
+}
+},
+{
+"text": "(617) 555-0149",
+"start": 137,
+"end": 151,
+"label": "PHONE_NUMBER",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 586,
+"file_char_end": 600,
+"status": "located"
+}
+},
+{
+"text": "Percival",
+"start": 162,
+"end": 170,
+"label": "NAME_GIVEN",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 614,
+"file_char_end": 622,
+"status": "located"
+}
+},
+{
+"text": "Brannick",
+"start": 171,
+"end": 179,
+"label": "NAME_FAMILY",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 623,
+"file_char_end": 631,
+"status": "located"
+}
+},
+{
+"text": "Harborlight Hotels",
+"start": 204,
+"end": 222,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 657,
+"file_char_end": 675,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "m050122a13fa41",
+"from": {
+"name": "Valerian Ironside",
+"email": "valerian@harborlighthotels.test"
+},
+"to": [
+{
+"name": "Rowan Daventry",
+"email": "daventry.rowan@harborlighthotels.test"
+}
+],
+"cc": [
+{
+"name": "Rowan Daventry",
+"email": "daventry.rowan@harborlighthotels.test"
+},
+{
+"name": "Lucian Ashcombe",
+"email": "lucian@harborlighthotels.test"
+}
+],
+"subject": "the site survey",
+"datetime": "2026-03-14T15:13:00Z",
+"thread_id": "m050122a13fa41"
+},
+"text": "Hello Rowan,\n\nFollowing up on the site survey: we are on track. Harriet Umber of Harborlight Hotels sent the revised quote. Call me on 617.555.0152.\n\nCheers,\nValerian Ironside\nOffice Manager | Harborlight Hotels\n617.555.0152 | valerian@harborlighthotels.test\nEmployee ID HBH-92349\n\r",
+"file": {
+"kind": "eml",
+"path": "email/m050122a13fa41.eml",
+"sha256": "a7c69fd057a23250827adc333320440c998529488598d904498662bd29f0fddc",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Rowan",
+"start": 6,
+"end": 11,
+"label": "NAME_GIVEN",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 447,
+"file_char_end": 452,
+"status": "located"
+}
+},
+{
+"text": "Harriet",
+"start": 64,
+"end": 71,
+"label": "NAME_GIVEN",
+"characters": [
+"p08"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 507,
+"file_char_end": 514,
+"status": "located"
+}
+},
+{
+"text": "Umber",
+"start": 72,
+"end": 77,
+"label": "NAME_FAMILY",
+"characters": [
+"p08"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 515,
+"file_char_end": 520,
+"status": "located"
+}
+},
+{
+"text": "Harborlight Hotels",
+"start": 81,
+"end": 99,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 524,
+"file_char_end": 542,
+"status": "located"
+}
+},
+{
+"text": "617.555.0152",
+"start": 135,
+"end": 147,
+"label": "PHONE_NUMBER",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 578,
+"file_char_end": 590,
+"status": "located"
+}
+},
+{
+"text": "Valerian",
+"start": 158,
+"end": 166,
+"label": "NAME_GIVEN",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 604,
+"file_char_end": 612,
+"status": "located"
+}
+},
+{
+"text": "Ironside",
+"start": 167,
+"end": 175,
+"label": "NAME_FAMILY",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 613,
+"file_char_end": 621,
+"status": "located"
+}
+},
+{
+"text": "Harborlight Hotels",
+"start": 193,
+"end": 211,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 640,
+"file_char_end": 658,
+"status": "located"
+}
+},
+{
+"text": "617.555.0152",
+"start": 212,
+"end": 224,
+"label": "PHONE_NUMBER",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 660,
+"file_char_end": 672,
+"status": "located"
+}
+},
+{
+"text": "valerian@harborlighthotels.test",
+"start": 227,
+"end": 258,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 675,
+"file_char_end": 706,
+"status": "located"
+}
+},
+{
+"text": "HBH-92349",
+"start": 271,
+"end": 280,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 720,
+"file_char_end": 729,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "m05013ff633857",
+"from": {
+"name": "Clementine Quarrington",
+"email": "clementine.quarrington@harborlighthotels.test"
+},
+"to": [
+{
+"name": "Vesna Varga",
+"email": "vvarga@harborlighthotels.test"
+}
+],
+"cc": [],
+"subject": "the holiday roster",
+"datetime": "2026-03-15T15:48:00Z",
+"thread_id": "m05013ff633857"
+},
+"text": "Hi Vesna,\n\nFollowing up on the holiday roster: all signed off. Desmond Barrowcliffe of Harborlight Hotels Ltd will join the call.\n\nCheers,\nClementine Quarrington\nCompliance Analyst | Harborlight Hotels Ltd\n\r",
+"file": {
+"kind": "eml",
+"path": "email/m05013ff633857.eml",
+"sha256": "89ce28478e415bce1fe7f672c1444a5f4764a72d6458fce1e2939bd0c5166f43",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Vesna",
+"start": 3,
+"end": 8,
+"label": "NAME_GIVEN",
+"characters": [
+"p14"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 346,
+"file_char_end": 351,
+"status": "located"
+}
+},
+{
+"text": "Desmond",
+"start": 63,
+"end": 70,
+"label": "NAME_GIVEN",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 408,
+"file_char_end": 415,
+"status": "located"
+}
+},
+{
+"text": "Barrowcliffe",
+"start": 71,
+"end": 83,
+"label": "NAME_FAMILY",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 416,
+"file_char_end": 428,
+"status": "located"
+}
+},
+{
+"text": "Harborlight Hotels Ltd",
+"start": 87,
+"end": 109,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 432,
+"file_char_end": 454,
+"status": "located"
+}
+},
+{
+"text": "Clementine",
+"start": 139,
+"end": 149,
+"label": "NAME_GIVEN",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 487,
+"file_char_end": 497,
+"status": "located"
+}
+},
+{
+"text": "Quarrington",
+"start": 150,
+"end": 161,
+"label": "NAME_FAMILY",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 498,
+"file_char_end": 509,
+"status": "located"
+}
+},
+{
+"text": "Harborlight Hotels Ltd",
+"start": 183,
+"end": 205,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "eml",
+"file_char_start": 532,
+"file_char_end": 554,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772442000.414417",
+"from": {
+"user_id": "U76LWSN74",
+"name": "Henrietta Oakhurst"
+},
+"channel": "dm-lucianash",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772442000.414417"
+},
+"text": "did Varga signed?",
+"file": {
+"kind": "slack",
+"path": "slack/dm-lucianash/2026-03-02.json",
+"sha256": "86b09e168c1a9367b416eb99105f7e829321d5b6c55ccb4dd8d3b99fad4e0435",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Varga",
+"start": 4,
+"end": 9,
+"label": "NAME_FAMILY",
+"characters": [
+"p14"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 4,
+"end": 9,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772528437.937152",
+"from": {
+"user_id": "U76LWSN74",
+"name": "Henrietta Oakhurst"
+},
+"channel": "dm-lucianash",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772528437.937152"
+},
+"text": "has Kowalchuk signed?",
+"file": {
+"kind": "slack",
+"path": "slack/dm-lucianash/2026-03-02.json",
+"sha256": "86b09e168c1a9367b416eb99105f7e829321d5b6c55ccb4dd8d3b99fad4e0435",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Kowalchuk",
+"start": 4,
+"end": 13,
+"label": "NAME_FAMILY",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 4,
+"end": 13,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772614874.881019",
+"from": {
+"user_id": "U76LWSN74",
+"name": "Henrietta Oakhurst"
+},
+"channel": "dm-lucianash",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772614874.881019"
+},
+"text": "has Kowalchuk signed?",
+"file": {
+"kind": "slack",
+"path": "slack/dm-lucianash/2026-03-02.json",
+"sha256": "86b09e168c1a9367b416eb99105f7e829321d5b6c55ccb4dd8d3b99fad4e0435",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Kowalchuk",
+"start": 4,
+"end": 13,
+"label": "NAME_FAMILY",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 4,
+"end": 13,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772701311.256806",
+"from": {
+"user_id": "U7P78ZPFF",
+"name": "Lucian Ashcombe"
+},
+"channel": "dm-lucianash",
+"datetime": "2026-03-04T09:00:00Z",
+"thread_ts": "1772701311.256806"
+},
+"text": "has Cottrell reply?",
+"file": {
+"kind": "slack",
+"path": "slack/dm-lucianash/2026-03-04.json",
+"sha256": "56672c648c665368ca6128e751f87188985c5dd8b817d41759249f18f0ad60c1",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Cottrell",
+"start": 4,
+"end": 12,
+"label": "NAME_FAMILY",
+"characters": [
+"p12"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 4,
+"end": 12,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772787748.621055",
+"from": {
+"user_id": "U7P78ZPFF",
+"name": "Lucian Ashcombe"
+},
+"channel": "dm-lucianash",
+"datetime": "2026-03-04T09:00:00Z",
+"thread_ts": "1772787748.621055"
+},
+"text": "has Varga called back?",
+"file": {
+"kind": "slack",
+"path": "slack/dm-lucianash/2026-03-04.json",
+"sha256": "56672c648c665368ca6128e751f87188985c5dd8b817d41759249f18f0ad60c1",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Varga",
+"start": 4,
+"end": 9,
+"label": "NAME_FAMILY",
+"characters": [
+"p14"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 4,
+"end": 9,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772874185.256344",
+"from": {
+"user_id": "U7P78ZPFF",
+"name": "Lucian Ashcombe"
+},
+"channel": "dm-lucianash",
+"datetime": "2026-03-04T09:00:00Z",
+"thread_ts": "1772874185.256344"
+},
+"text": "did Quarrington reply?",
+"file": {
+"kind": "slack",
+"path": "slack/dm-lucianash/2026-03-04.json",
+"sha256": "56672c648c665368ca6128e751f87188985c5dd8b817d41759249f18f0ad60c1",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Quarrington",
+"start": 4,
+"end": 15,
+"label": "NAME_FAMILY",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 4,
+"end": 15,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772960622.338312",
+"from": {
+"user_id": "U76LWSN74",
+"name": "Henrietta Oakhurst"
+},
+"channel": "dm-lucianash",
+"datetime": "2026-03-06T09:00:00Z",
+"thread_ts": "1772960622.338312"
+},
+"text": "has Mortlake signed?",
+"file": {
+"kind": "slack",
+"path": "slack/dm-lucianash/2026-03-06.json",
+"sha256": "9f9d0f1e04e78a06129ac13649f436192108cee245caf1e65892da07aead8186",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Mortlake",
+"start": 4,
+"end": 12,
+"label": "NAME_FAMILY",
+"characters": [
+"p18"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 4,
+"end": 12,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773047059.494466",
+"from": {
+"user_id": "U76LWSN74",
+"name": "Henrietta Oakhurst"
+},
+"channel": "dm-lucianash",
+"datetime": "2026-03-06T09:00:00Z",
+"thread_ts": "1773047059.494466"
+},
+"text": "has Horvath signed?",
+"file": {
+"kind": "slack",
+"path": "slack/dm-lucianash/2026-03-06.json",
+"sha256": "9f9d0f1e04e78a06129ac13649f436192108cee245caf1e65892da07aead8186",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Horvath",
+"start": 4,
+"end": 11,
+"label": "NAME_FAMILY",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 4,
+"end": 11,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773133496.236104",
+"from": {
+"user_id": "U7P78ZPFF",
+"name": "Lucian Ashcombe"
+},
+"channel": "dm-lucianash",
+"datetime": "2026-03-06T09:00:00Z",
+"thread_ts": "1773133496.236104"
+},
+"text": "ok henrietta, lunch?",
+"file": {
+"kind": "slack",
+"path": "slack/dm-lucianash/2026-03-06.json",
+"sha256": "9f9d0f1e04e78a06129ac13649f436192108cee245caf1e65892da07aead8186",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "henrietta",
+"start": 3,
+"end": 12,
+"label": "NAME_GIVEN",
+"characters": [
+"p06"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 3,
+"end": 12,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772442000.893320",
+"from": {
+"user_id": "U4N67WRDF",
+"name": "Clementine Quarrington"
+},
+"channel": "finance",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772442000.893320"
+},
+"text": "reimbursement to Petra Upton, account ACCT-8634-4392, approved",
+"file": {
+"kind": "slack",
+"path": "slack/finance/2026-03-02.json",
+"sha256": "922c94e1e2498bba9a91e9ee6bc9000a675224fdb2d68933579952d913236d43",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Petra",
+"start": 17,
+"end": 22,
+"label": "NAME_GIVEN",
+"characters": [
+"p22"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 17,
+"end": 22,
+"status": "located"
+}
+},
+{
+"text": "Upton",
+"start": 23,
+"end": 28,
+"label": "NAME_FAMILY",
+"characters": [
+"p22"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 23,
+"end": 28,
+"status": "located"
+}
+},
+{
+"text": "ACCT-8634-4392",
+"start": 38,
+"end": 52,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"p22"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 38,
+"end": 52,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772528437.506929",
+"from": {
+"user_id": "U23668F91",
+"name": "Harriet Umber"
+},
+"channel": "finance",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772528437.506929"
+},
+"text": "pay Northcott Regional Supply Co. against 5483063481",
+"file": {
+"kind": "slack",
+"path": "slack/finance/2026-03-02.json",
+"sha256": "922c94e1e2498bba9a91e9ee6bc9000a675224fdb2d68933579952d913236d43",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Northcott Regional Supply Co.",
+"start": 4,
+"end": 33,
+"label": "ORGANIZATION",
+"characters": [
+"org_2"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 4,
+"end": 33,
+"status": "located"
+}
+},
+{
+"text": "5483063481",
+"start": 42,
+"end": 52,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"org_2"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 42,
+"end": 52,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772614874.215986",
+"from": {
+"user_id": "U68V3MX6L",
+"name": "Dashiell Abernathy"
+},
+"channel": "finance",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772614874.215986"
+},
+"text": "send the statement to florian@harborlighthotels.test (Florian)",
+"file": {
+"kind": "slack",
+"path": "slack/finance/2026-03-02.json",
+"sha256": "922c94e1e2498bba9a91e9ee6bc9000a675224fdb2d68933579952d913236d43",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "florian@harborlighthotels.test",
+"start": 22,
+"end": 52,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 22,
+"end": 52,
+"status": "located"
+}
+},
+{
+"text": "Florian",
+"start": 54,
+"end": 61,
+"label": "NAME_GIVEN",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 54,
+"end": 61,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772701311.771478",
+"from": {
+"user_id": "U3JU4WWJ5",
+"name": "Rowan Daventry"
+},
+"channel": "finance",
+"datetime": "2026-03-04T09:00:00Z",
+"thread_ts": "1772701311.771478"
+},
+"text": "reimbursement to Clementine Quarrington, account 54685006, approved",
+"file": {
+"kind": "slack",
+"path": "slack/finance/2026-03-04.json",
+"sha256": "39192d5d8ca51132a8db4a986698a356710dae610a6c1fb490a9a0a659f84d81",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Clementine",
+"start": 17,
+"end": 27,
+"label": "NAME_GIVEN",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 17,
+"end": 27,
+"status": "located"
+}
+},
+{
+"text": "Quarrington",
+"start": 28,
+"end": 39,
+"label": "NAME_FAMILY",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 28,
+"end": 39,
+"status": "located"
+}
+},
+{
+"text": "54685006",
+"start": 49,
+"end": 57,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 49,
+"end": 57,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772787748.667748",
+"from": {
+"user_id": "U6K3SX7Q8",
+"name": "Otis Tregarec"
+},
+"channel": "finance",
+"datetime": "2026-03-04T09:00:00Z",
+"thread_ts": "1772787748.667748"
+},
+"text": "roster v2 is up: Fairweather, Wesley and Ashcombe, Lucian moved teams",
+"file": {
+"kind": "slack",
+"path": "slack/finance/2026-03-04.json",
+"sha256": "39192d5d8ca51132a8db4a986698a356710dae610a6c1fb490a9a0a659f84d81",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Fairweather",
+"start": 17,
+"end": 28,
+"label": "NAME_FAMILY",
+"characters": [
+"p07"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 17,
+"end": 28,
+"status": "located"
+}
+},
+{
+"text": "Wesley",
+"start": 30,
+"end": 36,
+"label": "NAME_GIVEN",
+"characters": [
+"p07"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 30,
+"end": 36,
+"status": "located"
+}
+},
+{
+"text": "Ashcombe",
+"start": 41,
+"end": 49,
+"label": "NAME_FAMILY",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 41,
+"end": 49,
+"status": "located"
+}
+},
+{
+"text": "Lucian",
+"start": 51,
+"end": 57,
+"label": "NAME_GIVEN",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 51,
+"end": 57,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772874185.431994",
+"from": {
+"user_id": "U23668F91",
+"name": "Harriet Umber"
+},
+"channel": "finance",
+"datetime": "2026-03-04T09:00:00Z",
+"thread_ts": "1772874185.431994"
+},
+"text": "roster v2 is up: Oakhurst, Henrietta and Abernathy, Dashiell moved teams",
+"file": {
+"kind": "slack",
+"path": "slack/finance/2026-03-04.json",
+"sha256": "39192d5d8ca51132a8db4a986698a356710dae610a6c1fb490a9a0a659f84d81",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Oakhurst",
+"start": 17,
+"end": 25,
+"label": "NAME_FAMILY",
+"characters": [
+"p06"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 17,
+"end": 25,
+"status": "located"
+}
+},
+{
+"text": "Henrietta",
+"start": 27,
+"end": 36,
+"label": "NAME_GIVEN",
+"characters": [
+"p06"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 27,
+"end": 36,
+"status": "located"
+}
+},
+{
+"text": "Abernathy",
+"start": 41,
+"end": 50,
+"label": "NAME_FAMILY",
+"characters": [
+"p13"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 41,
+"end": 50,
+"status": "located"
+}
+},
+{
+"text": "Dashiell",
+"start": 52,
+"end": 60,
+"label": "NAME_GIVEN",
+"characters": [
+"p13"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 52,
+"end": 60,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772960622.441904",
+"from": {
+"user_id": "U1BA8CCLU",
+"name": "Lorelei Cottrell"
+},
+"channel": "finance",
+"datetime": "2026-03-06T09:00:00Z",
+"thread_ts": "1772960622.441904"
+},
+"text": "Ashcombe, Lucian still has no cost centre",
+"file": {
+"kind": "slack",
+"path": "slack/finance/2026-03-06.json",
+"sha256": "b524ad7ca1ece3eac243cc658f195fde4e130fa93f061ad7562f9223267a5ff5",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Ashcombe",
+"start": 0,
+"end": 8,
+"label": "NAME_FAMILY",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 0,
+"end": 8,
+"status": "located"
+}
+},
+{
+"text": "Lucian",
+"start": 10,
+"end": 16,
+"label": "NAME_GIVEN",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 10,
+"end": 16,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773047059.540786",
+"from": {
+"user_id": "U8KR2E8X8",
+"name": "Dorothea Horvath"
+},
+"channel": "finance",
+"datetime": "2026-03-06T09:00:00Z",
+"thread_ts": "1773047059.540786"
+},
+"text": "reimbursement to Otis Tregarec, account ACCT-9101-8123, approved",
+"file": {
+"kind": "slack",
+"path": "slack/finance/2026-03-06.json",
+"sha256": "b524ad7ca1ece3eac243cc658f195fde4e130fa93f061ad7562f9223267a5ff5",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Otis",
+"start": 17,
+"end": 21,
+"label": "NAME_GIVEN",
+"characters": [
+"p11"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 17,
+"end": 21,
+"status": "located"
+}
+},
+{
+"text": "Tregarec",
+"start": 22,
+"end": 30,
+"label": "NAME_FAMILY",
+"characters": [
+"p11"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 22,
+"end": 30,
+"status": "located"
+}
+},
+{
+"text": "ACCT-9101-8123",
+"start": 40,
+"end": 54,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"p11"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 40,
+"end": 54,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773133496.102220",
+"from": {
+"user_id": "U68V3MX6L",
+"name": "Dashiell Abernathy"
+},
+"channel": "finance",
+"datetime": "2026-03-06T09:00:00Z",
+"thread_ts": "1773133496.102220"
+},
+"text": "vendor accounts csv attached",
+"file": {
+"kind": "slack",
+"path": "slack/finance/2026-03-06.json",
+"sha256": "b524ad7ca1ece3eac243cc658f195fde4e130fa93f061ad7562f9223267a5ff5",
+"container": null
+},
+"ground_truth_spans": []
+},
+{
+"meta": {
+"row_id": "1772442000.630564",
+"from": {
+"user_id": "U3K8XG0LL",
+"name": "Vesna Varga"
+},
+"channel": "general",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772442000.630564"
+},
+"text": "@brannickp will post the recap",
+"file": {
+"kind": "slack",
+"path": "slack/general/2026-03-02.json",
+"sha256": "bdc96468e02ddeedccf7576f1c60d63a6f0d9065bb64e4c4c741851147a80020",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "@brannickp",
+"start": 0,
+"end": 10,
+"label": "USERNAME",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 0,
+"end": 10,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772528437.204830",
+"from": {
+"user_id": "U6QT4UJA5",
+"name": "Florian Kowalchuk"
+},
+"channel": "general",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772528437.204830"
+},
+"text": "morning lorelei, ship it",
+"file": {
+"kind": "slack",
+"path": "slack/general/2026-03-02.json",
+"sha256": "bdc96468e02ddeedccf7576f1c60d63a6f0d9065bb64e4c4c741851147a80020",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "lorelei",
+"start": 8,
+"end": 15,
+"label": "NAME_GIVEN",
+"characters": [
+"p12"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 8,
+"end": 15,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772614874.664166",
+"from": {
+"user_id": "U1BA8CCLU",
+"name": "Lorelei Cottrell"
+},
+"channel": "general",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772614874.664166"
+},
+"text": "heads up: Marrowbone Capital Partners signed the renewal &amp; bring numbers",
+"file": {
+"kind": "slack",
+"path": "slack/general/2026-03-02.json",
+"sha256": "bdc96468e02ddeedccf7576f1c60d63a6f0d9065bb64e4c4c741851147a80020",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Marrowbone Capital Partners",
+"start": 10,
+"end": 37,
+"label": "ORGANIZATION",
+"characters": [
+"org_3"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 10,
+"end": 37,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772701311.792956",
+"from": {
+"user_id": "U68V3MX6L",
+"name": "Dashiell Abernathy"
+},
+"channel": "general",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772701311.792956"
+},
+"text": "heads up: Willowmere signed the renewal",
+"file": {
+"kind": "slack",
+"path": "slack/general/2026-03-02.json",
+"sha256": "bdc96468e02ddeedccf7576f1c60d63a6f0d9065bb64e4c4c741851147a80020",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Willowmere",
+"start": 10,
+"end": 20,
+"label": "ORGANIZATION",
+"characters": [
+"org_1"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/3/text",
+"start": 10,
+"end": 20,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772787748.134754",
+"from": {
+"user_id": "U2BHN2GYM",
+"name": "Wesley Fairweather"
+},
+"channel": "general",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772787748.134754"
+},
+"text": "fyi Upton & Associates signed the renewal &amp; no slides please",
+"file": {
+"kind": "slack",
+"path": "slack/general/2026-03-02.json",
+"sha256": "bdc96468e02ddeedccf7576f1c60d63a6f0d9065bb64e4c4c741851147a80020",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Upton & Associates",
+"start": 4,
+"end": 22,
+"label": "ORGANIZATION",
+"characters": [
+"org_homonym"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/4/text",
+"start": 4,
+"end": 22,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772874185.554824",
+"from": {
+"user_id": "U2BHN2GYM",
+"name": "Wesley Fairweather"
+},
+"channel": "general",
+"datetime": "2026-03-04T09:00:00Z",
+"thread_ts": "1772874185.554824"
+},
+"text": "reminder: Northcott invoice is due",
+"file": {
+"kind": "slack",
+"path": "slack/general/2026-03-04.json",
+"sha256": "c8f426730685f9e2cfa69bc4e132add96c0e5d5a870b38719f236ad30fc3f11b",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Northcott",
+"start": 10,
+"end": 19,
+"label": "ORGANIZATION",
+"characters": [
+"org_2"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 10,
+"end": 19,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772960622.406498",
+"from": {
+"user_id": "U7WKZXCJH",
+"name": "Desmond Barrowcliffe"
+},
+"channel": "general",
+"datetime": "2026-03-04T09:00:00Z",
+"thread_ts": "1772960622.406498"
+},
+"text": "fyi Foxglove visit tomorrow",
+"file": {
+"kind": "slack",
+"path": "slack/general/2026-03-04.json",
+"sha256": "c8f426730685f9e2cfa69bc4e132add96c0e5d5a870b38719f236ad30fc3f11b",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Foxglove",
+"start": 4,
+"end": 12,
+"label": "ORGANIZATION",
+"characters": [
+"org_4"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 4,
+"end": 12,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773047059.488736",
+"from": {
+"user_id": "U93F1NM26",
+"name": "Percival Brannick"
+},
+"channel": "general",
+"datetime": "2026-03-04T09:00:00Z",
+"thread_ts": "1773047059.488736"
+},
+"text": "@clementine.quarrington owns this one",
+"file": {
+"kind": "slack",
+"path": "slack/general/2026-03-04.json",
+"sha256": "c8f426730685f9e2cfa69bc4e132add96c0e5d5a870b38719f236ad30fc3f11b",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "@clementine.quarrington",
+"start": 0,
+"end": 23,
+"label": "USERNAME",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 0,
+"end": 23,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773133496.547472",
+"from": {
+"user_id": "U68V3MX6L",
+"name": "Dashiell Abernathy"
+},
+"channel": "general",
+"datetime": "2026-03-04T09:00:00Z",
+"thread_ts": "1773133496.547472"
+},
+"text": "heads up: Quarry Bend Engineering visit tomorrow",
+"file": {
+"kind": "slack",
+"path": "slack/general/2026-03-04.json",
+"sha256": "c8f426730685f9e2cfa69bc4e132add96c0e5d5a870b38719f236ad30fc3f11b",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Quarry Bend Engineering",
+"start": 10,
+"end": 33,
+"label": "ORGANIZATION",
+"characters": [
+"org_6"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/3/text",
+"start": 10,
+"end": 33,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773219933.213822",
+"from": {
+"user_id": "U68V3MX6L",
+"name": "Dashiell Abernathy"
+},
+"channel": "general",
+"datetime": "2026-03-04T09:00:00Z",
+"thread_ts": "1773219933.213822"
+},
+"text": "fyi Northcott Regional Supply invoice is due",
+"file": {
+"kind": "slack",
+"path": "slack/general/2026-03-04.json",
+"sha256": "c8f426730685f9e2cfa69bc4e132add96c0e5d5a870b38719f236ad30fc3f11b",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Northcott Regional Supply",
+"start": 4,
+"end": 29,
+"label": "ORGANIZATION",
+"characters": [
+"org_2"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/4/text",
+"start": 4,
+"end": 29,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773306370.889511",
+"from": {
+"user_id": "U68V3MX6L",
+"name": "Dashiell Abernathy"
+},
+"channel": "general",
+"datetime": "2026-03-06T09:00:00Z",
+"thread_ts": "1773306370.889511"
+},
+"text": "cc clementine, let's sync at 3",
+"file": {
+"kind": "slack",
+"path": "slack/general/2026-03-06.json",
+"sha256": "02745de23db2ac12086f702e84cde8fcaf908c7d11eda4930fc416cd979ba4bd",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "clementine",
+"start": 3,
+"end": 13,
+"label": "NAME_GIVEN",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 3,
+"end": 13,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773392807.375899",
+"from": {
+"user_id": "U4V8UHJWW",
+"name": "Petra Upton"
+},
+"channel": "general",
+"datetime": "2026-03-06T09:00:00Z",
+"thread_ts": "1773392807.375899"
+},
+"text": "<@U6K3SX7Q8> any update on the new scheduling tool?",
+"file": {
+"kind": "slack",
+"path": "slack/general/2026-03-06.json",
+"sha256": "02745de23db2ac12086f702e84cde8fcaf908c7d11eda4930fc416cd979ba4bd",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "<@U6K3SX7Q8>",
+"start": 0,
+"end": 12,
+"label": "USERNAME",
+"characters": [
+"p11"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 0,
+"end": 12,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773479244.264103",
+"from": {
+"user_id": "U1BA8CCLU",
+"name": "Lorelei Cottrell"
+},
+"channel": "general",
+"datetime": "2026-03-06T09:00:00Z",
+"thread_ts": "1773479244.264103"
+},
+"text": "<@U56C32XH2> thanks for the invoice backlog?",
+"file": {
+"kind": "slack",
+"path": "slack/general/2026-03-06.json",
+"sha256": "02745de23db2ac12086f702e84cde8fcaf908c7d11eda4930fc416cd979ba4bd",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "<@U56C32XH2>",
+"start": 0,
+"end": 12,
+"label": "USERNAME",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 0,
+"end": 12,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773565681.474934",
+"from": {
+"user_id": "U3K8XG0LL",
+"name": "Vesna Varga"
+},
+"channel": "general",
+"datetime": "2026-03-06T09:00:00Z",
+"thread_ts": "1773565681.474934"
+},
+"text": "<@U3JU4WWJ5> can you look at the invoice backlog? &amp; keep it short",
+"file": {
+"kind": "slack",
+"path": "slack/general/2026-03-06.json",
+"sha256": "02745de23db2ac12086f702e84cde8fcaf908c7d11eda4930fc416cd979ba4bd",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "<@U3JU4WWJ5>",
+"start": 0,
+"end": 12,
+"label": "USERNAME",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/3/text",
+"start": 0,
+"end": 12,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773652118.248859",
+"from": {
+"user_id": "U76LWSN74",
+"name": "Henrietta Oakhurst"
+},
+"channel": "general",
+"datetime": "2026-03-06T09:00:00Z",
+"thread_ts": "1773652118.248859"
+},
+"text": "the vendor portal moved: &lt;https://www.tanager.test/login&gt;",
+"file": {
+"kind": "slack",
+"path": "slack/general/2026-03-06.json",
+"sha256": "02745de23db2ac12086f702e84cde8fcaf908c7d11eda4930fc416cd979ba4bd",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "https://www.tanager.test/login",
+"start": 29,
+"end": 59,
+"label": "URL",
+"characters": [
+"org_5"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/4/text",
+"start": 29,
+"end": 59,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772442000.427938",
+"from": {
+"user_id": "U7WKZXCJH",
+"name": "Desmond Barrowcliffe"
+},
+"channel": "ops",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772442000.427938"
+},
+"text": "<@U3JU4WWJ5> <@U6K3SX7Q8> please review the badge system rollout",
+"file": {
+"kind": "slack",
+"path": "slack/ops/2026-03-02.json",
+"sha256": "5343aaa301a63c26a2b334e0ea1eba72125b2124fccd90145167e47c740333e9",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "<@U3JU4WWJ5>",
+"start": 0,
+"end": 12,
+"label": "USERNAME",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 0,
+"end": 12,
+"status": "located"
+}
+},
+{
+"text": "<@U6K3SX7Q8>",
+"start": 13,
+"end": 25,
+"label": "USERNAME",
+"characters": [
+"p11"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 13,
+"end": 25,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772528437.729918",
+"from": {
+"user_id": "U8KR2E8X8",
+"name": "Dorothea Horvath"
+},
+"channel": "ops",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772528437.729918"
+},
+"text": "Wren Mortlake from Foxglove Catering Co. confirmed the Q3 vendor review",
+"file": {
+"kind": "slack",
+"path": "slack/ops/2026-03-02.json",
+"sha256": "5343aaa301a63c26a2b334e0ea1eba72125b2124fccd90145167e47c740333e9",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Wren",
+"start": 0,
+"end": 4,
+"label": "NAME_GIVEN",
+"characters": [
+"p18"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 0,
+"end": 4,
+"status": "located"
+}
+},
+{
+"text": "Mortlake",
+"start": 5,
+"end": 13,
+"label": "NAME_FAMILY",
+"characters": [
+"p18"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 5,
+"end": 13,
+"status": "located"
+}
+},
+{
+"text": "Foxglove Catering Co.",
+"start": 19,
+"end": 40,
+"label": "ORGANIZATION",
+"characters": [
+"org_4"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 19,
+"end": 40,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772614874.291416",
+"from": {
+"user_id": "U76LWSN74",
+"name": "Henrietta Oakhurst"
+},
+"channel": "ops",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772614874.291416"
+},
+"text": "delivery goes to 9294 Tanager Lane, Dunmere, VT 05401 (ask for Kingsley)",
+"file": {
+"kind": "slack",
+"path": "slack/ops/2026-03-02.json",
+"sha256": "5343aaa301a63c26a2b334e0ea1eba72125b2124fccd90145167e47c740333e9",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "9294 Tanager Lane",
+"start": 17,
+"end": 34,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_4"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 17,
+"end": 34,
+"status": "located"
+}
+},
+{
+"text": "Kingsley",
+"start": 63,
+"end": 71,
+"label": "NAME_FAMILY",
+"characters": [
+"p16"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 63,
+"end": 71,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772701311.755978",
+"from": {
+"user_id": "U3JU4WWJ5",
+"name": "Rowan Daventry"
+},
+"channel": "ops",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772701311.755978"
+},
+"text": "<@U8KR2E8X8> <@U4V8UHJWW> please review the new scheduling tool",
+"file": {
+"kind": "slack",
+"path": "slack/ops/2026-03-02.json",
+"sha256": "5343aaa301a63c26a2b334e0ea1eba72125b2124fccd90145167e47c740333e9",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "<@U8KR2E8X8>",
+"start": 0,
+"end": 12,
+"label": "USERNAME",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/3/text",
+"start": 0,
+"end": 12,
+"status": "located"
+}
+},
+{
+"text": "<@U4V8UHJWW>",
+"start": 13,
+"end": 25,
+"label": "USERNAME",
+"characters": [
+"p22"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/3/text",
+"start": 13,
+"end": 25,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772787748.506233",
+"from": {
+"user_id": "U4N67WRDF",
+"name": "Clementine Quarrington"
+},
+"channel": "ops",
+"datetime": "2026-03-02T09:00:00Z",
+"thread_ts": "1772787748.506233"
+},
+"text": "delivery goes to 6925 Harbor Mist Way, Westlake Hollow, TX 78701 (ask for Ramaswamy)",
+"file": {
+"kind": "slack",
+"path": "slack/ops/2026-03-02.json",
+"sha256": "5343aaa301a63c26a2b334e0ea1eba72125b2124fccd90145167e47c740333e9",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "6925 Harbor Mist Way",
+"start": 17,
+"end": 37,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_homonym"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/4/text",
+"start": 17,
+"end": 37,
+"status": "located"
+}
+},
+{
+"text": "Ramaswamy",
+"start": 74,
+"end": 83,
+"label": "NAME_FAMILY",
+"characters": [
+"p17"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/4/text",
+"start": 74,
+"end": 83,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772874185.709410",
+"from": {
+"user_id": "U6K3SX7Q8",
+"name": "Otis Tregarec"
+},
+"channel": "ops",
+"datetime": "2026-03-04T09:00:00Z",
+"thread_ts": "1772874185.709410"
+},
+"text": "<@U4V8UHJWW> <@U3JU4WWJ5> please review the new scheduling tool",
+"file": {
+"kind": "slack",
+"path": "slack/ops/2026-03-04.json",
+"sha256": "d145aaa55ee5454a8f6b60a5e7f7da4f071c290a1f9d9b3f9adc08395b829666",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "<@U4V8UHJWW>",
+"start": 0,
+"end": 12,
+"label": "USERNAME",
+"characters": [
+"p22"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 0,
+"end": 12,
+"status": "located"
+}
+},
+{
+"text": "<@U3JU4WWJ5>",
+"start": 13,
+"end": 25,
+"label": "USERNAME",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 13,
+"end": 25,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1772960622.474157",
+"from": {
+"user_id": "U56C32XH2",
+"name": "Valerian Ironside"
+},
+"channel": "ops",
+"datetime": "2026-03-04T09:00:00Z",
+"thread_ts": "1772960622.474157"
+},
+"text": "<@U3JU4WWJ5> <@U7P78ZPFF> please review the badge system rollout",
+"file": {
+"kind": "slack",
+"path": "slack/ops/2026-03-04.json",
+"sha256": "d145aaa55ee5454a8f6b60a5e7f7da4f071c290a1f9d9b3f9adc08395b829666",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "<@U3JU4WWJ5>",
+"start": 0,
+"end": 12,
+"label": "USERNAME",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 0,
+"end": 12,
+"status": "located"
+}
+},
+{
+"text": "<@U7P78ZPFF>",
+"start": 13,
+"end": 25,
+"label": "USERNAME",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 13,
+"end": 25,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773047059.852678",
+"from": {
+"user_id": "U93F1NM26",
+"name": "Percival Brannick"
+},
+"channel": "ops",
+"datetime": "2026-03-04T09:00:00Z",
+"thread_ts": "1773047059.852678"
+},
+"text": "delivery goes to 9294 Tanager Lane, Dunmere, VT 05401 (ask for Kingsley)",
+"file": {
+"kind": "slack",
+"path": "slack/ops/2026-03-04.json",
+"sha256": "d145aaa55ee5454a8f6b60a5e7f7da4f071c290a1f9d9b3f9adc08395b829666",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "9294 Tanager Lane",
+"start": 17,
+"end": 34,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_4"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 17,
+"end": 34,
+"status": "located"
+}
+},
+{
+"text": "Kingsley",
+"start": 63,
+"end": 71,
+"label": "NAME_FAMILY",
+"characters": [
+"p16"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 63,
+"end": 71,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773133496.103342",
+"from": {
+"user_id": "U3K8XG0LL",
+"name": "Vesna Varga"
+},
+"channel": "ops",
+"datetime": "2026-03-04T09:00:00Z",
+"thread_ts": "1773133496.103342"
+},
+"text": "badge for Percival Brannick (HBH-35991) reprinted",
+"file": {
+"kind": "slack",
+"path": "slack/ops/2026-03-04.json",
+"sha256": "d145aaa55ee5454a8f6b60a5e7f7da4f071c290a1f9d9b3f9adc08395b829666",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Percival",
+"start": 10,
+"end": 18,
+"label": "NAME_GIVEN",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/3/text",
+"start": 10,
+"end": 18,
+"status": "located"
+}
+},
+{
+"text": "Brannick",
+"start": 19,
+"end": 27,
+"label": "NAME_FAMILY",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/3/text",
+"start": 19,
+"end": 27,
+"status": "located"
+}
+},
+{
+"text": "HBH-35991",
+"start": 29,
+"end": 38,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/3/text",
+"start": 29,
+"end": 38,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773219933.280686",
+"from": {
+"user_id": "U7WKZXCJH",
+"name": "Desmond Barrowcliffe"
+},
+"channel": "ops",
+"datetime": "2026-03-06T09:00:00Z",
+"thread_ts": "1773219933.280686"
+},
+"text": "meeting with FOXGLOVE CATERING is in the folder",
+"file": {
+"kind": "slack",
+"path": "slack/ops/2026-03-06.json",
+"sha256": "28d749e449b9248a15d94fb626c5fbf8a4d721f47eafb581351d9e749a18a6a3",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "FOXGLOVE CATERING",
+"start": 13,
+"end": 30,
+"label": "ORGANIZATION",
+"characters": [
+"org_4"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/0/text",
+"start": 13,
+"end": 30,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773306370.689047",
+"from": {
+"user_id": "U8KR2E8X8",
+"name": "Dorothea Horvath"
+},
+"channel": "ops",
+"datetime": "2026-03-06T09:00:00Z",
+"thread_ts": "1773306370.689047"
+},
+"text": "PO raised for Northcott Regional Supply is in the folder",
+"file": {
+"kind": "slack",
+"path": "slack/ops/2026-03-06.json",
+"sha256": "28d749e449b9248a15d94fb626c5fbf8a4d721f47eafb581351d9e749a18a6a3",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Northcott Regional Supply",
+"start": 14,
+"end": 39,
+"label": "ORGANIZATION",
+"characters": [
+"org_2"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/1/text",
+"start": 14,
+"end": 39,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773392807.155831",
+"from": {
+"user_id": "U6QT4UJA5",
+"name": "Florian Kowalchuk"
+},
+"channel": "ops",
+"datetime": "2026-03-06T09:00:00Z",
+"thread_ts": "1773392807.155831"
+},
+"text": "call Wren at 617-555-0171 before you send the crew",
+"file": {
+"kind": "slack",
+"path": "slack/ops/2026-03-06.json",
+"sha256": "28d749e449b9248a15d94fb626c5fbf8a4d721f47eafb581351d9e749a18a6a3",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Wren",
+"start": 5,
+"end": 9,
+"label": "NAME_GIVEN",
+"characters": [
+"p18"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 5,
+"end": 9,
+"status": "located"
+}
+},
+{
+"text": "617-555-0171",
+"start": 13,
+"end": 25,
+"label": "PHONE_NUMBER",
+"characters": [
+"p18"
+],
+"location": {
+"kind": "slack",
+"json_pointer": "/2/text",
+"start": 13,
+"end": 25,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "1773479244.643728",
+"from": {
+"user_id": "U7P78ZPFF",
+"name": "Lucian Ashcombe"
+},
+"channel": "ops",
+"datetime": "2026-03-06T09:00:00Z",
+"thread_ts": "1773479244.643728"
+},
+"text": "site memo uploaded, see attachment",
+"file": {
+"kind": "slack",
+"path": "slack/ops/2026-03-06.json",
+"sha256": "28d749e449b9248a15d94fb626c5fbf8a4d721f47eafb581351d9e749a18a6a3",
+"container": null
+},
+"ground_truth_spans": []
+},
+{
+"meta": {
+"row_id": "63042b275fa9c2ff36d01fd2",
+"filename": "contact_roster.xlsx",
+"format": "xlsx",
+"mime_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+"attached_to": null
+},
+"text": "Sheet: Roster\nName | Title | Organisation | Email | Phone | Employee ID | Account\nLucian Ashcombe | Project Coordinator | Harborlight Hotels | lucian@harborlighthotels.test | (617) 555-0123 | HBH-17943\nClementine Quarrington | Compliance Analyst | Harborlight Hotels | clementine.quarrington@harborlighthotels.test | 617-555-0113 | HBH-71081 | 54685006\nRowan Daventry | Training Coordinator | Harborlight Hotels | daventry.rowan@harborlighthotels.test | 617.555.0126 | HBH-32524\nValerian Ironside | Office Manager | Harborlight Hotels | valerian@harborlighthotels.test | 617.555.0152 | HBH-92349 | 90229165\nDesmond Barrowcliffe | Marketing Associate | Harborlight Hotels | dbarrowcliffe@harborlighthotels.test | 617-555-0179 | HBH-55785\nDorothea Horvath | Sales Representative | Harborlight Hotels | dorothea@harborlighthotels.test | 617.555.0112 | HBH-79647\nHenrietta Oakhurst | Procurement Officer | Harborlight Hotels | henrietta@harborlighthotels.test | 617.555.0132 | HBH-23075 | ACCT-8169-2718\nWesley Fairweather | Quality Inspector | Harborlight Hotels | wesley.fairweather@harborlighthotels.test | 617-555-0172 | HBH-29992\nHarriet Umber | Dispatcher | Harborlight Hotels | umber.harriet@harborlighthotels.test | +1 617 555 0170 | HBH-22849\nPercival Brannick | Customer Success Lead | Harborlight Hotels | brannick.percival@harborlighthotels.test | (617) 555-0149 | HBH-35991\nFlorian Kowalchuk | Finance Controller | Harborlight Hotels | florian@harborlighthotels.test | 617.555.0155 | HBH-15358 | 59563602\nOtis Tregarec | Finance Controller | Harborlight Hotels | tregarec.otis@harborlighthotels.test | +1 617 555 0104 | HBH-23162 | ACCT-9101-8123\nLorelei Cottrell | Project Coordinator | Harborlight Hotels | lorelei.cottrell@harborlighthotels.test | (617) 555-0192 | HBH-82972\nDashiell Abernathy | Quality Inspector | Harborlight Hotels | dabernathy@harborlighthotels.test | 617.555.0187 | HBH-82822\nVesna Varga | Quality Inspector | Harborlight Hotels | vvarga@harborlighthotels.test | 617.555.0183 | HBH-64413 | ACCT-1022-5397\nPetra Upton | Project Coordinator | Harborlight Hotels | upton.petra@harborlighthotels.test | (617) 555-0125 | HBH-39414 | ACCT-8634-4392\nSheet: Handles\nHandle | Last, First | Personal email\n@lucianash | Ashcombe, Lucian\n@clementine.quarrington | Quarrington, Clementine | clementine.quarrington85@lettercloud.test\n@rowan.daventry | Daventry, Rowan\n@vironside | Ironside, Valerian | valerian.ironside28@mailharbor.test\n@desmond_barrowcliffe | Barrowcliffe, Desmond\n@dhorvath | Horvath, Dorothea\n@henrietta.oakhurst | Oakhurst, Henrietta\n@fairweatherw | Fairweather, Wesley\n",
+"file": {
+"kind": "xlsx",
+"path": "drive/contact_roster.xlsx",
+"sha256": "a2eec884065e98b2da87a413989eb99b11935a17f2d9dd720a5a96024040fa2b",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Lucian",
+"start": 82,
+"end": 88,
+"label": "NAME_GIVEN",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A2",
+"char_start": 0,
+"char_end": 6,
+"status": "located"
+}
+},
+{
+"text": "Ashcombe",
+"start": 89,
+"end": 97,
+"label": "NAME_FAMILY",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A2",
+"char_start": 7,
+"char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "Harborlight Hotels",
+"start": 122,
+"end": 140,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "C2",
+"char_start": 0,
+"char_end": 18,
+"status": "located"
+}
+},
+{
+"text": "lucian@harborlighthotels.test",
+"start": 143,
+"end": 172,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "D2",
+"char_start": 0,
+"char_end": 29,
+"status": "located"
+}
+},
+{
+"text": "(617) 555-0123",
+"start": 175,
+"end": 189,
+"label": "PHONE_NUMBER",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "E2",
+"char_start": 0,
+"char_end": 14,
+"status": "located"
+}
+},
+{
+"text": "HBH-17943",
+"start": 192,
+"end": 201,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "F2",
+"char_start": 0,
+"char_end": 9,
+"status": "located"
+}
+},
+{
+"text": "Clementine",
+"start": 202,
+"end": 212,
+"label": "NAME_GIVEN",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A3",
+"char_start": 0,
+"char_end": 10,
+"status": "located"
+}
+},
+{
+"text": "Quarrington",
+"start": 213,
+"end": 224,
+"label": "NAME_FAMILY",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A3",
+"char_start": 11,
+"char_end": 22,
+"status": "located"
+}
+},
+{
+"text": "Harborlight Hotels",
+"start": 248,
+"end": 266,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "C3",
+"char_start": 0,
+"char_end": 18,
+"status": "located"
+}
+},
+{
+"text": "clementine.quarrington@harborlighthotels.test",
+"start": 269,
+"end": 314,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "D3",
+"char_start": 0,
+"char_end": 45,
+"status": "located"
+}
+},
+{
+"text": "617-555-0113",
+"start": 317,
+"end": 329,
+"label": "PHONE_NUMBER",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "E3",
+"char_start": 0,
+"char_end": 12,
+"status": "located"
+}
+},
+{
+"text": "HBH-71081",
+"start": 332,
+"end": 341,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "F3",
+"char_start": 0,
+"char_end": 9,
+"status": "located"
+}
+},
+{
+"text": "54685006",
+"start": 344,
+"end": 352,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "G3",
+"char_start": 0,
+"char_end": 8,
+"status": "located"
+}
+},
+{
+"text": "Rowan",
+"start": 353,
+"end": 358,
+"label": "NAME_GIVEN",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A4",
+"char_start": 0,
+"char_end": 5,
+"status": "located"
+}
+},
+{
+"text": "Daventry",
+"start": 359,
+"end": 367,
+"label": "NAME_FAMILY",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A4",
+"char_start": 6,
+"char_end": 14,
+"status": "located"
+}
+},
+{
+"text": "Harborlight Hotels",
+"start": 393,
+"end": 411,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "C4",
+"char_start": 0,
+"char_end": 18,
+"status": "located"
+}
+},
+{
+"text": "daventry.rowan@harborlighthotels.test",
+"start": 414,
+"end": 451,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "D4",
+"char_start": 0,
+"char_end": 37,
+"status": "located"
+}
+},
+{
+"text": "617.555.0126",
+"start": 454,
+"end": 466,
+"label": "PHONE_NUMBER",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "E4",
+"char_start": 0,
+"char_end": 12,
+"status": "located"
+}
+},
+{
+"text": "HBH-32524",
+"start": 469,
+"end": 478,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "F4",
+"char_start": 0,
+"char_end": 9,
+"status": "located"
+}
+},
+{
+"text": "Valerian",
+"start": 479,
+"end": 487,
+"label": "NAME_GIVEN",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A5",
+"char_start": 0,
+"char_end": 8,
+"status": "located"
+}
+},
+{
+"text": "Ironside",
+"start": 488,
+"end": 496,
+"label": "NAME_FAMILY",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A5",
+"char_start": 9,
+"char_end": 17,
+"status": "located"
+}
+},
+{
+"text": "Harborlight Hotels",
+"start": 516,
+"end": 534,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "C5",
+"char_start": 0,
+"char_end": 18,
+"status": "located"
+}
+},
+{
+"text": "valerian@harborlighthotels.test",
+"start": 537,
+"end": 568,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "D5",
+"char_start": 0,
+"char_end": 31,
+"status": "located"
+}
+},
+{
+"text": "617.555.0152",
+"start": 571,
+"end": 583,
+"label": "PHONE_NUMBER",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "E5",
+"char_start": 0,
+"char_end": 12,
+"status": "located"
+}
+},
+{
+"text": "HBH-92349",
+"start": 586,
+"end": 595,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "F5",
+"char_start": 0,
+"char_end": 9,
+"status": "located"
+}
+},
+{
+"text": "90229165",
+"start": 598,
+"end": 606,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "G5",
+"char_start": 0,
+"char_end": 8,
+"status": "located"
+}
+},
+{
+"text": "Desmond",
+"start": 607,
+"end": 614,
+"label": "NAME_GIVEN",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A6",
+"char_start": 0,
+"char_end": 7,
+"status": "located"
+}
+},
+{
+"text": "Barrowcliffe",
+"start": 615,
+"end": 627,
+"label": "NAME_FAMILY",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A6",
+"char_start": 8,
+"char_end": 20,
+"status": "located"
+}
+},
+{
+"text": "Harborlight Hotels",
+"start": 652,
+"end": 670,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "C6",
+"char_start": 0,
+"char_end": 18,
+"status": "located"
+}
+},
+{
+"text": "dbarrowcliffe@harborlighthotels.test",
+"start": 673,
+"end": 709,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "D6",
+"char_start": 0,
+"char_end": 36,
+"status": "located"
+}
+},
+{
+"text": "617-555-0179",
+"start": 712,
+"end": 724,
+"label": "PHONE_NUMBER",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "E6",
+"char_start": 0,
+"char_end": 12,
+"status": "located"
+}
+},
+{
+"text": "HBH-55785",
+"start": 727,
+"end": 736,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "F6",
+"char_start": 0,
+"char_end": 9,
+"status": "located"
+}
+},
+{
+"text": "Dorothea",
+"start": 737,
+"end": 745,
+"label": "NAME_GIVEN",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A7",
+"char_start": 0,
+"char_end": 8,
+"status": "located"
+}
+},
+{
+"text": "Horvath",
+"start": 746,
+"end": 753,
+"label": "NAME_FAMILY",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A7",
+"char_start": 9,
+"char_end": 16,
+"status": "located"
+}
+},
+{
+"text": "Harborlight Hotels",
+"start": 779,
+"end": 797,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "C7",
+"char_start": 0,
+"char_end": 18,
+"status": "located"
+}
+},
+{
+"text": "dorothea@harborlighthotels.test",
+"start": 800,
+"end": 831,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "D7",
+"char_start": 0,
+"char_end": 31,
+"status": "located"
+}
+},
+{
+"text": "617.555.0112",
+"start": 834,
+"end": 846,
+"label": "PHONE_NUMBER",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "E7",
+"char_start": 0,
+"char_end": 12,
+"status": "located"
+}
+},
+{
+"text": "HBH-79647",
+"start": 849,
+"end": 858,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "F7",
+"char_start": 0,
+"char_end": 9,
+"status": "located"
+}
+},
+{
+"text": "Henrietta",
+"start": 859,
+"end": 868,
+"label": "NAME_GIVEN",
+"characters": [
+"p06"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A8",
+"char_start": 0,
+"char_end": 9,
+"status": "located"
+}
+},
+{
+"text": "Oakhurst",
+"start": 869,
+"end": 877,
+"label": "NAME_FAMILY",
+"characters": [
+"p06"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A8",
+"char_start": 10,
+"char_end": 18,
+"status": "located"
+}
+},
+{
+"text": "Harborlight Hotels",
+"start": 902,
+"end": 920,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "C8",
+"char_start": 0,
+"char_end": 18,
+"status": "located"
+}
+},
+{
+"text": "henrietta@harborlighthotels.test",
+"start": 923,
+"end": 955,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p06"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "D8",
+"char_start": 0,
+"char_end": 32,
+"status": "located"
+}
+},
+{
+"text": "617.555.0132",
+"start": 958,
+"end": 970,
+"label": "PHONE_NUMBER",
+"characters": [
+"p06"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "E8",
+"char_start": 0,
+"char_end": 12,
+"status": "located"
+}
+},
+{
+"text": "HBH-23075",
+"start": 973,
+"end": 982,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p06"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "F8",
+"char_start": 0,
+"char_end": 9,
+"status": "located"
+}
+},
+{
+"text": "ACCT-8169-2718",
+"start": 985,
+"end": 999,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"p06"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "G8",
+"char_start": 0,
+"char_end": 14,
+"status": "located"
+}
+},
+{
+"text": "Wesley",
+"start": 1000,
+"end": 1006,
+"label": "NAME_GIVEN",
+"characters": [
+"p07"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A9",
+"char_start": 0,
+"char_end": 6,
+"status": "located"
+}
+},
+{
+"text": "Fairweather",
+"start": 1007,
+"end": 1018,
+"label": "NAME_FAMILY",
+"characters": [
+"p07"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A9",
+"char_start": 7,
+"char_end": 18,
+"status": "located"
+}
+},
+{
+"text": "Harborlight Hotels",
+"start": 1041,
+"end": 1059,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "C9",
+"char_start": 0,
+"char_end": 18,
+"status": "located"
+}
+},
+{
+"text": "wesley.fairweather@harborlighthotels.test",
+"start": 1062,
+"end": 1103,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p07"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "D9",
+"char_start": 0,
+"char_end": 41,
+"status": "located"
+}
+},
+{
+"text": "617-555-0172",
+"start": 1106,
+"end": 1118,
+"label": "PHONE_NUMBER",
+"characters": [
+"p07"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "E9",
+"char_start": 0,
+"char_end": 12,
+"status": "located"
+}
+},
+{
+"text": "HBH-29992",
+"start": 1121,
+"end": 1130,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p07"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "F9",
+"char_start": 0,
+"char_end": 9,
+"status": "located"
+}
+},
+{
+"text": "Harriet",
+"start": 1131,
+"end": 1138,
+"label": "NAME_GIVEN",
+"characters": [
+"p08"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A10",
+"char_start": 0,
+"char_end": 7,
+"status": "located"
+}
+},
+{
+"text": "Umber",
+"start": 1139,
+"end": 1144,
+"label": "NAME_FAMILY",
+"characters": [
+"p08"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A10",
+"char_start": 8,
+"char_end": 13,
+"status": "located"
+}
+},
+{
+"text": "Harborlight Hotels",
+"start": 1160,
+"end": 1178,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "C10",
+"char_start": 0,
+"char_end": 18,
+"status": "located"
+}
+},
+{
+"text": "umber.harriet@harborlighthotels.test",
+"start": 1181,
+"end": 1217,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p08"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "D10",
+"char_start": 0,
+"char_end": 36,
+"status": "located"
+}
+},
+{
+"text": "+1 617 555 0170",
+"start": 1220,
+"end": 1235,
+"label": "PHONE_NUMBER",
+"characters": [
+"p08"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "E10",
+"char_start": 0,
+"char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "HBH-22849",
+"start": 1238,
+"end": 1247,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p08"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "F10",
+"char_start": 0,
+"char_end": 9,
+"status": "located"
+}
+},
+{
+"text": "Percival",
+"start": 1248,
+"end": 1256,
+"label": "NAME_GIVEN",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A11",
+"char_start": 0,
+"char_end": 8,
+"status": "located"
+}
+},
+{
+"text": "Brannick",
+"start": 1257,
+"end": 1265,
+"label": "NAME_FAMILY",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A11",
+"char_start": 9,
+"char_end": 17,
+"status": "located"
+}
+},
+{
+"text": "Harborlight Hotels",
+"start": 1292,
+"end": 1310,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "C11",
+"char_start": 0,
+"char_end": 18,
+"status": "located"
+}
+},
+{
+"text": "brannick.percival@harborlighthotels.test",
+"start": 1313,
+"end": 1353,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "D11",
+"char_start": 0,
+"char_end": 40,
+"status": "located"
+}
+},
+{
+"text": "(617) 555-0149",
+"start": 1356,
+"end": 1370,
+"label": "PHONE_NUMBER",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "E11",
+"char_start": 0,
+"char_end": 14,
+"status": "located"
+}
+},
+{
+"text": "HBH-35991",
+"start": 1373,
+"end": 1382,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "F11",
+"char_start": 0,
+"char_end": 9,
+"status": "located"
+}
+},
+{
+"text": "Florian",
+"start": 1383,
+"end": 1390,
+"label": "NAME_GIVEN",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A12",
+"char_start": 0,
+"char_end": 7,
+"status": "located"
+}
+},
+{
+"text": "Kowalchuk",
+"start": 1391,
+"end": 1400,
+"label": "NAME_FAMILY",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A12",
+"char_start": 8,
+"char_end": 17,
+"status": "located"
+}
+},
+{
+"text": "Harborlight Hotels",
+"start": 1424,
+"end": 1442,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "C12",
+"char_start": 0,
+"char_end": 18,
+"status": "located"
+}
+},
+{
+"text": "florian@harborlighthotels.test",
+"start": 1445,
+"end": 1475,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "D12",
+"char_start": 0,
+"char_end": 30,
+"status": "located"
+}
+},
+{
+"text": "617.555.0155",
+"start": 1478,
+"end": 1490,
+"label": "PHONE_NUMBER",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "E12",
+"char_start": 0,
+"char_end": 12,
+"status": "located"
+}
+},
+{
+"text": "HBH-15358",
+"start": 1493,
+"end": 1502,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "F12",
+"char_start": 0,
+"char_end": 9,
+"status": "located"
+}
+},
+{
+"text": "59563602",
+"start": 1505,
+"end": 1513,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"p10"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "G12",
+"char_start": 0,
+"char_end": 8,
+"status": "located"
+}
+},
+{
+"text": "Otis",
+"start": 1514,
+"end": 1518,
+"label": "NAME_GIVEN",
+"characters": [
+"p11"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A13",
+"char_start": 0,
+"char_end": 4,
+"status": "located"
+}
+},
+{
+"text": "Tregarec",
+"start": 1519,
+"end": 1527,
+"label": "NAME_FAMILY",
+"characters": [
+"p11"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A13",
+"char_start": 5,
+"char_end": 13,
+"status": "located"
+}
+},
+{
+"text": "Harborlight Hotels",
+"start": 1551,
+"end": 1569,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "C13",
+"char_start": 0,
+"char_end": 18,
+"status": "located"
+}
+},
+{
+"text": "tregarec.otis@harborlighthotels.test",
+"start": 1572,
+"end": 1608,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p11"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "D13",
+"char_start": 0,
+"char_end": 36,
+"status": "located"
+}
+},
+{
+"text": "+1 617 555 0104",
+"start": 1611,
+"end": 1626,
+"label": "PHONE_NUMBER",
+"characters": [
+"p11"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "E13",
+"char_start": 0,
+"char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "HBH-23162",
+"start": 1629,
+"end": 1638,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p11"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "F13",
+"char_start": 0,
+"char_end": 9,
+"status": "located"
+}
+},
+{
+"text": "ACCT-9101-8123",
+"start": 1641,
+"end": 1655,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"p11"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "G13",
+"char_start": 0,
+"char_end": 14,
+"status": "located"
+}
+},
+{
+"text": "Lorelei",
+"start": 1656,
+"end": 1663,
+"label": "NAME_GIVEN",
+"characters": [
+"p12"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A14",
+"char_start": 0,
+"char_end": 7,
+"status": "located"
+}
+},
+{
+"text": "Cottrell",
+"start": 1664,
+"end": 1672,
+"label": "NAME_FAMILY",
+"characters": [
+"p12"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A14",
+"char_start": 8,
+"char_end": 16,
+"status": "located"
+}
+},
+{
+"text": "Harborlight Hotels",
+"start": 1697,
+"end": 1715,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "C14",
+"char_start": 0,
+"char_end": 18,
+"status": "located"
+}
+},
+{
+"text": "lorelei.cottrell@harborlighthotels.test",
+"start": 1718,
+"end": 1757,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p12"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "D14",
+"char_start": 0,
+"char_end": 39,
+"status": "located"
+}
+},
+{
+"text": "(617) 555-0192",
+"start": 1760,
+"end": 1774,
+"label": "PHONE_NUMBER",
+"characters": [
+"p12"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "E14",
+"char_start": 0,
+"char_end": 14,
+"status": "located"
+}
+},
+{
+"text": "HBH-82972",
+"start": 1777,
+"end": 1786,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p12"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "F14",
+"char_start": 0,
+"char_end": 9,
+"status": "located"
+}
+},
+{
+"text": "Dashiell",
+"start": 1787,
+"end": 1795,
+"label": "NAME_GIVEN",
+"characters": [
+"p13"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A15",
+"char_start": 0,
+"char_end": 8,
+"status": "located"
+}
+},
+{
+"text": "Abernathy",
+"start": 1796,
+"end": 1805,
+"label": "NAME_FAMILY",
+"characters": [
+"p13"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A15",
+"char_start": 9,
+"char_end": 18,
+"status": "located"
+}
+},
+{
+"text": "Harborlight Hotels",
+"start": 1828,
+"end": 1846,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "C15",
+"char_start": 0,
+"char_end": 18,
+"status": "located"
+}
+},
+{
+"text": "dabernathy@harborlighthotels.test",
+"start": 1849,
+"end": 1882,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p13"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "D15",
+"char_start": 0,
+"char_end": 33,
+"status": "located"
+}
+},
+{
+"text": "617.555.0187",
+"start": 1885,
+"end": 1897,
+"label": "PHONE_NUMBER",
+"characters": [
+"p13"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "E15",
+"char_start": 0,
+"char_end": 12,
+"status": "located"
+}
+},
+{
+"text": "HBH-82822",
+"start": 1900,
+"end": 1909,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p13"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "F15",
+"char_start": 0,
+"char_end": 9,
+"status": "located"
+}
+},
+{
+"text": "Vesna",
+"start": 1910,
+"end": 1915,
+"label": "NAME_GIVEN",
+"characters": [
+"p14"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A16",
+"char_start": 0,
+"char_end": 5,
+"status": "located"
+}
+},
+{
+"text": "Varga",
+"start": 1916,
+"end": 1921,
+"label": "NAME_FAMILY",
+"characters": [
+"p14"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A16",
+"char_start": 6,
+"char_end": 11,
+"status": "located"
+}
+},
+{
+"text": "Harborlight Hotels",
+"start": 1944,
+"end": 1962,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "C16",
+"char_start": 0,
+"char_end": 18,
+"status": "located"
+}
+},
+{
+"text": "vvarga@harborlighthotels.test",
+"start": 1965,
+"end": 1994,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p14"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "D16",
+"char_start": 0,
+"char_end": 29,
+"status": "located"
+}
+},
+{
+"text": "617.555.0183",
+"start": 1997,
+"end": 2009,
+"label": "PHONE_NUMBER",
+"characters": [
+"p14"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "E16",
+"char_start": 0,
+"char_end": 12,
+"status": "located"
+}
+},
+{
+"text": "HBH-64413",
+"start": 2012,
+"end": 2021,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p14"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "F16",
+"char_start": 0,
+"char_end": 9,
+"status": "located"
+}
+},
+{
+"text": "ACCT-1022-5397",
+"start": 2024,
+"end": 2038,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"p14"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "G16",
+"char_start": 0,
+"char_end": 14,
+"status": "located"
+}
+},
+{
+"text": "Petra",
+"start": 2039,
+"end": 2044,
+"label": "NAME_GIVEN",
+"characters": [
+"p22"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A17",
+"char_start": 0,
+"char_end": 5,
+"status": "located"
+}
+},
+{
+"text": "Upton",
+"start": 2045,
+"end": 2050,
+"label": "NAME_FAMILY",
+"characters": [
+"p22"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "A17",
+"char_start": 6,
+"char_end": 11,
+"status": "located"
+}
+},
+{
+"text": "Harborlight Hotels",
+"start": 2075,
+"end": 2093,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "C17",
+"char_start": 0,
+"char_end": 18,
+"status": "located"
+}
+},
+{
+"text": "upton.petra@harborlighthotels.test",
+"start": 2096,
+"end": 2130,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p22"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "D17",
+"char_start": 0,
+"char_end": 34,
+"status": "located"
+}
+},
+{
+"text": "(617) 555-0125",
+"start": 2133,
+"end": 2147,
+"label": "PHONE_NUMBER",
+"characters": [
+"p22"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "E17",
+"char_start": 0,
+"char_end": 14,
+"status": "located"
+}
+},
+{
+"text": "HBH-39414",
+"start": 2150,
+"end": 2159,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p22"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "F17",
+"char_start": 0,
+"char_end": 9,
+"status": "located"
+}
+},
+{
+"text": "ACCT-8634-4392",
+"start": 2162,
+"end": 2176,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"p22"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Roster",
+"cell": "G17",
+"char_start": 0,
+"char_end": 14,
+"status": "located"
+}
+},
+{
+"text": "@lucianash",
+"start": 2230,
+"end": 2240,
+"label": "USERNAME",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "A2",
+"char_start": 0,
+"char_end": 10,
+"status": "located"
+}
+},
+{
+"text": "Ashcombe",
+"start": 2243,
+"end": 2251,
+"label": "NAME_FAMILY",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "B2",
+"char_start": 0,
+"char_end": 8,
+"status": "located"
+}
+},
+{
+"text": "Lucian",
+"start": 2253,
+"end": 2259,
+"label": "NAME_GIVEN",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "B2",
+"char_start": 10,
+"char_end": 16,
+"status": "located"
+}
+},
+{
+"text": "@clementine.quarrington",
+"start": 2260,
+"end": 2283,
+"label": "USERNAME",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "A3",
+"char_start": 0,
+"char_end": 23,
+"status": "located"
+}
+},
+{
+"text": "Quarrington",
+"start": 2286,
+"end": 2297,
+"label": "NAME_FAMILY",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "B3",
+"char_start": 0,
+"char_end": 11,
+"status": "located"
+}
+},
+{
+"text": "Clementine",
+"start": 2299,
+"end": 2309,
+"label": "NAME_GIVEN",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "B3",
+"char_start": 13,
+"char_end": 23,
+"status": "located"
+}
+},
+{
+"text": "clementine.quarrington85@lettercloud.test",
+"start": 2312,
+"end": 2353,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "C3",
+"char_start": 0,
+"char_end": 41,
+"status": "located"
+}
+},
+{
+"text": "@rowan.daventry",
+"start": 2354,
+"end": 2369,
+"label": "USERNAME",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "A4",
+"char_start": 0,
+"char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "Daventry",
+"start": 2372,
+"end": 2380,
+"label": "NAME_FAMILY",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "B4",
+"char_start": 0,
+"char_end": 8,
+"status": "located"
+}
+},
+{
+"text": "Rowan",
+"start": 2382,
+"end": 2387,
+"label": "NAME_GIVEN",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "B4",
+"char_start": 10,
+"char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "@vironside",
+"start": 2388,
+"end": 2398,
+"label": "USERNAME",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "A5",
+"char_start": 0,
+"char_end": 10,
+"status": "located"
+}
+},
+{
+"text": "Ironside",
+"start": 2401,
+"end": 2409,
+"label": "NAME_FAMILY",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "B5",
+"char_start": 0,
+"char_end": 8,
+"status": "located"
+}
+},
+{
+"text": "Valerian",
+"start": 2411,
+"end": 2419,
+"label": "NAME_GIVEN",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "B5",
+"char_start": 10,
+"char_end": 18,
+"status": "located"
+}
+},
+{
+"text": "valerian.ironside28@mailharbor.test",
+"start": 2422,
+"end": 2457,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "C5",
+"char_start": 0,
+"char_end": 35,
+"status": "located"
+}
+},
+{
+"text": "@desmond_barrowcliffe",
+"start": 2458,
+"end": 2479,
+"label": "USERNAME",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "A6",
+"char_start": 0,
+"char_end": 21,
+"status": "located"
+}
+},
+{
+"text": "Barrowcliffe",
+"start": 2482,
+"end": 2494,
+"label": "NAME_FAMILY",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "B6",
+"char_start": 0,
+"char_end": 12,
+"status": "located"
+}
+},
+{
+"text": "Desmond",
+"start": 2496,
+"end": 2503,
+"label": "NAME_GIVEN",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "B6",
+"char_start": 14,
+"char_end": 21,
+"status": "located"
+}
+},
+{
+"text": "@dhorvath",
+"start": 2504,
+"end": 2513,
+"label": "USERNAME",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "A7",
+"char_start": 0,
+"char_end": 9,
+"status": "located"
+}
+},
+{
+"text": "Horvath",
+"start": 2516,
+"end": 2523,
+"label": "NAME_FAMILY",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "B7",
+"char_start": 0,
+"char_end": 7,
+"status": "located"
+}
+},
+{
+"text": "Dorothea",
+"start": 2525,
+"end": 2533,
+"label": "NAME_GIVEN",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "B7",
+"char_start": 9,
+"char_end": 17,
+"status": "located"
+}
+},
+{
+"text": "@henrietta.oakhurst",
+"start": 2534,
+"end": 2553,
+"label": "USERNAME",
+"characters": [
+"p06"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "A8",
+"char_start": 0,
+"char_end": 19,
+"status": "located"
+}
+},
+{
+"text": "Oakhurst",
+"start": 2556,
+"end": 2564,
+"label": "NAME_FAMILY",
+"characters": [
+"p06"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "B8",
+"char_start": 0,
+"char_end": 8,
+"status": "located"
+}
+},
+{
+"text": "Henrietta",
+"start": 2566,
+"end": 2575,
+"label": "NAME_GIVEN",
+"characters": [
+"p06"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "B8",
+"char_start": 10,
+"char_end": 19,
+"status": "located"
+}
+},
+{
+"text": "@fairweatherw",
+"start": 2576,
+"end": 2589,
+"label": "USERNAME",
+"characters": [
+"p07"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "A9",
+"char_start": 0,
+"char_end": 13,
+"status": "located"
+}
+},
+{
+"text": "Fairweather",
+"start": 2592,
+"end": 2603,
+"label": "NAME_FAMILY",
+"characters": [
+"p07"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "B9",
+"char_start": 0,
+"char_end": 11,
+"status": "located"
+}
+},
+{
+"text": "Wesley",
+"start": 2605,
+"end": 2611,
+"label": "NAME_GIVEN",
+"characters": [
+"p07"
+],
+"location": {
+"kind": "xlsx",
+"sheet": "Handles",
+"cell": "B9",
+"char_start": 13,
+"char_end": 19,
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "dbbf2e699457b01795ff4feb",
+"filename": "kickoff_notes.docx",
+"format": "docx",
+"mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+"attached_to": null
+},
+"text": "Kickoff notes\nPrepared by Lucian Ashcombe (lucian@harborlighthotels.test) for Harborlight Hotels Ltd.\nAttendees\nName | Role | Email | Phone\nClementine Quarrington | Compliance Analyst | clementine.quarrington@harborlighthotels.test | 617-555-0113\nRowan Daventry | Training Coordinator | daventry.rowan@harborlighthotels.test | 617.555.0126\nValerian Ironside | Office Manager | valerian@harborlighthotels.test | 617.555.0152\nDesmond Barrowcliffe | Marketing Associate | dbarrowcliffe@harborlighthotels.test | 617-555-0179\nDorothea Horvath | Sales Representative | dorothea@harborlighthotels.test | 617.555.0112\nIone Ridgewell | Training Coordinator | ione@uptonlaw.test | 617-555-0143\nNell Ramaswamy | Office Manager | nell@uptonlaw.test | (617) 555-0127\nYusef Kingsley | Account Executive | yusef@foxglove.test | 617-555-0105\nDecisions\nUpton & Associates LLP delivers the first batch to 2016 Willowmere Road, Kessler City, CO 80202. Contact on their side: Ridgewell, Ione (617-555-0143).\nRowan (employee ID HBH-32524) owns the budget tracker at https://www.harborlighthotels.test/budget.\nOpen question: does Marrowbone still invoice through Marrowbone Capital Partners? Valerian to confirm.",
+"file": {
+"kind": "docx",
+"path": "drive/kickoff_notes.docx",
+"sha256": "f56339315b0e57ffec3fe298b30dba3ada75b7f4c3a935e95887aca90f1449c4",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Lucian",
+"start": 26,
+"end": 32,
+"label": "NAME_GIVEN",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:p[2]/w:r/w:t",
+"start": 12,
+"end": 18
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Ashcombe",
+"start": 33,
+"end": 41,
+"label": "NAME_FAMILY",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:p[2]/w:r/w:t",
+"start": 19,
+"end": 27
+}
+],
+"status": "located"
+}
+},
+{
+"text": "lucian@harborlighthotels.test",
+"start": 43,
+"end": 72,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:p[2]/w:r/w:t",
+"start": 29,
+"end": 58
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Harborlight Hotels Ltd",
+"start": 78,
+"end": 100,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:p[2]/w:r/w:t",
+"start": 64,
+"end": 86
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Clementine",
+"start": 140,
+"end": 150,
+"label": "NAME_GIVEN",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[2]/w:tc/w:p/w:r/w:t",
+"start": 0,
+"end": 10
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Quarrington",
+"start": 151,
+"end": 162,
+"label": "NAME_FAMILY",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[2]/w:tc/w:p/w:r/w:t",
+"start": 11,
+"end": 22
+}
+],
+"status": "located"
+}
+},
+{
+"text": "clementine.quarrington@harborlighthotels.test",
+"start": 186,
+"end": 231,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[2]/w:tc[3]/w:p/w:r/w:t",
+"start": 0,
+"end": 45
+}
+],
+"status": "located"
+}
+},
+{
+"text": "617-555-0113",
+"start": 234,
+"end": 246,
+"label": "PHONE_NUMBER",
+"characters": [
+"p01"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[2]/w:tc[4]/w:p/w:r/w:t",
+"start": 0,
+"end": 12
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Rowan",
+"start": 247,
+"end": 252,
+"label": "NAME_GIVEN",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[3]/w:tc/w:p/w:r/w:t",
+"start": 0,
+"end": 5
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Daventry",
+"start": 253,
+"end": 261,
+"label": "NAME_FAMILY",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[3]/w:tc/w:p/w:r/w:t",
+"start": 6,
+"end": 14
+}
+],
+"status": "located"
+}
+},
+{
+"text": "daventry.rowan@harborlighthotels.test",
+"start": 287,
+"end": 324,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[3]/w:tc[3]/w:p/w:r/w:t",
+"start": 0,
+"end": 37
+}
+],
+"status": "located"
+}
+},
+{
+"text": "617.555.0126",
+"start": 327,
+"end": 339,
+"label": "PHONE_NUMBER",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[3]/w:tc[4]/w:p/w:r/w:t",
+"start": 0,
+"end": 12
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Valerian",
+"start": 340,
+"end": 348,
+"label": "NAME_GIVEN",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[4]/w:tc/w:p/w:r/w:t",
+"start": 0,
+"end": 8
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Ironside",
+"start": 349,
+"end": 357,
+"label": "NAME_FAMILY",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[4]/w:tc/w:p/w:r/w:t",
+"start": 9,
+"end": 17
+}
+],
+"status": "located"
+}
+},
+{
+"text": "valerian@harborlighthotels.test",
+"start": 377,
+"end": 408,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[4]/w:tc[3]/w:p/w:r/w:t",
+"start": 0,
+"end": 31
+}
+],
+"status": "located"
+}
+},
+{
+"text": "617.555.0152",
+"start": 411,
+"end": 423,
+"label": "PHONE_NUMBER",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[4]/w:tc[4]/w:p/w:r/w:t",
+"start": 0,
+"end": 12
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Desmond",
+"start": 424,
+"end": 431,
+"label": "NAME_GIVEN",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[5]/w:tc/w:p/w:r/w:t",
+"start": 0,
+"end": 7
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Barrowcliffe",
+"start": 432,
+"end": 444,
+"label": "NAME_FAMILY",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[5]/w:tc/w:p/w:r/w:t",
+"start": 8,
+"end": 20
+}
+],
+"status": "located"
+}
+},
+{
+"text": "dbarrowcliffe@harborlighthotels.test",
+"start": 469,
+"end": 505,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[5]/w:tc[3]/w:p/w:r/w:t",
+"start": 0,
+"end": 36
+}
+],
+"status": "located"
+}
+},
+{
+"text": "617-555-0179",
+"start": 508,
+"end": 520,
+"label": "PHONE_NUMBER",
+"characters": [
+"p04"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[5]/w:tc[4]/w:p/w:r/w:t",
+"start": 0,
+"end": 12
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Dorothea",
+"start": 521,
+"end": 529,
+"label": "NAME_GIVEN",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[6]/w:tc/w:p/w:r/w:t",
+"start": 0,
+"end": 8
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Horvath",
+"start": 530,
+"end": 537,
+"label": "NAME_FAMILY",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[6]/w:tc/w:p/w:r/w:t",
+"start": 9,
+"end": 16
+}
+],
+"status": "located"
+}
+},
+{
+"text": "dorothea@harborlighthotels.test",
+"start": 563,
+"end": 594,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[6]/w:tc[3]/w:p/w:r/w:t",
+"start": 0,
+"end": 31
+}
+],
+"status": "located"
+}
+},
+{
+"text": "617.555.0112",
+"start": 597,
+"end": 609,
+"label": "PHONE_NUMBER",
+"characters": [
+"p05"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[6]/w:tc[4]/w:p/w:r/w:t",
+"start": 0,
+"end": 12
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Ione",
+"start": 610,
+"end": 614,
+"label": "NAME_GIVEN",
+"characters": [
+"p21"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[7]/w:tc/w:p/w:r/w:t",
+"start": 0,
+"end": 4
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Ridgewell",
+"start": 615,
+"end": 624,
+"label": "NAME_FAMILY",
+"characters": [
+"p21"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[7]/w:tc/w:p/w:r/w:t",
+"start": 5,
+"end": 14
+}
+],
+"status": "located"
+}
+},
+{
+"text": "ione@uptonlaw.test",
+"start": 650,
+"end": 668,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p21"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[7]/w:tc[3]/w:p/w:r/w:t",
+"start": 0,
+"end": 18
+}
+],
+"status": "located"
+}
+},
+{
+"text": "617-555-0143",
+"start": 671,
+"end": 683,
+"label": "PHONE_NUMBER",
+"characters": [
+"p21"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[7]/w:tc[4]/w:p/w:r/w:t",
+"start": 0,
+"end": 12
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Nell",
+"start": 684,
+"end": 688,
+"label": "NAME_GIVEN",
+"characters": [
+"p17"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[8]/w:tc/w:p/w:r/w:t",
+"start": 0,
+"end": 4
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Ramaswamy",
+"start": 689,
+"end": 698,
+"label": "NAME_FAMILY",
+"characters": [
+"p17"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[8]/w:tc/w:p/w:r/w:t",
+"start": 5,
+"end": 14
+}
+],
+"status": "located"
+}
+},
+{
+"text": "nell@uptonlaw.test",
+"start": 718,
+"end": 736,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p17"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[8]/w:tc[3]/w:p/w:r/w:t",
+"start": 0,
+"end": 18
+}
+],
+"status": "located"
+}
+},
+{
+"text": "(617) 555-0127",
+"start": 739,
+"end": 753,
+"label": "PHONE_NUMBER",
+"characters": [
+"p17"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[8]/w:tc[4]/w:p/w:r/w:t",
+"start": 0,
+"end": 14
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Yusef",
+"start": 754,
+"end": 759,
+"label": "NAME_GIVEN",
+"characters": [
+"p16"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[9]/w:tc/w:p/w:r/w:t",
+"start": 0,
+"end": 5
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Kingsley",
+"start": 760,
+"end": 768,
+"label": "NAME_FAMILY",
+"characters": [
+"p16"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[9]/w:tc/w:p/w:r/w:t",
+"start": 6,
+"end": 14
+}
+],
+"status": "located"
+}
+},
+{
+"text": "yusef@foxglove.test",
+"start": 791,
+"end": 810,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p16"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[9]/w:tc[3]/w:p/w:r/w:t",
+"start": 0,
+"end": 19
+}
+],
+"status": "located"
+}
+},
+{
+"text": "617-555-0105",
+"start": 813,
+"end": 825,
+"label": "PHONE_NUMBER",
+"characters": [
+"p16"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:tbl/w:tr[9]/w:tc[4]/w:p/w:r/w:t",
+"start": 0,
+"end": 12
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Upton & Associates LLP",
+"start": 836,
+"end": 858,
+"label": "ORGANIZATION",
+"characters": [
+"org_homonym"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:p[5]/w:r/w:t",
+"start": 0,
+"end": 22
+}
+],
+"status": "located"
+}
+},
+{
+"text": "2016 Willowmere Road",
+"start": 887,
+"end": 907,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:p[5]/w:r/w:t",
+"start": 51,
+"end": 71
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Ridgewell",
+"start": 956,
+"end": 965,
+"label": "NAME_FAMILY",
+"characters": [
+"p21"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:p[5]/w:r/w:t",
+"start": 120,
+"end": 129
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Ione",
+"start": 967,
+"end": 971,
+"label": "NAME_GIVEN",
+"characters": [
+"p21"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:p[5]/w:r/w:t",
+"start": 131,
+"end": 135
+}
+],
+"status": "located"
+}
+},
+{
+"text": "617-555-0143",
+"start": 973,
+"end": 985,
+"label": "PHONE_NUMBER",
+"characters": [
+"p21"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:p[5]/w:r/w:t",
+"start": 137,
+"end": 149
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Rowan",
+"start": 988,
+"end": 993,
+"label": "NAME_GIVEN",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:p[6]/w:r/w:t",
+"start": 0,
+"end": 5
+}
+],
+"status": "located"
+}
+},
+{
+"text": "HBH-32524",
+"start": 1007,
+"end": 1016,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p02"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:p[6]/w:r/w:t",
+"start": 19,
+"end": 28
+}
+],
+"status": "located"
+}
+},
+{
+"text": "https://www.harborlighthotels.test/budget",
+"start": 1045,
+"end": 1086,
+"label": "URL",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:p[6]/w:r/w:t",
+"start": 57,
+"end": 98
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Marrowbone",
+"start": 1108,
+"end": 1118,
+"label": "ORGANIZATION",
+"characters": [
+"org_3"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:p[7]/w:r/w:t",
+"start": 20,
+"end": 30
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Marrowbone Capital Partners",
+"start": 1141,
+"end": 1168,
+"label": "ORGANIZATION",
+"characters": [
+"org_3"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:p[7]/w:r/w:t",
+"start": 53,
+"end": 80
+}
+],
+"status": "located"
+}
+},
+{
+"text": "Valerian",
+"start": 1170,
+"end": 1178,
+"label": "NAME_GIVEN",
+"characters": [
+"p03"
+],
+"location": {
+"kind": "docx",
+"fragments": [
+{
+"xpath": "/w:document/w:body/w:p[7]/w:r/w:t",
+"start": 82,
+"end": 90
+}
+],
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "ce0f1749b2f2eb1e7a4a4e9b",
+"filename": "site_memo.pdf",
+"format": "pdf",
+"mime_type": "application/pdf",
+"attached_to": null
+},
+"text": "Tanager Lane Realty\nMEMORANDUM\nTo: Lucian Ashcombe, Harborlight Hotels\nCc: Brannick, Percival\nFrom: Ezra Lanchester\nRe: site visit\nWe visited the premises at\n2016 Willowmere Road, Kessler City\non the agreed date. Lucian walked us through\nthe loading area; PERCIVAL BRANNICK\njoined for the second half.\nFindings\n1. Access control works; badge readers logged two visitors.\n2. The emergency contact sheet lists (617) 555-0123\nfor Ashcombe and (617) 555-0149 for Brannick.\n3. Deliveries from Tanager Lane Realty LLC\nwill use the rear entrance from next month.\nOur invoice goes to account 4126426732.\nYour purchase order should quote Tanager.\nEzra Lanchester\nFinance Controller, Tanager Lane Realty LLC\nlanchester.ezra@marrowbone.test | +1 617 555 0164\nhttps://www.tanager.test\n\n",
+"file": {
+"kind": "pdf",
+"path": "drive/site_memo.pdf",
+"sha256": "b1ee9d64dd3237c73a0a08938da324066f2c9c696fa71ca596bb240e64df6f05",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Tanager Lane Realty",
+"start": 0,
+"end": 19,
+"label": "ORGANIZATION",
+"characters": [
+"org_5"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"T",
+1,
+16.6,
+19.72,
+23.8,
+31.72
+],
+[
+"a",
+1,
+23.8,
+19.72,
+31.0,
+31.72
+],
+[
+"n",
+1,
+31.0,
+19.72,
+38.2,
+31.72
+],
+[
+"a",
+1,
+38.2,
+19.72,
+45.4,
+31.72
+],
+[
+"g",
+1,
+45.4,
+19.72,
+52.6,
+31.72
+],
+[
+"e",
+1,
+52.61,
+19.72,
+59.81,
+31.72
+],
+[
+"r",
+1,
+59.81,
+19.72,
+67.01,
+31.72
+],
+[
+"L",
+1,
+74.21,
+19.72,
+81.41,
+31.72
+],
+[
+"a",
+1,
+81.41,
+19.72,
+88.61,
+31.72
+],
+[
+"n",
+1,
+88.61,
+19.72,
+95.81,
+31.72
+],
+[
+"e",
+1,
+95.81,
+19.72,
+103.01,
+31.72
+],
+[
+"R",
+1,
+110.22,
+19.72,
+117.42,
+31.72
+],
+[
+"e",
+1,
+117.42,
+19.72,
+124.62,
+31.72
+],
+[
+"a",
+1,
+124.62,
+19.72,
+131.82,
+31.72
+],
+[
+"l",
+1,
+131.82,
+19.72,
+139.02,
+31.72
+],
+[
+"t",
+1,
+139.02,
+19.72,
+146.22,
+31.72
+],
+[
+"y",
+1,
+146.22,
+19.72,
+153.42,
+31.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Lucian",
+"start": 35,
+"end": 41,
+"label": "NAME_GIVEN",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"L",
+1,
+45.4,
+55.72,
+52.6,
+67.72
+],
+[
+"u",
+1,
+52.61,
+55.72,
+59.81,
+67.72
+],
+[
+"c",
+1,
+59.81,
+55.72,
+67.01,
+67.72
+],
+[
+"i",
+1,
+67.01,
+55.72,
+74.21,
+67.72
+],
+[
+"a",
+1,
+74.21,
+55.72,
+81.41,
+67.72
+],
+[
+"n",
+1,
+81.41,
+55.72,
+88.61,
+67.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Ashcombe",
+"start": 42,
+"end": 50,
+"label": "NAME_FAMILY",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"A",
+1,
+95.81,
+55.72,
+103.01,
+67.72
+],
+[
+"s",
+1,
+103.01,
+55.72,
+110.21,
+67.72
+],
+[
+"h",
+1,
+110.22,
+55.72,
+117.42,
+67.72
+],
+[
+"c",
+1,
+117.42,
+55.72,
+124.62,
+67.72
+],
+[
+"o",
+1,
+124.62,
+55.72,
+131.82,
+67.72
+],
+[
+"m",
+1,
+131.82,
+55.72,
+139.02,
+67.72
+],
+[
+"b",
+1,
+139.02,
+55.72,
+146.22,
+67.72
+],
+[
+"e",
+1,
+146.22,
+55.72,
+153.42,
+67.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Harborlight Hotels",
+"start": 52,
+"end": 70,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"H",
+1,
+167.83,
+55.72,
+175.03,
+67.72
+],
+[
+"a",
+1,
+175.03,
+55.72,
+182.23,
+67.72
+],
+[
+"r",
+1,
+182.23,
+55.72,
+189.43,
+67.72
+],
+[
+"b",
+1,
+189.43,
+55.72,
+196.63,
+67.72
+],
+[
+"o",
+1,
+196.63,
+55.72,
+203.83,
+67.72
+],
+[
+"r",
+1,
+203.83,
+55.72,
+211.03,
+67.72
+],
+[
+"l",
+1,
+211.03,
+55.72,
+218.23,
+67.72
+],
+[
+"i",
+1,
+218.23,
+55.72,
+225.43,
+67.72
+],
+[
+"g",
+1,
+225.43,
+55.72,
+232.63,
+67.72
+],
+[
+"h",
+1,
+232.64,
+55.72,
+239.84,
+67.72
+],
+[
+"t",
+1,
+239.84,
+55.72,
+247.04,
+67.72
+],
+[
+"H",
+1,
+254.24,
+55.72,
+261.44,
+67.72
+],
+[
+"o",
+1,
+261.44,
+55.72,
+268.64,
+67.72
+],
+[
+"t",
+1,
+268.64,
+55.72,
+275.84,
+67.72
+],
+[
+"e",
+1,
+275.84,
+55.72,
+283.04,
+67.72
+],
+[
+"l",
+1,
+283.04,
+55.72,
+290.24,
+67.72
+],
+[
+"s",
+1,
+290.25,
+55.72,
+297.45,
+67.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Brannick",
+"start": 75,
+"end": 83,
+"label": "NAME_FAMILY",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"B",
+1,
+45.4,
+67.72,
+52.6,
+79.72
+],
+[
+"r",
+1,
+52.61,
+67.72,
+59.81,
+79.72
+],
+[
+"a",
+1,
+59.81,
+67.72,
+67.01,
+79.72
+],
+[
+"n",
+1,
+67.01,
+67.72,
+74.21,
+79.72
+],
+[
+"n",
+1,
+74.21,
+67.72,
+81.41,
+79.72
+],
+[
+"i",
+1,
+81.41,
+67.72,
+88.61,
+79.72
+],
+[
+"c",
+1,
+88.61,
+67.72,
+95.81,
+79.72
+],
+[
+"k",
+1,
+95.81,
+67.72,
+103.01,
+79.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Percival",
+"start": 85,
+"end": 93,
+"label": "NAME_GIVEN",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"P",
+1,
+117.42,
+67.72,
+124.62,
+79.72
+],
+[
+"e",
+1,
+124.62,
+67.72,
+131.82,
+79.72
+],
+[
+"r",
+1,
+131.82,
+67.72,
+139.02,
+79.72
+],
+[
+"c",
+1,
+139.02,
+67.72,
+146.22,
+79.72
+],
+[
+"i",
+1,
+146.22,
+67.72,
+153.42,
+79.72
+],
+[
+"v",
+1,
+153.42,
+67.72,
+160.62,
+79.72
+],
+[
+"a",
+1,
+160.62,
+67.72,
+167.82,
+79.72
+],
+[
+"l",
+1,
+167.83,
+67.72,
+175.03,
+79.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Ezra",
+"start": 100,
+"end": 104,
+"label": "NAME_GIVEN",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"E",
+1,
+59.81,
+79.72,
+67.01,
+91.72
+],
+[
+"z",
+1,
+67.01,
+79.72,
+74.21,
+91.72
+],
+[
+"r",
+1,
+74.21,
+79.72,
+81.41,
+91.72
+],
+[
+"a",
+1,
+81.41,
+79.72,
+88.61,
+91.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Lanchester",
+"start": 105,
+"end": 115,
+"label": "NAME_FAMILY",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"L",
+1,
+95.81,
+79.72,
+103.01,
+91.72
+],
+[
+"a",
+1,
+103.01,
+79.72,
+110.21,
+91.72
+],
+[
+"n",
+1,
+110.22,
+79.72,
+117.42,
+91.72
+],
+[
+"c",
+1,
+117.42,
+79.72,
+124.62,
+91.72
+],
+[
+"h",
+1,
+124.62,
+79.72,
+131.82,
+91.72
+],
+[
+"e",
+1,
+131.82,
+79.72,
+139.02,
+91.72
+],
+[
+"s",
+1,
+139.02,
+79.72,
+146.22,
+91.72
+],
+[
+"t",
+1,
+146.22,
+79.72,
+153.42,
+91.72
+],
+[
+"e",
+1,
+153.42,
+79.72,
+160.62,
+91.72
+],
+[
+"r",
+1,
+160.62,
+79.72,
+167.82,
+91.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "2016 Willowmere Road",
+"start": 158,
+"end": 178,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"2",
+1,
+16.6,
+127.72,
+23.8,
+139.72
+],
+[
+"0",
+1,
+23.8,
+127.72,
+31.0,
+139.72
+],
+[
+"1",
+1,
+31.0,
+127.72,
+38.2,
+139.72
+],
+[
+"6",
+1,
+38.2,
+127.72,
+45.4,
+139.72
+],
+[
+"W",
+1,
+52.61,
+127.72,
+59.81,
+139.72
+],
+[
+"i",
+1,
+59.81,
+127.72,
+67.01,
+139.72
+],
+[
+"l",
+1,
+67.01,
+127.72,
+74.21,
+139.72
+],
+[
+"l",
+1,
+74.21,
+127.72,
+81.41,
+139.72
+],
+[
+"o",
+1,
+81.41,
+127.72,
+88.61,
+139.72
+],
+[
+"w",
+1,
+88.61,
+127.72,
+95.81,
+139.72
+],
+[
+"m",
+1,
+95.81,
+127.72,
+103.01,
+139.72
+],
+[
+"e",
+1,
+103.01,
+127.72,
+110.21,
+139.72
+],
+[
+"r",
+1,
+110.22,
+127.72,
+117.42,
+139.72
+],
+[
+"e",
+1,
+117.42,
+127.72,
+124.62,
+139.72
+],
+[
+"R",
+1,
+131.82,
+127.72,
+139.02,
+139.72
+],
+[
+"o",
+1,
+139.02,
+127.72,
+146.22,
+139.72
+],
+[
+"a",
+1,
+146.22,
+127.72,
+153.42,
+139.72
+],
+[
+"d",
+1,
+153.42,
+127.72,
+160.62,
+139.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Lucian",
+"start": 213,
+"end": 219,
+"label": "NAME_GIVEN",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"L",
+1,
+160.62,
+139.72,
+167.82,
+151.72
+],
+[
+"u",
+1,
+167.83,
+139.72,
+175.03,
+151.72
+],
+[
+"c",
+1,
+175.03,
+139.72,
+182.23,
+151.72
+],
+[
+"i",
+1,
+182.23,
+139.72,
+189.43,
+151.72
+],
+[
+"a",
+1,
+189.43,
+139.72,
+196.63,
+151.72
+],
+[
+"n",
+1,
+196.63,
+139.72,
+203.83,
+151.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "PERCIVAL",
+"start": 256,
+"end": 264,
+"label": "NAME_GIVEN",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"P",
+1,
+146.22,
+151.72,
+153.42,
+163.72
+],
+[
+"E",
+1,
+153.42,
+151.72,
+160.62,
+163.72
+],
+[
+"R",
+1,
+160.62,
+151.72,
+167.82,
+163.72
+],
+[
+"C",
+1,
+167.83,
+151.72,
+175.03,
+163.72
+],
+[
+"I",
+1,
+175.03,
+151.72,
+182.23,
+163.72
+],
+[
+"V",
+1,
+182.23,
+151.72,
+189.43,
+163.72
+],
+[
+"A",
+1,
+189.43,
+151.72,
+196.63,
+163.72
+],
+[
+"L",
+1,
+196.63,
+151.72,
+203.83,
+163.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "BRANNICK",
+"start": 265,
+"end": 273,
+"label": "NAME_FAMILY",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"B",
+1,
+211.03,
+151.72,
+218.23,
+163.72
+],
+[
+"R",
+1,
+218.23,
+151.72,
+225.43,
+163.72
+],
+[
+"A",
+1,
+225.43,
+151.72,
+232.63,
+163.72
+],
+[
+"N",
+1,
+232.64,
+151.72,
+239.84,
+163.72
+],
+[
+"N",
+1,
+239.84,
+151.72,
+247.04,
+163.72
+],
+[
+"I",
+1,
+247.04,
+151.72,
+254.24,
+163.72
+],
+[
+"C",
+1,
+254.24,
+151.72,
+261.44,
+163.72
+],
+[
+"K",
+1,
+261.44,
+151.72,
+268.64,
+163.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "(617) 555-0123",
+"start": 408,
+"end": 422,
+"label": "PHONE_NUMBER",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"(",
+1,
+283.04,
+211.72,
+290.24,
+223.72
+],
+[
+"6",
+1,
+290.25,
+211.72,
+297.45,
+223.72
+],
+[
+"1",
+1,
+297.45,
+211.72,
+304.65,
+223.72
+],
+[
+"7",
+1,
+304.65,
+211.72,
+311.85,
+223.72
+],
+[
+")",
+1,
+311.85,
+211.72,
+319.05,
+223.72
+],
+[
+"5",
+1,
+326.25,
+211.72,
+333.45,
+223.72
+],
+[
+"5",
+1,
+333.45,
+211.72,
+340.65,
+223.72
+],
+[
+"5",
+1,
+340.65,
+211.72,
+347.85,
+223.72
+],
+[
+"-",
+1,
+347.86,
+211.72,
+355.06,
+223.72
+],
+[
+"0",
+1,
+355.06,
+211.72,
+362.26,
+223.72
+],
+[
+"1",
+1,
+362.26,
+211.72,
+369.46,
+223.72
+],
+[
+"2",
+1,
+369.46,
+211.72,
+376.66,
+223.72
+],
+[
+"3",
+1,
+376.66,
+211.72,
+383.86,
+223.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Ashcombe",
+"start": 427,
+"end": 435,
+"label": "NAME_FAMILY",
+"characters": [
+"p00"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"A",
+1,
+67.01,
+223.72,
+74.21,
+235.72
+],
+[
+"s",
+1,
+74.21,
+223.72,
+81.41,
+235.72
+],
+[
+"h",
+1,
+81.41,
+223.72,
+88.61,
+235.72
+],
+[
+"c",
+1,
+88.61,
+223.72,
+95.81,
+235.72
+],
+[
+"o",
+1,
+95.81,
+223.72,
+103.01,
+235.72
+],
+[
+"m",
+1,
+103.01,
+223.72,
+110.21,
+235.72
+],
+[
+"b",
+1,
+110.22,
+223.72,
+117.42,
+235.72
+],
+[
+"e",
+1,
+117.42,
+223.72,
+124.62,
+235.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "(617) 555-0149",
+"start": 440,
+"end": 454,
+"label": "PHONE_NUMBER",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"(",
+1,
+160.62,
+223.72,
+167.82,
+235.72
+],
+[
+"6",
+1,
+167.83,
+223.72,
+175.03,
+235.72
+],
+[
+"1",
+1,
+175.03,
+223.72,
+182.23,
+235.72
+],
+[
+"7",
+1,
+182.23,
+223.72,
+189.43,
+235.72
+],
+[
+")",
+1,
+189.43,
+223.72,
+196.63,
+235.72
+],
+[
+"5",
+1,
+203.83,
+223.72,
+211.03,
+235.72
+],
+[
+"5",
+1,
+211.03,
+223.72,
+218.23,
+235.72
+],
+[
+"5",
+1,
+218.23,
+223.72,
+225.43,
+235.72
+],
+[
+"-",
+1,
+225.43,
+223.72,
+232.63,
+235.72
+],
+[
+"0",
+1,
+232.64,
+223.72,
+239.84,
+235.72
+],
+[
+"1",
+1,
+239.84,
+223.72,
+247.04,
+235.72
+],
+[
+"4",
+1,
+247.04,
+223.72,
+254.24,
+235.72
+],
+[
+"9",
+1,
+254.24,
+223.72,
+261.44,
+235.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Brannick",
+"start": 459,
+"end": 467,
+"label": "NAME_FAMILY",
+"characters": [
+"p09"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"B",
+1,
+297.45,
+223.72,
+304.65,
+235.72
+],
+[
+"r",
+1,
+304.65,
+223.72,
+311.85,
+235.72
+],
+[
+"a",
+1,
+311.85,
+223.72,
+319.05,
+235.72
+],
+[
+"n",
+1,
+319.05,
+223.72,
+326.25,
+235.72
+],
+[
+"n",
+1,
+326.25,
+223.72,
+333.45,
+235.72
+],
+[
+"i",
+1,
+333.45,
+223.72,
+340.65,
+235.72
+],
+[
+"c",
+1,
+340.65,
+223.72,
+347.85,
+235.72
+],
+[
+"k",
+1,
+347.86,
+223.72,
+355.06,
+235.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Tanager Lane Realty LLC",
+"start": 488,
+"end": 511,
+"label": "ORGANIZATION",
+"characters": [
+"org_5"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"T",
+1,
+153.42,
+235.72,
+160.62,
+247.72
+],
+[
+"a",
+1,
+160.62,
+235.72,
+167.82,
+247.72
+],
+[
+"n",
+1,
+167.83,
+235.72,
+175.03,
+247.72
+],
+[
+"a",
+1,
+175.03,
+235.72,
+182.23,
+247.72
+],
+[
+"g",
+1,
+182.23,
+235.72,
+189.43,
+247.72
+],
+[
+"e",
+1,
+189.43,
+235.72,
+196.63,
+247.72
+],
+[
+"r",
+1,
+196.63,
+235.72,
+203.83,
+247.72
+],
+[
+"L",
+1,
+211.03,
+235.72,
+218.23,
+247.72
+],
+[
+"a",
+1,
+218.23,
+235.72,
+225.43,
+247.72
+],
+[
+"n",
+1,
+225.43,
+235.72,
+232.63,
+247.72
+],
+[
+"e",
+1,
+232.64,
+235.72,
+239.84,
+247.72
+],
+[
+"R",
+1,
+247.04,
+235.72,
+254.24,
+247.72
+],
+[
+"e",
+1,
+254.24,
+235.72,
+261.44,
+247.72
+],
+[
+"a",
+1,
+261.44,
+235.72,
+268.64,
+247.72
+],
+[
+"l",
+1,
+268.64,
+235.72,
+275.84,
+247.72
+],
+[
+"t",
+1,
+275.84,
+235.72,
+283.04,
+247.72
+],
+[
+"y",
+1,
+283.04,
+235.72,
+290.24,
+247.72
+],
+[
+"L",
+1,
+297.45,
+235.72,
+304.65,
+247.72
+],
+[
+"L",
+1,
+304.65,
+235.72,
+311.85,
+247.72
+],
+[
+"C",
+1,
+311.85,
+235.72,
+319.05,
+247.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "4126426732",
+"start": 584,
+"end": 594,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"4",
+1,
+218.23,
+271.72,
+225.43,
+283.72
+],
+[
+"1",
+1,
+225.43,
+271.72,
+232.63,
+283.72
+],
+[
+"2",
+1,
+232.64,
+271.72,
+239.84,
+283.72
+],
+[
+"6",
+1,
+239.84,
+271.72,
+247.04,
+283.72
+],
+[
+"4",
+1,
+247.04,
+271.72,
+254.24,
+283.72
+],
+[
+"2",
+1,
+254.24,
+271.72,
+261.44,
+283.72
+],
+[
+"6",
+1,
+261.44,
+271.72,
+268.64,
+283.72
+],
+[
+"7",
+1,
+268.64,
+271.72,
+275.84,
+283.72
+],
+[
+"3",
+1,
+275.84,
+271.72,
+283.04,
+283.72
+],
+[
+"2",
+1,
+283.04,
+271.72,
+290.24,
+283.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Tanager",
+"start": 629,
+"end": 636,
+"label": "ORGANIZATION",
+"characters": [
+"org_5"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"T",
+1,
+254.24,
+283.72,
+261.44,
+295.72
+],
+[
+"a",
+1,
+261.44,
+283.72,
+268.64,
+295.72
+],
+[
+"n",
+1,
+268.64,
+283.72,
+275.84,
+295.72
+],
+[
+"a",
+1,
+275.84,
+283.72,
+283.04,
+295.72
+],
+[
+"g",
+1,
+283.04,
+283.72,
+290.24,
+295.72
+],
+[
+"e",
+1,
+290.25,
+283.72,
+297.45,
+295.72
+],
+[
+"r",
+1,
+297.45,
+283.72,
+304.65,
+295.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Ezra",
+"start": 638,
+"end": 642,
+"label": "NAME_GIVEN",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"E",
+1,
+16.6,
+307.72,
+23.8,
+319.72
+],
+[
+"z",
+1,
+23.8,
+307.72,
+31.0,
+319.72
+],
+[
+"r",
+1,
+31.0,
+307.72,
+38.2,
+319.72
+],
+[
+"a",
+1,
+38.2,
+307.72,
+45.4,
+319.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Lanchester",
+"start": 643,
+"end": 653,
+"label": "NAME_FAMILY",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"L",
+1,
+52.61,
+307.72,
+59.81,
+319.72
+],
+[
+"a",
+1,
+59.81,
+307.72,
+67.01,
+319.72
+],
+[
+"n",
+1,
+67.01,
+307.72,
+74.21,
+319.72
+],
+[
+"c",
+1,
+74.21,
+307.72,
+81.41,
+319.72
+],
+[
+"h",
+1,
+81.41,
+307.72,
+88.61,
+319.72
+],
+[
+"e",
+1,
+88.61,
+307.72,
+95.81,
+319.72
+],
+[
+"s",
+1,
+95.81,
+307.72,
+103.01,
+319.72
+],
+[
+"t",
+1,
+103.01,
+307.72,
+110.21,
+319.72
+],
+[
+"e",
+1,
+110.22,
+307.72,
+117.42,
+319.72
+],
+[
+"r",
+1,
+117.42,
+307.72,
+124.62,
+319.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Tanager Lane Realty LLC",
+"start": 674,
+"end": 697,
+"label": "ORGANIZATION",
+"characters": [
+"org_5"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"T",
+1,
+160.62,
+319.72,
+167.82,
+331.72
+],
+[
+"a",
+1,
+167.83,
+319.72,
+175.03,
+331.72
+],
+[
+"n",
+1,
+175.03,
+319.72,
+182.23,
+331.72
+],
+[
+"a",
+1,
+182.23,
+319.72,
+189.43,
+331.72
+],
+[
+"g",
+1,
+189.43,
+319.72,
+196.63,
+331.72
+],
+[
+"e",
+1,
+196.63,
+319.72,
+203.83,
+331.72
+],
+[
+"r",
+1,
+203.83,
+319.72,
+211.03,
+331.72
+],
+[
+"L",
+1,
+218.23,
+319.72,
+225.43,
+331.72
+],
+[
+"a",
+1,
+225.43,
+319.72,
+232.63,
+331.72
+],
+[
+"n",
+1,
+232.64,
+319.72,
+239.84,
+331.72
+],
+[
+"e",
+1,
+239.84,
+319.72,
+247.04,
+331.72
+],
+[
+"R",
+1,
+254.24,
+319.72,
+261.44,
+331.72
+],
+[
+"e",
+1,
+261.44,
+319.72,
+268.64,
+331.72
+],
+[
+"a",
+1,
+268.64,
+319.72,
+275.84,
+331.72
+],
+[
+"l",
+1,
+275.84,
+319.72,
+283.04,
+331.72
+],
+[
+"t",
+1,
+283.04,
+319.72,
+290.24,
+331.72
+],
+[
+"y",
+1,
+290.25,
+319.72,
+297.45,
+331.72
+],
+[
+"L",
+1,
+304.65,
+319.72,
+311.85,
+331.72
+],
+[
+"L",
+1,
+311.85,
+319.72,
+319.05,
+331.72
+],
+[
+"C",
+1,
+319.05,
+319.72,
+326.25,
+331.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "lanchester.ezra@marrowbone.test",
+"start": 698,
+"end": 729,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"l",
+1,
+16.6,
+331.72,
+23.8,
+343.72
+],
+[
+"a",
+1,
+23.8,
+331.72,
+31.0,
+343.72
+],
+[
+"n",
+1,
+31.0,
+331.72,
+38.2,
+343.72
+],
+[
+"c",
+1,
+38.2,
+331.72,
+45.4,
+343.72
+],
+[
+"h",
+1,
+45.4,
+331.72,
+52.6,
+343.72
+],
+[
+"e",
+1,
+52.61,
+331.72,
+59.81,
+343.72
+],
+[
+"s",
+1,
+59.81,
+331.72,
+67.01,
+343.72
+],
+[
+"t",
+1,
+67.01,
+331.72,
+74.21,
+343.72
+],
+[
+"e",
+1,
+74.21,
+331.72,
+81.41,
+343.72
+],
+[
+"r",
+1,
+81.41,
+331.72,
+88.61,
+343.72
+],
+[
+".",
+1,
+88.61,
+331.72,
+95.81,
+343.72
+],
+[
+"e",
+1,
+95.81,
+331.72,
+103.01,
+343.72
+],
+[
+"z",
+1,
+103.01,
+331.72,
+110.21,
+343.72
+],
+[
+"r",
+1,
+110.22,
+331.72,
+117.42,
+343.72
+],
+[
+"a",
+1,
+117.42,
+331.72,
+124.62,
+343.72
+],
+[
+"@",
+1,
+124.62,
+331.72,
+131.82,
+343.72
+],
+[
+"m",
+1,
+131.82,
+331.72,
+139.02,
+343.72
+],
+[
+"a",
+1,
+139.02,
+331.72,
+146.22,
+343.72
+],
+[
+"r",
+1,
+146.22,
+331.72,
+153.42,
+343.72
+],
+[
+"r",
+1,
+153.42,
+331.72,
+160.62,
+343.72
+],
+[
+"o",
+1,
+160.62,
+331.72,
+167.82,
+343.72
+],
+[
+"w",
+1,
+167.83,
+331.72,
+175.03,
+343.72
+],
+[
+"b",
+1,
+175.03,
+331.72,
+182.23,
+343.72
+],
+[
+"o",
+1,
+182.23,
+331.72,
+189.43,
+343.72
+],
+[
+"n",
+1,
+189.43,
+331.72,
+196.63,
+343.72
+],
+[
+"e",
+1,
+196.63,
+331.72,
+203.83,
+343.72
+],
+[
+".",
+1,
+203.83,
+331.72,
+211.03,
+343.72
+],
+[
+"t",
+1,
+211.03,
+331.72,
+218.23,
+343.72
+],
+[
+"e",
+1,
+218.23,
+331.72,
+225.43,
+343.72
+],
+[
+"s",
+1,
+225.43,
+331.72,
+232.63,
+343.72
+],
+[
+"t",
+1,
+232.64,
+331.72,
+239.84,
+343.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "+1 617 555 0164",
+"start": 732,
+"end": 747,
+"label": "PHONE_NUMBER",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"+",
+1,
+261.44,
+331.72,
+268.64,
+343.72
+],
+[
+"1",
+1,
+268.64,
+331.72,
+275.84,
+343.72
+],
+[
+"6",
+1,
+283.04,
+331.72,
+290.24,
+343.72
+],
+[
+"1",
+1,
+290.25,
+331.72,
+297.45,
+343.72
+],
+[
+"7",
+1,
+297.45,
+331.72,
+304.65,
+343.72
+],
+[
+"5",
+1,
+311.85,
+331.72,
+319.05,
+343.72
+],
+[
+"5",
+1,
+319.05,
+331.72,
+326.25,
+343.72
+],
+[
+"5",
+1,
+326.25,
+331.72,
+333.45,
+343.72
+],
+[
+"0",
+1,
+340.65,
+331.72,
+347.85,
+343.72
+],
+[
+"1",
+1,
+347.86,
+331.72,
+355.06,
+343.72
+],
+[
+"6",
+1,
+355.06,
+331.72,
+362.26,
+343.72
+],
+[
+"4",
+1,
+362.26,
+331.72,
+369.46,
+343.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "https://www.tanager.test",
+"start": 748,
+"end": 772,
+"label": "URL",
+"characters": [
+"org_5"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"h",
+1,
+16.6,
+343.72,
+23.8,
+355.72
+],
+[
+"t",
+1,
+23.8,
+343.72,
+31.0,
+355.72
+],
+[
+"t",
+1,
+31.0,
+343.72,
+38.2,
+355.72
+],
+[
+"p",
+1,
+38.2,
+343.72,
+45.4,
+355.72
+],
+[
+"s",
+1,
+45.4,
+343.72,
+52.6,
+355.72
+],
+[
+":",
+1,
+52.61,
+343.72,
+59.81,
+355.72
+],
+[
+"/",
+1,
+59.81,
+343.72,
+67.01,
+355.72
+],
+[
+"/",
+1,
+67.01,
+343.72,
+74.21,
+355.72
+],
+[
+"w",
+1,
+74.21,
+343.72,
+81.41,
+355.72
+],
+[
+"w",
+1,
+81.41,
+343.72,
+88.61,
+355.72
+],
+[
+"w",
+1,
+88.61,
+343.72,
+95.81,
+355.72
+],
+[
+".",
+1,
+95.81,
+343.72,
+103.01,
+355.72
+],
+[
+"t",
+1,
+103.01,
+343.72,
+110.21,
+355.72
+],
+[
+"a",
+1,
+110.22,
+343.72,
+117.42,
+355.72
+],
+[
+"n",
+1,
+117.42,
+343.72,
+124.62,
+355.72
+],
+[
+"a",
+1,
+124.62,
+343.72,
+131.82,
+355.72
+],
+[
+"g",
+1,
+131.82,
+343.72,
+139.02,
+355.72
+],
+[
+"e",
+1,
+139.02,
+343.72,
+146.22,
+355.72
+],
+[
+"r",
+1,
+146.22,
+343.72,
+153.42,
+355.72
+],
+[
+".",
+1,
+153.42,
+343.72,
+160.62,
+355.72
+],
+[
+"t",
+1,
+160.62,
+343.72,
+167.82,
+355.72
+],
+[
+"e",
+1,
+167.83,
+343.72,
+175.03,
+355.72
+],
+[
+"s",
+1,
+175.03,
+343.72,
+182.23,
+355.72
+],
+[
+"t",
+1,
+182.23,
+343.72,
+189.43,
+355.72
+]
+],
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "13c10265e42560630847029b",
+"filename": "statement.pdf",
+"format": "pdf",
+"mime_type": "application/pdf",
+"attached_to": null
+},
+"text": "Willowmere Staffing\n6361 Quarry Bend\nLindell Falls, MN 55401\nSTATEMENT OF ACCOUNT\nBill to: Harborlight Hotels Ltd\nAttn: Otis Tregarec (Finance Controller)\n2016 Willowmere Road, Kessler City, CO 80202\nCustomer account: 2367570052\nYour reference: HBH-23162\nDate Description Amount\n2026-09-21 Service visit, week 1 $1537.00\n2026-04-28 Service visit, week 2 $982.00\n2026-01-10 Service visit, week 3 $479.00\n2026-06-19 Service visit, week 4 $280.00\n2026-08-19 Service visit, week 5 $745.00\nQuestions: Barnaby Stanhope\nPhone: +1 617 555 0199\nE-mail: bstanhope@willowmere.test\nOnline: https://www.willowmere.test/statements\nPrepared by Barnaby for Willowmere.\n\n",
+"file": {
+"kind": "pdf",
+"path": "drive/statement.pdf",
+"sha256": "b4e5cc05a8969900939b5025151721d93a51a4c186757710d839277d96d8a799",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Willowmere Staffing",
+"start": 0,
+"end": 19,
+"label": "ORGANIZATION",
+"characters": [
+"org_1"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"W",
+1,
+16.6,
+19.72,
+23.8,
+31.72
+],
+[
+"i",
+1,
+23.8,
+19.72,
+31.0,
+31.72
+],
+[
+"l",
+1,
+31.0,
+19.72,
+38.2,
+31.72
+],
+[
+"l",
+1,
+38.2,
+19.72,
+45.4,
+31.72
+],
+[
+"o",
+1,
+45.4,
+19.72,
+52.6,
+31.72
+],
+[
+"w",
+1,
+52.61,
+19.72,
+59.81,
+31.72
+],
+[
+"m",
+1,
+59.81,
+19.72,
+67.01,
+31.72
+],
+[
+"e",
+1,
+67.01,
+19.72,
+74.21,
+31.72
+],
+[
+"r",
+1,
+74.21,
+19.72,
+81.41,
+31.72
+],
+[
+"e",
+1,
+81.41,
+19.72,
+88.61,
+31.72
+],
+[
+"S",
+1,
+95.81,
+19.72,
+103.01,
+31.72
+],
+[
+"t",
+1,
+103.01,
+19.72,
+110.21,
+31.72
+],
+[
+"a",
+1,
+110.22,
+19.72,
+117.42,
+31.72
+],
+[
+"f",
+1,
+117.42,
+19.72,
+124.62,
+31.72
+],
+[
+"f",
+1,
+124.62,
+19.72,
+131.82,
+31.72
+],
+[
+"i",
+1,
+131.82,
+19.72,
+139.02,
+31.72
+],
+[
+"n",
+1,
+139.02,
+19.72,
+146.22,
+31.72
+],
+[
+"g",
+1,
+146.22,
+19.72,
+153.42,
+31.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "6361 Quarry Bend",
+"start": 20,
+"end": 36,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_1"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"6",
+1,
+16.6,
+31.72,
+23.8,
+43.72
+],
+[
+"3",
+1,
+23.8,
+31.72,
+31.0,
+43.72
+],
+[
+"6",
+1,
+31.0,
+31.72,
+38.2,
+43.72
+],
+[
+"1",
+1,
+38.2,
+31.72,
+45.4,
+43.72
+],
+[
+"Q",
+1,
+52.61,
+31.72,
+59.81,
+43.72
+],
+[
+"u",
+1,
+59.81,
+31.72,
+67.01,
+43.72
+],
+[
+"a",
+1,
+67.01,
+31.72,
+74.21,
+43.72
+],
+[
+"r",
+1,
+74.21,
+31.72,
+81.41,
+43.72
+],
+[
+"r",
+1,
+81.41,
+31.72,
+88.61,
+43.72
+],
+[
+"y",
+1,
+88.61,
+31.72,
+95.81,
+43.72
+],
+[
+"B",
+1,
+103.01,
+31.72,
+110.21,
+43.72
+],
+[
+"e",
+1,
+110.22,
+31.72,
+117.42,
+43.72
+],
+[
+"n",
+1,
+117.42,
+31.72,
+124.62,
+43.72
+],
+[
+"d",
+1,
+124.62,
+31.72,
+131.82,
+43.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Harborlight Hotels Ltd",
+"start": 91,
+"end": 113,
+"label": "ORGANIZATION",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"H",
+1,
+81.41,
+91.72,
+88.61,
+103.72
+],
+[
+"a",
+1,
+88.61,
+91.72,
+95.81,
+103.72
+],
+[
+"r",
+1,
+95.81,
+91.72,
+103.01,
+103.72
+],
+[
+"b",
+1,
+103.01,
+91.72,
+110.21,
+103.72
+],
+[
+"o",
+1,
+110.22,
+91.72,
+117.42,
+103.72
+],
+[
+"r",
+1,
+117.42,
+91.72,
+124.62,
+103.72
+],
+[
+"l",
+1,
+124.62,
+91.72,
+131.82,
+103.72
+],
+[
+"i",
+1,
+131.82,
+91.72,
+139.02,
+103.72
+],
+[
+"g",
+1,
+139.02,
+91.72,
+146.22,
+103.72
+],
+[
+"h",
+1,
+146.22,
+91.72,
+153.42,
+103.72
+],
+[
+"t",
+1,
+153.42,
+91.72,
+160.62,
+103.72
+],
+[
+"H",
+1,
+167.83,
+91.72,
+175.03,
+103.72
+],
+[
+"o",
+1,
+175.03,
+91.72,
+182.23,
+103.72
+],
+[
+"t",
+1,
+182.23,
+91.72,
+189.43,
+103.72
+],
+[
+"e",
+1,
+189.43,
+91.72,
+196.63,
+103.72
+],
+[
+"l",
+1,
+196.63,
+91.72,
+203.83,
+103.72
+],
+[
+"s",
+1,
+203.83,
+91.72,
+211.03,
+103.72
+],
+[
+"L",
+1,
+218.23,
+91.72,
+225.43,
+103.72
+],
+[
+"t",
+1,
+225.43,
+91.72,
+232.63,
+103.72
+],
+[
+"d",
+1,
+232.64,
+91.72,
+239.84,
+103.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Otis",
+"start": 120,
+"end": 124,
+"label": "NAME_GIVEN",
+"characters": [
+"p11"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"O",
+1,
+59.81,
+103.72,
+67.01,
+115.72
+],
+[
+"t",
+1,
+67.01,
+103.72,
+74.21,
+115.72
+],
+[
+"i",
+1,
+74.21,
+103.72,
+81.41,
+115.72
+],
+[
+"s",
+1,
+81.41,
+103.72,
+88.61,
+115.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Tregarec",
+"start": 125,
+"end": 133,
+"label": "NAME_FAMILY",
+"characters": [
+"p11"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"T",
+1,
+95.81,
+103.72,
+103.01,
+115.72
+],
+[
+"r",
+1,
+103.01,
+103.72,
+110.21,
+115.72
+],
+[
+"e",
+1,
+110.22,
+103.72,
+117.42,
+115.72
+],
+[
+"g",
+1,
+117.42,
+103.72,
+124.62,
+115.72
+],
+[
+"a",
+1,
+124.62,
+103.72,
+131.82,
+115.72
+],
+[
+"r",
+1,
+131.82,
+103.72,
+139.02,
+115.72
+],
+[
+"e",
+1,
+139.02,
+103.72,
+146.22,
+115.72
+],
+[
+"c",
+1,
+146.22,
+103.72,
+153.42,
+115.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "2016 Willowmere Road",
+"start": 155,
+"end": 175,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_home"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"2",
+1,
+16.6,
+115.72,
+23.8,
+127.72
+],
+[
+"0",
+1,
+23.8,
+115.72,
+31.0,
+127.72
+],
+[
+"1",
+1,
+31.0,
+115.72,
+38.2,
+127.72
+],
+[
+"6",
+1,
+38.2,
+115.72,
+45.4,
+127.72
+],
+[
+"W",
+1,
+52.61,
+115.72,
+59.81,
+127.72
+],
+[
+"i",
+1,
+59.81,
+115.72,
+67.01,
+127.72
+],
+[
+"l",
+1,
+67.01,
+115.72,
+74.21,
+127.72
+],
+[
+"l",
+1,
+74.21,
+115.72,
+81.41,
+127.72
+],
+[
+"o",
+1,
+81.41,
+115.72,
+88.61,
+127.72
+],
+[
+"w",
+1,
+88.61,
+115.72,
+95.81,
+127.72
+],
+[
+"m",
+1,
+95.81,
+115.72,
+103.01,
+127.72
+],
+[
+"e",
+1,
+103.01,
+115.72,
+110.21,
+127.72
+],
+[
+"r",
+1,
+110.22,
+115.72,
+117.42,
+127.72
+],
+[
+"e",
+1,
+117.42,
+115.72,
+124.62,
+127.72
+],
+[
+"R",
+1,
+131.82,
+115.72,
+139.02,
+127.72
+],
+[
+"o",
+1,
+139.02,
+115.72,
+146.22,
+127.72
+],
+[
+"a",
+1,
+146.22,
+115.72,
+153.42,
+127.72
+],
+[
+"d",
+1,
+153.42,
+115.72,
+160.62,
+127.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "2367570052",
+"start": 218,
+"end": 228,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"org_1"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"2",
+1,
+146.22,
+139.72,
+153.42,
+151.72
+],
+[
+"3",
+1,
+153.42,
+139.72,
+160.62,
+151.72
+],
+[
+"6",
+1,
+160.62,
+139.72,
+167.82,
+151.72
+],
+[
+"7",
+1,
+167.83,
+139.72,
+175.03,
+151.72
+],
+[
+"5",
+1,
+175.03,
+139.72,
+182.23,
+151.72
+],
+[
+"7",
+1,
+182.23,
+139.72,
+189.43,
+151.72
+],
+[
+"0",
+1,
+189.43,
+139.72,
+196.63,
+151.72
+],
+[
+"0",
+1,
+196.63,
+139.72,
+203.83,
+151.72
+],
+[
+"5",
+1,
+203.83,
+139.72,
+211.03,
+151.72
+],
+[
+"2",
+1,
+211.03,
+139.72,
+218.23,
+151.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "HBH-23162",
+"start": 245,
+"end": 254,
+"label": "EMPLOYEE_ID",
+"characters": [
+"p11"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"H",
+1,
+131.82,
+151.72,
+139.02,
+163.72
+],
+[
+"B",
+1,
+139.02,
+151.72,
+146.22,
+163.72
+],
+[
+"H",
+1,
+146.22,
+151.72,
+153.42,
+163.72
+],
+[
+"-",
+1,
+153.42,
+151.72,
+160.62,
+163.72
+],
+[
+"2",
+1,
+160.62,
+151.72,
+167.82,
+163.72
+],
+[
+"3",
+1,
+167.83,
+151.72,
+175.03,
+163.72
+],
+[
+"1",
+1,
+175.03,
+151.72,
+182.23,
+163.72
+],
+[
+"6",
+1,
+182.23,
+151.72,
+189.43,
+163.72
+],
+[
+"2",
+1,
+189.43,
+151.72,
+196.63,
+163.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Barnaby",
+"start": 496,
+"end": 503,
+"label": "NAME_GIVEN",
+"characters": [
+"p20"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"B",
+1,
+95.81,
+259.72,
+103.01,
+271.72
+],
+[
+"a",
+1,
+103.01,
+259.72,
+110.21,
+271.72
+],
+[
+"r",
+1,
+110.22,
+259.72,
+117.42,
+271.72
+],
+[
+"n",
+1,
+117.42,
+259.72,
+124.62,
+271.72
+],
+[
+"a",
+1,
+124.62,
+259.72,
+131.82,
+271.72
+],
+[
+"b",
+1,
+131.82,
+259.72,
+139.02,
+271.72
+],
+[
+"y",
+1,
+139.02,
+259.72,
+146.22,
+271.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Stanhope",
+"start": 504,
+"end": 512,
+"label": "NAME_FAMILY",
+"characters": [
+"p20"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"S",
+1,
+153.42,
+259.72,
+160.62,
+271.72
+],
+[
+"t",
+1,
+160.62,
+259.72,
+167.82,
+271.72
+],
+[
+"a",
+1,
+167.83,
+259.72,
+175.03,
+271.72
+],
+[
+"n",
+1,
+175.03,
+259.72,
+182.23,
+271.72
+],
+[
+"h",
+1,
+182.23,
+259.72,
+189.43,
+271.72
+],
+[
+"o",
+1,
+189.43,
+259.72,
+196.63,
+271.72
+],
+[
+"p",
+1,
+196.63,
+259.72,
+203.83,
+271.72
+],
+[
+"e",
+1,
+203.83,
+259.72,
+211.03,
+271.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "+1 617 555 0199",
+"start": 520,
+"end": 535,
+"label": "PHONE_NUMBER",
+"characters": [
+"p20"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"+",
+1,
+67.01,
+271.72,
+74.21,
+283.72
+],
+[
+"1",
+1,
+74.21,
+271.72,
+81.41,
+283.72
+],
+[
+"6",
+1,
+88.61,
+271.72,
+95.81,
+283.72
+],
+[
+"1",
+1,
+95.81,
+271.72,
+103.01,
+283.72
+],
+[
+"7",
+1,
+103.01,
+271.72,
+110.21,
+283.72
+],
+[
+"5",
+1,
+117.42,
+271.72,
+124.62,
+283.72
+],
+[
+"5",
+1,
+124.62,
+271.72,
+131.82,
+283.72
+],
+[
+"5",
+1,
+131.82,
+271.72,
+139.02,
+283.72
+],
+[
+"0",
+1,
+146.22,
+271.72,
+153.42,
+283.72
+],
+[
+"1",
+1,
+153.42,
+271.72,
+160.62,
+283.72
+],
+[
+"9",
+1,
+160.62,
+271.72,
+167.82,
+283.72
+],
+[
+"9",
+1,
+167.83,
+271.72,
+175.03,
+283.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "bstanhope@willowmere.test",
+"start": 544,
+"end": 569,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p20"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"b",
+1,
+74.21,
+283.72,
+81.41,
+295.72
+],
+[
+"s",
+1,
+81.41,
+283.72,
+88.61,
+295.72
+],
+[
+"t",
+1,
+88.61,
+283.72,
+95.81,
+295.72
+],
+[
+"a",
+1,
+95.81,
+283.72,
+103.01,
+295.72
+],
+[
+"n",
+1,
+103.01,
+283.72,
+110.21,
+295.72
+],
+[
+"h",
+1,
+110.22,
+283.72,
+117.42,
+295.72
+],
+[
+"o",
+1,
+117.42,
+283.72,
+124.62,
+295.72
+],
+[
+"p",
+1,
+124.62,
+283.72,
+131.82,
+295.72
+],
+[
+"e",
+1,
+131.82,
+283.72,
+139.02,
+295.72
+],
+[
+"@",
+1,
+139.02,
+283.72,
+146.22,
+295.72
+],
+[
+"w",
+1,
+146.22,
+283.72,
+153.42,
+295.72
+],
+[
+"i",
+1,
+153.42,
+283.72,
+160.62,
+295.72
+],
+[
+"l",
+1,
+160.62,
+283.72,
+167.82,
+295.72
+],
+[
+"l",
+1,
+167.83,
+283.72,
+175.03,
+295.72
+],
+[
+"o",
+1,
+175.03,
+283.72,
+182.23,
+295.72
+],
+[
+"w",
+1,
+182.23,
+283.72,
+189.43,
+295.72
+],
+[
+"m",
+1,
+189.43,
+283.72,
+196.63,
+295.72
+],
+[
+"e",
+1,
+196.63,
+283.72,
+203.83,
+295.72
+],
+[
+"r",
+1,
+203.83,
+283.72,
+211.03,
+295.72
+],
+[
+"e",
+1,
+211.03,
+283.72,
+218.23,
+295.72
+],
+[
+".",
+1,
+218.23,
+283.72,
+225.43,
+295.72
+],
+[
+"t",
+1,
+225.43,
+283.72,
+232.63,
+295.72
+],
+[
+"e",
+1,
+232.64,
+283.72,
+239.84,
+295.72
+],
+[
+"s",
+1,
+239.84,
+283.72,
+247.04,
+295.72
+],
+[
+"t",
+1,
+247.04,
+283.72,
+254.24,
+295.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "https://www.willowmere.test/statements",
+"start": 578,
+"end": 616,
+"label": "URL",
+"characters": [
+"org_1"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"h",
+1,
+74.21,
+295.72,
+81.41,
+307.72
+],
+[
+"t",
+1,
+81.41,
+295.72,
+88.61,
+307.72
+],
+[
+"t",
+1,
+88.61,
+295.72,
+95.81,
+307.72
+],
+[
+"p",
+1,
+95.81,
+295.72,
+103.01,
+307.72
+],
+[
+"s",
+1,
+103.01,
+295.72,
+110.21,
+307.72
+],
+[
+":",
+1,
+110.22,
+295.72,
+117.42,
+307.72
+],
+[
+"/",
+1,
+117.42,
+295.72,
+124.62,
+307.72
+],
+[
+"/",
+1,
+124.62,
+295.72,
+131.82,
+307.72
+],
+[
+"w",
+1,
+131.82,
+295.72,
+139.02,
+307.72
+],
+[
+"w",
+1,
+139.02,
+295.72,
+146.22,
+307.72
+],
+[
+"w",
+1,
+146.22,
+295.72,
+153.42,
+307.72
+],
+[
+".",
+1,
+153.42,
+295.72,
+160.62,
+307.72
+],
+[
+"w",
+1,
+160.62,
+295.72,
+167.82,
+307.72
+],
+[
+"i",
+1,
+167.83,
+295.72,
+175.03,
+307.72
+],
+[
+"l",
+1,
+175.03,
+295.72,
+182.23,
+307.72
+],
+[
+"l",
+1,
+182.23,
+295.72,
+189.43,
+307.72
+],
+[
+"o",
+1,
+189.43,
+295.72,
+196.63,
+307.72
+],
+[
+"w",
+1,
+196.63,
+295.72,
+203.83,
+307.72
+],
+[
+"m",
+1,
+203.83,
+295.72,
+211.03,
+307.72
+],
+[
+"e",
+1,
+211.03,
+295.72,
+218.23,
+307.72
+],
+[
+"r",
+1,
+218.23,
+295.72,
+225.43,
+307.72
+],
+[
+"e",
+1,
+225.43,
+295.72,
+232.63,
+307.72
+],
+[
+".",
+1,
+232.64,
+295.72,
+239.84,
+307.72
+],
+[
+"t",
+1,
+239.84,
+295.72,
+247.04,
+307.72
+],
+[
+"e",
+1,
+247.04,
+295.72,
+254.24,
+307.72
+],
+[
+"s",
+1,
+254.24,
+295.72,
+261.44,
+307.72
+],
+[
+"t",
+1,
+261.44,
+295.72,
+268.64,
+307.72
+],
+[
+"/",
+1,
+268.64,
+295.72,
+275.84,
+307.72
+],
+[
+"s",
+1,
+275.84,
+295.72,
+283.04,
+307.72
+],
+[
+"t",
+1,
+283.04,
+295.72,
+290.24,
+307.72
+],
+[
+"a",
+1,
+290.25,
+295.72,
+297.45,
+307.72
+],
+[
+"t",
+1,
+297.45,
+295.72,
+304.65,
+307.72
+],
+[
+"e",
+1,
+304.65,
+295.72,
+311.85,
+307.72
+],
+[
+"m",
+1,
+311.85,
+295.72,
+319.05,
+307.72
+],
+[
+"e",
+1,
+319.05,
+295.72,
+326.25,
+307.72
+],
+[
+"n",
+1,
+326.25,
+295.72,
+333.45,
+307.72
+],
+[
+"t",
+1,
+333.45,
+295.72,
+340.65,
+307.72
+],
+[
+"s",
+1,
+340.65,
+295.72,
+347.85,
+307.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Barnaby",
+"start": 629,
+"end": 636,
+"label": "NAME_GIVEN",
+"characters": [
+"p20"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"B",
+1,
+103.01,
+319.72,
+110.21,
+331.72
+],
+[
+"a",
+1,
+110.22,
+319.72,
+117.42,
+331.72
+],
+[
+"r",
+1,
+117.42,
+319.72,
+124.62,
+331.72
+],
+[
+"n",
+1,
+124.62,
+319.72,
+131.82,
+331.72
+],
+[
+"a",
+1,
+131.82,
+319.72,
+139.02,
+331.72
+],
+[
+"b",
+1,
+139.02,
+319.72,
+146.22,
+331.72
+],
+[
+"y",
+1,
+146.22,
+319.72,
+153.42,
+331.72
+]
+],
+"status": "located"
+}
+},
+{
+"text": "Willowmere",
+"start": 641,
+"end": 651,
+"label": "ORGANIZATION",
+"characters": [
+"org_1"
+],
+"location": {
+"kind": "pdf",
+"pages": [
+1
+],
+"chars": [
+[
+"W",
+1,
+189.43,
+319.72,
+196.63,
+331.72
+],
+[
+"i",
+1,
+196.63,
+319.72,
+203.83,
+331.72
+],
+[
+"l",
+1,
+203.83,
+319.72,
+211.03,
+331.72
+],
+[
+"l",
+1,
+211.03,
+319.72,
+218.23,
+331.72
+],
+[
+"o",
+1,
+218.23,
+319.72,
+225.43,
+331.72
+],
+[
+"w",
+1,
+225.43,
+319.72,
+232.63,
+331.72
+],
+[
+"m",
+1,
+232.64,
+319.72,
+239.84,
+331.72
+],
+[
+"e",
+1,
+239.84,
+319.72,
+247.04,
+331.72
+],
+[
+"r",
+1,
+247.04,
+319.72,
+254.24,
+331.72
+],
+[
+"e",
+1,
+254.24,
+319.72,
+261.44,
+331.72
+]
+],
+"status": "located"
+}
+}
+]
+},
+{
+"meta": {
+"row_id": "898189fcca85a76955ad1670",
+"filename": "vendor_accounts.csv",
+"format": "csv",
+"mime_type": "text/csv",
+"attached_to": null
+},
+"text": "vendor | contact | contact_email | contact_phone | account_number | remit_address | website\nWillowmere Staffing | Barnaby Stanhope | bstanhope@willowmere.test | +1 617 555 0199 | 2367570052 | 6361 Quarry Bend, Lindell Falls, MN 55401 | https://www.willowmere.test\nNorthcott Regional Supply Co. | Yara Nightingale | yara.nightingale@northcott.test | +1 617 555 0162 | 5483063481 | 1178 Quarry Bend, New Harrow, NJ 07030 | https://www.northcott.test\nMarrowbone Capital Partners | Ezra Lanchester | lanchester.ezra@marrowbone.test | +1 617 555 0164 | 6848992484 | 6889 Quarry Bend, Dunmere, VT 05401 | https://www.marrowbone.test\nFoxglove Catering Co. | Yusef Kingsley | yusef@foxglove.test | 617-555-0105 | 1792557801 | 9294 Tanager Lane, Dunmere, VT 05401 | https://www.foxglove.test\nTanager Lane Realty LLC |  |  |  | 1169612057 | 6723 Larkspur Avenue, Kessler City, CO 80202 | https://www.tanager.test\nQuarry Bend Engineering Inc. |  |  |  | 8943235628 | 6664 Quarry Bend, Kessler City, CO 80202 | https://www.quarry.test\nUpton & Associates LLP | Nell Ramaswamy | nell@uptonlaw.test | (617) 555-0127 | 7593913130 | 6925 Harbor Mist Way, Westlake Hollow, TX 78701 | https://www.uptonlaw.test",
+"file": {
+"kind": "csv",
+"path": "drive/vendor_accounts.csv",
+"sha256": "706daf951109ace3ce4611767a22428bfe801bb6a3cd230d6bc5b4ebf84a2829",
+"container": null
+},
+"ground_truth_spans": [
+{
+"text": "Willowmere Staffing",
+"start": 92,
+"end": 111,
+"label": "ORGANIZATION",
+"characters": [
+"org_1"
+],
+"location": {
+"kind": "csv",
+"row": 1,
+"col": 0,
+"value_char_start": 0,
+"value_char_end": 19,
+"status": "located"
+}
+},
+{
+"text": "Barnaby",
+"start": 114,
+"end": 121,
+"label": "NAME_GIVEN",
+"characters": [
+"p20"
+],
+"location": {
+"kind": "csv",
+"row": 1,
+"col": 1,
+"value_char_start": 0,
+"value_char_end": 7,
+"status": "located"
+}
+},
+{
+"text": "Stanhope",
+"start": 122,
+"end": 130,
+"label": "NAME_FAMILY",
+"characters": [
+"p20"
+],
+"location": {
+"kind": "csv",
+"row": 1,
+"col": 1,
+"value_char_start": 8,
+"value_char_end": 16,
+"status": "located"
+}
+},
+{
+"text": "bstanhope@willowmere.test",
+"start": 133,
+"end": 158,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p20"
+],
+"location": {
+"kind": "csv",
+"row": 1,
+"col": 2,
+"value_char_start": 0,
+"value_char_end": 25,
+"status": "located"
+}
+},
+{
+"text": "+1 617 555 0199",
+"start": 161,
+"end": 176,
+"label": "PHONE_NUMBER",
+"characters": [
+"p20"
+],
+"location": {
+"kind": "csv",
+"row": 1,
+"col": 3,
+"value_char_start": 0,
+"value_char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "2367570052",
+"start": 179,
+"end": 189,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"org_1"
+],
+"location": {
+"kind": "csv",
+"row": 1,
+"col": 4,
+"value_char_start": 0,
+"value_char_end": 10,
+"status": "located"
+}
+},
+{
+"text": "6361 Quarry Bend",
+"start": 192,
+"end": 208,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_1"
+],
+"location": {
+"kind": "csv",
+"row": 1,
+"col": 5,
+"value_char_start": 0,
+"value_char_end": 16,
+"status": "located"
+}
+},
+{
+"text": "https://www.willowmere.test",
+"start": 236,
+"end": 263,
+"label": "URL",
+"characters": [
+"org_1"
+],
+"location": {
+"kind": "csv",
+"row": 1,
+"col": 6,
+"value_char_start": 0,
+"value_char_end": 27,
+"status": "located"
+}
+},
+{
+"text": "Northcott Regional Supply Co.",
+"start": 264,
+"end": 293,
+"label": "ORGANIZATION",
+"characters": [
+"org_2"
+],
+"location": {
+"kind": "csv",
+"row": 2,
+"col": 0,
+"value_char_start": 0,
+"value_char_end": 29,
+"status": "located"
+}
+},
+{
+"text": "Yara",
+"start": 296,
+"end": 300,
+"label": "NAME_GIVEN",
+"characters": [
+"p19"
+],
+"location": {
+"kind": "csv",
+"row": 2,
+"col": 1,
+"value_char_start": 0,
+"value_char_end": 4,
+"status": "located"
+}
+},
+{
+"text": "Nightingale",
+"start": 301,
+"end": 312,
+"label": "NAME_FAMILY",
+"characters": [
+"p19"
+],
+"location": {
+"kind": "csv",
+"row": 2,
+"col": 1,
+"value_char_start": 5,
+"value_char_end": 16,
+"status": "located"
+}
+},
+{
+"text": "yara.nightingale@northcott.test",
+"start": 315,
+"end": 346,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p19"
+],
+"location": {
+"kind": "csv",
+"row": 2,
+"col": 2,
+"value_char_start": 0,
+"value_char_end": 31,
+"status": "located"
+}
+},
+{
+"text": "+1 617 555 0162",
+"start": 349,
+"end": 364,
+"label": "PHONE_NUMBER",
+"characters": [
+"p19"
+],
+"location": {
+"kind": "csv",
+"row": 2,
+"col": 3,
+"value_char_start": 0,
+"value_char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "5483063481",
+"start": 367,
+"end": 377,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"org_2"
+],
+"location": {
+"kind": "csv",
+"row": 2,
+"col": 4,
+"value_char_start": 0,
+"value_char_end": 10,
+"status": "located"
+}
+},
+{
+"text": "1178 Quarry Bend",
+"start": 380,
+"end": 396,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_2"
+],
+"location": {
+"kind": "csv",
+"row": 2,
+"col": 5,
+"value_char_start": 0,
+"value_char_end": 16,
+"status": "located"
+}
+},
+{
+"text": "https://www.northcott.test",
+"start": 421,
+"end": 447,
+"label": "URL",
+"characters": [
+"org_2"
+],
+"location": {
+"kind": "csv",
+"row": 2,
+"col": 6,
+"value_char_start": 0,
+"value_char_end": 26,
+"status": "located"
+}
+},
+{
+"text": "Marrowbone Capital Partners",
+"start": 448,
+"end": 475,
+"label": "ORGANIZATION",
+"characters": [
+"org_3"
+],
+"location": {
+"kind": "csv",
+"row": 3,
+"col": 0,
+"value_char_start": 0,
+"value_char_end": 27,
+"status": "located"
+}
+},
+{
+"text": "Ezra",
+"start": 478,
+"end": 482,
+"label": "NAME_GIVEN",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "csv",
+"row": 3,
+"col": 1,
+"value_char_start": 0,
+"value_char_end": 4,
+"status": "located"
+}
+},
+{
+"text": "Lanchester",
+"start": 483,
+"end": 493,
+"label": "NAME_FAMILY",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "csv",
+"row": 3,
+"col": 1,
+"value_char_start": 5,
+"value_char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "lanchester.ezra@marrowbone.test",
+"start": 496,
+"end": 527,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "csv",
+"row": 3,
+"col": 2,
+"value_char_start": 0,
+"value_char_end": 31,
+"status": "located"
+}
+},
+{
+"text": "+1 617 555 0164",
+"start": 530,
+"end": 545,
+"label": "PHONE_NUMBER",
+"characters": [
+"p15"
+],
+"location": {
+"kind": "csv",
+"row": 3,
+"col": 3,
+"value_char_start": 0,
+"value_char_end": 15,
+"status": "located"
+}
+},
+{
+"text": "6848992484",
+"start": 548,
+"end": 558,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"org_3"
+],
+"location": {
+"kind": "csv",
+"row": 3,
+"col": 4,
+"value_char_start": 0,
+"value_char_end": 10,
+"status": "located"
+}
+},
+{
+"text": "6889 Quarry Bend",
+"start": 561,
+"end": 577,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_3"
+],
+"location": {
+"kind": "csv",
+"row": 3,
+"col": 5,
+"value_char_start": 0,
+"value_char_end": 16,
+"status": "located"
+}
+},
+{
+"text": "https://www.marrowbone.test",
+"start": 599,
+"end": 626,
+"label": "URL",
+"characters": [
+"org_3"
+],
+"location": {
+"kind": "csv",
+"row": 3,
+"col": 6,
+"value_char_start": 0,
+"value_char_end": 27,
+"status": "located"
+}
+},
+{
+"text": "Foxglove Catering Co.",
+"start": 627,
+"end": 648,
+"label": "ORGANIZATION",
+"characters": [
+"org_4"
+],
+"location": {
+"kind": "csv",
+"row": 4,
+"col": 0,
+"value_char_start": 0,
+"value_char_end": 21,
+"status": "located"
+}
+},
+{
+"text": "Yusef",
+"start": 651,
+"end": 656,
+"label": "NAME_GIVEN",
+"characters": [
+"p16"
+],
+"location": {
+"kind": "csv",
+"row": 4,
+"col": 1,
+"value_char_start": 0,
+"value_char_end": 5,
+"status": "located"
+}
+},
+{
+"text": "Kingsley",
+"start": 657,
+"end": 665,
+"label": "NAME_FAMILY",
+"characters": [
+"p16"
+],
+"location": {
+"kind": "csv",
+"row": 4,
+"col": 1,
+"value_char_start": 6,
+"value_char_end": 14,
+"status": "located"
+}
+},
+{
+"text": "yusef@foxglove.test",
+"start": 668,
+"end": 687,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p16"
+],
+"location": {
+"kind": "csv",
+"row": 4,
+"col": 2,
+"value_char_start": 0,
+"value_char_end": 19,
+"status": "located"
+}
+},
+{
+"text": "617-555-0105",
+"start": 690,
+"end": 702,
+"label": "PHONE_NUMBER",
+"characters": [
+"p16"
+],
+"location": {
+"kind": "csv",
+"row": 4,
+"col": 3,
+"value_char_start": 0,
+"value_char_end": 12,
+"status": "located"
+}
+},
+{
+"text": "1792557801",
+"start": 705,
+"end": 715,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"org_4"
+],
+"location": {
+"kind": "csv",
+"row": 4,
+"col": 4,
+"value_char_start": 0,
+"value_char_end": 10,
+"status": "located"
+}
+},
+{
+"text": "9294 Tanager Lane",
+"start": 718,
+"end": 735,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_4"
+],
+"location": {
+"kind": "csv",
+"row": 4,
+"col": 5,
+"value_char_start": 0,
+"value_char_end": 17,
+"status": "located"
+}
+},
+{
+"text": "https://www.foxglove.test",
+"start": 757,
+"end": 782,
+"label": "URL",
+"characters": [
+"org_4"
+],
+"location": {
+"kind": "csv",
+"row": 4,
+"col": 6,
+"value_char_start": 0,
+"value_char_end": 25,
+"status": "located"
+}
+},
+{
+"text": "Tanager Lane Realty LLC",
+"start": 783,
+"end": 806,
+"label": "ORGANIZATION",
+"characters": [
+"org_5"
+],
+"location": {
+"kind": "csv",
+"row": 5,
+"col": 0,
+"value_char_start": 0,
+"value_char_end": 23,
+"status": "located"
+}
+},
+{
+"text": "1169612057",
+"start": 818,
+"end": 828,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"org_5"
+],
+"location": {
+"kind": "csv",
+"row": 5,
+"col": 4,
+"value_char_start": 0,
+"value_char_end": 10,
+"status": "located"
+}
+},
+{
+"text": "6723 Larkspur Avenue",
+"start": 831,
+"end": 851,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_5"
+],
+"location": {
+"kind": "csv",
+"row": 5,
+"col": 5,
+"value_char_start": 0,
+"value_char_end": 20,
+"status": "located"
+}
+},
+{
+"text": "https://www.tanager.test",
+"start": 878,
+"end": 902,
+"label": "URL",
+"characters": [
+"org_5"
+],
+"location": {
+"kind": "csv",
+"row": 5,
+"col": 6,
+"value_char_start": 0,
+"value_char_end": 24,
+"status": "located"
+}
+},
+{
+"text": "Quarry Bend Engineering Inc.",
+"start": 903,
+"end": 931,
+"label": "ORGANIZATION",
+"characters": [
+"org_6"
+],
+"location": {
+"kind": "csv",
+"row": 6,
+"col": 0,
+"value_char_start": 0,
+"value_char_end": 28,
+"status": "located"
+}
+},
+{
+"text": "8943235628",
+"start": 943,
+"end": 953,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"org_6"
+],
+"location": {
+"kind": "csv",
+"row": 6,
+"col": 4,
+"value_char_start": 0,
+"value_char_end": 10,
+"status": "located"
+}
+},
+{
+"text": "6664 Quarry Bend",
+"start": 956,
+"end": 972,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_6"
+],
+"location": {
+"kind": "csv",
+"row": 6,
+"col": 5,
+"value_char_start": 0,
+"value_char_end": 16,
+"status": "located"
+}
+},
+{
+"text": "https://www.quarry.test",
+"start": 999,
+"end": 1022,
+"label": "URL",
+"characters": [
+"org_6"
+],
+"location": {
+"kind": "csv",
+"row": 6,
+"col": 6,
+"value_char_start": 0,
+"value_char_end": 23,
+"status": "located"
+}
+},
+{
+"text": "Upton & Associates LLP",
+"start": 1023,
+"end": 1045,
+"label": "ORGANIZATION",
+"characters": [
+"org_homonym"
+],
+"location": {
+"kind": "csv",
+"row": 7,
+"col": 0,
+"value_char_start": 0,
+"value_char_end": 22,
+"status": "located"
+}
+},
+{
+"text": "Nell",
+"start": 1048,
+"end": 1052,
+"label": "NAME_GIVEN",
+"characters": [
+"p17"
+],
+"location": {
+"kind": "csv",
+"row": 7,
+"col": 1,
+"value_char_start": 0,
+"value_char_end": 4,
+"status": "located"
+}
+},
+{
+"text": "Ramaswamy",
+"start": 1053,
+"end": 1062,
+"label": "NAME_FAMILY",
+"characters": [
+"p17"
+],
+"location": {
+"kind": "csv",
+"row": 7,
+"col": 1,
+"value_char_start": 5,
+"value_char_end": 14,
+"status": "located"
+}
+},
+{
+"text": "nell@uptonlaw.test",
+"start": 1065,
+"end": 1083,
+"label": "EMAIL_ADDRESS",
+"characters": [
+"p17"
+],
+"location": {
+"kind": "csv",
+"row": 7,
+"col": 2,
+"value_char_start": 0,
+"value_char_end": 18,
+"status": "located"
+}
+},
+{
+"text": "(617) 555-0127",
+"start": 1086,
+"end": 1100,
+"label": "PHONE_NUMBER",
+"characters": [
+"p17"
+],
+"location": {
+"kind": "csv",
+"row": 7,
+"col": 3,
+"value_char_start": 0,
+"value_char_end": 14,
+"status": "located"
+}
+},
+{
+"text": "7593913130",
+"start": 1103,
+"end": 1113,
+"label": "ACCOUNT_NUMBER",
+"characters": [
+"org_homonym"
+],
+"location": {
+"kind": "csv",
+"row": 7,
+"col": 4,
+"value_char_start": 0,
+"value_char_end": 10,
+"status": "located"
+}
+},
+{
+"text": "6925 Harbor Mist Way",
+"start": 1116,
+"end": 1136,
+"label": "LOCATION_ADDRESS",
+"characters": [
+"org_homonym"
+],
+"location": {
+"kind": "csv",
+"row": 7,
+"col": 5,
+"value_char_start": 0,
+"value_char_end": 20,
+"status": "located"
+}
+},
+{
+"text": "https://www.uptonlaw.test",
+"start": 1166,
+"end": 1191,
+"label": "URL",
+"characters": [
+"org_homonym"
+],
+"location": {
+"kind": "csv",
+"row": 7,
+"col": 6,
+"value_char_start": 0,
+"value_char_end": 25,
+"status": "located"
+}
+}
+]
+}
+]
+}
