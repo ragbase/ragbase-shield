@@ -311,7 +311,9 @@ overwrite=False) -> Path`. Both write atomically and pick "name (2).ext" instead
 Helpers: `save_output(directory, title, text, fmt="docx", dossier_code=None) -> Path` (safe + unique name
 inside `directory`), `safe_filename(name, ext=None)`, `unique_path(path)`, `docx_dossier_code(path)`,
 `html_to_text(html)`, `kind_of(path)`, `SUPPORTED_EXTENSIONS`, `KIND_BY_EXT`.
-No GPL/AGPL dependencies (lxml comes with python-docx, BSD).
+No GPL/AGPL dependencies (lxml comes with python-docx, BSD). The lxml binary wheels bundle GNU libiconv
+(LGPL-2.1), as lxml's own licence notice states; Shield uses `lxml.etree` (licences of the installers:
+`packaging/README.md`).
 
 ### 4.4 Service (`ragbase_shield.service`), used by MCP, Desk, CLI and hooks
 

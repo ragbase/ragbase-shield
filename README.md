@@ -515,7 +515,7 @@ Shield Desk.
 - Benchmark runners: `evaluation/public/` (public benchmarks; data downloaded into the git-ignored
   `.bench_data/`), `evaluation/holdout-en/` (an invented English corpus), `evaluation/laptop/` (the frozen scorer
   and runners of the public head-to-head).
-- Desktop installers: [packaging/README.md](https://github.com/ragbase/ragbase-shield/blob/v0.4.0/packaging/README.md).
+- Desktop installers: [packaging/README.md](https://github.com/ragbase/ragbase-shield/blob/main/packaging/README.md).
 
 ### Environment variables
 

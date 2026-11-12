@@ -66,8 +66,9 @@ Report it privately if you find any of these:
 - MCP server: stdio only.
 - No telemetry. `opentelemetry-api` is installed as a dependency of the `mcp` SDK, but Shield installs no
   OpenTelemetry SDK or exporter and configures none.
-- No GPL, AGPL or LGPL dependencies. Runtime dependencies use MIT, BSD, Apache-2.0, PSF or MPL-2.0 (`certifi`)
-  licences.
+- No GPL or AGPL dependency. The runtime dependencies declare MIT, MIT-0, MIT-CMU, BSD, Apache-2.0 or PSF
+  licences. The lxml binary wheels bundle GNU libiconv (LGPL-2.1), as lxml's own licence notice states. Desktop
+  installers: [packaging/README.md](packaging/README.md), section "Licences of what ships".
 
 Full model: [docs/PRIVACY_MODEL.md](docs/PRIVACY_MODEL.md). Contract: [ARCHITECTURE.md](ARCHITECTURE.md).
 

@@ -1,0 +1,27 @@
+{
+  "cpython-3.12.15-Doc-license.rst": {
+    "url": "https://raw.githubusercontent.com/python/cpython/v3.12.15/Doc/license.rst",
+    "fetched": "2026-11-12",
+    "sha256": "341832873fd316a37927e79385093fbbfd40a467428480835fe435a80cadf4e5",
+    "bytes": 54130
+  },
+  "bzip2-1.0.8-LICENSE": {
+    "url": "https://sourceware.org/git/?p=bzip2.git;a=blob_plain;f=LICENSE;hb=bzip2-1.0.8",
+    "fetched": "2026-11-12",
+    "sha256": "c6dbbf828498be844a89eaa3b84adbab3199e342eb5cb2ed2f0d4ba7ec0f38a3",
+    "bytes": 1896
+  },
+  "pyobjc-core-12.2.2-License.txt": {
+    "url": "https://raw.githubusercontent.com/ronaldoussoren/pyobjc/v12.2.2/pyobjc-core/License.txt",
+    "fetched": "2026-11-12",
+    "sha256": "0ca04b07928d4872b9d9bb22187ca0426dd8bfab08f26eada0999a71dc81aaff",
+    "bytes": 1249
+  },
+  "infi.systray-LICENSE": {
+    "url": "https://raw.githubusercontent.com/Infinidat/infi.systray/bb55827d5e59b695e49fa2b41d1c6841725cb8fb/LICENSE",
+    "note": "the only commit that touches LICENSE (2017-06-18); same bytes on master and develop on 2026-11-12",
+    "fetched": "2026-11-12",
+    "sha256": "fbd532f91d91edb6634a9f26df54948ce5fcffa3a0d656aa61407c9e97735072",
+    "bytes": 1473
+  }
+}

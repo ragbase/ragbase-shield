@@ -8,8 +8,8 @@ into the user's own folder, a login item runs Shield Desk in the background, and
 
 | Platform | Installer | State |
 |---|---|---|
-| macOS 13 or later, Intel and Apple Silicon | `RAGbase-Shield-<version>.pkg` (universal, the default download); `-x86_64.pkg` and `-arm64.pkg` (half size) | **Built, unsigned.** Built from commit fd8662d of the development history (the same Shield code as this release, except two comments and one docstring). Level-1 test on an Intel Mac: 58 of 58 checks (universal), 56 of 56 (Intel only); the Apple Silicon package passed its static checks only. Not done yet: the manual test with a fresh account, a run on an Apple Silicon Mac, signing. |
-| Windows 10 and 11, x64 | `RAGbase-Shield-<version>-win64.msi` (per user, no administrator) | **Built, unsigned.** Built from the same commit. Level-1 test on a Windows Server 2025 test machine, two runs (a new install of 0.4.0, and the update from 0.3.1 to 0.4.0): 65 of 65 checks pass in each run; the tray visual check W9 is pending. Not done yet: the tray on a desktop session (W9), a run on a real Windows 10 or 11 PC, an install by an account without administrator rights, signing. |
+| macOS 13 or later, Intel and Apple Silicon | `RAGbase-Shield-<version>.pkg` (universal, the default download); `-x86_64.pkg` and `-arm64.pkg` (half size) | **Built, unsigned.** Built from the tag `v0.4.0` (commit 4d3aaee), plus one post-build step that adds licence texts (section "Release files of 0.4.0"). Level-1 test on an Intel Mac: 58 of 58 checks (universal), 56 of 56 (Intel only); the Apple Silicon package passed its static checks only. Not done yet: the manual test with a fresh account, a run on an Apple Silicon Mac, signing. |
+| Windows 10 and 11, x64 | `RAGbase-Shield-<version>-win64.msi` (per user, no administrator) | **Built, unsigned.** Built from the same tag, with the same post-build step. Level-1 test on a Windows Server 2025 test machine, two runs (a new install of 0.4.0, and the update from 0.3.1 to 0.4.0): 65 of 65 checks pass in each run; the tray visual check W9 is pending. Not done yet: the tray on a desktop session (W9), a run on a real Windows 10 or 11 PC, an install by an account without administrator rights, signing. |
 
 The version is the one in `pyproject.toml`. The build reads it, so a new version needs only a rebuild.
 
@@ -112,7 +112,8 @@ reboot, no prompt, product gone, data kept).
 | `common/fetch.py` | Downloads and verifies a runtime archive (fails on a hash change unless `--repin`) |
 | `common/prune_runtime.py` | Removes Tcl/Tk, IDLE, tests, headers, `libpython3.12.dylib` (unused: the binary is static), `.dSYM` |
 | `common/build_payload.py` | One payload per target; `merge-macos` makes the universal payload; drops `uv_cache.json`, `direct_url.json` and their `RECORD` lines (reproducible manifests) |
-| `common/licenses.py` | `LICENSES/` tree and table; fails on GPL, LGPL, AGPL or a missing licence |
+| `common/licenses.py` | `LICENSES/` tree and table; fails when the licence field of a package is empty or names GPL, LGPL or AGPL. It reads the top-level packages only (not the modules inside a package, not vendored libraries) and keeps one licence file per file name |
+| `common/add_licence_texts.py`, `common/licence_texts/` | Post-build step of the 0.4.0 installers: adds the licence texts that `licenses.py` does not copy, from the upstream texts in `licence_texts/` (URL and SHA-256 in `SOURCES.json`) (section "Release files of 0.4.0"). It stops when a file named like a licence file has a GPL-family licence title in its first 4,000 characters, other than the two known Windows files. This check missed GNU libiconv in lxml (known limit 23) |
 | `common/check_payload.py` | Licences, no build-machine or repo path, no Tcl/Tk, `MANIFEST.json` matches the tree, every `RECORD` line ships, no em dash, no group- or world-writable file, no setuid bit, no link out of the payload, sizes |
 | `common/make_tray_icons.py` | Menu bar template (44 px), `.ico`, `.icns` from `integrations/assets/icon-512.png` |
 | `macos/build.sh` | The whole macOS build (`build_pkg.sh` is the same script under another name) |
@@ -225,27 +226,62 @@ lines.
 
 ## Release files of 0.4.0 (unsigned)
 
-The four installers were built from commit fd8662d of the development history (`install_info.json` says
-`"version": "0.4.0"` and `"source": "fd8662d120de"`, no `+dirty`). Their Shield code is the `src/` tree of this
-repository, except one code comment in `cli.py`, one docstring in `config.py` and one comment line in
-`engine/lexicon/en_first_names.txt` (text only, no change of
-behaviour). The Claude Desktop extension (`ragbase-shield-0.4.0.mcpb`), the wheel and the source archive are built
-from this repository at the tag `v0.4.0`: their SHA-256 are in the `SHA256SUMS` file of the release.
+The four installers were built from the tag `v0.4.0` (commit 4d3aaee) of this repository, with the build scripts
+of that commit (`install_info.json` says `"version": "0.4.0"` and `"source": "4d3aaeeb65fb"`, no `+dirty`). Their
+Shield code is the `src/` tree of the tag, byte for byte. One post-build step ran on each single-target payload
+before the packing: `common/add_licence_texts.py` (added to this repository in the commit after the tag) adds the
+licence texts that `licenses.py` of the tag does not copy, then writes `MANIFEST.json` again. It changes no other
+file of the payload. It adds:
+
+- `LICENSES/python/INCORPORATED_SOFTWARE.txt` (the CPython section on the software it incorporates: OpenSSL,
+  expat, libffi, zlib, libmpdec and the others) and `LICENSES/python/LICENSE.bzip2.txt`.
+- `LICENSES/pyobjc-core/License.txt` (macOS) and `LICENSES/infi.systray/LICENSE` (Windows): these two wheels have
+  no licence file.
+- `LICENSES/pip/full-set/` and, on Windows, `LICENSES/pywin32/full-set/`: every licence file of these packages.
+  `licenses.py` keeps one file per file name, so files with the same name overwrite each other, and the file that
+  stays can depend on the folder order of the build machine.
+- Windows: `LICENSES/setuptools/vendored/`, the licence files of the libraries that setuptools vendors.
+- `THIRD_PARTY_LICENSES.txt`: the runtime line names the new files, and notes explain them. On Windows, a sentence
+  that names `adodbapi` and `autocommand` (LGPL) replaces "No GPL, LGPL or AGPL component is shipped", and the macOS
+  libedit line goes. The macOS tables keep that sentence, which is false: lxml holds GNU libiconv (LGPL-2.1). The
+  section "Licences of what ships" lists every part that the 0.4.0 tables do not name.
+
+To build the same payloads, use a clean checkout of the tag `v0.4.0` (`<tag>` below) and a checkout of `main`
+(`<main>`), with Python 3.11 or later. Do not copy the script into `<tag>`: a new file under `packaging/` makes the
+build record `<commit>+dirty`.
+
+```sh
+cd <tag>
+packaging/macos/build.sh                  # universal; also builds build/macos/payload-x86_64 and payload-arm64
+for a in x86_64 arm64; do python3 -I <main>/packaging/common/add_licence_texts.py build/macos/payload-$a . ; done
+python3 packaging/common/build_payload.py merge-macos build/macos/payload-x86_64 build/macos/payload-arm64 build/macos/payload-universal
+packaging/macos/build.sh --reuse-payload
+packaging/macos/build.sh --arch x86_64 --reuse-payload
+packaging/macos/build.sh --arch arm64 --reuse-payload
+packaging/windows/build.sh
+python3 -I <main>/packaging/common/add_licence_texts.py build/windows/payload .
+packaging/windows/build.sh --reuse-payload  # then build_msi.ps1 on the Windows machine (section "Build")
+```
+
+The Claude Desktop extension (`ragbase-shield-0.4.0.mcpb`), the wheel and the source archive are built from this
+repository at the tag `v0.4.0`. The `SHA256SUMS` file of the release gives the SHA-256 of all eight files.
 
 | File | Size | SHA-256 |
 |---|---|---|
-| `RAGbase-Shield-0.4.0.pkg` (macOS, universal, the default download) | 85,105,096 bytes | `82dc068f25ec4cd118d75b231802cf1c89284e1022edaf25e50c756902d9aa60` |
-| `RAGbase-Shield-0.4.0-x86_64.pkg` (macOS, Intel only) | 43,296,258 bytes | `a25e610f9f4c9d929103f89ef9aced4a94c1e4d08f18f10fb6c87b11344c01c9` |
-| `RAGbase-Shield-0.4.0-arm64.pkg` (macOS, Apple Silicon only) | 41,881,997 bytes | `be0cb929b884855a4298759ee9b7eba1fa87df867998f818b60e3c2b8c606eb4` |
-| `RAGbase-Shield-0.4.0-win64.msi` (Windows x64, per user) | 40,294,731 bytes | `a9007a2950c0a73251926c0f2c7dc6dd6fd9242ef546e2e9e0c7d494146e423d` |
+| `RAGbase-Shield-0.4.0.pkg` (macOS, universal, the default download) | 85,175,416 bytes | `6bc10cbb7eea5d410ffe569068400a112bba27705202d9748b1a5e972a653e76` |
+| `RAGbase-Shield-0.4.0-x86_64.pkg` (macOS, Intel only) | 43,333,362 bytes | `a42cb9b1d74b9c5fdcd66faec167d90f5fea94f9d813853d4e099059d622aee9` |
+| `RAGbase-Shield-0.4.0-arm64.pkg` (macOS, Apple Silicon only) | 41,916,132 bytes | `0b9dd70bce5e8d60a6c7d003ca06cba11f515bcb7c1a576ce4dfe6ddaef1d68a` |
+| `RAGbase-Shield-0.4.0-win64.msi` (Windows x64, per user) | 40,337,924 bytes | `69839e85180df4bacf7034da93aedec60e1259356d3146e8ea3bc551b7db1a0a` |
 
 Minimum macOS: 13.0 (pypdfium2 5.x wheels). The `.app` shell uses the `pyvenv.cfg` variant (the
 python-build-standalone `python3.12` is statically linked, so there is no `libpython` lookup).
 
-## Licences of what ships (macOS)
+## Licences of what ships
 
-All permissive. No GPL, LGPL or AGPL (checked by `licenses.py` at every build). `certifi` (MPL-2.0) is no longer
-pulled: mcp 2.3 uses httpx2 with `truststore` (MIT). pystray (LGPL-3.0) is not used.
+Each installed app holds the licence texts in its `LICENSES/` folder, with the table
+`LICENSES/THIRD_PARTY_LICENSES.txt`. The table below gives the licence that each package declares. Some packages
+hold parts under other terms. The section "Parts under other terms" lists them. The list comes from a full read of
+every licence file and a check of the native libraries of the four 0.4.0 installers (12 November 2026).
 
 | Package | Licence | Package | Licence |
 |---|---|---|---|
@@ -261,9 +297,42 @@ pulled: mcp 2.3 uses httpx2 with `truststore` (MIT). pystray (LGPL-3.0) is not u
 | rumps (menu bar) | BSD-3-Clause | pyobjc-core, pyobjc-framework-Cocoa | MIT |
 | pip (kept for the optional NER extra) | MIT | | |
 
-Windows adds infi.systray (BSD-3-Clause, tray icon) and pywin32 (PSF-2.0, pulled by mcp). Build tools, not
-shipped: uv (MIT or Apache-2.0), Apple pkgbuild / productbuild / lipo / iconutil, Pillow (icons only), WiX
-(MS-RL) or msitools (LGPL-2.1) for the `.msi`.
+Windows has no rumps and no pyobjc. It adds infi.systray (BSD-3-Clause, tray icon), pywin32 (pulled by mcp; its
+metadata says PSF, its `License.txt` files say BSD-3-Clause), pywin32-ctypes (BSD-3-Clause, pulled by keyring) and
+setuptools (MIT, needed by infi.systray). `certifi` is not a dependency of Shield: mcp 2.3 uses httpx2 with
+`truststore` (MIT). pystray (LGPL-3.0) is not used.
+
+### Parts under other terms
+
+No part ships under the GPL or the AGPL alone. LGPL and MPL-2.0 code ships, as listed here. "Used by Shield" means
+that Shield's own code, or a library that it loads, runs the part in normal use. The last two columns say what the
+0.4.0 installers hold. "All 4" means the three macOS packages and the Windows package.
+
+| Part | Licence | Where | Used by Shield | Licence text in the 0.4.0 installer | Named in the 0.4.0 table |
+|---|---|---|---|---|---|
+| GNU libiconv 1.18, inside the lxml 6.1.3 binary wheel (lxml says so in its own notice, `LICENSES/lxml/LICENSES.txt`) | LGPL-2.1 | All 4: static code in two lxml modules, `etree` and `objectify` (`.so` on macOS, `.pyd` on Windows). macOS also ships two libiconv headers with an LGPL notice: `lxml/includes/extlibs/libcharset.h` and `localcharset.h` | Yes: Shield and python-docx import `lxml.etree`. Nothing imports `lxml.objectify` | macOS: no (lxml's notice gives a URL only). Windows: yes, as the licence file of `adodbapi` (nothing links it to lxml) | No. The tables say lxml BSD-3-Clause, and the macOS tables say "No GPL, LGPL or AGPL component is shipped" |
+| `adodbapi`, a part of pywin32 312 | LGPL-2.1 | Windows: `runtime/Lib/site-packages/adodbapi/` (Python source) | No | Yes: `LICENSES/pywin32/full-set/licenses/adodbapi/license.txt` | Yes |
+| `autocommand` 2.2.2, vendored in setuptools 84.2.1 | LGPL-3.0 | Windows: `setuptools/_vendor/autocommand/` (Python source) | No | LGPL-3.0: yes, `LICENSES/setuptools/vendored/autocommand-2.2.2.dist-info/LICENSE`. The GPL-3.0 text, which the LGPL-3.0 adds to: no | Yes |
+| certifi 2026.10.19 (CA bundle and code), vendored in pip 26.2.2 | MPL-2.0 | All 4: `pip/_vendor/certifi/` | No. pip is kept for the optional NER extra | The short MPL-2.0 notice: yes (`LICENSES/pip/full-set/`). The full MPL-2.0 text: not in `LICENSES/` (on Windows it is in the runtime, in a setuptools file) | No (pip: MIT) |
+| validate-pyproject code and schemas, inside setuptools 84.2.1 | MPL-2.0 (one file BSD-3-Clause) | Windows: `setuptools/config/_validate_pyproject/` and `setuptools/config/*.schema.json` | No. It runs only when a package is built | The full MPL-2.0 text, in `setuptools/config/_validate_pyproject/NOTICE` of the runtime, not in `LICENSES/` | No |
+| Microsoft Visual C++ runtime 14.44 (`vcruntime140.dll`, `vcruntime140_1.dll`) | Microsoft terms for redistributable files | Windows: `runtime/` | Yes (every Python process) | Only the CPython summary of the terms, in `LICENSES/python/LICENSE.txt` | No |
+| libaom 3.14.1 (AV1 encoder, with the dav1d 1.5.3 decoder), in Pillow's AVIF support | BSD-2-Clause. The libaom project also has a patent licence (AOMedia Patent License 1.0) | All 4: `PIL/.dylibs/libavif.16.4.2.dylib` (macOS), `PIL/_avif.cp312-win_amd64.pyd` (Windows) | No. It loads only for AVIF images | libaom BSD text: macOS yes (`LICENSES/pillow/LICENSE`), Windows no. dav1d: macOS yes, Windows partly. The patent licence: no | No |
+| libwebp 1.6.0, in Pillow | BSD-3-Clause. The libwebp project also has a patent grant | All 4 | No. It loads only for WebP images | BSD text: yes. The patent grant: no | No |
+| OpenJPEG (2.5.4 in Pillow; also in PDFium) | BSD-2-Clause, with a note that it grants no patent rights | All 4 | Loaded, not called: pypdf imports Pillow, and Pillow's core module links OpenJPEG | Yes (`LICENSES/pillow/LICENSE`, `LICENSES/pypdfium2/`) | No |
+| FreeType (2.14.3 in Pillow; also in PDFium) and libjpeg-turbo (3.2.0 in Pillow; also in PDFium) | FreeType: FTL or GPL-2.0-or-later, as the user chooses. libjpeg-turbo: IJG, BSD-3-Clause and Zlib. The FTL and the IJG licence ask the documentation of a binary to credit the FreeType Team and the Independent JPEG Group | All 4 | FreeType: no. libjpeg-turbo: loaded, not called (as OpenJPEG) | Yes (`LICENSES/pillow/LICENSE`, `LICENSES/pypdfium2/`) | No, and the tables have no credit line |
+| Other parts with a GPL choice: the Rust crate self_cell in cryptography (Apache-2.0 or GPL-2.0-only) and CPython's `urllib/robotparser.py` (PSF or GPL-2.0) | The permissive choice applies | All 4. self_cell: compiled in on macOS; on Windows only the SBOM of cryptography lists it | self_cell: yes, inside cryptography (the vault). robotparser: no | The permissive text: yes | No |
+| Data under open terms with a notice or credit duty: the INSEE first-name file of Shield's lexicon (Licence Ouverte 2.0), Unicode data in pypdf and the ICU4X crates in pydantic-core (Unicode terms, Unicode-3.0), Adobe font metrics in pdfminer.six and pypdf and the Adobe Glyph List copy of pdfminer.six (Adobe terms), ICU 78 in PDFium (Unicode-3.0), the pypdfium2 documentation (CC-BY-4.0), lxml's Schematron files (ISO/IEC terms; two XSL files have no licence, as lxml's notice says) | Open terms with a notice or credit duty | All 4 | INSEE file: yes (Shield's lexicon). pypdf, pdfminer.six (through pdfplumber) and pydantic-core: yes. The others: no | Inside the files, or in `LICENSES/`. INSEE: source, licence name and URL in `LICENSES/ragbase-shield/NOTICE`, not the full licence text | INSEE: in the NOTICE only. The others: no |
+| Names that appear only in the SBOM files of the wheels, with no code shipped: FriBiDi (LGPL-2.1-or-later) and libimagequant (GPL-3.0-or-later) in Pillow's SBOM; r-efi (MIT, Apache-2.0 or LGPL-2.1-or-later, a UEFI-only crate) in the SBOM of pydantic-core | | The SBOM files only | No. Pillow loads a FriBiDi library of the system at run time only if one is installed; the installers ship none | Not needed | No |
+
+Two Windows files have no clear licence statement in the installer: `runtime/DLLs/zlib1.dll` (zlib 1.3.1 built with
+MinGW-w64; nothing in the payload loads it) and pywin32's `isapi` folder (a copyright line only). Shield uses
+neither.
+
+lxml's notice says that its official binary wheels bundle iconv (LGPL-2.1). A `pip` or `uvx` install of Shield
+that takes such a wheel from PyPI gets it in the same way.
+
+Build tools, not shipped: uv (MIT or Apache-2.0), Apple pkgbuild / productbuild / lipo / iconutil, Pillow (icons
+only), WiX (MS-RL) or msitools (LGPL-2.1) for the `.msi`.
 
 ## Known limits
 
@@ -288,3 +357,7 @@ shipped: uv (MIT or Apache-2.0), Apple pkgbuild / productbuild / lipo / iconutil
 | 17 | Low | Windows: the Error and ActionText strings WiX puts into the package are English | A French `.wxl` and `-culture fr-FR`, then re-test |
 | 18 | Low | Windows build: `build_msi.ps1` fetches `dotnet-install.ps1` and the newest .NET 8.0 SDK patch without a pinned hash; WiX 5.0.2 is version-pinned only (build tools, never shipped) | Pin the SDK version and the script hash |
 | 19 | Info | Claude Desktop's `.mcpb` runs a bundled copy of Shield with uv (one download of its dependencies, INSTALL.md section 2), not the installed runtime; both share the data folder | Unchanged by design |
+| 20 | Medium | The licence tables of the 0.4.0 installers do not name GNU libiconv in lxml (LGPL-2.1, all 4), certifi in pip (MPL-2.0, all 4), validate-pyproject in setuptools (MPL-2.0, Windows), the Visual C++ runtime terms (Windows) or the other parts of the section "Parts under other terms", and they have no credit line for FreeType and the Independent JPEG Group. The macOS tables say "No GPL, LGPL or AGPL component is shipped", which is false. Texts not in `LICENSES/`: LGPL-2.1 (macOS), the full MPL-2.0 (all 4), GPL-3.0 (Windows, for the LGPL-3.0 of autocommand), the libaom BSD text (Windows), and the patent texts of libaom and libwebp (all 4). The tables also leave out some permissive libraries inside the wheels and the runtime (for example HarfBuzz in PDFium, libuuid in the macOS runtime) | 0.4.1: add the missing licence texts, a table line for each part of the section "Parts under other terms", and the credit lines |
+| 21 | Low | `licenses.py` does not copy every licence text (0.4.0 needed `common/add_licence_texts.py`), and its flat copy keeps one file per file name, chosen by the folder order | Move the post-build step into `licenses.py` |
+| 22 | Medium | Windows: two LGPL modules ship inside dependencies, `adodbapi` (pywin32, LGPL-2.1) and `autocommand` (vendored in setuptools, LGPL-3.0); Shield's own code imports neither | 0.4.1: remove both from the Windows payload |
+| 23 | Medium | The GPL-family check of `common/add_licence_texts.py` reads only the first 4,000 characters of files named like licence files, and looks for a licence title. It missed GNU libiconv in lxml (lxml's notice says "LGPL 2.1"). A full read is not enough alone: on the 0.4.0 payloads it also finds texts that only name the GPL (for example the PSF licence history in typing_extensions and distlib, and the dual FreeType text in Pillow), so the step would stop | 0.4.1: a check that reads every licence file in full, with a reviewed list of the known files and the reason for each, and a check of the native libraries (for example the libiconv symbols in lxml) |
