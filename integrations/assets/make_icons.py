@@ -8,6 +8,7 @@ simple artwork, no third-party image. Outputs:
 - integrations/assets/icon-512.png                (master copy)
 - integrations/claude-desktop/icon.png             (512 x 512, MCPB bundle icon)
 - integrations/openai-plugin/assets/icon.png       (512 x 512)
+- integrations/claude-code/plugin/.claude-plugin/icon.png   (512 x 512, Claude plugin directory listing icon)
 - integrations/browser-extension/icons/icon{16,32,48,128}.png
 """
 from __future__ import annotations
@@ -111,6 +112,7 @@ def main() -> None:
         root / "assets" / "icon-512.png",
         root / "claude-desktop" / "icon.png",
         root / "openai-plugin" / "assets" / "icon.png",
+        root / "claude-code" / "plugin" / ".claude-plugin" / "icon.png",
     ]
     for t in targets:
         t.parent.mkdir(parents=True, exist_ok=True)

@@ -3,7 +3,9 @@
     "ragbase-shield": {
       "command": "uvx",
       "args": [
-        "ragbase-shield==0.4.0",
+        "--from",
+        "${CLAUDE_PLUGIN_ROOT}/vendor/ragbase_shield-0.4.0-py3-none-any.whl",
+        "ragbase-shield",
         "mcp"
       ]
     }

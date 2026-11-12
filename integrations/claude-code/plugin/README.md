@@ -12,7 +12,7 @@ Ce n'est pas une anonymisation : les faits, les dates et les montants restent li
 
 Ce que le plugin ajoute :
 
-- **Un serveur MCP local** (`uvx ragbase-shield==0.4.0 mcp`) avec six outils : lister les dossiers, lister les
+- **Un serveur MCP local** (`ragbase-shield mcp`) avec six outils : lister les dossiers, lister les
   pièces, lire une pièce masquée, chercher dans un dossier, enregistrer le projet final, statut de Shield.
 - **Une compétence (skill)** qui explique à Claude la procédure sûre : lire par les outils Shield, garder les codes,
   enregistrer avec `shield_save_draft`.
@@ -24,11 +24,32 @@ Ce que le plugin ajoute :
 
 Ce que le plugin exécute et envoie :
 
-- `uvx` télécharge le paquet `ragbase-shield` 0.4.0 et ses dépendances depuis PyPI, une fois, au premier lancement.
+- Le plugin contient le paquet `ragbase-shield` 0.4.0 tel qu'il est publié sur PyPI, dans le fichier
+  `vendor/ragbase_shield-0.4.0-py3-none-any.whl`. Son SHA-256 est le même que sur PyPI :
+  `12d5adb42e3d8d690263a4eb78aa99b1b6f038abd2593d20e9946b5ec17189e0`.
+- Le serveur MCP et les quatre hooks lancent ce fichier, et rien d'autre :
+  `uvx --from ${CLAUDE_PLUGIN_ROOT}/vendor/ragbase_shield-0.4.0-py3-none-any.whl ragbase-shield mcp`
+  (ou `hook user-prompt-submit`, `hook pre-tool-use`, `hook post-tool-use` à la place de `mcp`).
+- Au premier lancement, `uvx` installe ce fichier et télécharge ses dépendances depuis PyPI, une fois.
 - Le serveur MCP et les hooks tournent sur votre ordinateur. Ils n'envoient rien à RAGbase et aucune statistique
   d'usage. La table des codes (le coffre) est chiffrée et reste sur votre ordinateur.
 - Le texte masqué part chez Anthropic, comme tout message de la conversation avec Claude.
 - Le modèle NER optionnel se télécharge seulement si vous lancez vous-même `ragbase-shield ner download`.
+
+Ce que renvoie chaque hook (code source : `src/ragbase_shield/hooks.py` du dépôt) :
+
+- `UserPromptSubmit` : rien (code de sortie 0), et le message part. Si le message contient une valeur enregistrée :
+  `"decision": "block"` avec `suppressOriginalPrompt: true` et le code de sortie 2.
+- `PreToolUse` (les deux entrées) : rien (code de sortie 0), et les règles d'autorisation habituelles de Claude Code
+  s'appliquent. Pour un accès direct à un dossier enregistré, aux données de Shield ou à Shield Desk, ou pour une
+  commande Shield qui affiche des valeurs réelles ou modifie le coffre : `permissionDecision: "deny"` avec une raison
+  et le code de sortie 2. Ce hook ne renvoie jamais `allow`, `ask` ou `approve` et ne modifie jamais l'entrée d'un
+  outil (pas de `updatedInput`).
+- `PostToolUse` : rien (code de sortie 0). Si le résultat d'un outil contient une valeur enregistrée :
+  `updatedToolOutput` (et `updatedMCPToolOutput` pour un outil MCP), le même résultat avec les codes à la place des
+  valeurs, et un message (`additionalContext`, `systemMessage`).
+- Si Shield échoue, ou si la vérification ne peut pas finir à temps, le hook bloque le message, refuse l'appel, ou
+  vide le résultat et arrête la session (`"continue": false`).
 
 Exemples de demandes :
 
@@ -36,6 +57,10 @@ Exemples de demandes :
 2. « Dans DOSSIER_2, cherche les échéances de paiement et fais-en un tableau. »
 3. « Rédige une mise en demeure adressée à PERSONNE_A à partir des pièces de DOSSIER_1, puis enregistre-la avec
    shield_save_draft. »
+
+Installation dans Claude Code (version 2.1.275 ou plus récente) :
+`/plugin install ragbase-shield --marketplace ragbase/ragbase-shield`. Avec une version plus ancienne :
+`/plugin marketplace add ragbase/ragbase-shield`, puis `/plugin install ragbase-shield@ragbase`.
 
 Pour commencer : installez uv, enregistrez un dossier avec Shield Desk (`uvx ragbase-shield==0.4.0 desk`) ou avec
 `uvx ragbase-shield==0.4.0 add <dossier> --title "Titre"`, puis lancez Claude Code. Pour tester sans vos données :
@@ -56,7 +81,7 @@ the AI.
 
 What the plugin adds:
 
-- **A local MCP server** (`uvx ragbase-shield==0.4.0 mcp`) with six tools: list dossiers, list documents, read a
+- **A local MCP server** (`ragbase-shield mcp`) with six tools: list dossiers, list documents, read a
   masked document, search a dossier, save the final draft, Shield status.
 - **A skill** that tells Claude the safe workflow: read through the Shield tools, keep the codes, save with
   `shield_save_draft`.
@@ -68,17 +93,41 @@ What the plugin adds:
 
 What the plugin runs and sends:
 
-- `uvx` downloads the `ragbase-shield` 0.4.0 package and its dependencies from PyPI, once, at the first start.
+- The plugin holds the `ragbase-shield` 0.4.0 package as published on PyPI, in the file
+  `vendor/ragbase_shield-0.4.0-py3-none-any.whl`. Its SHA-256 is the same as on PyPI:
+  `12d5adb42e3d8d690263a4eb78aa99b1b6f038abd2593d20e9946b5ec17189e0`.
+- The MCP server and the four hooks run this file and nothing else:
+  `uvx --from ${CLAUDE_PLUGIN_ROOT}/vendor/ragbase_shield-0.4.0-py3-none-any.whl ragbase-shield mcp`
+  (or `hook user-prompt-submit`, `hook pre-tool-use`, `hook post-tool-use` in place of `mcp`).
+- At the first start, `uvx` installs this file and downloads its dependencies from PyPI, once.
 - The MCP server and the hooks run on your computer. They send nothing to RAGbase and no usage statistics. The code
   table (the vault) is encrypted and stays on your computer.
 - The masked text goes to Anthropic, like every message of the conversation with Claude.
 - The optional NER model downloads only if you run `ragbase-shield ner download` yourself.
+
+What each hook returns (source code: `src/ragbase_shield/hooks.py` in the repository):
+
+- `UserPromptSubmit`: nothing (exit code 0), and the prompt goes on. If the prompt holds a registered value:
+  `"decision": "block"` with `suppressOriginalPrompt: true` and exit code 2.
+- `PreToolUse` (both entries): nothing (exit code 0), and the normal Claude Code permission rules apply. For a direct
+  access to a registered dossier folder, to Shield's own data or to Shield Desk, or for a Shield command that prints
+  real values or changes the vault: `permissionDecision: "deny"` with a reason and exit code 2. This hook never
+  returns `allow`, `ask` or `approve` and never changes a tool input (no `updatedInput`).
+- `PostToolUse`: nothing (exit code 0). If a tool result holds a registered value: `updatedToolOutput` (and
+  `updatedMCPToolOutput` for an MCP tool), the same result with codes in place of the values, and a message
+  (`additionalContext`, `systemMessage`).
+- If Shield fails, or the check cannot finish in time, the hook blocks the prompt, denies the call, or blanks the
+  result and stops the session (`"continue": false`).
 
 Example prompts:
 
 1. "List my Shield dossiers, then summarise the documents of DOSSIER_1."
 2. "In DOSSIER_2, find the payment deadlines and put them in a table."
 3. "Draft a formal notice for PERSON_A from the documents of DOSSIER_1, then save it with shield_save_draft."
+
+Install in Claude Code (version 2.1.275 or later):
+`/plugin install ragbase-shield --marketplace ragbase/ragbase-shield`. With an older version:
+`/plugin marketplace add ragbase/ragbase-shield`, then `/plugin install ragbase-shield@ragbase`.
 
 To start: install uv, register a folder with Shield Desk (`uvx ragbase-shield==0.4.0 desk`) or with
 `uvx ragbase-shield==0.4.0 add <folder> --title "Title"`, then start Claude Code. To test without your data:

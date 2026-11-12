@@ -73,8 +73,9 @@ ragbase-shield/
   integrations/                  # owner: integrations (status table: integrations/README.md)
     README.md  assets/make_icons.py
     claude-desktop/manifest.json (MCPB 0.4, server.type "uv")  server.py (launcher)  build_mcpb.sh  icon.png
-    claude-code/plugin/.claude-plugin/plugin.json  plugin/.mcp.json  plugin/hooks/hooks.json
-                plugin/skills/ragbase-shield/SKILL.md
+    claude-code/plugin/.claude-plugin/plugin.json  plugin/.claude-plugin/icon.png  plugin/.mcp.json
+                plugin/hooks/hooks.json  plugin/skills/ragbase-shield/SKILL.md
+                plugin/vendor/ragbase_shield-<version>-py3-none-any.whl   # the PyPI wheel the plugin runs
     codex/config.toml.example
     openai-plugin/plugin.json  mcp.json  skills/ragbase-shield/SKILL.md  assets/icon.png   # Agent Plugins 1.0.0
     vscode/mcp.json.example  README.md (vscode:mcp/install link)

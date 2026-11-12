@@ -6,7 +6,14 @@
         "hooks": [
           {
             "type": "command",
-            "command": "uvx ragbase-shield==0.4.0 hook user-prompt-submit",
+            "command": "uvx",
+            "args": [
+              "--from",
+              "${CLAUDE_PLUGIN_ROOT}/vendor/ragbase_shield-0.4.0-py3-none-any.whl",
+              "ragbase-shield",
+              "hook",
+              "user-prompt-submit"
+            ],
             "timeout": 60
           }
         ]
@@ -18,7 +25,14 @@
         "hooks": [
           {
             "type": "command",
-            "command": "uvx ragbase-shield==0.4.0 hook pre-tool-use",
+            "command": "uvx",
+            "args": [
+              "--from",
+              "${CLAUDE_PLUGIN_ROOT}/vendor/ragbase_shield-0.4.0-py3-none-any.whl",
+              "ragbase-shield",
+              "hook",
+              "pre-tool-use"
+            ],
             "timeout": 60
           }
         ]
@@ -28,7 +42,14 @@
         "hooks": [
           {
             "type": "command",
-            "command": "uvx ragbase-shield==0.4.0 hook pre-tool-use",
+            "command": "uvx",
+            "args": [
+              "--from",
+              "${CLAUDE_PLUGIN_ROOT}/vendor/ragbase_shield-0.4.0-py3-none-any.whl",
+              "ragbase-shield",
+              "hook",
+              "pre-tool-use"
+            ],
             "timeout": 60
           }
         ]
@@ -39,7 +60,14 @@
         "hooks": [
           {
             "type": "command",
-            "command": "uvx ragbase-shield==0.4.0 hook post-tool-use",
+            "command": "uvx",
+            "args": [
+              "--from",
+              "${CLAUDE_PLUGIN_ROOT}/vendor/ragbase_shield-0.4.0-py3-none-any.whl",
+              "ragbase-shield",
+              "hook",
+              "post-tool-use"
+            ],
             "timeout": 60
           }
         ]

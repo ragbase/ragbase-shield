@@ -21,7 +21,7 @@ The browser extension is the exception: it does not run the MCP server. It talks
 | App | Folder | What it is | Status |
 |---|---|---|---|
 | Claude Desktop (chat) | [`claude-desktop/`](claude-desktop/) | MCPB desktop extension, `manifest_version` 0.4, `server.type` `"uv"`, 6 tools declared, `build_mcpb.sh` | **Built and validated**: official CLI `@anthropic-ai/mcpb` 2.1.2 `validate` and `pack` pass (283 KB bundle, 34 files). `build_mcpb.sh --smoke` starts the bundled server with `uv run` and gets the 6 manifest tools. **Not installed** in Claude Desktop yet. |
-| Claude Code and Cowork | [`claude-code/`](claude-code/) + repo-root [`/.claude-plugin/marketplace.json`](../.claude-plugin/marketplace.json) | Plugin: MCP server, skill, 3 hooks | **Validated**: `claude plugin validate` passes for the marketplace and the plugin (Claude Code 2.1.220). **Not installed end to end** (needs the PyPI package with the `mcp` and `hook` commands). |
+| Claude Code and Cowork | [`claude-code/`](claude-code/) + repo-root [`/.claude-plugin/marketplace.json`](../.claude-plugin/marketplace.json) | Plugin: MCP server, skill, 3 hooks; runs the PyPI wheel it ships in `plugin/vendor/` | **Validated**: `claude plugin validate --strict` passes for the marketplace and the plugin (Claude Code 2.1.220 and 2.1.321). **Installed** from a local copy (project scope): MCP server connects, hook commands answer. |
 | ChatGPT desktop (Work, Codex) | [`chatgpt/`](chatgpt/) | Step-by-step guide | **Not tested.** Written from the official docs. |
 | Codex CLI and IDE | [`codex/`](codex/) | `config.toml.example` | TOML parses (unit test). **Not tested** in Codex. |
 | ChatGPT and Codex plugin | [`openai-plugin/`](openai-plugin/) + repo-root [`/.agents/plugins/marketplace.json`](../.agents/plugins/marketplace.json) | Portable Agent Plugins package: `plugin.json`, `mcp.json` (stdio), skill | Checked against the Agent Plugins 1.0.0 schemas (unit tests). **Not tested** in ChatGPT or Codex. |
@@ -39,7 +39,7 @@ Shared files:
 Before the package is on PyPI, or to test a checkout, use one of these:
 
 ```sh
-# 1. Make every "uvx ragbase-shield ..." (MCP server and Claude Code hooks) use your checkout.
+# 1. Make every "uvx ragbase-shield ..." use your checkout (not the Claude Code plugin: it runs its own wheel).
 #    uvx uses an installed tool unless --isolated is given.
 uv tool install --editable /path/to/ragbase-shield
 

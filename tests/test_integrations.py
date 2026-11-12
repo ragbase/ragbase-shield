@@ -1,6 +1,7 @@
 """Static checks for every app integration (owner: integrations). Synthetic data only, no network."""
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 import shutil
@@ -8,6 +9,7 @@ import struct
 import subprocess
 import sys
 import urllib.parse
+import zipfile
 from pathlib import Path
 
 import pytest
@@ -122,9 +124,23 @@ def test_mcpb_launcher_and_build_script():
 PLUGIN = INTEG / "claude-code" / "plugin"
 
 
-def plugin_pin() -> str:
-    """The exact package the Claude plugin runs with uvx: raise it with the project version at each release."""
-    return f"ragbase-shield=={project_version()}"
+def plugin_wheel() -> str:
+    """File name of the wheel the Claude plugin ships in vendor/: the exact PyPI file of the project version."""
+    return f"ragbase_shield-{project_version()}-py3-none-any.whl"
+
+
+def plugin_launch() -> list[str]:
+    """uvx arguments before the Shield command. Anthropic's plugin directory accepts a wheel shipped in the plugin
+    as a pin (a version number alone is not one), and refuses package-source options and shell substitutions."""
+    return ["--from", "${CLAUDE_PLUGIN_ROOT}/vendor/" + plugin_wheel(), "ragbase-shield"]
+
+
+def assert_plain_launcher(args: list[str]) -> None:
+    assert args[:3] == plugin_launch()
+    assert [a for a in args if a.startswith("-")] == ["--from"]  # no --index-url, --find-links, --python ...
+    for a in args:
+        assert "$" not in a.replace("${CLAUDE_PLUGIN_ROOT}/", "", 1), a  # no other variable or substitution
+        assert not set(a) & set("`*?;&|<>()\"\'"), a
 
 
 def test_claude_marketplace():
@@ -142,11 +158,48 @@ def test_claude_plugin_manifest_and_mcp():
     assert p["name"] == "ragbase-shield"
     assert p["license"] == "Apache-2.0"
     mcp = load(PLUGIN / ".mcp.json")["mcpServers"]["ragbase-shield"]
-    # The plugin pins the package (Anthropic's plugin directory blocks an unpinned uvx launcher).
-    assert mcp["command"] == "uvx" and mcp["args"] == [plugin_pin(), "mcp"]
+    # The plugin runs the wheel it ships (Anthropic's plugin directory blocks an unpinned uvx launcher).
+    assert set(mcp) == {"command", "args"}
+    assert mcp["command"] == "uvx" and mcp["args"] == plugin_launch() + ["mcp"]
+    assert_plain_launcher(mcp["args"])
     assert p["version"] == project_version()
+    assert "icon" not in p  # the directory reads .claude-plugin/icon.png by itself
     readme = (PLUGIN / "README.md").read_text(encoding="utf-8")
     assert len(re.sub(r"```.*?```", " ", readme, flags=re.S).split()) >= 40  # directory listing text
+    flat = " ".join(readme.split())
+    assert flat.count("vendor/" + plugin_wheel()) >= 2  # what the plugin runs, French and English
+    assert flat.count('permissionDecision: "deny"') == 2  # what each hook returns, French and English
+    assert "ne renvoie jamais `allow`, `ask` ou `approve`" in flat
+    assert "never returns `allow`, `ask` or `approve`" in flat
+
+
+def test_claude_plugin_vendored_wheel():
+    """The wheel in vendor/ is the project version, named ragbase-shield, and the only file there."""
+    vendor = PLUGIN / "vendor"
+    assert sorted(f.name for f in vendor.iterdir()) == [plugin_wheel()]
+    wheel = vendor / plugin_wheel()
+    assert wheel.stat().st_size < 5 * 1024 * 1024  # the directory stops validation at 5 MiB per file
+    with zipfile.ZipFile(wheel) as z:
+        assert z.testzip() is None
+        dist_info = f"ragbase_shield-{project_version()}.dist-info/"
+        meta = z.read(dist_info + "METADATA").decode("utf-8")
+        assert dist_info + "entry_points.txt" in z.namelist()
+        assert "ragbase-shield = ragbase_shield.cli:main" in z.read(dist_info + "entry_points.txt").decode("utf-8")
+    fields = dict(line.split(": ", 1) for line in meta.split("\n\n", 1)[0].splitlines() if ": " in line)
+    assert fields["Name"] == "ragbase-shield"
+    assert fields["Version"] == project_version()
+    # The plugin README states the wheel's SHA-256 (the PyPI digest) in French and English.
+    digest = hashlib.sha256(wheel.read_bytes()).hexdigest()
+    assert (PLUGIN / "README.md").read_text(encoding="utf-8").count(digest) == 2
+
+
+def test_claude_plugin_icon():
+    """Listing icon of the directory: a square PNG of 512 to 2048 px, under 2 MB (the brand icon)."""
+    icon = PLUGIN / ".claude-plugin" / "icon.png"
+    w, h = png_size(icon)
+    assert w == h and 512 <= w <= 2048
+    assert icon.stat().st_size < 2 * 1024 * 1024
+    assert icon.read_bytes() == (INTEG / "assets" / "icon-512.png").read_bytes()
 
 
 def test_claude_hooks():
@@ -161,7 +214,10 @@ def test_claude_hooks():
         for group in hooks[event]:
             [handler] = group["hooks"]
             assert handler["type"] == "command"
-            assert handler["command"] == f"uvx {plugin_pin()} hook {sub}"
+            # Exec form: no shell, so the plugin path stays one argument even with spaces in it.
+            assert handler["command"] == "uvx"
+            assert handler["args"] == plugin_launch() + ["hook", sub]
+            assert_plain_launcher(handler["args"])
             assert handler["timeout"] >= 60
         assert sub in HOOK_EVENTS
     assert len(hooks["UserPromptSubmit"]) == 1 and len(hooks["PostToolUse"]) == 1
