@@ -56,7 +56,8 @@ C'est une pseudonymisation locale et réversible, pas une anonymisation.
 ### Ce que Shield ne fait pas
 
 - Il ne masque pas les faits. Un fait peut suffire à reconnaître un client.
-- Il ne trouve pas tous les noms. Les noms enregistrés dans le dossier sont les mieux protégés.
+- Il ne trouve pas tous les noms. Les noms enregistrés dans le dossier sont les mieux protégés. Vérifiez la liste
+  des noms détectés, et relisez le texte masqué avant de l'envoyer.
 - Il ne lit pas les PDF scannés (pas d'OCR dans cette version).
 - Il ne protège pas un texte que vous tapez ou collez directement dans le chat.
 - Il ne protège pas un ordinateur infecté par un logiciel malveillant.
@@ -185,7 +186,8 @@ Out of scope (Shield cannot stop these):
 
 ### Residual risks to tell users
 
-- Recall is below perfect for names nobody registered. Register parties per dossier.
+- Shield can miss a name that nobody registered. Register the parties of each dossier, check the list of detected
+  names, and read the masked text before you send it.
 - Cross-references (a project name, an amount, a date, a place) can re-identify. The user can register
   extra terms per dossier, and mark terms "Keep in clear".
 - The masked text is still confidential work product. Masking does not make it public.

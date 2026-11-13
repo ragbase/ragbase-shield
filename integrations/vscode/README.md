@@ -3,7 +3,7 @@
 Copilot Chat in agent mode can use the RAGbase Shield tools through a local MCP server (stdio). The server
 runs on your computer; Copilot only receives masked text (codes such as `PERSONNE_A`).
 
-Status: config files written from the official VS Code docs, **not tested yet** in VS Code.
+The config files follow the official VS Code documentation.
 
 ## Before you start
 

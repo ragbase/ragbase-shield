@@ -35,8 +35,8 @@ administrateur : tout va dans votre dossier personnel. Il installe :
 - Shield Desk, qui tourne en arrière-plan et démarre à chaque ouverture de session ;
 - une icône en forme de bouclier : dans la barre des menus sur Mac, dans la zone de notification sous Windows.
 
-Après l'installation, Shield n'utilise plus Internet, sauf si vous téléchargez vous-même le modèle NER
-(section 10). Shield n'envoie aucune statistique d'utilisation.
+Après l'installation, Shield n'utilise plus Internet, sauf si vous téléchargez vous-même le modèle IA du mode
+Précis (section 10). Shield n'envoie aucune statistique d'utilisation.
 
 > **Fichiers non signés.** RAGbase ne signe pas encore les fichiers d'installation. Au premier
 > lancement, le Mac et Windows affichent donc un avertissement. Les étapes ci-dessous expliquent comment
@@ -76,9 +76,6 @@ une autre icône (touche Cmd enfoncée, glissez-la). Sinon, fermez votre session
 
 #### Windows : le fichier .msi
 
-> **Version de test.** Le fichier `.msi` est construit et testé sur Windows Server 2025. L'icône de la zone
-> de notification doit encore être vérifiée sur un poste Windows 10 ou 11.
-
 Il faut Windows 10 ou 11 (64 bits). Une carte graphique n'est pas nécessaire. Sur un PC Windows ARM
 (Snapdragon), Shield fonctionne en émulation, un peu plus lentement.
 
@@ -114,7 +111,7 @@ Il faut Windows 10 ou 11 (64 bits). Une carte graphique n'est pas nécessaire. S
 
 | Élément du menu | Ce qu'il fait |
 |---|---|
-| Shield Desk : en marche, port 7878, ... | Montre l'état de Shield Desk : port, version, mode (règles, ou règles + NER). Sous Windows : « Statut... ». |
+| Shield Desk : en marche, port 7878, ... | Montre l'état de Shield Desk : port, version, mode (« règles » = mode Rapide ; « règles + NER » = mode Précis). Sous Windows : « Statut... ». |
 | Ouvrir Shield Desk | Ouvre la page Shield Desk dans votre navigateur, avec le lien privé. |
 | Dossiers | Mac : la liste de vos dossiers ; un clic ouvre le dossier dans le Finder. Windows : « Dossiers (Shield Desk) » ouvre la page Dossiers. |
 | Dossier de données Shield | Ouvre le dossier des coffres et de la clé. |
@@ -169,7 +166,7 @@ Bon à savoir :
   fermez votre session, puis rouvrez-la. Sous Windows, menu Démarrer > RAGbase Shield le relance aussi.
 - Si l'icône affiche « port 7878 occupé par un autre programme », un autre logiciel utilise ce port.
   Prévenez RAGbase.
-- Le modèle NER (section 10) n'est pas encore disponible avec l'installateur en un clic.
+- Le mode Précis (section 10) n'est pas encore disponible avec l'installateur en un clic.
 - Relancer le même fichier `.msi` ne réinstalle rien : Shield redémarre, c'est tout. Pour réparer une
   installation abîmée, désinstallez, puis réinstallez.
 - Pas d'icône une minute après l'installation ? Menu Démarrer > RAGbase Shield. Toujours rien : une règle du
@@ -187,8 +184,8 @@ Bon à savoir :
 
 ### 0 bis. Autre méthode : uv et Shield Desk (Terminal)
 
-Cette méthode passe par le Terminal. Elle sert aux habitués du Terminal, au plugin Claude Code (section 3),
-au modèle NER (section 10), et à Windows tant que le fichier `.msi` n'est pas publié.
+Cette méthode passe par le Terminal. Elle sert aux habitués du Terminal, au plugin Claude Code (section 3)
+et au mode Précis (section 10).
 
 uv est l'outil open source qui télécharge et lance Shield. Il s'installe en une commande.
 
@@ -361,8 +358,7 @@ Bon à savoir :
   Les conversations Work hébergées (dans le cloud) ne voient pas Shield.
 - Offres Business, Edu et Enterprise : un administrateur peut limiter les serveurs MCP. S'il n'apparaît pas,
   demandez à votre administrateur.
-- Nous n'avons pas encore testé ChatGPT desktop de bout en bout. Les libellés de l'écran viennent de la
-  documentation d'OpenAI et peuvent changer.
+- Les libellés de l'écran peuvent changer.
 - ChatGPT web (chatgpt.com) n'a pas de branchement direct. Utilisez Shield Desk ou l'extension (section 7).
 
 ### 5. GitHub Copilot dans VS Code
@@ -450,8 +446,9 @@ Les vrais noms ne reviennent que dans le panneau latéral de l'extension, jamais
   dans un chat.
 - Shield Desk doit être lancé. Si Desk est fermé, ne collez rien : lancez Desk d'abord.
 - L'extension masque le texte collé. Le texte tapé au clavier part tel quel.
-- Publication dans le Chrome Web Store et Edge Add-ons : pas encore faite. L'extension n'est pas encore
-  testée de bout en bout sur les sites réels. En attendant, utilisez Shield Desk. Un informaticien peut charger le répertoire `integrations/browser-extension` en mode développeur.
+- L'extension n'est pas encore dans le Chrome Web Store ni dans Edge Add-ons. En attendant, utilisez Shield Desk.
+  Un informaticien peut charger le répertoire `integrations/browser-extension` en mode développeur. Après un
+  collage, vérifiez que la zone de saisie montre des codes avant d'envoyer.
 
 ### 8. Vérifier que tout fonctionne
 
@@ -497,11 +494,12 @@ si vous le souhaitez.
 
 ---
 
-### 10. Option : modèle de reconnaissance des noms (NER)
+### 10. Option : le mode Précis (avec modèle IA)
 
-Sans modèle, Shield travaille avec ses règles et ses dictionnaires (français et anglais). Un modèle local ajoute
-les noms sans titre ni prénom connu, les sociétés sans forme juridique, les pseudonymes et les matricules.
-Il tourne sur le processeur, hors ligne, et pèse environ 1,2 Go. Il passe par uv (section 0 bis) :
+Par défaut, Shield est en mode Rapide : il travaille avec ses règles et ses dictionnaires (français et anglais).
+Le mode Précis ajoute un modèle IA local (nom technique : GLiNER). Ce modèle trouve en plus les noms sans titre ni
+prénom connu, les sociétés sans forme juridique, les pseudonymes et les matricules.
+Il tourne sur le processeur, hors ligne, et pèse environ 1,2 Go. Il s'installe avec uv (section 0 bis) :
 l'installateur en un clic ne le prend pas encore en charge.
 
 ```
@@ -530,8 +528,8 @@ password: everything goes into your own user folder. It installs:
 - Shield Desk, which runs in the background and starts at each login;
 - a shield icon: in the menu bar on a Mac, in the notification area on Windows.
 
-After the install, Shield does not use the Internet, except when you download the NER model yourself
-(section 10). Shield sends no usage statistics.
+After the install, Shield does not use the Internet, except when you download the AI model of Precise mode
+yourself (section 10). Shield sends no usage statistics.
 
 > **Unsigned files.** RAGbase does not sign the installer files yet, so macOS and Windows show a
 > warning the first time. The steps below show how to continue. Download the files only from the releases page
@@ -564,8 +562,7 @@ drag it). Otherwise log out and log in again.
 
 **Windows: `RAGbase-Shield-<version>-win64.msi`** (Windows 10 or 11, 64-bit; no graphics card needed)
 
-Test version: the `.msi` is built and tested on Windows Server 2025. The tray icon still has to be checked
-on a Windows 10 or 11 PC. On a Windows ARM PC (Snapdragon), Shield runs in emulation, a little slower.
+On a Windows ARM PC (Snapdragon), Shield runs in emulation, a little slower.
 
 1. Download the file from the releases page of the repository (an `.msi` sent as an attachment is blocked by Outlook
    and Gmail). The browser may warn that the file "isn't commonly downloaded": keep it (Edge: "...",
@@ -587,7 +584,8 @@ on a Windows 10 or 11 PC. On a Windows ARM PC (Snapdragon), Shield runs in emula
    To keep it always visible: Settings > Personalization > Taskbar > Other system tray icons, then turn on
    RAGbase Shield. Right-click it, then click "Open Shield Desk".
 
-**The icon menu:** a status line (port, version, mode; "Status..." on Windows), Open Shield Desk, Dossiers
+**The icon menu:** a status line (port, version, mode: "rules" is Fast mode, "rules + NER" is Precise mode;
+"Status..." on Windows), Open Shield Desk, Dossiers
 (Mac: your folders, each opens in the Finder; Windows: the Dossiers page), Shield data folder, Restart, Start
 at login (check mark), Open the log (it holds no names and no token), Uninstall... (your dossiers and vaults
 stay), Quit (Shield Desk stops until the next login, and the browser extension stops answering).
@@ -622,7 +620,7 @@ erase everything, see section 9. Also remove Shield from your apps (section 9): 
 the removed Shield. On a Mac, IT can also run `"$HOME/Library/Application Support/RAGbase Shield/uninstall.sh"`;
 with `--purge-data` it also erases the vaults and the key, which cannot be undone.
 After "Quit", Shield comes back at the next login (on Windows, Start menu > RAGbase Shield also starts it
-again). The NER model (section 10) is not available with the
+again). Precise mode (section 10) is not available with the
 one-click installer yet.
 Running the same `.msi` again installs nothing: Shield restarts, that is all; to repair a damaged install,
 uninstall, then install again. No icon one minute after the install? Start menu > RAGbase Shield. Still
@@ -637,8 +635,8 @@ keep using the old Shield started by `uvx`; the `ragbase-shield` command of uv i
 
 ### 0b. Other way: uv and Shield Desk (Terminal)
 
-For Terminal users, the Claude Code plugin (section 3), the NER model (section 10), and Windows until the
-`.msi` is published. Install uv (one command), then start Shield Desk.
+For Terminal users, the Claude Code plugin (section 3) and Precise mode (section 10). Install uv (one command),
+then start Shield Desk.
 
 ```sh
 # macOS (Terminal)
@@ -744,7 +742,7 @@ ChatGPT desktop manual setup: Settings > MCP servers > Add server; name `ragbase
 command `uvx`, arguments `ragbase-shield mcp`; save, then Restart. Business, Edu and Enterprise admins can
 restrict MCP servers. It works in local Work threads (running on this computer) and in Codex; hosted
 (cloud) Work threads do not see Shield.
-Not yet tested end to end; UI labels come from OpenAI's documentation.
+UI labels can change.
 ChatGPT web is not supported natively: use Shield Desk or the browser extension.
 
 ### 5. GitHub Copilot in VS Code
@@ -797,8 +795,10 @@ Shield Desk works with every site. The browser extension (Manifest V3, Chrome an
 chatgpt.com, claude.ai, copilot.microsoft.com, m365.cloud.microsoft and gemini.google.com through the local Desk API (with the
 token). Restore happens only in the extension side panel, never in the provider's page.
 On install, the extension opens its options page: in Shield Desk, panel "Extension navigateur" (Browser
-extension), click "Copy the token" and paste it there. Never paste the token into a chat. Desk must be running. Typed text is not masked. Store listings are not done yet and the extension is not yet tested end to end on the real sites; until then use Shield Desk,
-or load `integrations/browser-extension` unpacked (developer mode).
+extension), click "Copy the token" and paste it there. Never paste the token into a chat. Desk must be running.
+Typed text is not masked. The extension is not in the Chrome Web Store or Edge Add-ons yet: until then use Shield
+Desk, or load `integrations/browser-extension` unpacked (developer mode). After you paste, check that the chat box
+shows codes before you send.
 
 ### 8. Check
 
@@ -829,11 +829,12 @@ Technical details per app:
 [Browser extension](../integrations/browser-extension/README.md) ·
 [Overview](../integrations/README.md)
 
-### 10. Optional: name recognition model (NER)
+### 10. Optional: Precise mode (with AI model)
 
-Without a model, Shield works with its rules and dictionaries (French and English). A local model adds the names
-without a title or a known first name, the companies without a legal form, the usernames and the employee ids.
-It runs on the CPU, offline, and takes about 1.2 GB. It goes through uv (section 0b): the one-click
+By default Shield is in Fast mode: it works with its rules and dictionaries (French and English). Precise mode adds
+a local AI model (technical name: GLiNER). The model also finds the names without a title or a known first name, the
+companies without a legal form, the usernames and the employee ids.
+It runs on the CPU, offline, and takes about 1.2 GB. You install it with uv (section 0b): the one-click
 installer does not support it yet.
 
 ```

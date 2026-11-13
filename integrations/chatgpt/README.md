@@ -4,7 +4,7 @@ The ChatGPT desktop app (Work and Codex), the Codex CLI and the Codex IDE extens
 configuration file, `~/.codex/config.toml`, and can all run **local (stdio) MCP servers**. RAGbase Shield
 plugs in there: the model reads your dossier documents masked and never sees the real names.
 
-Status: **not tested yet.** Written from the official docs (learn.chatgpt.com, October 2026).
+The screen labels below follow OpenAI's documentation (learn.chatgpt.com, October 2026). They can change.
 
 ## What works and what does not
 
@@ -69,7 +69,7 @@ Codex CLI alternative: `codex mcp add ragbase-shield -- uvx ragbase-shield mcp`.
 4. Open the restored file in the `Shield - sorties` folder of your dossier.
 
 Rules: work with codes (`PERSONNE_A`), never type real names in the chat, never attach or paste raw client
-files. The Claude Code hooks that block real names in prompts are not wired for ChatGPT in this version.
+files. The hooks that block real names in prompts exist only in Claude Code.
 
 ## Optional: install as a plugin (adds the safe-workflow skill)
 

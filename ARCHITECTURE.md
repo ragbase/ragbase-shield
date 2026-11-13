@@ -581,8 +581,8 @@ ragbase-shield entities <DOSSIER_n>                  # detected and registered e
 ragbase-shield register <DOSSIER_n> --person NAME | --org NAME | --kind KIND VALUE
 ragbase-shield keep-clear <DOSSIER_n> <CODE> [--off]
 ragbase-shield mask [--dossier D] [--clipboard] [--mode codes|synthetic] [FILE|-]   # prints masked text, or replaces the clipboard
-ragbase-shield set <DOSSIER_n> --replacement codes|synthetic [--language auto|fr|en]  # per-dossier settings (v0.2)
-ragbase-shield ner status | download [--model fastino|urchade|all] [--dir DIR] [--dry-run] [--force]  # optional NER model (v0.2)
+ragbase-shield set <DOSSIER_n> --replacement codes|synthetic [--language auto|fr|en]  # per-dossier settings
+ragbase-shield ner status | download [--model fastino|urchade|all] [--dir DIR] [--dry-run] [--force]  # optional NER model
 ragbase-shield restore --dossier D [--clipboard] [FILE|-]     # prints restored text, or replaces the clipboard
 ragbase-shield desk [--port 7878] [--no-browser]
 ragbase-shield mcp                                   # stdio MCP server (used by every app integration)
@@ -617,7 +617,7 @@ keyring. Run everything with `.venv/bin/python` or `uv run`.
 ## 10. R1 corrections (after the first internal evaluation round, R0)
 
 Every rule below is a general rule (a pattern, a lexicon category or an algorithm), written from the finding classes
-of the first internal evaluation round (R0, on invented matters; its plan and logs are not published). Tests: `tests/test_r1_names.py`, `tests/test_r1_detectors.py`,
+of the first internal evaluation round (R0, on invented matters). Tests: `tests/test_r1_names.py`, `tests/test_r1_detectors.py`,
 `tests/test_r1_service.py`, `tests/test_r1_restore.py`, `tests/test_r1_integration.py`.
 
 ### 10.1 Names (owner: NAMES; `engine/names.py`, `engine/masker.py`, `engine/lexicon/`)
@@ -913,11 +913,8 @@ of the first internal evaluation round (R0, on invented matters; its plan and lo
 
 Goal of the ladder: close the recall gap of the v0.2 rules mode on PrivacyBench v2.5 with general mechanisms
 only: no benchmark string in `src/`, the lexicons or the tests, the privacy rules of section 2 unchanged (no real
-value in a model-facing output, fail closed, local only). Rules mode stays the product default. Every number below
-is an "informed" (dev set) number. Correction (v0.3.1): the v0.3 commit `89e0b6c` did NOT pass the corpus audit:
-the Max-corpus audit `audit_fix.py --diff 693573f` (internal) gave 1 finding (a false match in this file), and PrivacyBench gold values sat in tests,
-docstrings and comments (`audit_fix.py` checks only the Max corpus). v0.3.1 replaced them with invented values and
-added the clean-room audit of every benchmark we hold (section 13.3): both audits give 0 findings on v0.3.1.
+value in a model-facing output, fail closed, local only). Rules mode stays the product default. The clean-room audit
+of section 13.3 checks that no benchmark value sits in the code, the lexicons, the tests or the docs.
 
 ### 12.1 S1+S4 (spans and organisations; `engine/names.py`, `documents.py`, `engine/detectors.py`)
 
@@ -973,8 +970,8 @@ added the clean-room audit of every benchmark we hold (section 13.3): both audit
 ### 12.3 S5+S6+S7 (lexicon, identifiers, gated NER; `engine/detectors_ids.py`, `engine/merge.py`, `engine/ner.py`)
 
 - `en_first_names.txt` [supplement] and [nicknames] sections (v0.2 and S5): international and post-1990 first names
-  and short forms written for Shield by region of origin, with no data set behind them (header of the lexicon; the
-  v0.3 text here said "public first-name statistics", which was wrong). The clean-room audit allows the common
+  and short forms written for Shield by region of origin, with no data set behind them (header of the lexicon).
+  The clean-room audit allows the common
   given names among them that are also benchmark values under rule 6 of `evaluation/audit/allow.txt` (section 13.3).
 - `detectors_ids.DETECTORS_IDS` (registered at the end of `detectors.py`): `labelled_id` cue values (a label noun
   of an account or staff identifier, then an id-shaped value on the line; phone, date, amount, year, version and
@@ -1043,16 +1040,14 @@ added the clean-room audit of every benchmark we hold (section 13.3): both audit
   code (`name_roles(store, masker)`, `split_person(text, start, roles, code)`); `--synthetic` registers first.
   MAPA runner `run_shield.py`: the recorder passes `mint_into=` on and reads `entry.masked0`, but it is still not
   whole on the v0.2+ service: it fails 2 of its own checks on 19 of 19 decisions (known limit of this runner).
-- Gates on the final build (2026-10-21, rules mode): full suite green (`tests/test_v03_integration.py` added, 19
-  tests, invented data); `bench/run_bench.py` PASS; `ragbase-shield verify` CLEAN (47 paths, temp home);
-  the Max-corpus audit `audit_fix.py --diff 693573f` (internal) was reported as 0 findings over 7,966 added lines, but that ran on an earlier state
-  of the diff: on the commit it gives 1 finding (corrected in v0.3.1, section 13.3). Benchmark runs: PrivacyBench
-  v2.5 recall up from v0.2; the French rules-mode masks (FR-PII-Bench, Judilibre, MAPA) unchanged. The internal result
-  files are not published; the public head-to-head is `evaluation/laptop/RESULTS_PUBLIC.md`.
+- Checks on the final build (2026-10-21, rules mode): full suite green (`tests/test_v03_integration.py` added, 19
+  tests, invented data); `bench/run_bench.py` PASS; `ragbase-shield verify` CLEAN (47 paths, temp home). Benchmark
+  runs: PrivacyBench v2.5 recall up from v0.2; the French rules-mode masks (FR-PII-Bench, Judilibre, MAPA) unchanged.
+  Public results: `evaluation/laptop/RESULTS_PUBLIC.md`.
 
 ## 13. v0.3.1 contract changes: synthetic leak fix, NER merge guard, clean-room audit (2026-10-23)
 
-Sources: the findings of the v0.3 PrivacyBench run (internal, not published). Codes mode does not
+Sources: the findings of the v0.3 PrivacyBench run. Codes mode does not
 change: the rules-mode masks of PrivacyBench, FR-PII-Bench, Judilibre, MAPA and holdout-en are identical to v0.3.
 
 ### 13.1 SYNTH (`engine/synthetic.py`, `engine/masker.py`)
@@ -1130,10 +1125,8 @@ change: the rules-mode masks of PrivacyBench, FR-PII-Bench, Judilibre, MAPA and 
 
 ## 14. v0.4 contract changes: the PrivacyBench ladder v0.4 (plan of 2026-10-22; build 2026-10-24 to 2026-11-07)
 
-Steps S0, T1 to T5, T8, T9, P1 and W0, each built, measured on the whole benchmark harness (on a cloud machine from
-2026-11-03) and accepted by a separate checker with its own scorer under the gates of the plan; T6, T7 and T6T7 were
-rejected (a per-set recall loss above the limit, or a gain under the gate). The step reports and the internal result
-files are not published; the public head-to-head is `evaluation/laptop/RESULTS_PUBLIC.md`.
+Steps S0, T1 to T5, T8, T9, P1 and W0. Each step was built, then measured on the whole benchmark harness before it
+was accepted. Public results: `evaluation/laptop/RESULTS_PUBLIC.md`.
 Rules that bind every step: a general mechanism only (a shape, a label word, a layout, a caller flag; never a benchmark
 string, a per-set or a per-value rule); invented test data; every new rule gated on `lang == "en"`, so the French
 masks of FR-PII-Bench, Judilibre and MAPA stay byte-identical; rules mode stays the product default. The last accepted

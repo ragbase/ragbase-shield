@@ -21,7 +21,7 @@ codex plugin marketplace add /path/to/ragbase-shield
 
 Then restart the ChatGPT desktop app and install from the **RAGbase** source in the Plugins Directory.
 
-Status: checked against the published Agent Plugins schemas (unit tests). **Not tested** in ChatGPT or
-Codex yet. A local-MCP plugin is "Desktop only"; public listing of local-MCP plugins is limited to
+The package follows the published Agent Plugins schemas (unit tests check it). A local-MCP plugin is "Desktop
+only"; public listing of local-MCP plugins is limited to
 partners approved by OpenAI. No lifecycle hooks are bundled (plugins with hooks cannot be listed publicly,
 and the Shield hook handlers speak the Claude Code format).

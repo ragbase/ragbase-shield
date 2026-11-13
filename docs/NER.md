@@ -1,13 +1,16 @@
-# Optional NER layer (v0.2)
+# Precise mode: the optional AI model (NER layer)
 
-Status: built 2026-10-18 (v0.2).
-Files: `src/ragbase_shield/engine/ner.py`, `src/ragbase_shield/engine/merge.py`, the lexicon files listed in
-section 7, `tests/test_v02_ner.py`, the `ner` extra of `pyproject.toml`.
-
-Shield's rules find names and identifiers with lexicons, check digits and context. The NER layer adds a local
-encoder model (GLiNER2 or GLiNER) that finds what the rules miss: first names alone, nicknames, initials, typos,
+Shield has two modes. Fast mode (the default; technical name: rules) finds names and identifiers with lexicons,
+check digits and context. Precise mode adds a local AI model for name recognition (technical name: GLiNER; the
+models are GLiNER2 and GLiNER). The model finds what the rules miss: first names alone, nicknames, initials, typos,
 names in file names and e-mail subjects, organisations without a legal form. Every span it proposes passes the
 precision guards of `merge.py` before it becomes a candidate. The rules keep the last word on the kind of a span.
+
+Section 1 shows how to turn Precise mode on. The other sections are the technical reference of the layer, for
+developers.
+
+Files: `src/ragbase_shield/engine/ner.py`, `src/ragbase_shield/engine/merge.py`, the lexicon files listed in
+section 7, `tests/test_v02_ner.py`, the `ner` extra of `pyproject.toml`.
 
 ## 1. Install and download
 
@@ -29,7 +32,7 @@ A model cached in the user's own Hugging Face cache (`HF_HUB_CACHE`, `HF_HOME/hu
 is found too. A snapshot folder copied by hand into `<models dir>/<repo name>` works as well.
 
 On Intel macOS the last torch is 2.2.2 and transformers must stay under 5 (the extra pins `transformers<5`).
-Windows packaging of torch is out of scope for v0.2.
+The one-click installers do not include the model yet: install it with uv or pip.
 
 ## 2. Settings
 
@@ -67,7 +70,7 @@ snapshot_dir(spec, roots=None) -> Path | None ; model_cached(key) -> bool ; unlo
 ```
 
 Backends: `Gliner2Backend` (fastino, package `gliner2`), `GlinerBackend` (urchade, package `gliner`),
-`SpacyBackend` (the v0.1 French spaCy model), `CallableBackend(fn, labels)` for tests and custom models.
+`SpacyBackend` (a French spaCy model), `CallableBackend(fn, labels)` for tests and custom models.
 `kinds` limits the labels asked from the model (fewer labels, faster inference).
 
 ### Label maps and default thresholds
@@ -83,8 +86,8 @@ Backends: `Gliner2Backend` (fastino, package `gliner2`), `GlinerBackend` (urchad
 | ID_CODE | government_id, national_id_number, passport_number, drivers_license_number, license_number, tax_id, tax_number, ip_address, password, secret, api_key, access_token, recovery_code; custom vessel, building, school | passport number, license plate number, ip address, identity card number, national id number, driver's license number, tax identification number; custom vessel name, building name, school | 0.50 |
 | ignored | city, state_or_region, postal_code, country, iban, card_*, sensitive_date, document_date, expiration_date, transaction_date | the rest | |
 
-The kinds USERNAME, EMPLOYEE_ID and ACCOUNT_NUMBER exist in `types.KINDS` only once the DETECTORS builder adds them;
-`run_ner` returns them whatever the state of `types.py`, and the masker owner filters with `kinds=`.
+On the masker path, a model find may add only the kinds of `merge.MODEL_KINDS` (PERSON, ORG, ADDRESS, USERNAME,
+EMPLOYEE_ID, ACCOUNT_NUMBER). The other finds of the model are never masked on their own.
 
 ### Chunking, batching, exact offsets
 
@@ -187,46 +190,22 @@ Speed on this Intel Mac (8 cores, torch 2.2.2, 16 threads): fastino loads in 11 
 per second on the first pass; urchade loads in 13 s, about 1,500 characters per second. A second pass over the
 same pages runs from the chunk cache at the rules' speed.
 
-## 6. What the other owners must do for this part to work
+## 6. How the layer plugs into Shield
 
-The layer runs today through the v0.1 plumbing: `Masker(store, ner=ner.as_hook(ner.load_backend()))` masks the
-people and companies the NER adds, keeps courts and legal terms clear, and restores exactly (tests in
-`tests/test_v02_ner.py`). The full design needs these changes in files the NER builder does not own:
+- **Masker** (`engine/masker.py`). On each text the masker runs its rules, then `ner.run_ner` and `merge.merge_ner`
+  with its own rule and structured spans. The masker loads the model on first use, never at construction; the MCP
+  server and Shield Desk start the load in the background. A text longer than `RAGBASE_SHIELD_NER_MAX_CHARS` is
+  masked with the rules only. `Masker.mode` reads `rules`, or `rules+ner:<backend>` when a model is in use. A model
+  find that no second signal confirms is stored with the source `ner`.
+- **Plug-in path.** `Masker(store, ner=ner.as_hook(backend))` plugs a model in through the same guards (tests in
+  `tests/test_v02_ner.py`).
+- **Command line** (`cli.py`). `ragbase-shield ner status` and `ragbase-shield ner download [--model
+  fastino|urchade|all] [--dir DIR] [--dry-run] [--force]`; `doctor` prints the same status lines. The download is a
+  user action: an AI agent's shell cannot start it.
+- **Service** (`service.py`). `status()` has a `ner` block. The hooks, the canary and the label pass never use a
+  model.
 
-1. **masker.py (owner: masker/integrator).** In `__init__`: `ner_model="auto"`; when `use_ner` is None and
-   `ner` is None, `self._backend = ner.load_backend(ner_model)` on the first `mask` (never at construction) and
-   `self.use_ner = ner.ner_installed(ner_model)`. In `_detect`: replace the body of `_ner_candidates` by
-   `spans = ner.run_ner(text, backend, kinds=KINDS_WANTED)` then
-   `merge.merge_ner(text, spans, rule_cands, regex_cands, protected, lang=self.language, org_acronyms=lex.org_acronyms)`
-   and wrap each `MergedSpan` as `_Cand(m.start, m.end, m.kind, "ner", 1)`; skip NER when
-   `len(text) > ner.ner_max_chars()` and report it in `MaskResult.mode`. `Masker.mode` becomes
-   `"rules+ner:" + backend.name`. The per-dossier memory of the design (`store.add(..., source="ner")`, no
-   partial variants for a one-word NER entity until a second sighting) lives in `_detect` / `_apply`, not here.
-   The hook path already gives the merge the rules' spans (`names.detect_names`), so the masker path must pass
-   its own rule candidates instead and not call `detect_names` twice.
-2. **engine/__init__.py (owner: each builder adds its names).** Add
-   `"ner": ("ner_installed", "ner_available", "load_backend", "run_ner", "as_hook", "chunk_text", "download_model", "status")`
-   and `"merge": ("merge_ner", "guard_ner_spans", "is_name_word")` to `_EXPORTS`; the v0.1 names
-   `ner_installed` / `ner_available` of `masker.py` keep their spaCy meaning until the masker owner switches them
-   to `ner.ner_installed` / `ner.ner_available`.
-3. **cli.py (owner: mcp).** Subcommand `ner download [--model fastino|urchade|all] [--dir DIR] [--dry-run]
-   [--force]` calling `ner.download_model(model, models_dir_path=dir, dry_run=..., force=...)`; `ner status`
-   printing `ner.status_lines(lang)`; in `doctor`, replace the single spaCy line by `ner.status_lines("fr")`.
-   The agent-shell rule is unchanged (`download` is a user action).
-4. **service.py (owner: core).** `status()` gains the `ner` block of `ner.status()` (`backend`, `mode`,
-   `models`, `setting`); `Service._masker` passes `ner_model=ner.ner_model_setting()`; hooks, canary, labels keep
-   `use_ner=False`. Optional: start `ner.load_backend()` in a background thread when NER is on so that the first
-   mask does not wait 11 s.
-5. **config.py (owner: core).** May re-export `ner.ner_setting`, `ner.ner_model_setting`, `ner.ner_max_chars`,
-   `ner.ner_threads`, `ner.models_dir` as the accessors of section 2.
-6. **names.py (owner: LOCALE-EN / DETECTORS).** The spelled legal forms of `legal_forms_spelled_fr.txt`
-   (`merge.spelled_forms("fr")`) should also skip in `_org_forward` after a trigger word, so that the rules never
-   start a company name with "par actions simplifiée" or "des copropriétaires" (Judilibre classes 2.4). The
-   merge already applies them to NER spans.
-7. **NOTICE (owner: docs).** Add the model and package licences of section 8.
-8. **vault.py (owner: SYNTH).** `EntityStore.add(kind, value, norm, source="detected")` so that the masker can
-   record `source="ner"` (design 4.2); `MemoryStore` the same (owner: NER protocol, not yet done because
-   `types.py` is owned by DETECTORS: one line, `def add(self, kind, value, norm, source="detected")`).
+Full contract: ARCHITECTURE.md, section 11.2.
 
 ## 7. Lexicon files of this layer (all written for RAGbase Shield, Apache-2.0)
 
@@ -268,21 +247,13 @@ No GPL, LGPL or AGPL code. The lexicon files are written for RAGbase Shield. Not
 - The canary, the hooks, `scan_text`, `guard_output` and the label pass never use a model (unchanged, service
   owner).
 
-## 10. Open issues
+## 10. Notes
 
-1. The masker path (section 6, item 1) is not wired: until then NER runs through `Masker(ner=as_hook(...))`,
-   which covers PERSON and ORG only; USERNAME, EMPLOYEE_ID and ACCOUNT_NUMBER spans come out of `run_ner` but
-   nothing consumes them before DETECTORS adds the kinds and the masker calls `merge_ner` with `kinds`.
-2. The per-dossier memory containment of a one-word NER entity (design 4.2) needs `Entity.source` and
-   `store.add(..., source=)` (DETECTORS / SYNTH / masker owner).
-3. The trigger-word convention: "Société X" is masked as "Société SOCIETE_A" by the rules and by the merge. A
-   benchmark that counts the trigger as part of the gold span scores it as a partial mask (2 of the 18 context
-   items of the dev snippets). Founder decision, with the legal-form switch of design decision 1.
-4. `vocab_fr.txt` is hand-written (2,400 words). The Gutenberg build of the design needs a download that is not
-   approved; the local Judilibre pool holds only the 200 test decisions, so it cannot be a source. A larger
-   vocabulary (20 k forms) would tighten the capitalised-word guard further.
-5. GLiNER v1 (urchade) prints a tokenizer warning ("no maximum length"); chunks stay under its 384-word window,
+1. The trigger word stays in clear: "Société X" is masked as "Société SOCIETE_A", by the rules and by the merge.
+2. `vocab_fr.txt` is hand-written (2,400 words). A larger vocabulary would tighten the capitalised-word guard
+   further.
+3. GLiNER v1 (urchade) prints a tokenizer warning ("no maximum length"); chunks stay under its 384-word window,
    so nothing is truncated. The mDeBERTa "incorrect regex pattern" warning of transformers is cosmetic.
-6. The `gliner2` package pulls `requests` through transformers; the library test `test_library_has_no_network_client`
+4. The `gliner2` package pulls `requests` through transformers; the library test `test_library_has_no_network_client`
    checks Shield's own modules only, which import nothing from the network stack (the download helper imports
    `huggingface_hub` lazily, inside `download_model`).

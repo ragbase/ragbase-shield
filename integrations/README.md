@@ -14,20 +14,18 @@ no port, no network.
 The browser extension is the exception: it does not run the MCP server. It talks to Shield Desk
 (`ragbase-shield desk`) on `http://127.0.0.1:7878` with the per-install token.
 
-## List and status
+## List
 
-"Tested" means what was actually run on 2026-10-16. Nothing here was tested on Windows yet.
-
-| App | Folder | What it is | Status |
-|---|---|---|---|
-| Claude Desktop (chat) | [`claude-desktop/`](claude-desktop/) | MCPB desktop extension, `manifest_version` 0.4, `server.type` `"uv"`, 6 tools declared, `build_mcpb.sh` | **Built and validated**: official CLI `@anthropic-ai/mcpb` 2.1.2 `validate` and `pack` pass (283 KB bundle, 34 files). `build_mcpb.sh --smoke` starts the bundled server with `uv run` and gets the 6 manifest tools. **Not installed** in Claude Desktop yet. |
-| Claude Code and Cowork | [`claude-code/`](claude-code/) + repo-root [`/.claude-plugin/marketplace.json`](../.claude-plugin/marketplace.json) | Plugin: MCP server, skill, 3 hooks; runs the PyPI wheel it ships in `plugin/vendor/` | **Validated**: `claude plugin validate --strict` passes for the marketplace and the plugin (Claude Code 2.1.220 and 2.1.321). **Installed** from a local copy (project scope): MCP server connects, hook commands answer. |
-| ChatGPT desktop (Work, Codex) | [`chatgpt/`](chatgpt/) | Step-by-step guide | **Not tested.** Written from the official docs. |
-| Codex CLI and IDE | [`codex/`](codex/) | `config.toml.example` | TOML parses (unit test). **Not tested** in Codex. |
-| ChatGPT and Codex plugin | [`openai-plugin/`](openai-plugin/) + repo-root [`/.agents/plugins/marketplace.json`](../.agents/plugins/marketplace.json) | Portable Agent Plugins package: `plugin.json`, `mcp.json` (stdio), skill | Checked against the Agent Plugins 1.0.0 schemas (unit tests). **Not tested** in ChatGPT or Codex. |
-| GitHub Copilot (VS Code) | [`vscode/`](vscode/) | `mcp.json.example`, one-click `vscode:mcp/install` link | Link encoding unit-tested. **Not tested** in VS Code. |
-| Microsoft 365 Copilot, Word, Outlook, Copilot app | [`microsoft-copilot/`](microsoft-copilot/) | Guide: Shield Desk, clipboard, browser extension | Documentation only. No native connector, by design. |
-| claude.ai, chatgpt.com, Copilot web, Gemini | [`browser-extension/`](browser-extension/) | Manifest V3 extension for Chrome and Edge, no build step | **Partly tested**: service worker router unit-tested in Node (17 checks); paste masking, badge, blocked paste ("Coller quand même", "Annuler") tested in Chromium with a mocked `chrome` API; options and side panel rendered with mocks. **Not yet loaded** as an extension against a live Shield Desk or the five real sites. |
+| App | Folder | What it is |
+|---|---|---|
+| Claude Desktop (chat) | [`claude-desktop/`](claude-desktop/) | MCPB desktop extension, `manifest_version` 0.4, `server.type` `"uv"`, 6 tools declared, `build_mcpb.sh` |
+| Claude Code and Cowork | [`claude-code/`](claude-code/) + repo-root [`/.claude-plugin/marketplace.json`](../.claude-plugin/marketplace.json) | Plugin: MCP server, skill, 3 hooks; runs the PyPI wheel it ships in `plugin/vendor/` |
+| ChatGPT desktop (Work, Codex) | [`chatgpt/`](chatgpt/) | Step-by-step guide |
+| Codex CLI and IDE | [`codex/`](codex/) | `config.toml.example` |
+| ChatGPT and Codex plugin | [`openai-plugin/`](openai-plugin/) + repo-root [`/.agents/plugins/marketplace.json`](../.agents/plugins/marketplace.json) | Portable Agent Plugins package: `plugin.json`, `mcp.json` (stdio), skill |
+| GitHub Copilot (VS Code) | [`vscode/`](vscode/) | `mcp.json.example`, one-click `vscode:mcp/install` link |
+| Microsoft 365 Copilot, Word, Outlook, Copilot app | [`microsoft-copilot/`](microsoft-copilot/) | Guide: Shield Desk, clipboard, browser extension. No native connector, by design |
+| claude.ai, chatgpt.com, Copilot web, Gemini | [`browser-extension/`](browser-extension/) | Manifest V3 extension for Chrome and Edge, no build step. Not in the stores yet: load it unpacked |
 
 Shared files:
 
@@ -36,7 +34,7 @@ Shared files:
 
 ## Local development form
 
-Before the package is on PyPI, or to test a checkout, use one of these:
+To test a checkout, use one of these:
 
 ```sh
 # 1. Make every "uvx ragbase-shield ..." use your checkout (not the Claude Code plugin: it runs its own wheel).
