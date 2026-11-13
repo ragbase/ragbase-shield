@@ -17,7 +17,7 @@ Sommaire :
 - [Pour les avocats : l'essentiel](#pour-les-avocats--lessentiel)
 - [Installer](#installer)
 - [Utiliser au quotidien](#utiliser-au-quotidien)
-- [Résultats : essai comparatif public du 11 novembre 2026](#résultats--essai-comparatif-public-du-11-novembre-2026)
+- [Résultats](#résultats)
 - [Les limites (à lire)](#les-limites-à-lire)
 - [Le modèle de confidentialité en 5 lignes](#le-modèle-de-confidentialité-en-5-lignes)
 - [Pour les développeurs et l'informatique du cabinet](#pour-les-développeurs-et-linformatique-du-cabinet)
@@ -190,210 +190,30 @@ Pour les habitués du terminal, la même chose en deux commandes :
 
 ---
 
-## Résultats : essai comparatif public du 11 novembre 2026
+## Résultats
 
-Fichier complet, avec chaque jeu de données, chaque mode, chaque statut, la méthode et les limites :
-[evaluation/laptop/RESULTS_PUBLIC.md](evaluation/laptop/RESULTS_PUBLIC.md) (en français d'abord, puis en anglais).
-Protocole fixé d'avance : [PROTOCOL.md](evaluation/laptop/PROTOCOL.md) et ses addenda, dans le même dossier.
+Tout masquer est facile, mais l'IA ne peut plus travailler. Shield masque les données de vos clients et garde le droit
+lisible. Nous avons mesuré Shield face à Hexagone et à Presidio sur quatre benchmarks en français, dont deux publics.
 
-À lire avant les chiffres :
+| | Shield 0.4.0 Rapide | Shield 0.4.0 Précis | Hexagone 0.3.9 Rapide | Hexagone 0.3.9 Précis | Presidio 2.2.364 |
+|---|---|---|---|---|---|
+| **Score global (F1), plus haut = mieux** | | | | | |
+| FR-PII-Bench (public) | **96,9** | 96,2 | 80,7 | 80,7 | 66,5 |
+| MAPA (public) | 80,4 | **82,2** | 43,8 | 37,9 | 63,5 |
+| REF | **97,1** | **97,1** | 66,7 | 61,1 | 79,2 |
+| Max | **95,3** | 91,8 | 54,0 | 48,9 | 47,4 |
+| **Termes juridiques modifiés, plus bas = mieux** | | | | | |
+| MAPA (public) | **0,0 %** | **0,0 %** | 43,1 % | 47,6 % | 18,0 % |
+| REF | **4,1 %** | **4,1 %** | 17,8 % | 47,1 % | 15,3 % |
+| Max | **2,1 %** | 4,2 % | 47,2 % | 58,3 % | 55,6 % |
+| **Vitesse et mémoire, plus bas = mieux** | | | | | |
+| Temps pour un document | **0,59 s** | 17,4 s | 26,93 s | 9 min | 1,59 s |
+| Mémoire au pic | **74 à 75 Mo** | 3,8 Go | 1,6 à 1,7 Go | 3,8 à 5,4 Go | 0,57 Go |
 
-- **Shield 0.4.0 a été construit après que les premiers résultats de cet essai ont été connus. Aucun jeu de
-  données n'est « tenu à l'écart » pour Shield 0.4.0. Hexagone 0.3.9 et Presidio 2.2.364 ont été mesurés en
-  octobre 2026 et n'ont pas été relancés.** La comparaison est donc : Shield de novembre contre les autres outils
-  d'octobre.
-- Shield est notre produit (RAGbase). Cet essai est fait par nous.
-- Statut de chaque jeu pour Shield 0.4.0 : REF (pas tenu à l'écart : écrit par l'équipe Shield, résultats de la
-  0.3.1 connus), FR-PII-Bench et MAPA (contrôle), Max (contrôle, avec une correction venue de cet essai),
-  Judilibre (pas tenu à l'écart pour la 0.4.0), anglais (développement).
-- Machine : une VM Windows (6 cœurs, 16 Go, sans carte graphique). Ce n'est pas un portable.
-- « Shield 0.4.0 règles » est le réglage par défaut du produit. « Shield 0.4.0 GLiNER » veut dire règles plus le
-  modèle GLiNER sur processeur.
-- Tonic : mesuré en interne, non publié (conditions de Tonic).
+Rapide est le mode par défaut. Précis ajoute un modèle d'IA qui tourne sur votre ordinateur. La meilleure valeur de
+chaque ligne est en gras.
 
-**Résultat selon la règle fixée d'avance** (section 11.3 du protocole ; addendum 4, section 20.9). Pour Shield
-0.4.0, la seule formulation permise est : « les conditions de la section 11.3 sont remplies » ou « ne sont pas
-remplies ».
-
-| Lecture | Contre Hexagone Rapide | Contre Hexagone Précis |
-|---|---|---|
-| Shield 0.4.0, les deux lignes ensemble (lecture de la Table 3) | **conditions non remplies** | **conditions non remplies** |
-| Shield 0.4.0 règles, réglage par défaut du produit (S-R4) | conditions non remplies | conditions non remplies |
-| Shield 0.4.0 GLiNER (S-N4) | conditions non remplies | conditions non remplies |
-| Pour mémoire : Shield 0.3.1, octobre (Table 3) | conditions non remplies | conditions non remplies |
-
-Raison, la même pour chaque ligne : sur REF (pas tenu à l'écart), Hexagone Rapide et Hexagone Précis laissent moins de
-données personnelles lisibles que Shield 0.4.0, avec un écart net. Écarts nets dans le même sens sur MAPA (contrôle)
-et sur l'anglais (développement) pour Hexagone Rapide et Précis, et sur FR-PII-Bench (contrôle) pour Hexagone Précis.
-Détail : Table 14. Tonic : mesuré en interne, non publié (conditions de Tonic). La vitesse n'entre pas dans cette
-règle.
-
-**Chiffres clés** (plus bas = mieux ; VM, pas un portable). La colonne « Statut » rappelle le statut de REF et de
-Judilibre pour chaque ligne.
-
-| Outil | Statut de REF et de Judilibre pour cette ligne | Données personnelles lisibles, REF | Termes juridiques changés, REF | Termes juridiques changés, Judilibre | Temps médian, un fichier REF de 10 pages | Mémoire, REF |
-|---|---|---|---|---|---|---|
-| Shield 0.4.0 règles | pas tenus à l'écart (résultats de la 0.3.1 connus) | 56 sur 1 015 (5,5 %) | 15 sur 365 (4,1 %) | 296 sur 6 136 (4,8 %) ; sous-ensemble de 50 : 88 sur 1 476 (6,0 %) | 0,59 s (11 novembre) | 74 à 75 Mo |
-| Shield 0.4.0 GLiNER | pas tenus à l'écart (résultats de la 0.3.1 connus) | 56 sur 1 015 (5,5 %) | 15 sur 365 (4,1 %) | 1 048 sur 6 136 (17,1 %) ; 50 : 233 (15,8 %) | 17,4 s (11 novembre) | 3,8 Go |
-| Shield 0.3.1 règles | REF inventé ; Judilibre tenu à l'écart | 56 sur 1 015 (5,5 %) | 15 sur 365 (4,1 %) | 296 sur 6 136 (4,8 %) ; 50 : 88 (6,0 %) | 0,75 s (25 octobre) | 74 Mo |
-| Shield 0.3.1 GLiNER | REF inventé ; Judilibre tenu à l'écart | 56 sur 1 015 (5,5 %) | 15 sur 365 (4,1 %) | 1 048 sur 6 136 (17,1 %) ; 50 : 233 (15,8 %) | 23 s (25 octobre) | 3,7 Go |
-| Hexagone Rapide | REF nouveau ; Judilibre tenu à l'écart | 38 sur 1 015 (3,7 %) | 65 sur 365 (17,8 %) | 2 264 sur 6 136 (36,9 %) ; 50 : 581 (39,4 %) | 27 s (octobre) | 1,6 à 1,7 Go |
-| Hexagone Précis | REF nouveau ; Judilibre tenu à l'écart | 1 sur 1 015 (0,1 %) | 172 sur 365 (47,1 %) | sous-ensemble de 50 seulement : 637 sur 1 476 (43,2 %) | 540 s, soit 9 min (octobre, partiel) | 3,8 à 5,4 Go |
-| Presidio | REF nouveau ; Judilibre tenu à l'écart | 249 sur 1 015 (24,5 %) | 56 sur 365 (15,3 %) | 911 sur 6 136 (14,8 %) ; 50 : 234 (15,9 %) | 1,6 s (25 octobre) | 0,57 Go |
-| Tonic (cloud) | | mesuré en interne, non publié (conditions de Tonic) | | | | |
-
-En bref (les résultats de la Table 13, dans les deux sens) :
-
-- **Le compromis.** Sur REF (pas tenu à l'écart), Shield 0.4.0 laisse plus de données personnelles lisibles
-  qu'Hexagone, et il change beaucoup moins de termes juridiques (juridictions, lois, codes, articles).
-- **Données personnelles lisibles (P1), là où Hexagone en laisse moins.** Hexagone Rapide et Hexagone Précis :
-  sur REF (pas tenu à l'écart), MAPA (contrôle) et l'anglais (développement). Hexagone Précis aussi sur
-  FR-PII-Bench (contrôle).
-- **Données personnelles lisibles (P1), là où Shield 0.4.0 en laisse moins.** Contre Hexagone Rapide sur
-  FR-PII-Bench (contrôle). Contre Presidio sur REF, FR-PII-Bench, Max et Judilibre. Sur l'anglais, Presidio en
-  laisse moins que Shield 0.4.0 règles, et Shield 0.4.0 GLiNER en laisse moins que Presidio.
-- **Pas d'écart net (P1).** Avec Hexagone Rapide et Hexagone Précis sur Max (contrôle, avec une correction venue
-  de cet essai) et sur Judilibre (pas tenu à l'écart pour la 0.4.0). Avec Presidio sur MAPA.
-- **Termes juridiques changés (P2).** Les deux lignes Shield 0.4.0 changent moins de termes juridiques
-  qu'Hexagone Rapide et Précis sur chaque jeu qui en contient. Contre Presidio : moins sur REF, MAPA et Max pour
-  les deux lignes, et sur Judilibre pour la ligne règles ; pas d'écart net sur Judilibre pour la ligne GLiNER.
-- **Shield 0.4.0 contre 0.3.1.** En mode règles, le texte de sortie est identique sur REF, FR-PII-Bench, MAPA et
-  Judilibre. En mode GLiNER, sur l'anglais (développement), Shield 0.4.0 laisse plus de noms d'organisation
-  lisibles que la 0.3.1 : un écart net en défaveur de la 0.4.0.
-- **Vitesse.** Nous ne disons pas que la 0.4.0 est plus rapide que la 0.3.1 : les deux séances ont 16 jours
-  d'écart, sur la même VM.
-
-<details>
-<summary>Chaque jeu, P1 et P2, les deux lignes Shield 0.4.0 (Tables 12, 13, 14 et 16 du fichier public, en anglais, telles qu'elles y sont imprimées)</summary>
-
-P1 = données personnelles du corrigé encore lisibles (plus bas = mieux). P2 = termes juridiques qui doivent rester
-en clair et qui ont été changés (plus bas = mieux). Entre parenthèses : taux et intervalle de Wilson à 95 %. Les
-lignes d'octobre sont imprimées de nouveau pour la lecture.
-
-**Table 12. P1 protection and P2 over-masking with the Shield 0.4.0 rows**
-
-| Set | Row | Status of the set for this row | Docs (failed) | P1 exposed, strict | P1 exposed, value | P2 must-stay-clear altered |
-|---|---|---|---|---|---|---|
-| REF | S-R4, Shield 0.4.0 rules | not held-out: team-written, 0.3.1 results known; unused by record | 5 (0) | 56 of 1,015 (5.5 %; 4.3 to 7.1) | 31 of 1,015 (3.1 %; 2.2 to 4.3) | 15 of 365 (4.1 %; 2.5 to 6.7) |
-| REF | S-N4, Shield 0.4.0 rules + GLiNER | not held-out: team-written, 0.3.1 results known; unused by record | 5 (0) | 56 of 1,015 (5.5 %; 4.3 to 7.1) | 31 of 1,015 (3.1 %; 2.2 to 4.3) | 15 of 365 (4.1 %; 2.5 to 6.7) |
-| REF | S-R, Shield 0.3.1 rules | invented | 5 (0) | 56 of 1,015 (5.5 %; 4.3 to 7.1) | 31 of 1,015 (3.1 %; 2.2 to 4.3) | 15 of 365 (4.1 %; 2.5 to 6.7) |
-| REF | S-N, Shield 0.3.1 rules + GLiNER | invented | 5 (0) | 56 of 1,015 (5.5 %; 4.3 to 7.1) | 31 of 1,015 (3.1 %; 2.2 to 4.3) | 15 of 365 (4.1 %; 2.5 to 6.7) |
-| REF | H-F, Hexagone 0.3.9 Fast | new to every other tool | 5 (0) | 38 of 1,015 (3.7 %; 2.7 to 5.1) | 9 of 1,015 (0.9 %; 0.5 to 1.7) | 65 of 365 (17.8 %; 14.2 to 22.1) |
-| REF | H-P, Hexagone 0.3.9 Precis | new to every other tool | 5 (0) | 1 of 1,015 (0.1 %; 0.0 to 0.6) | 1 of 1,015 (0.1 %; 0.0 to 0.6) | 172 of 365 (47.1 %; 42.1 to 52.2) |
-| REF | P, Presidio 2.2.364 | new to every other tool | 5 (0) | 249 of 1,015 (24.5 %; 22.0 to 27.3) | 185 of 1,015 (18.2 %; 16.0 to 20.7) | 56 of 365 (15.3 %; 12.0 to 19.4) |
-| FR-PII-Bench | S-R4, Shield 0.4.0 rules | gate | 300 (0) | 36 of 2,105 (1.7 %; 1.2 to 2.4) | 27 of 2,105 (1.3 %; 0.9 to 1.9) | no items |
-| FR-PII-Bench | S-N4, Shield 0.4.0 rules + GLiNER | gate | 300 (0) | 26 of 2,105 (1.2 %; 0.8 to 1.8) | 18 of 2,105 (0.9 %; 0.5 to 1.3) | no items |
-| FR-PII-Bench | S-R, Shield 0.3.1 rules | informed | 300 (0) | 36 of 2,105 (1.7 %; 1.2 to 2.4) | 27 of 2,105 (1.3 %; 0.9 to 1.9) | no items |
-| FR-PII-Bench | S-N, Shield 0.3.1 rules + GLiNER | informed | 300 (0) | 26 of 2,105 (1.2 %; 0.8 to 1.8) | 18 of 2,105 (0.9 %; 0.5 to 1.3) | no items |
-| FR-PII-Bench | H-F, Hexagone 0.3.9 Fast | not seen by the other tools, as far as we know | 300 (0) | 72 of 2,105 (3.4 %; 2.7 to 4.3) | 45 of 2,105 (2.1 %; 1.6 to 2.8) | no items |
-| FR-PII-Bench | H-P, Hexagone 0.3.9 Precis | not seen by the other tools, as far as we know | 300 (0) | 3 of 2,105 (0.1 %; 0.0 to 0.4) | 3 of 2,105 (0.1 %; 0.0 to 0.4) | no items |
-| FR-PII-Bench | P, Presidio 2.2.364 | not seen by the other tools, as far as we know | 300 (0) | 918 of 2,105 (43.6 %; 41.5 to 45.7) | 543 of 2,105 (25.8 %; 24.0 to 27.7) | no items |
-| MAPA | S-R4, Shield 0.4.0 rules | gate | 19 (0) | 319 of 1,615 (19.8 %; 17.9 to 21.8) | 286 of 1,615 (17.7 %; 15.9 to 19.6) | 0 of 1,344 (0.0 %; 0.0 to 0.3) |
-| MAPA | S-N4, Shield 0.4.0 rules + GLiNER | gate | 19 (0) | 222 of 1,615 (13.7 %; 12.2 to 15.5) | 189 of 1,615 (11.7 %; 10.2 to 13.4) | 0 of 1,344 (0.0 %; 0.0 to 0.3) |
-| MAPA | S-R, Shield 0.3.1 rules | informed | 19 (0) | 319 of 1,615 (19.8 %; 17.9 to 21.8) | 286 of 1,615 (17.7 %; 15.9 to 19.6) | 0 of 1,344 (0.0 %; 0.0 to 0.3) |
-| MAPA | S-N, Shield 0.3.1 rules + GLiNER | informed | 19 (0) | 222 of 1,615 (13.7 %; 12.2 to 15.5) | 189 of 1,615 (11.7 %; 10.2 to 13.4) | 0 of 1,344 (0.0 %; 0.0 to 0.3) |
-| MAPA | H-F, Hexagone 0.3.9 Fast | not seen by the other tools, as far as we know | 19 (0) | 89 of 1,615 (5.5 %; 4.5 to 6.7) | 58 of 1,615 (3.6 %; 2.8 to 4.6) | 579 of 1,344 (43.1 %; 40.5 to 45.7) |
-| MAPA | H-P, Hexagone 0.3.9 Precis | not seen by the other tools, as far as we know | 19 (0) | 100 of 1,615 (6.2 %; 5.1 to 7.5) | 90 of 1,615 (5.6 %; 4.6 to 6.8) | 640 of 1,344 (47.6 %; 45.0 to 50.3) |
-| MAPA | P, Presidio 2.2.364 | not seen by the other tools, as far as we know | 19 (0) | 294 of 1,615 (18.2 %; 16.4 to 20.2) | 216 of 1,615 (13.4 %; 11.8 to 15.1) | 242 of 1,344 (18.0 %; 16.0 to 20.2) |
-| Max, 33 documents | S-R4, Shield 0.4.0 rules | gate, with a fix from this study | 33 (0) | 52 of 1,003 (5.2 %; 4.0 to 6.7) | 48 of 1,003 (4.8 %; 3.6 to 6.3) | 3 of 144 (2.1 %; 0.7 to 5.9) |
-| Max, 33 documents | S-N4, Shield 0.4.0 rules + GLiNER | gate, with a fix from this study | 33 (0) | 48 of 1,003 (4.8 %; 3.6 to 6.3) | 41 of 1,003 (4.1 %; 3.0 to 5.5) | 6 of 144 (4.2 %; 1.9 to 8.8) |
-| Max, 33 documents | S-R, Shield 0.3.1 rules | informed | 33 (1) | 54 of 1,003 (5.4 %; 4.1 to 7.0) | 50 of 1,003 (5.0 %; 3.8 to 6.5) | 3 of 144 (2.1 %; 0.7 to 5.9) |
-| Max, 33 documents | S-N, Shield 0.3.1 rules + GLiNER | informed | 33 (1) | 50 of 1,003 (5.0 %; 3.8 to 6.5) | 43 of 1,003 (4.3 %; 3.2 to 5.7) | 6 of 144 (4.2 %; 1.9 to 8.8) |
-| Max, 33 documents | H-F, Hexagone 0.3.9 Fast | not seen by the other tools, as far as we know | 33 (2) | 67 of 1,003 (6.7 %; 5.3 to 8.4) | 56 of 1,003 (5.6 %; 4.3 to 7.2) | 68 of 144 (47.2 %; 39.2 to 55.3) |
-| Max, 33 documents | H-P, Hexagone 0.3.9 Precis | not seen by the other tools, as far as we know | 33 (2) | 38 of 1,003 (3.8 %; 2.8 to 5.2) | 33 of 1,003 (3.3 %; 2.4 to 4.6) | 84 of 144 (58.3 %; 50.2 to 66.1) |
-| Max, 33 documents | P, Presidio 2.2.364 | not seen by the other tools, as far as we know | 33 (0) | 393 of 1,003 (39.2 %; 36.2 to 42.2) | 315 of 1,003 (31.4 %; 28.6 to 34.3) | 80 of 144 (55.6 %; 47.4 to 63.4) |
-| Max without the workbook, 32 documents | S-R4, Shield 0.4.0 rules | gate, with a fix from this study | 32 (0) | 52 of 1,001 (5.2 %; 4.0 to 6.7) | 48 of 1,001 (4.8 %; 3.6 to 6.3) | 3 of 144 (2.1 %; 0.7 to 5.9) |
-| Max without the workbook, 32 documents | S-N4, Shield 0.4.0 rules + GLiNER | gate, with a fix from this study | 32 (0) | 48 of 1,001 (4.8 %; 3.6 to 6.3) | 41 of 1,001 (4.1 %; 3.0 to 5.5) | 6 of 144 (4.2 %; 1.9 to 8.8) |
-| Max without the workbook, 32 documents | S-R, Shield 0.3.1 rules | informed | 32 (0) | 52 of 1,001 (5.2 %; 4.0 to 6.7) | 48 of 1,001 (4.8 %; 3.6 to 6.3) | 3 of 144 (2.1 %; 0.7 to 5.9) |
-| Max without the workbook, 32 documents | S-N, Shield 0.3.1 rules + GLiNER | informed | 32 (0) | 48 of 1,001 (4.8 %; 3.6 to 6.3) | 41 of 1,001 (4.1 %; 3.0 to 5.5) | 6 of 144 (4.2 %; 1.9 to 8.8) |
-| Max without the workbook, 32 documents | H-F, Hexagone 0.3.9 Fast | not seen by the other tools, as far as we know | 32 (1) | 65 of 1,001 (6.5 %; 5.1 to 8.2) | 54 of 1,001 (5.4 %; 4.2 to 7.0) | 68 of 144 (47.2 %; 39.2 to 55.3) |
-| Max without the workbook, 32 documents | H-P, Hexagone 0.3.9 Precis | not seen by the other tools, as far as we know | 32 (1) | 36 of 1,001 (3.6 %; 2.6 to 4.9) | 31 of 1,001 (3.1 %; 2.2 to 4.4) | 84 of 144 (58.3 %; 50.2 to 66.1) |
-| Max without the workbook, 32 documents | P, Presidio 2.2.364 | not seen by the other tools, as far as we know | 32 (0) | 392 of 1,001 (39.2 %; 36.2 to 42.2) | 314 of 1,001 (31.4 %; 28.6 to 34.3) | 80 of 144 (55.6 %; 47.4 to 63.4) |
-| Judilibre, 200 decisions | S-R4, Shield 0.4.0 rules | not held-out: 0.3.1 results known, same-source gate; unused by record | 200 (0) | 6 of 673 (0.9 %; 0.4 to 1.9) | 2 of 673 (0.3 %; 0.1 to 1.1) | 296 of 6,136 (4.8 %; 4.3 to 5.4) |
-| Judilibre, 200 decisions | S-N4, Shield 0.4.0 rules + GLiNER | not held-out: 0.3.1 results known, same-source gate; unused by record | 200 (0) | 4 of 673 (0.6 %; 0.2 to 1.5) | 2 of 673 (0.3 %; 0.1 to 1.1) | 1,048 of 6,136 (17.1 %; 16.2 to 18.0) |
-| Judilibre, 200 decisions | S-R, Shield 0.3.1 rules | held-out | 200 (0) | 6 of 673 (0.9 %; 0.4 to 1.9) | 2 of 673 (0.3 %; 0.1 to 1.1) | 296 of 6,136 (4.8 %; 4.3 to 5.4) |
-| Judilibre, 200 decisions | S-N, Shield 0.3.1 rules + GLiNER | held-out | 200 (0) | 4 of 673 (0.6 %; 0.2 to 1.5) | 2 of 673 (0.3 %; 0.1 to 1.1) | 1,048 of 6,136 (17.1 %; 16.2 to 18.0) |
-| Judilibre, 200 decisions | H-F, Hexagone 0.3.9 Fast | held-out | 200 (0) | 11 of 673 (1.6 %; 0.9 to 2.9) | 8 of 673 (1.2 %; 0.6 to 2.3) | 2,264 of 6,136 (36.9 %; 35.7 to 38.1) |
-| Judilibre, 200 decisions | P, Presidio 2.2.364 | held-out | 200 (0) | 93 of 673 (13.8 %; 11.4 to 16.6) | 68 of 673 (10.1 %; 8.0 to 12.6) | 911 of 6,136 (14.8 %; 14.0 to 15.8) |
-| Judilibre, Precis subset of 50 | S-R4, Shield 0.4.0 rules | not held-out: 0.3.1 results known, same-source gate; unused by record | 50 (0) | 3 of 194 (1.5 %; 0.5 to 4.4) | 1 of 194 (0.5 %; 0.1 to 2.9) | 88 of 1,476 (6.0 %; 4.9 to 7.3) |
-| Judilibre, Precis subset of 50 | S-N4, Shield 0.4.0 rules + GLiNER | not held-out: 0.3.1 results known, same-source gate; unused by record | 50 (0) | 1 of 194 (0.5 %; 0.1 to 2.9) | 1 of 194 (0.5 %; 0.1 to 2.9) | 233 of 1,476 (15.8 %; 14.0 to 17.7) |
-| Judilibre, Precis subset of 50 | S-R, Shield 0.3.1 rules | held-out | 50 (0) | 3 of 194 (1.5 %; 0.5 to 4.4) | 1 of 194 (0.5 %; 0.1 to 2.9) | 88 of 1,476 (6.0 %; 4.9 to 7.3) |
-| Judilibre, Precis subset of 50 | S-N, Shield 0.3.1 rules + GLiNER | held-out | 50 (0) | 1 of 194 (0.5 %; 0.1 to 2.9) | 1 of 194 (0.5 %; 0.1 to 2.9) | 233 of 1,476 (15.8 %; 14.0 to 17.7) |
-| Judilibre, Precis subset of 50 | H-F, Hexagone 0.3.9 Fast | held-out | 50 (0) | 2 of 194 (1.0 %; 0.3 to 3.7) | 1 of 194 (0.5 %; 0.1 to 2.9) | 581 of 1,476 (39.4 %; 36.9 to 41.9) |
-| Judilibre, Precis subset of 50 | H-P, Hexagone 0.3.9 Precis | held-out | 50 (0) | 0 of 194 (0.0 %; 0.0 to 1.9) | 0 of 194 (0.0 %; 0.0 to 1.9) | 637 of 1,476 (43.2 %; 40.7 to 45.7) |
-| Judilibre, Precis subset of 50 | P, Presidio 2.2.364 | held-out | 50 (0) | 32 of 194 (16.5 %; 11.9 to 22.4) | 21 of 194 (10.8 %; 7.2 to 16.0) | 234 of 1,476 (15.9 %; 14.1 to 17.8) |
-| English | S-R4, Shield 0.4.0 rules | development set (in-sample) | 241 (0) | 143 of 1,276 (11.2 %; 9.6 to 13.1) | 136 of 1,276 (10.7 %; 9.1 to 12.5) | no items |
-| English | S-N4, Shield 0.4.0 rules + GLiNER | development set (in-sample) | 241 (0) | 49 of 1,276 (3.8 %; 2.9 to 5.0) | 41 of 1,276 (3.2 %; 2.4 to 4.3) | no items |
-| English | S-R, Shield 0.3.1 rules | informed | 241 (0) | 142 of 1,276 (11.1 %; 9.5 to 13.0) | 135 of 1,276 (10.6 %; 9.0 to 12.4) | no items |
-| English | S-N, Shield 0.3.1 rules + GLiNER | informed | 241 (0) | 27 of 1,276 (2.1 %; 1.5 to 3.1) | 23 of 1,276 (1.8 %; 1.2 to 2.7) | no items |
-| English | H-F, Hexagone 0.3.9 Fast | public benchmark; Hexagone publishes numbers on it | 241 (0) | 22 of 1,276 (1.7 %; 1.1 to 2.6) | 15 of 1,276 (1.2 %; 0.7 to 1.9) | no items |
-| English | H-P, Hexagone 0.3.9 Precis | public benchmark; Hexagone publishes numbers on it | 241 (0) | 10 of 1,276 (0.8 %; 0.4 to 1.4) | 8 of 1,276 (0.6 %; 0.3 to 1.2) | no items |
-| English | P, Presidio 2.2.364 | public benchmark; Hexagone publishes numbers on it | 241 (0) | 108 of 1,276 (8.5 %; 7.1 to 10.1) | 107 of 1,276 (8.4 %; 7.0 to 10.0) | no items |
-
-**Table 13. Claims per set for the Shield 0.4.0 rows** (paired bootstrap over documents; a claim needs the whole
-95 % interval on one side of 0; "none" = no clear difference; claims in both directions have the same weight)
-
-| Set (status for Shield 0.4.0) | Shield 0.4.0 row against | P1, S-R4 | P1, S-N4 | P2, S-R4 | P2, S-N4 | Different from the 0.3.1 rows? |
-|---|---|---|---|---|---|---|
-| REF (not held-out: team-written, 0.3.1 results known; unused by record) | H-F | H-F better | H-F better | S-R4 better | S-N4 better | no |
-| REF (not held-out: team-written, 0.3.1 results known; unused by record) | H-P | H-P better | H-P better | S-R4 better | S-N4 better | no |
-| REF (not held-out: team-written, 0.3.1 results known; unused by record) | P | S-R4 better | S-N4 better | S-R4 better | S-N4 better | no |
-| REF (not held-out: team-written, 0.3.1 results known; unused by record) | S-R4 against S-N4 | none | | none | | no |
-| FR-PII-Bench (gate) | H-F | S-R4 better | S-N4 better | no items | no items | no |
-| FR-PII-Bench (gate) | H-F, 30 % cut (sensitivity reading) | S-R4 better | S-N4 better | no items | no items | no |
-| FR-PII-Bench (gate) | H-P | H-P better | H-P better | no items | no items | no |
-| FR-PII-Bench (gate) | H-P, 30 % cut (sensitivity reading) | S-R4 better | S-N4 better | no items | no items | no |
-| FR-PII-Bench (gate) | P | S-R4 better | S-N4 better | no items | no items | no |
-| FR-PII-Bench (gate) | S-R4 against S-N4 | S-N4 better | | no items | | no |
-| MAPA (gate) | H-F | H-F better | H-F better | S-R4 better | S-N4 better | no |
-| MAPA (gate) | H-P | H-P better | H-P better | S-R4 better | S-N4 better | no |
-| MAPA (gate) | P | none | none | S-R4 better | S-N4 better | no |
-| MAPA (gate) | S-R4 against S-N4 | S-N4 better | | none | | no |
-| Max, 33 documents (gate, with a fix from this study) | H-F | none | none | S-R4 better | S-N4 better | no |
-| Max, 33 documents (gate, with a fix from this study) | H-P | none | none | S-R4 better | S-N4 better | no |
-| Max, 33 documents (gate, with a fix from this study) | P | S-R4 better | S-N4 better | S-R4 better | S-N4 better | no |
-| Max, 33 documents (gate, with a fix from this study) | S-R4 against S-N4 | none (readings disagree) | | none | | no |
-| Max without the workbook, 32 documents (gate, with a fix from this study) | H-F | none | none | S-R4 better | S-N4 better | not in Table 2 (new reading) |
-| Max without the workbook, 32 documents (gate, with a fix from this study) | H-P | none | none | S-R4 better | S-N4 better | not in Table 2 (new reading) |
-| Max without the workbook, 32 documents (gate, with a fix from this study) | P | S-R4 better | S-N4 better | S-R4 better | S-N4 better | not in Table 2 (new reading) |
-| Judilibre, 200 decisions (not held-out: 0.3.1 results known, same-source gate; unused by record) | H-F | none | none | S-R4 better | S-N4 better | no |
-| Judilibre, 200 decisions (not held-out: 0.3.1 results known, same-source gate; unused by record) | P | S-R4 better | S-N4 better | S-R4 better | none | no |
-| Judilibre, 200 decisions (not held-out: 0.3.1 results known, same-source gate; unused by record) | S-R4 against S-N4 | none | | S-R4 better | | no |
-| Judilibre, Precis subset of 50 (not held-out: 0.3.1 results known, same-source gate; unused by record) | H-F | none | none | S-R4 better | S-N4 better | no |
-| Judilibre, Precis subset of 50 (not held-out: 0.3.1 results known, same-source gate; unused by record) | H-P | none (the interval touches 0) | none (the interval touches 0) | S-R4 better | S-N4 better | no |
-| Judilibre, Precis subset of 50 (not held-out: 0.3.1 results known, same-source gate; unused by record) | P | S-R4 better | S-N4 better | S-R4 better | none | no |
-| Judilibre, Precis subset of 50 (not held-out: 0.3.1 results known, same-source gate; unused by record) | S-R4 against S-N4 | none | | S-R4 better | | no |
-| English (development set (in-sample)) | H-F | H-F better | H-F better | no items | no items | yes, P1 for S-N4: "none" for the 0.3.1 row |
-| English (development set (in-sample)) | H-P | H-P better | H-P better | no items | no items | no |
-| English (development set (in-sample)) | P | P better | S-N4 better | no items | no items | no |
-| English (development set (in-sample)) | S-R4 against S-N4 | S-N4 better | | no items | | no |
-
-**Table 14. The section 11.3 reading for Shield 0.4.0**
-
-| Overall line | Against Hexagone Fast (H-F) | Against Hexagone Precis (H-P) |
-|---|---|---|
-| Shield 0.4.0 (S-R4 and S-N4 together) | **conditions not met**. Fails: S-R4: no P1 claim on REF (H-F better); S-N4: no P1 claim on REF (H-F better). Opposite claims: S-R4: REF P1; S-R4: MAPA P1; S-R4: English P1; S-N4: REF P1; S-N4: MAPA P1; S-N4: English P1 | **conditions not met**. Fails: S-R4: no P1 claim on REF (H-P better); S-N4: no P1 claim on REF (H-P better). Opposite claims: S-R4: REF P1; S-R4: FR-PII-Bench P1; S-R4: MAPA P1; S-R4: English P1; S-N4: REF P1; S-N4: FR-PII-Bench P1; S-N4: MAPA P1; S-N4: English P1 |
-| Shield 0.3.1 (S-R and S-N together), Table 3 of October, cited as written | No | No |
-
-| Shield row | Against Hexagone Fast (H-F) | Against Hexagone Precis (H-P) | Against Presidio (per set only) |
-|---|---|---|---|
-| S-R4, Shield 0.4.0 rules (product default) | **conditions not met**. Fails: no P1 claim on REF (H-F better). Opposite claims: REF P1; MAPA P1; English P1 | **conditions not met**. Fails: no P1 claim on REF (H-P better). Opposite claims: REF P1; FR-PII-Bench P1; MAPA P1; English P1 | Shield row better: REF P1, REF P2, FR-PII-Bench P1, MAPA P2, Max P1, Max P2, Judilibre P1, Judilibre P2. Presidio better: English P1 |
-| S-N4, Shield 0.4.0 rules + GLiNER | **conditions not met**. Fails: no P1 claim on REF (H-F better). Opposite claims: REF P1; MAPA P1; English P1 | **conditions not met**. Fails: no P1 claim on REF (H-P better). Opposite claims: REF P1; FR-PII-Bench P1; MAPA P1; English P1 | Shield row better: REF P1, REF P2, FR-PII-Bench P1, MAPA P2, Max P1, Max P2, Judilibre P1, English P1. Presidio better: none |
-| S-R, Shield 0.3.1 rules (October files, same rule) | **conditions not met**. Fails: no P1 claim on REF (H-F better). Opposite claims: REF P1; MAPA P1; English P1 | **conditions not met**. Fails: no P1 claim on REF (H-P better). Opposite claims: REF P1; FR-PII-Bench P1; MAPA P1; English P1 | Shield row better: REF P1, REF P2, FR-PII-Bench P1, MAPA P2, Max P1, Max P2, Judilibre P1, Judilibre P2. Presidio better: English P1 |
-| S-N, Shield 0.3.1 rules + GLiNER (the same) | **conditions not met**. Fails: no P1 claim on REF (H-F better). Opposite claims: REF P1; MAPA P1 | **conditions not met**. Fails: no P1 claim on REF (H-P better). Opposite claims: REF P1; FR-PII-Bench P1; MAPA P1; English P1 | Shield row better: REF P1, REF P2, FR-PII-Bench P1, MAPA P2, Max P1, Max P2, Judilibre P1, English P1. Presidio better: none |
-
-**Table 16. Failed documents**
-
-| Set | S-R4 | S-N4 | S-R (October) | S-N (October) | H-F (October) | H-P (October) | P (October) |
-|---|---:|---:|---:|---:|---:|---:|---:|
-| REF (5 documents) | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| FR-PII-Bench (300 documents) | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| MAPA (19 documents) | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| Max (33 documents) | 0 | 0 | 1 | 1 | 2 | 2 | 0 |
-| Judilibre (200 documents) | 0 | 0 | 0 | 0 | 0 | 0 of 50 (subset) | 0 |
-| English (241 documents) | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-
-</details>
+Méthode et résultats détaillés : [evaluation/laptop/RESULTS_PUBLIC.md](evaluation/laptop/RESULTS_PUBLIC.md) (en anglais).
 
 ---
 
@@ -403,9 +223,6 @@ lignes d'octobre sont imprimées de nouveau pour la lecture.
 - **La détection n'est jamais complète.** Un nom que personne n'a enregistré peut passer :
   nom rare, nom étranger, surnom, faute de frappe. Enregistrez les parties de chaque dossier.
   Ce sont elles que Shield masque le plus sûrement.
-- **Dans l'essai comparatif public, Hexagone laisse moins de données personnelles lisibles sur certains jeux**
-  (REF, MAPA et l'anglais ; Hexagone Précis aussi sur FR-PII-Bench). Shield change moins de termes juridiques.
-  Lisez les résultats ci-dessus avec leur statut : aucun jeu n'est tenu à l'écart pour Shield 0.4.0.
 - **Les noms restaurés suivent l'orthographe enregistrée dans le dossier.** « M. Mercadier » peut revenir
   en « M. Thibault Mercadier », et les majuscules peuvent changer. Les identifiants reviennent dans la première
   écriture vue dans le dossier (par exemple « 832 456 719 » pour « 832456719 »). Relisez le document restauré.
@@ -528,7 +345,7 @@ Lancez ces commandes dans votre propre terminal, ou utilisez Shield Desk.
   précision sur de vrais dossiers).
 - Scripts d'évaluation : `evaluation/public/` (benchmarks publics ; données téléchargées dans le dossier
   `.bench_data/`, ignoré par git), `evaluation/holdout-en/` (un corpus anglais inventé), `evaluation/laptop/`
-  (le correcteur et les scripts gelés de l'essai comparatif public).
+  (les scripts et les résultats du benchmark).
 - Installateurs de bureau : [packaging/README.md](packaging/README.md).
 
 ### Variables d'environnement

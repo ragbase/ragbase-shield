@@ -50,8 +50,8 @@ Non. La détection n'est jamais complète. Shield trouve les numéros à clé de
 TVA, carte), les e-mails, les téléphones, les adresses, les références de procédure, les noms précédés d'un
 titre (M., Mme, Me, Maître) ou d'un prénom courant, et les sociétés qui ont une forme juridique (SAS, SARL...). Un nom rare, étranger ou mal orthographié
 peut passer. Enregistrez les parties de chaque dossier : ce sont elles que Shield masque le plus sûrement.
-Les résultats mesurés de l'essai comparatif public sont dans
-[evaluation/laptop/RESULTS_PUBLIC.md](../evaluation/laptop/RESULTS_PUBLIC.md), avec le jeu, le mode et le statut de chaque chiffre.
+Les résultats du benchmark sont dans
+[evaluation/laptop/RESULTS_PUBLIC.md](../evaluation/laptop/RESULTS_PUBLIC.md).
 
 ### Un nom ne doit pas être masqué (un expert judiciaire, une autorité). Que faire ?
 
