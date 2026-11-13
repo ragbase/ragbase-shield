@@ -1,6 +1,6 @@
 # Deviations from the frozen protocol (PROTOCOL.md, PROTOCOL_ADDENDUM_1.md, PREREG.sha256)
 
-> **Public extract (2026-11-12): entries about an internal row are left out.** This extract holds the entries D1 to D24 and D28, the entries that the public results file cites. D25 to D27 and D29 are internal additions and are left out. D30 (2026-11-13, about the home page of the site) was added to this public copy after the extract was made. Inside the kept entries, the Tonic counts and every mention of the internal row are left out, and a few private details are replaced (a marker in square brackets says where). The changes are listed in `PUBLIC_EXTRACT.md`. The original log and the hash lists are kept private.
+> **Public extract (2026-11-12): entries about an internal row are left out.** This extract holds the entries D1 to D24 and D28, the entries that the public results file cites. D25 to D27 and D29 are internal additions and are left out. D30 and D31 (2026-11-13, about the home page of the site and the word-level F1 table) were added to this public copy after the extract was made. Inside the kept entries, the Tonic counts and every mention of the internal row are left out, and a few private details are replaced (a marker in square brackets says where). The changes are listed in `PUBLIC_EXTRACT.md`. The original log and the hash lists are kept private.
 
 All times are UTC ("Z"). This file is a log: it is not frozen (PROTOCOL_ADDENDUM_1.md section 17.6). The only
 sources for hashes are `PREREG_v1.0.sha256`, `PREREG.sha256` (v1.1) and `PREREG_DATA.sha256`.
@@ -33,6 +33,7 @@ sources for hashes are `PREREG_v1.0.sha256`, `PREREG.sha256` (v1.1) and `PREREG_
 | D24 | Check of step 2: independent re-score; text corrections made AFTER the scores were seen | none |
 | D28 | Rows S-R4 and S-N4: Shield 0.4.0, a build made after the first results, run on profile A; competitor rows not run again (before any 0.4.0 output on a laptop set) | none |
 | D30 | Home page of shield.ragbase.ai: a summary table with rows S-R4, S-N4, H-F, H-P and P only; the full 20.13 content stays on the Results page, linked under the table (decided by Hadi) | none |
+| D31 | Word-level precision, recall and F1 of rows S-R4, S-N4, H-F, H-P and P on REF, FR-PII-Bench, MAPA and Max published (Table 18 of the public results file; exploratory, defined after the runs, no claim); the home table of the site shows F1 instead of P1 and P2 (decided by Hadi) | none |
 
 ## D1. Claude operates Hexagone, at Hadi's instruction (2026-10-24, before any Hexagone run)
 
@@ -866,3 +867,53 @@ sources for hashes are `PREREG_v1.0.sha256`, `PREREG.sha256` (v1.1) and `PREREG_
 - **Effect on results.** None. No number changes. `RESULTS_PUBLIC.md`, the protocol files and the Results page do not
   change. Every number of the home table is a number of `RESULTS_PUBLIC.md`: the build of the site checks each one
   against that file.
+
+## D31. Word-level precision, recall and F1 of the public rows published; the home table shows F1 (2026-11-13, decided by Hadi, after every result was known)
+
+- **What rule.** Protocol section 18 (addendum 2, an internal addition; deviation D25, internal) and addendum 4,
+  section 20.10: the word-level precision, recall and F1 are an exploratory reading, added after the runs and not
+  pre-registered, with no claim. Until this entry the public results file did not use that reading
+  (`PUBLIC_EXTRACT.md`, "What is not published"). Addendum 4, section 20.13 ("Public"): a public file keeps the 0.3.1
+  rows next to the 0.4.0 rows and prints the set status for 0.4.0 next to every 0.4.0 number. Section 4.3: Hadi
+  decides on every publication.
+- **What changes in `RESULTS_PUBLIC.md`.** A dated section "Ajout du 13 novembre 2026 / Addition of 13 November
+  2026" after Table 17, with Table 18: the set-level word-level precision, recall and F1 of rows S-R4, S-N4, H-F, H-P
+  and P on the four sets that give an F1 (REF, FR-PII-Bench, MAPA, Max), one line per set and row, with the status of
+  the set for the row of that line (the labels of Table 12). One sentence in the opening paragraph and the D31 row of
+  the deviations table point to it. No other number of the file changes.
+- **Caveats printed with Table 18.** Word level. Defined after the runs; for information only; no test and no claim;
+  not part of any reading rule (section 11.3). Precision counts as an error every changed word that is not on the
+  reference list, legal terms included. On MAPA and Max precision is a lower limit. Judilibre and English give recall
+  only; they are not in Table 18. Shield 0.4.0 was built after the first results; no set is held-out for it; Hexagone
+  and Presidio were measured in October 2026 and not run again. Tonic: measured internally, not published.
+- **What is not published.** The word-level values of rows S-R and S-N (they stay internal; Table 15 shows where the
+  0.4.0 output is identical to the 0.3.1 output); the recall of Judilibre and English; every Tonic value; the text of
+  addendum 2, its script and its per-document files. Table 18 therefore does not keep the 0.3.1 rows next to the 0.4.0
+  rows: this is a departure from 20.13.
+- **Source of the values.** The values are copied, not computed again, from the internal summary of the 0.4.0 results,
+  which reports the reading of addendum 4, section 20.10 (precision, recall and F1 columns of its tables for REF,
+  FR-PII-Bench, MAPA and Max; rows S-R4, S-N4, H-F, H-P and P only). The copy was made by a script that keeps only
+  those five rows.
+- **What changes on the site.** The home table of D30 shows, in place of its P1 and P2 rows, the F1 of rows S-R4,
+  S-N4, H-F, H-P and P, with the precision and the recall in small text under each F1. The two public sets come first
+  (FR-PII-Bench, MAPA), then the two sets written by our team (REF, Max). Bold marks the highest F1 of each row (ties
+  all bold); precision and recall are never bold. The rows of the median time and the peak memory on REF stay as in
+  D30, with bold on the lowest value. Three short notes under the table say: (1) the reading is word level, Shield
+  0.4.0 was tuned with these four sets, and Hexagone and Presidio were measured in October 2026; (2) precision is a
+  lower limit on MAPA and Max; (3) the test machine of the time and memory rows. The tooltip of each F1, precision
+  and recall value gives its source, its set and the status of the set for that row. One link under the table goes to
+  the Results page ("Tous les résultats et la méthode" / "All results and the method").
+- **A further departure from 20.13 and from D30.** The home page no longer prints, above the table, the sentence that
+  20.13 asks for "once, near the top", and it no longer prints the summary sentence of D30. Note 1 under the table
+  carries the two facts in short form (Shield 0.4.0 tuned with these four sets; Hexagone and Presidio measured in
+  October 2026). The home page does not say that the word-level reading was defined after the runs: that caveat, the
+  full sentence of 20.13, the set status of each number, the 0.3.1 rows, the P1 and P2 tables and the failed documents
+  are on the Results page, which the link under the table opens. The Results page gets a section with Table 18 and
+  all its caveats.
+- **Tracing.** Every number of that section and of the home table is a number of `RESULTS_PUBLIC.md`: the build of
+  the site checks each one against that file. The source lines of these two tables link to `RESULTS_PUBLIC.md` and to
+  this file on the main branch of the public repository, because the release tag does not hold Table 18.
+- **Why.** Hadi decided on 2026-11-13 that the home table shows F1, with the precision and the recall under each F1,
+  the public sets first, and short neutral notes in the style of a release table.
+- **Effect on results.** None. No P1, P2, speed or memory number changes. No claim, no verdict and no reading of
+  section 11.3 uses Table 18.

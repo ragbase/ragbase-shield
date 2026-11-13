@@ -5,8 +5,16 @@ sont repris plus bas mot pour mot. Nouveau dans cette version : les lignes Shiel
 (addendum 4 du protocole, écart D28). Le résumé et les tables d'octobre (Shield 0.3.1) ne changent pas. Protocole
 fixé d'avance : [PROTOCOL.md](PROTOCOL.md) v1.0, [PROTOCOL_ADDENDUM_1.md](PROTOCOL_ADDENDUM_1.md) et, pour Shield
 0.4.0, [PROTOCOL_ADDENDUM_4.md](PROTOCOL_ADDENDUM_4.md). Écarts au protocole : [DEVIATIONS.md](DEVIATIONS.md) (D1 à
-D24 pour octobre, D28 pour Shield 0.4.0). Ce document contient seulement des totaux par jeu de données. Il ne
-contient aucun chiffre interne de Tonic et aucun détail par document d'un concurrent.
+D24 pour octobre, D28 pour Shield 0.4.0, D31 pour la Table 18). Ce document contient seulement des totaux par jeu de
+données. Il ne contient aucun chiffre interne de Tonic et aucun détail par document d'un concurrent.
+
+**Ajout du 13 novembre 2026 (écart D31).** La Table 18 donne la précision, le rappel et le F1 par mot de Shield 0.4.0,
+Hexagone et Presidio sur REF, FR-PII-Bench, MAPA et Max. C'est une lecture exploratoire, définie après les essais,
+pour information : sans test et sans affirmation. Aucun autre chiffre de ce fichier ne change. Détail : section
+« Ajout du 13 novembre 2026 », après la Table 17. / **Addition of 13 November 2026 (deviation D31).** Table 18 gives
+the word-level precision, recall and F1 of Shield 0.4.0, Hexagone and Presidio on REF, FR-PII-Bench, MAPA and Max. It
+is an exploratory reading, defined after the runs, for information: no test and no claim. No other number of this
+file changes. Detail: section "Addition of 13 November 2026", after Table 17.
 
 ## Mise à jour du 11 novembre 2026 : Shield 0.4.0
 
@@ -993,6 +1001,79 @@ everything on the VM, with 0 outbound connection attempts in the 20 processes of
 speed processes, 2 pilot processes), by our own process guard. (e) On Max, S-N4 holds 6.5 GB at its peak; on a
 machine with 8 GB this may run short. Profile B and the AVX2-only variant were not run for 0.4.0.
 
+## Ajout du 13 novembre 2026 / Addition of 13 November 2026: word-level precision, recall and F1 (deviation D31)
+
+**Français.** Cette section est ajoutée le 13 novembre 2026, sur décision de Hadi (écart D31). Elle ne change aucun
+autre chiffre de ce fichier. La Table 18 donne la précision, le rappel et le F1 par mot de Shield 0.4.0 (règles et
+GLiNER), Hexagone 0.3.9 (Rapide et Précis) et Presidio 2.2.364, sur les quatre jeux qui donnent un F1 : REF,
+FR-PII-Bench, MAPA et Max.
+
+- Lecture exploratoire, par mot. Elle a été définie après les essais (section 18 du protocole, dans l'addendum 2,
+  interne ; addendum 4, section 20.10). Elle est donnée pour information, sans test et sans affirmation. Elle n'entre
+  dans aucune règle de lecture (section 11.3).
+- Rappel : part des mots à changer que l'outil a changés. Précision : part des mots changés par l'outil qui devaient
+  l'être. F1 : moyenne harmonique de la précision et du rappel ; il est haut seulement quand les deux sont hauts.
+  Plus haut = mieux pour les trois.
+- La précision compte comme une erreur chaque mot changé qui n'est pas sur la liste de référence, termes juridiques
+  compris.
+- Sur MAPA et Max, la précision est une limite basse : la vraie valeur peut être plus haute.
+- Judilibre et l'anglais donnent le rappel seulement, sans F1. Ils ne sont pas dans la Table 18.
+- Shield 0.4.0 a été construit après les premiers résultats de cet essai : aucun jeu n'est tenu à l'écart pour lui. La
+  colonne « Status » donne le statut du jeu pour chaque ligne. Hexagone et Presidio ont été mesurés en octobre 2026 et
+  n'ont pas été relancés.
+- Shield 0.3.1 : ses valeurs par mot ne sont pas publiées. La Table 15 montre où la sortie de Shield 0.4.0 est
+  identique à celle de Shield 0.3.1.
+- Tonic : mesuré en interne, non publié (conditions de Tonic).
+
+**English.** This section was added on 13 November 2026, by Hadi's decision (deviation D31). It changes no other
+number of this file. Table 18 gives the word-level precision, recall and F1 of Shield 0.4.0 (rules and GLiNER),
+Hexagone 0.3.9 (Fast and Precis) and Presidio 2.2.364, on the four sets that give an F1: REF, FR-PII-Bench, MAPA and
+Max.
+
+- An exploratory reading, by word. It was defined after the runs (protocol section 18, in addendum 2, internal;
+  addendum 4, section 20.10). It is for information only: no test and no claim. It is not part of any reading rule
+  (section 11.3).
+- Recall: of the words that must change, the share that the tool changed. Precision: of the words that the tool
+  changed, the share that had to change. F1: the harmonic mean of precision and recall; it is high only when both are
+  high. Higher is better for all three.
+- Precision counts as an error every changed word that is not on the reference list, legal terms included.
+- On MAPA and Max, precision is a lower limit: the true value can be higher.
+- Judilibre and English give recall only, no F1. They are not in Table 18.
+- Shield 0.4.0 was built after the first results of this comparison: no set is held-out for it. The "Status" column
+  gives the status of the set for each line. Hexagone and Presidio were measured in October 2026 and were not run
+  again.
+- Shield 0.3.1: its word-level values are not published. Table 15 shows where the output of Shield 0.4.0 is identical
+  to that of Shield 0.3.1.
+- Tonic: measured internally, not published (Tonic's terms).
+
+### Table 18. Word-level precision, recall and F1 of the public rows (exploratory, defined after the runs; higher is better; no claim)
+
+In %, per set; no pooling over sets. The status column gives the status of the set for the row of that line. One run
+per row. Shield 0.4.0: session of 2026-11-11; the other rows are the October runs.
+
+| Set | Row | Status of the set for this row | Precision | Recall | F1 |
+|---|---|---|---:|---:|---:|
+| REF | S-R4, Shield 0.4.0 rules | not held-out: team-written, 0.3.1 results known; unused by record | 97.9 | 96.2 | 97.1 |
+| REF | S-N4, Shield 0.4.0 rules + GLiNER | not held-out: team-written, 0.3.1 results known; unused by record | 97.9 | 96.2 | 97.1 |
+| REF | H-F, Hexagone 0.3.9 Fast | new to every other tool | 50.6 | 97.6 | 66.7 |
+| REF | H-P, Hexagone 0.3.9 Precis | new to every other tool | 44.0 | 99.9 | 61.1 |
+| REF | P, Presidio 2.2.364 | new to every other tool | 82.5 | 76.1 | 79.2 |
+| FR-PII-Bench | S-R4, Shield 0.4.0 rules | gate | 95.0 | 98.9 | 96.9 |
+| FR-PII-Bench | S-N4, Shield 0.4.0 rules + GLiNER | gate | 93.6 | 99.1 | 96.2 |
+| FR-PII-Bench | H-F, Hexagone 0.3.9 Fast | not seen by the other tools, as far as we know | 68.4 | 98.4 | 80.7 |
+| FR-PII-Bench | H-P, Hexagone 0.3.9 Precis | not seen by the other tools, as far as we know | 67.7 | 99.9 | 80.7 |
+| FR-PII-Bench | P, Presidio 2.2.364 | not seen by the other tools, as far as we know | 69.2 | 64.1 | 66.5 |
+| MAPA | S-R4, Shield 0.4.0 rules | gate | 81.8 (lower limit) | 79.1 | 80.4 |
+| MAPA | S-N4, Shield 0.4.0 rules + GLiNER | gate | 77.6 (lower limit) | 87.3 | 82.2 |
+| MAPA | H-F, Hexagone 0.3.9 Fast | not seen by the other tools, as far as we know | 28.5 (lower limit) | 95.3 | 43.8 |
+| MAPA | H-P, Hexagone 0.3.9 Precis | not seen by the other tools, as far as we know | 23.8 (lower limit) | 93.9 | 37.9 |
+| MAPA | P, Presidio 2.2.364 | not seen by the other tools, as far as we know | 51.0 (lower limit) | 84.1 | 63.5 |
+| Max, 33 documents | S-R4, Shield 0.4.0 rules | gate, with a fix from this study | 95.9 (lower limit) | 94.7 | 95.3 |
+| Max, 33 documents | S-N4, Shield 0.4.0 rules + GLiNER | gate, with a fix from this study | 88.5 (lower limit) | 95.3 | 91.8 |
+| Max, 33 documents | H-F, Hexagone 0.3.9 Fast | not seen by the other tools, as far as we know | 38.1 (lower limit) | 92.4 | 54.0 |
+| Max, 33 documents | H-P, Hexagone 0.3.9 Precis | not seen by the other tools, as far as we know | 32.7 (lower limit) | 96.2 | 48.9 |
+| Max, 33 documents | P, Presidio 2.2.364 | not seen by the other tools, as far as we know | 38.0 (lower limit) | 63.0 | 47.4 |
+
 ---
 
 ## Method
@@ -1115,6 +1196,7 @@ sealed.
 | D24 | Check of step 2: independent re-score; text corrections made after the scores were seen |
 | D25 to D27 | internal additions; they are not part of this document |
 | D28 | Rows S-R4 and S-N4: Shield 0.4.0, a build made after the first results, run on profile A; the other tools not run again |
+| D31 | Word-level precision, recall and F1 of the public rows on REF, FR-PII-Bench, MAPA and Max published (Table 18; exploratory, defined after the runs, no claim; added 2026-11-13) |
 
 ### Limits
 
