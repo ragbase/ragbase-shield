@@ -1,6 +1,6 @@
 # Deviations from the frozen protocol (PROTOCOL.md, PROTOCOL_ADDENDUM_1.md, PREREG.sha256)
 
-> **Public extract (2026-11-12): entries about an internal row are left out.** This extract holds the entries D1 to D24 and D28, the entries that the public results file cites. D25 to D27 and D29 are internal additions and are left out. Inside the kept entries, the Tonic counts and every mention of the internal row are left out, and a few private details are replaced (a marker in square brackets says where). The changes are listed in `PUBLIC_EXTRACT.md`. The original log and the hash lists are kept private.
+> **Public extract (2026-11-12): entries about an internal row are left out.** This extract holds the entries D1 to D24 and D28, the entries that the public results file cites. D25 to D27 and D29 are internal additions and are left out. D30 (2026-11-13, about the home page of the site) was added to this public copy after the extract was made. Inside the kept entries, the Tonic counts and every mention of the internal row are left out, and a few private details are replaced (a marker in square brackets says where). The changes are listed in `PUBLIC_EXTRACT.md`. The original log and the hash lists are kept private.
 
 All times are UTC ("Z"). This file is a log: it is not frozen (PROTOCOL_ADDENDUM_1.md section 17.6). The only
 sources for hashes are `PREREG_v1.0.sha256`, `PREREG.sha256` (v1.1) and `PREREG_DATA.sha256`.
@@ -32,6 +32,7 @@ sources for hashes are `PREREG_v1.0.sha256`, `PREREG.sha256` (v1.1) and `PREREG_
 | D23 | Scoring step 2: how the new Precis rows and H5 are fed to the frozen scorer (written before any score of them) | none |
 | D24 | Check of step 2: independent re-score; text corrections made AFTER the scores were seen | none |
 | D28 | Rows S-R4 and S-N4: Shield 0.4.0, a build made after the first results, run on profile A; competitor rows not run again (before any 0.4.0 output on a laptop set) | none |
+| D30 | Home page of shield.ragbase.ai: a summary table with rows S-R4, S-N4, H-F, H-P and P only; the full 20.13 content stays on the Results page, linked under the table (decided by Hadi) | none |
 
 ## D1. Claude operates Hexagone, at Hadi's instruction (2026-10-24, before any Hexagone run)
 
@@ -836,3 +837,27 @@ sources for hashes are `PREREG_v1.0.sha256`, `PREREG.sha256` (v1.1) and `PREREG_
   for H-F on FR-PII-Bench and T on Max next to the values of the comparison files of 20.8. The report stage opened
   no output text and no per-document result of another tool. It ran no scorer, no Shield process and no VM command.
   It edited no frozen file and no file under `src/` or `tests/`, and it made no git commit.
+
+## D30. Home page of the site: a summary table, not the full 20.13 content (2026-11-13, decided by Hadi for the readability of the home page, before this change of the site is published)
+
+- **What rule.** Addendum 4, section 20.13 ("Public" and "Public, no selective report"). A public file that shows a
+  0.4.0 number keeps the 0.3.1 rows next to the 0.4.0 rows, prints the set status for 0.4.0 next to every 0.4.0
+  number, and shows both 0.4.0 rows on all six sets (P1 and P2), every per-set claim in both directions, the Table 3
+  reading, the row-level table and the failed documents.
+- **What changes.** The home page of shield.ragbase.ai (French at `/`, English at `/en/`) shows a summary table with
+  rows S-R4, S-N4, H-F, H-P and P only: P1 on REF, FR-PII-Bench, MAPA, Max and English; P2 on REF, MAPA, Max and
+  Judilibre; the median time and the peak memory on REF. On Judilibre P2, H-P shows its value on the subset of 50,
+  with a note, and that value is not compared. The table does not show rows S-R and S-N, the set status of each
+  0.4.0 number, the failed documents, Judilibre P1 (indicative only), the per-set claims, the Table 3 reading or the
+  row-level table. Bold marks the lowest value of each row. A line under the table says that bold does not say whether
+  the difference is clear.
+- **Where the full content is.** The Results page of the site (`/resultats/`, `/en/results/`) keeps the full 20.13
+  content, unchanged. A link to it is directly under the home table, with the text "Tous les résultats : versions
+  0.3.1 et 0.4.0, statut de chaque jeu, limites" (English: "All the results: versions 0.3.1 and 0.4.0, status of each
+  set, limits"). A sentence under the table says that the table is a summary and that the full tables are on the
+  Results page. A source line under the table names `RESULTS_PUBLIC.md` (public version of 2026-11-11) and the
+  protocol files. The tooltip of each 0.4.0 number gives its source, its set and the status of the set for 0.4.0.
+- **Why.** Hadi decided on 2026-11-13 that the home page shows a short table, for readability.
+- **Effect on results.** None. No number changes. `RESULTS_PUBLIC.md`, the protocol files and the Results page do not
+  change. Every number of the home table is a number of `RESULTS_PUBLIC.md`: the build of the site checks each one
+  against that file.

@@ -11,7 +11,7 @@ This folder holds the public results of the laptop head-to-head of October and N
 | `PROTOCOL.md` | public copy, changed (see below) | `23eb69394cd3bfa6860fa3b23094a0d19a450bcf46d3fb7ff3ed3d68f2f62eae` |
 | `PROTOCOL_ADDENDUM_1.md` | public copy, changed (see below) | `56947c92d687f4b03e8d953ac3d7454ffffcb001907093f510efa5ea98fd1e72` |
 | `PROTOCOL_ADDENDUM_4.md` | public copy, changed (see below) | `2ede30ef1c3b02706b6343a9c4343c55a0ab02a6f23173ae1f4ab34a5296e5a7` |
-| `DEVIATIONS.md` | public copy, changed (see below) | `d5ad4620a76b96cea0af634ad64e92c03fc05690b4a4926cfb4080073444b907` |
+| `DEVIATIONS.md` | public copy, changed (see below) | `e0bcd13f0bf5f8297b7fb77f9f0273968294d8503ac48e47c0926be0a968bc80` |
 | `score_text.py` | frozen file, internal folder in docstrings written `<work>/` (see below); SHA-256 of the frozen file: `d2e32fcfcd8f08a33ad2f4d758b216d4be36fe04d031dd0ec1519eeb351281e2` | `8ac2ddf1b6c544b423665f8db51d159f47d74d259c75af71f39bcf97ae871dde` |
 | `extract_text.py` | byte-identical to the frozen file | `71b063fcd853092b74354d8c490b03d418a43db537e1c2d59f315c3ee2a2cc90` |
 | `compare_runs.py` | byte-identical to the frozen file | `32dfa48f34ba74681b8e14b10b3c071fd285ac0611e5c8aec014489153806162` |
@@ -33,6 +33,7 @@ unchanged. The table gives the SHA-256 of the frozen file next to the SHA-256 of
 - `PROTOCOL_ADDENDUM_4.md`: internal work-folder paths written as `<work>/` (46 places).
 - `DEVIATIONS.md`: the Windows account name of the owner on the VM is written `<owner account>` (4 places).
 - `DEVIATIONS.md`: entries D25, D26, D27 and D29 (internal additions) and their table rows are left out.
+- `DEVIATIONS.md`: entry D30 (2026-11-13, the home page of the site) and its table row were added to this public copy after the extract was made; the note at the top of the file says so.
 - `DEVIATIONS.md`: D1: the work e-mail address is left out; the Windows user folder is written `%USERPROFILE%` (also in D10).
 - `DEVIATIONS.md`: D17 finding 3 and D18: the Tonic counts and the per-set Tonic claim are left out (Tonic's terms).
 - `DEVIATIONS.md`: D3: the path of the local key file and how the key was passed are left out.
