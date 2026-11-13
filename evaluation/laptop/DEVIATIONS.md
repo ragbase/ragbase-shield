@@ -847,16 +847,21 @@ sources for hashes are `PREREG_v1.0.sha256`, `PREREG.sha256` (v1.1) and `PREREG_
 - **What changes.** The home page of shield.ragbase.ai (French at `/`, English at `/en/`) shows a summary table with
   rows S-R4, S-N4, H-F, H-P and P only: P1 on REF, FR-PII-Bench, MAPA, Max and English; P2 on REF, MAPA, Max and
   Judilibre; the median time and the peak memory on REF. On Judilibre P2, H-P shows its value on the subset of 50,
-  with a note, and that value is not compared. The table does not show rows S-R and S-N, the set status of each
-  0.4.0 number, the failed documents, Judilibre P1 (indicative only), the per-set claims, the Table 3 reading or the
-  row-level table. Bold marks the lowest value of each row. A line under the table says that bold does not say whether
-  the difference is clear.
+  with a note, and that value is not compared; the note also gives the S-R4 value on the same 50 decisions. The table
+  does not show rows S-R and S-N, the set status of each 0.4.0 number, the failed documents, Judilibre P1 (indicative
+  only), the per-set claims, the Table 3 reading or the row-level table. Bold marks the lowest value of each row. A
+  line under the table says that bold does not say whether the difference is clear.
+- **What stays on the home page.** Above the table, near the top of the section, a sentence says that Shield 0.4.0
+  was built after the first results of this comparison, that no set is held-out for it, and that Hexagone 0.3.9 and
+  Presidio 2.2.364 were measured in October 2026 and not run again (the sentence that 20.13 asks for).
 - **Where the full content is.** The Results page of the site (`/resultats/`, `/en/results/`) keeps the full 20.13
-  content, unchanged. A link to it is directly under the home table, with the text "Tous les résultats : versions
-  0.3.1 et 0.4.0, statut de chaque jeu, limites" (English: "All the results: versions 0.3.1 and 0.4.0, status of each
-  set, limits"). A sentence under the table says that the table is a summary and that the full tables are on the
-  Results page. A source line under the table names `RESULTS_PUBLIC.md` (public version of 2026-11-11) and the
-  protocol files. The tooltip of each 0.4.0 number gives its source, its set and the status of the set for 0.4.0.
+  content, unchanged. A link to it is under the home table, after the notes, the source line and the summary
+  sentence, with the text "Tous les résultats : versions 0.3.1 et 0.4.0, statut de chaque jeu, limites" (English:
+  "All the results: versions 0.3.1 and 0.4.0, status of each set, limits"). The summary sentence says that the table
+  is a summary and that the full tables are on the Results page. A source line under the table names
+  `RESULTS_PUBLIC.md` (public version of 2026-11-11) and the protocol files. The tooltip of each 0.4.0 P1, P2 and time
+  number gives its source, its set and the status of the set for 0.4.0; the tooltip of the memory cells gives the
+  source only.
 - **Why.** Hadi decided on 2026-11-13 that the home page shows a short table, for readability.
 - **Effect on results.** None. No number changes. `RESULTS_PUBLIC.md`, the protocol files and the Results page do not
   change. Every number of the home table is a number of `RESULTS_PUBLIC.md`: the build of the site checks each one

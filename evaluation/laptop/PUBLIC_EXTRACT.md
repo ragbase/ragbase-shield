@@ -11,7 +11,7 @@ This folder holds the public results of the laptop head-to-head of October and N
 | `PROTOCOL.md` | public copy, changed (see below) | `23eb69394cd3bfa6860fa3b23094a0d19a450bcf46d3fb7ff3ed3d68f2f62eae` |
 | `PROTOCOL_ADDENDUM_1.md` | public copy, changed (see below) | `56947c92d687f4b03e8d953ac3d7454ffffcb001907093f510efa5ea98fd1e72` |
 | `PROTOCOL_ADDENDUM_4.md` | public copy, changed (see below) | `2ede30ef1c3b02706b6343a9c4343c55a0ab02a6f23173ae1f4ab34a5296e5a7` |
-| `DEVIATIONS.md` | public copy, changed (see below) | `e0bcd13f0bf5f8297b7fb77f9f0273968294d8503ac48e47c0926be0a968bc80` |
+| `DEVIATIONS.md` | public copy, changed (see below) | `47e6216e514866e7c6e02b6bb71db63ceb5b56781734b87ae80382c1dd3ece0c` |
 | `score_text.py` | frozen file, internal folder in docstrings written `<work>/` (see below); SHA-256 of the frozen file: `d2e32fcfcd8f08a33ad2f4d758b216d4be36fe04d031dd0ec1519eeb351281e2` | `8ac2ddf1b6c544b423665f8db51d159f47d74d259c75af71f39bcf97ae871dde` |
 | `extract_text.py` | byte-identical to the frozen file | `71b063fcd853092b74354d8c490b03d418a43db537e1c2d59f315c3ee2a2cc90` |
 | `compare_runs.py` | byte-identical to the frozen file | `32dfa48f34ba74681b8e14b10b3c071fd285ac0611e5c8aec014489153806162` |
