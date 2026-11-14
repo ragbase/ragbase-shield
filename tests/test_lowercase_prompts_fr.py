@@ -1429,6 +1429,13 @@ SURNAME_AND_WORD = [
      "mme PERSONNE_A conteste. Le Tribunal judiciaire de Marseille est compétent."),
 ]
 
+# A first name alone after "de", "à" or "en" is text, as the first name with its capital is. (text, masked text)
+FIRST_NAME_AFTER_A_PLACE_WORD = [
+    ("mme nadia kervadec conteste. le courrier de nadia est parti.",
+     "mme PERSONNE_A conteste. le courrier de nadia est parti."),
+    ("mme nadia kervadec conteste. j'ai écrit à nadia hier.", "mme PERSONNE_A conteste. j'ai écrit à nadia hier."),
+]
+
 # The surname alone is the person after a civility, and anywhere when no list knows the word. (text, masked text)
 SURNAME_ALONE = [
     ("m. karim limoges conteste. m. limoges a signé hier.", "m. PERSONNE_A conteste. m. PERSONNE_A a signé hier."),
@@ -1436,7 +1443,7 @@ SURNAME_ALONE = [
 ]
 
 
-@pytest.mark.parametrize("text,masked", ONE_SURNAME_TWO_PERSONS + SURNAME_AND_WORD)
+@pytest.mark.parametrize("text,masked", ONE_SURNAME_TWO_PERSONS + SURNAME_AND_WORD + FIRST_NAME_AFTER_A_PLACE_WORD)
 def test_the_text_comes_back_as_typed(text, masked):
     m = _masker()
     r = m.mask(text)

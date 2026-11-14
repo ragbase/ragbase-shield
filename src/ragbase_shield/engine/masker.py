@@ -1771,7 +1771,11 @@ class Masker:
         :func:`names.lc_mention_is_text`). A person stored with its capitals keeps the logic of 0.4.0."""
         if d.kind != "PERSON" or not d.vtoks or not d.full_text or d.need in ("mint", "fuzzy", "compound"):
             return False
-        return nm.lc_mention_is_text(text, d.start, d.end, d.full_text, d.vtoks, d.need, read)
+        # a first name alone in any letter case (the chat reading): the guard of the first name with its capital
+        s = d.start
+        guard = d.need == "casual" and bool(_PLACE_BEFORE_RE.search(text[max(0, s - 40):s])) and not (
+            s > 0 and text[s - 1] in "'’" and bool(_ELISION_BEFORE_RE.search(text[max(0, s - 12):s])))
+        return nm.lc_mention_is_text(text, s, d.end, d.full_text, d.vtoks, d.need, read, guard)
 
     def _mint(self, text: str, s: int, e: int, kind: str, pendings: dict) -> Optional[_Cand]:
         """A candidate for an ambiguous mention with its own entity: never the wrong person (R1, CL-04b, CL-20)."""

@@ -2666,7 +2666,7 @@ _LC_PLACE_BEFORE_RE = re.compile(
 
 
 def lc_mention_is_text(text: str, s: int, e: int, value: str, vtoks: tuple, need: str,
-                       rule_spans: Iterable[tuple[int, int]] = ()) -> bool:
+                       rule_spans: Iterable[tuple[int, int]] = (), after_place_word: bool = False) -> bool:
     """v0.4.1: True when ``text[s:e]`` must not take the code of the person ``value``. Only for a person whose name
     words are stored in lower case (the lower-case rules found it; a name stored with its capitals keeps the links
     of 0.4.0). For a mention typed in lower case:
@@ -2676,7 +2676,9 @@ def lc_mention_is_text(text: str, s: int, e: int, value: str, vtoks: tuple, need
     - the surname alone when it is one word that a list knows (a town, a place, an ordinary word, a first name) and
       no civility stands right before it ("m. karim grenier conteste. le grenier est une partie commune");
     - a one-word mention inside the name of a court or after a place cue ("le tribunal judiciaire de x", "il
-      habite à x").
+      habite à x");
+    - a first name alone after "de", "à", "en" or another word of place (``after_place_word``): the guard that the
+      first name with its capital has in 0.4.0 ("au nom de x").
 
     For a mention with a capital: the surname alone when it is a town of the place list, or stands inside the
     name of a court or after a place cue, and no civility stands right before it."""
@@ -2703,7 +2705,7 @@ def lc_mention_is_text(text: str, s: int, e: int, value: str, vtoks: tuple, need
     cue = bool(_LC_COURT_BEFORE_RE.search(before) or _LC_PLACE_BEFORE_RE.search(before))
     alone = bool(st) and (vt == st or (len(vt) < len(st) and st[-len(vt):] == vt))
     if not alone:
-        return lower and len(vt) == 1 and cue
+        return lower and len(vt) == 1 and (cue or after_place_word)
     if len(sig) > 1 or _LC_TITLE_BEFORE_RE.search(before):
         return False
     if not lower:
