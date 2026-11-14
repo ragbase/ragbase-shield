@@ -59,6 +59,14 @@ mademoiselle maître docteur professeur locataire propriétaire bailleur bailler
 créancier créancière débiteur débitrice demandeur demanderesse défendeur défenderesse appelant appelante intimé
 intimée requérant requérante témoin victime prévenu prévenue plaignant plaignante mandataire liquidateur
 héritier héritière bénéficiaire stagiaire apprenti apprentie
+doyen doyenne proviseur proviseure recteur rectrice percepteur receveur receveuse vérificateur vérificatrice
+rapporteur rapporteuse médiateur médiatrice défenseur gouverneur consul ambassadeur ambassadrice rabbin imam
+prêtre aumônier brigadier adjudant lieutenant capitaine commandant colonel amiral maréchal caporal trésorier
+trésorière payeur régisseur intendant surveillant surveillante substitut auditeur auditrice assesseur juré
+jurée conciliateur conciliatrice délégué déléguée représentant représentante élu élue chancelier inspecteur
+inspectrice censeur chanoine vicaire homme dame demoiselle garçon citoyen citoyenne habitant habitante
+contribuable usager usagère abonné abonnée adhérent adhérente sociétaire assuré assurée patient patiente
+malade blessé blessée conducteur passager passagère piéton piétonne cycliste motard riverain riveraine
 
 # [states]
 âgé âgée âgés âgées enceinte enceintes souffrant souffrante blessé blessée décédé décédée absent absente présent
@@ -105,6 +113,50 @@ facile clair claire exact exacte précis précise correct correcte faux fausse v
 mauvaise meilleur meilleure grand grande petit petite long longue court courte haut haute bas basse fort forte
 faible lourd léger légère
 verrier queux cylindre étalon autel brasseur traitant
+# --- Latin of legal text ---
+honoris causa hoc solidum bono facto jure initio priori fortiori fine nihilo intuitu personae prorata temporis
+rata sine die litem nutum erga omnes partes petita judicata ratione materiae loci quinquies sexies septies
+octies quorum pari passu verbis contrario minima maxima stricto sensu lato grosso modo vitam aeternam
+# --- The body, injuries, daily life (for a word after a first name or a name) ---
+pouce doigt genou épaule poignet cheville coude hanche cou nuque crâne front joue menton bouche lèvre gorge
+poitrine sein poumon foie rein estomac cerveau colonne vertèbre côte os muscle nerf tendon ligament veine artère
+cicatrice fracture entorse hématome plaie brûlure contusion traumatisme séquelle séquelles douleur douleurs
+moto scooter vélo camion bus avion bateau tracteur remorque trottinette véhicule volant pneu frein phare
+toilettes plafond volet portail palier dégât dégâts fuite humidité moisissure fissure fissures sinistre
+incendie cambriolage serrure clé clés badge code courrier colis facture devis reçu ticket chèque virement
+espèces liquide carte compte livret épargne crédit prêt dette découvert agios intérêt taux mensualité
+loyer charges caution garantie assurance mutuelle complémentaire prévoyance retraite pension allocation
+salaire paie fiche bulletin prime bonus commission treizième heures supplémentaires repos congé congés rtt
+arrêt maladie maternité paternité accident trajet poste horaire planning astreinte déplacement mission
+contrat avenant période essai préavis démission rupture conventionnelle licenciement faute cause motif
+entretien préalable convocation sanction avertissement blâme mise pied mutation rétrogradation
+harcèlement discrimination violence violences menace menaces insulte insultes injure injures coup coups
+plainte main courante garde vue audition enquête instruction jugement appel pourvoi recours référé
+requête assignation citation convocation signification notification délai prescription forclusion
+mariage divorce séparation pacs concubinage garde résidence alternée visite hébergement pension
+alimentaire prestation compensatoire liquidation partage succession héritage donation testament legs
+tutelle curatelle sauvegarde adoption filiation paternité reconnaissance nom prénom nationalité titre
+séjour visa passeport asile expulsion rétention régularisation naturalisation
+bail location sous-location colocation logement habitation commerce local bureau entrepôt terrain parcelle
+copropriété syndic assemblée charges travaux vice vices malfaçon malfaçons réception réserve réserves
+vente achat acquisition cession compromis promesse acte notarié hypothèque servitude bornage mitoyenneté
+société entreprise commerce fonds parts actions capital apport statuts gérance direction conseil
+assemblée bilan comptes résultat bénéfice perte dividende trésorerie créance dette impayé facture
+redressement liquidation sauvegarde procédure collective faillite cessation paiements
+impôt impôts taxe taxes tva redressement contrôle fiscal déclaration revenus foncier plus-value
+notariale artisanale viticole dentaire mutualiste concurrente concurrent cible luxembourgeoise culturelle
+hôtelière forestière sportive paramédicale industrielle commerciale agricole libérale coopérative
+week-end weekend week end soir matin midi minuit après-midi journée soirée matinée semaine quinzaine
+# --- Towns and countries (public place names: a word after a name is often its town) ---
+lyon marseille toulouse nantes montpellier strasbourg bordeaux lille rennes reims toulon grenoble dijon angers
+nîmes villeurbanne brest limoges amiens perpignan metz besançon orléans rouen mulhouse caen argenteuil montreuil
+roubaix tourcoing avignon dunkerque poitiers versailles nanterre créteil pau calais colmar bourges antibes
+ajaccio bastia béziers quimper chambéry annecy troyes lorient niort bobigny évry pontoise melun meaux cergy
+boulogne neuilly levallois courbevoie puteaux vincennes montrouge clichy colombes vannes laval cholet blois
+chartres beauvais compiègne arras lens douai valenciennes épinal belfort mâcon nevers auxerre vichy rodez albi
+tarbes bayonne biarritz agen périgueux angoulême cherbourg évreux dieppe belgique luxembourg allemagne espagne
+italie portugal angleterre maroc algérie tunisie sénégal mali cameroun turquie chine inde canada brésil russie
+ukraine pologne roumanie monaco bruxelles genève londres berlin madrid rome lisbonne alger tunis casablanca dakar
 # --- First names that are also words, and the words that often follow them ---
 abbés agate alpha amande amen ange anis anémone arcade archange argentine ascension assomption atlas aurore azur
 azalée baba barbe béryl bienvenu bienvenue brunette candide cannelle capucine cerise césar chérif chrétien
