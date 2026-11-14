@@ -4,6 +4,13 @@ All notable changes to RAGbase Shield are listed here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions follow
 [Semantic Versioning](https://semver.org/).
 
+## [0.4.1] - 2026-11-14
+
+- Shield now masks names and companies typed in lower case in French text: "m. thibault mercadier", "mon client
+  thibault mercadier", "la société ateliers brunelac sas". Type your prompt the way you write, with or without
+  capital letters.
+- The same person keeps the same code whatever the letter case.
+
 ## [0.4.0] - 2026-11-12
 
 First public release.

@@ -257,7 +257,7 @@ Le titre et le chemin restent sur votre ordinateur. L'IA ne voit que DOSSIER_1.
 ### 2. Claude Desktop (un clic)
 
 1. Faites l'étape 0 (ou 0 bis) si ce n'est pas déjà fait : Shield Desk sert à ajouter vos dossiers.
-   Téléchargez `ragbase-shield-0.4.0.mcpb` sur la page des versions du dépôt :
+   Téléchargez `ragbase-shield-0.4.1.mcpb` sur la page des versions du dépôt :
    https://github.com/ragbase/ragbase-shield/releases/latest.
 2. Double-cliquez sur le fichier. Claude Desktop s'ouvre et affiche l'extension. Cliquez sur « Installer ».
    Autre méthode : dans Claude Desktop, Réglages > Extensions, glissez le fichier dans la fenêtre.
@@ -683,7 +683,7 @@ The title and path stay local. Models only see DOSSIER_1.
 
 ### 2. Claude Desktop (one click)
 
-1. Do step 0 (or 0b) first: you add your folders in Shield Desk. Download `ragbase-shield-0.4.0.mcpb` from the
+1. Do step 0 (or 0b) first: you add your folders in Shield Desk. Download `ragbase-shield-0.4.1.mcpb` from the
    releases page of the repository: https://github.com/ragbase/ragbase-shield/releases/latest.
 2. Double-click it and click "Install" (or drag it into Settings > Extensions).
 3. In a new chat, ask "What is the Shield status?". Claude should call `shield_status`.

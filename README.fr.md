@@ -4,7 +4,7 @@
 
 Le meilleur moteur de pseudonymisation du marché.
 
-RAGbase Shield 0.4.0 est un outil gratuit et open source (licence Apache-2.0).
+RAGbase Shield 0.4.1 est un outil gratuit et open source (licence Apache-2.0).
 Sur votre ordinateur, il remplace les noms et les numéros de vos clients par des codes avant l'envoi à Claude.
 Quand Claude répond, Shield remet les vrais noms. Cela se passe aussi sur votre ordinateur.
 Le droit reste lisible : les articles, les juridictions, les dates et les montants restent en clair, et Claude peut
@@ -52,7 +52,7 @@ Il réclame 48 000 € devant le conseil de prud'hommes de Lyon (RG n° RG_1).
 Contact : EMAIL_1
 ```
 
-C'est la sortie réelle de Shield 0.4.0 sur cet exemple, en mode Rapide (le réglage par défaut).
+C'est la sortie réelle de Shield 0.4.1 sur cet exemple, en mode Rapide (le réglage par défaut).
 Notez ce qui reste lisible : la date, le montant, la juridiction.
 Claude en a besoin pour travailler.
 
@@ -111,9 +111,9 @@ https://github.com/ragbase/ragbase-shield/releases/latest. Paquet Python : `ragb
 
 | Votre application ou votre système | Quoi installer | Guide |
 |---|---|---|
-| Mac (macOS 13 ou plus récent) | `RAGbase-Shield-0.4.0.pkg` : double-clic, installation pour vous seul (prévue sans mot de passe administrateur), sans Terminal. Pas encore signé : macOS vous demande de confirmer la première fois | [docs/INSTALL.md](docs/INSTALL.md), section 0 |
-| Windows 10 ou 11 | `RAGbase-Shield-0.4.0-win64.msi` : installation pour l'utilisateur (prévue sans droits administrateur). Pas encore signé : SmartScreen vous demande de confirmer | [docs/INSTALL.md](docs/INSTALL.md), section 0 |
-| Claude Desktop | `ragbase-shield-0.4.0.mcpb` : double-clic, puis « Installer » | [docs/INSTALL.md](docs/INSTALL.md), section 2 |
+| Mac (macOS 13 ou plus récent) | `RAGbase-Shield-0.4.1.pkg` : double-clic, installation pour vous seul (prévue sans mot de passe administrateur), sans Terminal. Pas encore signé : macOS vous demande de confirmer la première fois | [docs/INSTALL.md](docs/INSTALL.md), section 0 |
+| Windows 10 ou 11 | `RAGbase-Shield-0.4.1-win64.msi` : installation pour l'utilisateur (prévue sans droits administrateur). Pas encore signé : SmartScreen vous demande de confirmer | [docs/INSTALL.md](docs/INSTALL.md), section 0 |
+| Claude Desktop | `ragbase-shield-0.4.1.mcpb` : double-clic, puis « Installer » | [docs/INSTALL.md](docs/INSTALL.md), section 2 |
 | Claude Code et Cowork | Plugin : `/plugin marketplace add ragbase/ragbase-shield`, puis `/plugin install ragbase-shield@ragbase` | [docs/INSTALL.md](docs/INSTALL.md), section 3 |
 | ChatGPT desktop et Codex, GitHub Copilot dans VS Code | `uvx ragbase-shield install chatgpt` (ou `codex`, `vscode`) | [docs/INSTALL.md](docs/INSTALL.md), sections 4 et 5 |
 | Toute application web (claude.ai, chatgpt.com, Copilot web) | Shield Desk, et l'extension de navigateur pour Chrome et Edge (pas encore dans les boutiques : chargez le dossier `integrations/browser-extension` en mode développeur) | [docs/INSTALL.md](docs/INSTALL.md), sections 6 et 7 |

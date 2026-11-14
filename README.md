@@ -6,7 +6,7 @@
 
 The best pseudonymisation engine on the market.
 
-RAGbase Shield 0.4.0 is a free, open-source tool (Apache-2.0).
+RAGbase Shield 0.4.1 is a free, open-source tool (Apache-2.0).
 On your own computer, it replaces your clients' names and numbers with codes before the text goes to Claude.
 When Claude answers, Shield puts the real names back, also on your computer.
 The law stays readable: articles, courts, dates and amounts stay in clear, so Claude can do the work.
@@ -53,7 +53,7 @@ Il réclame 48 000 € devant le conseil de prud'hommes de Lyon (RG n° RG_1).
 Contact : EMAIL_1
 ```
 
-This is the real output of Shield 0.4.0 on this example, in Fast mode (the default).
+This is the real output of Shield 0.4.1 on this example, in Fast mode (the default).
 Note what stays readable: the date, the amount, the court. Claude needs them to do the work.
 Shield is built for French legal documents first. It also works on English text.
 With `RAGBASE_SHIELD_LOCALE=en`, codes use English labels (PERSON_A, COMPANY_A, ADDRESS_1).
@@ -112,9 +112,9 @@ https://github.com/ragbase/ragbase-shield/releases/latest. Python package: `ragb
 
 | Your app or system | What to install | Guide |
 |---|---|---|
-| Mac (macOS 13 or later) | `RAGbase-Shield-0.4.0.pkg`: double-click, installs for you only (designed to need no administrator password), no Terminal. Not signed yet: macOS asks you to confirm the first time | [docs/INSTALL.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/INSTALL.md), section 0 |
-| Windows 10 or 11 | `RAGbase-Shield-0.4.0-win64.msi`: per-user install (designed to need no administrator rights). Not signed yet: SmartScreen asks you to confirm | [docs/INSTALL.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/INSTALL.md), section 0 |
-| Claude Desktop | `ragbase-shield-0.4.0.mcpb`: double-click, then "Install" | [docs/INSTALL.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/INSTALL.md), section 2 |
+| Mac (macOS 13 or later) | `RAGbase-Shield-0.4.1.pkg`: double-click, installs for you only (designed to need no administrator password), no Terminal. Not signed yet: macOS asks you to confirm the first time | [docs/INSTALL.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/INSTALL.md), section 0 |
+| Windows 10 or 11 | `RAGbase-Shield-0.4.1-win64.msi`: per-user install (designed to need no administrator rights). Not signed yet: SmartScreen asks you to confirm | [docs/INSTALL.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/INSTALL.md), section 0 |
+| Claude Desktop | `ragbase-shield-0.4.1.mcpb`: double-click, then "Install" | [docs/INSTALL.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/INSTALL.md), section 2 |
 | Claude Code and Cowork | Plugin: `/plugin marketplace add ragbase/ragbase-shield`, then `/plugin install ragbase-shield@ragbase` | [docs/INSTALL.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/INSTALL.md), section 3 |
 | ChatGPT desktop and Codex, GitHub Copilot in VS Code | `uvx ragbase-shield install chatgpt` (or `codex`, `vscode`) | [docs/INSTALL.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/INSTALL.md), sections 4 and 5 |
 | Any web app (claude.ai, chatgpt.com, Copilot web) | Shield Desk, and the browser extension for Chrome and Edge (not in the stores yet: load the folder `integrations/browser-extension` in developer mode) | [docs/INSTALL.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/INSTALL.md), sections 6 and 7 |
@@ -362,9 +362,9 @@ Shield Desk.
 
 ### Contributing, security, licence
 
-- Security issues: [SECURITY.md](https://github.com/ragbase/ragbase-shield/blob/v0.4.0/SECURITY.md). Do not open a public issue.
+- Security issues: [SECURITY.md](https://github.com/ragbase/ragbase-shield/blob/v0.4.1/SECURITY.md). Do not open a public issue.
 - Release history: [CHANGELOG.md](https://github.com/ragbase/ragbase-shield/blob/main/CHANGELOG.md).
-- Licence: [Apache-2.0](https://github.com/ragbase/ragbase-shield/blob/v0.4.0/LICENSE). Attributions: [NOTICE](https://github.com/ragbase/ragbase-shield/blob/v0.4.0/NOTICE).
+- Licence: [Apache-2.0](https://github.com/ragbase/ragbase-shield/blob/v0.4.1/LICENSE). Attributions: [NOTICE](https://github.com/ragbase/ragbase-shield/blob/v0.4.1/NOTICE).
 - Test data: invented only. Never put real client data in an issue.
 
 ---

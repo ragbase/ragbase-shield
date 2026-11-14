@@ -396,7 +396,7 @@ def test_protect_masks_values_and_keeps_codes(case):
 def test_status_is_honest(case):
     s = service.status()
     # "rules+ner:<backend>" when a model is installed (the name of the backend is part of the honest answer)
-    assert s["version"] == "0.4.0" and re.fullmatch(r"rules(?:\+ner(?::[\w:.-]+)?)?", s["engine_mode"])
+    assert s["version"] == "0.4.1" and re.fullmatch(r"rules(?:\+ner(?::[\w:.-]+)?)?", s["engine_mode"])
     assert s["ocr"] is False and s["network"] is False and s["dossiers"] == 1 and s["key_storage"] == "file"
     joined = " ".join(s["limits"])
     assert "pseudonymisation" in joined.lower() and "100" not in joined and "OCR" in joined

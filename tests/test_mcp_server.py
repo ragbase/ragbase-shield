@@ -120,7 +120,7 @@ def test_full_workflow_returns_codes_only(dossier):
     files = list((dossier["folder"] / "Shield - sorties").glob("*.docx"))
     assert len(files) == 1 and "MORVANDIAU" in documents.read_text(files[0]).text.upper()
     err, out = call("shield_status", server=server)
-    assert not err and "0.4.0" in out and "OCR" in out and "100" not in out
+    assert not err and "0.4.1" in out and "OCR" in out and "100" not in out
 
 
 def test_save_draft_reports_unknown_codes(dossier):

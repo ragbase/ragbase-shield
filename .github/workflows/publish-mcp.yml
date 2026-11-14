@@ -5,8 +5,9 @@
 # "mcp-publisher login github" cannot publish to an organisation namespace today (registry issue #1468).
 # GitHub Actions OIDC can, and it needs no secret: GitHub gives the job a short-lived token.
 #
-# Run it by hand (Actions > Publish to MCP Registry > Run workflow), only AFTER ragbase-shield 0.4.0 is on PyPI:
-# the registry checks the "mcp-name: io.github.ragbase/ragbase-shield" line in the PyPI description.
+# Run it by hand (Actions > Publish to MCP Registry > Run workflow), only AFTER the ragbase-shield version of
+# server.json is on PyPI: the registry checks the "mcp-name: io.github.ragbase/ragbase-shield" line in the PyPI
+# description.
 name: Publish to MCP Registry
 
 on:

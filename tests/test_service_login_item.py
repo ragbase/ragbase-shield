@@ -419,8 +419,8 @@ def test_tray_strings_have_no_dashes_and_match():
 
 def test_status_text(monkeypatch):
     monkeypatch.setenv("RAGBASE_SHIELD_UI", "fr")
-    snap = {"state": sm.RUNNING, "port": 7878, "version": "0.4.0", "engine_mode": "rules+ner:fastino"}
-    assert tray.status_text(snap) == "Shield Desk : en marche, port 7878, v0.4.0, règles + NER"
+    snap = {"state": sm.RUNNING, "port": 7878, "version": "0.4.1", "engine_mode": "rules+ner:fastino"}
+    assert tray.status_text(snap) == "Shield Desk : en marche, port 7878, v0.4.1, règles + NER"
     assert tray.status_text({"state": sm.PORT_BUSY, "port": 7878}) == \
         "Shield Desk : port 7878 occupé par un autre programme"
     monkeypatch.setenv("RAGBASE_SHIELD_UI", "en")
