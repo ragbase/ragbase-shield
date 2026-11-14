@@ -19,6 +19,7 @@ combien mal mieux pire pis abord accord revoici revoilà ci ès quelqu'un quelqu
 untel unetelle quidam
 ah bah ben eh euh ha hé hein hop oh ouf oups zut chut bravo pardon allô adieu bye ciao ok okay ouais nan
 svp stp cdt cdlt bjr slt mdr lol ptdr bcp tjrs tjs jms rdv asap fyi idem ibid infra supra sic dixit versus vs
+bis ter quater pro contra derechef env min apt esc imm junior senior
 deux trois quatre cinq six sept huit neuf dix onze douze treize quatorze quinze seize vingt trente quarante
 cinquante soixante zéro
 the and for with from this that these those not but are was were will would can could may might must shall
@@ -74,6 +75,9 @@ jurée conciliateur conciliatrice délégué déléguée représentant représen
 inspectrice censeur chanoine vicaire homme dame demoiselle garçon citoyen citoyenne habitant habitante
 contribuable usager usagère abonné abonnée adhérent adhérente sociétaire assuré assurée patient patiente
 malade blessé blessée conducteur passager passagère piéton piétonne cycliste motard riverain riveraine
+donateur donatrice testateur testatrice failli faillie démissionnaire adjudicataire attributaire signataire
+cosignataire indivisaire coïndivisaire colicitant cohéritier cohéritière coauteur auteur autrice candidat
+candidate sortant sortante suppléant suppléante
 
 # [states]
 âgé âgée âgés âgées enceinte enceintes souffrant souffrante blessé blessée décédé décédée absent absente présent
@@ -90,7 +94,8 @@ favorable défavorable hostile opposé opposée désolé désolée méchant méc
 malheureux malheureuse triste calme nerveux nerveuse sérieux sérieuse courageux courageuse
 lâche têtu têtue muet muette aveugle infirme
 adulte adolescent adolescente résident résidente titulaire redevable imposable solidaire
-hiérarchique émérite agrégé agrégée
+hiérarchique émérite agrégé agrégée forclos forclose déchu déchue perplexe serein sereine pantois pantoise
+bizarre furax
 français française étranger étrangère européen européenne algérien algérienne marocain marocaine tunisien
 tunisienne italien italienne espagnol espagnole portugais portugaise allemand allemande belge suisse anglais
 anglaise britannique américain américaine canadien canadienne chinois chinoise turc turque roumain roumaine

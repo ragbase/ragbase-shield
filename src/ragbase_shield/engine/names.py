@@ -1213,6 +1213,11 @@ _LC_NOT_VERBS = frozenset("entre pendant durant suivant concernant moyennant non
                           "soit du es as ai tu sue".split())
 # Past participles and infinitives of the auxiliaries: they do not follow a subject.
 _LC_NOT_FINITE = frozenset("ete eu pu su vu attendu".split())
+# Stems of the verbs that take an attribute of their object ("déclare M. Martin démissionnaire", "a nommé Mme
+# Bernard cogérante"): a word in lower case after the name of that object is the attribute, no surname.
+_LC_ATTRIBUTE_VERBS = ("declar", "nomm", "design", "elu", "elis", "elit", "trouv", "jug", "estim", "consider",
+                       "croi", "croy", "cru", "rend", "laiss", "reconn", "proclam", "presum", "reput", "qualifi",
+                       "surnomm", "appel", "dit", "disent", "disai", "dira")
 # Legal forms that are also words in lower case ("un sas d'entrée", "un spa"): after a company cue or an article only.
 _LC_FORM_WORDS = frozenset({"sas", "spa", "inc", "corp", "limited", "corporation", "incorporated", "sca", "scs",
                             "scm", "spl", "slp"})
@@ -1224,7 +1229,13 @@ _LC_FORM_ARTICLES = frozenset({"la", "une", "cette", "ma", "ta", "sa", "notre", 
 _LC_WORD_ENDINGS = (("ment", 7), ("tion", 6), ("sion", 6), ("xion", 6), ("tions", 7), ("sions", 7), ("isme", 7),
                     ("ique", 7), ("iques", 8), ("able", 7), ("ables", 8), ("ible", 7), ("ibles", 8), ("ance", 7),
                     ("ances", 8), ("ence", 7), ("ences", 8), ("trice", 7), ("euse", 6), ("euses", 7), ("tif", 6),
-                    ("sif", 6), ("tive", 6), ("sive", 6), ("tifs", 7), ("tives", 7), ("ee", 5), ("ees", 6))
+                    ("sif", 6), ("tive", 6), ("sive", 6), ("tifs", 7), ("tives", 7), ("ee", 5), ("ees", 6),
+                    ("iste", 8), ("istes", 9), ("taire", 9), ("taires", 10), ("naire", 9), ("naires", 10),
+                    ("graphe", 8))
+# Endings of the nouns of a profession or an office that no list holds ("cardiologue", "pédiatre", "opticien",
+# "liquidateur", "bailleresse"): a noun that names a person, never a name word.
+_LC_PERSON_ENDINGS = (("logue", 7), ("logues", 8), ("iatre", 7), ("iatres", 8), ("pathe", 8), ("peute", 9),
+                      ("icien", 8), ("iciens", 9), ("icienne", 10), ("ateur", 8), ("ateurs", 9), ("eresse", 9))
 _LC_VERB_ENDINGS = (("ait", 5), ("aient", 6), ("eront", 7), ("erons", 7), ("erez", 7), ("issent", 8),
                     ("issait", 8), ("issant", 8), ("ise", 7), ("isent", 8), ("ifie", 7), ("ifient", 9))
 # Prefixes of a verb form that the verb list does not hold with its prefix ("susvisé": "visé").
@@ -1279,8 +1290,8 @@ def _lc_bases(low: str) -> tuple[str, ...]:
 
 
 def _lc_shape(low: str) -> str:
-    """"v" or "p" for a word that ends like a verb form or like an ordinary word, or that is a verb form behind a
-    prefix ("susvisé", "prénommé", "réexaminé"), else ""."""
+    """"v", "n" or "p" for a word that ends like a verb form, like the noun of a profession or like an ordinary
+    word, or that is a verb form behind a prefix ("susvisé", "prénommé", "réexaminé"), else ""."""
     n = len(low)
     for end, least in _LC_VERB_ENDINGS:
         if n >= least and low.endswith(end):
@@ -1288,6 +1299,9 @@ def _lc_shape(low: str) -> str:
     for prefix in _LC_VERB_PREFIXES:
         if low.startswith(prefix) and n - len(prefix) >= 4 and lx.verb_form(low[len(prefix):]) == "form":
             return "v"
+    for end, least in _LC_PERSON_ENDINGS:
+        if n >= least and low.endswith(end):
+            return "n"
     for end, least in _LC_WORD_ENDINGS:
         if n >= least and low.endswith(end):
             return "p"
@@ -1326,8 +1340,8 @@ def _lc_flags(low: str) -> str:
     bases = (low,) if low in sets["any_first"] else _lc_bases(low)
     if any(b in sets["states"] for b in bases):
         out += "s"
-    if any(b in sets["persons"] for b in bases):
-        out += "n"
+    if any(b in sets["persons"] or (len(b) >= 7 and b.startswith("co") and b[2:] in sets["persons"]) for b in bases):
+        out += "n"  # also "co" and a person noun: "cogérante", "codébiteur"
     if any(b in sets["common"] for b in bases):
         out += "c"
     if any(b in sets["plain"] for b in bases):
@@ -1538,6 +1552,24 @@ def _lc_first_word(text: str, run: list[_W], i: int, k: int, civ: str) -> bool:
     return True
 
 
+def _lc_typed_surname(run: list[_W], i: int, k: int, kind: str) -> bool:
+    """``run[k]``, in lower case, goes on the name after the capitalised word before it, the first word after the
+    civility ``run[i]``. The capital is the keyboard's (after "M.", on a first name it knows) and the name was typed
+    in lower case: "M. Doudou lina", "Mme Claire dufresne". The two words must read as a first name and a surname:
+    the second is a first name of the lexicon, or the first is one and the second is a word of four letters or more
+    that no list knows. And the verb of the name follows, or the clause ends, but not after a verb that takes an
+    attribute ("déclare M. Martin démissionnaire")."""
+    w = run[k]
+    if kind == "first":
+        if len(w.low) < 3:
+            return False
+    elif kind != "oov" or len(w.low) < 4 or not _is_first_name(run[k - 1]):
+        return False
+    if k + 1 < len(run):
+        return _lc_verb_follows(run, k + 1)
+    return not (i > 0 and _lc_is_verb(run[i - 1]) and run[i - 1].low.startswith(_LC_ATTRIBUTE_VERBS))
+
+
 def _lc_name_after(text: str, run: list[_W], i: int, civ: str) -> Optional[tuple[int, int, bool]]:
     """The name after the civility ``run[i]``: ``(first index, end index, a name word is in lower case)`` or None.
     One to three words (particles not counted); it stops at the end of the run, at a verb form, at a function word
@@ -1575,10 +1607,13 @@ def _lc_name_after(text: str, run: list[_W], i: int, civ: str) -> Optional[tuple
             continue
         kind = _lc_kind(w)
         last = k + 1 >= n
+        typed = False
         if w.cap:
             ok = _lc_cap_name_word(w) and (kind != "common" or given)
         elif prev.cap:
-            ok = False  # a capital then no capital ("M. Martin susvisé"): the name of the rules above ends here
+            # a capital then no capital: the name of the rules above ends here ("M. Martin susvisé"), but for the
+            # capital that a keyboard puts on the first word ("M. Doudou lina")
+            typed = ok = len(names) == 1 and _lc_typed_surname(run, i, k, kind)
         elif kind == "first":
             ok = True
         elif kind == "amb":
@@ -1595,6 +1630,8 @@ def _lc_name_after(text: str, run: list[_W], i: int, civ: str) -> Optional[tuple
         names.append(k)
         kinds.append(kind)
         k += 1
+        if typed:
+            break  # two words only
     return idx[0], idx[-1] + 1, any(not run[t].cap for t in names)
 
 
@@ -1713,8 +1750,10 @@ def _lc_first_names(text: str, run: list[_W], out: list[RuleSpan], covered: set[
                          and run[t].low not in ("de", "du", "des", "le", "la")]
         if all(run[t].cap for t in words) or any(t in covered for t in range(i, end)):
             continue
-        if w.cap and not (_starts_sentence(text, w.start) and (end >= n or _lc_verb_follows(run, end))):
-            continue  # "Jean dupont conteste": a capital on the first word of a sentence only (the keyboard's)
+        if w.cap and not (_lc_verb_follows(run, end) if end < n else cue or _starts_sentence(text, w.start)):
+            # a capital on the first name only ("Jean dupont conteste", "mon client Jean dupont"): the verb of the
+            # name follows, or the clause ends after the first words of a sentence or after a person noun
+            continue
         if len(w.low) == 3 and not cue and not (end >= n or _lc_verb_follows(run, end)) \
                 and not (prev is not None and (prev.low in _LC_PREPOSITIONS or _lc_is_verb(prev))):
             continue  # a first name of three letters may be an abbreviation ("max", "sam")

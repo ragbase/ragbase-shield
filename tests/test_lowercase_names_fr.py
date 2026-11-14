@@ -115,7 +115,48 @@ COMPANY = [
     ("la société Kerdalis EURL a fait appel.", ["Kerdalis"]),  # capitals: the 0.4.0 span, unchanged
 ]
 
-POSITIVE = [(t, names) for t, names, _out in DEFECT] + CIVILITY + FIRST_NAME + COMPANY
+# The capital that a keyboard puts on the first word of a name (after "M.", on a first name it knows); the rest of
+# the name is in lower case. 0.4.0 masked the capitalised word and left the other one readable.
+KEYBOARD = [
+    ("M. Doudou lina, domicilié 12 rue des Glycines, 69007 Lyon, conteste son licenciement.", ["Doudou lina"]),
+    ("M. Nona hakim conteste son licenciement.", ["Nona hakim"]),
+    ("Mme Claire dufresne conteste son licenciement.", ["Claire dufresne"]),
+    ("M. Thibault mercadier a signé le bail hier.", ["Thibault mercadier"]),
+    ("Monsieur Paul vernaton, salarié depuis 2015, conteste la sanction.", ["Paul vernaton"]),
+    ("M. Kervadec julien conteste la sanction.", ["Kervadec julien"]),
+    ("Je représente Mme Sophie kerdalis.", ["Sophie kerdalis"]),
+    ("Me Karim talvez plaide demain matin.", ["Karim talvez"]),
+    ("Bonjour, mon client Jean dupont a été licencié.", ["Jean dupont"]),
+    ("Je pense que Paul pradimont conteste la décision.", ["Paul pradimont"]),
+    ("Le bail est au nom de ma cliente Emma velanor.", ["Emma velanor"]),
+]
+
+POSITIVE = [(t, names) for t, names, _out in DEFECT] + CIVILITY + FIRST_NAME + COMPANY + KEYBOARD
+
+# A word in lower case after a capitalised name is no surname: the mask is the 0.4.0 mask. (text, the names masked)
+AFTER_A_NAME = [
+    ("M. Martin susvisé a formé un pourvoi.", ["Martin"]),
+    ("M. Thomas précité a répondu aux conclusions.", ["Thomas"]),
+    ("M. Bernard fils conteste la donation.", ["Bernard"]),
+    ("Mme Martin seule assume la charge des enfants.", ["Martin"]),
+    ("M. Laurent également conteste la décision.", ["Laurent"]),
+    ("M. Vincent junior a signé le protocole.", ["Vincent"]),
+    ("M. Simon cohéritier conteste le partage.", ["Simon"]),
+    ("Je représente M. Martin aujourd'hui.", ["Martin"]),
+    ("Il a écrit à M. Robert notaire à Lyon.", ["Robert"]),
+    ("M. Henri demeurant à Paris conteste.", ["Henri"]),
+    ("M. Martin lui-même a signé.", ["Martin"]),
+    ("Mme Thomas titulaire", ["Thomas"]),
+    ("Contre M. Laurent derechef.", ["Laurent"]),
+    ("Le tribunal a déclaré M. Martin démissionnaire.", ["Martin"]),
+    ("Le juge a nommé Mme Bernard cogérante.", ["Bernard"]),
+    ("Le tribunal déclare M. Thomas velkor.", ["Thomas"]),  # a word no list knows after a verb with an attribute
+    ("M. Thomas xyz a répondu.", ["Thomas"]),               # three letters: an abbreviation, no surname
+    ("M. Martin contsete la décision.", ["Martin"]),        # a typing error before a determiner
+    ("Me Dupont plaide demain.", ["Dupont"]),
+    ("Le tribunal a jugé Paul forclos en sa demande.", []),
+    ("On a élu Julie cheffe de projet.", []),
+]
 
 # The guards: nothing of these sentences is a person or a company.
 NEGATIVE = [
@@ -289,7 +330,7 @@ def test_there_are_enough_positive_cases():
     assert len(POSITIVE) >= 40 and len({t for t, _ in POSITIVE}) == len(POSITIVE)
 
 
-@pytest.mark.parametrize("text,names", CIVILITY + FIRST_NAME)
+@pytest.mark.parametrize("text,names", CIVILITY + FIRST_NAME + KEYBOARD)
 def test_people_get_person_codes(text, names):
     r = _masker().mask(text)
     people = [s for s in r.spans if s.value in names and s.kind == "PERSON"]
@@ -393,6 +434,38 @@ def test_capitalised_dossier_is_the_same_with_the_rules_on_and_off(monkeypatch):
 def test_capitalised_names_keep_their_0_4_0_spans():
     r = _masker().mask("M. Thibault Mercadier conteste. Mme Claire Dufresne et Jean Dupont aussi.")
     assert r.text == "M. PERSONNE_A conteste. Mme PERSONNE_B et PERSONNE_C aussi."
+
+
+@pytest.mark.parametrize("text,names", AFTER_A_NAME)
+def test_a_word_after_a_capitalised_name_is_no_surname(monkeypatch, text, names):
+    monkeypatch.setenv(SWITCH, "0")
+    off = _masker().mask(text).text
+    monkeypatch.setenv(SWITCH, "1")
+    r = _masker().mask(text)
+    assert r.text == off
+    assert [s.value for s in r.spans if s.kind in ("PERSON", "ORG")] == names
+
+
+@pytest.mark.parametrize("text,names", KEYBOARD)
+def test_a_keyboard_capital_on_the_first_word_of_a_name(monkeypatch, text, names):
+    """Off (0.4.0): the word in lower case stays readable. On: the whole name has one code."""
+    lower = [w for name in names for w in name.split() if w.islower()]
+    assert lower
+    monkeypatch.setenv(SWITCH, "0")
+    off = _masker().mask(text).text
+    assert all(w in off for w in lower)
+    monkeypatch.setenv(SWITCH, "1")
+    on = _masker().mask(text).text
+    assert not any(w in on.split() or w + "," in on.split() or w + "." in on.split() for w in lower)
+    assert on.count("PERSONNE_A") == 1
+
+
+def test_a_keyboard_capital_keeps_one_code_for_the_person():
+    m = _masker()
+    assert m.mask("M. Thibault mercadier a signé le bail hier.").text == "M. PERSONNE_A a signé le bail hier."
+    assert m.mask("M. Mercadier conteste le congé.").text == "M. PERSONNE_A conteste le congé."
+    assert m.mask("thibault mercadier est venu ce matin.").text == "PERSONNE_A est venu ce matin."
+    assert [e.code for e in m.store.all() if e.kind == "PERSON"] == ["PERSONNE_A"]
 
 
 # ---------------------------------------------------------------------------
@@ -648,6 +721,7 @@ def test_the_word_file_has_its_sections():
     ("petit", "common"), ("conteste", "verb"), ("angulaire", "plain"), ("président", "no"), ("le", "no"),
     ("seule", "no"), ("voisin", "no"), ("apparemment", "no"), ("martin-leroy", "first"), ("indexation", "plain"),
     ("susvisé", "verb"), ("lyon", "plain"), ("juridique", "plain"), ("contestait", "verb"),
+    ("cohéritier", "no"), ("cogérante", "no"), ("démissionnaire", "no"), ("forclos", "no"), ("bis", "no"),
 ])
 def test_word_classes(word, kind):
     w = nm._words(word)[0]
