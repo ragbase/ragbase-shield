@@ -1240,7 +1240,8 @@ _LC_FORM_ARTICLES = frozenset({"la", "une", "cette", "ma", "ta", "sa", "notre", 
 # Endings of ordinary nouns, adjectives and adverbs, and of verb forms, with the shortest word length they apply to:
 # a word no list holds that ends so is an ordinary word ("apparemment", "résiliation", "juridique", "contestait",
 # "priorise", "fiabilise").
-_LC_WORD_ENDINGS = (("abilite", 9), ("ibilite", 9), ("alite", 8), ("uel", 5), ("uelle", 6), ("ment", 7), ("tion", 6), ("sion", 6), ("xion", 6), ("tions", 7), ("sions", 7), ("isme", 7),
+_LC_WORD_ENDINGS = (("phone", 8), ("phones", 9), ("phrene", 9), ("escent", 9), ("escente", 10), ("aire", 11),
+                    ("dif", 6), ("dive", 7), ("oque", 7), ("abilite", 9), ("ibilite", 9), ("alite", 8), ("uel", 5), ("uelle", 6), ("ment", 7), ("tion", 6), ("sion", 6), ("xion", 6), ("tions", 7), ("sions", 7), ("isme", 7),
                     ("ique", 7), ("iques", 8), ("able", 7), ("ables", 8), ("ible", 7), ("ibles", 8), ("ance", 7),
                     ("ances", 8), ("ence", 7), ("ences", 8), ("trice", 7), ("euse", 6), ("euses", 7), ("tif", 6),
                     ("sif", 6), ("tive", 6), ("sive", 6), ("tifs", 7), ("tives", 7), ("ee", 5), ("ees", 6),
@@ -1321,6 +1322,9 @@ def _lc_shape(low: str) -> str:
     for end, least in _LC_WORD_ENDINGS:
         if n >= least and low.endswith(end):
             return "p"
+    for prefix in ("in", "im", "il", "ir", "non"):
+        if low.startswith(prefix) and n - len(prefix) >= 5 and _lc_flags(low[len(prefix):]) not in ("", "f"):
+            return "p"  # "inexact", "illisible": the negative of a word that a list knows
     return ""
 
 
@@ -1749,8 +1753,8 @@ def _lc_first_word(text: str, run: list[_W], i: int, k: int, civ: str) -> bool:
     last = k + 1 >= n
     if kind == "no" or len(w.low) < 3:
         return False  # a function word, a role, a noun that names a person, a state; a word of two letters
-    if kind == "oov" and len(w.low) == 3 and not (last or _lc_verb_follows(run, k + 1) or _lc_name_next(run, k + 1)):
-        return False  # three letters with nothing after them that holds a name: an abbreviation ("monsieur rdv à 9h")
+    if kind == "oov" and len(w.low) == 3 and not (_lc_third_follows(run, k + 1) or _lc_name_next(run, k + 1)):
+        return False  # three letters: an abbreviation ("m. tns, pas de bulletin"), but before the verb of a name
     if civ == "strong":
         if kind in ("first", "common"):
             return True
@@ -1881,7 +1885,11 @@ def _lc_other_name(run: list[_W], e: int, out: list[RuleSpan], covered: set[int]
     if e + 1 >= n or run[e].cap or run[e].low not in ("epouse", "nee", "veuve", "dite", "ep", "vve"):
         return
     w = run[e + 1]
-    if not w.cap and _lc_kind(w) in ("oov", "first") and len(w.low) >= 3 and e + 1 not in covered:
+    end = _lc_particle_name(run, e + 1, True)  # "née dos reis", "épouse de roquevert"
+    if end and not any(t in covered for t in range(e + 1, end)):
+        out.append(RuleSpan(w.start, run[end - 1].end, "PERSON", 5, "title"))
+        covered.update(range(e + 1, end))
+    elif not w.cap and _lc_kind(w) in ("oov", "first") and len(w.low) >= 3 and e + 1 not in covered:
         out.append(RuleSpan(w.start, w.end, "PERSON", 5, "title"))
         covered.add(e + 1)
 
@@ -2337,7 +2345,7 @@ def _lc_companies(text: str, run: list[_W], out: list[RuleSpan]) -> None:
                     or (not run[t].cap and run[t].low in ("de", "du", "des", "d", "au", "aux", "et", "ou"))))):
             out.append(RuleSpan(run[t + 1].start, run[i - 1].end, "ORG", 6, "legal_form"))
             continue
-        headed = _lc_headed_company(run, i, subject)
+        headed = _lc_headed_company(run, i, subject or opens)
         if headed:
             out.append(RuleSpan(run[headed[0]].start, run[headed[1] - 1].end, "ORG", 6, "legal_form"))
             continue
@@ -2383,13 +2391,18 @@ def _lc_companies(text: str, run: list[_W], out: list[RuleSpan]) -> None:
             if span and span[0] == i + 1 and _meaningful_org(run, *span, roles=True):
                 out.append(RuleSpan(run[span[0]].start, run[span[1] - 1].end, "ORG", 6, "legal_form"))
             continue
-        if _lc_kind(first) not in ("oov", "first") or len(first.low) < 3 \
-                or (_lc_kind(first) == "oov" and first.low.endswith(_LC_ADJECTIVE_ENDINGS)):
+        g = i + 1  # nouns of a trade before the name: "la sarl boulangerie zorvane"
+        while g < n - 1 and g - i <= 2 and not run[g].cap and (run[g].low in ORG_TRADES or _is_trade(run[g].low)):
+            g += 1
+        name = run[g]
+        if name.cap or _lc_kind(name) not in ("oov", "first") or len(name.low) < 3 \
+                or (_lc_kind(name) == "oov" and name.low.endswith(_LC_ADJECTIVE_ENDINGS)):
             continue
-        e = i + 2
-        while e < n and e - i <= 4 and not run[e].cap and not _lc_form(run[e]):
-            if run[e].low in ("et", "&") and e + 1 < n and run[e + 1].low in _ORG_ET_JOIN:
-                e += 2  # "la sarl kervadec et fils"
+        e = g + 1
+        while e < n and e - i <= 5 and not run[e].cap and not _lc_form(run[e]):
+            if run[e].low in ("et", "&") and e + 1 < n and (run[e + 1].low in _ORG_ET_JOIN or (
+                    not run[e + 1].cap and _lc_kind(run[e + 1]) == "oov" and len(run[e + 1].low) >= 4)):
+                e += 2  # "la sarl kervadec et fils", "la selarl kervadec et talvez"
             elif _lc_org_word(run[e]):
                 e += 1
             else:
@@ -2398,7 +2411,7 @@ def _lc_companies(text: str, run: list[_W], out: list[RuleSpan]) -> None:
 
 
 _LC_FIELD_RE = re.compile(
-    r"(?im)(?:^|[,;])[ \t]*(?P<label>nom(?:\s+de\s+naissance|\s+d['’]usage|\s+marital|\s+de\s+famille)?|pr[ée]noms?)"
+    r"(?im)(?:^|[,;(])[ \t]*(?:(?:[-*•>–]|\d{1,2}[.)]|[a-z]\))[ \t]*)?(?P<label>nom(?:\s+de\s+naissance|\s+d['’]usage|\s+marital|\s+de\s+famille)?|pr[ée]noms?)"
     r"\s*:[ \t]*(?P<value>[^\n,;:]{2,60})")
 
 
@@ -2501,6 +2514,14 @@ def _lc_across_clauses(text: str, runs: list[list[_W]], out: list[RuleSpan]) -> 
                 out.append(RuleSpan(last.start, b[k].end, "PERSON", 5, "title"))
         elif last.low in ("ep", "vve") and len(a) >= 3 and taken(a[-2]) and surname(b, 0):
             out.append(RuleSpan(b[0].start, b[0].end, "PERSON", 5, "title"))
+    for r in range(1, len(runs)):
+        a, b = runs[r - 1], runs[r]
+        # the other surname after a comma or a bracket: "madame x, née y, a renoncé", "mme x (née y) demande"
+        if len(b) >= 2 and not b[0].cap and b[0].low in ("nee", "epouse", "veuve") and taken(a[-1]) \
+                and re.fullmatch(r"[ \u00a0]?[,(][ \u00a0]?", text[a[-1].end:b[0].start]) and not b[1].cap \
+                and not taken(b[1]) and len(b[1].low) >= 3 and _lc_kind(b[1]) in ("oov", "first") \
+                and (len(b) == 2 or _lc_third_follows(b, 2)):
+            out.append(RuleSpan(b[1].start, b[1].end, "PERSON", 5, "title"))
     for m in (_LC_DOTTED_FORM_RE.finditer(text) if "." in text else ()):
         for run in runs:
             if run[0].start <= m.start() <= run[-1].start:

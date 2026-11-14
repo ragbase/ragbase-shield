@@ -1203,3 +1203,50 @@ def test_two_people_with_one_surname_keep_two_codes_and_an_exact_restore(text):
     r = m.mask(text)
     assert "PERSONNE_A" in r.text and "PERSONNE_B" in r.text and "kervadec" not in r.text
     assert m.unmask(r.text) == text
+
+
+# Round 3: company shapes, the other surname, fields after a list mark. (text, the masked text)
+MORE_TYPED_SHAPES = [
+    ("ma cliente la sarl boulangerie zorvane conteste le congé", "ma cliente la sarl SOCIETE_A conteste le congé"),
+    ("Employeur : transports kerdalis sarl. Salarié : m. kervadec.",
+     "Employeur : transports SOCIETE_A sarl. Salarié : m. PERSONNE_A."),
+    ("la selarl kervadec et talvenec représente le bailleur", "la selarl SOCIETE_A représente le bailleur"),
+    ("mme nadia kervadec née dos zelmoune demande le partage", "mme PERSONNE_A née PERSONNE_B demande le partage"),
+    ("madame kervadec, née talvenec, a renoncé à la succession",
+     "madame PERSONNE_A, née PERSONNE_B, a renoncé à la succession"),
+    ("madame kervadec (née talvenec) demande le divorce", "madame PERSONNE_A (née PERSONNE_B) demande le divorce"),
+    ("- nom : kervadec\n- prénom : nadia", "- nom : PERSONNE_A\n- prénom : PERSONNE_B"),
+    ("le 3 mars 2022 m. kervadec a signé la rupture conventionnelle",
+     "le 3 mars 2022 m. PERSONNE_A a signé la rupture conventionnelle"),
+]
+
+NO_TYPED_SHAPES = [
+    "nom : inexact, prénom : absent",
+    "m. tns, pas de bulletin de paie.",
+    "la sarl boulangerie a fermé",
+    "le mur fait 12 m. il est trop haut",
+    "l'arrêt jacques vabre de 1975 consacre la primauté des traités.",
+    "monsieur quitta le domicile conjugal en mai",
+    "madame refusa de signer",
+    "le dossier de monsieur avance bien.",
+    "sur le licenciement de madame notifié le 3 mars",
+    "j'ai vu monsieur pousser la porte du local.",
+    "cours de dr pénal le lundi.",
+    "tenue : jean noir, veste grise.",
+    "la sarl serbe a détaché six ouvriers.",
+    "madame hélas n'a aucune preuve écrite.",
+    "mme arabophone ne lit pas le français.",
+]
+
+
+@pytest.mark.parametrize("text,masked", MORE_TYPED_SHAPES)
+def test_more_shapes_typed_without_capitals(text, masked):
+    m = _masker()
+    r = m.mask(text)
+    assert r.text == masked
+    assert m.unmask(r.text) == text
+
+
+@pytest.mark.parametrize("text", NO_TYPED_SHAPES)
+def test_typed_text_with_no_name(text):
+    assert _masker().mask(text).text == text
