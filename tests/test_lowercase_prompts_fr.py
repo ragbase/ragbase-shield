@@ -568,3 +568,157 @@ def test_surnames_after_a_civility(text, names):
 def test_ordinary_words_after_a_first_name_are_no_surname(text, names):
     r = _masker().mask(text)
     assert [s.value for s in r.spans if s.kind == "PERSON"] == names
+
+
+# ---------------------------------------------------------------------------
+# Form fields, a legal form before the name, a company cue with no legal form
+# ---------------------------------------------------------------------------
+
+# (text, the masked text)
+FIELDS = [
+    ("nom : zadou", "nom : PERSONNE_A"),
+    ("nom : zadou, prénom : mila", "nom : PERSONNE_A, prénom : PERSONNE_B"),
+    ("nom : zadou\nprénom : mila\nné le 3 mars 1980", "nom : PERSONNE_A\nprénom : PERSONNE_B\nné le NAISSANCE_1"),
+    ("nom de naissance : kervadec", "nom de naissance : PERSONNE_A"),
+    ("prénoms : mila nadia", "prénoms : PERSONNE_A"),
+    ("client : kervadec jean, né le 3 mars 1980 à lyon", "client : PERSONNE_A, né le NAISSANCE_1 à lyon"),
+    ("client : jean kervadec", "client : PERSONNE_A"),
+]
+
+NO_FIELD_VALUE = [
+    "nom : à compléter",
+    "nom : inconnu",
+    "prénom : non renseigné",
+    "nom : voir ci-dessus",
+    "nom du fichier : contrat",
+    "le nom : zadou",
+]
+
+# (text, the masked text)
+FORM_BEFORE_NAME = [
+    ("samir nelba c/ sas brivanor", "PERSONNE_A c/ sas SOCIETE_A"),
+    ("contre: sarl les jardins de provence, représentée par son gérant pierre durand",
+     "contre: sarl SOCIETE_A, représentée par son gérant PERSONNE_A"),
+    ("nelba samir et zadou mila sont associés de la sci les tilleuls",
+     "PERSONNE_A et PERSONNE_B sont associés de la sci SOCIETE_A"),
+    ("la sci les tilleuls a acheté l'immeuble", "la sci SOCIETE_A a acheté l'immeuble"),
+    ("c/ sas brivanor", "c/ sas SOCIETE_A"),
+    ("le cabinet kervadec & associés représente la partie adverse", "le cabinet SOCIETE_A représente la partie adverse"),
+    ("le cabinet kervadec talvez et associés plaide", "le cabinet SOCIETE_A plaide"),
+    ("la société julien a licencié mon client", "la société SOCIETE_A a licencié mon client"),
+]
+
+NO_COMPANY_NAME = [
+    "la sarl les a licenciés",
+    "la sci le sait",
+    "il a géré la sas les mois suivants",
+    "la sarl la plus rentable",
+    "la société civile a été dissoute",
+    "la société mère a licencié",
+    "la société leader a annoncé",
+    "le groupe électrogène est en panne",
+    "la société marie a fermé",
+    "le sas est fermé",
+]
+
+
+@pytest.mark.parametrize("text,masked", FIELDS + FORM_BEFORE_NAME)
+def test_fields_and_companies_in_lower_case(text, masked):
+    m = _masker()
+    r = m.mask(text)
+    assert r.text == masked
+    assert m.unmask(r.text) == text
+
+
+@pytest.mark.parametrize("text", NO_FIELD_VALUE + NO_COMPANY_NAME)
+def test_no_field_value_and_no_company_name(text):
+    assert _masker().mask(text).text == text
+
+
+def test_capitalised_fields_keep_their_reading(monkeypatch):
+    for text in ("Nom : Zadou, Prénom : Mila", "Nom : Zadou\nPrénom : Mila", "Client : Kervadec Jean, né le 3 mars 1980"):
+        on = _masker().mask(text).text
+        monkeypatch.setenv(SWITCH, "0")
+        off = _masker().mask(text).text
+        monkeypatch.delenv(SWITCH)
+        assert on == off
+
+
+# ---------------------------------------------------------------------------
+# Captions, long names, spellings of civilities and of legal forms
+# ---------------------------------------------------------------------------
+
+# (text, the masked text)
+MORE_SHAPES = [
+    # a case caption with bare surnames
+    ("kervadec c/ talvez", "PERSONNE_A c/ PERSONNE_B"),
+    ("affaire kervadec c/ talvez", "affaire PERSONNE_A c/ PERSONNE_B"),
+    ("dossier martin c/ kervadec, audience le 3 mars", "dossier PERSONNE_A c/ PERSONNE_B, audience le 3 mars"),
+    ("dossier martin contre kervadec", "dossier PERSONNE_A contre PERSONNE_B"),
+    ("kervadec c/ talvez et brivanor sarl", "PERSONNE_A c/ PERSONNE_B et SOCIETE_A sarl"),
+    ("dossier m. samir / kerval sas", "dossier m. PERSONNE_A / SOCIETE_A sas"),
+    ("contre : kerval sas", "contre : SOCIETE_A sas"),
+    ("défendeur : brivanor sarl", "défendeur : SOCIETE_A sarl"),
+    # names of four or five words, hyphenated initials, a name particle in a compound
+    ("madame nelba thi zadou demande un titre de séjour", "madame PERSONNE_A demande un titre de séjour"),
+    ("mme maria del carmen kervadec talvez conteste", "mme PERSONNE_A conteste"),
+    ("m. jose antonio brivault da costa a été blessé", "m. PERSONNE_A a été blessé"),
+    ("m. j-p kervadec a été mis à pied", "m. PERSONNE_A a été mis à pied"),
+    ("mme ben-ahmed conteste", "mme PERSONNE_A conteste"),
+    ("mme léa du bois a signé", "mme PERSONNE_A a signé"),
+    # spellings of a civility typed in lower case
+    ("melle vellin demande des dommages", "melle PERSONNE_A demande des dommages"),
+    ("mdme kervadec a signé", "mdme PERSONNE_A a signé"),
+    ("mrs vellin a signé", "mrs PERSONNE_A a signé"),
+    # a legal form in full words, a digit and a join word in a company name, a surname-like word after a noun
+    ("la société par actions simplifiée kerval", "la société par actions simplifiée SOCIETE_A"),
+    ("la société à responsabilité limitée belmadi a fermé", "la société à responsabilité limitée SOCIETE_A a fermé"),
+    ("la société civile immobilière zorvane", "la société civile immobilière SOCIETE_A"),
+    ("la société k2 conseil sas a rompu le contrat", "la société SOCIETE_A sas a rompu le contrat"),
+    ("la société kerval et compagnie sarl a fermé", "la société SOCIETE_A sarl a fermé"),
+    ("la société kerval & co sas a fermé", "la société SOCIETE_A sas a fermé"),
+    ("le garage lenoir sarl a fermé", "le garage SOCIETE_A sarl a fermé"),
+]
+
+NO_MORE_SHAPES = [
+    "appel c/ jugement",
+    "recours c/ décision du préfet",
+    "tva c/ urssaf",
+    "appel contre jugement",
+    "plainte contre x",
+    "contre toute attente",
+    "kervadec contre son employeur",
+    "note : zorbla sarl",
+    "objet : sas zorblax",
+    "la société civile immobilière a été dissoute",
+    "la société anonyme de droit français",
+    "la société civile professionnelle d'avocats",
+    "il se mêle de tout",
+    "le t2 sas",
+    "Melle Vellin demande des dommages",
+    "Kervadec c/ Talvez",
+]
+
+# A name of more than three words needs its verb or the end of the clause. (text, the names masked)
+LONG_NAME_LIMITS = [
+    ("mme sophie kervadec talvez hier matin", ["sophie kervadec talvez"]),
+    ("m. paul kervadec talvez brivanor zorvane velkor conteste", ["paul kervadec talvez"]),
+]
+
+
+@pytest.mark.parametrize("text,masked", MORE_SHAPES)
+def test_more_shapes_of_names_in_lower_case(text, masked):
+    m = _masker()
+    r = m.mask(text)
+    assert r.text == masked
+    assert m.unmask(r.text) == text
+
+
+@pytest.mark.parametrize("text", NO_MORE_SHAPES)
+def test_these_shapes_hold_no_name(text):
+    assert _masker().mask(text).text == text
+
+
+@pytest.mark.parametrize("text,names", LONG_NAME_LIMITS)
+def test_a_long_name_needs_its_verb(text, names):
+    assert _spans(text, "PERSON") == names

@@ -107,6 +107,8 @@ polonais polonaise russe ukrainien ukrainienne africain africaine sénégalais s
 ivoirien ivoirienne camerounais camerounaise congolais congolaise comorien comorienne libanais libanaise syrien
 syrienne afghan afghane pakistanais pakistanaise indien indienne brésilien brésilienne
 
+inconnu inconnue inconnus inconnues
+
 # [words]
 # --- Everyday and legal words that the other lists do not hold ---
 info infos mail mails email emails courriel sms message messages appel appels rappel rappels copie relecture
