@@ -1,7 +1,6 @@
 # RAGbase Shield: architecture and build contract
 
-Status: v0.1 build spec, 2026-10-16. Every module owner follows this file. If a module needs a change to a
-shared contract, it writes the change here and says so in its report.
+Status: technical contract of RAGbase Shield 0.4.0, for developers.
 
 ## 1. Product in one paragraph
 
@@ -48,15 +47,15 @@ ragbase-shield/
       __init__.py                # exports Shield-facing API below
       types.py                   # Entity, Span, MaskResult (contract below)
       normalize.py               # accent/case folding, offsets map
-      detectors.py               # regex + checksum detectors (structured identifiers); "# --- en ---" section (v0.2)
+      detectors.py               # regex + checksum detectors (structured identifiers); "# --- en ---" section
       names.py                   # French person and company name rules, variants
-      locale.py                  # v0.2: language detection, lexicon bundles, English name rules
-      ner.py                     # v0.2: optional NER backends (GLiNER2, GLiNER, spaCy), chunking, download
-      merge.py                   # v0.2: NER spans merged into candidates, precision guards
-      synthetic.py               # v0.2: synthetic replacement mode (realistic pseudonyms)
+      locale.py                  # language detection, lexicon bundles, English name rules
+      ner.py                     # optional NER backends (GLiNER2, GLiNER, spaCy), chunking, download
+      merge.py                   # NER spans merged into candidates, precision guards
+      synthetic.py               # synthetic replacement mode (realistic pseudonyms)
       lexicon/                   # data files: first names, whitelist (courts, institutions, legal terms), stopwords,
                                  #   en_*.txt bundle, vocab_fr.txt, legal_forms_spelled_fr.txt, ner_stoplist_*.txt,
-                                 #   synthetic_*.txt (v0.2)
+                                 #   synthetic_*.txt
       masker.py                  # Masker: mask / unmask / scan (canary)
     vault.py                     # owner: vault. Dossier registry + encrypted per-dossier entity store
     documents.py                 # owner: vault. Read PDF/DOCX/TXT/MD/EML/HTML; write DOCX/MD
@@ -519,7 +518,7 @@ Desk server notes (added by desk app, 2026-10-16, `desk/app.py`):
 - `cli.cmd_desk` imports the app with `importlib.import_module` (a `sys.modules` entry wins even after an
   earlier import, which `from .desk import app` does not honour).
 
-## 5. Quality gates for v0.1
+## 5. Quality gates
 
 - Unit tests pass (`uv run --extra dev pytest -q`; pytest is in the `dev` extra), synthetic data only.
 - Bench on the synthetic corpus: every registered party and every checksummed number masked; report recall per kind.
@@ -614,11 +613,10 @@ mcp 2.3 (`from mcp.server.mcpserver import MCPServer`; FastMCP was renamed in 2.
 `mcp.types.ToolAnnotations`), starlette 1.8, uvicorn 0.54, cryptography (48 on Intel Mac), pypdf, python-docx,
 keyring. Run everything with `.venv/bin/python` or `uv run`.
 
-## 10. R1 corrections (after the first internal evaluation round, R0)
+## 10. Names, detectors, service and restore: general rules
 
-Every rule below is a general rule (a pattern, a lexicon category or an algorithm), written from the finding classes
-of the first internal evaluation round (R0, on invented matters). Tests: `tests/test_r1_names.py`, `tests/test_r1_detectors.py`,
-`tests/test_r1_service.py`, `tests/test_r1_restore.py`, `tests/test_r1_integration.py`.
+Every rule below is a general rule (a pattern, a lexicon category or an algorithm). Tests: `tests/test_r1_names.py`,
+`tests/test_r1_detectors.py`, `tests/test_r1_service.py`, `tests/test_r1_restore.py`, `tests/test_r1_integration.py`.
 
 ### 10.1 Names (owner: NAMES; `engine/names.py`, `engine/masker.py`, `engine/lexicon/`)
 
@@ -708,7 +706,7 @@ of the first internal evaluation round (R0, on invented matters). Tests: `tests/
 - File names: cut at a word boundary within 120 characters and 200 bytes (`documents.cut_at_word`,
   `trim_dangling`, `MAX_STEM_CHARS`); a restored title is cut before a restored value, never inside it.
 
-## 11. v0.2 contract changes (one subsection per builder)
+## 11. Detectors, model layer, English texts, realistic pseudonyms
 
 ### 11.1 DETECTORS (kinds, detectors, id shape memory, variants)
 
@@ -785,7 +783,7 @@ of the first internal evaluation round (R0, on invented matters). Tests: `tests/
   person with a context cue, one-word organisation, generic organisation words), identifier values pass a shape check,
   nested spans collapse to the longest. `guard_ner_spans` is the same without rule spans. `is_name_word`, `trim_span`,
   `lists_for(lang)` are the building blocks. Thresholds by kind (PERSON 0.40, ORG 0.60 fastino / 0.45 urchade, values
-  0.50) and the one-word rules were chosen on the dev fixtures and the invented gap snippets only (docs/NER.md 5).
+  0.50) and the one-word thresholds: docs/NER.md, section 5.
 - Lexicon: `ner_stoplist_fr.txt`, `ner_stoplist_en.txt`, `vocab_fr.txt` (hand-written, 2,401 words),
   `legal_forms_spelled_fr.txt` (150 spelled-out forms + short forms); additions to `acronyms_fr.txt` (court
   functions JAF, JEX, JLD, JAP...), `legal_terms_fr.txt`, `whitelist_fr.txt`. `names._skip_spelled_form` makes the
@@ -909,12 +907,7 @@ of the first internal evaluation round (R0, on invented matters). Tests: `tests/
   about 1 to 2 k characters per second on a first read (chunk cache: a page read twice costs nothing the second
   time). NER is skipped above `RAGBASE_SHIELD_NER_MAX_CHARS` and never runs in the hooks or the canary.
 
-## 12. v0.3 contract changes: the PrivacyBench ladder (plan of 2026-10-19; build 2026-10-21)
-
-Goal of the ladder: close the recall gap of the v0.2 rules mode on PrivacyBench v2.5 with general mechanisms
-only: no benchmark string in `src/`, the lexicons or the tests, the privacy rules of section 2 unchanged (no real
-value in a model-facing output, fail closed, local only). Rules mode stays the product default. The clean-room audit
-of section 13.3 checks that no benchmark value sits in the code, the lexicons, the tests or the docs.
+## 12. English documents: spans, directory, identifiers
 
 ### 12.1 S1+S4 (spans and organisations; `engine/names.py`, `documents.py`, `engine/detectors.py`)
 
@@ -997,8 +990,6 @@ of section 13.3 checks that no benchmark value sits in the code, the lexicons, t
   but unregistered surfaces). Fail closed: `SyntheticCollision` and `SyntheticLeak` raise, the masker writes the
   code; counters `redrawn`, `failed_closed`, `collisions`. Shape rules: word count kept, every replaced word starts
   with another letter, case and separators kept.
-- v0.3 left two leak causes (found in the v0.3 PrivacyBench run): nicknames of a known person written
-  unchanged (cause A) and one-letter fake forms that hid real text (cause B). v0.3.1 fixes both (section 13.1).
 - `evaluation/holdout-en/`: `make_holdout.py` (10 invented English exports, `tasks/`, `ground_truth/`),
   `run_holdout.py [--synthetic [--register-first]]`, `score_holdout.py [--syncover]`, `check_separation.py --since
   <base> [--strict]` (no corpus string in the engine lists), `README.md`, `build_report.json`.
@@ -1029,8 +1020,7 @@ of section 13.3 checks that no benchmark value sits in the code, the lexicons, t
   store rows; a Synthesizer failure gives no known fake surface (fail closed). `Service._register_pass(d)`: a
   dossier in synthetic mode registers every readable document in codes mode before a single fake is drawn
   (`_scan`, PLAN 5.1); the PrivacyBench runner does the same in its `--synthetic` run (pass 1 in codes mode).
-  v0.3.1 changes the lookup: known fake surfaces count only in a model answer masked again, never in a source
-  document (section 13.1).
+  Known fake surfaces count only in a model answer masked again, never in a source document (section 13.1).
 - Span policy "cover": `_detect` stores the company core (`org_form_parts`) for a rule span; `_apply` writes
   `lead + code + tail` (codes) or `lead + pseudonym + tail` (synthetic). Default unchanged (`"clear"`).
 - `pyproject.toml` gains `pdfplumber>=0.11` (NOTICE: pdfplumber and pdfminer.six, MIT).
@@ -1040,15 +1030,8 @@ of section 13.3 checks that no benchmark value sits in the code, the lexicons, t
   code (`name_roles(store, masker)`, `split_person(text, start, roles, code)`); `--synthetic` registers first.
   MAPA runner `run_shield.py`: the recorder passes `mint_into=` on and reads `entry.masked0`, but it is still not
   whole on the v0.2+ service: it fails 2 of its own checks on 19 of 19 decisions (known limit of this runner).
-- Checks on the final build (2026-10-21, rules mode): full suite green (`tests/test_v03_integration.py` added, 19
-  tests, invented data); `bench/run_bench.py` PASS; `ragbase-shield verify` CLEAN (47 paths, temp home). Benchmark
-  runs: PrivacyBench v2.5 recall up from v0.2; the French rules-mode masks (FR-PII-Bench, Judilibre, MAPA) unchanged.
-  Public results: `evaluation/laptop/RESULTS_PUBLIC.md`.
 
-## 13. v0.3.1 contract changes: synthetic leak fix, NER merge guard, clean-room audit (2026-10-23)
-
-Sources: the findings of the v0.3 PrivacyBench run. Codes mode does not
-change: the rules-mode masks of PrivacyBench, FR-PII-Bench, Judilibre, MAPA and holdout-en are identical to v0.3.
+## 13. Realistic pseudonyms, model merge guard, clean-room check
 
 ### 13.1 SYNTH (`engine/synthetic.py`, `engine/masker.py`)
 
@@ -1060,8 +1043,8 @@ change: the rules-mode masks of PrivacyBench, FR-PII-Bench, Judilibre, MAPA and 
   name. A mention word that maps to nothing becomes the fake's first given name when the masker linked the mention
   as a given-name form; any other unmapped word fails closed (the code is written). A fake never uses a nickname of
   a real given name.
-- Leak guards: `Synthesizer._leaks` and `masker._synthetic_leaks(ent, rep, surface="")` (new optional third
-  argument; a two-argument call keeps the v0.3 rule) flag any word of the mention written unchanged that is not a
+- Leak guards: `Synthesizer._leaks` and `masker._synthetic_leaks(ent, rep, surface="")` (optional third
+  argument) flag any word of the mention written unchanged that is not a
   fixed word, whatever its length. Helpers: `synthetic.mention_word_fixed(kind, run, surface="", start=-1, value="")`
   (a title, particle, generational word, legal form, generic company word or the "s" of a possessive) and
   `synthetic.unchanged_mention_word(kind, surface, rep, value="")` (a one-letter initial is compared at its own
@@ -1087,14 +1070,12 @@ change: the rules-mode masks of PrivacyBench, FR-PII-Bench, Judilibre, MAPA and 
   first name is masked as new real text: a new entity, and the earlier fake that collides with it is re-drawn (that
   name in the old answer no longer restores). This is the privacy-safe direction (a fake form can never hide a real
   value); a Desk action "mask a model answer again" should pass the flag (open item).
-- Vaults: a fake drawn by v0.3 that breaks a v0.3.1 rule (a nickname, initial or trailing-particle collision) is
+- Vaults: a stored fake that breaks one of these rules (a nickname, initial or trailing-particle collision) is
   re-drawn the next time it is used; model answers that use the old fake then no longer restore that name.
 
 ### 13.2 NER merge guard (`engine/merge.py`)
 
-- `_name_signals` returns no signal when the model span has no letter word. v0.3 read `words[0]` of an empty list
-  (`IndexError` at `merge.py:988`); the masker then dropped every model candidate of the unit ("NER merge failed;
-  rules only", 22 units of the PrivacyBench NER run). Tests: `tests/test_v031_merge.py`.
+- `_name_signals` returns no signal when the model span has no letter word. Tests: `tests/test_v031_merge.py`.
 
 ### 13.3 Clean-room audit (`evaluation/audit/`, owner: integrator)
 
@@ -1112,31 +1093,19 @@ change: the rules-mode masks of PrivacyBench, FR-PII-Bench, Judilibre, MAPA and 
   English industry head list `names._EN_HEAD_EXTRA` count as generic words; an invented word in that list stays
   reported.
 
-### 13.4 Version and gates
+### 13.4 Version
 
-- `ragbase_shield.__version__` and `pyproject.toml` read 0.3.1; the four integration manifests follow (a test checks
-  them).
-- Gates on the final build (2026-10-23): 1,666 tests passed (`tests/test_v031_*.py` added, 27 tests, invented
-  data); `bench/run_bench.py` PASS; `ragbase-shield verify` CLEAN (47 paths, temp home); `audit_fix.py --diff
-  693573f` 0 findings; `evaluation/audit/audit_bench.py --tree` 0 findings; `check_separation.py --since 693573f
-  --strict` exit 0. PrivacyBench v2.5: rules codes predictions byte-identical to v0.3, 0 NER merge failures, no
-  synthetic leak against the gold in either mode. FR-PII-Bench, Judilibre, MAPA and holdout-en rules masks identical
-  to v0.3.
+- The version of the package is in section 14.11.
 
-## 14. v0.4 contract changes: the PrivacyBench ladder v0.4 (plan of 2026-10-22; build 2026-10-24 to 2026-11-07)
+## 14. Version 0.4.0: English detection, PDF tables, Excel files, Windows hooks
 
-Steps S0, T1 to T5, T8, T9, P1 and W0. Each step was built, then measured on the whole benchmark harness before it
-was accepted. Public results: `evaluation/laptop/RESULTS_PUBLIC.md`.
-Rules that bind every step: a general mechanism only (a shape, a label word, a layout, a caller flag; never a benchmark
-string, a per-set or a per-value rule); invented test data; every new rule gated on `lang == "en"`, so the French
-masks of FR-PII-Bench, Judilibre and MAPA stay byte-identical; rules mode stays the product default. The last accepted
-commit is `321e05f`; its version string reads 0.3.1, and 0.4.0 is set in the version commit that follows with no
-engine change.
+Rules that bind every step below: a general mechanism only (a shape, a label word, a layout, a caller flag; never a
+benchmark string, a per-set or a per-value rule); invented test data; every new rule gated on `lang == "en"`, so the
+French masks of FR-PII-Bench, Judilibre and MAPA stay byte-identical; rules mode stays the product default.
 
 ### 14.1 S0 (`engine/synthetic.py`, `evaluation/audit/audit_bench.py`)
 
-- Three more synthetic leak classes closed (C, D, K of the v0.3.1 checker); codes-mode masks byte-identical to v0.3.1;
-  synthetic recall within 0.1 point of codes mode.
+- The leak guards of synthetic mode cover three more classes of collision; the masks in codes mode do not change.
 - The clean-room audit reads every line also as camelCase words, with escapes, entities and percent escapes decoded,
   base64 and hex decoded, Cyrillic and Greek look-alikes as Latin, string literals joined; it matches MD5, SHA-1 and
   SHA-256 of every gold value; the scope is the whole repository except the `evaluation/` subfolders and ignored
@@ -1178,8 +1147,8 @@ engine change.
   per mention by local cues (`Masker._label_cue_en`, `_label_mentions_en`), then by the export's own usage (company
   cues at least 3 times and twice as often as person cues; evidence fields `label_org`, `label_person` in
   `vault._EVIDENCE_FIELDS`).
-- Fail closed: in English a two-word person span the export shows as a company becomes the company (v0.3 dropped it
-  and the name could stay in clear); a bare first name keeps its person reading when its person evidence is stronger.
+- Fail closed: in English a two-word person span the export shows as a company becomes the company; a bare first
+  name keeps its person reading when its person evidence is stronger.
 
 ### 14.5 T4 (`engine/names.py` `domain_form_spans`, `engine/masker.py`)
 
@@ -1265,20 +1234,13 @@ engine change.
   `/d` keeps the drive and takes the rest of the line; the folder list of a shell is never cut (past 16 folders the
   command is denied with the new code `SHELL`); PowerShell braces inside a word stay literal, a script block `{` is
   checked like a glob of the folder, `foreach ($x in <command>)` reads the command; cmd switch values (`/g:<file>`)
-  are checked; nested shells, Windows readings and file URIs. Every command v0.3.1 denies is still denied
-  (differential probe, 985 invented rows, 0 regressions, 59 new denials).
+  are checked; nested shells, Windows readings and file URIs.
 - Vault file handle on Windows; `service.reset` closes the hook registries; `plist_dict` renders POSIX paths; test
-  isolation with `USERPROFILE`. Full suite on Windows: 2,034 passed, 0 failed, 26 platform skips; PrivacyBench and
-  FR-PII-Bench rules outputs byte-identical to the Linux run. Known limit: a bare `C:\x\y` in a Git Bash command loses its
-  backslashes in the POSIX reading and is denied above a dossier (fail closed; write `C:/x/y` or quote).
+  isolation with `USERPROFILE`. Known limit: a bare `C:\x\y` in a Git Bash command loses its backslashes in the POSIX
+  reading and is denied above a dossier (fail closed; write `C:/x/y` or quote).
 
-### 14.11 Version and gates
+### 14.11 Version
 
-- `ragbase_shield.__version__` and `pyproject.toml` read 0.4.0 from the version commit on; the four integration
-  manifests follow (a test checks them). The measured commit `321e05f` reports 0.3.1 in every run folder.
-- Gates on `321e05f` (2026-11-06 and 2026-11-07, on a Linux cloud machine): 2,055 tests passed on Linux (4 skipped,
-  1 deselected), 2,034 on Windows; the Max-corpus audit `audit_fix.py --diff 693573f` (internal) 0 findings; `audit_bench.py --diff HEAD` 0;
-  `check_separation.py --since 693573f --strict` exit 0; `audit_bench.py --tree` 1 finding in
-  `packaging/windows/sign_TODO.ps1` (open, not a detection file). PrivacyBench v2.5: no synthetic leak against the gold
-  in either mode; FR-PII-Bench, Judilibre and MAPA masks identical to v0.3.1 in both modes. Public results:
-  `evaluation/laptop/RESULTS_PUBLIC.md`.
+- `ragbase_shield.__version__` and `pyproject.toml` read 0.4.0; the four integration manifests follow (a test checks
+  them).
+- Public results: `evaluation/laptop/RESULTS_PUBLIC.md`.

@@ -1,6 +1,6 @@
 {
   "extName": { "message": "RAGbase Shield" },
-  "extDescription": { "message": "Masks client data when you paste text into ChatGPT, Claude, Copilot or Gemini. Masking runs on your computer, with Shield Desk." },
+  "extDescription": { "message": "Masks your clients' data when you paste text into Claude. Masking runs on your computer, with Shield Desk." },
   "actionTitle": { "message": "RAGbase Shield: restore names" },
 
   "badgeMasked": {

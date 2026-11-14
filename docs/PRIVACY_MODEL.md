@@ -128,7 +128,7 @@ Tools take dossier codes and document codes, and read the files locally.
 
 | Item | Where | Protection |
 |---|---|---|
-| Home | `$RAGBASE_SHIELD_HOME`, else `~/.ragbase-shield`, else `%LOCALAPPDATA%\ragbase-shield` (Windows; an old `%APPDATA%` folder is moved once) | Folder mode 0700 |
+| Home | `$RAGBASE_SHIELD_HOME`, else `~/.ragbase-shield`, else `%LOCALAPPDATA%\ragbase-shield` (Windows) | Folder mode 0700 |
 | Dossier registry | `<home>/registry.db` | Folder paths and titles encrypted with the master key; one random data key per dossier, wrapped by the master key |
 | Vault, one per dossier | `<home>/vaults/<uuid>.db` (SQLite) | Real values, normalised forms and document paths encrypted with Fernet (`cryptography`); lookups use an HMAC, never the name in clear |
 | Master key | OS keychain through `keyring` (service `ragbase-shield`, user `vault-key`); fallback `<home>/key` | Fallback file mode 0600; `RAGBASE_SHIELD_KEYRING=0` forces the file; a missing or wrong key fails closed |

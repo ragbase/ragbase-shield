@@ -155,40 +155,10 @@ Language lists: French from the lexicon package and `names.py` sets plus the fil
 built-in fallback (function words, titles, greetings, months, generic company words). The French stop list is
 never applied to an English text when `lang="en"` is passed.
 
-## 5. Calibration on the dev data (never a benchmark)
+## 5. Default thresholds
 
-Dev data: `tests/fixtures/docs` (10 annotated French documents, 79 person and 37 organisation mentions, 52
-keep-clear items) and the 38 invented gap snippets of `ragbase-shield/evaluation/local-llm/snippets.json` (46
-target items the R0 rules missed, 18 context items, 5 control snippets with no personal data). Script: the
-calibration run of 2026-10-18 (scratch), through the `Masker(ner=as_hook(backend))` path. "prec" = name spans
-that overlap a gold mention / name spans.
-
-| Configuration | Fixtures PERSON | Fixtures ORG | Fixtures prec | Over-masked | Snippet targets | Context | Controls flagged | Speed |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|
-| rules only (R1 code) | 79/79 | 37/37 | 115/115 | 0 | 22/46 | 14/18 | 0/5 | 77 k c/s |
-| rules + fastino raw, floor 0.30, no guard | 79/79 | 37/37 | 114/120 | 0 | 42/46 | 18/18 | 3/5 (4 spans) | 1.5 k c/s (first run) |
-| rules + fastino raw, P 0.40 O 0.60, no guard | 79/79 | 37/37 | 114/119 | 0 | 41/46 | 17/18 | 1/5 | |
-| **rules + fastino guarded, P 0.40 O 0.60, one-word 0.50 / 0.70 (default)** | 79/79 | 37/37 | 114/114 | 0 | 41/46 | 16/18 | 0/5 | 1.4 k c/s cold, 100 k c/s cached |
-| rules + fastino guarded, one-word 0.70 / 0.70 | 79/79 | 37/37 | 114/114 | 0 | 39/46 | 16/18 | 0/5 | |
-| rules + urchade raw, P 0.40 O 0.60, no guard | 79/79 | 36/37 | 112/112 | 0 | 35/46 | 18/18 | 1/5 | 1.5 k c/s |
-| rules + urchade guarded (default) | 79/79 | 37/37 | 114/114 | 0 | 35/46 | 16/18 | 0/5 | |
-
-Reading: the guards remove every control false positive and every false span on the fixtures while keeping the
-NER gain on the gap classes (41 of 46 with fastino against 22 for the rules). The two context items lost with the
-guards are the trigger-word convention ("Société X" is masked as "Société SOCIETE_A", as the rules do; the
-scorer counts the clear trigger as a miss) and the same convention on a second snippet. The urchade organisation
-mention lost in raw mode (36/37) came back once the hook passed the rules' spans to the merge: an NER one-word
-person inside a company name no longer creates a pending person that steals the company's head word.
-
-Thresholds chosen on these numbers: PERSON 0.40 (multi-word), one-word PERSON 0.50 with a cue, ORG 0.60 (fastino,
-custom label) and 0.45 (urchade), one-word ORG 0.70 without a cue. The one-word person threshold 0.70 of the design
-lost two targets (a surname after "Dossier" at 0.55, a hyphenated surname after "Succession" at 0.69) for no
-precision gain on the dev data, so the default is 0.50 with a cue; the masker owner can raise it through the
-`guard_kw` of `as_hook` or the arguments of `merge_ner`.
-
-Speed on this Intel Mac (8 cores, torch 2.2.2, 16 threads): fastino loads in 11 s, 1,400 to 1,600 characters
-per second on the first pass; urchade loads in 13 s, about 1,500 characters per second. A second pass over the
-same pages runs from the chunk cache at the rules' speed.
+PERSON 0.40 (several words). One-word PERSON 0.50 with a cue. ORG 0.60 (fastino) and 0.45 (urchade). One-word ORG 0.70
+without a cue. To change them, use the `guard_kw` of `as_hook` or the arguments of `merge_ner`.
 
 ## 6. How the layer plugs into Shield
 

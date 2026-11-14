@@ -176,8 +176,8 @@ Set `RAGBASE_SHIELD_LOCALE=en`: PERSON_A, COMPANY_A, ADDRESS_1, CASEREF_1, SSN_1
 ### Where is the data, and how do I change the folder or the port?
 
 `RAGBASE_SHIELD_HOME` sets the data folder (default `~/.ragbase-shield`; on Windows `%LOCALAPPDATA%\ragbase-shield`,
-never the roaming profile: SQLite in WAL mode is not safe on a network share; a folder left in `%APPDATA%` by
-an earlier version is moved once). `RAGBASE_SHIELD_PORT` sets the Desk port (default 7878).
+never the roaming profile: SQLite in WAL mode is not safe on a network share). `RAGBASE_SHIELD_PORT` sets the Desk
+port (default 7878).
 `RAGBASE_SHIELD_KEYRING=0` keeps the key in a 0600 file instead of the OS keychain.
 `RAGBASE_SHIELD_MASK_TOQUE=0` keeps lawyers' toque numbers visible.
 

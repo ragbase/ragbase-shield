@@ -1,6 +1,6 @@
 {
   "extName": { "message": "RAGbase Shield" },
-  "extDescription": { "message": "Masque les données clients quand vous collez du texte dans ChatGPT, Claude, Copilot ou Gemini. Masquage local, avec Shield Desk." },
+  "extDescription": { "message": "Masque les données de vos clients quand vous collez du texte dans Claude. Masquage local, avec Shield Desk." },
   "actionTitle": { "message": "RAGbase Shield : restaurer les noms" },
 
   "badgeMasked": {
