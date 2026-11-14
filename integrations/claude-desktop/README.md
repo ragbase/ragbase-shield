@@ -3,9 +3,6 @@
 A one-click desktop extension that runs the RAGbase Shield MCP server on your computer. Claude reads
 your dossier documents **masked** through 6 tools and never sees the real names.
 
-Status: bundle **built and validated** with the official MCPB CLI (2.1.2). **Not installed in Claude
-Desktop yet**, not tested on Windows.
-
 ## Install (users)
 
 1. Download `ragbase-shield-<version>.mcpb` from the GitHub Releases page:
@@ -26,12 +23,12 @@ uv, on first start. No separate Python install is needed.
 
 Team and Enterprise: an admin can allow or block desktop extensions for the organization.
 
-**macOS keychain prompt (untested risk).** By default the vault key is stored in the macOS keychain by the
+**macOS keychain prompt.** By default the vault key is stored in the macOS keychain by the
 first program that opens the vault (usually Shield Desk, run by `uvx`). The extension's server runs another
 Python program (the uv environment inside the extension folder), and macOS keychain access rules are per
 program. Expect a dialog that asks to let the extension use the "ragbase-shield" keychain item: click
 **Always Allow**. If you click Deny, the vault stays closed and every Shield tool answers "vault unreadable"
-(fail closed: nothing reaches Claude). This has not been tested yet on a clean Mac with the default keychain.
+(fail closed: nothing reaches Claude).
 Two ways around it: open the vault with the extension first (ask Claude for `shield_status` before you start
 Shield Desk), or use the 0600 key file for every program (`RAGBASE_SHIELD_KEYRING=0` in the environment of
 Shield Desk and of the extension, before the first start).

@@ -34,7 +34,8 @@ Ce que le plugin exécute et envoie :
 - Le serveur MCP et les hooks tournent sur votre ordinateur. Ils n'envoient rien à RAGbase et aucune statistique
   d'usage. La table des codes (le coffre) est chiffrée et reste sur votre ordinateur.
 - Le texte masqué part chez Anthropic, comme tout message de la conversation avec Claude.
-- Le modèle NER optionnel se télécharge seulement si vous lancez vous-même `ragbase-shield ner download`.
+- Le modèle IA optionnel du mode Précis (nom technique : GLiNER) se télécharge seulement si vous lancez vous-même
+  `ragbase-shield ner download`.
 
 Ce que renvoie chaque hook (code source : `src/ragbase_shield/hooks.py` du dépôt) :
 
@@ -66,10 +67,9 @@ Pour commencer : installez uv, enregistrez un dossier avec Shield Desk (`uvx rag
 `uvx ragbase-shield==0.4.0 add <dossier> --title "Titre"`, puis lancez Claude Code. Pour tester sans vos données :
 `uvx ragbase-shield==0.4.0 verify` vérifie chaque chemin avec des données inventées et répond CLEAN ou LEAK.
 
-Limites : la détection n'est pas complète, relisez le texte masqué dans les cas sensibles. Dans le comparatif public
-du 11 novembre 2026, Hexagone laisse moins de données personnelles lisibles que Shield 0.4.0 sur certains jeux de
-test. Les chiffres, avec leur jeu, leur mode et leur statut : https://shield.ragbase.ai/resultats/. Le texte que vous
-tapez ou joignez directement dans une autre application d'IA n'est pas protégé.
+Limites : la détection n'est pas complète, relisez le texte masqué dans les cas sensibles. Le texte que vous tapez ou
+joignez directement dans une autre application d'IA n'est pas protégé. Les résultats mesurés :
+https://shield.ragbase.ai/resultats/.
 
 ## English
 
@@ -103,7 +103,8 @@ What the plugin runs and sends:
 - The MCP server and the hooks run on your computer. They send nothing to RAGbase and no usage statistics. The code
   table (the vault) is encrypted and stays on your computer.
 - The masked text goes to Anthropic, like every message of the conversation with Claude.
-- The optional NER model downloads only if you run `ragbase-shield ner download` yourself.
+- The optional AI model of Precise mode (technical name: GLiNER) downloads only if you run
+  `ragbase-shield ner download` yourself.
 
 What each hook returns (source code: `src/ragbase_shield/hooks.py` in the repository):
 
@@ -133,10 +134,8 @@ To start: install uv, register a folder with Shield Desk (`uvx ragbase-shield==0
 `uvx ragbase-shield==0.4.0 add <folder> --title "Title"`, then start Claude Code. To test without your data:
 `uvx ragbase-shield==0.4.0 verify` checks every path with invented data and answers CLEAN or LEAK.
 
-Limits: detection is not complete, so review the masked text in sensitive cases. In the public comparison of
-11 November 2026, Hexagone leaves less personal data readable than Shield 0.4.0 on some test sets. The numbers, with
-their set, mode and status: https://shield.ragbase.ai/en/results/. Text that you type or attach directly in another
-AI app is not protected.
+Limits: detection is not complete, so review the masked text in sensitive cases. Text that you type or attach
+directly in another AI app is not protected. The measured results: https://shield.ragbase.ai/en/results/.
 
 Source code, install guide and support: https://github.com/ragbase/ragbase-shield (issues for questions).
 Privacy policy: https://shield.ragbase.ai/en/privacy/

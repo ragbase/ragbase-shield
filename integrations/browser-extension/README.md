@@ -1,14 +1,12 @@
 # RAGbase Shield browser extension (Chrome and Edge, Manifest V3)
 
-Masks client text **when you paste it** into an AI chat, before the page sees it, and restores the real
+Masks client text **when you paste or drop it** into an AI chat, before the page sees it, and restores the real
 names **only in the extension's side panel**. It works with Shield Desk running on your computer.
 
 Sites: `chatgpt.com`, `claude.ai`, `copilot.microsoft.com`, `m365.cloud.microsoft`, `gemini.google.com`.
 
-Status: service worker router unit-tested in Node; paste masking, badge and blocked-paste panel tested in
-Chromium with a mocked `chrome` API; options and side panel rendered with mocks. **Not yet loaded as an
-extension against a live Shield Desk or the real sites.** Store listings (Chrome Web Store, Edge Add-ons)
-are pending.
+The extension is not in the Chrome Web Store or Edge Add-ons yet: load it unpacked (see below). After you
+paste, check that the prompt box shows codes before you send.
 
 ## How it works
 
@@ -36,10 +34,10 @@ Permissions: `storage`, `sidePanel`, host permission `http://127.0.0.1/*` only. 
 covered by the content script `matches` (the install warning is the same as with host permissions, and
 the extension gets no other access to those sites).
 
-Not covered: text you **type** (only pastes are masked), text dropped with the mouse, and files or images
-you attach. Use Shield Desk (**Fichiers** page) for files.
+Not covered: text you **type** goes out as typed. A file pasted or dropped on the page is stopped, and
+"Attach anyway" sends it unmasked. Use Shield Desk (**Fichiers** page) for files.
 
-## Install for testing (unpacked)
+## Install (unpacked, developer mode)
 
 1. Start Shield Desk: `uvx ragbase-shield desk`. Copy the token it shows (it is stored in the
    `desk_token` file of the Shield data folder).

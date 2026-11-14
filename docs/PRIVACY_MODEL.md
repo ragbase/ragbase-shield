@@ -56,7 +56,8 @@ C'est une pseudonymisation locale et réversible, pas une anonymisation.
 ### Ce que Shield ne fait pas
 
 - Il ne masque pas les faits. Un fait peut suffire à reconnaître un client.
-- Il ne trouve pas tous les noms. Les noms enregistrés dans le dossier sont les mieux protégés.
+- Il ne trouve pas tous les noms. Les noms enregistrés dans le dossier sont les mieux protégés. Vérifiez la liste
+  des noms détectés, et relisez le texte masqué avant de l'envoyer.
 - Il ne lit pas les PDF scannés (pas d'OCR dans cette version).
 - Il ne protège pas un texte que vous tapez ou collez directement dans le chat.
 - Il ne protège pas un ordinateur infecté par un logiciel malveillant.
@@ -127,7 +128,7 @@ Tools take dossier codes and document codes, and read the files locally.
 
 | Item | Where | Protection |
 |---|---|---|
-| Home | `$RAGBASE_SHIELD_HOME`, else `~/.ragbase-shield`, else `%LOCALAPPDATA%\ragbase-shield` (Windows; an old `%APPDATA%` folder is moved once) | Folder mode 0700 |
+| Home | `$RAGBASE_SHIELD_HOME`, else `~/.ragbase-shield`, else `%LOCALAPPDATA%\ragbase-shield` (Windows) | Folder mode 0700 |
 | Dossier registry | `<home>/registry.db` | Folder paths and titles encrypted with the master key; one random data key per dossier, wrapped by the master key |
 | Vault, one per dossier | `<home>/vaults/<uuid>.db` (SQLite) | Real values, normalised forms and document paths encrypted with Fernet (`cryptography`); lookups use an HMAC, never the name in clear |
 | Master key | OS keychain through `keyring` (service `ragbase-shield`, user `vault-key`); fallback `<home>/key` | Fallback file mode 0600; `RAGBASE_SHIELD_KEYRING=0` forces the file; a missing or wrong key fails closed |
@@ -185,7 +186,8 @@ Out of scope (Shield cannot stop these):
 
 ### Residual risks to tell users
 
-- Recall is below perfect for names nobody registered. Register parties per dossier.
+- Shield can miss a name that nobody registered. Register the parties of each dossier, check the list of detected
+  names, and read the masked text before you send it.
 - Cross-references (a project name, an amount, a date, a place) can re-identify. The user can register
   extra terms per dossier, and mark terms "Keep in clear".
 - The masked text is still confidential work product. Masking does not make it public.

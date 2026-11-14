@@ -1,6 +1,6 @@
 # RAGbase Shield with Microsoft 365 Copilot, Word, Outlook and the Copilot app
 
-Status: **documentation only.** There is no native Copilot connector, by design.
+There is no native Copilot connector, by design. This folder is a guide.
 
 ## Why there is no connector
 
@@ -43,11 +43,10 @@ The RAGbase Shield extension for Chrome and Edge masks text pasted into `copilot
 [`../browser-extension/`](../browser-extension/). It does not act inside the Word, Outlook or Teams
 desktop apps: use the clipboard commands there.
 
-## Planned for V2: a Word add-in
+## Planned: a Word add-in
 
 An Office.js add-in served as static HTTPS files, with all masking and restoring inside the add-in (no
-server sees the text). Before building it, test Copilot in Word on a masked document to confirm the
-answers keep the codes intact.
+server sees the text).
 
 ## Rules
 

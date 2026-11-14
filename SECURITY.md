@@ -10,7 +10,6 @@ décrit ci-dessous. N'envoyez jamais de vraies données de client : utilisez des
 | Version | Security fixes |
 |---|---|
 | 0.4.x | Yes |
-| Older (never published) | No |
 
 ## How to report a vulnerability
 

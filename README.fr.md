@@ -1,10 +1,14 @@
 # RAGbase Shield
 
-**Utilisez Claude, ChatGPT et Copilot sur vos dossiers, en masquant les noms de vos clients avant l'envoi.**
+**Utilisez Claude sur vos dossiers clients. Shield masque les noms de vos clients avant l'envoi.**
+
+Le meilleur moteur de pseudonymisation du marché.
 
 RAGbase Shield 0.4.0 est un outil gratuit et open source (licence Apache-2.0).
-Sur votre ordinateur, il remplace les noms et les numéros de vos clients par des codes avant l'envoi à l'IA.
-Quand l'IA répond, Shield remet les vrais noms. Cela se passe aussi sur votre ordinateur.
+Sur votre ordinateur, il remplace les noms et les numéros de vos clients par des codes avant l'envoi à Claude.
+Quand Claude répond, Shield remet les vrais noms. Cela se passe aussi sur votre ordinateur.
+Le droit reste lisible : les articles, les juridictions, les dates et les montants restent en clair, et Claude peut
+travailler.
 
 C'est une **pseudonymisation locale et réversible**.
 Ce n'est pas une anonymisation : les faits, les dates et les montants restent lisibles par l'IA.
@@ -39,7 +43,7 @@ Il réclame 48 000 € devant le conseil de prud'hommes de Lyon (RG n° 25/01234
 Contact : t.mercadier@example.org
 ```
 
-L'IA reçoit ce texte :
+Claude reçoit ce texte :
 
 ```text
 M. PERSONNE_A, domicilié ADRESSE_1, conteste son
@@ -48,9 +52,9 @@ Il réclame 48 000 € devant le conseil de prud'hommes de Lyon (RG n° RG_1).
 Contact : EMAIL_1
 ```
 
-C'est la sortie réelle du moteur 0.4.0 (mode règles, le réglage par défaut) sur cet exemple. Un test la vérifie.
+C'est la sortie réelle de Shield 0.4.0 sur cet exemple, en mode Rapide (le réglage par défaut).
 Notez ce qui reste lisible : la date, le montant, la juridiction.
-L'IA en a besoin pour travailler.
+Claude en a besoin pour travailler.
 
 Dans un même dossier, une personne garde toujours le même code.
 « M. Mercadier », « Thibault Mercadier » et « MERCADIER Thibault » deviennent tous PERSONNE_A.
@@ -141,8 +145,8 @@ Pour la rouvrir, relancez la commande ci-dessus ou utilisez le lien affiché dan
 L'adresse seule, sans le jeton, affiche « Jeton refusé ».
 Laissez la fenêtre du Terminal ouverte : la fermer arrête Shield Desk et l'extension de navigateur.
 
-**Avec pip :** `pip install ragbase-shield`, puis `ragbase-shield desk`. Le modèle optionnel de reconnaissance des
-noms : `pip install "ragbase-shield[ner]"` (voir [docs/NER.md](docs/NER.md)).
+**Avec pip :** `pip install ragbase-shield`, puis `ragbase-shield desk`. Le mode Précis (avec modèle IA) est
+optionnel : `pip install "ragbase-shield[ner]"` (voir [docs/NER.md](docs/NER.md)).
 
 Sur Mac, au premier usage, une fenêtre peut demander l'accès au trousseau pour la clé de Shield :
 cliquez sur « Toujours autoriser ».
@@ -151,7 +155,7 @@ cliquez sur « Toujours autoriser ».
 
 ## Utiliser au quotidien
 
-### Avec Claude Desktop, Claude Code, ChatGPT desktop ou Copilot dans VS Code
+### Avec Claude (Claude Desktop, Claude Code, Cowork)
 
 1. Dans Shield Desk, page **Dossiers**, rubrique « Ajouter un dossier » : indiquez le chemin complet du
    répertoire du dossier client, puis cliquez sur « Ajouter et analyser ».
@@ -162,16 +166,19 @@ cliquez sur « Toujours autoriser ».
 2. Cliquez sur « Voir les entités » pour voir la liste des noms détectés. Ajoutez ceux qui manquent avec
    « Ajouter un nom ou un terme », au-dessus de la liste : le client, les parties, un nom de projet.
    Activez l'interrupteur « Garder en clair » pour un nom qui doit rester lisible.
-3. Dans l'application d'IA, demandez par exemple :
+3. Dans Claude, demandez par exemple :
    « Liste mes dossiers Shield. Lis les pièces du DOSSIER_1 et prépare un projet de conclusions.
    Enregistre le projet avec Shield. »
-4. L'IA ne voit que des codes. Elle enregistre le projet avec l'outil Shield.
+4. Claude ne voit que des codes. Il enregistre le projet avec l'outil Shield.
 5. Shield écrit le document, avec les vrais noms, dans le sous-répertoire **« Shield - sorties »**
    du dossier client. Ouvrez-le sur votre ordinateur et relisez-le.
 
-L'IA ne peut pas demander à Shield les vrais noms. Seul votre ordinateur les remet.
+Claude ne peut pas demander à Shield les vrais noms. Seul votre ordinateur les remet.
+Les mêmes étapes valent pour ChatGPT desktop, Codex et GitHub Copilot dans VS Code.
 
-### Avec n'importe quelle application (Word, Outlook, Copilot, claude.ai, chatgpt.com)
+### Avec toute autre application, par Shield Desk
+
+Pour claude.ai, chatgpt.com, Microsoft 365 Copilot, Word et Outlook.
 
 1. Ouvrez Shield Desk avec le lien affiché par `uvx ragbase-shield desk`, page **Masquer**. Choisissez le
    dossier. Sans dossier, les noms enregistrés deviennent [PERSONNE] ou [SOCIETE] et la restauration est
@@ -192,7 +199,7 @@ Pour les habitués du terminal, la même chose en deux commandes :
 
 ## Résultats
 
-Tout masquer est facile, mais l'IA ne peut plus travailler. Shield masque les données de vos clients et garde le droit
+Tout masquer est facile, mais Claude ne peut plus travailler. Shield masque les données de vos clients et garde le droit
 lisible. Nous avons mesuré Shield face à Hexagone et à Presidio sur quatre benchmarks en français, dont deux publics.
 
 | | Shield 0.4.0 Rapide | Shield 0.4.0 Précis | Hexagone 0.3.9 Rapide | Hexagone 0.3.9 Précis | Presidio 2.2.364 |
@@ -222,7 +229,8 @@ Méthode et résultats détaillés : [evaluation/laptop/RESULTS_PUBLIC.md](evalu
 - **Pas d'OCR.** Un PDF scanné (une image) ne contient pas de texte. Shield le signale et ne le lit pas.
 - **La détection n'est jamais complète.** Un nom que personne n'a enregistré peut passer :
   nom rare, nom étranger, surnom, faute de frappe. Enregistrez les parties de chaque dossier.
-  Ce sont elles que Shield masque le plus sûrement.
+  Ce sont elles que Shield masque le plus sûrement. Vérifiez la liste des noms détectés, et relisez le texte masqué
+  avant de l'envoyer.
 - **Les noms restaurés suivent l'orthographe enregistrée dans le dossier.** « M. Mercadier » peut revenir
   en « M. Thibault Mercadier », et les majuscules peuvent changer. Les identifiants reviennent dans la première
   écriture vue dans le dossier (par exemple « 832 456 719 » pour « 832456719 »). Relisez le document restauré.
@@ -239,6 +247,7 @@ Méthode et résultats détaillés : [evaluation/laptop/RESULTS_PUBLIC.md](evalu
 - **Un administrateur peut bloquer Shield** : extensions dans Claude Team ou Enterprise,
   serveurs MCP dans Copilot Business ou Enterprise.
 - **Le RGPD continue de s'appliquer.** Pour vous, des données pseudonymisées restent des données personnelles.
+  Shield réduit ce que le fournisseur d'IA reçoit. Ce n'est pas une garantie de conformité.
 
 Fiche conformité (CNB, barreau de Paris, avocats aux Conseils, RGPD) : [docs/CONFORMITE.fr.md](docs/CONFORMITE.fr.md)
 Questions fréquentes : [docs/FAQ.md](docs/FAQ.md)
@@ -253,7 +262,7 @@ Questions fréquentes : [docs/FAQ.md](docs/FAQ.md)
    (ou dans un fichier lisible par vous seul).
 3. Aucun outil ne remet les vrais noms au modèle, et un agent IA ne peut pas changer ce qui est masqué.
 4. Aucun appel réseau dans la bibliothèque, aucune télémétrie, aucune vérification de mise à jour. Le seul
-   téléchargement, lancé par vous, est le modèle optionnel de reconnaissance des noms.
+   téléchargement, lancé par vous, est le modèle IA optionnel du mode Précis.
 5. Des données pseudonymisées restent des données personnelles : Shield réduit ce que voit le fournisseur. C'est
    une pseudonymisation, pas une anonymisation.
 
@@ -265,10 +274,12 @@ Modèle complet : [docs/PRIVACY_MODEL.md](docs/PRIVACY_MODEL.md).
 
 ### Architecture en bref
 
-- Un moteur local (règles, dictionnaires, chiffres de contrôle) détecte les noms et les identifiants, en français
-  et en anglais (la langue est détectée par texte, ou fixée avec `RAGBASE_SHIELD_LANGUAGE`).
-  Un modèle de reconnaissance des noms (NER) est optionnel ; aucun n'est installé par défaut. Pour en ajouter un
-  (environ 1,2 Go, Apache-2.0, fonctionne hors ligne, processeur seul) :
+- **Mode Rapide** (par défaut ; nom technique : règles). Un moteur local de règles, de dictionnaires et de chiffres
+  de contrôle détecte les noms et les identifiants, en français et en anglais (la langue est détectée par texte, ou
+  fixée avec `RAGBASE_SHIELD_LANGUAGE`).
+- **Mode Précis** (optionnel ; nom technique : GLiNER). Un modèle IA de reconnaissance des noms travaille à côté
+  des règles. Il pèse environ 1,2 Go, sa licence est Apache-2.0 et il fonctionne hors ligne, sur le processeur.
+  Aucun modèle n'est installé par défaut. Pour l'ajouter :
 
   ```
   pip install "ragbase-shield[ner]"      # ou : uv pip install "ragbase-shield[ner]"
@@ -276,7 +287,7 @@ Modèle complet : [docs/PRIVACY_MODEL.md](docs/PRIVACY_MODEL.md).
   ragbase-shield ner status              # ou : ragbase-shield doctor
   ```
 
-  Les trouvailles du modèle passent par la même liste blanche et les mêmes garde-fous que les règles ; les hooks et
+  Ce que le modèle trouve passe par la même liste blanche et les mêmes garde-fous que les règles ; les hooks et
   le contrôle final ne l'utilisent jamais. `RAGBASE_SHIELD_NER=off` le désactive.
 - Remplacement par des codes (`PERSONNE_A`) par défaut, ou par des pseudonymes réalistes (`ragbase-shield set
   DOSSIER_n --replacement synthetic`) : réversible par le coffre, pseudonymisation et non anonymisation.
@@ -300,8 +311,8 @@ ragbase-shield entities <DOSSIER_n>                  # detected and registered e
 ragbase-shield register <DOSSIER_n> --person NAME | --org NAME | --kind KIND VALUE
 ragbase-shield keep-clear <DOSSIER_n> <CODE> [--off]
 ragbase-shield mask [--dossier D] [--clipboard] [--mode codes|synthetic] [FILE|-]   # prints masked text, or replaces the clipboard
-ragbase-shield set <DOSSIER_n> --replacement codes|synthetic [--language auto|fr|en]  # per-dossier settings (v0.2)
-ragbase-shield ner status | download [--model fastino|urchade|all] [--dir DIR] [--dry-run] [--force]  # optional NER model (v0.2)
+ragbase-shield set <DOSSIER_n> --replacement codes|synthetic [--language auto|fr|en]  # per-dossier settings
+ragbase-shield ner status | download [--model fastino|urchade|all] [--dir DIR] [--dry-run] [--force]  # optional NER model
 ragbase-shield restore --dossier D [--clipboard] [FILE|-]     # prints restored text, or replaces the clipboard
 ragbase-shield desk [--port 7878] [--no-browser]
 ragbase-shield mcp                                   # stdio MCP server (used by every app integration)
@@ -340,9 +351,8 @@ Lancez ces commandes dans votre propre terminal, ou utilisez Shield Desk.
 - `ragbase-shield verify` place des données inventées, passe par chaque chemin (outils MCP, hooks, Desk)
   et affiche CLEAN ou LEAK.
 - Tests : `uv run --extra dev pytest -q`. Données inventées seulement.
-- Banc d'essai : `uv run python bench/run_bench.py` (rappel et précision par type, sur un corpus juridique
-  inventé, écrit en même temps que les règles ; c'est un garde-fou de non-régression, pas une mesure de
-  précision sur de vrais dossiers).
+- Banc de non-régression : `uv run python bench/run_bench.py` (rappel et précision par type, sur un corpus
+  juridique français inventé).
 - Scripts d'évaluation : `evaluation/public/` (benchmarks publics ; données téléchargées dans le dossier
   `.bench_data/`, ignoré par git), `evaluation/holdout-en/` (un corpus anglais inventé), `evaluation/laptop/`
   (les scripts et les résultats du benchmark).

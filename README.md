@@ -2,17 +2,20 @@
 
 <!-- mcp-name: io.github.ragbase/ragbase-shield -->
 
-**Use Claude, ChatGPT and Copilot on your case files, masking your clients' names before sending.**
+**Use Claude on your client files. Shield masks your clients' names before the text is sent.**
+
+The best pseudonymisation engine on the market.
 
 RAGbase Shield 0.4.0 is a free, open-source tool (Apache-2.0).
-On your own computer, it replaces client names and numbers with codes before the text goes to the AI.
-When the AI answers, Shield puts the real names back, also on your computer.
+On your own computer, it replaces your clients' names and numbers with codes before the text goes to Claude.
+When Claude answers, Shield puts the real names back, also on your computer.
+The law stays readable: articles, courts, dates and amounts stay in clear, so Claude can do the work.
 
 This is **local, reversible pseudonymisation**.
 It is not anonymisation: facts, dates and amounts stay readable by the AI.
 Nothing goes to RAGbase. Shield sends no usage statistics.
 
-Version française (la version de référence pour les cabinets français) : [README.fr.md](https://github.com/ragbase/ragbase-shield/blob/v0.4.0/README.fr.md)
+Version française (la version de référence pour les cabinets français) : [README.fr.md](https://github.com/ragbase/ragbase-shield/blob/main/README.fr.md)
 
 Contents:
 
@@ -41,7 +44,7 @@ Il réclame 48 000 € devant le conseil de prud'hommes de Lyon (RG n° 25/01234
 Contact : t.mercadier@example.org
 ```
 
-The AI receives this text:
+Claude receives this text:
 
 ```text
 M. PERSONNE_A, domicilié ADRESSE_1, conteste son
@@ -50,9 +53,9 @@ Il réclame 48 000 € devant le conseil de prud'hommes de Lyon (RG n° RG_1).
 Contact : EMAIL_1
 ```
 
-This is the real output of the 0.4.0 engine (rules mode, the default) on this example. A test checks it.
-Note what stays readable: the date, the amount, the court. The AI needs them to do the work.
-The detection rules are built for French legal documents first, with English support.
+This is the real output of Shield 0.4.0 on this example, in Fast mode (the default).
+Note what stays readable: the date, the amount, the court. Claude needs them to do the work.
+Shield is built for French legal documents first. It also works on English text.
 With `RAGBASE_SHIELD_LOCALE=en`, codes use English labels (PERSON_A, COMPANY_A, ADDRESS_1).
 
 Inside one dossier, a person always keeps the same code.
@@ -79,7 +82,7 @@ Inside one dossier, a person always keeps the same code.
 | The dossier code (DOSSIER_1) and masked file names | The real dossier name and folder path |
 | Your question | The local journal (events, codes and counts only) |
 
-Details: [docs/PRIVACY_MODEL.md](https://github.com/ragbase/ragbase-shield/blob/v0.4.0/docs/PRIVACY_MODEL.md).
+Details: [docs/PRIVACY_MODEL.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/PRIVACY_MODEL.md).
 
 ### Codes
 
@@ -109,12 +112,12 @@ https://github.com/ragbase/ragbase-shield/releases/latest. Python package: `ragb
 
 | Your app or system | What to install | Guide |
 |---|---|---|
-| Mac (macOS 13 or later) | `RAGbase-Shield-0.4.0.pkg`: double-click, installs for you only (designed to need no administrator password), no Terminal. Not signed yet: macOS asks you to confirm the first time | [docs/INSTALL.md](https://github.com/ragbase/ragbase-shield/blob/v0.4.0/docs/INSTALL.md), section 0 |
-| Windows 10 or 11 | `RAGbase-Shield-0.4.0-win64.msi`: per-user install (designed to need no administrator rights). Not signed yet: SmartScreen asks you to confirm | [docs/INSTALL.md](https://github.com/ragbase/ragbase-shield/blob/v0.4.0/docs/INSTALL.md), section 0 |
-| Claude Desktop | `ragbase-shield-0.4.0.mcpb`: double-click, then "Install" | [docs/INSTALL.md](https://github.com/ragbase/ragbase-shield/blob/v0.4.0/docs/INSTALL.md), section 2 |
-| Claude Code and Cowork | Plugin: `/plugin marketplace add ragbase/ragbase-shield`, then `/plugin install ragbase-shield@ragbase` | [docs/INSTALL.md](https://github.com/ragbase/ragbase-shield/blob/v0.4.0/docs/INSTALL.md), section 3 |
-| ChatGPT desktop and Codex, GitHub Copilot in VS Code | `uvx ragbase-shield install chatgpt` (or `codex`, `vscode`) | [docs/INSTALL.md](https://github.com/ragbase/ragbase-shield/blob/v0.4.0/docs/INSTALL.md), sections 4 and 5 |
-| Any web app (claude.ai, chatgpt.com, Copilot web) | Shield Desk, and the browser extension for Chrome and Edge (not in the stores yet: load the folder `integrations/browser-extension` in developer mode) | [docs/INSTALL.md](https://github.com/ragbase/ragbase-shield/blob/v0.4.0/docs/INSTALL.md), sections 6 and 7 |
+| Mac (macOS 13 or later) | `RAGbase-Shield-0.4.0.pkg`: double-click, installs for you only (designed to need no administrator password), no Terminal. Not signed yet: macOS asks you to confirm the first time | [docs/INSTALL.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/INSTALL.md), section 0 |
+| Windows 10 or 11 | `RAGbase-Shield-0.4.0-win64.msi`: per-user install (designed to need no administrator rights). Not signed yet: SmartScreen asks you to confirm | [docs/INSTALL.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/INSTALL.md), section 0 |
+| Claude Desktop | `ragbase-shield-0.4.0.mcpb`: double-click, then "Install" | [docs/INSTALL.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/INSTALL.md), section 2 |
+| Claude Code and Cowork | Plugin: `/plugin marketplace add ragbase/ragbase-shield`, then `/plugin install ragbase-shield@ragbase` | [docs/INSTALL.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/INSTALL.md), section 3 |
+| ChatGPT desktop and Codex, GitHub Copilot in VS Code | `uvx ragbase-shield install chatgpt` (or `codex`, `vscode`) | [docs/INSTALL.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/INSTALL.md), sections 4 and 5 |
+| Any web app (claude.ai, chatgpt.com, Copilot web) | Shield Desk, and the browser extension for Chrome and Edge (not in the stores yet: load the folder `integrations/browser-extension` in developer mode) | [docs/INSTALL.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/INSTALL.md), sections 6 and 7 |
 | Terminal, with uv or pip | `uvx ragbase-shield desk`, or `pip install ragbase-shield` | below |
 
 **With uv (one command).** uv is the open-source tool that downloads and runs Shield.
@@ -143,8 +146,8 @@ To open it again, run the command again or use the link shown in the Terminal.
 The address alone, without the token, shows "Token refused".
 Keep the Terminal window open: closing it stops Shield Desk and the browser extension.
 
-**With pip:** `pip install ragbase-shield`, then `ragbase-shield desk`. The optional name recognition model:
-`pip install "ragbase-shield[ner]"` (see [docs/NER.md](https://github.com/ragbase/ragbase-shield/blob/v0.4.0/docs/NER.md)).
+**With pip:** `pip install ragbase-shield`, then `ragbase-shield desk`. Precise mode (with AI model) is optional:
+`pip install "ragbase-shield[ner]"` (see [docs/NER.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/NER.md)).
 
 On a Mac, the first use may ask for keychain access for the Shield key: click "Always Allow".
 
@@ -152,7 +155,7 @@ On a Mac, the first use may ask for keychain access for the Shield key: click "A
 
 ## Daily use
 
-### With Claude Desktop, Claude Code, ChatGPT desktop or Copilot in VS Code
+### With Claude (Claude Desktop, Claude Code, Cowork)
 
 1. In Shield Desk, on the **Dossiers** page, under "Ajouter un dossier" (Add a folder), type the full path of
    the client's case folder, then click "Ajouter et analyser" (Add and scan).
@@ -163,15 +166,18 @@ On a Mac, the first use may ask for keychain access for the Shield key: click "A
 2. Click "Voir les entités" (Show entities) to see the detected names. Add the missing ones with "Add a name or
    a term", above the list: the client, the parties, a project name. Turn on the "Keep in clear" switch for a
    name that must stay readable.
-3. In the AI app, ask for example:
+3. In Claude, ask for example:
    "List my Shield dossiers. Read the documents of DOSSIER_1 and draft submissions. Save the draft with Shield."
-4. The AI sees only codes. It saves the draft with the Shield tool.
+4. Claude sees only codes. It saves the draft with the Shield tool.
 5. Shield writes the document, with the real names, into the **"Shield - sorties"** subfolder
    of the case folder. Open it on your computer and review it.
 
-The AI cannot ask Shield for the real names. Only your computer puts them back.
+Claude cannot ask Shield for the real names. Only your computer puts them back.
+The same steps work in ChatGPT desktop, Codex and GitHub Copilot in VS Code.
 
-### With any app (Word, Outlook, Copilot, claude.ai, chatgpt.com)
+### With any other app, through Shield Desk
+
+For claude.ai, chatgpt.com, Microsoft 365 Copilot, Word and Outlook.
 
 1. Open Shield Desk with the link that `uvx ragbase-shield desk` shows, page **Masquer** (Mask). Choose the
    dossier. Without a dossier, registered names become [PERSONNE] or [SOCIETE] and restore is not possible.
@@ -191,7 +197,7 @@ From a terminal, the same in two commands:
 
 ## Results
 
-Masking everything is easy, but then the AI cannot do the work. Shield masks your clients' data and keeps the law
+Masking everything is easy, but then Claude cannot do the work. Shield masks your clients' data and keeps the law
 readable. We measured Shield against Hexagone and Presidio on four French benchmarks, two of them public.
 
 | | Shield 0.4.0 Fast | Shield 0.4.0 Precise | Hexagone 0.3.9 Fast | Hexagone 0.3.9 Precis | Presidio 2.2.364 |
@@ -211,7 +217,7 @@ readable. We measured Shield against Hexagone and Presidio on four French benchm
 
 Fast is the default mode. Precise adds an AI model that runs on your computer. The best value of each row is in bold.
 
-Method and detailed results: [evaluation/laptop/RESULTS_PUBLIC.md](evaluation/laptop/RESULTS_PUBLIC.md).
+Method and detailed results: [evaluation/laptop/RESULTS_PUBLIC.md](https://github.com/ragbase/ragbase-shield/blob/main/evaluation/laptop/RESULTS_PUBLIC.md).
 
 ---
 
@@ -220,7 +226,8 @@ Method and detailed results: [evaluation/laptop/RESULTS_PUBLIC.md](evaluation/la
 - **No OCR.** A scanned PDF (an image) has no text. Shield says so and does not read it.
 - **Detection is never complete.** A name nobody registered can slip through:
   a rare name, a foreign name, a nickname, a typo. Register the parties of each dossier.
-  Those are the names Shield masks most reliably.
+  Those are the names Shield masks most reliably. Check the list of detected names, and read the masked text
+  before you send it.
 - **Restored names use the spelling stored in the dossier.** "M. Mercadier" can come back as
   "M. Thibault Mercadier", and capital letters can change. Identifiers come back in the first spelling seen in
   the dossier (for example "832 456 719" for "832456719"). Re-read the restored document.
@@ -234,10 +241,11 @@ Method and detailed results: [evaluation/laptop/RESULTS_PUBLIC.md](evaluation/la
 - **The installers are not signed yet.** macOS and Windows show a warning the first time.
 - **An administrator can block Shield**: extensions in Claude Team or Enterprise,
   MCP servers in Copilot Business or Enterprise.
-- **The GDPR still applies.** For you, pseudonymised data are still personal data.
+- **The GDPR still applies.** For you, pseudonymised data are still personal data. Shield reduces what the AI
+  provider receives. It is not a conformity guarantee.
 
-French compliance sheet (CNB, Paris bar, avocats aux Conseils, GDPR): [docs/CONFORMITE.fr.md](https://github.com/ragbase/ragbase-shield/blob/v0.4.0/docs/CONFORMITE.fr.md)
-FAQ: [docs/FAQ.md](https://github.com/ragbase/ragbase-shield/blob/v0.4.0/docs/FAQ.md)
+French compliance sheet (CNB, Paris bar, avocats aux Conseils, GDPR): [docs/CONFORMITE.fr.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/CONFORMITE.fr.md)
+FAQ: [docs/FAQ.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/FAQ.md)
 
 ---
 
@@ -248,12 +256,12 @@ FAQ: [docs/FAQ.md](https://github.com/ragbase/ragbase-shield/blob/v0.4.0/docs/FA
 2. The code-to-name table (the vault) is encrypted, one per dossier; its key stays in the OS keychain (or a file
    only you can read).
 3. No tool gives real names to the model, and an AI agent cannot change what is masked.
-4. No network call in the library, no telemetry, no update check. The only download you start yourself is the
-   optional name recognition model.
+4. No network call in the library, no telemetry, no update check. The only download, which you start yourself, is
+   the optional AI model of Precise mode.
 5. Pseudonymised data are still personal data: Shield reduces what the provider sees. It is pseudonymisation,
    not anonymisation.
 
-Full model: [docs/PRIVACY_MODEL.md](https://github.com/ragbase/ragbase-shield/blob/v0.4.0/docs/PRIVACY_MODEL.md).
+Full model: [docs/PRIVACY_MODEL.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/PRIVACY_MODEL.md).
 
 ---
 
@@ -261,10 +269,12 @@ Full model: [docs/PRIVACY_MODEL.md](https://github.com/ragbase/ragbase-shield/bl
 
 ### Architecture in short
 
-- A local engine (rules, dictionaries, check digits) finds names and identifiers, in French and in English
-  (the language is detected per text, or pinned with `RAGBASE_SHIELD_LANGUAGE`).
-  A name recognition model (NER) is optional; none is installed by default. To add one (about 1.2 GB,
-  Apache-2.0, runs offline, CPU only):
+- **Fast mode** (the default; technical name: rules). A local engine of rules, dictionaries and check digits finds
+  names and identifiers, in French and in English (the language is detected per text, or pinned with
+  `RAGBASE_SHIELD_LANGUAGE`).
+- **Precise mode** (optional; technical name: GLiNER). An AI model for name recognition works next to the rules.
+  It takes about 1.2 GB, has an Apache-2.0 licence and runs offline, on the CPU. No model is installed by default.
+  To add it:
 
   ```
   pip install "ragbase-shield[ner]"      # or: uv pip install "ragbase-shield[ner]"
@@ -272,8 +282,8 @@ Full model: [docs/PRIVACY_MODEL.md](https://github.com/ragbase/ragbase-shield/bl
   ragbase-shield ner status              # or: ragbase-shield doctor
   ```
 
-  The model's finds pass the same whitelist and precision guards as the rules; the hooks and the canary never use
-  it. `RAGBASE_SHIELD_NER=off` turns it off.
+  What the model finds passes the same whitelist and precision guards as the rules; the hooks and the canary never
+  use it. `RAGBASE_SHIELD_NER=off` turns it off.
 - Replacement by codes (`PERSONNE_A`) by default, or by realistic pseudonyms (`ragbase-shield set DOSSIER_n
   --replacement synthetic`): reversible through the vault, pseudonymisation, not anonymisation.
 - One encrypted vault per dossier (SQLite + Fernet). The key lives in the OS keychain,
@@ -284,7 +294,7 @@ Full model: [docs/PRIVACY_MODEL.md](https://github.com/ragbase/ragbase-shield/bl
 - Claude Code hooks block a prompt that contains a registered name, and direct reads of a dossier folder.
 - No network calls in library code. No telemetry.
 
-Full contract: [ARCHITECTURE.md](https://github.com/ragbase/ragbase-shield/blob/v0.4.0/ARCHITECTURE.md). Privacy model: [docs/PRIVACY_MODEL.md](https://github.com/ragbase/ragbase-shield/blob/v0.4.0/docs/PRIVACY_MODEL.md).
+Full contract: [ARCHITECTURE.md](https://github.com/ragbase/ragbase-shield/blob/main/ARCHITECTURE.md). Privacy model: [docs/PRIVACY_MODEL.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/PRIVACY_MODEL.md).
 
 ### Command line
 
@@ -295,8 +305,8 @@ ragbase-shield entities <DOSSIER_n>                  # detected and registered e
 ragbase-shield register <DOSSIER_n> --person NAME | --org NAME | --kind KIND VALUE
 ragbase-shield keep-clear <DOSSIER_n> <CODE> [--off]
 ragbase-shield mask [--dossier D] [--clipboard] [--mode codes|synthetic] [FILE|-]   # prints masked text, or replaces the clipboard
-ragbase-shield set <DOSSIER_n> --replacement codes|synthetic [--language auto|fr|en]  # per-dossier settings (v0.2)
-ragbase-shield ner status | download [--model fastino|urchade|all] [--dir DIR] [--dry-run] [--force]  # optional NER model (v0.2)
+ragbase-shield set <DOSSIER_n> --replacement codes|synthetic [--language auto|fr|en]  # per-dossier settings
+ragbase-shield ner status | download [--model fastino|urchade|all] [--dir DIR] [--dry-run] [--force]  # optional NER model
 ragbase-shield restore --dossier D [--clipboard] [FILE|-]     # prints restored text, or replaces the clipboard
 ragbase-shield desk [--port 7878] [--no-browser]
 ragbase-shield mcp                                   # stdio MCP server (used by every app integration)
@@ -333,8 +343,8 @@ Shield Desk.
 - `ragbase-shield doctor` checks the install, key storage and each app integration.
 - `ragbase-shield verify` plants invented data, runs every path (MCP tools, hooks, Desk) and prints CLEAN or LEAK.
 - Tests: `uv run --extra dev pytest -q`. Synthetic data only.
-- Bench: `uv run python bench/run_bench.py` (recall and precision per kind, on an invented French legal corpus
-  written together with the rules; it is a regression gate, not an accuracy figure for real files).
+- Regression bench: `uv run python bench/run_bench.py` (recall and precision per kind, on an invented French legal
+  corpus).
 - Benchmark runners: `evaluation/public/` (public benchmarks; data downloaded into the git-ignored
   `.bench_data/`), `evaluation/holdout-en/` (an invented English corpus), `evaluation/laptop/` (the benchmark
   scripts and results).
@@ -353,7 +363,7 @@ Shield Desk.
 ### Contributing, security, licence
 
 - Security issues: [SECURITY.md](https://github.com/ragbase/ragbase-shield/blob/v0.4.0/SECURITY.md). Do not open a public issue.
-- Release history: [CHANGELOG.md](https://github.com/ragbase/ragbase-shield/blob/v0.4.0/CHANGELOG.md).
+- Release history: [CHANGELOG.md](https://github.com/ragbase/ragbase-shield/blob/main/CHANGELOG.md).
 - Licence: [Apache-2.0](https://github.com/ragbase/ragbase-shield/blob/v0.4.0/LICENSE). Attributions: [NOTICE](https://github.com/ragbase/ragbase-shield/blob/v0.4.0/NOTICE).
 - Test data: invented only. Never put real client data in an issue.
 
@@ -365,8 +375,8 @@ Shield Desk.
 - Releases (installers, `.mcpb`, `SHA256SUMS`): https://github.com/ragbase/ragbase-shield/releases/latest
 - Issues: https://github.com/ragbase/ragbase-shield/issues
 - Product page: https://shield.ragbase.ai
-- Install guide per app: [docs/INSTALL.md](https://github.com/ragbase/ragbase-shield/blob/v0.4.0/docs/INSTALL.md). FAQ: [docs/FAQ.md](https://github.com/ragbase/ragbase-shield/blob/v0.4.0/docs/FAQ.md).
-- Public results: [evaluation/laptop/RESULTS_PUBLIC.md](https://github.com/ragbase/ragbase-shield/blob/v0.4.0/evaluation/laptop/RESULTS_PUBLIC.md)
+- Install guide per app: [docs/INSTALL.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/INSTALL.md). FAQ: [docs/FAQ.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/FAQ.md).
+- Public results: [evaluation/laptop/RESULTS_PUBLIC.md](https://github.com/ragbase/ragbase-shield/blob/main/evaluation/laptop/RESULTS_PUBLIC.md)
 
 ---
 

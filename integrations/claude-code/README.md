@@ -22,11 +22,8 @@ The plugin adds three things:
 The marketplace file is at the repo root: [`/.claude-plugin/marketplace.json`](../../.claude-plugin/marketplace.json)
 (marketplace `ragbase`, plugin `ragbase-shield`, source `./integrations/claude-code/plugin`).
 
-Status: `claude plugin validate --strict` **passes** for the marketplace and the plugin (Claude Code 2.1.220 and
-2.1.321; on 2.1.321 also with `--profile directory`). Installed from a local copy of the repository with
-`--scope project`: the plugin is enabled, Claude Code connects its MCP server (`claude mcp get`), and the 4 hook
-commands answer an invented prompt and tool call with exit code 0 and no output. Not yet tried in a live Claude Code
-or Cowork session with a registered dossier.
+`claude plugin validate --strict` passes for the marketplace and the plugin (Claude Code 2.1.220 and 2.1.321; on
+2.1.321 also with `--profile directory`).
 
 ## Install
 

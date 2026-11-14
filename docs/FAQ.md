@@ -50,6 +50,7 @@ Non. La détection n'est jamais complète. Shield trouve les numéros à clé de
 TVA, carte), les e-mails, les téléphones, les adresses, les références de procédure, les noms précédés d'un
 titre (M., Mme, Me, Maître) ou d'un prénom courant, et les sociétés qui ont une forme juridique (SAS, SARL...). Un nom rare, étranger ou mal orthographié
 peut passer. Enregistrez les parties de chaque dossier : ce sont elles que Shield masque le plus sûrement.
+Vérifiez la liste des noms détectés, et relisez le texte masqué avant de l'envoyer.
 Les résultats du benchmark sont dans
 [evaluation/laptop/RESULTS_PUBLIC.md](../evaluation/laptop/RESULTS_PUBLIC.md).
 
@@ -82,7 +83,7 @@ Les noms détectés reçoivent des codes temporaires, et les noms enregistrés d
 ### Les PDF scannés sont-ils pris en charge ?
 
 Pas dans cette version : il n'y a pas d'OCR. Shield vous dit qu'un PDF n'a pas de texte et ne le lit pas.
-Formats lus : PDF avec texte, DOCX, XLSX (depuis la 0.4.0), TXT, MD, EML, HTML. Formats écrits : DOCX et MD.
+Formats lus : PDF avec texte, DOCX, XLSX, TXT, MD, EML, HTML. Formats écrits : DOCX et MD.
 
 ### Où sont stockés les vrais noms ?
 
@@ -159,11 +160,14 @@ No. The library makes no network calls; tests block outbound sockets. The Desk l
 Host header and needs a per-install token. Installing with `uvx` downloads the package once from PyPI; after that,
 nothing else goes out.
 
-### Can I turn on a name recognition model (NER)?
+### Can I turn on Precise mode (the AI model)?
 
-Yes, optionally: install the `ner` extra (`spacy`) and a French spaCy pipeline. When it is present, the engine uses
-it automatically. NER spans go through the same whitelist and never override structured detectors. Shield does not
-ship or download a model. Check the licence of the model you choose before you deploy it in your firm.
+Yes, it is optional. Fast mode (technical name: rules) is the default. Precise mode adds a local AI model for name
+recognition (technical name: GLiNER; about 1.2 GB, Apache-2.0). Install the `ner` extra, then run
+`ragbase-shield ner download`: this is the only download, and you start it yourself. The model then runs offline, on
+the CPU, and the engine uses it automatically. What the model finds goes through the same whitelist as the rules and
+never overrides the structured detectors. The one-click installers do not include the model yet. Details:
+[NER.md](NER.md).
 
 ### How do I get English code labels?
 
@@ -172,17 +176,15 @@ Set `RAGBASE_SHIELD_LOCALE=en`: PERSON_A, COMPANY_A, ADDRESS_1, CASEREF_1, SSN_1
 ### Where is the data, and how do I change the folder or the port?
 
 `RAGBASE_SHIELD_HOME` sets the data folder (default `~/.ragbase-shield`; on Windows `%LOCALAPPDATA%\ragbase-shield`,
-never the roaming profile: SQLite in WAL mode is not safe on a network share; a folder left in `%APPDATA%` by
-an earlier version is moved once). `RAGBASE_SHIELD_PORT` sets the Desk port (default 7878).
+never the roaming profile: SQLite in WAL mode is not safe on a network share). `RAGBASE_SHIELD_PORT` sets the Desk
+port (default 7878).
 `RAGBASE_SHIELD_KEYRING=0` keeps the key in a 0600 file instead of the OS keychain.
 `RAGBASE_SHIELD_MASK_TOQUE=0` keeps lawyers' toque numbers visible.
 
 ### uv prints "Failed to patch the install name of the dynamic library". Is it a problem?
 
-No. uv prints it on macOS the first time it downloads a managed Python. Shield works. On a clean machine uv may
-pick the newest managed Python (3.15 at the time of writing). The v0.1 test suite was run on 3.10, 3.11, 3.13
-and 3.15 before the release review; the fixes of that review were tested on 3.11. To pin a version:
-`uvx --python 3.12 ragbase-shield desk`.
+No. uv prints it on macOS the first time it downloads a managed Python. Shield works. Shield needs Python 3.10 or
+later, and uv picks one for you. To pin a version: `uvx --python 3.12 ragbase-shield desk`.
 
 ### Why are some commands refused in Claude Code or Codex?
 
