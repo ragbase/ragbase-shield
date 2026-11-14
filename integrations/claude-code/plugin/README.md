@@ -27,7 +27,7 @@ Ce que le plugin exécute et envoie :
 - Le plugin contient le paquet `ragbase-shield` 0.4.1, dans le fichier
   `vendor/ragbase_shield-0.4.1-py3-none-any.whl`. C'est le fichier de la version 0.4.1 publiée sur GitHub. Son
   SHA-256 est celui du fichier `SHA256SUMS` de cette version :
-  `12d5adb42e3d8d690263a4eb78aa99b1b6f038abd2593d20e9946b5ec17189e0`.
+  `1710644a4e93e3e436f4d46d9d931d98eee208fe6b58d6f82a5f2e455aad54c5`.
 - Le serveur MCP et les quatre hooks lancent ce fichier, et rien d'autre :
   `uvx --from ${CLAUDE_PLUGIN_ROOT}/vendor/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield mcp`
   (ou `hook user-prompt-submit`, `hook pre-tool-use`, `hook post-tool-use` à la place de `mcp`).
@@ -97,7 +97,7 @@ What the plugin runs and sends:
 - The plugin holds the `ragbase-shield` 0.4.1 package, in the file
   `vendor/ragbase_shield-0.4.1-py3-none-any.whl`. It is the wheel of the GitHub release 0.4.1. Its SHA-256 is the
   one in the `SHA256SUMS` file of that release:
-  `12d5adb42e3d8d690263a4eb78aa99b1b6f038abd2593d20e9946b5ec17189e0`.
+  `1710644a4e93e3e436f4d46d9d931d98eee208fe6b58d6f82a5f2e455aad54c5`.
 - The MCP server and the four hooks run this file and nothing else:
   `uvx --from ${CLAUDE_PLUGIN_ROOT}/vendor/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield mcp`
   (or `hook user-prompt-submit`, `hook pre-tool-use`, `hook post-tool-use` in place of `mcp`).
