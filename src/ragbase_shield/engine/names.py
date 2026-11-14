@@ -2610,24 +2610,105 @@ def _lc_across_clauses(text: str, runs: list[list[_W]], out: list[RuleSpan]) -> 
                 out.append(RuleSpan(first.start, a[-1].end, "ORG", 6, "legal_form"))
 
 
-def _lc_shown_surnames(text: str, views: list[list[_W]], out: list[RuleSpan]) -> None:
-    """A first name with the capital of a keyboard, then a surname in lower case that another name of the same text
-    shows ("Yanis kervadec et son épouse nadia kervadec", "Mme Nadia kervadec et son mari yanis kervadec"):
-    the two words are one more person. Without this span the surname alone would take the code of the relative."""
-    shown = set()
+def _lc_shown_surnames(text: str, runs: list[list[_W]], typed: list[bool], out: list[RuleSpan]) -> None:
+    """A surname in lower case that another name of the same text shows.
+
+    Right after a person span, in every text: the word belongs to that name when a name typed all in lower case
+    shows it ("mme nadia grenier et m. karim grenier divorcent": nothing after the first surname shows a name, the
+    second name shows it). The two persons then have two names and two codes. Without this span the surname alone
+    would take the code of the other person, and the restore would write a wrong first name.
+
+    After a first name with the capital of a keyboard, in a sentence typed without capitals ("Yanis kervadec et son
+    épouse nadia kervadec", "Mme Nadia kervadec et son mari yanis kervadec"): the two words are one more person."""
+    shown, lower = set(), set()
     for sp in out:
-        if sp.kind == "PERSON" and " " in text[sp.start:sp.end].strip():
-            last = text[sp.start:sp.end].split()[-1]
-            if last.islower() and len(last) >= 3:
-                shown.add(fold_word(last))
+        if sp.kind == "PERSON":
+            surface = text[sp.start:sp.end]
+            parts = surface.split()
+            if len(parts) >= 2 and parts[-1].islower():
+                if len(parts[-1]) >= 3:
+                    shown.add(fold_word(parts[-1]))
+                if len(parts[-1]) >= 2 and not any(ch.isupper() for ch in surface):
+                    lower.add(fold_word(parts[-1]))  # a span with no capital comes from the lower-case rules only
     if not shown:
         return
-    for run in views:
+    for run, is_typed in zip(runs, typed):
         for i in range(len(run) - 1):
             a, b = run[i], run[i + 1]
-            if a.cap and not a.upper and not b.cap and b.low in shown and _lc_flags(a.low) == "f" \
-                    and not any(sp.start <= b.start and b.end <= sp.end for sp in out):
+            if b.cap or b.digit or b.prefix or b.low not in shown or text[a.end:b.start] not in (" ", "\u00a0") \
+                    or any(sp.start <= b.start and b.end <= sp.end for sp in out):
+                continue
+            before = [k for k, sp in enumerate(out) if sp.kind == "PERSON" and sp.end == a.end] \
+                if b.low in lower else []
+            if before:
+                for k in before:
+                    out[k] = replace(out[k], end=b.end)
+            elif is_typed and a.cap and not a.upper and _lc_flags(a.low) == "f":
                 out.append(RuleSpan(a.start, b.end, "PERSON", 5, "title"))
+
+
+_LC_TITLE_BEFORE_RE = re.compile(
+    r"(?i)(?:(?<![\w.])(?:m|mm|mme|mmes|mlle|mlles|melle|mdme|mr|mrs|me|dr|pr)\.?"
+    r"|(?<!\w)(?:monsieur|madame|mademoiselle|ma[îi]tre|docteur|professeur|messieurs|mesdames))[ \u00a0\u202f]+$")
+# a court, an administration or a public place named by its town: "le tribunal judiciaire de x", "la cour d'appel
+# de x", "le conseil de prud'hommes de x", "la mairie de x"
+_LC_COURT_BEFORE_RE = re.compile(
+    r"(?i)(?<![\w'’-])(?:tribunal|tribunaux|cour|conseil|juridiction|chambre|greffe|parquet|barreau|pr[ée]fecture"
+    r"|sous-pr[ée]fecture|mairie|commune|ville|agglom[ée]ration|m[ée]tropole|acad[ée]mie|rectorat|universit[ée]"
+    r"|h[ôo]pital|chu|gare|a[ée]roport|commissariat|gendarmerie|cpam|caf|urssaf|tj|tgi|ta|caa|cph|tc)\b"
+    r"[^,.;:!?()\n]{0,48}?(?<![\w'’-])(?:de|du|des|d['’])[ \u00a0\u202f]*$")
+# a place cue: a verb or a noun of place and its preposition ("il habite à x", "née à x", "fait à x"), a postcode
+_LC_PLACE_BEFORE_RE = re.compile(
+    r"(?i)(?:(?<![\w'’-])(?:habit\w*|demeur\w*|r[ée]sid\w*|domicili\w*|vit|vivait|vivent|travaill\w*|n[ée]e?s?"
+    r"|situ[ée]e?s?|sise?s?|si[èe]ge|bas[ée]e?s?|install[ée]e?s?|implant[ée]e?s?|mut[ée]e?s?|affect[ée]e?s?|fait"
+    r"|audience|rendez-vous|rdv|r[ée]union|d[ée]placement|retour|chantier|agence|magasin|usine|entrep[ôo]t|site"
+    r"|bureaux?)[ \u00a0\u202f]+(?:[àa]|au|en|sur|vers|pr[èe]s[ \u00a0\u202f]+de)|(?<!\d)\d{5})[ \u00a0\u202f]+$")
+
+
+def lc_mention_is_text(text: str, s: int, e: int, value: str, vtoks: tuple, need: str,
+                       rule_spans: Iterable[tuple[int, int]] = ()) -> bool:
+    """v0.4.1: True when ``text[s:e]`` must not take the code of the person ``value``. Only for a person whose name
+    words are stored in lower case (the lower-case rules found it; a name stored with its capitals keeps the links
+    of 0.4.0). For a mention typed in lower case:
+
+    - the "surname, first name" reading across a comma, and a reading that starts or ends inside a name that the
+      rules read whole ("hugo kervalen, clara kervalen" are two persons);
+    - the surname alone when it is one word that a list knows (a town, a place, an ordinary word, a first name) and
+      no civility stands right before it ("m. karim grenier conteste. le grenier est une partie commune");
+    - a one-word mention inside the name of a court or after a place cue ("le tribunal judiciaire de x", "il
+      habite à x").
+
+    For a mention with a capital: the surname alone when it is a town of the place list, or stands inside the
+    name of a court or after a place cue, and no civility stands right before it."""
+    sig = [t for t in vtoks if t not in PARTICLES]
+    if not sig:
+        return False
+    typed: set = set()
+    for w in value.split():
+        if not any(ch.isupper() for ch in w):
+            typed.update(phrase_tokens(w))
+    if not all(t in typed for t in sig):
+        return False
+    lower = not any(ch.isupper() for ch in text[s:e])
+    if lower:
+        if need == "comma":
+            return True
+        for rs, re_ in rule_spans:
+            if rs < s < re_ < e or s < rs < e < re_:
+                return True
+    _firsts, surname = split_person(value)
+    st = tuple(t for w in surname for t in phrase_tokens(w))
+    vt = tuple(vtoks)
+    before = text[max(0, s - 96):s]
+    cue = bool(_LC_COURT_BEFORE_RE.search(before) or _LC_PLACE_BEFORE_RE.search(before))
+    alone = bool(st) and (vt == st or (len(vt) < len(st) and st[-len(vt):] == vt))
+    if not alone:
+        return lower and len(vt) == 1 and cue
+    if len(sig) > 1 or _LC_TITLE_BEFORE_RE.search(before):
+        return False
+    if not lower:
+        return cue or sig[0] in _lc_sets()["places"]
+    return cue or bool(_lc_flags(sig[0]))
 
 
 def _lc_cap_companies(run: list[_W], out: list[RuleSpan], firsts: frozenset = frozenset()) -> None:
@@ -2688,7 +2769,7 @@ def _lower_case_names(text: str, runs: list[list[_W]], out: list[RuleSpan]) -> N
         _lc_field_spans(text, out)
         _lc_captions(text, views, out)
         _lc_across_clauses(text, views, out)
-        _lc_shown_surnames(text, views, out)
+    _lc_shown_surnames(text, [typed[r] or run for r, run in enumerate(runs)], [v is not None for v in typed], out)
 
 
 def _detect_names_fr(text: str) -> list[RuleSpan]:

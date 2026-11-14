@@ -1393,16 +1393,6 @@ class Masker:
             if not same and skey and " " not in skey:
                 fk = _fuzzy_key(skey, known.by_surname)  # "Pradimomt" -> the one known "Pradimont" (R1, CL-06)
                 same = known.by_surname.get(fk, []) if fk else []
-            if not same and not firsts and skey and nm.lowercase_names():
-                # v0.4.1: a person typed in lower case ("nelba samir") has no capital to show the "SURNAME
-                # Firstname" order, yet the lexicon reads its last word as the first name when it knows only that
-                # word. A one-word mention equal to that word ("M. Samir") is this person when exactly one such
-                # person is known. Never for a value with a capital: those keep the links of 0.4.0
-                typed = {p.code: p for lst in known.by_surname.values() for p in lst
-                         if not any(ch.isupper() for ch in p.value) and nm.first_key(p.value) == skey
-                         and phrase_tokens(p.value)[-len(skey.split()):] == tuple(skey.split())}
-                if len(typed) == 1:
-                    return next(iter(typed.values()))
             if not same:
                 return None
             codes = {p.code for p in same}
@@ -1703,6 +1693,11 @@ class Masker:
         if prefs:
             known_dict += self._dictionary(text, folded, ftoks, [self._matchers(prefs)], None, split=split,
                                            compounds=compounds)
+        if lang == "fr" and nm.lowercase_names():
+            # v0.4.1: what a mention typed in lower case of a person typed in lower case may not be (a town, an
+            # ordinary word, a court name, the "surname, first name" order across a comma)
+            read = [(r.start, r.end) for r in rule_cands if r.kind == "PERSON"]
+            known_dict = [d for d in known_dict if not self._lc_mention_is_text(text, d, read)]
         dict_cands = self._disambiguate(text, known_dict, pendings)
         dict_cands.extend(compounds)
         sources = [(tok, e, None) for tok, e in lex.handle_tokens]
@@ -1769,6 +1764,14 @@ class Masker:
             owners = acros.get(p.norm, set()) if p.kind == "ORG" else set()
             if len(owners) == 1 and id(p) not in owners:
                 del pendings[key]
+
+    @staticmethod
+    def _lc_mention_is_text(text: str, d: _Cand, read: list[tuple[int, int]]) -> bool:
+        """v0.4.1: a dictionary candidate that is text, not a mention of a person typed in lower case (see
+        :func:`names.lc_mention_is_text`). A person stored with its capitals keeps the logic of 0.4.0."""
+        if d.kind != "PERSON" or not d.vtoks or not d.full_text or d.need in ("mint", "fuzzy", "compound"):
+            return False
+        return nm.lc_mention_is_text(text, d.start, d.end, d.full_text, d.vtoks, d.need, read)
 
     def _mint(self, text: str, s: int, e: int, kind: str, pendings: dict) -> Optional[_Cand]:
         """A candidate for an ambiguous mention with its own entity: never the wrong person (R1, CL-04b, CL-20)."""

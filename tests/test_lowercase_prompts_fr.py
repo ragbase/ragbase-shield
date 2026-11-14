@@ -1382,3 +1382,91 @@ def test_job_nouns_that_are_surnames_are_left_out_of_the_job_list():
     for word in ("boulanger", "meunier", "berger", "boucher", "marchand", "mercier", "charpentier", "pelletier"):
         assert word not in persons
     assert len(lx.lowercase_words()["jobs"]) > 200
+
+
+# ---------------------------------------------------------------------------
+# Step 23: the text comes back as typed
+# ---------------------------------------------------------------------------
+
+# Two persons with one surname; the surname is a town or an ordinary word, and nothing after the first one shows a
+# name. Each person has the whole name in the span and a code. (text, the masked text)
+ONE_SURNAME_TWO_PERSONS = [
+    ("mme nadia limoges et m. karim limoges divorcent", "mme PERSONNE_A et m. PERSONNE_B divorcent"),
+    ("madame nadia cuisine et monsieur karim cuisine vendent la maison",
+     "madame PERSONNE_A et monsieur PERSONNE_B vendent la maison"),
+    ("m. karim avignon conteste. son épouse mme nadia avignon aussi.",
+     "m. PERSONNE_A conteste. son épouse mme PERSONNE_B aussi."),
+    ("mme nadia tournée a écrit hier. m. karim tournée conteste le partage.",
+     "mme PERSONNE_A a écrit hier. m. PERSONNE_B conteste le partage."),
+    ("Le dossier de mme nadia limoges et de m. karim limoges est complet.",
+     "Le dossier de mme PERSONNE_A et de m. PERSONNE_B est complet."),
+    ("mme zorvane limoges et m. karim limoges divorcent", "mme PERSONNE_A et m. PERSONNE_B divorcent"),
+    # a list with a comma between two names: no "surname, first name" reading across the comma
+    ("vendeurs : hugo kervalen, clara kervalen.", "vendeurs : PERSONNE_A, PERSONNE_B."),
+    ("acquéreurs : hugo kervalen, clara kervalen et paul kervalen.",
+     "acquéreurs : PERSONNE_A, PERSONNE_B et PERSONNE_C."),
+]
+
+# A surname that is also a town or an ordinary word: later in the text the word alone is text. A word that no list
+# knows is text in the name of a court and after a place cue. (text, the masked text)
+SURNAME_AND_WORD = [
+    ("mme nadia marseille conteste. le tribunal judiciaire de marseille est compétent.",
+     "mme PERSONNE_A conteste. le tribunal judiciaire de marseille est compétent."),
+    ("m. karim poitiers conteste. la cour d'appel de poitiers a statué.",
+     "m. PERSONNE_A conteste. la cour d'appel de poitiers a statué."),
+    ("m. karim cuisine conteste. la cuisine est une partie privative.",
+     "m. PERSONNE_A conteste. la cuisine est une partie privative."),
+    ("mme nadia nantes conteste. elle travaille à nantes depuis 2020.",
+     "mme PERSONNE_A conteste. elle travaille à nantes depuis 2020."),
+    ("m. karim orléans conteste. fait à orléans le 2 juin.", "m. PERSONNE_A conteste. fait à orléans le 2 juin."),
+    ("m. karim kervadec conteste. il habite à kervadec depuis 2019.",
+     "m. PERSONNE_A conteste. il habite à kervadec depuis 2019."),
+    ("m. karim kervadec conteste. le conseil de prud'hommes de kervadec est saisi.",
+     "m. PERSONNE_A conteste. le conseil de prud'hommes de kervadec est saisi."),
+    # the town with its capital, next to a person typed in lower case
+    ("mme nadia marseille conteste. Elle habite à Marseille.", "mme PERSONNE_A conteste. Elle habite à Marseille."),
+    ("mme nadia marseille conteste. Le Tribunal judiciaire de Marseille est compétent.",
+     "mme PERSONNE_A conteste. Le Tribunal judiciaire de Marseille est compétent."),
+]
+
+# The surname alone is the person after a civility, and anywhere when no list knows the word. (text, masked text)
+SURNAME_ALONE = [
+    ("m. karim limoges conteste. m. limoges a signé hier.", "m. PERSONNE_A conteste. m. PERSONNE_A a signé hier."),
+    ("m. karim kervadec conteste. kervadec a signé hier.", "m. PERSONNE_A conteste. PERSONNE_A a signé hier."),
+]
+
+
+@pytest.mark.parametrize("text,masked", ONE_SURNAME_TWO_PERSONS + SURNAME_AND_WORD)
+def test_the_text_comes_back_as_typed(text, masked):
+    m = _masker()
+    r = m.mask(text)
+    assert r.text == masked
+    assert m.unmask(r.text) == text
+
+
+@pytest.mark.parametrize("text,masked", SURNAME_ALONE)
+def test_the_surname_alone_keeps_the_code_of_the_person(text, masked):
+    assert _masker().mask(text).text == masked
+
+
+def _lines_of_the_lists():
+    import sys
+    lines = []
+    for name, value in sorted(vars(sys.modules[__name__]).items()):
+        if not name.isupper() or not isinstance(value, list) or name == "SURNAME_ALONE":
+            continue
+        for item in value:
+            text = item if isinstance(item, str) else item[0] if isinstance(item, tuple) else None
+            if isinstance(text, str) and "\n" not in text:
+                lines.append(text)
+    return sorted(set(lines))
+
+
+def test_every_line_of_these_lists_comes_back_as_typed():
+    # A property, not a list of cases: one new dossier for each line, mask, then restore. (An address on two lines
+    # comes back on one line, as with capitals: those lines are not in this check.)
+    lines = _lines_of_the_lists()
+    assert len(lines) > 600
+    for text in lines:
+        m = _masker()
+        assert m.unmask(m.mask(text).text) == text, text
