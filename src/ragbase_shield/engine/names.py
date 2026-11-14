@@ -1478,7 +1478,8 @@ def _lc_particle_name(run: list[_W], k: int, civility: bool) -> int:
         return 0
     if low in ("de", "du", "des"):
         m = k + 1
-        if low == "de" and m < n and not run[m].cap and (run[m].low in ("la", "le") or (run[m].prefix and run[m].low == "l")):
+        if low == "de" and m < n and not run[m].cap \
+                and (run[m].low in ("la", "le") or (run[m].prefix and run[m].low == "l")):
             m += 1
         return m + 1 if m < n and surname(run[m]) else 0
     if low in ("le", "la"):
@@ -1595,20 +1596,36 @@ def _lc_name_after(text: str, run: list[_W], i: int, civ: str) -> Optional[tuple
     return idx[0], idx[-1] + 1, any(not run[t].cap for t in names)
 
 
+def _lc_other_name(run: list[_W], e: int, out: list[RuleSpan], covered: set[int]) -> None:
+    """The other name of a person right after the name that ends before ``run[e]``: "mme nadia kervadec épouse
+    maudet", "mme pradimont née ouardi". One word in lower case that no list knows, or a first name."""
+    n = len(run)
+    if e + 1 >= n or run[e].cap or run[e].low not in ("epouse", "nee", "veuve", "dite"):
+        return
+    w = run[e + 1]
+    if not w.cap and _lc_kind(w) in ("oov", "first") and len(w.low) >= 3 and e + 1 not in covered:
+        out.append(RuleSpan(w.start, w.end, "PERSON", 5, "title"))
+        covered.add(e + 1)
+
+
 def _lc_titles(text: str, run: list[_W], out: list[RuleSpan], covered: set[int]) -> None:
     """Rule A: a civility, then a name typed in lower case ("M. doudou lina", "mme claire dufresne", "maître karim
-    ben salah", "madame de la tour"). A plural civility takes a second name after "et"."""
+    ben salah", "madame de la tour", "mme veuve pradimont"). A plural civility takes a second name after "et"."""
     n = len(run)
     for i, w in enumerate(run):
         civ = _lc_civility(text, run, i)
         if not civ:
             continue
-        got = _lc_name_after(text, run, i, civ)
+        at = i
+        if civ == "strong" and i + 2 < n and run[i + 1].low in ("veuve", "veuf") and not run[i + 1].cap:
+            at = i + 1  # "mme veuve pradimont": the name stands after "veuve"
+        got = _lc_name_after(text, run, at, civ)
         while got is not None:
             s, e, lower = got
             if lower:
                 out.append(RuleSpan(run[s].start, run[e - 1].end, "PERSON", 5, "title"))
                 covered.update(range(s, e))
+                _lc_other_name(run, e, out, covered)
             if w.low in _LC_PLURAL_CIVILITIES and e + 1 < n and run[e].low == "et" and not run[e].cap:
                 got = _lc_name_after(text, run, e, "strong")
             else:
@@ -1655,9 +1672,9 @@ def _lc_first_names(text: str, run: list[_W], out: list[RuleSpan], covered: set[
         prev = run[i - 1] if i > 0 else None
         cue = False
         if prev is not None:
-            if prev.digit or prev.low in TITLE_WORDS or prev.low in _PLACE_WORDS or prev.low == "en" \
-                    or prev.low in _LC_DETERMINERS:
-                continue
+            if prev.digit or _title(prev) or _lc_civility(text, run, i - 1) or prev.low in _PLACE_WORDS \
+                    or prev.low == "en" or prev.low in _LC_DETERMINERS:
+                continue  # after a civility the name is rule A's (lower-case "me" is the pronoun, no civility)
             cue = prev.low in sets["persons"] or prev.low in _ROLE_WORDS
         if not plain_first and not _lc_cue_before(run, i, flags):
             continue
@@ -1701,6 +1718,7 @@ def _lc_first_names(text: str, run: list[_W], out: list[RuleSpan], covered: set[
             continue  # a first name of three letters may be an abbreviation ("max", "sam")
         out.append(RuleSpan(w.start, run[end - 1].end, "PERSON", 4, "first_name"))
         covered.update(range(i, end))
+        _lc_other_name(run, end, out, covered)
 
 
 def _lc_form(w: _W) -> bool:
@@ -1760,14 +1778,15 @@ def _lc_companies(text: str, run: list[_W], out: list[RuleSpan]) -> None:
             t -= 1
         if i - t > 1 and _lc_kind(run[t + 1]) in ("oov", "first") and len(run[t + 1].low) >= 3 and (
                 t < 0 or run[t].text in ("à", "À") or run[t].low in _LC_PREPOSITIONS or _lc_is_verb(run[t])
-                or (not run[t].cap and run[t].low in ("de", "du", "des", "d", "au", "aux"))):
+                or (not run[t].cap and run[t].low in ("de", "du", "des", "d", "au", "aux", "et", "ou"))):
             out.append(RuleSpan(run[t + 1].start, run[i - 1].end, "ORG", 6, "legal_form"))
             continue
         # the name after the form: article, form, name
         if i + 1 >= n or w.sent_end:
             continue
         prev = run[i - 1] if i > 0 else None
-        article = prev is not None and not prev.cap and (prev.low in _LC_FORM_ARTICLES or (prev.prefix and prev.low == "l"))
+        article = prev is not None and not prev.cap \
+            and (prev.low in _LC_FORM_ARTICLES or (prev.prefix and prev.low == "l"))
         if not article:
             if not (w.low not in _LC_FORM_WORDS or w.upper):
                 continue
@@ -1785,8 +1804,13 @@ def _lc_companies(text: str, run: list[_W], out: list[RuleSpan]) -> None:
                 or (_lc_kind(first) == "oov" and first.low.endswith(_LC_ADJECTIVE_ENDINGS)):
             continue
         e = i + 2
-        while e < n and e - i <= 4 and not run[e].cap and _lc_org_word(run[e]) and not _lc_form(run[e]):
-            e += 1
+        while e < n and e - i <= 4 and not run[e].cap and not _lc_form(run[e]):
+            if run[e].low in ("et", "&") and e + 1 < n and run[e + 1].low in _ORG_ET_JOIN:
+                e += 2  # "la sarl kervadec et fils"
+            elif _lc_org_word(run[e]):
+                e += 1
+            else:
+                break
         out.append(RuleSpan(first.start, run[e - 1].end, "ORG", 6, "legal_form"))
 
 

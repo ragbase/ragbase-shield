@@ -66,6 +66,12 @@ CIVILITY = [
     ("mme marie talvez a déposé plainte.", ["marie talvez"]),
     ("m. doudou Lina conteste la décision.", ["doudou Lina"]),
     ("mme borne conteste le montant du loyer.", ["borne"]),
+    ("mme veuve pradimont a renoncé à la succession.", ["pradimont"]),
+    ("mme nadia kervadec épouse maudet demande le divorce.", ["nadia kervadec", "maudet"]),
+    ("mme fatoumata quimpertin est salariée depuis 2019.", ["fatoumata quimpertin"]),
+    ("m. kervadec jean a signé le bail.", ["kervadec jean"]),
+    ("mr vellin a appelé ce matin.", ["vellin"]),
+    ("MM. vellin et talvez ont signé le protocole.", ["vellin", "talvez"]),
 ]
 
 # B: a first name of the lexicon in lower case, then a word that no French list knows.
@@ -85,6 +91,9 @@ FIRST_NAME = [
     ("thomas valette et emma valette sont séparés.", ["thomas valette", "emma valette"]),
     ("pierre lervignac conteste la décision.", ["pierre lervignac"]),
     ("jean martin a écrit au bailleur.", ["jean martin"]),
+    ("l'employeur est représenté par me julien morvanti.", ["julien morvanti"]),  # the first name, not "me"
+    ("copie à lucas maudet et à camille velanor.", ["lucas maudet", "camille velanor"]),
+    ("léa pradimont conteste son avertissement.", ["léa pradimont"]),
 ]
 
 # C: a company name in lower case with a legal form in any letter case.
@@ -100,6 +109,9 @@ COMPANY = [
     ("la société durand et fils sarl est en redressement.", ["durand et fils"]),
     ("il a été licencié par brivanor logistique sarl en mars.", ["brivanor logistique"]),
     ("le capital de pernaud sas est de 10 000 euros.", ["pernaud"]),
+    ("contrat entre kervadec sarl et maudet sas.", ["kervadec", "maudet"]),
+    ("la sarl ouardi et fils a été créée en 2010.", ["ouardi et fils"]),
+    ("la sarl Pradimont a résilié le contrat.", ["Pradimont"]),  # a lower-case form before a capitalised name
     ("la société Kerdalis EURL a fait appel.", ["Kerdalis"]),  # capitals: the 0.4.0 span, unchanged
 ]
 
@@ -167,6 +179,8 @@ NEGATIVE = [
     "max 3 jours de délai.",
     "il habite rue jean jaurès à lyon.",
     "ma fille marine est en cm2.",
+    "il me marie demain avec sa cousine.",
+    "john called me about the file",
     # legal forms that are also words, companies with no name
     "sa demande est fondée.",
     "la sas est en liquidation.",
@@ -177,6 +191,9 @@ NEGATIVE = [
     "la société mère détient 80 % du capital.",
     "le cabinet conseille la société depuis 2015.",
     "elle travaille chez elle le lundi.",
+    "les statuts de la sarl sont clairs.",
+    "il passe par le sas de sécurité.",
+    "la sarl locataire ne paie plus.",
     # verbs, dates, amounts, courts, codes, articles and laws
     "en mai, au plus tard, la somme sera versée.",
     "le conseil de prud'hommes de lyon a jugé le 3 mars 2025.",
@@ -459,8 +476,9 @@ def test_the_switch_gives_the_0_4_0_detection(monkeypatch, value):
         "M. doudou lina, domicilié ADRESSE_1, conteste son licenciement par la société SOCIETE_A SAS"
     assert _masker().mask(DEFECT[2][0]).text == DEFECT[2][0]
     assert _masker().mask(DEFECT[3][0]).text == DEFECT[3][0]
-    for text, _names_ in CIVILITY + FIRST_NAME + COMPANY[:11]:
-        assert _names(text) == []  # a name with no capital stays readable, as in 0.4.0
+    for text, names in CIVILITY + FIRST_NAME + COMPANY:
+        # a name with no capital stays readable, as in 0.4.0; a capitalised one keeps its 0.4.0 mask
+        assert _names(text) == [n for n in names if n == "Kerdalis"]
 
 
 @pytest.mark.parametrize("value", ["1", "true", "", "yes"])
