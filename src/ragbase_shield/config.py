@@ -96,9 +96,10 @@ def mask_legal_form() -> bool:
 
 
 def lowercase_names() -> bool:
-    """RAGBASE_SHIELD_LOWERCASE_NAMES (v0.4.1): "0" turns off the rules for names typed in lower case in French text
-    ("m. dupont", "mon client jean dupont", "la société durand sas") and gives the 0.4.0 detection; default "1".
-    The engine reads the same variable at each mask call (``engine.names.lowercase_names``)."""
+    """RAGBASE_SHIELD_LOWERCASE_NAMES (v0.4.1): "0" turns off the rules for names and addresses typed in lower case
+    in French text ("m. dupont", "mon client jean dupont", "la société durand sas", "12 rue des lilas, 69007 lyon")
+    and gives the 0.4.0 detection; default "1". The engine reads the same variable at each mask call
+    (``engine.names.lowercase_names``)."""
     return os.environ.get("RAGBASE_SHIELD_LOWERCASE_NAMES", "1").strip().lower() not in ("0", "false", "no", "off")
 
 

@@ -274,7 +274,9 @@ def verb_form(low: str) -> str:
 
 @lru_cache(maxsize=None)
 def lowercase_words() -> dict[str, frozenset[str]]:
-    """The sections of ``lowercase_fr.txt``, folded: ``"function"`` (function words), ``"persons"`` (nouns that
-    name a person), ``"states"`` (adjectives of a person's state) and ``"words"`` (other ordinary words)."""
+    """The sections of ``lowercase_fr.txt``, folded: ``"function"`` (function words), ``"places"`` (towns,
+    countries, regions), ``"jobs"`` (nouns of a trade or a job), ``"persons"`` (nouns that name a person), ``"states"`` (adjectives of a person's state)
+    and ``"words"`` (other ordinary words)."""
     sections = read_sections("lowercase_fr.txt")
-    return {key: _folded_words(sections.get(key, [])) for key in ("function", "persons", "states", "words")}
+    return {key: _folded_words(sections.get(key, []))
+            for key in ("function", "places", "jobs", "persons", "states", "words")}

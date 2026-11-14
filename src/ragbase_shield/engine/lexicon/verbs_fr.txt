@@ -1,5 +1,5 @@
 # RAGbase Shield verbs (French). Written for RAGbase Shield, Apache-2.0.
-# French verbs for the lower-case name rules (v0.4.1): a name typed in lower case stops at a verb ("m. hakim
+# French verbs for the lower-case name rules (v0.4.1): a name typed in lower case stops at a verb ("m. samir
 # conteste"), and a word that is a verb form is not a name ("madame demande", "monsieur verse"). The loader
 # (lexicon.verb_forms) conjugates the infinitives on folded text (lower case, no accents): present, imperfect,
 # future, conditional, present subjunctive, imperative and participles. No simple past and no imperfect
@@ -275,6 +275,18 @@ victimiser éberluer éborgner ébouriffer ébruiter ébrécher écailler écarq
 étioler étoiler étriller étriquer étuver évangéliser éventrer évider
 désabonner désinstaller
 
+gruger procrastiner atermoyer tergiverser regimber ronchonner rouspéter maugréer bougonner grommeler marmonner
+pester fulminer vitupérer temporiser lambiner traînasser louvoyer biaiser finasser ergoter chicaner pinailler chipoter
+rechigner renâcler rebiffer bouder ruminer ressasser radoter délirer divaguer entêter obstiner rétorquer riposter
+objecter acquiescer opiner obtempérer capituler abdiquer tempêter pleurnicher jérémier lanterner musarder
+flâner traînailler tarder barguigner tortiller esquiver éluder botter dérober défiler dégonfler déballer cogiter
+gamberger soliloquer monologuer palabrer baratiner embobiner enfumer entourlouper flouer rouler berner duper leurrer
+arnaquer escroquer filouter carotter truander magouiller trafiquer combiner manigancer comploter conspirer intriguer
+fanfaronner plastronner pavoiser parader crâner frimer bluffer minauder simuler jacasser caqueter bavarder
+papoter jaser dénigrer calomnier diffamer vilipender fustiger houspiller morigéner sermonner admonester
+tancer gourmander réprimander chapitrer rabrouer rembarrer snober toiser narguer défier braver provoquer titiller
+asticoter taquiner harceler importuner tarabuster talonner relancer dubliner
+
 # [ir]
 abolir aboutir abrutir accomplir accroupir adoucir affaiblir affermir affranchir agir agrandir alourdir alunir
 amerrir amincir amoindrir amortir anéantir aplanir aplatir appauvrir applaudir approfondir arrondir assagir
@@ -315,7 +327,7 @@ suivre: vre | s t vons vez vent vais vait vions viez vaient vrai vras vra vrons 
 conclure: re | s t ons ez ent ais ait ions iez aient rai ras ra rons rez ront rais rait rions riez raient e es ant 0
 plaire: re | s t sons sez sent sais sait sions siez saient rai ras ra rons rez ront rais rait rions riez raient se ses sant
 faire: faire | fais fait faisons faites font faisais faisait faisions faisiez faisaient ferai feras fera ferons ferez feront ferais ferait ferions feriez feraient fasse fasses fassions fassiez fassent faisant faite faits
-traire: re | s t yons yez ent yais yait yions yiez yaient rai ras ra rons rez ront rais rait rions riez raient e es yant te ts tes
+traire: ire | is it yons yez ient yais yait yions yiez yaient irai iras ira irons irez iront irais irait irions iriez iraient ie ies yant yante yants it ite its ites
 résoudre: udre | us ut lvons lvez lvent lvais lvait lvions lviez lvaient udrai udras udra udrons udrez udront udrais udrait udrions udriez udraient lve lves lvant lu lue lus lues
 coudre: dre | ds d sons sez sent sais sait sions siez saient drai dras dra drons drez dront drais drait drions driez draient se ses sant su sue sus sues
 vaincre: cre | cs c quons quez quent quais quait quions quiez quaient crai cras cra crons crez cront crais crait crions criez craient que ques quant cu cue cus cues
@@ -402,7 +414,7 @@ plaire déplaire complaire taire
 défaire refaire satisfaire contrefaire parfaire
 
 # [traire]
-traire distraire extraire soustraire abstraire
+traire distraire extraire soustraire abstraire retraire rentraire
 
 # [résoudre]
 résoudre dissoudre absoudre

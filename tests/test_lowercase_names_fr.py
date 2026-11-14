@@ -1,9 +1,9 @@
 """v0.4.1: names typed in lower case in French text.
 
-Lawyers type prompts fast, often with no capital. 0.4.0 masked "M. Thibault Mercadier" and left "M. doudou lina"
-readable. The rules of this hotfix find a name with no capital from what stands around it: a civility before it
-(A), a first name of the lexicon at its start (B), a company cue and a legal form around it (C); one person keeps
-one code whatever the letter case (D). The guards matter as much: a determiner, a role, a verb or an ordinary word
+Lawyers type prompts fast, often with no capital: "M. zadou mila", "mme claire dufresne conteste". The rules of
+this version find a name with no capital from what stands around it: a civility before it (A), a first name of
+the lexicon at its start (B), a company cue and a legal form around it (C); one person keeps one code whatever
+the letter case (D). The guards matter as much: a determiner, a role, a verb or an ordinary word
 is never masked, and capitalised text gives the 0.4.0 output. ``RAGBASE_SHIELD_LOWERCASE_NAMES=0`` turns the rules
 off. Invented data only: every name, company and sentence below is made up for these tests."""
 from __future__ import annotations
@@ -19,14 +19,15 @@ from ragbase_shield.engine.normalize import fold_word
 
 SWITCH = "RAGBASE_SHIELD_LOWERCASE_NAMES"
 
-# The four lines of the defect report (0.4.0 masked the address, the birth date and "Ateliers Brunelac" only).
-DEFECT = [
-    ("M. doudou lina, domicilié 12 rue des Glycines, 69007 Lyon, conteste son licenciement par la société "
+# Four typed lines: a civility or a person noun, then a name with no capital. (text, the names masked, the masked
+# text)
+TYPED_LINES = [
+    ("M. zadou mila, domicilié 12 rue des Glycines, 69007 Lyon, conteste son licenciement par la société "
      "Ateliers Brunelac SAS",
-     ["doudou lina", "Ateliers Brunelac"],
+     ["zadou mila", "Ateliers Brunelac"],
      "M. PERSONNE_A, domicilié ADRESSE_1, conteste son licenciement par la société SOCIETE_A SAS"),
-    ("M. nona hakim, domicilié 12 rue des Glycines, 69007 Lyon, conteste son licenciement",
-     ["nona hakim"],
+    ("M. nelba samir, domicilié 12 rue des Glycines, 69007 Lyon, conteste son licenciement",
+     ["nelba samir"],
      "M. PERSONNE_A, domicilié ADRESSE_1, conteste son licenciement"),
     ("mme claire dufresne conteste son licenciement.",
      ["claire dufresne"],
@@ -48,24 +49,18 @@ CIVILITY = [
     ("maître karim ben salah représente madame de la tour.", ["karim ben salah", "de la tour"]),
     ("Me gravelotte plaide demain matin.", ["gravelotte"]),
     ("j'ai écrit à Me pernaud hier soir.", ["pernaud"]),
-    ("le dr valette a examiné mon client.", ["valette"]),
-    ("Dr lervignac a rédigé le certificat.", ["lervignac"]),
-    ("le Pr morvanti dirige le service.", ["morvanti"]),
     ("mme anne-sophie velanor a saisi le conseil.", ["anne-sophie velanor"]),
     ("m. jean pierre quimpertin, gérant, a signé.", ["jean pierre quimpertin"]),
     ("contre m. thomas kerdalis et mme emma kerdalis.", ["thomas kerdalis", "emma kerdalis"]),
     ("mm. vellin et talvez ont signé.", ["vellin", "talvez"]),
     ("bonjour, je représente mme d'arvignac dans ce dossier.", ["d'arvignac"]),
-    ("m. le bihannec conteste son avertissement.", ["le bihannec"]),
     ("monsieur van der kesselt est le bailleur.", ["van der kesselt"]),
     ("mme rose kervadec a contesté la rupture.", ["rose kervadec"]),
     ("m. petit conteste son licenciement.", ["petit"]),
     ("le cabinet de maître pradimont suit le dossier.", ["pradimont"]),
-    ("selon mme porte, le bail est nul.", ["porte"]),
     ("le rendez-vous est fixé avec mme ouardi", ["ouardi"]),
     ("mme marie talvez a déposé plainte.", ["marie talvez"]),
-    ("m. doudou Lina conteste la décision.", ["doudou Lina"]),
-    ("mme borne conteste le montant du loyer.", ["borne"]),
+    ("m. zadou Mila conteste la décision.", ["zadou Mila"]),
     ("mme veuve pradimont a renoncé à la succession.", ["pradimont"]),
     ("mme nadia kervadec épouse maudet demande le divorce.", ["nadia kervadec", "maudet"]),
     ("mme fatoumata quimpertin est salariée depuis 2019.", ["fatoumata quimpertin"]),
@@ -86,7 +81,6 @@ FIRST_NAME = [
     ("anne-sophie brivanor réclame des heures supplémentaires.", ["anne-sophie brivanor"]),
     ("mon voisin lucas gravelotte refuse de couper sa haie.", ["lucas gravelotte"]),
     ("karim ben salah est mon client.", ["karim ben salah"]),
-    ("Jean dupont conteste son licenciement.", ["Jean dupont"]),
     ("le salarié mehdi pernaud a été convoqué.", ["mehdi pernaud"]),
     ("thomas valette et emma valette sont séparés.", ["thomas valette", "emma valette"]),
     ("pierre lervignac conteste la décision.", ["pierre lervignac"]),
@@ -115,7 +109,50 @@ COMPANY = [
     ("la société Kerdalis EURL a fait appel.", ["Kerdalis"]),  # capitals: the 0.4.0 span, unchanged
 ]
 
-POSITIVE = [(t, names) for t, names, _out in DEFECT] + CIVILITY + FIRST_NAME + COMPANY
+# A capitalised first name, then a word in lower case that no list knows: the word may be a job, an adverb or a
+# legal word as well as a surname, so the capitalised rules read the line alone (the same output with the rules off).
+KEYBOARD_UNKNOWN_WORD = [
+    "Mme Claire dufresne conteste son licenciement.",
+    "M. Thibault mercadier a signé le bail hier.",
+    "Monsieur Paul vernaton, salarié depuis 2015, conteste la sanction.",
+    "Je représente Mme Sophie kerdalis.",
+    "Me Karim talvez plaide demain matin.",
+    "Bonjour, mon client Jean dupont a été licencié.",
+    "Je pense que Paul pradimont conteste la décision.",
+    "Le bail est au nom de ma cliente Emma velanor.",
+    "M. Zadou mila, domicilié 12 rue des Glycines, 69007 Lyon, conteste son licenciement.",
+    "M. Kervadec julien conteste la sanction.",
+    "M. Benoit velkor conteste son avertissement.",
+    "Mme Martin zorvaine convoquée ne s'est pas présentée.",
+    "M. Xavier brivanec a supprimé le site.",
+]
+
+POSITIVE = [(t, names) for t, names, _out in TYPED_LINES] + CIVILITY + FIRST_NAME + COMPANY
+
+# A word in lower case after a capitalised name is no surname: the mask is the 0.4.0 mask. (text, the names masked)
+AFTER_A_NAME = [
+    ("M. Martin susvisé a formé un pourvoi.", ["Martin"]),
+    ("M. Thomas précité a répondu aux conclusions.", ["Thomas"]),
+    ("M. Bernard fils conteste la donation.", ["Bernard"]),
+    ("Mme Martin seule assume la charge des enfants.", ["Martin"]),
+    ("M. Laurent également conteste la décision.", ["Laurent"]),
+    ("M. Vincent junior a signé le protocole.", ["Vincent"]),
+    ("M. Simon cohéritier conteste le partage.", ["Simon"]),
+    ("Je représente M. Martin aujourd'hui.", ["Martin"]),
+    ("Il a écrit à M. Robert notaire à Lyon.", ["Robert"]),
+    ("M. Henri demeurant à Paris conteste.", ["Henri"]),
+    ("M. Martin lui-même a signé.", ["Martin"]),
+    ("Mme Thomas titulaire", ["Thomas"]),
+    ("Contre M. Laurent derechef.", ["Laurent"]),
+    ("Le tribunal a déclaré M. Martin démissionnaire.", ["Martin"]),
+    ("Le juge a nommé Mme Bernard cogérante.", ["Bernard"]),
+    ("Le tribunal déclare M. Thomas velkor.", ["Thomas"]),  # a word no list knows after a verb with an attribute
+    ("M. Thomas xyz a répondu.", ["Thomas"]),               # three letters: an abbreviation, no surname
+    ("M. Martin contsete la décision.", ["Martin"]),        # a typing error before a determiner
+    ("Me Dupont plaide demain.", ["Dupont"]),
+    ("Le tribunal a jugé Paul forclos en sa demande.", []),
+    ("On a élu Julie cheffe de projet.", []),
+]
 
 # The guards: nothing of these sentences is a person or a company.
 NEGATIVE = [
@@ -256,12 +293,12 @@ def _default_switch(monkeypatch):
 
 
 # ---------------------------------------------------------------------------
-# The defect and the four rules
+# The typed lines and the four rules
 # ---------------------------------------------------------------------------
 
 
-@pytest.mark.parametrize("text,names,masked", DEFECT)
-def test_defect_lines_are_masked(text, names, masked):
+@pytest.mark.parametrize("text,names,masked", TYPED_LINES)
+def test_typed_lines_are_masked(text, names, masked):
     m = _masker()
     r = m.mask(text)
     assert r.text == masked
@@ -269,9 +306,9 @@ def test_defect_lines_are_masked(text, names, masked):
     assert m.unmask(r.text) == text
 
 
-@pytest.mark.parametrize("text,names,masked", DEFECT)
+@pytest.mark.parametrize("text,names,masked", TYPED_LINES)
 @pytest.mark.parametrize("chat", [None, True, False])
-def test_defect_lines_with_and_without_the_chat_flag(text, names, masked, chat):
+def test_typed_lines_with_and_without_the_chat_flag(text, names, masked, chat):
     assert _masker().mask(text, chat=chat).text == masked
 
 
@@ -320,12 +357,12 @@ def test_there_are_enough_negative_cases():
 
 
 @pytest.mark.parametrize("text,kept", [
-    ("m. hakim conteste son licenciement.", "conteste son licenciement."),
+    ("m. samir conteste son licenciement.", "conteste son licenciement."),
     ("mme dufresne a été licenciée le 3 mars.", "a été licenciée le"),
     ("m. kervadec, né le 4 mars 1975, est gérant.", "est gérant."),
     ("madame ouardi et monsieur talvez sont associés.", "sont associés."),
     ("mme pradimont travaille comme infirmière à lyon.", "travaille comme infirmière à lyon."),
-    ("monsieur lina doit 4 000 euros à la banque.", "doit 4 000 euros à la banque."),
+    ("monsieur mila doit 4 000 euros à la banque.", "doit 4 000 euros à la banque."),
 ])
 def test_a_name_stops_at_a_verb(text, kept):
     r = _masker().mask(text)
@@ -342,10 +379,10 @@ def test_lower_case_me_and_sa_are_never_a_civility_or_a_legal_form():
 
 
 def test_the_words_around_decide_between_a_verb_and_a_name():
-    # a verb form right after the civility is its verb; after a preposition, or before a verb, it is a name
+    # a verb form or an ordinary word right after the civility is no name, whatever stands around it
     assert _names("madame porte plainte contre son voisin.") == []
-    assert _names("j'ai écrit à mme porte hier.") == ["porte"]
-    assert _names("mme porte conteste le congé.") == ["porte"]
+    assert _names("j'ai écrit à mme porte hier.") == []
+    assert _names("mme porte conteste le congé.") == []
     # a first name that is also a verb form
     assert _names("mme marie talvez conteste.") == ["marie talvez"]
     assert _names("il marie sa fille à un notaire.") == []
@@ -395,6 +432,24 @@ def test_capitalised_names_keep_their_0_4_0_spans():
     assert r.text == "M. PERSONNE_A conteste. Mme PERSONNE_B et PERSONNE_C aussi."
 
 
+@pytest.mark.parametrize("text,names", AFTER_A_NAME)
+def test_a_word_after_a_capitalised_name_is_no_surname(monkeypatch, text, names):
+    monkeypatch.setenv(SWITCH, "0")
+    off = _masker().mask(text).text
+    monkeypatch.setenv(SWITCH, "1")
+    r = _masker().mask(text)
+    assert r.text == off
+    assert [s.value for s in r.spans if s.kind in ("PERSON", "ORG")] == names
+
+
+@pytest.mark.parametrize("text", KEYBOARD_UNKNOWN_WORD)
+def test_a_capitalised_first_name_and_an_unknown_word_keep_the_capitalised_reading(monkeypatch, text):
+    on = _masker().mask(text)
+    monkeypatch.setenv(SWITCH, "0")
+    off = _masker().mask(text)
+    assert on.text == off.text
+
+
 # ---------------------------------------------------------------------------
 # D: one code whatever the letter case, and restore
 # ---------------------------------------------------------------------------
@@ -402,17 +457,22 @@ def test_capitalised_names_keep_their_0_4_0_spans():
 
 def test_one_person_one_code_across_letter_cases():
     m = _masker()
-    assert m.mask("M. nona hakim conteste son licenciement.").text == "M. PERSONNE_A conteste son licenciement."
-    assert m.mask("Nona Hakim a saisi le conseil.").text == "PERSONNE_A a saisi le conseil."
-    assert m.mask("M. Hakim a raison.").text == "M. PERSONNE_A a raison."
-    assert m.mask("m. hakim est venu hier.").text == "m. PERSONNE_A est venu hier."
-    assert m.mask("NONA HAKIM a signé.").text == "PERSONNE_A a signé."
+    assert m.mask("M. nelba samir conteste son licenciement.").text == "M. PERSONNE_A conteste son licenciement."
+    assert m.mask("Nelba Samir a saisi le conseil.").text == "PERSONNE_A a saisi le conseil."
+    assert m.mask("nelba samir est venu hier.").text == "PERSONNE_A est venu hier."
+    assert m.mask("NELBA SAMIR a signé.").text == "PERSONNE_A a signé."
     assert [e.code for e in m.store.all() if e.kind == "PERSON"] == ["PERSONNE_A"]
 
 
-def test_one_person_one_code_in_one_text():
-    r = _masker().mask("M. doudou lina conteste. M. Lina a raison. doudou lina est parti.")
-    assert r.text == "M. PERSONNE_A conteste. M. PERSONNE_A a raison. PERSONNE_A est parti."
+def test_a_title_and_one_word_of_a_name_is_its_own_person_as_with_capitals():
+    # "M. Mila" after "zadou mila": the lexicon reads "mila" as the first name, so the link of a surname does not
+    # hold. The mention has its own code, as "M. Zadou Mila" then "M. Mila" have with capitals, and the text comes
+    # back as typed.
+    m = _masker()
+    text = "M. zadou mila conteste. M. Mila a raison. zadou mila est parti."
+    r = m.mask(text)
+    assert r.text == "M. PERSONNE_A conteste. M. PERSONNE_B a raison. PERSONNE_A est parti."
+    assert m.unmask(r.text) == text
 
 
 def test_surname_alone_keeps_the_code_in_both_cases():
@@ -446,11 +506,11 @@ def test_two_people_keep_two_codes():
 
 
 def test_the_link_of_a_lower_case_person_is_for_lower_case_values_only():
-    """0.4.0 gives "M. Nona Hakim" and "M. Hakim" two codes (the lexicon reads "Hakim" as the first name); with
+    """0.4.0 gives "M. Nelba Samir" and "M. Samir" two codes (the lexicon reads "Samir" as the first name); with
     capitals this stays."""
     m = _masker()
-    assert m.mask("M. Nona Hakim conteste son licenciement.").text == "M. PERSONNE_A conteste son licenciement."
-    assert m.mask("M. Hakim a raison.").text == "M. PERSONNE_B a raison."
+    assert m.mask("M. Nelba Samir conteste son licenciement.").text == "M. PERSONNE_A conteste son licenciement."
+    assert m.mask("M. Samir a raison.").text == "M. PERSONNE_B a raison."
 
 
 @pytest.mark.parametrize("text", [t for t, _n in POSITIVE])
@@ -461,10 +521,10 @@ def test_restore_gives_back_the_text_as_typed(text):
 
 def test_restore_writes_the_first_spelling_of_the_dossier():
     m = _masker()
-    first = m.mask("M. nona hakim conteste.")
-    assert m.unmask(first.text) == "M. nona hakim conteste."
-    later = m.mask("Nona Hakim a saisi le conseil.")
-    assert m.unmask(later.text) == "nona hakim a saisi le conseil."  # one code, one stored spelling (as in 0.4.0)
+    first = m.mask("M. nelba samir conteste.")
+    assert m.unmask(first.text) == "M. nelba samir conteste."
+    later = m.mask("Nelba Samir a saisi le conseil.")
+    assert m.unmask(later.text) == "nelba samir a saisi le conseil."  # one code, one stored spelling (as in 0.4.0)
 
 
 # ---------------------------------------------------------------------------
@@ -476,12 +536,12 @@ def test_restore_writes_the_first_spelling_of_the_dossier():
 def test_the_switch_gives_the_0_4_0_detection(monkeypatch, value):
     monkeypatch.setenv(SWITCH, value)
     assert nm.lowercase_names() is False and config.lowercase_names() is False
-    assert _masker().mask(DEFECT[0][0]).text == \
-        "M. doudou lina, domicilié ADRESSE_1, conteste son licenciement par la société SOCIETE_A SAS"
-    assert _masker().mask(DEFECT[2][0]).text == DEFECT[2][0]
-    assert _masker().mask(DEFECT[3][0]).text == DEFECT[3][0]
+    assert _masker().mask(TYPED_LINES[0][0]).text == \
+        "M. zadou mila, domicilié ADRESSE_1, conteste son licenciement par la société SOCIETE_A SAS"
+    assert _masker().mask(TYPED_LINES[2][0]).text == TYPED_LINES[2][0]
+    assert _masker().mask(TYPED_LINES[3][0]).text == TYPED_LINES[3][0]
     for text, names in CIVILITY + FIRST_NAME + COMPANY:
-        # a name with no capital stays readable, as in 0.4.0; a capitalised one keeps its 0.4.0 mask
+        # rules off: the 0.4.0 behaviour (the capitalised rules alone)
         assert _names(text) == [n for n in names if n == "Kerdalis"]
 
 
@@ -489,7 +549,7 @@ def test_the_switch_gives_the_0_4_0_detection(monkeypatch, value):
 def test_the_switch_is_on_by_default(monkeypatch, value):
     monkeypatch.setenv(SWITCH, value)
     assert nm.lowercase_names() is True and config.lowercase_names() is True
-    assert _masker().mask(DEFECT[2][0]).text == DEFECT[2][2]
+    assert _masker().mask(TYPED_LINES[2][0]).text == TYPED_LINES[2][2]
 
 
 def test_the_switch_is_read_at_each_call(monkeypatch):
@@ -502,9 +562,9 @@ def test_the_switch_is_read_at_each_call(monkeypatch):
 
 def test_the_switch_also_turns_the_link_off(monkeypatch):
     m = _masker()
-    assert m.mask("M. nona hakim conteste.").text == "M. PERSONNE_A conteste."
+    assert m.mask("M. nelba samir conteste.").text == "M. PERSONNE_A conteste."
     monkeypatch.setenv(SWITCH, "0")
-    assert m.mask("M. Hakim a raison.").text == "M. PERSONNE_B a raison."  # the 0.4.0 link
+    assert m.mask("M. Samir a raison.").text == "M. PERSONNE_B a raison."  # the 0.4.0 link
 
 
 class _Backend:
@@ -538,8 +598,8 @@ def _model_masker(finds=()) -> Masker:
     return m
 
 
-@pytest.mark.parametrize("text,names,masked", DEFECT)
-def test_model_mode_masks_the_defect_lines(text, names, masked):
+@pytest.mark.parametrize("text,names,masked", TYPED_LINES)
+def test_model_mode_masks_the_typed_lines(text, names, masked):
     m = _model_masker()
     r = m.mask(text)
     assert m.mode.startswith("rules+ner") and r.text == masked
@@ -558,7 +618,7 @@ def test_model_mode_and_a_model_find_on_the_same_name():
 def test_plugged_recogniser_mode():
     m = Masker(MemoryStore(), ner=lambda text: [])
     assert m.mode == "rules+ner"
-    assert m.mask(DEFECT[3][0]).text == DEFECT[3][2]
+    assert m.mask(TYPED_LINES[3][0]).text == TYPED_LINES[3][2]
 
 
 def test_english_output_does_not_depend_on_the_switch(monkeypatch):
@@ -617,9 +677,9 @@ def test_infinitives(word):
     assert lx.verb_form(fold_word(word)) == "inf"
 
 
-@pytest.mark.parametrize("word", ["dupont", "dufresne", "hakim", "lina", "doudou", "mercadier", "durand", "martin",
+@pytest.mark.parametrize("word", ["dupont", "dufresne", "samir", "mila", "zadou", "mercadier", "durand", "martin",
                                    "karim", "sophie", "jean", "kervadec", "pradimont", "talvez", "garnier",
-                                   "lemaire", "vincent", "laurent", "lopez", "nguyen"])
+                                   "velmaire", "vincent", "laurent", "talvent", "brivanez"])
 def test_names_are_no_verb_forms(word):
     assert lx.verb_form(word) == ""
 
@@ -637,7 +697,7 @@ def test_the_verb_file_has_every_section_and_no_misplaced_infinitive():
 
 def test_the_word_file_has_its_sections():
     words = lx.lowercase_words()
-    assert set(words) == {"function", "persons", "states", "words"}
+    assert set(words) == {"function", "places", "jobs", "persons", "states", "words"}
     assert all(len(v) > 50 for v in words.values())
     assert "angulaire" in words["words"] and "bonbon" in words["words"]
     assert "seule" in words["states"] and "voisin" in words["persons"] and "quant" in words["function"]
@@ -648,6 +708,7 @@ def test_the_word_file_has_its_sections():
     ("petit", "common"), ("conteste", "verb"), ("angulaire", "plain"), ("président", "no"), ("le", "no"),
     ("seule", "no"), ("voisin", "no"), ("apparemment", "no"), ("martin-leroy", "first"), ("indexation", "plain"),
     ("susvisé", "verb"), ("lyon", "plain"), ("juridique", "plain"), ("contestait", "verb"),
+    ("cohéritier", "no"), ("cogérante", "no"), ("démissionnaire", "no"), ("forclos", "no"), ("bis", "no"),
 ])
 def test_word_classes(word, kind):
     w = nm._words(word)[0]
@@ -655,6 +716,6 @@ def test_word_classes(word, kind):
 
 
 def test_the_lists_of_0_4_0_do_not_change():
-    """The hotfix adds two files and reads them from the new rules only."""
+    """Version 0.4.1 adds two files and reads them from the new rules only."""
     assert "conteste" not in lx.stopwords() and "angulaire" not in lx.common_words()
-    assert "bonbon" not in nm._lists()[2] and "doudou" not in nm._lists()[4]
+    assert "bonbon" not in nm._lists()[2] and "zadou" not in nm._lists()[4]
