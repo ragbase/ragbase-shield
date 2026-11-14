@@ -2,7 +2,7 @@
 
 <!-- mcp-name: io.github.ragbase/ragbase-shield -->
 
-**Use Claude on your client files. Shield masks your clients' names before the text is sent.**
+**Use Claude on your client files, without leaking any sensitive information.**
 
 The best pseudonymisation engine on the market.
 

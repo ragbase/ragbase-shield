@@ -1,6 +1,6 @@
 # RAGbase Shield
 
-**Utilisez Claude sur vos dossiers clients. Shield masque les noms de vos clients avant l'envoi.**
+**Utilisez Claude sur vos dossiers clients, sans aucune fuite d'informations sensibles.**
 
 Le meilleur moteur de pseudonymisation du marché.
 
