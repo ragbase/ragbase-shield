@@ -1009,7 +1009,7 @@ ORDINARY_TEXT_3 = [
     "l'arrêt blanco de 1873",
     "la jurisprudence perruche",
     "le code napoléon",
-    "la loi badinter protège les victimes",
+    "la loi alur protège les locataires",
     "le rapport lambert a été remis",
     "l'amendement est adopté",
     "le client est roi",

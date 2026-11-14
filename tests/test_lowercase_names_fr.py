@@ -747,6 +747,6 @@ def test_word_classes(word, kind):
 
 
 def test_the_lists_of_0_4_0_do_not_change():
-    """The hotfix adds two files and reads them from the new rules only."""
+    """Version 0.4.1 adds two files and reads them from the new rules only."""
     assert "conteste" not in lx.stopwords() and "angulaire" not in lx.common_words()
     assert "bonbon" not in nm._lists()[2] and "zadou" not in nm._lists()[4]
