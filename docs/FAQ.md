@@ -48,7 +48,7 @@ Shield Desk, page Dossiers (ou `ragbase-shield entities DOSSIER_1`).
 
 Non. La détection n'est jamais complète. Shield trouve les numéros à clé de contrôle (SIREN, SIRET, NIR, IBAN,
 TVA, carte), les e-mails, les téléphones, les adresses, les références de procédure, les noms précédés d'un
-titre (M., Mme, Me, Maître) ou d'un prénom courant, et les sociétés qui ont une forme juridique (SAS, SARL...). Un nom rare, étranger ou mal orthographié
+titre (M., Mme, Me, Maître) ou d'un prénom courant, et les sociétés qui ont une forme juridique (SAS, SARL...). Après « M. », « Mme », « Mlle » ou « Me », Shield masque le nom qui suit, avec ou sans majuscules, dans tous les textes. Dans un texte tapé sans majuscules, comme sur un téléphone ou dans une note rapide, Shield masque aussi les noms avec ou sans civilité, les sociétés écrites avec leur forme juridique, les adresses postales et les champs « nom : » et « prénom : ». Le réglage RAGBASE_SHIELD_LOWERCASE_NAMES=0 désactive ces règles. Un nom rare, étranger ou mal orthographié
 peut passer. Enregistrez les parties de chaque dossier : ce sont elles que Shield masque le plus sûrement.
 Vérifiez la liste des noms détectés, et relisez le texte masqué avant de l'envoyer.
 Les résultats du benchmark sont dans
@@ -168,6 +168,12 @@ recognition (technical name: GLiNER; about 1.2 GB, Apache-2.0). Install the `ner
 the CPU, and the engine uses it automatically. What the model finds goes through the same whitelist as the rules and
 never overrides the structured detectors. The one-click installers do not include the model yet. Details:
 [NER.md](NER.md).
+
+### What does Shield mask in text typed without capitals?
+
+After "M.", "Mme", "Mlle" or "Me", Shield masks the name that follows, with or without capitals, in every text.
+In text typed without capitals, as on a phone or in a quick note, Shield also masks names with or without a title, companies written with their legal form, postal addresses and the fields "nom :" and "prénom :".
+The setting RAGBASE_SHIELD_LOWERCASE_NAMES=0 turns these rules off.
 
 ### How do I get English code labels?
 

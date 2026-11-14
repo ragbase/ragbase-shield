@@ -647,6 +647,18 @@ Every rule below is a general rule (a pattern, a lexicon category or an algorith
   variant that is a dictionary word. A distinctive one-word name stays case-insensitive (two leak tests pin it).
 - A known birth date matches its other written formats with the same code.
 - DOC_n, DOSSIER_n and OUTPUT_n in real text are no longer escaped. New entity values are stored on one line.
+- Names, companies and addresses typed in lower case, French text (0.4.1; `names.py`, `detectors.py`,
+  `masker.py`, `lexicon/verbs_fr.txt`, `lexicon/lowercase_fr.txt`; tests: `tests/test_lowercase_names_fr.py`,
+  `tests/test_lowercase_prompts_fr.py`).
+  After "M.", "Mme", "Mlle" or "Me", Shield masks the name that follows, with or without capitals, in every text.
+  In text typed without capitals, as on a phone or in a quick note, Shield also masks names with or without a title, companies written with their legal form, postal addresses and the fields "nom :" and "prénom :".
+  The setting RAGBASE_SHIELD_LOWERCASE_NAMES=0 turns these rules off.
+  The engine reads the setting at each mask call (`config.lowercase_names()`). The rules of the second sentence
+  read one sentence at a time, to a full stop or a line break; `names.py` (section "Names typed in lower case")
+  holds the test that says when a sentence is typed without capitals. A word with no capital is a name word only
+  when the French word lists do not know it, or know it as a first name or as a common word that is also a
+  surname; a name stops at a verb form, a function word or an ordinary word. Text written with capitals keeps
+  the spans of the other rules.
 
 ### 10.2 Detectors (owner: DETECTORS; `engine/detectors.py`)
 

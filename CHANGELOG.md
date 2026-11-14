@@ -6,10 +6,9 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ## [0.4.1] - 2026-11-14
 
-- Shield now masks names and companies typed in lower case in French text: "m. thibault mercadier", "mon client
-  thibault mercadier", "la société ateliers brunelac sas". Type your prompt the way you write, with or without
-  capital letters.
-- The same person keeps the same code whatever the letter case.
+- After "M.", "Mme", "Mlle" or "Me", Shield masks the name that follows, with or without capitals, in every text.
+- In text typed without capitals, as on a phone or in a quick note, Shield also masks names with or without a title, companies written with their legal form, postal addresses and the fields "nom :" and "prénom :".
+- The setting RAGBASE_SHIELD_LOWERCASE_NAMES=0 turns these rules off.
 
 ## [0.4.0] - 2026-11-12
 

@@ -61,6 +61,10 @@ With `RAGBASE_SHIELD_LOCALE=en`, codes use English labels (PERSON_A, COMPANY_A, 
 Inside one dossier, a person always keeps the same code.
 "M. Mercadier", "Thibault Mercadier" and "MERCADIER Thibault" all become PERSONNE_A.
 
+After "M.", "Mme", "Mlle" or "Me", Shield masks the name that follows, with or without capitals, in every text.
+In text typed without capitals, as on a phone or in a quick note, Shield also masks names with or without a title, companies written with their legal form, postal addresses and the fields "nom :" and "prénom :".
+The setting RAGBASE_SHIELD_LOWERCASE_NAMES=0 turns these rules off.
+
 ### Three rules to remember
 
 1. **Connect a folder. Do not attach the file to the chat.**
@@ -359,6 +363,7 @@ Shield Desk.
 | `RAGBASE_SHIELD_PORT` | Shield Desk port (default 7878) |
 | `RAGBASE_SHIELD_KEYRING=0` | Key in a 0600 file instead of the OS keychain |
 | `RAGBASE_SHIELD_MASK_TOQUE=0` | Keeps lawyers' "toque" numbers visible (masked by default) |
+| `RAGBASE_SHIELD_LOWERCASE_NAMES=0` | Turns off the rules for names in lower case after a title and for text typed without capitals (on by default) |
 
 ### Contributing, security, licence
 

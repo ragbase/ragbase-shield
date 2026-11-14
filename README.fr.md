@@ -59,6 +59,10 @@ Claude en a besoin pour travailler.
 Dans un même dossier, une personne garde toujours le même code.
 « M. Mercadier », « Thibault Mercadier » et « MERCADIER Thibault » deviennent tous PERSONNE_A.
 
+Après « M. », « Mme », « Mlle » ou « Me », Shield masque le nom qui suit, avec ou sans majuscules, dans tous les textes.
+Dans un texte tapé sans majuscules, comme sur un téléphone ou dans une note rapide, Shield masque aussi les noms avec ou sans civilité, les sociétés écrites avec leur forme juridique, les adresses postales et les champs « nom : » et « prénom : ».
+Le réglage RAGBASE_SHIELD_LOWERCASE_NAMES=0 désactive ces règles.
+
 ### Les 3 règles à retenir
 
 1. **Connectez un dossier, n'attachez pas le fichier au chat.**
@@ -367,6 +371,7 @@ Lancez ces commandes dans votre propre terminal, ou utilisez Shield Desk.
 | `RAGBASE_SHIELD_PORT` | Port de Shield Desk (par défaut 7878) |
 | `RAGBASE_SHIELD_KEYRING=0` | Clé dans un fichier 0600 au lieu du trousseau du système |
 | `RAGBASE_SHIELD_MASK_TOQUE=0` | Laisse visibles les numéros de toque des avocats (masqués par défaut) |
+| `RAGBASE_SHIELD_LOWERCASE_NAMES=0` | Désactive les règles pour les noms en minuscules après une civilité et pour les textes tapés sans majuscules (actives par défaut) |
 
 ### Contribuer, sécurité, licence
 
