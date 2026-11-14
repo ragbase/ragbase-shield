@@ -95,6 +95,13 @@ def mask_legal_form() -> bool:
     return os.environ.get("RAGBASE_SHIELD_MASK_LEGAL_FORM", "0").strip().lower() in ("1", "true", "yes", "on")
 
 
+def lowercase_names() -> bool:
+    """RAGBASE_SHIELD_LOWERCASE_NAMES (v0.4.1): "0" turns off the rules for names typed in lower case in French text
+    ("m. dupont", "mon client jean dupont", "la société durand sas") and gives the 0.4.0 detection; default "1".
+    The engine reads the same variable at each mask call (``engine.names.lowercase_names``)."""
+    return os.environ.get("RAGBASE_SHIELD_LOWERCASE_NAMES", "1").strip().lower() not in ("0", "false", "no", "off")
+
+
 def own_company_vendor() -> bool:
     """RAGBASE_SHIELD_OWN_COMPANY_VENDOR (v0.4, P1, policy option): "1" masks a public tool or vendor of the English
     whitelist when it is the dossier's own company (the label of the dossier's main e-mail domain); default "0"

@@ -1393,6 +1393,16 @@ class Masker:
             if not same and skey and " " not in skey:
                 fk = _fuzzy_key(skey, known.by_surname)  # "Pradimomt" -> the one known "Pradimont" (R1, CL-06)
                 same = known.by_surname.get(fk, []) if fk else []
+            if not same and not firsts and skey and nm.lowercase_names():
+                # v0.4.1: a person typed in lower case ("nona hakim") has no capital to show the "SURNAME
+                # Firstname" order, yet the lexicon reads its last word as the first name when it knows only that
+                # word. A one-word mention equal to that word ("M. Hakim") is this person when exactly one such
+                # person is known. Never for a value with a capital: those keep the links of 0.4.0
+                typed = {p.code: p for lst in known.by_surname.values() for p in lst
+                         if not any(ch.isupper() for ch in p.value) and nm.first_key(p.value) == skey
+                         and phrase_tokens(p.value)[-len(skey.split()):] == tuple(skey.split())}
+                if len(typed) == 1:
+                    return next(iter(typed.values()))
             if not same:
                 return None
             codes = {p.code for p in same}
