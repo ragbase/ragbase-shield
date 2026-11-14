@@ -1610,19 +1610,22 @@ _LC_SENTENCE_START_RE = re.compile(r"(?:[.!?…][ \u00a0]+|\n)")
 
 def _lc_typed_sentence(text: str, start: int, end: int) -> bool:
     """The sentence around ``text[start:end]`` is typed without capitals: no word has a capital but its first
-    word, the first names of the lexicon and words in capitals of four letters at most ("SAS", "RG")."""
+    word and the words that ``names._lc_neutral_capital`` reads (first names, places, months, acronyms)."""
     ls = 0
     for m in _LC_SENTENCE_START_RE.finditer(text, max(0, start - 400), start):
         ls = m.end()
     ls = max(ls, start - 400, 0)
     m = _LC_SENTENCE_START_RE.search(text, end)
     le = m.start() if m else min(len(text), end + 400)
+    from . import names  # the same test as the name rules (names imports this module: import late)
+
     first = True
     for m in re.finditer(r"[^\W\d_][\w'’\-]*", text[ls:le]):
         word = m.group()
-        if not first and word[:1].isupper() and not (word.isupper() and len(word) <= 4) \
-                and fold_word(word) not in lx.first_names():
-            return False
+        if not first and word[:1].isupper():
+            w = names._make_word(word, m.start(), m.end())
+            if not names._lc_neutral_capital(w):
+                return False
         first = False
     return True
 

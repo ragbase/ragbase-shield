@@ -1250,3 +1250,42 @@ def test_more_shapes_typed_without_capitals(text, masked):
 @pytest.mark.parametrize("text", NO_TYPED_SHAPES)
 def test_typed_text_with_no_name(text):
     assert _masker().mask(text).text == text
+
+
+# A town, a month or an acronym with a capital does not show that a sentence has its capitals: a phone keyboard
+# writes them. (text, the masked text)
+TYPED_WITH_A_PLACE_OR_AN_ACRONYM = [
+    ("mon client paul petit a écrit à Lyon", "mon client PERSONNE_A a écrit à Lyon"),
+    ("Mon client paul petit travaille à Paris depuis Mars 2020 en CDI",
+     "Mon client PERSONNE_A travaille à Paris depuis Mars 2020 en CDI"),
+    ("ma cliente nadia kervadec a saisi le CPH de Nanterre", "ma cliente PERSONNE_A a saisi le CPH de Nanterre"),
+    ("zadou mila conteste son licenciement devant le CPH de Lyon",
+     "PERSONNE_A conteste son licenciement devant le CPH de Lyon"),
+    ("la société brivanor sas a son siège à Marseille, en France",
+     "la société SOCIETE_A sas a son siège à Marseille, en France"),
+]
+
+# A capital on another word is a capital of correct text: the sentence takes the rules of tier A only.
+OTHER_CAPITALS = [
+    "mon client paul petit a écrit au Tribunal",
+    "mon client paul petit a lu le Code du travail",
+    "Madame polonaise travaille en France depuis 2015.",
+    "La SCI familiale détient le bien à Ajaccio.",
+    "Le salarié a signé un CDI à Lyon le 3 Mars.",
+    "Monsieur quitta Paris en Mai 2021.",
+]
+
+
+@pytest.mark.parametrize("text,masked", TYPED_WITH_A_PLACE_OR_AN_ACRONYM)
+def test_a_place_or_an_acronym_keeps_the_sentence_typed(text, masked):
+    m = _masker()
+    r = m.mask(text)
+    assert r.text == masked
+    assert m.unmask(r.text) == text
+
+
+@pytest.mark.parametrize("text", OTHER_CAPITALS)
+def test_another_capital_is_correct_text(monkeypatch, text):
+    on = _masker().mask(text)
+    monkeypatch.setenv(SWITCH, "0")
+    assert _masker().mask(text).text == on.text

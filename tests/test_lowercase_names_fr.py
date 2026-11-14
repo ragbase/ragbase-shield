@@ -692,7 +692,7 @@ def test_the_verb_file_has_every_section_and_no_misplaced_infinitive():
 
 def test_the_word_file_has_its_sections():
     words = lx.lowercase_words()
-    assert set(words) == {"function", "persons", "states", "words"}
+    assert set(words) == {"function", "places", "persons", "states", "words"}
     assert all(len(v) > 50 for v in words.values())
     assert "angulaire" in words["words"] and "bonbon" in words["words"]
     assert "seule" in words["states"] and "voisin" in words["persons"] and "quant" in words["function"]

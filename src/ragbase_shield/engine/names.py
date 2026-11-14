@@ -1279,8 +1279,8 @@ def _lc_sets() -> dict[str, frozenset]:
     # ordinary words: the vocabulary, the words of lowercase_fr.txt, company and place words, and the first names
     # that the strong list leaves out because they are places or words ("lyon", "juste")
     plain = mg.vocab("fr") | low["words"] | ORG_GENERIC | _PLACE_WORDS | mg.ner_stoplist("fr")[0] | _ORG_SKIP \
-        | (afn - fn)
-    return {"hard": frozenset(hard), "plain": frozenset(plain), "persons": low["persons"],
+        | (afn - fn) | (low["places"] - fn)
+    return {"hard": frozenset(hard), "plain": frozenset(plain), "places": low["places"], "persons": low["persons"],
             "states": low["states"], "common": common, "first": fn, "any_first": afn}
 
 
@@ -1421,11 +1421,33 @@ def _lc_past_shape(low: str) -> bool:
 
 
 def _lc_neutral_capital(w: _W) -> bool:
-    """A capital that does not show that the text has its capitals: on a first name of the lexicon (a keyboard
-    writes it) and on a legal form in capitals."""
-    if w.upper and (w.low in LEGAL_FORMS or w.low in _LC_EXTRA_FORMS):
+    """A capital that does not show that the text has its capitals. A keyboard writes it by itself on a first name
+    of the lexicon, on a town, a country or a region of the place list, on a month or a day; and the writer types
+    it in a legal form or an acronym in capitals ("CDI", "RG", "TVA": a word of the acronym list, or two or three
+    capitals that are no first name). A surname, "Monsieur", "Tribunal", a company name are capitals of correct
+    text."""
+    low = w.low
+    if w.upper:
+        if low in LEGAL_FORMS or low in _LC_EXTRA_FORMS:
+            return True
+        return low.isalpha() and 2 <= len(low) <= 5 and "f" not in _lc_flags(low) and (
+            len(low) <= 3 or low in _lc_acronyms())
+    if w.initial:
+        return False
+    if "f" in _lc_flags(low) or low in lx.months_days():
         return True
-    return not w.upper and not w.initial and "f" in _lc_flags(w.low)
+    places = _lc_sets()["places"]
+    if low in places:
+        return True
+    parts = [p for p in low.split("-") if p]  # "Aix-en-Provence", "Saint-Denis"
+    return len(parts) > 1 and any(p in places for p in parts) and all(
+        p in places or p in ("saint", "sainte", "sur", "sous", "en", "les", "le", "la", "de", "du", "des", "aux")
+        or "f" in _lc_flags(p) for p in parts)
+
+
+@lru_cache(maxsize=None)
+def _lc_acronyms() -> frozenset:
+    return frozenset(fold_word(a) for a in lx.acronym_stoplist())
 
 
 def _lc_first_word_view(w: _W) -> _W:
@@ -1442,7 +1464,8 @@ def _lc_first_word_view(w: _W) -> _W:
 def _lc_typed_runs(text: str, runs: list[list[_W]]) -> list[Optional[list[_W]]]:
     """For each run, the run as the lower-case rules read it when its sentence is typed without capitals, else
     None. A sentence (to a full stop or a line break) is typed without capitals when no word has a capital but its
-    first word, the first names of the lexicon and the legal forms in capitals. In the returned run the first word
+    first word and the words of :func:`_lc_neutral_capital` (first names, places, months, acronyms; a legal form in
+    capitals only when the first word is in lower case). In the returned run the first word
     of the sentence counts as a word in lower case ("La sarl x", "Yanis vellin conteste"), but for a civility: its
     capital stays, and the full-word civility rules do not read it. A first name with a capital inside the
     sentence keeps it: "M. Benoit velkor conteste" is read as the capitalised rules read it."""
@@ -1455,7 +1478,8 @@ def _lc_typed_runs(text: str, runs: list[list[_W]]) -> list[Optional[list[_W]]]:
             continue
         first = runs[group[0]][0]
         # a legal form in capitals after a capitalised first word is correct text ("La SCI familiale détient")
-        if all(not w.cap or w is first or (_lc_neutral_capital(w) and not (w.upper and first.cap))
+        if all(not w.cap or w is first or (_lc_neutral_capital(w) and not (
+                w.upper and first.cap and (w.low in LEGAL_FORMS or w.low in _LC_EXTRA_FORMS)))
                for g in group for w in runs[g]):
             for g in group:
                 res[g] = [_lc_first_word_view(w) if w is first and w.cap and not w.upper
