@@ -1200,6 +1200,7 @@ _LC_PREPOSITIONS = frozenset("a de d pour contre avec par chez selon sans envers
                              "pendant malgre concernant sauf".split())
 # Particles of a name that are no French function word ("karim ben salah", "m. van der berg").
 _LC_NAME_PARTICLES = frozenset({"ben", "bin", "el", "al", "van", "von", "der", "den", "di", "da", "del", "della",
+                                "ould", "bent", "abd", "abou", "bou",
                                 "dos", "das", "ten", "ter", "zu"})
 _LC_PLURAL_CIVILITIES = frozenset({"mm", "mmes", "mlles", "messieurs", "mesdames", "mesdemoiselles"})
 # Conjugated forms of the auxiliary and modal verbs: a subject stands before them ("m. gros a écrit").
@@ -1259,8 +1260,11 @@ def _lc_sets() -> dict[str, frozenset]:
     stop, legal, common, fn, afn, months, wl = _lists()
     low = lx.lowercase_words()
     hard = stop | months | legal | _ROLE_WORDS | TITLE_WORDS | ORG_TRIGGERS | _GREETINGS | wl | low["function"]
-    # an acronym of the stoplist or a legal form typed in lower case is never a name word ("la jaf", "ago", "sarl")
-    hard = hard | frozenset(fold_word(a) for a in lx.acronym_stoplist()) | frozenset(LEGAL_FORMS)
+    # an acronym of the stoplist or a legal form typed in lower case is never a name word ("la jaf", "ago", "sarl");
+    # an acronym that is also a word or a first name keeps the class of the word ("roi", "loi")
+    known = mg.vocab("fr") | low["words"] | common | afn
+    hard = hard | frozenset(a for a in (fold_word(x) for x in lx.acronym_stoplist()) if a not in known) \
+        | frozenset(LEGAL_FORMS)
     # ordinary words: the vocabulary, the words of lowercase_fr.txt, company and place words, and the first names
     # that the strong list leaves out because they are places or words ("lyon", "juste")
     plain = mg.vocab("fr") | low["words"] | ORG_GENERIC | _PLACE_WORDS | mg.ner_stoplist("fr")[0] | _ORG_SKIP \
@@ -1551,9 +1555,75 @@ def _lc_particle_support(run: list[_W], i: int, end: int) -> bool:
                 return True
     if p is None:
         return end >= n
+    return _lc_object_support(run, i)
+
+
+def _lc_object_support(run: list[_W], i: int) -> bool:
+    """The civility ``run[i]`` and its name are the object of a preposition that is not "à", or of a verb whose
+    object is a person ("contre monsieur du roquevert", "je représente mme ly")."""
+    if i == 0:
+        return False
+    p = run[i - 1]
     if p.prefix:
         return p.low == "d"
     return p.low in _LC_NAME_LEFT or (_lc_is_verb(p) and p.low.startswith(_LC_PERSON_OBJECT_VERBS))
+
+
+def _lc_third_follows(run: list[_W], k: int) -> bool:
+    """A verb in the third person stands at ``run[k]`` ("ne", "se" and such before it are skipped): the words
+    before it are its subject."""
+    n = len(run)
+    j = k
+    while j < n and j - k < 3 and run[j].low in _LC_SKIPPED and not run[j].cap:
+        j += 1
+    return j < n and _lc_finite_third(run[j])
+
+
+def _lc_person_noun_surname(w: _W) -> bool:
+    """A noun that names a person and that is also a surname ("cousin", "voisin", "doyen"): no role of a
+    procedure, no title, no state, no function word."""
+    f = _lc_flags(w.low)
+    return "n" in f and "h" not in f and "s" not in f and w.low not in _ROLE_WORDS and len(w.low) >= 4
+
+
+def _lc_given_particle(run: list[_W], k: int) -> int:
+    """End index (exclusive) of a surname with a French particle at ``run[k]``, after a first name inside a name,
+    else 0: "de", "du", "des", "d'", "de la", "le" or "la" and a word that may be a surname, before the verb of the
+    name, "et", "ou" or the end of the clause ("mme sophie de montclar demande", "m. paul le goff a été licencié").
+    After "le" or "la" the word must be one that no list knows; after a bare "de", one that no list knows or a
+    first name ("de retour", "de garde" are no names)."""
+    n = len(run)
+    w = run[k]
+    if w.cap or w.digit:
+        return 0
+    kinds: tuple[str, ...] = ("oov", "first", "amb", "common")  # "de la roche", "du moulin", "d'estrenac"
+    if w.prefix:
+        if w.low != "d" or k + 1 >= n or run[k + 1].start != w.end:
+            return 0
+        m = k + 1
+    elif w.low in ("de", "du", "des"):
+        m = k + 1
+        if w.low == "de" and m < n and not run[m].cap \
+                and (run[m].low in ("la", "le") or (run[m].prefix and run[m].low == "l")):
+            m += 1
+        elif w.low == "de":
+            kinds = ("oov", "first")  # "de montclar"; never "de retour", "de garde", "de droit"
+    elif w.low in ("le", "la"):
+        m, kinds = k + 1, ("oov",)
+    else:
+        return 0
+    if m >= n:
+        return 0
+    x = run[m]
+    if x.cap:
+        if not _lc_cap_name_word(x):
+            return 0
+    elif len(x.low) < 3 or _lc_kind(x) not in kinds:
+        return 0
+    e = m + 1
+    if e >= n or (not run[e].cap and run[e].low in ("et", "ou")) or _lc_third_follows(run, e):
+        return e
+    return 0
 
 
 def _lc_name_next(run: list[_W], m: int) -> bool:
@@ -1565,7 +1635,7 @@ def _lc_name_next(run: list[_W], m: int) -> bool:
         return _lc_cap_name_word(w)
     if _lc_kind(w) in ("first", "amb") or (_lc_kind(w) == "oov" and len(w.low) >= 3):
         return True
-    return bool(_lc_particle_name(run, m, False))
+    return bool(_lc_particle_name(run, m, False)) or bool(_lc_given_particle(run, m))
 
 
 def _lc_first_word(text: str, run: list[_W], i: int, k: int, civ: str) -> bool:
@@ -1578,9 +1648,17 @@ def _lc_first_word(text: str, run: list[_W], i: int, k: int, civ: str) -> bool:
     if w.cap:
         return _person_word(w) and not _title(w)  # as in the rules above; the name then needs a lower-case word
     kind = _lc_kind(w)
-    if kind == "no" or len(w.low) < 3:
-        return False  # two letters: an abbreviation or a Latin word ("madame pb sur le bail", "Madame in solidum")
     last = k + 1 >= n
+    # where a short or ambiguous word is a name all the same: before the verb of the name, or at the end of the
+    # clause when the civility is the object of a verb whose object is a person
+    held = civ == "strong" and (_lc_third_follows(run, k + 1) or (last and _lc_object_support(run, i)))
+    if kind == "no":
+        # a noun that names a person is also a surname: "m. cousin conteste", "je représente mme voisin"
+        return held and _lc_person_noun_surname(w) and not (i > 0 and run[i - 1].low in _LC_DETERMINERS)
+    if len(w.low) < 3:
+        # two letters: an abbreviation or a Latin word ("madame pb sur le bail", "Madame in solidum"), or a short
+        # surname where a name is held ("m. vo conteste", "je représente mme ly")
+        return held and kind == "oov" and len(w.low) == 2
     if kind == "oov" and len(w.low) == 3 and not (last or _lc_verb_follows(run, k + 1) or _lc_name_next(run, k + 1)):
         return False  # three letters with nothing after them that holds a name: an abbreviation ("monsieur rdv à 9h")
     if civ == "strong":
@@ -1652,6 +1730,8 @@ def _lc_name_after(text: str, run: list[_W], i: int, civ: str) -> Optional[tuple
         prev = run[names[-1]]
         given = kinds[-1] in ("first", "amb")
         end = _lc_particle_name(run, k, False)
+        if not end and given and not prev.cap:
+            end = _lc_given_particle(run, k)  # "mme sophie de montclar demande", "m. paul le goff a été licencié"
         if end:
             idx.extend(range(k, end))
             names.append(end - 1)
@@ -1675,6 +1755,10 @@ def _lc_name_after(text: str, run: list[_W], i: int, civ: str) -> Optional[tuple
             ok = len(w.low) >= 3 and (len(names) == 1 or kinds[0] in ("first", "amb"))
         elif kind == "common":
             ok = given and (last or _lc_verb_follows(run, k + 1))
+        elif kind in ("plain", "verb") or (kind == "no" and _lc_person_noun_surname(w)):
+            # after a civility and a first name the next word is the surname, also when it is an ordinary word,
+            # if the verb of the name follows it ("m. paul marques a signé", "mme julie cousin conteste")
+            ok = given and len(names) == 1 and len(w.low) >= 3 and _lc_third_follows(run, k + 1)
         else:
             ok = False
         if not ok:
@@ -1764,6 +1848,33 @@ def _lc_cue_before(run: list[_W], i: int, flags: str) -> bool:
         and low not in lx.legal_terms() and low not in lx.months_days()
 
 
+def _lc_name_frame(run: list[_W], i: int, e: int, cue: bool, loose: bool = False) -> bool:
+    """The words ``run[i:e]`` stand where a name stands. Before them: the start of the clause, a noun that names a
+    person (``cue``), a preposition, a verb, "et" or "ou". After them: the end of the clause, "et" or "ou", a verb
+    in the third person ("paul mercier conteste", "mon client paul petit a été licencié"), or a preposition and
+    the first name of another person ("oppose paul chevalier à lucas berger"). ``loose``: any preposition after
+    them ("zadou mila contre son employeur"), for two words that are a name by themselves."""
+    n = len(run)
+    if i > 0 and not cue:
+        p = run[i - 1]
+        if not (p.text in ("à", "À") or p.low in _LC_PREPOSITIONS or (not p.cap and p.low in ("et", "ou"))
+                or (p.prefix and p.low == "d") or _lc_is_verb(p)):
+            return False
+    if e >= n:
+        return True
+    if run[e].cap:
+        return False
+    if run[e].low in ("et", "ou"):
+        return True
+    if run[e].text in ("à", "À") or run[e].low in _LC_PREPOSITIONS:
+        if loose or (e + 1 < n and not run[e + 1].cap and _lc_flags(run[e + 1].low) == "f"):
+            return True
+    j = e
+    while j < n and j - e < 3 and run[j].low in _LC_SKIPPED and not run[j].cap:
+        j += 1
+    return j < n and _lc_finite_third(run[j])
+
+
 def _lc_first_names(text: str, run: list[_W], out: list[RuleSpan], covered: set[int]) -> None:
     """Rule B: a first name of the lexicon typed in lower case, then a word that no French list knows ("mon client
     jean dupont", "sophie martin-leroy"). Not after a determiner, "en" or a number ("un jean", "en pierre"), not
@@ -1815,8 +1926,11 @@ def _lc_first_names(text: str, run: list[_W], out: list[RuleSpan], covered: set[
                 end += 1
         elif kind == "first" and plain_first:
             end = k + 1  # two first names ("jean martin", "paul henri")
-        elif kind == "amb" and plain_first and (last or _lc_verb_follows(run, k + 1)):
-            end = k + 1  # "jean pierre conteste"
+        elif kind == "amb" and plain_first and (last or _lc_verb_follows(run, k + 1)
+                                                or (not run[k + 1].cap and run[k + 1].low in ("et", "ou"))):
+            end = k + 1  # "jean pierre conteste", "thomas leroy et emma leroy"
+        elif kind == "common" and plain_first and len(given) == 1 and _lc_name_frame(run, i, k + 1, cue):
+            end = k + 1  # a surname that is also a common word: "mon client paul petit a été licencié"
         else:
             continue
         words = given + [t for t in range(k, end) if not run[t].prefix and run[t].low not in _LC_NAME_PARTICLES
@@ -1836,6 +1950,44 @@ def _lc_first_names(text: str, run: list[_W], out: list[RuleSpan], covered: set[
         out.append(RuleSpan(w.start, run[end - 1].end, "PERSON", 4, "first_name"))
         covered.update(range(i, end))
         _lc_other_name(run, end, out, covered)
+
+
+def _lc_surname_first(text: str, run: list[_W], out: list[RuleSpan], covered: set[int]) -> None:
+    """A name typed surname first, with no civility: a word that no list knows, then a first name of the lexicon
+    with no other reading, where a name stands ("zadou mila conteste son licenciement", "mon client s'appelle
+    nelba samir", :func:`_lc_name_frame`)."""
+    n = len(run)
+    sets = _lc_sets()
+    for i in range(n - 1):
+        w, f = run[i], run[i + 1]
+        if i in covered or i + 1 in covered or w.cap or f.cap or w.prefix or f.prefix:
+            continue
+        if _lc_kind(w) != "oov" or len(w.low) < 4 or _lc_flags(f.low) != "f" or len(f.low) < 3:
+            continue
+        prev = run[i - 1] if i > 0 else None
+        if prev is not None and (prev.digit or prev.low in _LC_DETERMINERS or prev.low in _PLACE_WORDS
+                                 or _lc_civility(text, run, i - 1) or i - 1 in covered):
+            continue
+        cue = prev is not None and (prev.low in sets["persons"] or prev.low in _ROLE_WORDS)
+        if _lc_name_frame(run, i, i + 2, cue, loose=True):
+            out.append(RuleSpan(w.start, f.end, "PERSON", 4, "first_name"))
+            covered.update((i, i + 1))
+
+
+def _lc_lone_first_names(text: str, run: list[_W], out: list[RuleSpan], covered: set[int]) -> None:
+    """A noun that names a person, then one first name of the lexicon with no other reading, then the verb of the
+    name, "et", "ou" or the end of the clause: "mon client kevin a été licencié", "ma fille emma"."""
+    n = len(run)
+    sets = _lc_sets()
+    for i in range(1, n):
+        w, prev = run[i], run[i - 1]
+        if i in covered or i - 1 in covered or w.cap or w.prefix or len(w.low) < 3 or _lc_flags(w.low) != "f":
+            continue
+        if prev.cap or not (prev.low in sets["persons"] or prev.low in _ROLE_WORDS):
+            continue
+        if _lc_name_frame(run, i, i + 1, True):
+            out.append(RuleSpan(w.start, w.end, "PERSON", 4, "first_name"))
+            covered.add(i)
 
 
 def _lc_form(w: _W) -> bool:
@@ -1994,6 +2146,8 @@ def _lower_case_names(text: str, runs: list[list[_W]], out: list[RuleSpan]) -> N
         covered: set[int] = set()
         _lc_titles(text, run, out, covered)
         _lc_first_names(text, run, out, covered)
+        _lc_surname_first(text, run, out, covered)
+        _lc_lone_first_names(text, run, out, covered)
         _lc_companies(text, run, out)
 
 

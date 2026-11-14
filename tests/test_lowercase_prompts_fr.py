@@ -426,3 +426,145 @@ def test_restore_adds_no_legal_form():
     later = m.mask("la société Julien a répondu")
     assert later.text == "la société SOCIETE_A a répondu"
     assert m.unmask(later.text) == "la société julien a répondu"  # one code, one stored spelling
+
+
+# ---------------------------------------------------------------------------
+# Names with no civility: a surname that is a common word, the surname first, a first name after a person noun
+# ---------------------------------------------------------------------------
+
+# A first name of the lexicon, then a surname that is also a common word, where a name stands: at the start of
+# the clause or after a person noun, a preposition or a verb, and before a verb, "et" or the end of the clause.
+COMMON_WORD_SURNAME = [
+    ("mon client paul petit a été licencié", ["paul petit"]),
+    ("paul mercier conteste son licenciement", ["paul mercier"]),
+    ("thomas leroy et emma leroy divorcent", ["thomas leroy", "emma leroy"]),
+    ("ma cliente emma blanc et son mari lucas blanc divorcent", ["emma blanc", "lucas blanc"]),
+    ("l'employeur de ma cliente est philippe marchand", ["philippe marchand"]),
+    ("je défends lucas meunier", ["lucas meunier"]),
+    ("le dossier oppose paul chevalier à lucas berger", ["paul chevalier", "lucas berger"]),
+    ("julie fontaine, salariée depuis 2015, conteste la sanction", ["julie fontaine"]),
+]
+
+# The surname first: a word that no list knows, then a first name of the lexicon.
+SURNAME_FIRST = [
+    ("zadou mila conteste son licenciement", ["zadou mila"]),
+    ("mon client s'appelle nelba samir", ["nelba samir"]),
+    ("Mon client s'appelle zadou mila.", ["zadou mila"]),
+    ("nelba samir et zadou mila sont associés", ["nelba samir", "zadou mila"]),
+    ("je défends kervadec yanis contre son employeur", ["kervadec yanis"]),
+    ("le bail est au nom de talvez nadia", ["talvez nadia"]),
+]
+
+# A noun that names a person, then one first name of the lexicon.
+LONE_FIRST_NAME = [
+    ("mon client kevin a été licencié hier", ["kevin"]),
+    ("ma fille emma", ["emma"]),
+    ("notre salarié lucas et son collègue yanis contestent", ["lucas", "yanis"]),
+    ("mon avocat martin a plaidé", ["martin"]),
+]
+
+# No name: the words after the first name read as ordinary words, or nothing holds a name.
+NO_NAME_WITHOUT_CIVILITY = [
+    "lucas roux de colère a quitté la salle",
+    "emma petit à petit a repris le travail",
+    "paul blanc de peur n'a rien dit",
+    "paul seul conteste la décision",
+    "paul aussi conteste",
+    "paul conteste",
+    "paul et emma contestent",
+    "bonjour paul",
+    "merci paul pour le dossier",
+    "voir lucas demain",
+    "appeler julie avant midi",
+    "whatsapp emma hier",
+    "rdv client sam aprem",
+    "mon client conteste",
+    "mon client principal conteste",
+    "le salarié protégé conteste",
+    "ma cliente rose de colère a quitté la salle",
+    "les époux kervadec contestent",
+]
+
+
+@pytest.mark.parametrize("text,names", COMMON_WORD_SURNAME + SURNAME_FIRST + LONE_FIRST_NAME)
+def test_a_name_with_no_civility_is_masked(text, names):
+    m = _masker()
+    r = m.mask(text)
+    assert [s.value for s in r.spans if s.kind == "PERSON"] == names
+    for name in names:
+        assert name not in r.text
+    assert m.unmask(r.text) == text
+
+
+@pytest.mark.parametrize("text", NO_NAME_WITHOUT_CIVILITY)
+def test_no_name_without_what_holds_one(text):
+    assert _masker().mask(text).text == text
+
+
+def test_surname_first_then_the_usual_order_keep_one_code():
+    m = _masker()
+    assert m.mask("zadou mila conteste son licenciement").text == "PERSONNE_A conteste son licenciement"
+    assert m.mask("m. zadou a écrit hier").text == "m. PERSONNE_A a écrit hier"
+    assert [e.code for e in m.store.all() if e.kind == "PERSON"] == ["PERSONNE_A"]
+
+
+# ---------------------------------------------------------------------------
+# After a civility: a surname with a French particle after a first name, a surname that is an ordinary word
+# ---------------------------------------------------------------------------
+
+# (text, the names masked)
+PARTICLE_AFTER_FIRST_NAME = [
+    ("mme sophie de roquevert demande le divorce", ["sophie de roquevert"]),
+    ("m. paul le bihannec a été licencié", ["paul le bihannec"]),
+    ("mme nadia de la roche a hérité d'un appartement", ["nadia de la roche"]),
+    ("mme sophie du kervadec a vendu la maison", ["sophie du kervadec"]),
+    ("mme claire d'arvignac a signé", ["claire d'arvignac"]),
+    ("m. pierre de roquevert conteste", ["pierre de roquevert"]),
+    ("m. yanis le bihannec et mme nadia de roquevert divorcent", ["yanis le bihannec", "nadia de roquevert"]),
+]
+
+ORDINARY_WORD_SURNAME = [
+    ("m. cousin conteste son licenciement", ["cousin"]),
+    ("mme voisin a signé le bail", ["voisin"]),
+    ("je représente mme neveu", ["neveu"]),
+    ("m. paul marques a signé le bail", ["paul marques"]),
+    ("m. karim carre a été licencié", ["karim carre"]),
+    ("mme julie cousin conteste", ["julie cousin"]),
+    ("m. ly conteste son licenciement", ["ly"]),
+    ("je représente mme ly", ["ly"]),
+    ("m. roi conteste son licenciement", ["roi"]),
+]
+
+# The words after the first name are no surname: only the first name is masked. (text, the names masked)
+NOT_A_SURNAME = [
+    ("m. paul de retour conteste", ["paul"]),
+    ("m. paul du coup conteste", ["paul"]),
+    ("mme julie de la part de son employeur a reçu une lettre", ["julie"]),
+    ("m. paul de garde a signé", ["paul"]),
+    ("m. paul le premier a signé", ["paul"]),
+    ("mme sophie des fois conteste", ["sophie"]),
+    ("mme julie seule assume la charge", ["julie"]),
+    ("m. paul ensuite a signé", ["paul"]),
+    ("m. paul absent a été remplacé", ["paul"]),
+    ("mme sophie demande le divorce", ["sophie"]),
+    ("m. paul conteste et refuse", ["paul"]),
+    ("madame gérante conteste", []),
+    ("monsieur chauffeur routier conteste", []),
+    ("madame infirmière, monsieur ouvrier", []),
+    ("voir madame pb", []),
+    ("bien que monsieur ait refusé de signer", []),
+]
+
+
+@pytest.mark.parametrize("text,names", PARTICLE_AFTER_FIRST_NAME + ORDINARY_WORD_SURNAME)
+def test_surnames_after_a_civility(text, names):
+    m = _masker()
+    r = m.mask(text)
+    assert [s.value for s in r.spans if s.kind == "PERSON"] == names
+    assert m.unmask(r.text) == text
+
+
+@pytest.mark.parametrize("text,names", NOT_A_SURNAME)
+def test_ordinary_words_after_a_first_name_are_no_surname(text, names):
+    r = _masker().mask(text)
+    assert [s.value for s in r.spans if s.kind == "PERSON"] == names
