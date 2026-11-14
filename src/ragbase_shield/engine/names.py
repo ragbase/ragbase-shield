@@ -1280,7 +1280,9 @@ def _lc_sets() -> dict[str, frozenset]:
     # that the strong list leaves out because they are places or words ("lyon", "juste")
     plain = mg.vocab("fr") | low["words"] | ORG_GENERIC | _PLACE_WORDS | mg.ner_stoplist("fr")[0] | _ORG_SKIP \
         | (afn - fn) | (low["places"] - fn)
-    return {"hard": frozenset(hard), "plain": frozenset(plain), "places": low["places"], "persons": low["persons"],
+    # a noun of a trade is a person noun, never a name word, but when it is also a usual surname ("boulanger")
+    persons = low["persons"] | (low["jobs"] - common - fn)
+    return {"hard": frozenset(hard), "plain": frozenset(plain), "places": low["places"], "persons": persons,
             "states": low["states"], "common": common, "first": fn, "any_first": afn}
 
 
@@ -1461,7 +1463,7 @@ def _lc_first_word_view(w: _W) -> _W:
     return replace(w, cap=False, upper=False, initial=False)
 
 
-def _lc_typed_runs(text: str, runs: list[list[_W]]) -> list[Optional[list[_W]]]:
+def _lc_typed_runs(text: str, runs: list[list[_W]], firsts: Optional[set] = None) -> list[Optional[list[_W]]]:
     """For each run, the run as the lower-case rules read it when its sentence is typed without capitals, else
     None. A sentence (to a full stop or a line break) is typed without capitals when no word has a capital but its
     first word and the words of :func:`_lc_neutral_capital` (first names, places, months, acronyms; a legal form in
@@ -1477,6 +1479,8 @@ def _lc_typed_runs(text: str, runs: list[list[_W]]) -> list[Optional[list[_W]]]:
         if nxt is not None and not run[-1].sent_end and "\n" not in text[run[-1].end:nxt.start]:
             continue
         first = runs[group[0]][0]
+        if firsts is not None:
+            firsts.add(first.start)
         # a legal form in capitals after a capitalised first word is correct text ("La SCI familiale détient")
         if all(not w.cap or w is first or (_lc_neutral_capital(w) and not (
                 w.upper and first.cap and (w.low in LEGAL_FORMS or w.low in _LC_EXTRA_FORMS)))
@@ -1553,6 +1557,10 @@ def _lc_civility(text: str, run: list[_W], i: int) -> str:
         if not w.dot or _LC_LIST_LETTER_RE.search(text[max(0, w.start - 200):w.end + 200]) and not text[
                 text.rfind("\n", 0, w.start) + 1:w.start].strip():
             return ""  # a bare "m"; the letter "m." of a lettered list ("l. préavis", "m. télétravail")
+        after = run[i + 1] if i + 1 < len(run) else None
+        if (prev is not None and not prev.cap and prev.low in ("le", "au", "du", "en")) \
+                or (after is not None and after.low in _LC_UNIT_WORDS):
+            return ""  # a metre: "85 euros le m. linéaire", "en m. cubes", "en mm. linéaires"
         if prev is not None and prev.digit:
             # "12 m." is a length; "le 3 mars 2022 m. vellin a signé" has a name and its verb after "m."
             nxt = run[i + 1] if i + 1 < len(run) else None
@@ -1579,7 +1587,9 @@ def _lc_civility(text: str, run: list[_W], i: int) -> str:
             return ""  # "le maître de l'ouvrage", "agir en maître", "le docteur référent", "un professeur émérite"
         return "weak"
     if low == "me" and base in ("Me", "ME"):
-        return "me" if _starts_sentence(text, w.start) else "strong"
+        before = text[max(0, w.start - 8):w.start].rstrip()
+        opens = before[-1:] in tuple(":«\"“([-–•*>") or bool(re.search(r"(?:^|\n)\s*(?:\d{1,2}[.)]|[a-z]\))$", before))
+        return "me" if opens or _starts_sentence(text, w.start) else "strong"  # "Il écrit : « Me ... »"
     if low == "pr" and base in ("Pr", "PR"):
         return "weak" if _starts_sentence(text, w.start) else "strong"
     return ""
@@ -1645,6 +1655,8 @@ def _lc_particle_name(run: list[_W], k: int, civility: bool) -> int:
 # civilities ("M.", "Mme", "Mlle", "MM.", "Me") are read in every text.
 _LC_FULL_CIVILITIES = frozenset("monsieur madame mademoiselle messieurs mesdames mesdemoiselles maitre maitres "
                                 "docteur professeur dr pr mr mrs ms melle melles mdme".split())
+# Words after "m." or "mm." that make it a unit of length.
+_LC_UNIT_WORDS = frozenset("lineaire lineaires cube cubes carre carres courant courants".split())
 # A lettered list around the letter "m.": a line that starts with "l." or "n.".
 _LC_LIST_LETTER_RE = re.compile(r"(?m)^[ \t]*[ln]\.[ \t]")
 # Words that announce a name ("je soussigné paul mercier", "le nommé karim zelmadec").
@@ -1971,7 +1983,7 @@ def _lc_titles(text: str, run: list[_W], out: list[RuleSpan], covered: set[int],
             continue
         while got is not None:
             s, e, lower = got
-            if lower and not _lc_title_support(run, s, e, full):
+            if lower and not _lc_title_support(run, s, e, full or civ == "me"):
                 break
             if lower:
                 out.append(RuleSpan(run[s].start, run[e - 1].end, "PERSON", 5, "title"))
@@ -2241,8 +2253,8 @@ def _lc_headed_company(run: list[_W], i: int, subject: bool) -> Optional[tuple[i
     legal = lx.legal_terms()
     k = i - 1
     while k >= 0 and i - k <= 6 and not run[k].cap and run[k].low not in ORG_TRIGGERS \
-            and (_lc_org_word(run[k]) or run[k].low in _ORG_CONNECT
-                 or (run[k].low in legal and not run[k].digit and not _lc_is_verb(run[k]))):
+            and ((_lc_org_word(run[k]) and "i" not in _lc_flags(run[k].low)) or run[k].low in _ORG_CONNECT
+                 or (run[k].low in legal and not run[k].digit and not lx.verb_form(run[k].low))):
         k -= 1  # a legal noun may be the noun before the name ("le dossier kervadec sarl")
     s = k + 1
     while s < i and run[s].low in _ORG_CONNECT:
@@ -2360,7 +2372,8 @@ def _lc_companies(text: str, run: list[_W], out: list[RuleSpan]) -> None:
         # at the start of a clause the company needs its verb, or another party after "et", "ou", "contre", "c/":
         # a note word and a legal form are no company ("compta sci à refaire", "docs sasu reçus ce matin")
         subject = i + 1 < n and (_lc_finite_third(run[i + 1]) or (
-            not run[i + 1].cap and (run[i + 1].low in ("et", "ou", "contre", "c", "vs") or (
+            not run[i + 1].cap and ((run[i + 1].low in ("et", "ou", "contre", "c", "vs")
+                                     and not (i + 2 < n and _lc_form(run[i + 2]))) or (
                 run[i + 1].low in _LC_SKIPPED and i + 2 < n and _lc_finite_third(run[i + 2])))))
         opens = _lc_party_opening(text, run)
         if i - t > 1 and _lc_kind(run[t + 1]) in ("oov", "first") and len(run[t + 1].low) >= 3 and (
@@ -2439,6 +2452,18 @@ _LC_FIELD_RE = re.compile(
     r"\s*:[ \t]*(?P<value>[^\n,;:]{2,60})")
 
 
+def _lc_field_pair(text: str, m: "re.Match") -> bool:
+    """The field ``m`` stands next to the other name field, and that one holds a first name of the lexicon ("nom :
+    zadou, prénom : mila"). A field alone with a word that no list knows may hold a placeholder ("nom : tbc")."""
+    for o in _LC_FIELD_RE.finditer(text, max(0, m.start() - 120), min(len(text), m.end() + 120)):
+        if o.start() != m.start():
+            words = _words(o.group("value").rstrip())
+            if words and all(len(w.low) >= 3 and "f" in _lc_flags(w.low) and "h" not in _lc_flags(w.low)
+                             for w in words):
+                return True
+    return False
+
+
 def _lc_field_spans(text: str, out: list[RuleSpan]) -> None:
     """Form fields typed in lower case, on one line each or after a comma: "nom : zadou", "nom : zadou, prénom :
     mila". The value is one to three words, each a first name of the lexicon with no other reading or a word that
@@ -2453,7 +2478,9 @@ def _lc_field_spans(text: str, out: list[RuleSpan]) -> None:
         line = _words(text[text.rfind("\n", 0, m.start()) + 1:(text.find("\n", m.end()) + 1 or len(text) + 1) - 1])
         if any(w.cap and k and not _lc_neutral_capital(w) for k, w in enumerate(line)):
             continue  # the line has its capitals ("Nom : inexact, Prénom : absent")
-        if all(len(w.low) >= 3 and _lc_kind(replace(w, cap=False, upper=False)) in ("oov", "first") for w in words):
+        kinds = [_lc_kind(replace(w, cap=False, upper=False)) if len(w.low) >= 3 else "no" for w in words]
+        if all(k == "first" for k in kinds) or (all(k in ("oov", "first") for k in kinds) and all(
+                len(w.low) >= 4 for w in words) and _lc_field_pair(text, m)):
             out.append(RuleSpan(vs + words[0].start, vs + words[-1].end, "PERSON", 5, "field"))
 
 
@@ -2465,18 +2492,29 @@ def _lc_captions(text: str, runs: list[list[_W]], out: list[RuleSpan]) -> None:
     right word stands alone or where a name stands. A party that another rule has read keeps that reading."""
     legal = lx.legal_terms()
 
+    def taken(w: _W) -> bool:
+        return any(sp.start < w.end and w.start < sp.end for sp in out)
+
     def party(w: _W) -> bool:
-        return not w.cap and not w.digit and not w.prefix and len(w.low) >= 3 \
-            and _lc_kind(w) in ("oov", "first") and not any(sp.start < w.end and w.start < sp.end for sp in out)
+        return not w.cap and not w.digit and not w.prefix and len(w.low) >= 4 \
+            and _lc_kind(w) in ("oov", "first") and not taken(w)
+
+    def pair(x: _W, y: _W) -> bool:
+        # two bare words around "c/" are names when one is a first name of the lexicon, or both are long words
+        # that no list knows ("sdc c/ syndic", "copro contre proprio" are no names)
+        return "f" in _lc_flags(x.low) or "f" in _lc_flags(y.low) or (len(x.low) >= 6 and len(y.low) >= 6)
 
     for r in range(len(runs) - 1):
         a, b = runs[r], runs[r + 1]
         c = a[-1]
         if c.low != "c" or text[c.end:c.end + 1] != "/" or text[c.end + 1:b[0].start].strip():
             continue
-        if len(a) >= 2 and party(a[-2]) and (len(a) == 2 or a[-3].low in legal or a[-3].low in _LC_PREPOSITIONS):
+        left = len(a) >= 2 and party(a[-2]) and (len(a) == 2 or a[-3].low in legal or a[-3].low in _LC_PREPOSITIONS)
+        right = party(b[0]) and (len(b) == 1 or _lc_name_frame(b, 0, 1, True))
+        other = taken(b[0]) or _lc_form(b[0]) or bool(_lc_civility(text, b, 0))  # the other party is a name too
+        if left and (other or (right and pair(a[-2], b[0]))):
             out.append(RuleSpan(a[-2].start, a[-2].end, "PERSON", 4, "first_name"))
-        if party(b[0]) and (len(b) == 1 or _lc_name_frame(b, 0, 1, True)):
+        if right and len(a) >= 2 and (taken(a[-2]) or (left and pair(a[-2], b[0]))):
             out.append(RuleSpan(b[0].start, b[0].end, "PERSON", 4, "first_name"))
     # the same with "contre" between two bare names: "dossier martin contre kervadec"
     for run in runs:
@@ -2485,7 +2523,8 @@ def _lc_captions(text: str, runs: list[list[_W]], out: list[RuleSpan]) -> None:
             if run[j].cap or run[j].low != "contre":
                 continue
             x, y = run[j - 1], run[j + 1]
-            if party(x) and party(y) and (j == 1 or run[j - 2].low in legal or run[j - 2].low in _LC_PREPOSITIONS) \
+            if party(x) and party(y) and pair(x, y) \
+                    and (j == 1 or run[j - 2].low in legal or run[j - 2].low in _LC_PREPOSITIONS) \
                     and (j + 2 >= n or _lc_name_frame(run, j + 1, j + 2, True)):
                 out.append(RuleSpan(x.start, x.end, "PERSON", 4, "first_name"))
                 out.append(RuleSpan(y.start, y.end, "PERSON", 4, "first_name"))
@@ -2591,10 +2630,11 @@ def _lc_shown_surnames(text: str, views: list[list[_W]], out: list[RuleSpan]) ->
                 out.append(RuleSpan(a.start, b.end, "PERSON", 5, "title"))
 
 
-def _lc_cap_companies(run: list[_W], out: list[RuleSpan]) -> None:
+def _lc_cap_companies(run: list[_W], out: list[RuleSpan], firsts: frozenset = frozenset()) -> None:
     """A company name with its capital next to a legal form typed in lower case: "Brivanor sas m'a licencié", "chez
     Kerdalis sasu", "le garage Talvez sarl", "la sarl Pradimont a résilié". The capitalised rules need the
-    form in capitals. Before a form that is also a word ("sas") the name must be a word that no list knows."""
+    form in capitals. Before a form that is also a word ("sas") the name must be a word that no list knows. The
+    capital must stand inside the sentence, or the name has two words."""
     n = len(run)
     for i, w in enumerate(run):
         if w.cap or w.digit or w.prefix or LEGAL_FORMS.get(w.low) != "strong":
@@ -2605,7 +2645,10 @@ def _lc_cap_companies(run: list[_W], out: list[RuleSpan]) -> None:
                 and _org_word(run[k], allow_article=False) and (k > 0 or i - k > 1 or not _lc_flags(run[k].low)
                                                                 or "f" in _lc_flags(run[k].low)):
             k -= 1
-        if k < i - 1 and (w.low not in _LC_FORM_WORDS or not _lc_flags(run[i - 1].low)):
+        if k < i - 1 and (w.low not in _LC_FORM_WORDS or not _lc_flags(run[i - 1].low)) \
+                and not (k == i - 2 and run[i - 1].start in firsts):
+            # one capitalised word that opens the sentence has the capital of the sentence, no capital of its own
+            # ("Honoraires sarl : 2 400 euros"); the rules of a sentence typed without capitals read it
             out.append(RuleSpan(run[k + 1].start, run[i - 1].end, "ORG", 6, "legal_form"))
             continue
         # the name after an article and the form: "la sarl Pradimont"
@@ -2621,7 +2664,8 @@ def _lower_case_names(text: str, runs: list[list[_W]], out: list[RuleSpan]) -> N
     """The rules for names typed in lower case (v0.4.1): a civility then a name (A); a first name then a surname,
     the surname first, a first name after a person noun (B); a company name with a cue or a legal form (C); form
     fields and case captions."""
-    typed = _lc_typed_runs(text, runs)
+    firsts: set = set()  # where the sentences start
+    typed = _lc_typed_runs(text, runs, firsts)
     for r, run in enumerate(runs):
         if len(run) < 2:
             continue
@@ -2630,7 +2674,7 @@ def _lower_case_names(text: str, runs: list[list[_W]], out: list[RuleSpan]) -> N
         # tier A, every text: an abbreviated civility, then a name in lower case; a capitalised company name next
         # to a legal form in lower case
         _lc_titles(text, view or run, out, covered, view is not None)
-        _lc_cap_companies(run, out)
+        _lc_cap_companies(run, out, firsts)
         if view is None:
             continue
         # tier B, a sentence typed without capitals: the other rules

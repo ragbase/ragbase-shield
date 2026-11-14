@@ -5,6 +5,8 @@
 # Section "function": function words, interjections, numerals and chat abbreviations (never a name word).
 # Section "places": towns, countries and regions (ordinary words for these rules; a capital on one of them
 # does not show that a sentence has its capitals: a phone keyboard writes it).
+# Section "jobs": nouns of a trade or a job that are no usual surname (a noun that is also in the common-surname
+# list is left out when the file is read: "boulanger", "meunier", "berger" stay name words).
 # Section "persons": nouns that name a person (professions, offices, relations): ordinary words, and a cue for
 # the name that follows them ("mon voisin pierre dupont").
 # Section "states": adjectives that describe the person named just before them (state, mood, nationality):
@@ -54,6 +56,10 @@ ipse habet extenso fine situ vitro vivo abstracto concreto globo ultima
 
 hélas entretemps illico nolens volens low cost
 
+null none nil nul tbc tbd tba dito ibid ibidem nsp nspp xxx yyy zzz vide néant anonyme anonymisé confidentiel masqué
+caviardé illisible manquant absent indéterminé inconnu non-renseigné full remote burn out burnout covid off on up down
+top best worst new old big small free open close closed start stop go back front end test demo beta
+
 # [places]
 paris lyon marseille toulouse nice nantes strasbourg montpellier bordeaux lille rennes reims toulon grenoble dijon
 angers nîmes villeurbanne clermont-ferrand clermont ferrand aix brest limoges tours amiens perpignan metz besançon
@@ -73,6 +79,34 @@ mali guinée cameroun congo madagascar chine japon inde vietnam canada états-un
 bretagne normandie provence alsace lorraine bourgogne auvergne aquitaine occitanie picardie champagne corse
 savoie vendée gironde rhône isère loire var hérault moselle essonne yvelines guadeloupe martinique guyane
 réunion mayotte europe afrique asie amérique
+
+# [jobs]
+cariste soudeur soudeuse zingueur ostréiculteur ostréicultrice thanatopracteur thanatopractrice atsem chocolatier
+chocolatière crémier crémière plâtrier nourrice artificier horloger horlogère fromager fromagère affineur coutelier
+doreur doreuse magasinier magasinière grutier maraîcher maraîchère webmaster webmestre pigiste élagueur fossoyeur
+brocanteur brocanteuse apiculteur apicultrice croupier convoyeur convoyeuse manutentionnaire préparateur
+préparatrice cuisinier cuisinière plongeur serveur serveuse barman barmaid vendeur vendeuse caissier caissière
+coiffeur coiffeuse esthéticienne esthéticien infirmier infirmière aide-soignant aide-soignante ambulancier
+ambulancière brancardier sage-femme kinésithérapeute kiné ostéopathe orthophoniste pharmacien pharmacienne opticien
+opticienne dentiste vétérinaire comptable secrétaire standardiste téléopérateur téléopératrice livreur livreuse
+coursier chauffeur chauffeuse routier conducteur conductrice mécanicien mécanicienne carrossier garagiste
+électricien électricienne plombier chauffagiste couvreur maçon carreleur peintre plaquiste menuisier ébéniste
+serrurier vitrier façadier terrassier paysagiste jardinier jardinière agriculteur agricultrice viticulteur
+viticultrice éleveur éleveuse bûcheron docker éboueur gardien gardienne vigile concierge nounou éducateur
+éducatrice animateur animatrice moniteur monitrice instituteur institutrice formateur formatrice chercheur
+chercheuse ingénieur technicien technicienne développeur développeuse graphiste journaliste photographe
+traducteur traductrice interprète bibliothécaire libraire fleuriste pâtissier pâtissière traiteur restaurateur
+restauratrice hôtelier hôtelière cafetier sommelier sommelière brasseur poissonnier poissonnière primeur épicier
+épicière buraliste antiquaire bijoutier bijoutière cordonnier tailleur couturier couturière teinturier tapissier
+relieur imprimeur luthier verrier potier céramiste sculpteur ferronnier forgeron chaudronnier tourneur fraiseur
+ajusteur monteur monteuse câbleur opérateur opératrice régleur contrôleur contrôleuse emballeur trieur déménageur
+forain intermittent comédien comédienne musicien musicienne danseur danseuse chanteur chanteuse figurant
+mannequin styliste modéliste étalagiste décorateur décoratrice tapissier ramoneur étancheur calorifugeur
+échafaudeur ferrailleur coffreur bancheur grutière cordiste scaphandrier matelot mousse skipper batelier éclusier
+pisteur perchman dameur saisonnier vendangeur cueilleur bergère chevrier ostréicole mytiliculteur pisciculteur
+sylviculteur pépiniériste horticulteur horticultrice arboriculteur céréalier laitier laitière affûteur rémouleur
+rempailleur vannier tonnelier sabotier bourrelier sellier maroquinier gantier chapelier modiste fourreur
+tisserand fileur brodeuse dentellière lingère repasseuse blanchisseur blanchisseuse
 
 # [persons]
 sommelier sommelière
@@ -123,6 +157,22 @@ candidate sortant sortante suppléant suppléante
 
 proc prof major duc duchesse comte comtesse marquis marquise prince princesse baronne
 
+emphytéote crédirentier crédirentière débirentier débirentière concluante licitant colicitant fidéjusseur
+cofidéjusseur usufruitier usufruitière nu-propriétaire indivisaire coïndivisaire légataire colégataire donataire donateur
+donatrice testateur testatrice cessionnaire délégant délégataire mandant mandante
+dépositaire consignataire commodataire commodant prêteur prêteuse emprunteur
+emprunteuse coemprunteur avaliste tireur endosseur porteur souscripteur souscriptrice
+adhérente sociétaire actionnaire obligataire commanditaire apporteur repreneur repreneuse enchérisseur
+adjudicataire surenchérisseur colitigant
+codébiteur cocontractant pollicitant
+réservataire ayant-droit ayants-droit copropriétaire copropriétaires copro proprio coloc colocataire sous-locataire
+squatteur squatteuse cautionnaire
+récidiviste primo-délinquant pyromane kleptomane cleptomane mythomane toxicomane
+receleur receleuse harceleur harceleuse chauffard contumax solvens accipiens signataire cosignataire pétitionnaire
+allocataire attributaire ayant-cause bénéficiaire redevable contribuable
+usager sociétaire gréviste candidat
+titulaire intérimaire vacataire contractuel stagiaire apprenti
+
 # [states]
 âgé âgée âgés âgées enceinte enceintes souffrant souffrante blessé blessée décédé décédée absent absente présent
 présente disponible indisponible joignable injoignable inquiet inquiète furieux furieuse mécontent mécontente
@@ -169,6 +219,20 @@ tamoul catalan catalane vendéen limousin monégasque texan californien lorrain 
 gascon béarnais languedocien dauphinois lyonnais parisien marseillais bordelais toulousain nantais lillois niçois
 charentais poitevin tourangeau angevin berrichon jurassien ardennais flamand wallon bavarois sicilien sarde vénitien
 londonien andorran écossaise
+
+convalescent convalescente sourd sourde muet muette malentendant
+malentendante borgne sénile lucide réticent réticente récalcitrant récalcitrante pugnace procédurier
+procédurière quérulent quérulente bigame adultère analphabète allophone arabophone francophone
+anglophone hispanophone lusophone germanophone russophone schizophrène bipolaire dépressif dépressive alcoolique
+insolvable impécunieux impécunieuse indigent indigente précaire saisonnier
+saisonnière bénévole frontalier frontalière célibataire
+indemne hagard hagarde furieux furieuse mécontent coopératif coopérative injoignable
+indisponible indispo dispo invalide impotent grabataire autonome fragile vulnérable vigilant
+serein anxieux anxieuse
+insatisfait amer rancunier têtu naïf naïve crédule lunatique colérique agressif
+courtois grossier insolent hautain distant évasif muet loquace bavard
+taciturne honnête malhonnête sincère menteur menteuse fourbe mortel mortelle tardif tardive
+équivoque chirographaire
 
 # [words]
 # --- Everyday and legal words that the other lists do not hold ---

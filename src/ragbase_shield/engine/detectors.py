@@ -1460,6 +1460,33 @@ def _lc_unknown_word(low: str) -> bool:
     return not names._lc_flags(low)
 
 
+def _lc_town_word(low: str) -> bool:
+    """The folded word may start a town after a postcode: a word of the place list, a word that starts a town name
+    ("saint", "le", "la"), a first name, or a word that no list knows ("30000 passages" is a count)."""
+    from . import names  # the word classes of the lower-case rules (names imports this module: import late)
+
+    if low in _LC_TOWN_HEADS or low in names._lc_sets()["places"]:
+        return True
+    flags = names._lc_flags(low)
+    return not flags or "f" in flags
+
+
+def _lc_real_street_name(text: str, start: int, end: int) -> bool:
+    """The words after the street type are a street name: a particle starts them ("des lilas", "de la paix"), or
+    the first word is a first name, a word that no list knows or a surname-like word ("victor hugo"). An adjective
+    or an adverb after the street word is ordinary text ("1 impasse totale", "2 rue piétonne")."""
+    from . import names
+
+    words = _ADDR_WORD_RE.findall(text[start:end])
+    if not words:
+        return False
+    low = fold_word(words[0].rstrip("."))
+    if low in _LC_ADDR_PARTICLES or low == "notre" or words[0][:1].isdigit() or words[0][:1].isupper():
+        return True
+    flags = names._lc_flags(low)
+    return not flags or "f" in flags or flags == "c"
+
+
 def _street_name_end_lc(text: str, pos: int, cue: bool = False) -> tuple[Optional[int], bool]:
     """End of a street name typed in lower case after the street type ("des glycines", "victor hugo", "de la
     paix", "du 8 mai 1945"), or None. The name stops at a function word, a day or a month, a complement word, a
@@ -1523,7 +1550,7 @@ def _street_name_end_lc(text: str, pos: int, cue: bool = False) -> tuple[Optiona
     return (end if names_seen else None), lower_seen
 
 
-def _postcode_town_lc(text: str, p: int) -> Optional[int]:
+def _postcode_town_lc(text: str, p: int, strict: bool = True) -> Optional[int]:
     """End of a postcode and a town typed in lower case at ``p`` ("69007 lyon", "13100 aix en provence", "92100
     boulogne billancourt", "76600 le havre", "75116 paris cedex 16"), or None."""
     m = _LC_POSTCODE_RE.match(text, p)
@@ -1536,8 +1563,9 @@ def _postcode_town_lc(text: str, p: int) -> Optional[int]:
         return (w, fold_word(w.group())) if w else (None, "")
 
     w, low = word_at(m.end())
-    if not w or low in _LC_NOT_TOWNS:
-        return None  # "75000 euros": an amount
+    if not w or low in _LC_NOT_TOWNS or (strict and not _lc_town_word(low)):
+        return None  # "75000 euros", "30000 passages": an amount or a count, no postcode and town (``strict``:
+        #              the town is the only proof of the address; after a home cue any town word is read)
     if low in _LC_TOWN_HEADS:
         w2, low2 = word_at(w.end())
         if not w2 or _lc_stop_word(low2):
@@ -1577,7 +1605,7 @@ def _postcode_town_lc(text: str, p: int) -> Optional[int]:
     return end
 
 
-def _address_tail_lc(text: str, pos: int, newline_ok: bool = True) -> tuple[int, bool, bool]:
+def _address_tail_lc(text: str, pos: int, newline_ok: bool = True, strict: bool = True) -> tuple[int, bool, bool]:
     """``_address_tail`` with a town in any letter case: the end, whether a postcode and a town were read, and
     whether the town is in lower case. The postcode and the town may stand on the next line ("12 rue des
     glycines", then "69007 lyon"); a complement stays on the line."""
@@ -1593,7 +1621,7 @@ def _address_tail_lc(text: str, pos: int, newline_ok: bool = True) -> tuple[int,
         pc = _POSTCODE_RE.match(text, p)
         if pc:
             return pc.end(), True, False
-        town = _postcode_town_lc(text, p)
+        town = _postcode_town_lc(text, p, strict)
         if town:
             return town, True, True
         comp = None if lines else _LC_COMPLEMENT_RE.match(text, p)
@@ -1663,11 +1691,14 @@ def _find_address_lc(text: str, voies: Optional[list] = None) -> Iterator[Candid
         if name_end is None:
             continue
         ls = text.rfind("\n", 0, start) + 1
-        end, town, lower_town = _address_tail_lc(text, name_end, newline_ok=not _left_column_gap(text, ls, start))
+        end, town, lower_town = _address_tail_lc(text, name_end, newline_ok=not _left_column_gap(text, ls, start),
+                                                 strict=not cue)
         if not lower_name and not lower_town:
             continue  # the text has its capitals: the capitalised rule reads it
         if not town and not cue:
             continue  # a postcode and a town, or a home cue: "1 rue entière a été évacuée" is no address
+        if not _lc_real_street_name(text, ve, name_end):
+            continue  # "il demeure 1 impasse totale dans les négociations"
         if not _lc_typed_sentence(text, start, name_end):
             continue  # the sentence has its capitals ("En 2023 impasse des négociations salariales, à Lyon")
         yield Candidate(start, end, "ADDRESS", True, pr, "address_lower")

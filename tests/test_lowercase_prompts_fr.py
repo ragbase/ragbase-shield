@@ -568,10 +568,8 @@ def test_ordinary_words_after_a_first_name_are_no_surname(text, names):
 
 # (text, the masked text)
 FIELDS = [
-    ("nom : zadou", "nom : PERSONNE_A"),
     ("nom : zadou, prénom : mila", "nom : PERSONNE_A, prénom : PERSONNE_B"),
     ("nom : zadou\nprénom : mila\nné le 3 mars 1980", "nom : PERSONNE_A\nprénom : PERSONNE_B\nné le NAISSANCE_1"),
-    ("nom de naissance : kervadec", "nom de naissance : PERSONNE_A"),
     ("prénoms : mila nadia", "prénoms : PERSONNE_A"),
     ("client : kervadec jean, né le 3 mars 1980 à lyon", "client : PERSONNE_A, né le NAISSANCE_1 à lyon"),
     ("client : jean kervadec", "client : PERSONNE_A"),
@@ -579,6 +577,8 @@ FIELDS = [
 
 NO_FIELD_VALUE = [
     "nom : à compléter",
+    "nom : zadou",
+    "nom de naissance : kervadec",
     "nom : inconnu",
     "prénom : non renseigné",
     "nom : voir ci-dessus",
@@ -1289,3 +1289,96 @@ def test_another_capital_is_correct_text(monkeypatch, text):
     on = _masker().mask(text)
     monkeypatch.setenv(SWITCH, "0")
     assert _masker().mask(text).text == on.text
+
+
+# ---------------------------------------------------------------------------
+# Last guards: units, the pronoun "Me" after a colon, headings, captions, fields, street words, person nouns
+# ---------------------------------------------------------------------------
+
+LAST_GUARDS = [
+    # "Me" after a colon, a quote, a bracket or a list mark is the pronoun
+    "Il écrit : « Me réservant le droit d'agir, je maintiens ma demande. »",
+    "Réponse : « Me soustrayant à cet ordre, je n'ai commis aucune faute. »",
+    "- Me rappeler le délai d'appel",
+    # "m." and "mm." as units of length
+    "Le prix est de 40 euros le m. linéaire, pose comprise.",
+    "le volume en m. cubes figure au devis.",
+    "tolérance de 3 mm. linéaires sur le plan.",
+    # a heading word and a legal form
+    "Honoraires sarl : 2 400 euros HT.",
+    "Avantages eurl : régime fiscal du gérant.",
+    "il faut payer les honoraires sarl et sci avant vendredi.",
+    "frais sas et sarl refacturés au client.",
+    # acronyms and role nouns around "c/" and "contre"
+    "sdc c/ syndic, action en responsabilité.",
+    "cgt c/ direction, référé le 14.",
+    "copro contre proprio, comme toujours.",
+    # field values that are placeholders or ordinary words
+    "nom : null",
+    "prénom : tbd",
+    "nom : dito",
+    "nom : mystère, à trouver",
+    # a street word used as an ordinary word; a count after a comma
+    "il demeure 1 impasse totale dans la négociation.",
+    "il habite 1 rue derrière, même quartier.",
+    "local 2 rue piétonne, 30000 passages par jour.",
+    "zone 2 quai sud, 10000 palettes en attente.",
+    # legal roles, states and job nouns after a civility
+    "M. emphytéote acquitte la redevance annuelle.",
+    "Le Tribunal relève que Mme usufruitière ne produit aucune pièce.",
+    "monsieur soudeur, exposé à l'amiante pendant vingt ans.",
+    "madame chocolatière, cession du fonds en cours.",
+    "situation : monsieur zingueur et madame crémière.",
+    "m. cariste intérimaire depuis trois ans.",
+    "mme arabophone ne lit pas le français.",
+    "m. récalcitrant refuse l'expertise.",
+    "il est maître horloger, garantie des vices cachés.",
+    "maître artificier, agrément préfectoral retiré.",
+    # verbs after a civility
+    "monsieur procrastine, comme toujours.",
+    "madame tergiverse et refuse de signer.",
+    "m. ronchonne à chaque rendez-vous.",
+]
+
+# A noun of a trade that is also a usual surname stays a name; real addresses, captions and fields stay masked.
+# (text, the masked text)
+STILL_NAMES = [
+    ("m. boulanger conteste son licenciement", "m. PERSONNE_A conteste son licenciement"),
+    ("mme meunier a signé le bail", "mme PERSONNE_A a signé le bail"),
+    ("m. garnier conteste la sanction", "m. PERSONNE_A conteste la sanction"),
+    ("représenté par m. kervadec", "représenté par m. PERSONNE_A"),
+    ("Me kervadec plaide demain", "Me PERSONNE_A plaide demain"),
+    ("kervadec c/ talvenec", "PERSONNE_A c/ PERSONNE_B"),
+    ("dossier martin c/ kervadec", "dossier PERSONNE_A c/ PERSONNE_B"),
+    ("nom : zadou, prénom : mila", "nom : PERSONNE_A, prénom : PERSONNE_B"),
+    ("il habite 12 rue des glycines, 69007 lyon", "il habite ADRESSE_1"),
+    ("elle demeure 7 chemin des vignes à lyon", "elle demeure ADRESSE_1 à lyon"),
+    ("Bonjour. Brivanor sas m'a licencié hier.", "Bonjour. SOCIETE_A sas m'a licencié hier."),
+    ("mon client travaille chez Kerdalis sasu", "mon client travaille chez SOCIETE_A sasu"),
+    ("kerdalis sarl et talvez sas sont en litige", "SOCIETE_A sarl et SOCIETE_B sas sont en litige"),
+]
+
+
+@pytest.mark.parametrize("text", LAST_GUARDS)
+def test_the_last_guards(monkeypatch, text):
+    on = _masker().mask(text)
+    monkeypatch.setenv(SWITCH, "0")
+    assert _masker().mask(text).text == on.text
+
+
+@pytest.mark.parametrize("text,masked", STILL_NAMES)
+def test_names_stay_masked_next_to_the_last_guards(text, masked):
+    m = _masker()
+    r = m.mask(text)
+    assert r.text == masked
+    assert m.unmask(r.text) == text
+
+
+def test_job_nouns_that_are_surnames_are_left_out_of_the_job_list():
+    from ragbase_shield.engine import lexicon as lx
+    from ragbase_shield.engine import names as nm
+    persons = nm._lc_sets()["persons"]
+    assert "soudeur" in persons and "cariste" in persons
+    for word in ("boulanger", "meunier", "berger", "boucher", "marchand", "mercier", "charpentier", "pelletier"):
+        assert word not in persons
+    assert len(lx.lowercase_words()["jobs"]) > 200
