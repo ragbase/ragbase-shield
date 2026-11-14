@@ -1412,7 +1412,8 @@ def _lowercase_rules() -> bool:
 
 # A number and one of these street types is an address. The other street types are also ordinary words ("3 cours
 # de droit", "1 place de parking"): they need a home cue before the number or a postcode and a town after the name.
-_LC_SURE_VOIE = re.compile(r"(?i)^(?:rue|avenue|av\.|bd\.?|boulevard|bld\.?|all[ée]e|impasse|imp\.|quai|faubourg|fbg\.?)$")
+_LC_SURE_VOIE = re.compile(
+    r"(?i)^(?:rue|avenue|av\.|bd\.?|boulevard|bld\.?|all[ée]e|impasse|imp\.|quai|faubourg|fbg\.?)$")
 _LC_HOME_CUE = re.compile(r"(?i)(?<![\w])(?:au|habit(?:e|es|ent|ons|ez|ait|aient|ant)|demeur(?:e|ent|ait|aient|ant)|"
                           r"domicili[ée]e?s?|r[ée]sid(?:e|ent|ait|aient|ant)|sise?s?|situ[ée]e?s?|adresse)\s*:?\s*$")
 _LC_MONTHS = frozenset("janvier fevrier mars avril mai juin juillet aout septembre octobre novembre decembre".split())
@@ -1483,7 +1484,8 @@ def _street_name_end_lc(text: str, pos: int, cue: bool = False) -> tuple[Optiona
         if word[:1].isdigit():
             # "rue du 8 mai 1945": a day and a month right after "du"
             dm = re.match(r"\d{1,2}(?:er)?[ \u00a0]([^\W\d_]+)(?:[ \u00a0]\d{4})?(?![\w])", text[q:q + 32])
-            if names_seen == 0 and dm and fold_word(dm.group(1)) in _LC_MONTHS and fold_word(text[pos:q]).strip() == "du":
+            if names_seen == 0 and dm and fold_word(dm.group(1)) in _LC_MONTHS \
+                    and fold_word(text[pos:q]).strip() == "du":
                 p = end = q + dm.end()
                 names_seen += 1
                 count += 1

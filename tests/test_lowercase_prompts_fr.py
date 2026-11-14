@@ -443,6 +443,7 @@ COMMON_WORD_SURNAME = [
     ("je défends lucas meunier", ["lucas meunier"]),
     ("le dossier oppose paul chevalier à lucas berger", ["paul chevalier", "lucas berger"]),
     ("julie fontaine, salariée depuis 2015, conteste la sanction", ["julie fontaine"]),
+    ("je soussigné paul mercier, né le 3 mai 1980 à nantes, atteste avoir vu les faits", ["paul mercier"]),
 ]
 
 # The surname first: a word that no list knows, then a first name of the lexicon.
@@ -461,6 +462,9 @@ LONE_FIRST_NAME = [
     ("ma fille emma", ["emma"]),
     ("notre salarié lucas et son collègue yanis contestent", ["lucas", "yanis"]),
     ("mon avocat martin a plaidé", ["martin"]),
+    ("les enfants emma et lucas vivent chez madame.", ["emma", "lucas"]),
+    ("mes clients paul et virginie sont mariés", ["paul", "virginie"]),
+    ("ses fils adam et noé ont hérité", ["adam", "noé"]),
 ]
 
 # No name: the words after the first name read as ordinary words, or nothing holds a name.
@@ -483,6 +487,9 @@ NO_NAME_WITHOUT_CIVILITY = [
     "le salarié protégé conteste",
     "ma cliente rose de colère a quitté la salle",
     "les époux kervadec contestent",
+    "les salariés protégés contestent",
+    "les témoins clés ont disparu",
+    "les parties paul et marie",
 ]
 
 
@@ -980,3 +987,111 @@ def test_capitalised_addresses_of_these_shapes_keep_their_reading(monkeypatch, t
     on = _masker().mask(text).text
     monkeypatch.setenv(SWITCH, "0")
     assert _masker().mask(text).text == on
+
+
+# A third batch: names of laws and cases, verbs after a person noun, fields and labels with no name, company words
+# with no name, home words with no address.
+ORDINARY_TEXT_3 = [
+    "thomas court et saute",
+    "lucas petit garçon de dix ans",
+    "emma blanche de peur n'a rien dit",
+    "paul content de lui a signé",
+    "julie fort contente a remercié",
+    "louis vit à paris depuis 2010",
+    "le prénom paul est courant en france",
+    "hugo est un prénom courant",
+    "le mois de mai a été chaud",
+    "en avril ne te découvre pas d'un fil",
+    "m. mai a signé",
+    "la loi pinel a été prorogée",
+    "le dispositif pinel plus",
+    "le barème macron s'applique",
+    "l'arrêt blanco de 1873",
+    "la jurisprudence perruche",
+    "le code napoléon",
+    "la loi badinter protège les victimes",
+    "le rapport lambert a été remis",
+    "l'amendement est adopté",
+    "le client est roi",
+    "mon client est parti hier",
+    "mon client paie ses dettes",
+    "ma cliente porte plainte",
+    "ma cliente marche avec une canne",
+    "mon voisin loue son garage",
+    "le salarié marque son désaccord",
+    "l'employeur place le salarié en chômage partiel",
+    "le locataire rose de colère a claqué la porte",
+    "le bailleur jean de lui-même a résilié",
+    "les enfants jouent dans la cour",
+    "les parents contestent la décision",
+    "les époux ont signé la convention",
+    "les associés votent la dissolution",
+    "les salariés grévistes ont été remplacés",
+    "mes clients souhaitent transiger",
+    "ses fils héritent de la maison",
+    "nom du client à compléter",
+    "nom de la société : à définir",
+    "prénom du gérant inconnu",
+    "nom : confidentiel",
+    "prénom : nc",
+    "nom et prénom : voir pièce 3",
+    "client : particulier",
+    "client : professionnel du bâtiment",
+    "employeur : fonction publique territoriale",
+    "adversaire : inconnu à ce jour",
+    "contre : x",
+    "c/ assurance maladie",
+    "recours c/ tiers responsable",
+    "action c/ garant",
+    "pourvoi c/ arrêt de la cour d'appel",
+    "le cabinet médical a fermé",
+    "le cabinet comptable et associés",
+    "la société civile et commerciale",
+    "la banque postale a refusé le prêt",
+    "la compagnie aérienne a annulé le vol",
+    "l'association sportive a été dissoute",
+    "l'entreprise individuelle a été radiée",
+    "la sarl unipersonnelle a été créée",
+    "la sci de famille possède deux biens",
+    "la sas simplifiée unipersonnelle",
+    "une sarl de famille soumise à l'ir",
+    "il a monté sa sasu tout seul",
+    "le garage est fermé le lundi",
+    "l'agence immobilière réclame ses honoraires",
+    "la clinique vétérinaire a facturé",
+    "mon employeur actuel ne paie plus",
+    "le dossier médical a été transmis",
+    "le dossier pénal est vide",
+    "la procédure collective est ouverte",
+    "il habite chez ses parents",
+    "elle habite en face du tribunal",
+    "il habite au rez-de-chaussée",
+    "j'habite au 3e étage sans ascenseur",
+    "il demeure introuvable",
+    "elle demeure responsable du sinistre",
+    "situé au cœur de la ville",
+    "domicilié fiscalement en france",
+    "adresse inconnue à ce jour",
+    "adresse : voir kbis",
+    "au 1er janvier 2024",
+    "3 allée et venues",
+    "2 quai et 1 voie",
+    "il a pris l avenue en sens interdit",
+    "la résidence principale est insaisissable",
+    "sa résidence habituelle est en france",
+    "le lotissement est achevé",
+    "un chemin de servitude traverse le terrain",
+    "une place de stationnement est louée 80 euros",
+    "né à lyon (rhône)",
+    "né en 1980 (44 ans)",
+    "loyer de 850 euros (charges comprises)",
+    "la cour (chambre sociale) a jugé",
+]
+
+
+@pytest.mark.parametrize("text", ORDINARY_TEXT_3)
+def test_a_third_batch_of_ordinary_text(monkeypatch, text):
+    on = _masker().mask(text)
+    monkeypatch.setenv(SWITCH, "0")
+    off = _masker().mask(text)
+    assert on.text == off.text
