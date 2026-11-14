@@ -1,4 +1,4 @@
-"""Add the missing licence texts to one installer payload of RAGbase Shield (post-build step of the 0.4.0 installers).
+"""Add the missing licence texts to one installer payload of RAGbase Shield (a step of the installer build).
 
 Usage:
   python3 -I packaging/common/add_licence_texts.py <payload_dir> <export_root>
@@ -6,13 +6,14 @@ Usage:
 <payload_dir>: a single-target payload made by packaging/common/build_payload.py of <export_root>
 (build/macos/payload-x86_64, build/macos/payload-arm64 or build/windows/payload). Run it BEFORE
 "build_payload.py merge-macos" and before "build.sh --reuse-payload". <export_root>: the clean checkout that built
-the payload, for 0.4.0 a clean checkout of the tag v0.4.0 (its packaging/common/build_payload.py writes MANIFEST.json
-again, with the same code as the build). Run this script from another checkout (the branch main): a file added under
-packaging/ of <export_root> would make the build record "<commit>+dirty".
+the payload (its packaging/common/build_payload.py writes MANIFEST.json again, with the same code as the build).
+Since 0.4.1 this script is in the release commit: run it from that checkout. For 0.4.0 it ran from a checkout of
+main on a clean checkout of the tag v0.4.0 (a file added under packaging/ of <export_root> would have made the
+build record "<commit>+dirty").
 The upstream texts are read from licence_texts/ next to this script; SOURCES.json there gives the URL and SHA-256 of
 each one.
 
-What it adds (licenses.py of the tag v0.4.0 does not do it):
+What it adds (licenses.py does not do it):
   LICENSES/python/INCORPORATED_SOFTWARE.txt  CPython 3.12.15 Doc/license.rst, section "Licenses and Acknowledgements
                                              for Incorporated Software" (OpenSSL, expat, libffi, zlib, libmpdec and
                                              the other code that CPython incorporates), copied as written
