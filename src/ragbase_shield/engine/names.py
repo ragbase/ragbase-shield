@@ -1898,7 +1898,13 @@ def _lc_name_frame(run: list[_W], i: int, e: int, cue: bool, loose: bool = False
     if run[e].cap:
         return False
     if run[e].low in ("et", "ou"):
-        return True
+        # another person or a noun phrase after "et": "et emma leroy", "et son mari", "et mme x"; an adjective
+        # after it belongs to the first word ("lucas grand et fort")
+        if loose or e + 1 >= n:
+            return True
+        x = run[e + 1]
+        return x.cap or "f" in _lc_flags(x.low) or x.low in _LC_DETERMINERS or bool(_title(x)) \
+            or x.low in ("m", "mme", "mlle", "mr", "dr", "me") or _lc_kind(x) == "oov"
     if run[e].text in ("à", "À") or run[e].low in _LC_PREPOSITIONS:
         if loose or (e + 1 < n and not run[e + 1].cap and _lc_flags(run[e + 1].low) == "f"):
             return True
@@ -1967,10 +1973,13 @@ def _lc_first_names(text: str, run: list[_W], out: list[RuleSpan], covered: set[
         elif kind == "amb" and plain_first and (last or _lc_verb_follows(run, k + 1)
                                                 or (not run[k + 1].cap and run[k + 1].low in ("et", "ou"))):
             end = k + 1  # "jean pierre conteste", "thomas leroy et emma leroy"
-        elif kind == "common" and plain_first and len(given) == 1 and _lc_name_frame(run, i, k + 1, cue):
-            end = k + 1  # a surname that is also a common word: "mon client paul petit a été licencié"
+        elif kind == "common" and plain_first and len(given) == 1 and s.low in sets["common"] \
+                and _lc_name_frame(run, i, k + 1, cue):
+            end = k + 1  # a surname that is also a common word: "mon client paul petit a été licencié" (the word
+            #              itself, no feminine or plural form: "emma petite a été renversée")
         elif framed and ((kind == "oov" and len(s.low) == 2 and _lc_third_follows(run, k + 1))
-                         or ("c" in sflags and "h" not in sflags and "s" not in sflags and len(s.low) >= 3 and (
+                         or (s.low in sets["common"] and "h" not in sflags and "s" not in sflags
+                             and len(s.low) >= 3 and (
                              _lc_verb_follows(run, k + 1, strict=True) if "v" in sflags
                              else _lc_third_follows(run, k + 1)))):
             end = k + 1  # right before its verb: a short surname ("paul ly conteste"), a surname that is also a
@@ -1992,8 +2001,15 @@ def _lc_first_names(text: str, run: list[_W], out: list[RuleSpan], covered: set[
         if len(w.low) == 3 and not cue and not (end >= n or _lc_verb_follows(run, end)) \
                 and not (prev is not None and (prev.low in _LC_PREPOSITIONS or _lc_is_verb(prev))):
             continue  # a first name of three letters may be an abbreviation ("max", "sam")
-        out.append(RuleSpan(w.start, run[end - 1].end, "PERSON", 4, "first_name"))
-        covered.update(range(i, end))
+        first = i
+        if prev is not None and not w.cap and i - 1 not in covered and not prev.cap and not prev.prefix \
+                and _lc_kind(prev) == "oov" and len(prev.low) >= 4 and kind == "oov" \
+                and _lc_name_frame(run, i - 1, end, i > 1 and (run[i - 2].low in sets["persons"]
+                                                               or run[i - 2].low in _ROLE_WORDS)) \
+                and not (i > 1 and (run[i - 2].low in _LC_DETERMINERS or run[i - 2].digit)):
+            first = i - 1  # the surname first, then two given names: "nelba thi zadou a été licenciée"
+        out.append(RuleSpan(run[first].start, run[end - 1].end, "PERSON", 4, "first_name"))
+        covered.update(range(first, end))
         _lc_other_name(run, end, out, covered)
 
 

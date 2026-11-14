@@ -779,3 +779,137 @@ def test_capitalised_companies_with_these_forms_keep_their_reading(monkeypatch, 
     on = _masker().mask(text).text
     monkeypatch.setenv(SWITCH, "0")
     assert _masker().mask(text).text == on
+
+
+# ---------------------------------------------------------------------------
+# More ordinary text: notes, legal prose and chat lines with the words that the rules look at
+# ---------------------------------------------------------------------------
+
+MORE_ORDINARY_TEXT = [
+    # a first name and ordinary words
+    "lucas grand et fort a porté plainte",
+    "julie court vers la sortie",
+    "il faut que paul vienne demain",
+    "paul noir de monde hier soir",
+    "emma de son côté conteste",
+    "lucas de retour a signé",
+    "julie du coup refuse",
+    "paul de garde ce soir",
+    "paul et virginie sont mariés",
+    "jean qui rit et jean qui pleure",
+    "rose et bleu sont ses couleurs",
+    "marie toi avec lui",
+    "olivier et laurier sont des arbres",
+    "merci julie pour ton retour",
+    "cc paul pour info",
+    "objet : relance paul",
+    # an application or a channel and a first name
+    "linkedin emma a répondu hier",
+    "whatsapp paul a écrit ce matin",
+    "teams lucas à 14h",
+    "gmail emma ne répond pas",
+    "attn paul",
+    # a person noun and an ordinary word
+    "le salarié lambda conteste",
+    "ma cliente victoire a obtenu gain de cause",
+    "notre client prudence oblige a refusé",
+    "le bailleur social a refusé le dossier",
+    "le témoin clé a disparu",
+    "la victime mineure a été entendue",
+    "son employeur actuel refuse",
+    "le client final a payé",
+    "le client roi a toujours raison",
+    "mon voisin porte plainte contre moi",
+    "ma fille place son argent",
+    "mon client marque une pause",
+    "la salariée rose de honte a quitté la salle",
+    "le salarié pierre angulaire du projet a démissionné",
+    "mon client loup solitaire refuse",
+    "ma cliente fleur bleue y croit",
+    "mon client de bonne foi conteste",
+    "mon client conteste son licenciement pour faute grave",
+    "le salarié protégé a été licencié sans autorisation",
+    "mon client principal a résilié le contrat",
+    "la partie adverse conteste",
+    # a company cue or a legal form and ordinary words
+    "la banque centrale a relevé ses taux",
+    "le syndicat sud a appelé à la grève",
+    "l'entreprise lambda a répondu",
+    "le groupe mère et filiales a consolidé",
+    "l'association loi 1901 a été dissoute",
+    "la société civile immobilière a vendu",
+    "la société mère a absorbé sa filiale",
+    "la société leader du marché a annoncé",
+    "le groupe électrogène est en panne",
+    "la sarl a été créée en 2019",
+    "la sci familiale détient l'immeuble",
+    "une sas au capital de 1000 euros",
+    "il a créé sa sasu en mars",
+    "les statuts de la sas prévoient une clause",
+    "la holding détient la sarl et la sci",
+    "il est associé de la sci depuis 2015",
+    # fields, captions
+    "nom : néant",
+    "nom : idem",
+    "nom : sans objet",
+    "prénom : à vérifier",
+    "nom : voir kbis",
+    "contre toute attente le juge a refusé",
+    "appel contre le jugement du 3 mars",
+    "le recours contre la décision est recevable",
+    "pour ou contre la clause",
+    # a civility and no name
+    "bonjour maître, voici le dossier",
+    "bonjour madame, monsieur,",
+    "madame, monsieur, veuillez trouver ci-joint",
+    "madame le maire a signé l'arrêté",
+    "monsieur le préfet a refusé",
+    "maître d'ouvrage et maître d'œuvre sont en litige",
+    "le maître nageur a été licencié",
+    "ce monsieur conteste la facture",
+    "une dame âgée a chuté",
+    "le docteur a refusé le certificat",
+    "m. de son côté conteste",
+    "mme de retour de congé a été licenciée",
+    "monsieur de passage à paris a signé",
+    "madame de nationalité française conteste",
+    "monsieur du fait de son âge refuse",
+    "mme des fois conteste",
+    "m. le sait bien",
+    "mme la voit souvent",
+    "m. en a parlé",
+    "mme y tient",
+    "m. a signé hier",
+    "mme est venue ce matin",
+    "dr a prescrit un arrêt",
+    "m. et mme contestent",
+    "mm. les juges ont statué",
+    "mr le directeur a répondu",
+    "mlle est mineure",
+    # numbers and street words
+    "il habite en banlieue depuis 2010",
+    "elle suit 3 cours du soir par semaine",
+    "le 12 mai 2023 à paris",
+]
+
+# (text, the masked text)
+SURNAME_THEN_TWO_GIVEN_NAMES = [
+    ("nelba thi zadou a été licenciée", "PERSONNE_A a été licenciée"),
+    ("mon client nelba thi zadou conteste", "mon client PERSONNE_A conteste"),
+]
+
+
+@pytest.mark.parametrize("text", MORE_ORDINARY_TEXT)
+def test_more_ordinary_text_is_the_same_with_the_rules_on_and_off(monkeypatch, text):
+    on = _masker().mask(text)
+    monkeypatch.setenv(SWITCH, "0")
+    off = _masker().mask(text)
+    assert on.text == off.text
+
+
+@pytest.mark.parametrize("text,masked", SURNAME_THEN_TWO_GIVEN_NAMES)
+def test_a_surname_then_two_given_names(text, masked):
+    m = _masker()
+    r = m.mask(text)
+    assert r.text == masked
+    assert m.unmask(r.text) == text
