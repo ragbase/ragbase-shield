@@ -40,6 +40,16 @@ yousign attn fyi fwd visio webex discord chatgpt
 feedback brief briefing input todo reporting deal closing workshop kickoff onboarding followup debrief pitch
 template checklist backup setup login password staff board
 
+nemo auditur propriam turpitudinem allegans fraus omnia corrumpit sic transit mundi res judicata pacta sunt servanda
+lex specialis ratione materiae personae loci intuitu ipso facto cujus prorata temporis solidum hoc nutum contra legem
+ultra petita infra erga omnes inter partes mutatis mutandis fortiori priori posteriori contrario sui generis stricto
+sensu lato bona fide nullum crimen sine lege bis idem actori incumbit probatio affectio societatis animus corpus habeas
+exequatur quorum modus operandi vivendi statu quo die pro forma rata manu militari censetur ignorare error communis
+facit jus accessorium sequitur principale specialia generalibus derogant testis unus nullus limine litis obiter dictum
+ratio decidendi amicus curiae locus regit actum tempus onus probandi prima facie aequo nihilo officio post mortem ante
+vice versa alter ego casus belli persona grata numerus clausus summum summa injuria dura sed ubi ibi juris potest quam
+ipse habet extenso fine situ vitro vivo abstracto concreto globo ultima
+
 # [persons]
 chauffeur chauffeuse routier routière livreur livreuse caissier caissière serveur serveuse cuisinier cuisinière
 plombier électricien électricienne peintre couvreur carreleur paysagiste agriculteur agricultrice éleveur
@@ -113,6 +123,23 @@ ivoirien ivoirienne camerounais camerounaise congolais congolaise comorien comor
 syrienne afghan afghane pakistanais pakistanaise indien indienne brésilien brésilienne
 
 inconnu inconnue inconnus inconnues
+
+français française allemand allemande anglais britannique irlandais irlandaise écossais gallois espagnol espagnole
+portugais portugaise italien italienne belge suisse luxembourgeois néerlandais hollandais danois suédois suédoise
+norvégien finlandais islandais polonais tchèque slovaque hongrois hongroise roumain roumaine bulgare grec grecque
+turc turque chypriote maltais serbe croate bosniaque slovène monténégrin macédonien albanais albanaise kosovar
+ukrainien russe biélorusse moldave géorgien arménien azerbaïdjanais kazakh ouzbek tchétchène kurde afghan afghane
+iranien irakien syrien libanais libanaise israélien palestinien jordanien saoudien qatari émirati koweïtien yéménite
+égyptien libyen tunisien algérien marocain marocaine mauritanien sahraoui malien sénégalais sénégalaise gambien
+guinéen ivoirien burkinabé nigérien nigérian ghanéen togolais béninois camerounais gabonais congolais congolaise
+angolais tchadien soudanais éthiopien érythréen somalien kényan ougandais rwandais burundais tanzanien malgache
+comorien mauricien mahorais réunionnais sud-africain américain canadien québécois mexicain cubain haïtien dominicain
+colombien vénézuélien brésilien péruvien bolivien chilien argentin uruguayen paraguayen équatorien panaméen
+chinois chinoise japonais japonaise coréen vietnamien cambodgien laotien thaïlandais birman philippin indonésien
+malaisien indien pakistanais bangladais sri-lankais népalais australien néo-zélandais corse breton bretonne basque
+alsacien normand picard auvergnat savoyard provençal antillais guadeloupéen martiniquais guyanais calédonien
+polynésien européen européenne africain asiatique maghrébin scandinave balte slave latino offshore étranger étrangère
+apatride binational
 
 # [words]
 # --- Everyday and legal words that the other lists do not hold ---
@@ -198,3 +225,4 @@ sage candy cherry crystal destiny harmony melody lucky sunny happy precious bles
 victory trinity heaven diamond silly windy dusty shady rocky mark bill grant
 extra vierge vierges liasse liasses quotité reliquat
 néant
+ambre benjamin fratrie doublon pseudonyme homonyme éponyme fantôme zombie pivot tampon

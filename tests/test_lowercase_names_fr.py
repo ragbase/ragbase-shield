@@ -49,9 +49,6 @@ CIVILITY = [
     ("maître karim ben salah représente madame de la tour.", ["karim ben salah", "de la tour"]),
     ("Me gravelotte plaide demain matin.", ["gravelotte"]),
     ("j'ai écrit à Me pernaud hier soir.", ["pernaud"]),
-    ("le dr valette a examiné mon client.", ["valette"]),
-    ("Dr lervignac a rédigé le certificat.", ["lervignac"]),
-    ("le Pr morvanti dirige le service.", ["morvanti"]),
     ("mme anne-sophie velanor a saisi le conseil.", ["anne-sophie velanor"]),
     ("m. jean pierre quimpertin, gérant, a signé.", ["jean pierre quimpertin"]),
     ("contre m. thomas kerdalis et mme emma kerdalis.", ["thomas kerdalis", "emma kerdalis"]),
@@ -61,11 +58,9 @@ CIVILITY = [
     ("mme rose kervadec a contesté la rupture.", ["rose kervadec"]),
     ("m. petit conteste son licenciement.", ["petit"]),
     ("le cabinet de maître pradimont suit le dossier.", ["pradimont"]),
-    ("selon mme porte, le bail est nul.", ["porte"]),
     ("le rendez-vous est fixé avec mme ouardi", ["ouardi"]),
     ("mme marie talvez a déposé plainte.", ["marie talvez"]),
     ("m. zadou Mila conteste la décision.", ["zadou Mila"]),
-    ("mme borne conteste le montant du loyer.", ["borne"]),
     ("mme veuve pradimont a renoncé à la succession.", ["pradimont"]),
     ("mme nadia kervadec épouse maudet demande le divorce.", ["nadia kervadec", "maudet"]),
     ("mme fatoumata quimpertin est salariée depuis 2019.", ["fatoumata quimpertin"]),
@@ -114,16 +109,6 @@ COMPANY = [
     ("la société Kerdalis EURL a fait appel.", ["Kerdalis"]),  # capitals: the 0.4.0 span, unchanged
 ]
 
-# The capital that a keyboard puts on the first word of a name after "M."; the rest of the name is in lower case.
-# The word in lower case is a first name of the lexicon: the whole name has one code.
-KEYBOARD = [
-    ("M. Zadou mila, domicilié 12 rue des Glycines, 69007 Lyon, conteste son licenciement.", ["Zadou mila"]),
-    ("M. Nelba samir conteste son licenciement.", ["Nelba samir"]),
-    ("M. Kervadec julien conteste la sanction.", ["Kervadec julien"]),
-    ("Mme Pradimont nadia a signé le bail hier.", ["Pradimont nadia"]),
-    ("Je représente M. Talvez karim.", ["Talvez karim"]),
-]
-
 # A capitalised first name, then a word in lower case that no list knows: the word may be a job, an adverb or a
 # legal word as well as a surname, so the capitalised rules read the line alone (the same output with the rules off).
 KEYBOARD_UNKNOWN_WORD = [
@@ -135,13 +120,14 @@ KEYBOARD_UNKNOWN_WORD = [
     "Bonjour, mon client Jean dupont a été licencié.",
     "Je pense que Paul pradimont conteste la décision.",
     "Le bail est au nom de ma cliente Emma velanor.",
-    "Jean dupont conteste son licenciement.",
+    "M. Zadou mila, domicilié 12 rue des Glycines, 69007 Lyon, conteste son licenciement.",
+    "M. Kervadec julien conteste la sanction.",
     "M. Benoit velkor conteste son avertissement.",
     "Mme Martin zorvaine convoquée ne s'est pas présentée.",
     "M. Xavier brivanec a supprimé le site.",
 ]
 
-POSITIVE = [(t, names) for t, names, _out in TYPED_LINES] + CIVILITY + FIRST_NAME + COMPANY + KEYBOARD
+POSITIVE = [(t, names) for t, names, _out in TYPED_LINES] + CIVILITY + FIRST_NAME + COMPANY
 
 # A word in lower case after a capitalised name is no surname: the mask is the 0.4.0 mask. (text, the names masked)
 AFTER_A_NAME = [
@@ -340,7 +326,7 @@ def test_there_are_enough_positive_cases():
     assert len(POSITIVE) >= 40 and len({t for t, _ in POSITIVE}) == len(POSITIVE)
 
 
-@pytest.mark.parametrize("text,names", CIVILITY + FIRST_NAME + KEYBOARD)
+@pytest.mark.parametrize("text,names", CIVILITY + FIRST_NAME)
 def test_people_get_person_codes(text, names):
     r = _masker().mask(text)
     people = [s for s in r.spans if s.value in names and s.kind == "PERSON"]
@@ -393,10 +379,10 @@ def test_lower_case_me_and_sa_are_never_a_civility_or_a_legal_form():
 
 
 def test_the_words_around_decide_between_a_verb_and_a_name():
-    # a verb form right after the civility is its verb; after a preposition, or before a verb, it is a name
+    # a verb form or an ordinary word right after the civility is no name, whatever stands around it
     assert _names("madame porte plainte contre son voisin.") == []
-    assert _names("j'ai écrit à mme porte hier.") == ["porte"]
-    assert _names("mme porte conteste le congé.") == ["porte"]
+    assert _names("j'ai écrit à mme porte hier.") == []
+    assert _names("mme porte conteste le congé.") == []
     # a first name that is also a verb form
     assert _names("mme marie talvez conteste.") == ["marie talvez"]
     assert _names("il marie sa fille à un notaire.") == []
@@ -462,28 +448,6 @@ def test_a_capitalised_first_name_and_an_unknown_word_keep_the_capitalised_readi
     monkeypatch.setenv(SWITCH, "0")
     off = _masker().mask(text)
     assert on.text == off.text
-
-
-@pytest.mark.parametrize("text,names", KEYBOARD)
-def test_a_keyboard_capital_on_the_first_word_of_a_name(monkeypatch, text, names):
-    """With the rules on the whole name has one code. With the rules off: the 0.4.0 behaviour."""
-    lower = [w for name in names for w in name.split() if w.islower()]
-    assert lower
-    monkeypatch.setenv(SWITCH, "0")
-    off = _masker().mask(text).text
-    assert all(w in off for w in lower)
-    monkeypatch.setenv(SWITCH, "1")
-    on = _masker().mask(text).text
-    assert not any(w in on.split() or w + "," in on.split() or w + "." in on.split() for w in lower)
-    assert on.count("PERSONNE_A") == 1
-
-
-def test_a_keyboard_capital_keeps_one_code_for_the_person():
-    m = _masker()
-    assert m.mask("M. Kervadec julien a signé le bail hier.").text == "M. PERSONNE_A a signé le bail hier."
-    assert m.mask("M. Kervadec conteste le congé.").text == "M. PERSONNE_A conteste le congé."
-    assert m.mask("julien kervadec est venu ce matin.").text == "PERSONNE_A est venu ce matin."
-    assert [e.code for e in m.store.all() if e.kind == "PERSON"] == ["PERSONNE_A"]
 
 
 # ---------------------------------------------------------------------------

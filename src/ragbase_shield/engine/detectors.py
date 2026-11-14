@@ -1414,8 +1414,8 @@ def _lowercase_rules() -> bool:
 # de droit", "1 place de parking"): they need a home cue before the number or a postcode and a town after the name.
 _LC_SURE_VOIE = re.compile(
     r"(?i)^(?:rue|avenue|av\.|bd\.?|boulevard|bld\.?|all[ée]e|impasse|imp\.|quai|faubourg|fbg\.?)$")
-_LC_HOME_CUE = re.compile(r"(?i)(?<![\w])(?:au|habit(?:e|es|ent|ons|ez|ait|aient|ant)|demeur(?:e|ent|ait|aient|ant)|"
-                          r"domicili[ée]e?s?|r[ée]sid(?:e|ent|ait|aient|ant)|sise?s?|situ[ée]e?s?|adresse)\s*:?\s*$")
+_LC_HOME_CUE = re.compile(r"(?i)(?<![\w])(?:habit(?:e|es|ent|ons|ez|ait|aient|ant)|demeur(?:e|ent|ait|aient|ant)|"
+                          r"domicili[ée]e?s?|r[ée]sid(?:e|ent|ait|aient|ant)|sise?s?|situ[ée]e?s?|adresse)\s*:?\s*(?:au\s+)?$")
 _LC_MONTHS = frozenset("janvier fevrier mars avril mai juin juillet aout septembre octobre novembre decembre".split())
 # French particles of a street name typed in lower case; those that may also go on a name that has started.
 _LC_ADDR_PARTICLES = frozenset("de du des la le les l d aux au en sur sous saint sainte st ste".split())
@@ -1604,6 +1604,29 @@ def _address_tail_lc(text: str, pos: int, newline_ok: bool = True) -> tuple[int,
     return end, False, False
 
 
+_LC_CAP_WORD_RE = re.compile(r"(?<![\w'’\-])[" + _UP + r"][\w'’\-]*")
+_LC_SENTENCE_START_RE = re.compile(r"(?:[.!?…][ \u00a0]+|\n)")
+
+
+def _lc_typed_sentence(text: str, start: int, end: int) -> bool:
+    """The sentence around ``text[start:end]`` is typed without capitals: no word has a capital but its first
+    word, the first names of the lexicon and words in capitals of four letters at most ("SAS", "RG")."""
+    ls = 0
+    for m in _LC_SENTENCE_START_RE.finditer(text, max(0, start - 400), start):
+        ls = m.end()
+    ls = max(ls, start - 400, 0)
+    m = _LC_SENTENCE_START_RE.search(text, end)
+    le = m.start() if m else min(len(text), end + 400)
+    first = True
+    for m in re.finditer(r"[^\W\d_][\w'’\-]*", text[ls:le]):
+        word = m.group()
+        if not first and word[:1].isupper() and not (word.isupper() and len(word) <= 4) \
+                and fold_word(word) not in lx.first_names():
+            return False
+        first = False
+    return True
+
+
 def _find_address_lc(text: str, voies: Optional[list] = None) -> Iterator[Candidate]:
     """A street address typed in lower case: "12 rue des glycines, 69007 lyon", "5 avenue victor hugo 75016
     paris"; with no number after a home cue or before a postcode and a town ("il habite rue des glycines",
@@ -1621,7 +1644,8 @@ def _find_address_lc(text: str, voies: Optional[list] = None) -> Iterator[Candid
         city, cs = m.group("city"), w0 + m.start("city")
         for k in [0] + [j + 1 for j, c in enumerate(city) if c in " -"]:
             if _CITY_CTX.search(text[max(0, cs - 40):cs + k]) and not _lc_stop_word(fold_word(city[k:].split()[0])):
-                yield Candidate(cs + k, b.end(), "ADDRESS", True, pr - 1, "city_postcode_lower")
+                if _lc_typed_sentence(text, cs + k, b.end()):
+                    yield Candidate(cs + k, b.end(), "ADDRESS", True, pr - 1, "city_postcode_lower")
                 break
     for m in (voies if voies is not None else _VOIE_RE.finditer(text)):
         vs, ve = m.start(), m.end()
@@ -1639,8 +1663,10 @@ def _find_address_lc(text: str, voies: Optional[list] = None) -> Iterator[Candid
         end, town, lower_town = _address_tail_lc(text, name_end, newline_ok=not _left_column_gap(text, ls, start))
         if not lower_name and not lower_town:
             continue  # the text has its capitals: the capitalised rule reads it
-        if not town and not cue and not (num and sure):
-            continue  # a street type that is also a word, or a street with no number: a home cue or a town
+        if not town and not cue:
+            continue  # a postcode and a town, or a home cue: "1 rue entière a été évacuée" is no address
+        if not _lc_typed_sentence(text, start, name_end):
+            continue  # the sentence has its capitals ("En 2023 impasse des négociations salariales, à Lyon")
         yield Candidate(start, end, "ADDRESS", True, pr, "address_lower")
 
 
