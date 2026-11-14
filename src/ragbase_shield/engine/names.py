@@ -1219,13 +1219,14 @@ _LC_FORM_WORDS = frozenset({"sas", "spa", "inc", "corp", "limited", "corporation
 # Articles before a legal form ("la sarl x", "cette sci y").
 _LC_FORM_ARTICLES = frozenset({"la", "une", "cette", "ma", "ta", "sa", "notre", "votre", "leur"})
 # Endings of ordinary nouns, adjectives and adverbs, and of verb forms, with the shortest word length they apply to:
-# a word no list holds that ends so is an ordinary word ("apparemment", "résiliation", "juridique", "contestait").
+# a word no list holds that ends so is an ordinary word ("apparemment", "résiliation", "juridique", "contestait",
+# "priorise", "fiabilise").
 _LC_WORD_ENDINGS = (("ment", 7), ("tion", 6), ("sion", 6), ("xion", 6), ("tions", 7), ("sions", 7), ("isme", 7),
                     ("ique", 7), ("iques", 8), ("able", 7), ("ables", 8), ("ible", 7), ("ibles", 8), ("ance", 7),
                     ("ances", 8), ("ence", 7), ("ences", 8), ("trice", 7), ("euse", 6), ("euses", 7), ("tif", 6),
                     ("sif", 6), ("tive", 6), ("sive", 6), ("tifs", 7), ("tives", 7), ("ee", 5), ("ees", 6))
 _LC_VERB_ENDINGS = (("ait", 5), ("aient", 6), ("eront", 7), ("erons", 7), ("erez", 7), ("issent", 8),
-                    ("issait", 8), ("issant", 8))
+                    ("issait", 8), ("issant", 8), ("ise", 7), ("isent", 8), ("ifie", 7), ("ifient", 9))
 # Prefixes of a verb form that the verb list does not hold with its prefix ("susvisé": "visé").
 _LC_VERB_PREFIXES = ("sus", "pre", "re", "co", "sous", "non", "sur", "auto", "inter", "contre")
 # Endings of the nouns of an office ("le proviseur", "la rectrice"): after "le" or "la" such a word is no surname.
@@ -1343,8 +1344,9 @@ def _lc_kind(w: _W) -> str:
     if w.digit or w.prefix or w.initial:
         return "no"
     low = w.low
-    if sum(c.isalpha() for c in low) < 2 or not low.replace("'", "").replace("-", "").isalpha():
-        return "no"
+    if sum(c.isalpha() for c in low) < 2 or not low.replace("'", "").replace("-", "").isalpha() \
+            or len(set(low)) == 1:
+        return "no"  # a digit, a symbol, a placeholder of a template ("m. xxx")
     f = _lc_flags(low)
     if "h" in f:
         return "no"
@@ -1531,7 +1533,7 @@ def _lc_first_word(text: str, run: list[_W], i: int, k: int, civ: str) -> bool:
         return _lc_name_next(run, k + 1)
     if kind != "oov" or len(w.low) < 3:
         return False
-    if civ == "me" and w.low.endswith(("er", "ir")):
+    if civ == "me" and w.low.endswith(("er", "ir", "ant", "ez")):
         return _lc_verb_follows(run, k + 1)  # "Me résumer ce jugement" is the pronoun; "Me garnier plaide" is not
     return True
 

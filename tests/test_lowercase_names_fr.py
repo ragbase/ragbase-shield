@@ -138,6 +138,7 @@ NEGATIVE = [
     "Me rédiger une mise en demeure.",
     "Me peaufiner ce courrier avant envoi.",
     "Me confirmez-vous la date du rendez-vous ?",
+    "Me référant à votre courrier, je vous informe de ma décision.",
     "merci de me rappeler demain matin.",
     # a civility used alone for a party, then a verb or a state
     "madame demande une prestation compensatoire.",
@@ -150,7 +151,10 @@ NEGATIVE = [
     "monsieur absent à l'audience.",
     "m. totalement opposé à la vente.",
     "monsieur acquiesce au jugement.",
+    "madame priorise ses enfants et monsieur fiabilise ses revenus.",
+    "madame porte plainte contre son voisin.",
     "monsieur chauffeur routier, madame sans emploi.",
+    "M. xxx demeurant à xxx, né le xx/xx/xxxx.",
     "monsieur et madame sont séparés depuis 2019.",
     "il doit poser 12 m. de clôture.",
     # a civility word used as a common noun

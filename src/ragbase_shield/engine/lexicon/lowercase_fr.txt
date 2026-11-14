@@ -16,6 +16,7 @@ assez sauf hormis excepté quant près auprès autour loin proche dessus dessous
 voire presque quasi exprès guère naguère sitôt aussitôt tantôt bientôt plutôt tard tôt vite ensemble debout
 ailleurs partout nulle maintenant longtemps autrefois davantage autant tant tellement environ pourquoi comment
 combien mal mieux pire pis abord accord revoici revoilà ci ès quelqu'un quelques-uns quiconque autrui
+untel unetelle quidam
 ah bah ben eh euh ha hé hein hop oh ouf oups zut chut bravo pardon allô adieu bye ciao ok okay ouais nan
 svp stp cdt cdlt bjr slt mdr lol ptdr bcp tjrs tjs jms rdv asap fyi idem ibid infra supra sic dixit versus vs
 deux trois quatre cinq six sept huit neuf dix onze douze treize quatorze quinze seize vingt trente quarante
@@ -67,7 +68,7 @@ intimée requérant requérante témoin victime prévenu prévenue plaignant pla
 héritier héritière bénéficiaire stagiaire apprenti apprentie
 doyen doyenne proviseur proviseure recteur rectrice percepteur receveur receveuse vérificateur vérificatrice
 rapporteur rapporteuse médiateur médiatrice défenseur gouverneur consul ambassadeur ambassadrice rabbin imam
-prêtre aumônier brigadier adjudant lieutenant capitaine commandant colonel amiral maréchal caporal trésorier
+prêtre aumônier brigadier adjudant lieutenant capitaine commandant colonel amiral caporal trésorier
 trésorière payeur régisseur intendant surveillant surveillante substitut auditeur auditrice assesseur juré
 jurée conciliateur conciliatrice délégué déléguée représentant représentante élu élue chancelier inspecteur
 inspectrice censeur chanoine vicaire homme dame demoiselle garçon citoyen citoyenne habitant habitante
@@ -85,10 +86,10 @@ agressif agressive menaçant menaçante dangereux dangereuse inoffensif inoffens
 toxicomane handicapé handicapée invalide inapte apte valide incapable compétent compétente incompétent
 incompétente débutant débutante senior junior mineur mineure majeur majeure libre simple premier première
 dernier dernière nouveau nouvelle plein pleine vide prêt prête sûr sûre certain certaine conscient consciente
-favorable défavorable hostile opposé opposée désolé désolée gentil gentille méchant méchante jaloux jalouse
-heureux heureuse malheureux malheureuse triste calme nerveux nerveuse sérieux sérieuse courageux courageuse
-lâche fier fière têtu têtue sourd sourde muet muette aveugle boiteux infirme chauve maigre mince gros grosse
-jeune vieux vieille adulte adolescent adolescente résident résidente titulaire redevable imposable solidaire
+favorable défavorable hostile opposé opposée désolé désolée méchant méchante jaloux jalouse
+malheureux malheureuse triste calme nerveux nerveuse sérieux sérieuse courageux courageuse
+lâche têtu têtue muet muette aveugle infirme
+adulte adolescent adolescente résident résidente titulaire redevable imposable solidaire
 hiérarchique émérite agrégé agrégée
 français française étranger étrangère européen européenne algérien algérienne marocain marocaine tunisien
 tunisienne italien italienne espagnol espagnole portugais portugaise allemand allemande belge suisse anglais
@@ -153,6 +154,7 @@ impôt impôts taxe taxes tva redressement contrôle fiscal déclaration revenus
 notariale artisanale viticole dentaire mutualiste concurrente concurrent cible luxembourgeoise culturelle
 hôtelière forestière sportive paramédicale industrielle commerciale agricole libérale coopérative
 week-end weekend week end soir matin midi minuit après-midi journée soirée matinée semaine quinzaine
+machin truc bidule tartempion lambda
 # --- Towns and countries (public place names: a word after a name is often its town) ---
 lyon marseille toulouse nantes montpellier strasbourg bordeaux lille rennes reims toulon grenoble dijon angers
 nîmes villeurbanne brest limoges amiens perpignan metz besançon orléans rouen mulhouse caen argenteuil montreuil
