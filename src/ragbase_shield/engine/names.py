@@ -2363,6 +2363,78 @@ def _lc_captions(text: str, runs: list[list[_W]], out: list[RuleSpan]) -> None:
                 out.append(RuleSpan(y.start, y.end, "PERSON", 4, "first_name"))
 
 
+_LC_DOTTED_FORM_RE = re.compile(
+    r"(?i)(?<![\w.])(s\.a\.s\.u|s\.a\.r\.l|s\.a\.s|e\.u\.r\.l|s\.c\.i|s\.n\.c|s\.c\.p|s\.e\.l\.a\.r\.l)\.?(?![\w])")
+
+
+def _lc_company_before(text: str, words: list[_W], form: str, start: int, end: int, out: list[RuleSpan]) -> None:
+    """Rule C for a legal form that the tokens do not show as one word after the name (a form with dots, a form in
+    brackets): ``words`` stand before the form ``text[start:end]``."""
+    found: list[RuleSpan] = []
+    _lc_companies(text, words[-7:] + [_W(form, start, end, form, False, False)], found)
+    for sp in found:
+        if sp.end <= start and not any(o.start == sp.start and o.end == sp.end for o in out):
+            out.append(sp)
+
+
+def _lc_across_clauses(text: str, runs: list[list[_W]], out: list[RuleSpan]) -> None:
+    """Names that a dot, a bracket or a comma cuts in two clauses:
+
+    - an initial with a dot between a strong civility and a surname ("m. k. kervadec conteste", "m. j.p. kervadec
+      a signé"): the surname is a first name with no other reading or a word that no list knows, before its verb,
+      "et", "ou" or the end of the clause;
+    - "ep." or "vve" after a name, then the other surname ("mme vellin ep. kervadec conteste");
+    - a legal form with dots or in brackets after a company name ("la société kerdalis s.a.s.", "la société
+      kerdalis (sas) refuse"), and a name, a comma, then the form and "au capital" ("kerdalis, sas au capital de
+      1000 euros")."""
+
+    def taken(w: _W) -> bool:
+        return any(sp.start < w.end and w.start < sp.end for sp in out)
+
+    def surname(b: list[_W], k: int) -> bool:
+        if k >= len(b):
+            return False
+        w = b[k]
+        return not w.cap and not w.prefix and len(w.low) >= 3 and _lc_kind(w) in ("oov", "first") and not taken(w) \
+            and (k + 1 >= len(b) or _lc_third_follows(b, k + 1) or (not b[k + 1].cap and b[k + 1].low in ("et", "ou")))
+
+    for r in range(len(runs) - 1):
+        a, b = runs[r], runs[r + 1]
+        last = a[-1]
+        if last.cap or not last.sent_end or not (len(last.low) == 1 or last.low in ("ep", "vve")) \
+                or not re.fullmatch(r"\.[ \u00a0]{0,2}", text[last.end:b[0].start]):
+            continue
+        if len(a) >= 2 and len(last.low) == 1 and last.low.isalpha() and _lc_civility(text, a, len(a) - 2) == "strong":
+            k = 1 if len(b) >= 2 and len(b[0].low) == 1 and b[0].low.isalpha() and not b[0].cap else 0
+            if surname(b, k):
+                out.append(RuleSpan(last.start, b[k].end, "PERSON", 5, "title"))
+        elif last.low in ("ep", "vve") and len(a) >= 3 and taken(a[-2]) and surname(b, 0):
+            out.append(RuleSpan(b[0].start, b[0].end, "PERSON", 5, "title"))
+    for m in (_LC_DOTTED_FORM_RE.finditer(text) if "." in text else ()):
+        for run in runs:
+            if run[0].start <= m.start() <= run[-1].start:
+                j = next((t for t, w in enumerate(run) if w.start == m.start()), 0)
+                if j:
+                    _lc_company_before(text, run[:j], m.group(1).replace(".", "").lower(), m.start(), m.end(), out)
+                break
+    for r in range(1, len(runs)):
+        a, b = runs[r - 1], runs[r]
+        w = b[0]
+        if not _lc_form(w):
+            continue
+        gap = text[a[-1].end:w.start]
+        if len(b) == 1 and re.fullmatch(r"[ \u00a0]?\(", gap) and text[w.end:w.end + 1] == ")":
+            _lc_company_before(text, a, w.low, w.start, w.end, out)
+        elif len(b) >= 3 and b[1].low == "au" and b[2].low == "capital" and re.fullmatch(r",[ \u00a0]?", gap):
+            k = len(a) - 1
+            while k >= 0 and len(a) - k <= 4 and not a[k].cap and _lc_org_word(a[k]) in ("name", "generic", "code"):
+                k -= 1
+            first = a[k + 1] if k + 1 < len(a) else None
+            if first is not None and len(first.low) >= 3 and not taken(first) \
+                    and (_lc_kind(first) in ("oov", "first") or _lc_flags(first.low) == "c"):
+                out.append(RuleSpan(first.start, a[-1].end, "ORG", 6, "legal_form"))
+
+
 def _lower_case_names(text: str, runs: list[list[_W]], out: list[RuleSpan]) -> None:
     """The rules for names typed in lower case (v0.4.1): a civility then a name (A); a first name then a surname,
     the surname first, a first name after a person noun (B); a company name with a cue or a legal form (C); form
@@ -2379,6 +2451,7 @@ def _lower_case_names(text: str, runs: list[list[_W]], out: list[RuleSpan]) -> N
         _lc_companies(text, run, out)
     _lc_field_spans(text, out)
     _lc_captions(text, runs, out)
+    _lc_across_clauses(text, runs, out)
 
 
 def _detect_names_fr(text: str) -> list[RuleSpan]:

@@ -1095,3 +1095,54 @@ def test_a_third_batch_of_ordinary_text(monkeypatch, text):
     monkeypatch.setenv(SWITCH, "0")
     off = _masker().mask(text)
     assert on.text == off.text
+
+
+# ---------------------------------------------------------------------------
+# Names that a dot, a bracket or a comma cuts in two clauses
+# ---------------------------------------------------------------------------
+
+# (text, the masked text)
+ACROSS_CLAUSES = [
+    ("m. k. kervadec conteste", "m. PERSONNE_A conteste"),
+    ("mme a. talvez a signé", "mme PERSONNE_A a signé"),
+    ("m. j.p. kervadec a été mis à pied", "m. PERSONNE_A a été mis à pied"),
+    ("m. j. p. kervadec conteste", "m. PERSONNE_A conteste"),
+    ("mme vellin ep. kervadec conteste", "mme PERSONNE_A ep. PERSONNE_B conteste"),
+    ("la société kerdalis (sas) refuse", "la société SOCIETE_A (sas) refuse"),
+    ("kerdalis, sas au capital de 1000 euros", "SOCIETE_A, sas au capital de 1000 euros"),
+    ("la société kerdalis s.a.s. a été condamnée", "la société SOCIETE_A s.a.s. a été condamnée"),
+    ("la société zelmadec s.a.r.l. doit payer", "la société SOCIETE_A s.a.r.l. doit payer"),
+    ("la société zelmadec S.A.R.L doit payer", "la société SOCIETE_A S.A.R.L doit payer"),
+]
+
+NOT_ACROSS_CLAUSES = [
+    "voir m. k. demain",
+    "tout ce que madame a. le juge a tranché",
+    "il a tort. kervadec conteste",
+    "le salarié (cdi) conteste",
+    "son employeur, sas au capital de 1000 euros, refuse",
+    "une entreprise familiale, sarl au capital de 5000 euros",
+    "la clause (sas) est nulle",
+    "il est gérant (sarl) depuis 2019",
+]
+
+
+@pytest.mark.parametrize("text,masked", ACROSS_CLAUSES)
+def test_names_across_two_clauses(text, masked):
+    m = _masker()
+    r = m.mask(text)
+    assert r.text == masked
+    assert m.unmask(r.text) == text
+
+
+@pytest.mark.parametrize("text", NOT_ACROSS_CLAUSES)
+def test_no_name_across_two_clauses(text):
+    assert _masker().mask(text).text == text
+
+
+@pytest.mark.parametrize("text", ["M. K. Kervadec conteste.", "La société Kerdalis (SAS) refuse.",
+                                  "Kerdalis, SAS au capital de 1000 euros.", "La société Kerdalis S.A.S. a été condamnée."])
+def test_capitalised_names_across_two_clauses_keep_their_reading(monkeypatch, text):
+    on = _masker().mask(text).text
+    monkeypatch.setenv(SWITCH, "0")
+    assert _masker().mask(text).text == on
