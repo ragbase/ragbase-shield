@@ -38,7 +38,7 @@ ADDRESS_LINES = [
      ["12 rue des glycines, 69007 lyon"], "m. PERSONNE_A, domicilié ADRESSE_1, conteste son licenciement"),
     ("il habite au 5 avenue victor hugo 75016 paris",
      ["5 avenue victor hugo 75016 paris"], "il habite au ADRESSE_1"),
-    ("monsieur azzouni hadi habite 12 rue de la paix 75002 paris",
+    ("monsieur kervadec yanis habite 12 rue de la paix 75002 paris",
      ["12 rue de la paix 75002 paris"], "monsieur PERSONNE_A habite ADRESSE_1"),
 ]
 
@@ -179,3 +179,78 @@ def test_the_address_and_the_name_of_one_line():
     m = _masker()
     r = m.mask("mme claire dufresne habite 9 quai des brumes 44000 nantes et conteste son licenciement.")
     assert r.text == "mme PERSONNE_A habite ADRESSE_1 et conteste son licenciement."
+
+
+# ---------------------------------------------------------------------------
+# K1: a civility typed in lower case and a name with its capitals
+# ---------------------------------------------------------------------------
+
+# 0.4.0 reads "M." and "Mme" as a title, not "m." and "mme": "m. Kervadec conteste" stayed readable.
+# (text, the names masked)
+LOWER_CIVILITY = [
+    ("m. Kervadec conteste son licenciement", ["Kervadec"]),
+    ("mme Pradimont a signé le bail", ["Pradimont"]),
+    ("m. TALVEZ conteste son licenciement", ["TALVEZ"]),
+    ("mme PRADIMONT conteste son licenciement", ["PRADIMONT"]),
+    ("mr Vellin a appelé hier", ["Vellin"]),
+    ("dr Roquevert a signé le certificat", ["Roquevert"]),
+    ("mlle Kerdalis demande des dommages", ["Kerdalis"]),
+    ("je représente m. Kelmadi", ["Kelmadi"]),
+    ("bonjour, m. Brivault a reçu un avertissement", ["Brivault"]),
+    ("m. Le Bihannec conteste", ["Le Bihannec"]),
+    ("mme De Roquevert a signé", ["De Roquevert"]),
+    ("m. Yanis Kervadec a signé le bail", ["Yanis Kervadec"]),
+    ("mm. Vellin et Talvez contestent", ["Vellin", "Talvez"]),
+    ("mme Pradimont et m. Talvez divorcent", ["Pradimont", "Talvez"]),
+    ("voir m. Kervadec, mme Talvez et dr Vellin", ["Kervadec", "Talvez", "Vellin"]),
+]
+
+# No name: a unit after a number, an office, the pronoun "me", a noun after the civility.
+LOWER_CIVILITY_NO_NAME = [
+    "le mur mesure 12 m. Il est trop haut",
+    "la haie fait 3 m. Kervadec le sait",
+    "m. le Président a ouvert l'audience",
+    "mme la Juge a tranché",
+    "il me dit que Paris est loin",
+    "m. Demande de renvoi",
+]
+
+
+@pytest.mark.parametrize("text,names", LOWER_CIVILITY)
+def test_a_lower_case_civility_and_a_capitalised_name(text, names):
+    m = _masker()
+    r = m.mask(text)
+    assert [s.value for s in r.spans if s.kind == "PERSON"] == names
+    for name in names:
+        assert name not in r.text
+    assert m.unmask(r.text) == text
+
+
+@pytest.mark.parametrize("text,names", LOWER_CIVILITY)
+def test_a_lower_case_civility_reads_the_name_as_the_capitalised_civility_does(text, names):
+    # "m. Kervadec" gives the spans of "M. Kervadec"
+    caps = text
+    for low, cap in (("mm. ", "MM. "), ("m. ", "M. "), ("mme ", "Mme "), ("mlle ", "Mlle "), ("mr ", "Mr "), ("dr ", "Dr ")):
+        caps = caps.replace(low, cap)
+    assert _spans(caps, "PERSON") == names
+
+
+@pytest.mark.parametrize("text", LOWER_CIVILITY_NO_NAME)
+def test_a_lower_case_civility_is_no_proof_of_a_name(text):
+    assert _masker().mask(text).text == text
+
+
+def test_a_known_person_after_a_lower_case_civility():
+    m = _masker()
+    first = m.mask("Monsieur Yanis Kervadec a signé le bail.")
+    assert first.text == "Monsieur PERSONNE_A a signé le bail."
+    assert m.mask("m. Kervadec conteste le congé").text == "m. PERSONNE_A conteste le congé"
+    assert m.mask("m. kervadec conteste le congé").text == "m. PERSONNE_A conteste le congé"
+
+
+@pytest.mark.parametrize("value", ["0", "off"])
+def test_the_switch_turns_the_lower_case_civility_off(monkeypatch, value):
+    monkeypatch.setenv(SWITCH, value)
+    for text, _names in LOWER_CIVILITY:
+        if "Yanis" not in text:  # 0.4.0 masks a first name and a surname with their capitals
+            assert _spans(text, "PERSON") == [], text

@@ -1325,7 +1325,7 @@ def _lc_flags(low: str) -> str:
             return "f"  # "jean-pierre", "anne-sophie", "martin-leroy"
         if all(p in sets["any_first"] or f in ("", "c") for p, f in zip(parts, flags)) \
                 and any(p in sets["any_first"] or not f for p, f in zip(parts, flags)):
-            return ""   # "dupont-durand", "garcia-leroy": a compound name
+            return ""   # "dupont-durand", "kervadec-talvez": a compound name
         return "p"
     out = ""
     verb = lx.verb_form(low)
@@ -1659,6 +1659,21 @@ def _lc_titles(text: str, run: list[_W], out: list[RuleSpan], covered: set[int])
         if civ == "strong" and i + 2 < n and run[i + 1].low in ("veuve", "veuf") and not run[i + 1].cap:
             at = i + 1  # "mme veuve pradimont": the name stands after "veuve"
         got = _lc_name_after(text, run, at, civ)
+        if (got is None or not got[2]) and civ == "strong" and at == i and not _title(w) \
+                and not (_bare_m(w) and i > 0 and run[i - 1].digit):
+            # a civility typed in lower case and a name with its capitals ("m. Kervadec", "mme PRADIMONT", "dr
+            # Roquevert"): the rules above do not read "m." or "mme" as a title, so the name is taken here, as they
+            # take it after "M." or "Mme"
+            span = _take_person(run, i + 1)
+            k = span[1] if span and span[0] == i + 1 else 0
+            while k:
+                out.append(RuleSpan(run[span[0]].start, run[span[1] - 1].end, "PERSON", 5, "title"))
+                covered.update(range(span[0], span[1]))
+                k = span[1]
+                span = _take_person(run, k + 1) if w.low in _LC_PLURAL_CIVILITIES and k + 1 < n \
+                    and run[k].low in ("et", ",") and not run[k].cap else None
+                k = span[1] if span and span[0] == k + 1 else 0
+            continue
         while got is not None:
             s, e, lower = got
             if lower:
@@ -1736,7 +1751,7 @@ def _lc_first_names(text: str, run: list[_W], out: list[RuleSpan], covered: set[
             end = k + 1
         elif kind == "oov" and len(s.low) >= 3:
             end = k + 1
-            # a second surname word ("maria garcia lopez"), only before a verb or the end of the clause
+            # a second surname word ("maria kervadec talvez"), only before a verb or the end of the clause
             if end < n and not run[end].cap and _lc_kind(run[end]) == "oov" and len(run[end].low) >= 3 \
                     and (end + 1 >= n or _lc_verb_follows(run, end + 1)):
                 end += 1

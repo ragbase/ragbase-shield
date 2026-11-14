@@ -1456,7 +1456,7 @@ def _street_name_end_lc(text: str, pos: int, cue: bool = False) -> tuple[Optiona
     postcode, punctuation, and at the verb of the sentence ("12 rue des lilas conteste son licenciement"): a verb
     form is a word of the name only before a postcode, or at the end of the clause after a home cue (``cue``:
     "habite 12 rue de la vieille forge"). After a capitalised word a word in lower case ends the name, as in the
-    capitalised rule. Also returns whether a word of the name is in lower case ("l'Épinette", "d'Alsace" are
+    capitalised rule. Also returns whether a word of the name is in lower case ("l'Orvalie", "d'Arvignac" are
     capitalised words: the text has its capitals)."""
     n = len(text)
     p, end, names_seen, count, cap_seen, lower_seen = pos, None, 0, 0, False, False

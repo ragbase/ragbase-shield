@@ -692,7 +692,7 @@ def test_infinitives(word):
 
 @pytest.mark.parametrize("word", ["dupont", "dufresne", "hakim", "lina", "doudou", "mercadier", "durand", "martin",
                                    "karim", "sophie", "jean", "kervadec", "pradimont", "talvez", "garnier",
-                                   "lemaire", "vincent", "laurent", "lopez", "nguyen"])
+                                   "velmaire", "vincent", "laurent", "talvent", "brivanez"])
 def test_names_are_no_verb_forms(word):
     assert lx.verb_form(word) == ""
 
