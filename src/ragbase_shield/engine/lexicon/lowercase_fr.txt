@@ -1,0 +1,122 @@
+# RAGbase Shield words for lower-case text (French). Written for RAGbase Shield, Apache-2.0.
+# Ordinary words for the lower-case name rules (v0.4.1). A name typed in lower case has no capital to tell it from
+# a common word, so these rules need more ordinary words than the rules for capitalised text. This file completes
+# stopwords_fr.txt, vocab_fr.txt and common_words_fr.txt for these rules only: the other rules do not read it.
+# Section "function": function words, interjections, numerals and chat abbreviations (never a name word).
+# Section "persons": nouns that name a person (professions, offices, relations): ordinary words, and a cue for
+# the name that follows them ("mon voisin pierre dupont").
+# Section "states": adjectives that describe the person named just before them (state, mood, nationality):
+# ordinary words, never a name, also before a verb ("madame seule assume").
+# Section "words": other ordinary nouns, adjectives and adverbs (words of everyday and legal text, first names
+# that are also words and the words that often follow them). Matching is case and accent insensitive; the rules
+# also read a plural or a feminine form of a listed word. Several entries on a line.
+
+# [function]
+assez sauf hormis excepté quant près auprès autour loin proche dessus dessous dedans dehors devant derrière
+voire presque quasi exprès guère naguère sitôt aussitôt tantôt bientôt plutôt tard tôt vite ensemble debout
+ailleurs partout nulle maintenant longtemps autrefois davantage autant tant tellement environ pourquoi comment
+combien mal mieux pire pis abord accord revoici revoilà ci ès quelqu'un quelques-uns quiconque autrui
+ah bah ben eh euh ha hé hein hop oh ouf oups zut chut bravo pardon allô adieu bye ciao ok okay ouais nan
+svp stp cdt cdlt bjr slt mdr lol ptdr bcp tjrs tjs jms rdv asap fyi idem ibid infra supra sic dixit versus vs
+deux trois quatre cinq six sept huit neuf dix onze douze treize quatorze quinze seize vingt trente quarante
+cinquante soixante zéro
+the and for with from this that these those not but are was were will would can could may might must shall
+should have has had been being into about over under after before between through during without within its
+our their your his her any all some more most other such only also just even ever else than then when where
+which who whom whose what why how yes please
+
+# [persons]
+chauffeur chauffeuse routier routière livreur livreuse caissier caissière serveur serveuse cuisinier cuisinière
+plombier électricien électricienne peintre couvreur carreleur paysagiste agriculteur agricultrice éleveur
+éleveuse viticulteur viticultrice ouvrier ouvrière manœuvre technicien technicienne ingénieur ingénieure
+informaticien informaticienne développeur développeuse programmeur analyste consultant consultante comptable
+secrétaire assistant assistante standardiste réceptionniste hôtesse agent agente gardien gardienne vigile
+concierge infirmier infirmière soignant soignante auxiliaire médecin chirurgien chirurgienne dentiste
+pharmacien pharmacienne kinésithérapeute kiné psychologue psychiatre psy vétérinaire ambulancier ambulancière
+pompier policier policière gendarme militaire soldat douanier magistrat magistrate greffier greffière huissier
+notaire avoué juriste conseiller conseillère enseignant enseignante instituteur institutrice éducateur
+éducatrice animateur animatrice formateur formatrice étudiant étudiante lycéen lycéenne collégien collégienne
+écolier écolière chercheur chercheuse journaliste rédacteur rédactrice photographe graphiste architecte
+géomètre artisan commerçant commerçante pâtissier pâtissière coiffeur coiffeuse esthéticienne fleuriste libraire
+restaurateur restauratrice hôtelier hôtelière barman garagiste mécanicien mécanicienne carrossier pilote
+conducteur conductrice contrôleur contrôleuse facteur factrice postier postière banquier banquière courtier
+courtière assureur trader gestionnaire directrice dirigeant dirigeante présidente pdg drh daf manager manageur
+manageuse cheffe superviseur superviseuse cadre fonctionnaire contractuel contractuelle vacataire intérimaire
+saisonnier saisonnière alternant alternante bénévole chômeur chômeuse rentier rentière entrepreneur
+entrepreneuse indépendant indépendante freelance patron patronne copropriétaire colocataire syndic occupant
+occupante squatteur squatteuse légataire donataire tuteur tutrice curateur curatrice administrateur
+administratrice commissaire expert experte complice suspect suspecte accusé accusée détenu détenue prisonnier
+prisonnière adversaire supérieur supérieure subordonné subordonnée collaborateur collaboratrice partenaire
+actionnaire investisseur investisseuse fondateur fondatrice cofondateur cofondatrice garant garante emprunteur
+emprunteuse prêteur prêteuse acheteur acheteuse fournisseur prestataire donneur mari femme maman papa compagnon
+compagne copain copine gendre bru parrain marraine filleul filleule généraliste spécialiste référent référente
+remplaçant remplaçante nageur nageuse chanteur chanteuse sauveteur sauveteuse espion espionne penseur
+avocat avocate directeur président juge procureur procureure bâtonnier maire adjoint adjointe député députée
+sénateur sénatrice ministre préfet préfète employeur employeuse salarié salariée employé employée gérant gérante
+associé associée client cliente collègue confrère consœur ami amie voisin voisine époux épouse conjoint
+conjointe père mère fils fille frère sœur oncle tante neveu nièce cousin cousine enfant bébé monsieur madame
+mademoiselle maître docteur professeur locataire propriétaire bailleur bailleresse vendeur vendeuse acquéreur
+créancier créancière débiteur débitrice demandeur demanderesse défendeur défenderesse appelant appelante intimé
+intimée requérant requérante témoin victime prévenu prévenue plaignant plaignante mandataire liquidateur
+héritier héritière bénéficiaire stagiaire apprenti apprentie
+
+# [states]
+âgé âgée âgés âgées enceinte enceintes souffrant souffrante blessé blessée décédé décédée absent absente présent
+présente disponible indisponible joignable injoignable inquiet inquiète furieux furieuse mécontent mécontente
+satisfait satisfaite content contente ravi ravie déçu déçue surpris surprise épuisé épuisée fatigué fatiguée
+dépressif dépressive anxieux anxieuse fragile vulnérable isolé isolée seul seule seuls seules endetté endettée
+insolvable solvable ruiné ruinée aisé aisée honnête malhonnête sincère loyal loyale déloyal déloyale fautif
+fautive coupable innocent innocente irresponsable négligent négligente imprudent imprudente violent violente
+agressif agressive menaçant menaçante dangereux dangereuse inoffensif inoffensive alcoolique ivre sobre
+toxicomane handicapé handicapée invalide inapte apte valide incapable compétent compétente incompétent
+incompétente débutant débutante senior junior mineur mineure majeur majeure libre simple premier première
+dernier dernière nouveau nouvelle plein pleine vide prêt prête sûr sûre certain certaine conscient consciente
+favorable défavorable hostile opposé opposée désolé désolée gentil gentille méchant méchante jaloux jalouse
+heureux heureuse malheureux malheureuse triste calme nerveux nerveuse sérieux sérieuse courageux courageuse
+lâche fier fière têtu têtue sourd sourde muet muette aveugle boiteux infirme chauve maigre mince gros grosse
+jeune vieux vieille adulte adolescent adolescente résident résidente titulaire redevable imposable solidaire
+hiérarchique émérite agrégé agrégée
+français française étranger étrangère européen européenne algérien algérienne marocain marocaine tunisien
+tunisienne italien italienne espagnol espagnole portugais portugaise allemand allemande belge suisse anglais
+anglaise britannique américain américaine canadien canadienne chinois chinoise turc turque roumain roumaine
+polonais polonaise russe ukrainien ukrainienne africain africaine sénégalais sénégalaise malien malienne
+ivoirien ivoirienne camerounais camerounaise congolais congolaise comorien comorienne libanais libanaise syrien
+syrienne afghan afghane pakistanais pakistanaise indien indienne brésilien brésilienne
+
+# [words]
+# --- Everyday and legal words that the other lists do not hold ---
+info infos mail mails email emails courriel sms message messages appel appels rappel rappels copie relecture
+validation signature réunion visio visioconférence audience plaidoirie conclusions assignation requête mémoire
+jugement arrêt ordonnance courrier lettre recommandé recommandée avis préavis délai urgence urgent urgente retard
+arriéré arriérés impayé impayés loyer loyers caution dépôt salaire salaires prime primes congé congés maladie
+accident chômage retraite pension indemnité indemnités dommages intérêts préjudice faute grave lourde abusif
+abusive réel réelle légitime injustifié injustifiée irrégulier irrégulière nul caduc caduque valable recevable
+irrecevable fondé fondée infondé infondée amiable contentieux litigieux litigieuse judiciaire extrajudiciaire
+prud'homal prud'homale pénal pénale civil civile commercial commerciale fiscal fiscale social sociale familial
+familiale conjugal conjugale parental parentale patrimonial patrimoniale immobilier immobilière bancaire
+financier financière salarial salariale légal légale illégal illégale officiel officielle privé privée public
+publique confidentiel confidentielle personnel personnelle professionnel professionnelle médical médicale
+mensuel mensuelle annuel annuelle brut brute net nette total totale partiel partielle complet complète
+définitif définitive provisoire temporaire permanent permanente immédiat immédiate prochain prochaine actuel
+actuelle ancien ancienne futur future éventuel éventuelle principal principale secondaire général générale
+spécial spéciale particulier particulière normal normale habituel habituelle exceptionnel exceptionnelle
+important importante nécessaire obligatoire facultatif facultative possible impossible probable difficile
+facile clair claire exact exacte précis précise correct correcte faux fausse vrai vraie bon bonne mauvais
+mauvaise meilleur meilleure grand grande petit petite long longue court courte haut haute bas basse fort forte
+faible lourd léger légère
+verrier queux cylindre étalon autel brasseur traitant
+# --- First names that are also words, and the words that often follow them ---
+abbés agate alpha amande amen ange anis anémone arcade archange argentine ascension assomption atlas aurore azur
+azalée baba barbe béryl bienvenu bienvenue brunette candide cannelle capucine cerise césar chérif chrétien
+chrétienne christ clément clémente clémentine colombe corneille cyan dahlia dauphine délice divine dune éden
+émeraude fauve flore franco gala gentiane germain germaine gitane gloire gracieuse gui harmonie hermine
+hortensia hyacinthe incarnation iris islam jacinthe jade jazz jersey laid laide lilas lin louve marin marine
+marjolaine martial martiale maxime mélodie merveille miracle mirabelle moche myrtille nana narcisse océan octave
+olive opale pâquerette parfaite pascal pascale pépin pervenche pie placide précieux précieuse primo princesse
+prune prunelle purification rime rock romain romaine roman romance romane rosaire rosette rubis saphir samba
+sauveur slim sultan trinité urbain urbaine vanille vital vitale max sam mel van line venise milan
+angulaire tombale ponce philosophale bonbon trémière fuchsia boréale centenaire calcaire délavé
+many seven handy elder favour lovely merry blue alone hope love joy faith grace sun sky summer june july april
+august king angel baby lady lord duke earl dean ruby pearl amber ivy holly daisy lily violet jasmine ginger
+sage candy cherry crystal destiny harmony melody lucky sunny happy precious blessing praise winner wisdom
+victory trinity heaven diamond silly windy dusty shady rocky mark bill grant
