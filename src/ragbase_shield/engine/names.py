@@ -1222,6 +1222,8 @@ _LC_ATTRIBUTE_VERBS = ("declar", "nomm", "design", "elu", "elis", "elit", "trouv
 # Legal forms that are also words in lower case ("un sas d'entrée", "un spa"): after a company cue or an article only.
 _LC_FORM_WORDS = frozenset({"sas", "spa", "inc", "corp", "limited", "corporation", "incorporated", "sca", "scs",
                             "scm", "spl", "slp"})
+# Legal forms that the capitalised rules do not list; in lower case they close a company name as the others do.
+_LC_EXTRA_FORMS = frozenset("earl gaec scea gfa sccv sarlu".split())
 # The last word of a legal form written in full words ("société par actions simplifiée", "société civile
 # immobilière", "société à responsabilité limitée").
 _LC_SPELLED_FORM_ENDS = frozenset("simplifiee unipersonnelle limitee anonyme immobiliere professionnelle collectif "
@@ -1271,7 +1273,7 @@ def _lc_sets() -> dict[str, frozenset]:
     # an acronym that is also a word or a first name keeps the class of the word ("roi", "loi")
     known = mg.vocab("fr") | low["words"] | common | afn
     hard = hard | frozenset(a for a in (fold_word(x) for x in lx.acronym_stoplist()) if a not in known) \
-        | frozenset(LEGAL_FORMS)
+        | frozenset(LEGAL_FORMS) | _LC_EXTRA_FORMS
     # ordinary words: the vocabulary, the words of lowercase_fr.txt, company and place words, and the first names
     # that the strong list leaves out because they are places or words ("lyon", "juste")
     plain = mg.vocab("fr") | low["words"] | ORG_GENERIC | _PLACE_WORDS | mg.ner_stoplist("fr")[0] | _ORG_SKIP \
@@ -1524,6 +1526,8 @@ def _lc_particle_name(run: list[_W], k: int, civility: bool) -> int:
         return m + 1 if m < n and surname(run[m]) else 0
     if not civility:
         return 0
+    if low == "ait" and k + 1 < n and unknown(run[k + 1]) and len(run[k + 1].low) >= 4:
+        return k + 2  # "m. ait ouardi" (the caller asks for support: "que monsieur ait raison" is a verb)
     if w.prefix:
         if low in ("d", "n", "m") and k + 1 < n and run[k + 1].start == w.end and unknown(run[k + 1]):
             return k + 2
@@ -1620,8 +1624,8 @@ def _lc_given_particle(run: list[_W], k: int) -> int:
             m += 1
         elif w.low == "de":
             kinds = ("oov", "first")  # "de montclar"; never "de retour", "de garde", "de droit"
-    elif w.low in ("le", "la"):
-        m, kinds = k + 1, ("oov",)
+    elif w.low in ("le", "la", "ait"):
+        m, kinds = k + 1, ("oov",)  # "paul le bihannec", "karim ait ouardi"
     else:
         return 0
     if m >= n:
@@ -1684,6 +1688,8 @@ def _lc_first_word(text: str, run: list[_W], i: int, k: int, civ: str) -> bool:
                 or _lc_object_position(run, i)
         if i > 0 and run[i - 1].low in _LC_DETERMINERS:
             return False  # "le dr traitant refuse": a noun phrase, the word is its adjective
+        if last and i == 0 and "c" in _lc_flags(w.low):
+            return True  # "mme porte, salariée depuis 2015, ...": a word that is also a surname, alone in its clause
         return _lc_object_position(run, i) or _lc_verb_follows(run, k + 1, strict=kind == "verb")
     if kind == "first":
         return True
@@ -1773,6 +1779,8 @@ def _lc_name_after(text: str, run: list[_W], i: int, civ: str) -> Optional[tuple
             # thi zadou demande")
             ok = len(w.low) >= 3 and (len(names) == 1 or kinds[0] in ("first", "amb")
                                       or (len(names) == 2 and (last or _lc_third_follows(run, k + 1))))
+            if len(w.low) == 2:  # "m. paul ly a signé": a short surname before its verb
+                ok = given and len(names) == 1 and _lc_third_follows(run, k + 1)
         elif kind == "common":
             ok = given and (last or _lc_verb_follows(run, k + 1))
         elif kind in ("plain", "verb") or (kind == "no" and _lc_person_noun_surname(w)):
@@ -1937,6 +1945,11 @@ def _lc_first_names(text: str, run: list[_W], out: list[RuleSpan], covered: set[
         s = run[k]
         kind = _lc_kind(s)
         last = k + 1 >= n
+        # the first name stands where a name starts: the start of the clause, a person noun, a preposition, a verb
+        framed = plain_first and len(given) == 1 and _lc_name_frame(run, i, n, cue)
+        if not end and framed and not s.cap:
+            end = _lc_given_particle(run, k)  # "paul de roquevert conteste", "mon client karim ait ouardi"
+        sflags = _lc_flags(s.low) if not s.cap else ""
         if end:
             pass
         elif s.cap:
@@ -1956,6 +1969,13 @@ def _lc_first_names(text: str, run: list[_W], out: list[RuleSpan], covered: set[
             end = k + 1  # "jean pierre conteste", "thomas leroy et emma leroy"
         elif kind == "common" and plain_first and len(given) == 1 and _lc_name_frame(run, i, k + 1, cue):
             end = k + 1  # a surname that is also a common word: "mon client paul petit a été licencié"
+        elif framed and ((kind == "oov" and len(s.low) == 2 and _lc_third_follows(run, k + 1))
+                         or ("c" in sflags and "h" not in sflags and "s" not in sflags and len(s.low) >= 3 and (
+                             _lc_verb_follows(run, k + 1, strict=True) if "v" in sflags
+                             else _lc_third_follows(run, k + 1)))):
+            end = k + 1  # right before its verb: a short surname ("paul ly conteste"), a surname that is also a
+            #              title ("mon client paul comte a été licencié") or a verb form ("paul porte conteste";
+            #              "paul porte plainte" is a verb and its object)
         else:
             continue
         words = given + [t for t in range(k, end) if not run[t].prefix and run[t].low not in _LC_NAME_PARTICLES
@@ -2019,8 +2039,10 @@ def _lc_form(w: _W) -> bool:
     """A legal form in any letter case: a form the engine classes "strong" ("sas", "sarl", "selarl"); a weak form
     ("sa", "sc", "co") only as the rules above read it, in capitals."""
     strength = LEGAL_FORMS.get(w.low)
-    if strength is None or w.digit or w.prefix:
+    if w.digit or w.prefix:
         return False
+    if strength is None:
+        return w.low in _LC_EXTRA_FORMS  # "earl", "gaec": a name in lower case before it is a company name
     return strength == "strong" or _legal_form(w) is not None
 
 
@@ -2224,7 +2246,7 @@ def _lc_companies(text: str, run: list[_W], out: list[RuleSpan]) -> None:
             continue
         if first.cap:
             # a form typed in lower case before a capitalised name ("la sarl Dupont Conseil")
-            span = None if _legal_form(w) else _org_forward(run, i + 1)
+            span = None if (_legal_form(w) or w.cap) else _org_forward(run, i + 1)
             if span and span[0] == i + 1 and _meaningful_org(run, *span, roles=True):
                 out.append(RuleSpan(run[span[0]].start, run[span[1] - 1].end, "ORG", 6, "legal_form"))
             continue

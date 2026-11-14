@@ -722,3 +722,60 @@ def test_these_shapes_hold_no_name(text):
 @pytest.mark.parametrize("text,names", LONG_NAME_LIMITS)
 def test_a_long_name_needs_its_verb(text, names):
     assert _spans(text, "PERSON") == names
+
+
+# ---------------------------------------------------------------------------
+# Short surnames, "aït" names, surnames that are also words, more legal forms
+# ---------------------------------------------------------------------------
+
+# (text, the masked text)
+HELD_NAMES = [
+    ("m. ait ouardi conteste son expulsion", "m. PERSONNE_A conteste son expulsion"),
+    ("mme ait hamoudi, salariée depuis 2015, a été licenciée", "mme PERSONNE_A, salariée depuis 2015, a été licenciée"),
+    ("m. paul ait ouardi a signé le bail", "m. PERSONNE_A a signé le bail"),
+    ("karim ait ouardi conteste", "PERSONNE_A conteste"),
+    ("m. paul ly a signé le bail", "m. PERSONNE_A a signé le bail"),
+    ("paul ly conteste son licenciement", "PERSONNE_A conteste son licenciement"),
+    ("mon client paul ly a été licencié", "mon client PERSONNE_A a été licencié"),
+    ("mme porte, salariée depuis 2015, a été licenciée", "mme PERSONNE_A, salariée depuis 2015, a été licenciée"),
+    ("paul porte conteste son licenciement", "PERSONNE_A conteste son licenciement"),
+    ("mon client paul comte a été licencié", "mon client PERSONNE_A a été licencié"),
+    ("paul de roquevert conteste", "PERSONNE_A conteste"),
+    ("mon client paul de roquevert a été licencié", "mon client PERSONNE_A a été licencié"),
+    ("m. said conteste son licenciement", "m. PERSONNE_A conteste son licenciement"),
+    ("la société zorvane EARL a été assignée", "la société SOCIETE_A EARL a été assignée"),
+    ("la société kerdalis earl a été assignée", "la société SOCIETE_A earl a été assignée"),
+    ("mon client a un litige avec brivanor gaec", "mon client a un litige avec SOCIETE_A gaec"),
+]
+
+NOT_HELD = [
+    "bien que monsieur ait refusé de signer",
+    "que madame ait raison ou non",
+    "paul porte plainte contre son voisin",
+    "paul place son argent",
+    "paul bois beaucoup",
+    "julie place souvent ses économies",
+    "paul de retour conteste",
+    "le petit paul de roquevert",
+]
+
+
+@pytest.mark.parametrize("text,masked", HELD_NAMES)
+def test_names_that_their_verb_or_their_place_holds(text, masked):
+    m = _masker()
+    r = m.mask(text)
+    assert r.text == masked
+    assert m.unmask(r.text) == text
+
+
+@pytest.mark.parametrize("text", NOT_HELD)
+def test_words_that_nothing_holds_as_a_name(text):
+    assert _masker().mask(text).text == text
+
+
+@pytest.mark.parametrize("text", ["EARL Zorvane a été assignée.", "La société Zorvane EARL a été assignée.",
+                                  "Le GAEC Brivanor a contesté la créance."])
+def test_capitalised_companies_with_these_forms_keep_their_reading(monkeypatch, text):
+    on = _masker().mask(text).text
+    monkeypatch.setenv(SWITCH, "0")
+    assert _masker().mask(text).text == on
