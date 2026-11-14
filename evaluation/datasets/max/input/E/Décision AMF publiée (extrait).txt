@@ -1,0 +1,35 @@
+AUTORITÉ DES MARCHÉS FINANCIERS
+LA COMMISSION DES SANCTIONS
+
+Décision n° SAN-2021-31 du 9 décembre 2021 à l'égard de la société A et de M. B
+(publication sous forme anonyme - extrait)
+
+[...]
+
+I. FAITS ET PROCÉDURE
+
+La société A est un prestataire de services d'investissement agréé pour le service de négociation pour compte propre. M. B y exerçait, à l'époque des faits, les fonctions de négociateur.
+
+La société A détenait des bons de souscription d'actions (BSA) émis par la société C, dont le prix d'exercice devait être fixé le 10 juin 2019 sur la base de la moyenne des cours de clôture de l'action C lors des cinq séances précédentes.
+
+Les 3, 4 et 7 juin 2019, M. B a passé, pour le compte de la société A, des ordres d'achat de l'action C lors de la phase de fixing de clôture, représentant entre 45 % et 61 % du volume du fixing. Le cours de clôture s'est établi, lors de ces trois séances, entre 3,9 % et 5,2 % au-dessus du dernier cours constaté en séance continue.
+
+Le 23 février 2021, le Collège de l'AMF a notifié à la société A et à M. B un grief de manipulation de cours, fondé sur les articles 12 et 15 du règlement (UE) n° 596/2014.
+
+[...]
+
+II. MOTIFS DE LA DÉCISION
+
+Sur le manquement
+
+La Commission considère que les ordres passés par M. B pour le compte de la société A, concentrés dans les dernières secondes du fixing de clôture lors de séances déterminantes pour le calcul du prix d'exercice des BSA, ont fixé le cours de clôture de l'action C à un niveau anormal ou artificiel. La société A n'établit pas que ces ordres répondaient à des raisons légitimes. Le manquement est caractérisé à l'égard de la société A et de M. B.
+
+Sur la sanction et la publication
+
+Pour déterminer le montant des sanctions, la Commission tient compte de la gravité du manquement, de sa durée limitée à trois séances, de l'avantage retiré par la société A, évalué à 212 000 euros, de l'absence d'antécédents disciplinaires de la société A et de M. B, et de la coopération dont ils ont fait preuve au cours de l'enquête.
+
+Il sera fait une juste appréciation de ces éléments en prononçant une sanction pécuniaire de 600 000 euros à l'encontre de la société A et une sanction pécuniaire de 50 000 euros à l'encontre de M. B.
+
+Eu égard au risque de préjudice grave et disproportionné que causerait à M. B une publication nominative, la présente décision sera publiée sous une forme ne permettant pas d'identifier les personnes mises en cause.
+
+PAR CES MOTIFS, [...] la Commission des sanctions [...] décide de prononcer une sanction pécuniaire de 600 000 euros à l'encontre de la société A et une sanction pécuniaire de 50 000 euros à l'encontre de M. B, et de publier la présente décision sous forme anonyme sur le site internet de l'AMF.

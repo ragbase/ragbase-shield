@@ -23,17 +23,20 @@ data and leaves the rest of the document intact. So we measure both at the same 
 
 ## Benchmarks
 
-Four benchmarks in French. Two are public, two are written by RAGbase with invented people and companies.
+Four benchmarks in French, all public. Two come from other teams. Two are written by RAGbase with invented people
+and companies.
 
 | Benchmark | Content | Size |
 |---|---|---|
-| [FR-PII-Bench](https://huggingface.co/datasets/JaqueBill/fr-pii-bench) (public) | French texts with personal data | 300 texts, 2,105 personal data items |
-| MAPA (public) | Decisions of the Cour de cassation | 19 decisions, 1,615 personal data items, 1,344 legal terms |
-| REF (RAGbase) | An employment-law case file | 5 documents, 1,015 personal data items, 365 legal terms |
-| Max (RAGbase) | Law-firm matters in Word, PDF, Excel and text | 33 documents, 1,003 personal data items, 144 legal terms |
+| [FR-PII-Bench](https://huggingface.co/datasets/JaqueBill/fr-pii-bench) | French texts with personal data | 300 texts, 2,105 personal data items |
+| MAPA | Decisions of the Cour de cassation | 19 decisions, 1,615 personal data items, 1,344 legal terms |
+| [REF](../datasets/ref) (RAGbase) | An employment-law brief in five versions | 5 documents, 1,015 personal data items, 365 legal terms |
+| [Max](../datasets/max) (RAGbase) | Law-firm matters in Word, PDF, Excel and text | 33 documents, 1,003 personal data items, 144 legal terms |
 
 Every tool gets the same files, on the same machine: 6 cores, 16 GB of memory, no graphics card. The same program
 scores every output.
+
+REF and Max are in [`evaluation/datasets`](../datasets) with their answer keys. Run them on your own computer.
 
 ## Results
 
@@ -67,7 +70,8 @@ Precision (P) and recall (R) are next to each score.
 
 ## Run it yourself
 
-The scripts are in this folder and in [`evaluation/public`](../public).
+The scripts are in this folder and in [`evaluation/public`](../public). For REF and Max, one command installs the
+tool, runs it and prints the scores: `bash evaluation/datasets/reproduce.sh ref`.
 
 | Script | What it does |
 |---|---|
@@ -76,3 +80,5 @@ The scripts are in this folder and in [`evaluation/public`](../public).
 | `run_presidio.py` | Runs Presidio on the same files |
 | `extract_text.py` | Reads the text of an input file and of a tool's output file |
 | `score_text.py` | Scores an output against the benchmark answers |
+| `score_f1.py` | Computes the overall score (F1) with precision and recall |
+| `../datasets/reproduce.sh` | Runs Shield or Presidio on REF or Max and prints the scores, in one command |

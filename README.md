@@ -202,17 +202,17 @@ From a terminal, the same in two commands:
 ## Results
 
 Masking everything is easy, but then Claude cannot do the work. Shield masks your clients' data and keeps the law
-readable. We measured Shield against Hexagone and Presidio on four French benchmarks, two of them public.
+readable. We measured Shield against Hexagone and Presidio on four French benchmarks, all public.
 
 | | Shield 0.4.0 Fast | Shield 0.4.0 Precise | Hexagone 0.3.9 Fast | Hexagone 0.3.9 Precis | Presidio 2.2.364 |
 |---|---|---|---|---|---|
 | **Overall score (F1), higher is better** | | | | | |
-| FR-PII-Bench (public) | **96.9** | 96.2 | 80.7 | 80.7 | 66.5 |
-| MAPA (public) | 80.4 | **82.2** | 43.8 | 37.9 | 63.5 |
+| FR-PII-Bench | **96.9** | 96.2 | 80.7 | 80.7 | 66.5 |
+| MAPA | 80.4 | **82.2** | 43.8 | 37.9 | 63.5 |
 | REF | **97.1** | **97.1** | 66.7 | 61.1 | 79.2 |
 | Max | **95.3** | 91.8 | 54.0 | 48.9 | 47.4 |
 | **Legal terms changed, lower is better** | | | | | |
-| MAPA (public) | **0.0 %** | **0.0 %** | 43.1 % | 47.6 % | 18.0 % |
+| MAPA | **0.0 %** | **0.0 %** | 43.1 % | 47.6 % | 18.0 % |
 | REF | **4.1 %** | **4.1 %** | 17.8 % | 47.1 % | 15.3 % |
 | Max | **2.1 %** | 4.2 % | 47.2 % | 58.3 % | 55.6 % |
 | **Speed and memory, lower is better** | | | | | |
@@ -222,6 +222,8 @@ readable. We measured Shield against Hexagone and Presidio on four French benchm
 Fast is the default mode. Precise adds an AI model that runs on your computer. The best value of each row is in bold.
 
 Method and detailed results: [evaluation/laptop/RESULTS_PUBLIC.md](https://github.com/ragbase/ragbase-shield/blob/main/evaluation/laptop/RESULTS_PUBLIC.md).
+
+REF and Max, with their answer keys and one command that reproduces the Shield and Presidio results: [evaluation/datasets](https://github.com/ragbase/ragbase-shield/tree/main/evaluation/datasets).
 
 ---
 
@@ -351,7 +353,7 @@ Shield Desk.
   corpus).
 - Benchmark runners: `evaluation/public/` (public benchmarks; data downloaded into the git-ignored
   `.bench_data/`), `evaluation/holdout-en/` (an invented English corpus), `evaluation/laptop/` (the benchmark
-  scripts and results).
+  scripts and results), `evaluation/datasets/` (the REF and Max benchmarks, with their answer keys).
 - Desktop installers: [packaging/README.md](https://github.com/ragbase/ragbase-shield/blob/main/packaging/README.md).
 
 ### Environment variables
@@ -369,7 +371,7 @@ Shield Desk.
 
 - Security issues: [SECURITY.md](https://github.com/ragbase/ragbase-shield/blob/v0.4.1/SECURITY.md). Do not open a public issue.
 - Release history: [CHANGELOG.md](https://github.com/ragbase/ragbase-shield/blob/main/CHANGELOG.md).
-- Licence: [Apache-2.0](https://github.com/ragbase/ragbase-shield/blob/v0.4.1/LICENSE). Attributions: [NOTICE](https://github.com/ragbase/ragbase-shield/blob/v0.4.1/NOTICE).
+- Licence: [Apache-2.0](https://github.com/ragbase/ragbase-shield/blob/v0.4.1/LICENSE). Attributions: [NOTICE](https://github.com/ragbase/ragbase-shield/blob/v0.4.1/NOTICE). Benchmark sets in `evaluation/datasets`: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 - Test data: invented only. Never put real client data in an issue.
 
 ---

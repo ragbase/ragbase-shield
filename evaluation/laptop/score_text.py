@@ -1,21 +1,9 @@
-"""Tool-agnostic scorer for the laptop head-to-head (Shield, Hexagone, Tonic, Presidio).
+"""Scorer for pseudonymisation tools: one reading for every tool.
 
-Pre-registered (PROTOCOL.md section 8). It needs only three things per document: the input text, the tool's
-output text and the gold. It never needs a tool's spans, kinds or logs, so every tool is scored the same way,
-whatever its replacement style: codes (``PERSONNE_A``), tags (``[a.PERSON_1]``, ``<PERSON>``, ``[REDACTED]``),
-realistic fake values, or plain deletion.
-
-Version 1.1 (drafted 2026-10-23 by the protocol critic, finalised 2026-10-24 by the fairness review; the rules
-are PROTOCOL_ADDENDUM_1.md, which is section 17 of the protocol; the review is <work>/PROTOCOL_CRITIC.md).
-Changes from 1.0, each tested on invented cases for codes, tags, realistic fake values and deletion (``--selftest``
-and <work>/critic/fairness_cases.py): tokens are compared case-, accent- and compatibility-folded and
-the output is NFC-normalised; a fake value that equals another real value no longer shifts the alignment
-(lexicographic repair); a moved block is found again; words split or glued by a re-rendered file are rejoined; a
-second, value-level reading of exposure; public or reserved mail domains and format tokens shared by every value
-of a type do not identify; keep items (like gold items in 1.0) in document properties, and gold and keep items in
-tracked deletions, are reported apart; statuses ``not_run`` and ``unscorable``; run-log rows are matched by
-doc_id or by file. Removed by the review (no scoring error fixed): the critic's "dropped with its context" count,
-its cue split for person names and its "must stay clear without court_city" line.
+It needs only three things per document: the input text, the tool's output text and the gold (the answer key).
+It never needs a tool's spans, kinds or logs, so every tool is scored the same way, whatever its replacement
+style: codes (``PERSONNE_A``), tags (``[a.PERSON_1]``, ``<PERSON>``, ``[REDACTED]``), realistic fake values, or
+plain deletion. Each rule is tested on invented cases for the four styles (``--selftest``).
 
 How it works
 
@@ -39,8 +27,8 @@ How it works
       tokens are accepted (a paragraph a reader puts elsewhere, for example footer and footnotes in another order).
    c. Gaps: each run of unmatched input tokens is aligned with the unmatched output tokens between its two
       neighbours' places (or, when they cross, the next output tokens).
-   An input token is KEPT when aligned with an output token of the same key; otherwise CHANGED (replaced or
-   deleted).
+   An input token is KEPT when aligned with an output token of the same key; otherwise CHANGED (another text
+   in its place, or no text).
 3. Rejoin: a keep item that looks altered, or a gold item that looks protected or partial, is checked once more
    on its letters and digits alone: when its folded letters and digits appear, in one piece, in the output
    between its two kept neighbours, and that stretch is at most 12 letters or digits longer, the item is read
@@ -64,7 +52,6 @@ How it works
    Headline (a), STRICT reading: "exposed" = partial + missed.
    VALUE reading (robust to realistic fake values that share a token with the real one by chance): "exposed
    (value)" when more than half of the identifying letters and digits are kept at its place.
-   A P1 claim needs both readings (PROTOCOL_ADDENDUM_1.md section 17.4, which amends PROTOCOL.md section 11.3).
    Second check, anywhere: the identifying string (identifying tokens in order, folded, one space between tokens)
    is searched as whole words in the folded output. For a value with 8 or more digits that are at least 60 % of
    its letters and digits, the digit string is also searched with spaces removed. Values with fewer than 4
@@ -84,13 +71,12 @@ How it works
 8. Statuses. FAILED (the run log says ``failed``, the output file is missing or unreadable, or the retention is
    under 0.50 when the document has at least 20 letter-or-digit tokens outside gold): every gold item is exposed
    (missed), keep items are not counted as altered, and no region is counted. NOT_RUN (run log ``not_run``: the
-   tool never received the document, for example the trial ended or the word quota ran out) and UNSCORABLE (the
-   output is a PDF with images and no text layer): no item is counted; the document is listed and left out of
-   every paired comparison, on both sides (PROTOCOL_ADDENDUM_1.md section 17.5).
+   tool never received the document) and UNSCORABLE (the output is a PDF with images and no text layer): no item
+   is counted; the document is listed and left out of every paired comparison, on both sides.
 
 Inputs
 
-- gold JSONL (built by ``prepare_sets.py`` or ``make_reference_doc.py``), one line per document:
+- gold JSONL (the answer key), one line per document:
   ``{"set", "doc_id", "file", "text_sha256", "chars", "text" (optional), "gold": [{"id", "label", "start",
   "end", "text", "ident" (optional [[s, e], ...]), "non_identifying" (optional [words]), "part" (optional)}],
   "keep": [{"id", "class", "start", "end", "text"}]}``. Offsets are in the text that ``extract_text.py`` reads
@@ -125,10 +111,10 @@ SCORER_VERSION = "laptop-score-1.1"
 TOKEN_RE = re.compile(r"\w+|[^\w\s]")
 
 # ---------------------------------------------------------------------------------------------- word lists
-# Fixed before any competitor run. The function-word, legal-form and street-word lists are the ones of the MAPA
-# scorer (evaluation/public/mapa-fr-cassation/score.py, unchanged since 2026-10-17), plus English function words
-# and the title words below. The mail-domain and format-token rules were added in 1.1 (fairness review): they
-# remove only tokens that every value of the type shares, so a tool that keeps them leaks nothing.
+# The function-word, legal-form and street-word lists are the ones of the MAPA scorer
+# (evaluation/public/mapa-fr-cassation/score.py), plus English function words and the title words below. The
+# mail-domain and format-token rules remove only tokens that every value of the type shares, so a tool that keeps
+# them leaks nothing.
 FUNCTION_WORDS = {"le", "la", "les", "l", "de", "du", "des", "d", "et", "à", "au", "aux", "en", "sur", "sous",
                   "chez", "of", "the", "and"}
 LEGAL_FORMS = {"sa", "sas", "sasu", "sarl", "eurl", "snc", "scs", "sca", "sci", "scp", "scm", "sel", "selarl",
@@ -614,8 +600,8 @@ def score_doc(rec: dict, in_text: str, out_text: str | None, status: str = "ok",
             side[c] = side[c] or "hidden"
 
     def part_of(g: dict) -> str:
-        """"metadata" or "hidden" (reported apart) or "body" (headline). The REF generator's own region
-        (header, table, footer...) is kept in the field "region"."""
+        """"metadata" or "hidden" (reported apart) or "body" (headline). The region that the REF answer key
+        gives (header, table, footer...) is kept in the field "region"."""
         if g.get("part") in ("metadata", "hidden"):
             return g["part"]
         for c in range(g["start"], g["end"]):
@@ -807,7 +793,7 @@ def aggregate(docs: list[dict]) -> dict:
         "must_stay_clear": {"classes": list(MUST_STAY_CLEAR), "n": must["n"], "altered": must["altered"],
                             "documents_with_one": sum(1 for d in docs if body_must(d))},
         "must_stay_clear_all_parts": {"n": must_all["n"], "altered": must_all["altered"],
-                                      "note": "1.0 reading: document properties and tracked deletions included"},
+                                      "note": "document properties and tracked deletions included"},
         "regions": {"changed_regions": sum(d["regions"] for d in ok_docs),
                     "false_mask_regions": sum(d["false_mask_regions"] for d in ok_docs),
                     "regions_on_gold_50pct": sum(d["regions_on_gold_50"] for d in ok_docs)},
@@ -857,7 +843,7 @@ def markdown(summary: dict, title: str) -> str:
     m = summary["must_stay_clear"]
     md.append(f"| **Must stay clear, all** | {m['n']} | **{m['altered']}** (in {m['documents_with_one']} documents) |")
     m2 = summary["must_stay_clear_all_parts"]
-    md.append(f"| Must stay clear, all parts (1.0 reading, properties and tracked deletions included) | {m2['n']} | "
+    md.append(f"| Must stay clear, all parts (document properties and tracked deletions included) | {m2['n']} | "
               f"{m2['altered']} |")
     if summary["keep_outside_body"]:
         md += ["", "Keep items in document properties or tracked deletions (not in the table above): " + "; ".join(
@@ -902,7 +888,7 @@ def cmd_score(args) -> int:
         else:
             in_text, in_meta = extract(Path(args.inputs) / rec["file"])
         if rec.get("text_sha256") and sha256_text(in_text) != rec["text_sha256"]:
-            raise SystemExit(f"{rec['doc_id']}: input text hash differs from the pre-registered gold")
+            raise SystemExit(f"{rec['doc_id']}: input text hash differs from the answer key")
         log = runlog.get(rec["doc_id"]) or runlog.get(rec.get("file", "")) or {}
         status, reason = log.get("status", "ok"), log.get("reason", "")
         out_text = None
@@ -975,9 +961,8 @@ STYLES = ("codes", "tags", "fakes", "deletion")
 
 
 def review_cases() -> list[dict]:
-    """Invented cases of the fairness review (PROTOCOL_ADDENDUM_1.md section 17.2): every kept change of 1.1, for
-    each replacement style. Each case gives the TRUE answer; ``--selftest`` checks this scorer against it, and
-    <work>/critic/fairness_cases.py runs the same cases through scorer 1.0 for the review table."""
+    """Invented test cases, for each replacement style. Each case gives the TRUE answer; ``--selftest`` checks
+    this scorer against it."""
     cases: list[dict] = []
     B = ("Monsieur Jean Dupont, né le 12 mars 1980, demeurant 12 rue des Lilas, 69003 Lyon, joignable au "
          "06 12 34 56 78 et à jean.dupont@example.com, IBAN FR76 3000 4000 0312 3456 7890 143, NIR 1 80 03 69 123 456 78, "
@@ -1041,15 +1026,15 @@ def review_cases() -> list[dict]:
     roux = {"codes": "PERSONNE_A", "tags": "<PERSON>", "fakes": "Luc Bernard", "deletion": ""}
 
     for st in STYLES:
-        add("S0", "baseline: every value replaced", st, rb, B, styled(st), allp, nokeep)
-        add("F2", "name only upper-cased (not replaced)", st, rb, B, styled(st, {0: "JEAN DUPONT"}),
+        add("S0", "baseline: every value masked", st, rb, B, styled(st), allp, nokeep)
+        add("F2", "name only upper-cased (not masked)", st, rb, B, styled(st, {0: "JEAN DUPONT"}),
             dict(allp, g1="missed"), nokeep)
         add("F2", "court name upper-cased", st, rb, B,
             styled(st).replace("conseil de prud'hommes de Lyon", "CONSEIL DE PRUD'HOMMES DE LYON"), allp, nokeep)
         add("F2", "output in Unicode NFD (decomposed accents)", st, rb, B,
             unicodedata.normalize("NFD", styled(st)), allp, nokeep)
         a, b = swap[st]
-        add("F3", "both names replaced (fakes: the first fake equals the second real name)", st, r3, T3,
+        add("F3", "both names masked (fakes: the first fake equals the second real name)", st, r3, T3,
             T3.replace("Jean Dupont", "\x00").replace("Paul Martin", b).replace("\x00", a),
             {"g1": "protected", "g2": "protected"}, {"k1": False})
         add("F3", "leak control: second name left in clear", st, r3, T3, T3.replace("Jean Dupont", a),
@@ -1059,7 +1044,7 @@ def review_cases() -> list[dict]:
         m_all = moved
         for v, rep in zip(("Jean Dupont", "Paul Martin", "Claire Roux", "4 rue Neuve à Lille"), four[st]):
             m_all = m_all.replace(v, rep)
-        add("F4", "footer put first by the reader, every value replaced", st, r4, T4, m_all,
+        add("F4", "footer put first by the reader, every value masked", st, r4, T4, m_all,
             {"g1": "protected", "g2": "protected", "g3": "protected", "g4": "protected"}, {"k1": False, "k2": False})
         m_leak = m_all.replace(four[st][3], "4 rue Neuve à Lille") if four[st][3] else \
             moved.replace("Jean Dupont", "").replace("Paul Martin", "").replace("Claire Roux", "")
@@ -1068,17 +1053,17 @@ def review_cases() -> list[dict]:
         add("F5", "words glued by a re-rendered file (court, code)", st, rb, B,
             styled(st).replace("prud'hommes de Lyon", "prud'hommesde Lyon").replace("code du travail", "code dutravail"),
             allp, nokeep)
-        add("F5", "name split by a re-rendered file, not replaced", st, rb, B, styled(st, {0: "Jean Du pont"}),
+        add("F5", "name split by a re-rendered file, not masked", st, rb, B, styled(st, {0: "Jean Du pont"}),
             dict(allp, g1="missed"), nokeep)
         add("F5", "short name; replacement may contain its letters", st, r6, T6, T6.replace("Ali", short[st]),
             {"g1": "protected"})
         add("F6", "first name kept (codes, tags, deletion: a leak; fakes: a coincidence)", st, rb, B,
             styled(st, {0: first_only[st]}), dict(allp, g1="partial"), nokeep, value={"g1": False}, kind="rule")
-        add("F7", "e-mail local part replaced, reserved domain example.com kept", st, rb, B,
+        add("F7", "e-mail local part masked, reserved domain example.com kept", st, rb, B,
             styled(st, {4: tags_local[st] + "@example.com"}), allp, nokeep)
         add("F7", "control: firm domain kept", st, r8, T8,
             T8.replace("jean.dupont", tags_local[st]), {"g1": "partial"})
-        add("F8", "phone, IBAN, NIR: shared format group kept, rest replaced", st, rb, B,
+        add("F8", "phone, IBAN, NIR: shared format group kept, rest masked", st, rb, B,
             styled(st, {3: phone_fmt[st], 5: iban_fmt[st], 6: nir_fmt[st]}), allp, nokeep)
         add("F8", "control: last groups kept", st, rb, B,
             styled(st, {3: "** ** ** 56 78", 5: "FR** **** **** **** **** **** 143", 6: "* ** ** ** *** 456 78"}),
@@ -1093,10 +1078,10 @@ def review_cases() -> list[dict]:
     hid = [(0, T11.index("Texte gardé"))]
     add("F10", "tracked deletion dropped by the reader (text output)", "any", r11, T11, T11[hid[0][1]:],
         keep={"k1": False, "k2": False}, scored=0, must=(2, 0), hidden=hid)
-    add("F10", "tracked deletion kept, not replaced (file rewritten)", "any", r11, T11, T11,
+    add("F10", "tracked deletion kept, not masked (file rewritten)", "any", r11, T11, T11,
         keep={"k1": False, "k2": False}, scored=0, must=(2, 0), kind="rule", hidden=hid)
-    add("F11", "document never sent to the tool (trial or quota ended)", "any", rb, B, None, excluded=True,
-        status="not_run", reason="trial ended")
+    add("F11", "document never sent to the tool", "any", rb, B, None, excluded=True,
+        status="not_run", reason="not sent")
     add("F12", "output PDF with images and no text layer", "any", rb, B, None, excluded=True,
         status="unscorable", reason="output PDF has images and no text layer")
     return cases
@@ -1187,7 +1172,7 @@ def selftest() -> int:
     st, kp, r = run("PERSONNE_A\n")
     check("retention rule", r["status"] == "failed" and set(st.values()) == {"missed"}, (r["status"], st))
 
-    # ---- 1.1 cases (fairness review), all invented
+    # ---- more cases, all invented
     s1 = ("Monsieur Jean Dupont, né le 12 mars 1980, demeurant 12 rue des Lilas, 69003 Lyon, joignable au "
           "06 12 34 56 78 et à jean.dupont@gmail.com, IBAN FR76 3000 4000 0312 3456 7890 143, NIR 1 80 03 69 123 456 78, "
           "a saisi le conseil de prud'hommes de Lyon sur le fondement de l'article L. 1235-3 du code du travail.\n")
@@ -1265,9 +1250,9 @@ def selftest() -> int:
     r8 = _probe(s8, [("PERSON", "Paul Roux")], [("article", "article 700")])
     st, kp, r = run(s8, r8, s8, hidden=[(0, s8.index("Texte gardé"))])
     check("tracked deletion apart", r["items"][0]["part"] == "hidden" and aggregate([r])["protection"]["scored"] == 0, r["items"])
-    st, kp, r = run(None, r8, s8, status="not_run", reason="trial ended")
+    st, kp, r = run(None, r8, s8, status="not_run", reason="not sent")
     check("not_run left out", aggregate([r])["documents"] == 0 and len(aggregate([r])["documents_excluded"]) == 1, r)
-    # ---- review cases (PROTOCOL_ADDENDUM_1.md section 17.2): every kept change, every replacement style
+    # ---- the cases of review_cases(): every rule, every replacement style
     for case in review_cases():
         kw = dict(case["kw"])
         res = score_doc(case["rec"], case["src"], case["out"], **kw)

@@ -1,20 +1,22 @@
-"""Run RAGbase Shield on one set of the laptop head-to-head, the way a lawyer uses it (pre-registered,
-PROTOCOL.md section 9.1). Runs on Windows, macOS and Linux; standard library plus the installed Shield.
+"""Run RAGbase Shield on one benchmark set, the way a lawyer uses it. Runs on Windows, macOS and Linux; standard
+library plus the installed Shield.
 
 Path (the product path, what an AI assistant receives): for each task of ``tasks.json`` (a folder a lawyer would
 drop), the task's files are copied to a staging folder named after the task, the folder is registered with the
 public ``Service`` API (``add_dossier``, no title), then each document is read page by page with
 ``read_document`` (default page size). The pages are joined: that text is Shield's output for the document.
 
-Settings (fixed; PROTOCOL.md section 6):
-  --mode rules   RAGBASE_SHIELD_NER=off                                       (the product default)
-  --mode ner     RAGBASE_SHIELD_NER=on, RAGBASE_SHIELD_NER_MODEL=fastino, RAGBASE_SHIELD_NER_DEVICE=cpu
+Settings (fixed):
+  --mode rules   Fast mode, the product default: RAGBASE_SHIELD_NER=off
+  --mode ner     Precise mode: RAGBASE_SHIELD_NER=on, RAGBASE_SHIELD_NER_MODEL=fastino, RAGBASE_SHIELD_NER_DEVICE=cpu
+                 Set RAGBASE_SHIELD_MODELS_DIR to the folder of the model first (``ragbase-shield ner download``
+                 puts it in ``~/.ragbase-shield/models``): the run uses a new data folder.
 Everything else is the product default (language auto, codes, legal form in clear). A fresh Shield data folder
 per run (RAGBASE_SHIELD_HOME), file key (RAGBASE_SHIELD_KEYRING=0). Outbound network connections are refused in
-this process and every attempt is logged (part (d) of the question).
+this process and every attempt is logged.
 
-For the AVX2-only speed row, start the process with ATEN_CPU_CAPABILITY=avx2 and ONEDNN_MAX_CPU_ISA=AVX2 in the
-environment (they must be set before torch loads); the runner records them.
+To measure the speed with AVX2 only, start the process with ATEN_CPU_CAPABILITY=avx2 and ONEDNN_MAX_CPU_ISA=AVX2
+in the environment (they must be set before torch loads); the runner records them.
 
 Timing: ``cold_seconds`` = process start to the end of a warm-up mask of a fixed invented sentence (imports,
 lexicons and, in ner mode, the model load); ``task_seconds`` = add_dossier plus every read_document of the task.
@@ -101,7 +103,7 @@ def main() -> int:
     ap.add_argument("--mode", choices=("rules", "ner"), required=True)
     ap.add_argument("--tasks", default="", help="only these task names (comma separated)")
     ap.add_argument("--repeat", type=int, default=1, help="speed runs: repeat each task N times (new dossier each)")
-    ap.add_argument("--allow-network", action="store_true", help="never used in the protocol")
+    ap.add_argument("--allow-network", action="store_true", help="never used for a benchmark run")
     args = ap.parse_args()
 
     set_dir, out = Path(args.set_dir), Path(args.out)
@@ -195,7 +197,7 @@ def main() -> int:
         "date_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "set": set_dir.name, "mode": args.mode, "engine_mode": engine_mode,
         "shield_version": getattr(ragbase_shield, "__version__", "?"),
-        "shield_package_sha256": package_hash(), "shield_commit": os.environ.get("SHIELD_COMMIT", "see HEAD_HASH"),
+        "shield_package_sha256": package_hash(), "shield_commit": os.environ.get("SHIELD_COMMIT", ""),
         "env": {k: os.environ.get(k) for k in ("RAGBASE_SHIELD_NER", "RAGBASE_SHIELD_NER_MODEL",
                                                "RAGBASE_SHIELD_NER_DEVICE", "RAGBASE_SHIELD_NER_THREADS",
                                                "RAGBASE_SHIELD_LANGUAGE", "ATEN_CPU_CAPABILITY",

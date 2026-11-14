@@ -1,7 +1,7 @@
-"""Microsoft Presidio as a free local baseline for the laptop head-to-head (pre-registered, PROTOCOL.md 9.3).
+"""Run Microsoft Presidio, a free local tool, on one benchmark set.
 
 Fixed settings: presidio-analyzer and presidio-anonymizer (versions recorded at install), spaCy model
-``fr_core_news_md`` for the French sets and ``en_core_web_lg`` for the English set, the default recognizer registry
+``fr_core_news_md`` (``en_core_web_lg`` with ``--language en``), the default recognizer registry
 for that language, the default score threshold, all default entities, and the default anonymizer operator
 (``replace``: the value becomes ``<ENTITY_TYPE>``). No presidio-fr add-on, no custom recognizer. Presidio is a text
 library, so it gets the text that ``extract_text.py`` reads from each input file (it does not rebuild files).

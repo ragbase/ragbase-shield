@@ -1,4 +1,4 @@
-"""Paired comparison of two scored runs on the same set (pre-registered decision rule, PROTOCOL.md section 11.3).
+"""Paired comparison of two scored runs on the same set.
 
 Inputs: two result JSON files written by ``score_text.py`` for the same gold (same documents). For each primary
 measure the unit is the document: P1 = exposed gold items (headline parts), P2 = must-stay-clear items altered.
@@ -6,10 +6,10 @@ The difference of the pooled rates (A minus B) gets a 95 % interval from a paire
 resamples, ``random.Random(20261023)``). A claim "B is better than A on this measure" is allowed only when the
 whole interval is above 0 (for both measures, lower is better). Rates also get a 95 % Wilson interval.
 
-Version 1.1 (2026-10-24, PROTOCOL_ADDENDUM_1.md section 17.4 and 17.5, for scorer 1.1): headline parts only
-(gold and keep items in document properties or tracked deletions are left out, as in the scorer's headlines); a
-document that is ``not_run`` or ``unscorable`` in either run is left out of BOTH runs and listed; P1 is computed
-twice, strict (partial + missed) and value (``exposed_value``), and a P1 claim needs both readings to agree.
+Headline parts only (gold and keep items in document properties or tracked deletions are left out, as in the
+scorer's headlines); a document that is ``not_run`` or ``unscorable`` in either run is left out of BOTH runs and
+listed; P1 is computed twice, strict (partial + missed) and value (``exposed_value``), and the two readings of P1
+must agree.
 
 Usage: python compare_runs.py A.json B.json [--name-a X --name-b Y]
 """
@@ -74,7 +74,7 @@ def main() -> int:
         return 0
     rng = random.Random(SEED)
     verdicts = {}
-    # P1 strict and P2 first, in the 1.0 order (same bootstrap draws as 1.0); the value reading after them
+    # P1 strict and P2 first, then the value reading: this order fixes the bootstrap draws
     for label, xi, ni in (("P1 exposed gold items (strict)", 0, 1), ("P2 must-stay-clear items altered", 2, 3),
                           ("P1 exposed gold items (value)", 4, 1)):
         xa, xb = sum(A[i][xi] for i in ids), sum(B[i][xi] for i in ids)
@@ -98,7 +98,7 @@ def main() -> int:
               f"difference {(xa - xb) / n:+.2%} (95% {lo:+.2%} to {hi:+.2%}): {verdict}")
     if 0 in verdicts:
         p1 = verdicts[0] if verdicts[0] == verdicts.get(4) else "no claim (the strict and value readings disagree)"
-        print(f"P1 claim (both readings must agree, PROTOCOL_ADDENDUM_1.md section 17.4): {p1}")
+        print(f"P1 (both readings must agree): {p1}")
     return 0
 
 

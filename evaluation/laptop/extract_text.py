@@ -1,8 +1,8 @@
-"""Fixed readers for the laptop head-to-head: turn an input file or a tool's output file into plain text.
+"""Fixed readers for the benchmark: turn an input file or a tool's output file into plain text.
 
-Pre-registered (PROTOCOL.md section 7). The SAME reader reads the input file and every tool's output file, so the
-scorer compares like with like. The readers are fixed before any competitor run and are never changed after it;
-a change is a deviation (PROTOCOL.md section 12).
+The SAME reader reads the input file and every tool's output file, so the scorer compares like with like. The
+answer keys give character positions in the text of this reader: the readers and the versions of their libraries
+are fixed.
 
 Formats and rules:
 
@@ -25,14 +25,12 @@ Formats and rules:
             one line per row with at least one value: ``str(value)`` of the non-empty cells joined by " | ",
             then the cell comments of the sheet ("<author>: <text>").
 
-Reader record (``--meta``), added in 1.1 without any change to the text: ``hidden_ranges`` = the character ranges
-of the text that come from tracked deletions (``w:delText``) of a .docx (the scorer reports gold and keep items
-there apart, as "hidden" content, like document properties); ``image_only`` = a .pdf whose pages carry images but
-no letter or digit in their text layer (the scorer then marks the output "unscorable", not "failed":
-PROTOCOL_ADDENDUM_1.md section 17.5).
+Reader record (``--meta``): ``hidden_ranges`` = the character ranges of the text that come from tracked deletions
+(``w:delText``) of a .docx (the scorer reports gold and keep items there apart, as "hidden" content, like
+document properties); ``image_only`` = a .pdf whose pages carry images but no letter or digit in their text layer
+(the scorer then marks the output "unscorable", not "failed").
 
-Anything else (.eml, .html, .md, scans, encrypted PDFs) is not read: the protocol keeps those files out of the
-common set (PROTOCOL.md section 5.4).
+Anything else (.eml, .html, .md, scans, encrypted PDFs) is not read.
 
 Usage: python extract_text.py FILE [--meta]   (prints the text; --meta prints the reader record as JSON)
 """
@@ -45,7 +43,7 @@ import zipfile
 from pathlib import Path
 from xml.etree import ElementTree as ET
 
-READER_VERSION = "laptop-extract-1.1"  # 1.1 (2026-10-23, fairness review): meta only, text unchanged
+READER_VERSION = "laptop-extract-1.1"  # written in each reader record
 EXPECTED_LIBS = {"pdfplumber": "0.11.10", "pdfminer.six": "20260107", "openpyxl": "3.1.2"}
 
 W = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
@@ -73,7 +71,7 @@ def lib_versions() -> dict:
 
 
 def check_versions() -> list[str]:
-    """Differences from the pinned reader libraries (empty list = as pre-registered)."""
+    """Differences from the pinned reader libraries (empty list = the pinned versions)."""
     got = lib_versions()
     return [f"{k}: expected {v}, found {got.get(k)}" for k, v in EXPECTED_LIBS.items() if got.get(k) != v]
 
@@ -269,7 +267,7 @@ def read_xlsx(path: Path) -> tuple[str, dict]:
 
 
 def extract(path: str | Path) -> tuple[str, dict]:
-    """(text, meta). Raises ValueError for a format outside the common set."""
+    """(text, meta). Raises ValueError for a format that is not read."""
     p = Path(path)
     ext = p.suffix.lower()
     if ext == ".txt":
@@ -281,7 +279,7 @@ def extract(path: str | Path) -> tuple[str, dict]:
     elif ext == ".xlsx":
         text, meta = read_xlsx(p)
     else:
-        raise ValueError(f"format not in the common set: {ext}")
+        raise ValueError(f"format not read: {ext}")
     meta = dict(meta, reader=READER_VERSION, format=ext.lstrip("."))
     return text, meta
 

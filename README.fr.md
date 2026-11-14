@@ -204,17 +204,17 @@ Pour les habitués du terminal, la même chose en deux commandes :
 ## Résultats
 
 Tout masquer est facile, mais Claude ne peut plus travailler. Shield masque les données de vos clients et garde le droit
-lisible. Nous avons mesuré Shield face à Hexagone et à Presidio sur quatre benchmarks en français, dont deux publics.
+lisible. Nous avons mesuré Shield face à Hexagone et à Presidio sur quatre benchmarks en français, tous publics.
 
 | | Shield 0.4.0 Rapide | Shield 0.4.0 Précis | Hexagone 0.3.9 Rapide | Hexagone 0.3.9 Précis | Presidio 2.2.364 |
 |---|---|---|---|---|---|
 | **Score global (F1), plus haut = mieux** | | | | | |
-| FR-PII-Bench (public) | **96,9** | 96,2 | 80,7 | 80,7 | 66,5 |
-| MAPA (public) | 80,4 | **82,2** | 43,8 | 37,9 | 63,5 |
+| FR-PII-Bench | **96,9** | 96,2 | 80,7 | 80,7 | 66,5 |
+| MAPA | 80,4 | **82,2** | 43,8 | 37,9 | 63,5 |
 | REF | **97,1** | **97,1** | 66,7 | 61,1 | 79,2 |
 | Max | **95,3** | 91,8 | 54,0 | 48,9 | 47,4 |
 | **Termes juridiques modifiés, plus bas = mieux** | | | | | |
-| MAPA (public) | **0,0 %** | **0,0 %** | 43,1 % | 47,6 % | 18,0 % |
+| MAPA | **0,0 %** | **0,0 %** | 43,1 % | 47,6 % | 18,0 % |
 | REF | **4,1 %** | **4,1 %** | 17,8 % | 47,1 % | 15,3 % |
 | Max | **2,1 %** | 4,2 % | 47,2 % | 58,3 % | 55,6 % |
 | **Vitesse et mémoire, plus bas = mieux** | | | | | |
@@ -225,6 +225,8 @@ Rapide est le mode par défaut. Précis ajoute un modèle d'IA qui tourne sur vo
 chaque ligne est en gras.
 
 Méthode et résultats détaillés : [evaluation/laptop/RESULTS_PUBLIC.md](evaluation/laptop/RESULTS_PUBLIC.md) (en anglais).
+
+REF et Max, avec leurs corrigés et une commande qui reproduit les résultats de Shield et de Presidio : [evaluation/datasets](evaluation/datasets).
 
 ---
 
@@ -359,7 +361,8 @@ Lancez ces commandes dans votre propre terminal, ou utilisez Shield Desk.
   juridique français inventé).
 - Scripts d'évaluation : `evaluation/public/` (benchmarks publics ; données téléchargées dans le dossier
   `.bench_data/`, ignoré par git), `evaluation/holdout-en/` (un corpus anglais inventé), `evaluation/laptop/`
-  (les scripts et les résultats du benchmark).
+  (les scripts et les résultats du benchmark), `evaluation/datasets/` (les benchmarks REF et Max, avec leurs
+  corrigés).
 - Installateurs de bureau : [packaging/README.md](packaging/README.md).
 
 ### Variables d'environnement
@@ -377,7 +380,7 @@ Lancez ces commandes dans votre propre terminal, ou utilisez Shield Desk.
 
 - Failles de sécurité : [SECURITY.md](SECURITY.md). N'ouvrez pas de ticket public.
 - Historique des versions : [CHANGELOG.md](CHANGELOG.md).
-- Licence : [Apache-2.0](LICENSE). Attributions : [NOTICE](NOTICE).
+- Licence : [Apache-2.0](LICENSE). Attributions : [NOTICE](NOTICE). Benchmarks de `evaluation/datasets` : [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 - Données de test : inventées seulement. N'envoyez jamais de vraies données de client dans un ticket.
 
 ---
