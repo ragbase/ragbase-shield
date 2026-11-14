@@ -24,8 +24,9 @@ Ce que le plugin ajoute :
 
 Ce que le plugin exécute et envoie :
 
-- Le plugin contient le paquet `ragbase-shield` 0.4.1 tel qu'il est publié sur PyPI, dans le fichier
-  `vendor/ragbase_shield-0.4.1-py3-none-any.whl`. Son SHA-256 est le même que sur PyPI :
+- Le plugin contient le paquet `ragbase-shield` 0.4.1, dans le fichier
+  `vendor/ragbase_shield-0.4.1-py3-none-any.whl`. C'est le fichier de la version 0.4.1 publiée sur GitHub. Son
+  SHA-256 est celui du fichier `SHA256SUMS` de cette version :
   `12d5adb42e3d8d690263a4eb78aa99b1b6f038abd2593d20e9946b5ec17189e0`.
 - Le serveur MCP et les quatre hooks lancent ce fichier, et rien d'autre :
   `uvx --from ${CLAUDE_PLUGIN_ROOT}/vendor/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield mcp`
@@ -63,9 +64,9 @@ Installation dans Claude Code (version 2.1.275 ou plus récente) :
 `/plugin install ragbase-shield --marketplace ragbase/ragbase-shield`. Avec une version plus ancienne :
 `/plugin marketplace add ragbase/ragbase-shield`, puis `/plugin install ragbase-shield@ragbase`.
 
-Pour commencer : installez uv, enregistrez un dossier avec Shield Desk (`uvx ragbase-shield==0.4.1 desk`) ou avec
-`uvx ragbase-shield==0.4.1 add <dossier> --title "Titre"`, puis lancez Claude Code. Pour tester sans vos données :
-`uvx ragbase-shield==0.4.1 verify` vérifie chaque chemin avec des données inventées et répond CLEAN ou LEAK.
+Pour commencer : installez uv, enregistrez un dossier avec Shield Desk (`uvx ragbase-shield desk`) ou avec
+`uvx ragbase-shield add <dossier> --title "Titre"`, puis lancez Claude Code. Pour tester sans vos données :
+`uvx ragbase-shield verify` vérifie chaque chemin avec des données inventées et répond CLEAN ou LEAK.
 
 Limites : la détection n'est pas complète, relisez le texte masqué dans les cas sensibles. Le texte que vous tapez ou
 joignez directement dans une autre application d'IA n'est pas protégé. Les résultats mesurés :
@@ -93,8 +94,9 @@ What the plugin adds:
 
 What the plugin runs and sends:
 
-- The plugin holds the `ragbase-shield` 0.4.1 package as published on PyPI, in the file
-  `vendor/ragbase_shield-0.4.1-py3-none-any.whl`. Its SHA-256 is the same as on PyPI:
+- The plugin holds the `ragbase-shield` 0.4.1 package, in the file
+  `vendor/ragbase_shield-0.4.1-py3-none-any.whl`. It is the wheel of the GitHub release 0.4.1. Its SHA-256 is the
+  one in the `SHA256SUMS` file of that release:
   `12d5adb42e3d8d690263a4eb78aa99b1b6f038abd2593d20e9946b5ec17189e0`.
 - The MCP server and the four hooks run this file and nothing else:
   `uvx --from ${CLAUDE_PLUGIN_ROOT}/vendor/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield mcp`
@@ -130,9 +132,9 @@ Install in Claude Code (version 2.1.275 or later):
 `/plugin install ragbase-shield --marketplace ragbase/ragbase-shield`. With an older version:
 `/plugin marketplace add ragbase/ragbase-shield`, then `/plugin install ragbase-shield@ragbase`.
 
-To start: install uv, register a folder with Shield Desk (`uvx ragbase-shield==0.4.1 desk`) or with
-`uvx ragbase-shield==0.4.1 add <folder> --title "Title"`, then start Claude Code. To test without your data:
-`uvx ragbase-shield==0.4.1 verify` checks every path with invented data and answers CLEAN or LEAK.
+To start: install uv, register a folder with Shield Desk (`uvx ragbase-shield desk`) or with
+`uvx ragbase-shield add <folder> --title "Title"`, then start Claude Code. To test without your data:
+`uvx ragbase-shield verify` checks every path with invented data and answers CLEAN or LEAK.
 
 Limits: detection is not complete, so review the masked text in sensitive cases. Text that you type or attach
 directly in another AI app is not protected. The measured results: https://shield.ragbase.ai/en/results/.

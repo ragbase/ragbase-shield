@@ -41,10 +41,11 @@ then add **RAGbase Shield**. The MCP server is marked "Runs in each session": it
 Claude Code and in Cowork sessions on your computer, not in plain chat. For plain chat in Claude Desktop,
 use the `.mcpb` extension ([`../claude-desktop/`](../claude-desktop/)).
 
-The plugin pins the package as Anthropic's plugin directory requires for `uvx`: it ships the exact wheel that is
-on PyPI, [`plugin/vendor/ragbase_shield-0.4.1-py3-none-any.whl`](plugin/vendor/) (same SHA-256 as the PyPI file),
-and runs it with `uvx --from`. A version number alone (`ragbase-shield==0.4.1`) is not a pin for the directory.
-At each release: copy the new wheel from PyPI into `plugin/vendor/` (remove the old one), change the wheel name in
+The plugin pins the package as Anthropic's plugin directory requires for `uvx`: it ships the wheel of the GitHub
+release, [`plugin/vendor/ragbase_shield-0.4.1-py3-none-any.whl`](plugin/vendor/) (same SHA-256 as in the
+`SHA256SUMS` file of the release), and runs it with `uvx --from`. A version number alone
+(`ragbase-shield==<version>`) is not a pin for the directory.
+At each release: put the wheel of the release into `plugin/vendor/` (remove the old one), change the wheel name in
 `.mcp.json` and in the 4 hooks of `hooks/hooks.json`, and raise the `version` in `plugin.json`. The tests check
 that the wheel, its version and these files agree. The listing icon is
 [`plugin/.claude-plugin/icon.png`](plugin/.claude-plugin/icon.png) (512 x 512, drawn by
@@ -62,7 +63,7 @@ vault key is in the keychain.
 
 The plugin always runs the wheel in `plugin/vendor/`, not a checkout. To try a code change in the plugin, build a
 wheel (`uv build --wheel`) and put it in a copy of the plugin folder under the same name; never commit a wheel that
-is not the PyPI file.
+is not the file of the release.
 
 ```sh
 claude --plugin-dir /path/to/ragbase-shield/integrations/claude-code/plugin

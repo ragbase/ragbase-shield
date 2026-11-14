@@ -125,7 +125,7 @@ PLUGIN = INTEG / "claude-code" / "plugin"
 
 
 def plugin_wheel() -> str:
-    """File name of the wheel the Claude plugin ships in vendor/: the exact PyPI file of the project version."""
+    """File name of the wheel the Claude plugin ships in vendor/: the wheel of the release of the project version."""
     return f"ragbase_shield-{project_version()}-py3-none-any.whl"
 
 
@@ -188,7 +188,7 @@ def test_claude_plugin_vendored_wheel():
     fields = dict(line.split(": ", 1) for line in meta.split("\n\n", 1)[0].splitlines() if ": " in line)
     assert fields["Name"] == "ragbase-shield"
     assert fields["Version"] == project_version()
-    # The plugin README states the wheel's SHA-256 (the PyPI digest) in French and English.
+    # The plugin README states the wheel's SHA-256 (the digest of the release wheel) in French and English.
     digest = hashlib.sha256(wheel.read_bytes()).hexdigest()
     assert (PLUGIN / "README.md").read_text(encoding="utf-8").count(digest) == 2
 

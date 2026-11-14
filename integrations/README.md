@@ -19,7 +19,7 @@ The browser extension is the exception: it does not run the MCP server. It talks
 | App | Folder | What it is |
 |---|---|---|
 | Claude Desktop (chat) | [`claude-desktop/`](claude-desktop/) | MCPB desktop extension, `manifest_version` 0.4, `server.type` `"uv"`, 6 tools declared, `build_mcpb.sh` |
-| Claude Code and Cowork | [`claude-code/`](claude-code/) + repo-root [`/.claude-plugin/marketplace.json`](../.claude-plugin/marketplace.json) | Plugin: MCP server, skill, 3 hooks; runs the PyPI wheel it ships in `plugin/vendor/` |
+| Claude Code and Cowork | [`claude-code/`](claude-code/) + repo-root [`/.claude-plugin/marketplace.json`](../.claude-plugin/marketplace.json) | Plugin: MCP server, skill, 3 hooks; runs the release wheel it ships in `plugin/vendor/` |
 | ChatGPT desktop (Work, Codex) | [`chatgpt/`](chatgpt/) | Step-by-step guide |
 | Codex CLI and IDE | [`codex/`](codex/) | `config.toml.example` |
 | ChatGPT and Codex plugin | [`openai-plugin/`](openai-plugin/) + repo-root [`/.agents/plugins/marketplace.json`](../.agents/plugins/marketplace.json) | Portable Agent Plugins package: `plugin.json`, `mcp.json` (stdio), skill |
