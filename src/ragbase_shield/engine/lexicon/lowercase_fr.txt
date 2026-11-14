@@ -37,6 +37,8 @@ too aprem aprèm pb pbs dispo dispos doc docs compta récap immat recap pj cr
 whatsapp linkedin facebook instagram twitter gmail outlook hotmail yahoo teams zoom slack skype telegram signal
 messenger tiktok snapchat youtube google doctolib notion excel word powerpoint drive dropbox wetransfer docusign
 yousign attn fyi fwd visio webex discord chatgpt
+feedback brief briefing input todo reporting deal closing workshop kickoff onboarding followup debrief pitch
+template checklist backup setup login password staff board
 
 # [persons]
 chauffeur chauffeuse routier routière livreur livreuse caissier caissière serveur serveuse cuisinier cuisinière

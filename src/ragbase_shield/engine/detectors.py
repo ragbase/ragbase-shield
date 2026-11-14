@@ -1434,6 +1434,15 @@ _LC_COMPLEMENT_RE = re.compile(
     r"porte|lot|immeuble|tour|entr[ée]e)[ \u00a0](?:n°[ \u00a0]?)?(?:\d{1,4}[a-z]?|[a-z])(?![\w])|"
     r"(?-i:BP|B\.P\.|CS|TSA)\s?\d{2,6}(?![\w]))")
 _LC_ELISION_RE = re.compile(r"^[ldLD]['’]")
+# Words after a number of five digits that are no town ("15000 euros", "35000 exemplaires").
+_LC_NOT_TOWNS = frozenset("euros euro eur francs dollars salaries habitants km ha exemplaires actions parts titres "
+                          "heures jours mois ans fois personnes pages mots signes caracteres lignes".split())
+# A town typed in lower case with its postcode in brackets, after a place cue: "demeurant à villeurbanne (69100)".
+# The postcode in brackets is found first (it is rare), then the town is read before it.
+_LC_BRACKET_POSTCODE_RE = re.compile(r"\([ \t]*(?:0[1-9]|[1-8]\d|9[0-8])\d{3}[ \t]*\)")
+_LC_CITY_BEFORE_RE = re.compile(
+    r"(?<![\w\-])(?P<city>[" + _LO + r"][\w'’\-]+(?:[ \-](?:(?:sur|sous|en|lès|les|de|du|des|la|le)[ \-])?["
+    + _LO + r"][\w'’\-]+){0,3})[ \t]*$")
 _LC_CLAUSE_END_RE = re.compile(r"[ \t\u00a0]*(?:$|[\r\n,;.:!?()«»\"])")
 
 
@@ -1525,8 +1534,8 @@ def _postcode_town_lc(text: str, p: int) -> Optional[int]:
         return (w, fold_word(w.group())) if w else (None, "")
 
     w, low = word_at(m.end())
-    if not w:
-        return None
+    if not w or low in _LC_NOT_TOWNS:
+        return None  # "75000 euros": an amount
     if low in _LC_TOWN_HEADS:
         w2, low2 = word_at(w.end())
         if not w2 or _lc_stop_word(low2):
@@ -1566,13 +1575,17 @@ def _postcode_town_lc(text: str, p: int) -> Optional[int]:
     return end
 
 
-def _address_tail_lc(text: str, pos: int) -> tuple[int, bool, bool]:
-    """``_address_tail`` on one line with a town in any letter case: the end, whether a postcode and a town were
-    read, and whether the town is in lower case."""
+def _address_tail_lc(text: str, pos: int, newline_ok: bool = True) -> tuple[int, bool, bool]:
+    """``_address_tail`` with a town in any letter case: the end, whether a postcode and a town were read, and
+    whether the town is in lower case. The postcode and the town may stand on the next line ("12 rue des
+    glycines", then "69007 lyon"); a complement stays on the line."""
     end = pos
     for _ in range(4):
         sep = _SEG_SEP_RE.match(text, end)
-        if not sep or "\n" in sep.group():
+        if not sep:
+            break
+        lines = sep.group().count("\n")
+        if lines > 1 or (lines and not newline_ok):
             break
         p = sep.end()
         pc = _POSTCODE_RE.match(text, p)
@@ -1581,7 +1594,7 @@ def _address_tail_lc(text: str, pos: int) -> tuple[int, bool, bool]:
         town = _postcode_town_lc(text, p)
         if town:
             return town, True, True
-        comp = _LC_COMPLEMENT_RE.match(text, p)
+        comp = None if lines else _LC_COMPLEMENT_RE.match(text, p)
         if comp:
             end = comp.end()
             continue
@@ -1589,27 +1602,43 @@ def _address_tail_lc(text: str, pos: int) -> tuple[int, bool, bool]:
     return end, False, False
 
 
-def _find_address_lc(text: str) -> Iterator[Candidate]:
-    """A numbered street address typed in lower case: "12 rue des glycines, 69007 lyon", "5 avenue victor hugo
-    75016 paris". The capitalised rule reads the capitalised text; this rule adds the readings it refuses (a street
-    name or a town in lower case). The longest candidate wins, so text with capitals keeps its reading."""
+def _find_address_lc(text: str, voies: Optional[list] = None) -> Iterator[Candidate]:
+    """A street address typed in lower case: "12 rue des glycines, 69007 lyon", "5 avenue victor hugo 75016
+    paris"; with no number after a home cue or before a postcode and a town ("il habite rue des glycines",
+    "impasse du moulin 44000 nantes"); a town and its postcode in brackets after a place cue ("demeurant à
+    villeurbanne (69100)"). The capitalised rule reads the capitalised text; this rule adds the readings it
+    refuses (a street name or a town in lower case). The longest candidate wins, so text with capitals keeps its
+    reading."""
     pr = PRIORITY["ADDRESS"]
-    for m in _VOIE_RE.finditer(text):
+    for b in _LC_BRACKET_POSTCODE_RE.finditer(text):
+        w0 = max(0, b.start() - 60)
+        m = _LC_CITY_BEFORE_RE.search(text[w0:b.start()])
+        if not m:
+            continue
+        # the cue stands right before the town: the match may start some words before it
+        city, cs = m.group("city"), w0 + m.start("city")
+        for k in [0] + [j + 1 for j, c in enumerate(city) if c in " -"]:
+            if _CITY_CTX.search(text[max(0, cs - 40):cs + k]) and not _lc_stop_word(fold_word(city[k:].split()[0])):
+                yield Candidate(cs + k, b.end(), "ADDRESS", True, pr - 1, "city_postcode_lower")
+                break
+    for m in (voies if voies is not None else _VOIE_RE.finditer(text)):
         vs, ve = m.start(), m.end()
         w0 = max(0, vs - 25)
         num = _NUM_BEFORE_RE.search(text[w0:vs])
-        if not num:
+        sure = bool(_LC_SURE_VOIE.match(m.group()))
+        if not num and not sure:
             continue
-        start = w0 + num.start("num")
+        start = w0 + num.start("num") if num else vs
         cue = bool(_LC_HOME_CUE.search(text[max(0, start - 30):start]))
         name_end, lower_name = _street_name_end_lc(text, ve, cue)
         if name_end is None:
             continue
-        end, town, lower_town = _address_tail_lc(text, name_end)
+        ls = text.rfind("\n", 0, start) + 1
+        end, town, lower_town = _address_tail_lc(text, name_end, newline_ok=not _left_column_gap(text, ls, start))
         if not lower_name and not lower_town:
             continue  # the text has its capitals: the capitalised rule reads it
-        if not town and not cue and not _LC_SURE_VOIE.match(m.group()):
-            continue
+        if not town and not cue and not (num and sure):
+            continue  # a street type that is also a word, or a street with no number: a home cue or a town
         yield Candidate(start, end, "ADDRESS", True, pr, "address_lower")
 
 
@@ -1619,7 +1648,8 @@ def _find_address(text: str) -> Iterator[Candidate]:
         # "dont le siège social est à Francheville (69340)", "Demeurant à Lyon (69003)"
         if _CITY_CTX.search(text[max(0, m.start() - 40):m.start()]):
             yield Candidate(m.start(), m.end(), "ADDRESS", True, pr - 1, "city_postcode")
-    for m in _VOIE_RE.finditer(text):
+    voies = list(_VOIE_RE.finditer(text))
+    for m in voies:
         vs, ve = m.start(), m.end()
         w0 = max(0, vs - 25)
         voie = m.group()
@@ -1663,7 +1693,7 @@ def _find_address(text: str) -> Iterator[Candidate]:
                 yield Candidate(pc.start(), pc.end(), "ADDRESS", True, pr, "address_code_tail")
     yield from _find_foreign_address(text)
     if _lowercase_rules():
-        yield from _find_address_lc(text)
+        yield from _find_address_lc(text, voies)
 
 
 # UK and Canadian addresses: "14 Quarry Lane, Bristol BS7 4QX", "Halifax (Nova Scotia) B3K 2T9".

@@ -1203,6 +1203,9 @@ _LC_NAME_PARTICLES = frozenset({"ben", "bin", "el", "al", "van", "von", "der", "
                                 "ould", "bent", "abd", "abou", "bou",
                                 "dos", "das", "ten", "ter", "zu"})
 _LC_PLURAL_CIVILITIES = frozenset({"mm", "mmes", "mlles", "messieurs", "mesdames", "mesdemoiselles"})
+# Every word that `_lc_civility` may read as a civility (folded): a cheap test before the function.
+_LC_CIVILITY_WORDS = frozenset("m mm mme mmes mlle mlles mr dr mrs ms melle melles mdme monsieur madame mademoiselle "
+                               "messieurs mesdames mesdemoiselles maitre maitres docteur professeur me pr".split())
 # Conjugated forms of the auxiliary and modal verbs: a subject stands before them ("m. gros a écrit").
 _LC_FINITE_AUX = frozenset(
     "a ont avait avaient aura auront aurait auraient est sont etait etaient sera seront serait seraient va vont "
@@ -1612,7 +1615,7 @@ def _lc_given_particle(run: list[_W], k: int) -> int:
     w = run[k]
     if w.cap or w.digit:
         return 0
-    kinds: tuple[str, ...] = ("oov", "first", "amb", "common")  # "de la roche", "du moulin", "d'estrenac"
+    kinds: tuple[str, ...] = ("oov", "first", "amb", "common")  # "de la roche", "du moulin", "d'arvignac"
     if w.prefix:
         if w.low != "d" or k + 1 >= n or run[k + 1].start != w.end:
             return 0
@@ -1822,6 +1825,8 @@ def _lc_titles(text: str, run: list[_W], out: list[RuleSpan], covered: set[int])
     ben salah", "madame de la tour", "mme veuve pradimont"). A plural civility takes a second name after "et"."""
     n = len(run)
     for i, w in enumerate(run):
+        if w.low not in _LC_CIVILITY_WORDS:
+            continue
         civ = _lc_civility(text, run, i)
         if not civ:
             continue
@@ -2021,9 +2026,9 @@ def _lc_surname_first(text: str, run: list[_W], out: list[RuleSpan], covered: se
     sets = _lc_sets()
     for i in range(n - 1):
         w, f = run[i], run[i + 1]
-        if i in covered or i + 1 in covered or w.cap or f.cap or w.prefix or f.prefix:
+        if f.cap or w.cap or len(f.low) < 3 or len(w.low) < 4 or _lc_flags(f.low) != "f":
             continue
-        if _lc_kind(w) != "oov" or len(w.low) < 4 or _lc_flags(f.low) != "f" or len(f.low) < 3:
+        if i in covered or i + 1 in covered or w.prefix or f.prefix or _lc_kind(w) != "oov":
             continue
         prev = run[i - 1] if i > 0 else None
         if prev is not None and (prev.digit or prev.low in _LC_DETERMINERS or prev.low in _PLACE_WORDS
@@ -2082,7 +2087,7 @@ def _lc_org_word(w: _W) -> str:
 
 def _lc_headed_company(run: list[_W], i: int, subject: bool) -> Optional[tuple[int, int]]:
     """The company name before the legal form ``run[i]`` when a noun stands before the name: "le garage julien
-    sarl", "l'agence zorvane sas", "litige avec transports belmadi sarl", "mon employeur brivault eurl". A strong
+    sarl", "l'agence zorvane sas", "litige avec transports zelmadec sarl", "mon employeur talvenec eurl". A strong
     legal form closes a company name: the words before it go back to an article, a preposition, a verb, a person
     noun or the start of the clause (there the company needs its verb, ``subject``). The span starts at the first
     name word (a first name or a word that no list knows); the nouns before it stay readable. Before a form that
@@ -2148,7 +2153,7 @@ def _lc_cued_companies(text: str, run: list[_W], out: list[RuleSpan], covered: s
         k = t + 1
         x = run[k]
         if not x.cap and x.low in _ORG_SKIP:
-            # a spelled legal form after the cue: "la société par actions simplifiée kerval", "la société civile
+            # a spelled legal form after the cue: "la société par actions simplifiée kerdalis", "la société civile
             # immobilière zorvane"; then one word that no list knows or a first name, at the end of the clause
             # or before the verb of the company
             j = k
@@ -2186,7 +2191,7 @@ def _lc_companies(text: str, run: list[_W], out: list[RuleSpan]) -> None:
     for i, w in enumerate(run):
         if not _lc_form(w):
             continue
-        # the name before the form ("kerval et compagnie", "kerval & co": the word after "et" or "&" is no cue)
+        # the name before the form ("kerdalis et compagnie", "kerdalis & co": the word after "et" or "&" is no cue)
         k = i - 1
         while k >= 0 and i - k <= 5 and (
                 (run[k].low in _ORG_ET_JOIN and k > 0 and run[k - 1].low in ("et", "&") and not run[k].cap)

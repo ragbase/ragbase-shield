@@ -196,7 +196,7 @@ LOWER_CIVILITY = [
     ("dr Roquevert a signé le certificat", ["Roquevert"]),
     ("mlle Kerdalis demande des dommages", ["Kerdalis"]),
     ("je représente m. Kelmadi", ["Kelmadi"]),
-    ("bonjour, m. Brivault a reçu un avertissement", ["Brivault"]),
+    ("bonjour, m. Talvenec a reçu un avertissement", ["Talvenec"]),
     ("m. Le Bihannec conteste", ["Le Bihannec"]),
     ("mme De Roquevert a signé", ["De Roquevert"]),
     ("m. Yanis Kervadec a signé le bail", ["Yanis Kervadec"]),
@@ -365,8 +365,8 @@ COMPANY_WITH_FORM = [
     ("mon client travaille chez julien sarl", ["julien"], "mon client travaille chez SOCIETE_A sarl"),
     ("la société jean kervadec sas a fermé", ["jean kervadec"], "la société SOCIETE_A sas a fermé"),
     ("l'agence zorvane sarl a été condamnée", ["zorvane"], "l'agence SOCIETE_A sarl a été condamnée"),
-    ("mon employeur brivault eurl ne me paie plus", ["brivault"], "mon employeur SOCIETE_A eurl ne me paie plus"),
-    ("litige avec transports belmadi sarl", ["belmadi"], "litige avec transports SOCIETE_A sarl"),
+    ("mon employeur talvenec eurl ne me paie plus", ["talvenec"], "mon employeur SOCIETE_A eurl ne me paie plus"),
+    ("litige avec transports zelmadec sarl", ["zelmadec"], "litige avec transports SOCIETE_A sarl"),
     ("la boulangerie marie sarl a fermé", ["marie"], "la boulangerie SOCIETE_A sarl a fermé"),
     ("le dossier kervadec sarl avance", ["kervadec"], "le dossier SOCIETE_A sarl avance"),
     ("la clinique talvez sas a licencié une infirmière", ["talvez"],
@@ -656,13 +656,13 @@ MORE_SHAPES = [
     ("dossier martin c/ kervadec, audience le 3 mars", "dossier PERSONNE_A c/ PERSONNE_B, audience le 3 mars"),
     ("dossier martin contre kervadec", "dossier PERSONNE_A contre PERSONNE_B"),
     ("kervadec c/ talvez et brivanor sarl", "PERSONNE_A c/ PERSONNE_B et SOCIETE_A sarl"),
-    ("dossier m. samir / kerval sas", "dossier m. PERSONNE_A / SOCIETE_A sas"),
-    ("contre : kerval sas", "contre : SOCIETE_A sas"),
+    ("dossier m. samir / kerdalis sas", "dossier m. PERSONNE_A / SOCIETE_A sas"),
+    ("contre : kerdalis sas", "contre : SOCIETE_A sas"),
     ("défendeur : brivanor sarl", "défendeur : SOCIETE_A sarl"),
     # names of four or five words, hyphenated initials, a name particle in a compound
     ("madame nelba thi zadou demande un titre de séjour", "madame PERSONNE_A demande un titre de séjour"),
     ("mme maria del carmen kervadec talvez conteste", "mme PERSONNE_A conteste"),
-    ("m. jose antonio brivault da costa a été blessé", "m. PERSONNE_A a été blessé"),
+    ("m. jose antonio talvenec da costa a été blessé", "m. PERSONNE_A a été blessé"),
     ("m. j-p kervadec a été mis à pied", "m. PERSONNE_A a été mis à pied"),
     ("mme ben-ahmed conteste", "mme PERSONNE_A conteste"),
     ("mme léa du bois a signé", "mme PERSONNE_A a signé"),
@@ -671,12 +671,12 @@ MORE_SHAPES = [
     ("mdme kervadec a signé", "mdme PERSONNE_A a signé"),
     ("mrs vellin a signé", "mrs PERSONNE_A a signé"),
     # a legal form in full words, a digit and a join word in a company name, a surname-like word after a noun
-    ("la société par actions simplifiée kerval", "la société par actions simplifiée SOCIETE_A"),
-    ("la société à responsabilité limitée belmadi a fermé", "la société à responsabilité limitée SOCIETE_A a fermé"),
+    ("la société par actions simplifiée kerdalis", "la société par actions simplifiée SOCIETE_A"),
+    ("la société à responsabilité limitée zelmadec a fermé", "la société à responsabilité limitée SOCIETE_A a fermé"),
     ("la société civile immobilière zorvane", "la société civile immobilière SOCIETE_A"),
     ("la société k2 conseil sas a rompu le contrat", "la société SOCIETE_A sas a rompu le contrat"),
-    ("la société kerval et compagnie sarl a fermé", "la société SOCIETE_A sarl a fermé"),
-    ("la société kerval & co sas a fermé", "la société SOCIETE_A sas a fermé"),
+    ("la société kerdalis et compagnie sarl a fermé", "la société SOCIETE_A sarl a fermé"),
+    ("la société kerdalis & co sas a fermé", "la société SOCIETE_A sas a fermé"),
     ("le garage lenoir sarl a fermé", "le garage SOCIETE_A sarl a fermé"),
 ]
 
@@ -731,7 +731,7 @@ def test_a_long_name_needs_its_verb(text, names):
 # (text, the masked text)
 HELD_NAMES = [
     ("m. ait ouardi conteste son expulsion", "m. PERSONNE_A conteste son expulsion"),
-    ("mme ait hamoudi, salariée depuis 2015, a été licenciée", "mme PERSONNE_A, salariée depuis 2015, a été licenciée"),
+    ("mme ait zelmoune, salariée depuis 2015, a été licenciée", "mme PERSONNE_A, salariée depuis 2015, a été licenciée"),
     ("m. paul ait ouardi a signé le bail", "m. PERSONNE_A a signé le bail"),
     ("karim ait ouardi conteste", "PERSONNE_A conteste"),
     ("m. paul ly a signé le bail", "m. PERSONNE_A a signé le bail"),
@@ -809,6 +809,10 @@ MORE_ORDINARY_TEXT = [
     "teams lucas à 14h",
     "gmail emma ne répond pas",
     "attn paul",
+    "feedback paul",
+    "brief emma à 10h",
+    "todo lucas",
+    "staff paul a validé",
     # a person noun and an ordinary word
     "le salarié lambda conteste",
     "ma cliente victoire a obtenu gain de cause",
@@ -831,6 +835,18 @@ MORE_ORDINARY_TEXT = [
     "le salarié protégé a été licencié sans autorisation",
     "mon client principal a résilié le contrat",
     "la partie adverse conteste",
+    "mon cousin germain a hérité de la maison",
+    "ma cousine germaine conteste le partage",
+    "mon frère jumeau a signé",
+    "son fils aîné a hérité",
+    "sa fille cadette conteste",
+    "mon oncle paternel a légué",
+    "le témoin oculaire a confirmé",
+    "mon ami fidèle a témoigné",
+    "un salarié modèle a été licencié",
+    "mon voisin bruyant refuse",
+    "mon client innocent a été relaxé",
+    "ma cliente victime a porté plainte",
     # a company cue or a legal form and ordinary words
     "la banque centrale a relevé ses taux",
     "le syndicat sud a appelé à la grève",
@@ -913,3 +929,54 @@ def test_a_surname_then_two_given_names(text, masked):
     r = m.mask(text)
     assert r.text == masked
     assert m.unmask(r.text) == text
+
+
+# ---------------------------------------------------------------------------
+# E, more shapes: a street with no number, the town on the next line, a town with its postcode in brackets
+# ---------------------------------------------------------------------------
+
+# (text, the addresses masked)
+MORE_ADDRESSES = [
+    ("il habite rue des glycines à lyon", ["rue des glycines"]),
+    ("elle demeure avenue victor hugo, 75016 paris", ["avenue victor hugo, 75016 paris"]),
+    ("domicilié impasse du moulin 44000 nantes", ["impasse du moulin 44000 nantes"]),
+    ("12 rue des glycines\n69007 lyon", ["12 rue des glycines\n69007 lyon"]),
+    ("il habite au 12, rue des glycines à lyon (69007)", ["12, rue des glycines", "lyon (69007)"]),
+    ("né à lyon le 3 mars 1980, demeurant à villeurbanne (69100)", ["villeurbanne (69100)"]),
+    ("il vit à saint germain en laye (78100) depuis 2010", ["saint germain en laye (78100)"]),
+    ("loyer : 12 rue des lilas\n75000 euros par an", ["12 rue des lilas"]),
+]
+
+NO_MORE_ADDRESSES = [
+    "la rue des glycines est barrée",
+    "dans la rue principale",
+    "en pleine rue commerçante",
+    "il habite rue",
+    "une impasse totale",
+    "le chiffre (75000) est faux",
+    "voir article l. 1234 (69007)",
+]
+
+
+@pytest.mark.parametrize("text,addresses", MORE_ADDRESSES)
+def test_more_address_shapes_in_lower_case(text, addresses):
+    m = _masker()
+    r = m.mask(text)
+    assert [s.value for s in r.spans if s.kind == "ADDRESS"] == addresses
+    # an address on two lines is restored on one line, as with capitals
+    assert m.unmask(r.text).split() == text.split()
+    if not any("\n" in a for a in addresses):
+        assert m.unmask(r.text) == text
+
+
+@pytest.mark.parametrize("text", NO_MORE_ADDRESSES)
+def test_these_lines_hold_no_address(text):
+    assert _masker().mask(text).text == text
+
+
+@pytest.mark.parametrize("text", ["Il habite rue des Glycines à Lyon.", "Demeurant à Villeurbanne (69100).",
+                                  "12 rue des Glycines\n69007 Lyon", "La rue des Glycines est barrée."])
+def test_capitalised_addresses_of_these_shapes_keep_their_reading(monkeypatch, text):
+    on = _masker().mask(text).text
+    monkeypatch.setenv(SWITCH, "0")
+    assert _masker().mask(text).text == on
