@@ -1,5 +1,5 @@
 # RAGbase Shield verbs (French). Written for RAGbase Shield, Apache-2.0.
-# French verbs for the lower-case name rules (v0.4.1): a name typed in lower case stops at a verb ("m. hakim
+# French verbs for the lower-case name rules (v0.4.1): a name typed in lower case stops at a verb ("m. samir
 # conteste"), and a word that is a verb form is not a name ("madame demande", "monsieur verse"). The loader
 # (lexicon.verb_forms) conjugates the infinitives on folded text (lower case, no accents): present, imperfect,
 # future, conditional, present subjunctive, imperative and participles. No simple past and no imperfect

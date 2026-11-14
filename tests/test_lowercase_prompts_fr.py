@@ -1,7 +1,7 @@
 """v0.4.1, round 2: prompts that lawyers type in lower case, beyond a civility and a first name.
 
-E: a postal address typed in lower case ("12 rue des glycines, 69007 lyon"). 0.4.0 masks the same address with
-capitals; with no capital it stayed readable. The guards: a street type that is also an ordinary word needs a home
+E: a postal address typed in lower case ("12 rue des glycines, 69007 lyon") has the mask of the same address with
+capitals. The guards: a street type that is also an ordinary word needs a home
 cue or a postcode ("3 cours de droit", "1 place de parking" stay readable), the name stops at the verb of the
 sentence, and text with capitals keeps its 0.4.0 reading. ``RAGBASE_SHIELD_LOWERCASE_NAMES=0`` turns the rule off.
 Invented data only: every name, street and sentence below is made up for these tests."""
@@ -34,7 +34,7 @@ def _default_switch(monkeypatch):
 
 # (text, the addresses masked, the masked text)
 ADDRESS_LINES = [
-    ("m. nona hakim, domicilié 12 rue des glycines, 69007 lyon, conteste son licenciement",
+    ("m. nelba samir, domicilié 12 rue des glycines, 69007 lyon, conteste son licenciement",
      ["12 rue des glycines, 69007 lyon"], "m. PERSONNE_A, domicilié ADRESSE_1, conteste son licenciement"),
     ("il habite au 5 avenue victor hugo 75016 paris",
      ["5 avenue victor hugo 75016 paris"], "il habite au ADRESSE_1"),
@@ -104,7 +104,7 @@ NO_ADDRESS = [
 
 # Capitalised addresses and sentences: the same output with the rule on and off.
 ADDRESS_CAPITALISED = [
-    "M. Hakim, domicilié 12 rue des Glycines, 69007 Lyon, conteste son licenciement.",
+    "M. Samir, domicilié 12 rue des Glycines, 69007 Lyon, conteste son licenciement.",
     "Il habite au 5 avenue Victor Hugo 75016 Paris.",
     "Madame Vellin demeure 3 bis avenue Jean Jaurès, 31000 Toulouse.",
     "Le siège social est situé 27 boulevard de la République, 13001 Marseille.",
@@ -164,7 +164,7 @@ def test_the_switch_turns_the_address_rule_off(monkeypatch, value):
     monkeypatch.setenv(SWITCH, value)
     for text, _addresses in [(t, a) for t, a, _ in ADDRESS_LINES] + ADDRESS:
         got = _spans(text, "ADDRESS")
-        # 0.4.0: an address with no capital stays readable; one capitalised part may keep its 0.4.0 mask
+        # rules off: the 0.4.0 behaviour (a capitalised part may keep its mask)
         assert all(any(c.isupper() for c in a) for a in got), (text, got)
 
 
@@ -185,7 +185,7 @@ def test_the_address_and_the_name_of_one_line():
 # K1: a civility typed in lower case and a name with its capitals
 # ---------------------------------------------------------------------------
 
-# 0.4.0 reads "M." and "Mme" as a title, not "m." and "mme": "m. Kervadec conteste" stayed readable.
+# "m." and "mme" in lower case are a title as "M." and "Mme" are: "m. Kervadec conteste".
 # (text, the names masked)
 LOWER_CIVILITY = [
     ("m. Kervadec conteste son licenciement", ["Kervadec"]),
@@ -254,3 +254,175 @@ def test_the_switch_turns_the_lower_case_civility_off(monkeypatch, value):
     for text, _names in LOWER_CIVILITY:
         if "Yanis" not in text:  # 0.4.0 masks a first name and a surname with their capitals
             assert _spans(text, "PERSON") == [], text
+
+
+# ---------------------------------------------------------------------------
+# Precision: legal text and notes keep their reading
+# ---------------------------------------------------------------------------
+
+# The same output with the rules on and off. A civility is no proof of a name: after "à" the words that follow it
+# are the object of the verb; "le" or "la" and a word after it is an office; "Me" before an infinitive is the
+# pronoun; "le docteur" and "un professeur" are common nouns. A note word and a legal form are no company. A word
+# in lower case that no list knows after a capitalised first name may be a job or an adverb.
+ORDINARY_TEXT = [
+    # an object after "à" and a civility with no name
+    "Le tribunal a accordé à Madame la jouissance du logement.",
+    "le bailleur a remis à monsieur le trousseau de clés.",
+    "le juge a accordé à madame des délais de paiement.",
+    "cela cause à monsieur du souci.",
+    "on a reproché à madame de la négligence.",
+    "L'acte attribue à Monsieur le mobilier du salon.",
+    "le greffe a notifié à madame des écritures tardives.",
+    "il a laissé à monsieur du temps pour répondre.",
+    # an office after a civility and an article
+    "monsieur le jex a statué hier.",
+    "madame la proc a requis six mois.",
+    "m. le major a pris la plainte.",
+    "mme la jaf a entendu les enfants.",
+    "madame la duchesse a vendu le domaine.",
+    "m. le bihannec conteste son avertissement.",
+    # the pronoun "me" before an infinitive, a fixed phrase
+    "Me transcrire ce jugement en anglais.",
+    "Me relire ce contrat avant midi.",
+    "Me traduire la clause 4.",
+    "Me dire si le délai est expiré.",
+    "le mouvement Me too a dix ans.",
+    # "docteur" and "professeur" as common nouns, short words after a civility
+    "Le docteur référent a rendu son rapport.",
+    "le professeur émérite a signé la consultation.",
+    "un docteur urgentiste a examiné la victime.",
+    "Condamne Monsieur et Madame in solidum à payer la somme.",
+    "bonjour madame pb sur le bail svp",
+    "bonjour monsieur rdv demain à 9h",
+    # a note word and a legal form
+    "compta sci à refaire avant lundi.",
+    "récap sarl à envoyer demain.",
+    "docs sasu reçus ce matin.",
+    "immat eurl en attente.",
+    "ago sarl prévue le 3 mai.",
+    "pv sas signé hier.",
+    # things, days
+    "une bouteille d'huile d'olive extra vierge.",
+    "rdv cliente sam aprem.",
+    # a capitalised first name and a word in lower case that no list knows
+    "M. Benoit velkor conteste son avertissement.",
+    "Mme Martin zorvaine convoquée ne s'est pas présentée.",
+    "M. Xavier brivanec a supprimé le site.",
+    "Benoit velkor conteste son avertissement.",
+]
+
+# What still holds a name next to these guards. (text, the names masked)
+SUPPORTED_NAMES = [
+    ("madame de la tour conteste le congé", ["de la tour"]),
+    ("mme de la tour a signé le bail", ["de la tour"]),
+    ("mme de la tour ne conteste pas le congé", ["de la tour"]),
+    ("je représente mme d'arvignac dans ce dossier", ["d'arvignac"]),
+    ("contre monsieur du roquevert", ["du roquevert"]),
+    ("le docteur karim kervadec a examiné mon client", ["karim kervadec"]),
+    ("Me kervadec plaide demain", ["kervadec"]),
+    ("m. roy conteste son licenciement", ["roy"]),
+    ("kerdalis sarl conteste la créance.", ["kerdalis"]),
+    ("kerdalis sarl et talvez sas sont en litige", ["kerdalis", "talvez"]),
+    ("kerdalis sarl licencie trois salariés", ["kerdalis"]),
+    ("M. Zadou mila conteste son licenciement.", ["Zadou mila"]),
+]
+
+
+@pytest.mark.parametrize("text", ORDINARY_TEXT)
+def test_ordinary_text_is_the_same_with_the_rules_on_and_off(monkeypatch, text):
+    on = _masker().mask(text)
+    monkeypatch.setenv(SWITCH, "0")
+    off = _masker().mask(text)
+    assert on.text == off.text
+    assert [(s.start, s.end, s.kind) for s in on.spans] == [(s.start, s.end, s.kind) for s in off.spans]
+
+
+@pytest.mark.parametrize("text,names", SUPPORTED_NAMES)
+def test_names_with_support_are_masked(text, names):
+    m = _masker()
+    r = m.mask(text)
+    assert [s.value for s in r.spans if s.kind in ("PERSON", "ORG")] == names
+    assert m.unmask(r.text) == text
+
+
+def test_there_are_enough_precision_cases():
+    assert len(ORDINARY_TEXT) >= 35 and len(set(ORDINARY_TEXT)) == len(ORDINARY_TEXT)
+
+
+# ---------------------------------------------------------------------------
+# K10, K7: a legal form closes a company name; it is never a surname
+# ---------------------------------------------------------------------------
+
+# A company named with a first name, and a company after a noun that is no company cue. The legal form stays
+# readable, the nouns before the name too. (text, the company names masked, the masked text)
+COMPANY_WITH_FORM = [
+    ("la société julien sarl refuse de payer", ["julien"], "la société SOCIETE_A sarl refuse de payer"),
+    ("le garage julien sarl a fermé", ["julien"], "le garage SOCIETE_A sarl a fermé"),
+    ("les établissements bernard sas ont licencié trois salariés", ["bernard"],
+     "les établissements SOCIETE_A sas ont licencié trois salariés"),
+    ("contre martin sas", ["martin"], "contre SOCIETE_A sas"),
+    ("une facture de laurent sas", ["laurent"], "une facture de SOCIETE_A sas"),
+    ("mon client travaille chez julien sarl", ["julien"], "mon client travaille chez SOCIETE_A sarl"),
+    ("la société jean kervadec sas a fermé", ["jean kervadec"], "la société SOCIETE_A sas a fermé"),
+    ("l'agence zorvane sarl a été condamnée", ["zorvane"], "l'agence SOCIETE_A sarl a été condamnée"),
+    ("mon employeur brivault eurl ne me paie plus", ["brivault"], "mon employeur SOCIETE_A eurl ne me paie plus"),
+    ("litige avec transports belmadi sarl", ["belmadi"], "litige avec transports SOCIETE_A sarl"),
+    ("la boulangerie marie sarl a fermé", ["marie"], "la boulangerie SOCIETE_A sarl a fermé"),
+    ("le dossier kervadec sarl avance", ["kervadec"], "le dossier SOCIETE_A sarl avance"),
+    ("la clinique talvez sas a licencié une infirmière", ["talvez"],
+     "la clinique SOCIETE_A sas a licencié une infirmière"),
+    ("boulangerie patisserie talvez sarl ne paie pas les heures", ["talvez"],
+     "boulangerie patisserie SOCIETE_A sarl ne paie pas les heures"),
+]
+
+# No company: a legal form with no name before it, an adjective, a common word, a form that is also a word.
+NO_COMPANY = [
+    "le contrat de travail sarl",
+    "la petite sarl a fermé",
+    "le grand sas est fermé",
+    "il est gérant de sarl depuis 2019",
+    "les statuts de la sarl sont clairs",
+    "le fonds de commerce sarl",
+    "le bail commercial sarl",
+    "un prêt personnel sarl",
+    "la sarl familiale a fermé",
+    "julien sarl à relancer",
+    "le garage petit sarl a fermé",
+]
+
+
+@pytest.mark.parametrize("text,names,masked", COMPANY_WITH_FORM)
+def test_a_legal_form_closes_a_company_name(text, names, masked):
+    m = _masker()
+    r = m.mask(text)
+    assert r.text == masked
+    assert [s.value for s in r.spans if s.kind == "ORG"] == names
+    assert [s.value for s in r.spans if s.kind == "PERSON"] == []  # a legal form is never a surname
+    assert m.unmask(r.text) == text
+
+
+@pytest.mark.parametrize("text", NO_COMPANY)
+def test_a_legal_form_alone_is_no_company(text):
+    assert _masker().mask(text).text == text
+
+
+def test_a_person_before_a_legal_form_word_keeps_the_person_code():
+    r = _masker().mask("mon client julien talvez dirige une sarl")
+    assert r.text == "mon client PERSONNE_A dirige une sarl"
+
+
+def test_one_company_one_code_with_a_first_name_as_its_name():
+    m = _masker()
+    assert m.mask("Julien SARL a écrit hier.").text == "SOCIETE_A SARL a écrit hier."
+    assert m.mask("le garage julien sarl refuse de rembourser").text == "le garage SOCIETE_A sarl refuse de rembourser"
+    assert m.mask("julien sarl a répondu").text == "SOCIETE_A sarl a répondu"
+    assert [(e.code, e.kind) for e in m.store.all()] == [("SOCIETE_A", "ORG")]
+
+
+def test_restore_adds_no_legal_form():
+    m = _masker()
+    first = m.mask("le garage julien sarl refuse de rembourser")
+    assert m.unmask(first.text) == "le garage julien sarl refuse de rembourser"
+    later = m.mask("la société Julien a répondu")
+    assert later.text == "la société SOCIETE_A a répondu"
+    assert m.unmask(later.text) == "la société julien a répondu"  # one code, one stored spelling
