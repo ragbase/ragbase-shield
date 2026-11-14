@@ -1445,7 +1445,7 @@ def _lc_typed_runs(text: str, runs: list[list[_W]]) -> list[Optional[list[_W]]]:
     first word, the first names of the lexicon and the legal forms in capitals. In the returned run the first word
     of the sentence counts as a word in lower case ("La sarl x", "Yanis vellin conteste"), but for a civility: its
     capital stays, and the full-word civility rules do not read it. A first name with a capital inside the
-    sentence keeps it: "M. Benoit cariste conteste" is read as the capitalised rules read it."""
+    sentence keeps it: "M. Benoit velkor conteste" is read as the capitalised rules read it."""
     res: list[Optional[list[_W]]] = [None] * len(runs)
     group: list[int] = []
     for r, run in enumerate(runs):
@@ -2549,7 +2549,7 @@ def _lc_across_clauses(text: str, runs: list[list[_W]], out: list[RuleSpan]) -> 
 
 def _lc_shown_surnames(text: str, views: list[list[_W]], out: list[RuleSpan]) -> None:
     """A first name with the capital of a keyboard, then a surname in lower case that another name of the same text
-    shows ("Rachid morvillier et son épouse inès morvillier", "Mme Inès morvillier et son mari rachid morvillier"):
+    shows ("Yanis kervadec et son épouse nadia kervadec", "Mme Nadia kervadec et son mari yanis kervadec"):
     the two words are one more person. Without this span the surname alone would take the code of the relative."""
     shown = set()
     for sp in out:
@@ -2568,8 +2568,8 @@ def _lc_shown_surnames(text: str, views: list[list[_W]], out: list[RuleSpan]) ->
 
 
 def _lc_cap_companies(run: list[_W], out: list[RuleSpan]) -> None:
-    """A company name with its capital next to a legal form typed in lower case: "Cofrimat sas m'a licencié", "chez
-    Quercynox sasu", "le garage Morvillier sarl", "la sarl Pradimont a résilié". The capitalised rules need the
+    """A company name with its capital next to a legal form typed in lower case: "Brivanor sas m'a licencié", "chez
+    Kerdalis sasu", "le garage Talvez sarl", "la sarl Pradimont a résilié". The capitalised rules need the
     form in capitals. Before a form that is also a word ("sas") the name must be a word that no list knows."""
     n = len(run)
     for i, w in enumerate(run):
