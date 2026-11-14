@@ -1726,7 +1726,7 @@ def _lc_person_noun_surname(w: _W) -> bool:
 def _lc_given_particle(run: list[_W], k: int) -> int:
     """End index (exclusive) of a surname with a French particle at ``run[k]``, after a first name inside a name,
     else 0: "de", "du", "des", "d'", "de la", "le" or "la" and a word that may be a surname, before the verb of the
-    name, "et", "ou" or the end of the clause ("mme sophie de montclar demande", "m. paul le goff a été licencié").
+    name, "et", "ou" or the end of the clause ("mme nadia de montclar demande", "m. paul le goff a été licencié").
     After "le" or "la" the word must be one that no list knows; after a bare "de", one that no list knows or a
     first name ("de retour", "de garde" are no names)."""
     n = len(run)
@@ -1863,7 +1863,7 @@ def _lc_name_after(text: str, run: list[_W], i: int, civ: str) -> Optional[tuple
         given = kinds[-1] in ("first", "amb")
         end = _lc_particle_name(run, k, False)
         if not end and given and not prev.cap:
-            end = _lc_given_particle(run, k)  # "mme sophie de montclar demande", "m. paul le goff a été licencié"
+            end = _lc_given_particle(run, k)  # "mme nadia de montclar demande", "m. paul le goff a été licencié"
         if end:
             idx.extend(range(k, end))
             names.append(end - 1)
@@ -2123,7 +2123,7 @@ def _lc_first_names(text: str, run: list[_W], out: list[RuleSpan], covered: set[
                 and _lc_name_frame(run, i, k + 1, cue) and (i > 0 or (k + 1 < n and _lc_third_follows(run, k + 1))):
             end = k + 1  # a surname that is also a common word: "mon client paul petit a été licencié" (the word
             #              itself, no feminine or plural form); alone in its clause the two words are no name
-            #              ("tenue : jean noir, veste grise")
+            #              ("habits : jean blanc, chemise rayée")
         elif framed and ((kind == "oov" and len(s.low) == 2 and _lc_third_follows(run, k + 1))
                          or (s.low in sets["common"] and "h" not in sflags and "s" not in sflags
                              and len(s.low) >= 3 and (
@@ -2477,7 +2477,7 @@ def _lc_field_spans(text: str, out: list[RuleSpan]) -> None:
             continue  # a capitalised value is read by the field rule above; a capitalised label is correct text
         line = _words(text[text.rfind("\n", 0, m.start()) + 1:(text.find("\n", m.end()) + 1 or len(text) + 1) - 1])
         if any(w.cap and k and not _lc_neutral_capital(w) for k, w in enumerate(line)):
-            continue  # the line has its capitals ("Nom : inexact, Prénom : absent")
+            continue  # the line has its capitals ("Nom : douteux, Prénom : incomplet")
         kinds = [_lc_kind(replace(w, cap=False, upper=False)) if len(w.low) >= 3 else "no" for w in words]
         if all(k == "first" for k in kinds) or (all(k in ("oov", "first") for k in kinds) and all(
                 len(w.low) >= 4 for w in words) and _lc_field_pair(text, m)):

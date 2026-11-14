@@ -1696,11 +1696,11 @@ def _find_address_lc(text: str, voies: Optional[list] = None) -> Iterator[Candid
         if not lower_name and not lower_town:
             continue  # the text has its capitals: the capitalised rule reads it
         if not town and not cue:
-            continue  # a postcode and a town, or a home cue: "1 rue entière a été évacuée" is no address
+            continue  # a postcode and a town, or a home cue: "1 rue complète est fermée" is no address
         if not _lc_real_street_name(text, ve, name_end):
-            continue  # "il demeure 1 impasse totale dans les négociations"
+            continue  # "il demeure 1 impasse complète dans les pourparlers"
         if not _lc_typed_sentence(text, start, name_end):
-            continue  # the sentence has its capitals ("En 2023 impasse des négociations salariales, à Lyon")
+            continue  # the sentence has its capitals ("En 2022 impasse des discussions tarifaires, à Lille")
         yield Candidate(start, end, "ADDRESS", True, pr, "address_lower")
 
 
