@@ -20,12 +20,24 @@ The extra "ner" installs gliner2, gliner, torch (CPU), transformers and huggingf
 pip install "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl"
 ```
 
+On a Mac with an Intel processor, use this line:
+
+```sh
+pip install "numpy<2" "sentencepiece<0.2.3" "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl"
+```
+
 Or with uv. To install uv, paste the uv line for your computer (Mac or Windows) from the
 [README](../README.md#install), section Install. If uv is already on your computer, paste this line anyway: it
 updates uv. Then:
 
 ```sh
 uv tool install --python 3.12 "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl"
+```
+
+On a Mac with an Intel processor, use this line:
+
+```sh
+uv tool install --python 3.12 --with "numpy<2" --with "sentencepiece<0.2.3" "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl"
 ```
 
 Then download a model once. The default model is fastino/gliner2-privacy-filter-PII-multi, about 1.25 GB:

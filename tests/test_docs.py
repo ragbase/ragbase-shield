@@ -425,6 +425,90 @@ def test_uv_precise_command_in_the_guides():
         assert part.count(cmd) == 1
 
 
+# Intel Mac line (15 November 2026). The documented Precise command stays as it is. Right after each uv Precise
+# command (and each pip Precise command), a short sentence gives one more copyable line for a Mac with an Intel
+# processor. That line was tested by a real install, a model download and a Precise mask on an Intel Mac
+# (_shield_work/precise_intel/RESULT.md): it must stay exactly the tested line.
+INTEL_SENTENCE = {"fr": "Sur un Mac avec un processeur Intel, utilisez cette ligne :",
+                  "en": "On a Mac with an Intel processor, use this line:"}
+INTEL_UV = (f'uv tool install --python 3.12 --with "numpy<2" --with "sentencepiece<0.2.3" '
+            f'"ragbase-shield[ner] @ {WHEEL_URL}"')
+INTEL_PIP = f'pip install "numpy<2" "sentencepiece<0.2.3" "ragbase-shield[ner] @ {WHEEL_URL}"'
+DOC_UV = f'uv tool install --python 3.12 "ragbase-shield[ner] @ {WHEEL_URL}"'
+DOC_PIP = f'pip install "ragbase-shield[ner] @ {WHEEL_URL}"'
+INTEL_PIP_DOCUMENTED = True
+
+
+def _intel_parts():
+    """(name, text, language) for each user text with a Precise command."""
+    fr, en = _read("docs/INSTALL.md").split("## Part 2. English", 1)
+    return [("README.md", _read("README.md"), "en"), ("README.fr.md", _read("README.fr.md"), "fr"),
+            ("docs/NER.md", _read("docs/NER.md"), "en"), ("docs/INSTALL.md FR", fr, "fr"),
+            ("docs/INSTALL.md EN", en, "en")]
+
+
+def _check_intel_after(name, text, lang, doc, intel):
+    """Each code block that holds the documented command is followed, before the next code block, by the Intel
+    sentence and then a code block whose line is exactly the Intel line."""
+    lines = text.split("\n")
+    found = 0
+    for i, line in enumerate(lines):
+        if line.strip() != doc:
+            continue
+        found += 1
+        j = i + 1
+        while lines[j].strip() != "```":
+            j += 1
+        k = j + 1
+        while not lines[k].strip().startswith("```"):
+            k += 1
+        between = "\n".join(lines[j + 1:k])
+        assert INTEL_SENTENCE[lang] in between, f"{name}: no Intel sentence after {doc[:30]!r} (line {i + 1})"
+        assert lines[k].strip() == "```sh", f"{name}: the Intel line is not in a sh block (line {k + 1})"
+        assert lines[k + 1].strip() == intel, f"{name}: not the tested Intel line: {lines[k + 1]!r}"
+        assert lines[k + 2].strip() == "```", f"{name}: the Intel block holds more than the Intel line"
+    return found
+
+
+@pytest.mark.parametrize("idx", range(5))
+def test_intel_line_follows_each_uv_precise_command(idx):
+    name, text, lang = _intel_parts()[idx]
+    n = _check_intel_after(name, text, lang, DOC_UV, INTEL_UV)
+    assert n >= 1, name
+    assert text.count(INTEL_UV) == n == text.count(DOC_UV), name
+
+
+@pytest.mark.parametrize("idx", range(5))
+def test_intel_line_follows_each_pip_precise_command(idx):
+    name, text, lang = _intel_parts()[idx]
+    if not INTEL_PIP_DOCUMENTED:
+        assert INTEL_PIP not in text, name
+        return
+    n = _check_intel_after(name, text, lang, DOC_PIP, INTEL_PIP)
+    assert text.count(INTEL_PIP) == n == text.count(DOC_PIP), name
+
+
+@pytest.mark.parametrize("rel", _user_command_files())
+def test_every_intel_line_is_the_tested_line(rel):
+    """Any uv or pip Precise command with a pin is exactly one of the tested Intel lines, and the pins appear nowhere
+    else (the documented Precise command is unchanged)."""
+    text = _read(rel)
+    for line in text.split("\n"):
+        s = line.strip().strip("`")
+        if "ragbase-shield[ner]" in s and ("numpy<2" in s or "sentencepiece<" in s):
+            assert s in (INTEL_UV, INTEL_PIP), f"{rel}: an Intel line that is not the tested one: {s!r}"
+        if "--with" in s and "ragbase-shield" in s:
+            assert s == INTEL_UV, f"{rel}: {s!r}"
+
+
+def test_documented_precise_command_is_unchanged():
+    """The Precise command for Apple silicon Macs, Windows and Linux keeps its exact form."""
+    assert DOC_UV == f'uv tool install --python 3.12 "ragbase-shield[ner] @ {WHEEL_URL}"'
+    for name, text, _ in _intel_parts():
+        assert DOC_UV in text, name
+        assert INTEL_SENTENCE["fr"] not in text or INTEL_SENTENCE["en"] not in text, name
+
+
 KEY_WARNINGS = {
     "README.fr.md": ["n'attachez pas le fichier", "Ne collez pas de texte brut", "ne peut pas être rappelé"],
     "docs/INSTALL.md": ["n'attachez pas le fichier", "Ne collez pas de texte brut", "ne peut pas être rappelé"],

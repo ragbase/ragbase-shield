@@ -531,6 +531,17 @@ l'installateur en un clic ne le prend pas encore en charge.
 
 ```sh
 uv tool install --python 3.12 "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl"
+```
+
+Sur un Mac avec un processeur Intel, utilisez cette ligne :
+
+```sh
+uv tool install --python 3.12 --with "numpy<2" --with "sentencepiece<0.2.3" "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl"
+```
+
+Puis, sur tous les ordinateurs :
+
+```sh
 ragbase-shield ner download
 ragbase-shield ner status
 ```
@@ -906,6 +917,17 @@ installer does not support it yet.
 
 ```sh
 uv tool install --python 3.12 "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl"
+```
+
+On a Mac with an Intel processor, use this line:
+
+```sh
+uv tool install --python 3.12 --with "numpy<2" --with "sentencepiece<0.2.3" "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl"
+```
+
+Then, on every computer:
+
+```sh
 ragbase-shield ner download
 ragbase-shield ner status
 ```

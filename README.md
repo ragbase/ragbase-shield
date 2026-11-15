@@ -173,10 +173,22 @@ Precise mode (with AI model) is optional (see [docs/NER.md](https://github.com/r
 uv tool install --python 3.12 "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl"
 ```
 
+On a Mac with an Intel processor, use this line:
+
+```sh
+uv tool install --python 3.12 --with "numpy<2" --with "sentencepiece<0.2.3" "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl"
+```
+
 With pip:
 
 ```sh
 pip install "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl"
+```
+
+On a Mac with an Intel processor, use this line:
+
+```sh
+pip install "numpy<2" "sentencepiece<0.2.3" "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl"
 ```
 
 On a Mac, the first use may ask for keychain access for the Shield key: click "Always Allow".
@@ -312,10 +324,22 @@ Full model: [docs/PRIVACY_MODEL.md](https://github.com/ragbase/ragbase-shield/bl
   pip install "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl"
   ```
 
+  On a Mac with an Intel processor, use this line:
+
+  ```sh
+  pip install "numpy<2" "sentencepiece<0.2.3" "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl"
+  ```
+
   or with uv:
 
   ```sh
   uv tool install --python 3.12 "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl"
+  ```
+
+  On a Mac with an Intel processor, use this line:
+
+  ```sh
+  uv tool install --python 3.12 --with "numpy<2" --with "sentencepiece<0.2.3" "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl"
   ```
 
   Then download the model once (fastino/gliner2-privacy-filter-PII-multi, into `~/.ragbase-shield/models`) and check
