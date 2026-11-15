@@ -11,9 +11,15 @@ So Shield uses three local paths instead.
 
 ## 1. Shield Desk (any Copilot: web, app, Teams, Word, Outlook)
 
-Start it with
+With uv, install the `ragbase-shield` command once, from the wheel of the release, then start Shield Desk:
+
+```sh
+uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl
+ragbase-shield desk
+```
+
+It opens a local page on `http://127.0.0.1:7878`. To start Shield Desk without installing the command:
 `uvx --from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield desk`.
-It opens a local page on `http://127.0.0.1:7878`.
 
 1. **Masquer**: choose the dossier, paste the client text, check the detected entities, click copy.
 2. Paste the masked text into Copilot. Copilot sees codes such as `PERSONNE_A`, `SOCIETE_B`, `IBAN_1`.
@@ -28,6 +34,8 @@ Copilot on that copy only.
 client document: open the masked copy instead.**
 
 ## 2. Clipboard commands (fastest in Word and Outlook)
+
+These commands need the `ragbase-shield` command that section 1 installs.
 
 This command replaces the clipboard with the masked text:
 

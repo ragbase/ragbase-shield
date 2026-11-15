@@ -119,11 +119,11 @@ https://github.com/ragbase/ragbase-shield/releases/latest. Paquet Python : le fi
 | Windows 10 ou 11 | `RAGbase-Shield-0.4.1-win64.msi` : installation pour l'utilisateur (prévue sans droits administrateur). Pas encore signé : SmartScreen vous demande de confirmer | [docs/INSTALL.md](docs/INSTALL.md), section 0 |
 | Claude Desktop | `ragbase-shield-0.4.1.mcpb` : double-clic, puis « Installer » | [docs/INSTALL.md](docs/INSTALL.md), section 2 |
 | Claude Code et Cowork | Plugin : `/plugin marketplace add ragbase/ragbase-shield`, puis `/plugin install ragbase-shield@ragbase` | [docs/INSTALL.md](docs/INSTALL.md), section 3 |
-| ChatGPT desktop et Codex, GitHub Copilot dans VS Code | `ragbase-shield install chatgpt` (ou `codex`, `vscode`), une fois la commande installée | [docs/INSTALL.md](docs/INSTALL.md), sections 4 et 5 |
+| ChatGPT desktop et Codex, GitHub Copilot dans VS Code | `ragbase-shield install chatgpt` (ou `codex`, `vscode`), une fois la commande installée avec uv (commandes plus bas) | [docs/INSTALL.md](docs/INSTALL.md), sections 4 et 5 |
 | Toute application web (claude.ai, chatgpt.com, Copilot web) | Shield Desk, et l'extension de navigateur pour Chrome et Edge (pas encore dans les boutiques : chargez le dossier `integrations/browser-extension` en mode développeur) | [docs/INSTALL.md](docs/INSTALL.md), sections 6 et 7 |
 | Terminal, avec uv ou pip | Shield Desk avec uv, ou le paquet avec pip | ci-dessous |
 
-**Avec uv (une seule commande).** uv est l'outil open source qui télécharge et lance Shield.
+**Avec uv.** uv est l'outil open source qui télécharge et lance Shield.
 
 Sur Mac : ouvrez l'application Terminal, collez cette ligne, puis appuyez sur Entrée.
 
@@ -136,6 +136,8 @@ Sur Windows : ouvrez PowerShell, collez cette ligne, puis appuyez sur Entrée.
 ```powershell
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
+
+Si uv est déjà installé sur votre ordinateur, collez quand même cette ligne : elle met uv à jour.
 
 Fermez la fenêtre, puis ouvrez-en une nouvelle. Installez ensuite la commande `ragbase-shield` une fois, depuis le
 fichier wheel de la version, puis lancez Shield Desk :

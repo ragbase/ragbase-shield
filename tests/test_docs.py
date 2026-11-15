@@ -244,6 +244,7 @@ def test_main_uv_way_installs_the_command_first():
     install = _read("docs/INSTALL.md").splitlines()
     part2 = next(i for i, ln in enumerate(install, 1) if ln.startswith("## Part 2. English"))
     places = {"README.md": [None], "README.fr.md": [None], "integrations/browser-extension/README.md": [None],
+              "integrations/microsoft-copilot/README.md": [None], "integrations/claude-desktop/README.md": [None],
               "docs/INSTALL.md": [(1, part2), (part2, len(install) + 1)]}
     for rel, parts in places.items():
         lines = _read(rel).splitlines()
@@ -274,6 +275,62 @@ def test_install_texts_of_round_2():
     assert "Arguments: the block below." in guide
     assert [b for _s, t, b in _code_blocks("integrations/chatgpt/README.md")
             if t == "text" and [ln.strip() for _i, ln in b] == [args]]
+
+
+# A copy block that holds the mask command and the restore command runs both when it is pasted: the clipboard then
+# ends with the restored text, which holds the real names (check of 15 November 2026). Each command has its own block,
+# with a sentence between them that says when to run it.
+_MASK_CMD = re.compile(r"ragbase-shield(?:\.cmd)?[\"']?\s+mask\b")
+_RESTORE_CMD = re.compile(r"ragbase-shield(?:\.cmd)?[\"']?\s+restore\b")
+
+
+@pytest.mark.parametrize("rel", _shell_doc_files())
+def test_mask_and_restore_never_in_one_block(rel):
+    for start, tag, body in _code_blocks(rel):
+        if tag not in _SHELL_TAGS:
+            continue
+        lines = [line for _i, line in body]
+        if any(_MASK_CMD.search(ln) for ln in lines):
+            assert not any(_RESTORE_CMD.search(ln) for ln in lines), \
+                f"{rel}:{start}: one ```{tag or '(no language)'} block runs mask, then restore"
+
+
+def test_mask_and_restore_blocks_of_the_guides():
+    """The test above sees the mask and restore blocks of the guides: in both parts of the install guide and in the
+    Copilot guide, one block for each command, and in the install guide the sentence that says when to run it."""
+    mask = "ragbase-shield mask --dossier DOSSIER_1 --clipboard"
+    restore = "ragbase-shield restore --dossier DOSSIER_1 --clipboard"
+    fr, en = _read("docs/INSTALL.md").split("## Part 2. English", 1)
+    for part, before, after in ((fr, "Avant de coller dans Copilot :", "Après avoir copié la réponse :"),
+                                (en, "Before pasting into Copilot:", "After copying the answer:")):
+        assert f"{before}\n\n```sh\n{mask}\n```\n\n{after}\n\n```sh\n{restore}\n```\n" in part
+    for rel in ("docs/INSTALL.md", "integrations/microsoft-copilot/README.md"):
+        blocks = [[ln.strip() for _i, ln in b] for _s, t, b in _code_blocks(rel) if t in _SHELL_TAGS]
+        assert [mask] in blocks and [restore] in blocks, rel
+
+
+def test_uv_install_line_also_updates_uv():
+    """The uv install line also updates uv. Right after it, the READMEs and both parts of the install guide ask to paste
+    it even when uv is already on the computer, so the command of the release is installed with a current uv."""
+    fr = "Si uv est déjà installé sur votre ordinateur, collez quand même cette ligne : elle met uv à jour."
+    en = "If uv is already on your computer, paste this line anyway: it updates uv."
+    after_ps = 'powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"\n```\n\n'
+    install_fr, install_en = _read("docs/INSTALL.md").split("## Part 2. English", 1)
+    for name, text, sentence in (("README.md", _read("README.md"), en), ("README.fr.md", _read("README.fr.md"), fr),
+                                 ("docs/INSTALL.md, French", install_fr, fr),
+                                 ("docs/INSTALL.md, English", install_en, en)):
+        assert text.count(after_ps) >= 1, name
+        assert text.count(after_ps) == text.count(f"{after_ps}{sentence}\n"), name
+
+
+def test_readme_uv_texts():
+    """The READMEs: the app commands come from the command installed with uv, and the uv way has a short heading."""
+    for rel, row, heading in (
+            ("README.md", "once the command is installed with uv (commands below)", "**With uv.** "),
+            ("README.fr.md", "une fois la commande installée avec uv (commandes plus bas)", "**Avec uv.** ")):
+        text = _read(rel)
+        assert row in text, rel
+        assert heading in text, rel
 
 
 KEY_WARNINGS = {

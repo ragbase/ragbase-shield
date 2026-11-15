@@ -120,11 +120,11 @@ https://github.com/ragbase/ragbase-shield/releases/latest. Python package: the w
 | Windows 10 or 11 | `RAGbase-Shield-0.4.1-win64.msi`: per-user install (designed to need no administrator rights). Not signed yet: SmartScreen asks you to confirm | [docs/INSTALL.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/INSTALL.md), section 0 |
 | Claude Desktop | `ragbase-shield-0.4.1.mcpb`: double-click, then "Install" | [docs/INSTALL.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/INSTALL.md), section 2 |
 | Claude Code and Cowork | Plugin: `/plugin marketplace add ragbase/ragbase-shield`, then `/plugin install ragbase-shield@ragbase` | [docs/INSTALL.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/INSTALL.md), section 3 |
-| ChatGPT desktop and Codex, GitHub Copilot in VS Code | `ragbase-shield install chatgpt` (or `codex`, `vscode`), once the command is installed | [docs/INSTALL.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/INSTALL.md), sections 4 and 5 |
+| ChatGPT desktop and Codex, GitHub Copilot in VS Code | `ragbase-shield install chatgpt` (or `codex`, `vscode`), once the command is installed with uv (commands below) | [docs/INSTALL.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/INSTALL.md), sections 4 and 5 |
 | Any web app (claude.ai, chatgpt.com, Copilot web) | Shield Desk, and the browser extension for Chrome and Edge (not in the stores yet: load the folder `integrations/browser-extension` in developer mode) | [docs/INSTALL.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/INSTALL.md), sections 6 and 7 |
 | Terminal, with uv or pip | Shield Desk with uv, or the package with pip | below |
 
-**With uv (one command).** uv is the open-source tool that downloads and runs Shield.
+**With uv.** uv is the open-source tool that downloads and runs Shield.
 
 On a Mac: open the Terminal app, paste this line, press Enter.
 
@@ -137,6 +137,8 @@ On Windows: open PowerShell, paste this line, press Enter.
 ```powershell
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
+
+If uv is already on your computer, paste this line anyway: it updates uv.
 
 Close the window and open a new one. Then install the `ragbase-shield` command once, from the wheel of the release,
 and start Shield Desk:

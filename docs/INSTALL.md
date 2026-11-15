@@ -201,6 +201,8 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
 
+Si uv est déjà installé sur votre ordinateur, collez quand même cette ligne : elle met uv à jour.
+
 Fermez la fenêtre, puis ouvrez-en une nouvelle.
 
 > **Depuis une copie du dépôt (développement).** Dans le dossier du dépôt, tapez une seule fois
@@ -680,6 +682,8 @@ Windows (PowerShell):
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
 
+If uv is already on your computer, paste this line anyway: it updates uv.
+
 Open a new terminal window.
 
 > **From a copy of the repository (development).** In the repository folder, type once `uv tool install .`:
@@ -832,10 +836,15 @@ Use Shield Desk and the clipboard: **Masquer** (mask, copy) → paste into Copil
 click "Download (.txt)", open the masked copy in Word, and use Copilot on that copy only.
 **Copilot in Word and Outlook reads the open document or email. Never run it on the original.**
 
-Terminal shortcut (with the `ragbase-shield` command, section 0b):
+Terminal shortcut (with the `ragbase-shield` command, section 0b). Before pasting into Copilot:
 
 ```sh
 ragbase-shield mask --dossier DOSSIER_1 --clipboard
+```
+
+After copying the answer:
+
+```sh
 ragbase-shield restore --dossier DOSSIER_1 --clipboard
 ```
 

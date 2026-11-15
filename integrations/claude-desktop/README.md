@@ -13,8 +13,15 @@ your dossier documents **masked** through 6 tools and never sees the real names.
    - drag it into the Claude Desktop window;
    - **Settings > Extensions > Advanced settings > Install Extension…** and choose the file.
 3. Review the details and confirm.
-4. Register a dossier folder once: open Shield Desk or run `ragbase-shield add <folder>`. With uv, Shield Desk
-   starts with
+4. Register a dossier folder once: open Shield Desk or run `ragbase-shield add <folder>`. With uv, install the
+   `ragbase-shield` command once, from the wheel of the release, then start Shield Desk:
+
+   ```sh
+   uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl
+   ragbase-shield desk
+   ```
+
+   To start Shield Desk without installing the command:
    `uvx --from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield desk`.
 5. In a chat, ask: "List my RAGbase Shield dossiers, read DOSSIER_1 and draft a summary, then save it."
    The restored file appears in the `Shield - sorties` folder of the dossier.
@@ -25,7 +32,7 @@ uv, on first start. No separate Python install is needed.
 Team and Enterprise: an admin can allow or block desktop extensions for the organization.
 
 **macOS keychain prompt.** By default the vault key is stored in the macOS keychain by the
-first program that opens the vault (usually Shield Desk, run by `uvx`). The extension's server runs another
+first program that opens the vault (usually Shield Desk). The extension's server runs another
 Python program (the uv environment inside the extension folder), and macOS keychain access rules are per
 program. Expect a dialog that asks to let the extension use the "ragbase-shield" keychain item: click
 **Always Allow**. If you click Deny, the vault stays closed and every Shield tool answers "vault unreadable"
