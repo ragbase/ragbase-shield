@@ -61,7 +61,7 @@ With `RAGBASE_SHIELD_LOCALE=en`, codes use English labels (PERSON_A, COMPANY_A, 
 Inside one dossier, a person always keeps the same code.
 "M. Mercadier", "Thibault Mercadier" and "MERCADIER Thibault" all become PERSONNE_A.
 
-After "M.", "Mme", "Mlle" or "Me", Shield masks the name that follows, with or without capitals, in every text.
+After "M.", "Mme", "Mlle" or "Me", Shield masks the name that follows, with or without capitals, in every French text.
 In text typed without capitals, as on a phone or in a quick note, Shield also masks names with or without a title, companies written with their legal form, postal addresses and the fields "nom :" and "prénom :".
 The setting RAGBASE_SHIELD_LOWERCASE_NAMES=0 turns these rules off.
 
@@ -204,7 +204,7 @@ From a terminal, the same in two commands:
 Masking everything is easy, but then Claude cannot do the work. Shield masks your clients' data and keeps the law
 readable. We measured Shield against Hexagone and Presidio on four French benchmarks, all public.
 
-| | Shield 0.4.0 Fast | Shield 0.4.0 Precise | Hexagone 0.3.9 Fast | Hexagone 0.3.9 Precis | Presidio 2.2.364 |
+| | Shield 0.4.1 Fast | Shield 0.4.1 Precise | Hexagone 0.3.9 Fast | Hexagone 0.3.9 Precis | Presidio 2.2.364 |
 |---|---|---|---|---|---|
 | **Overall score (F1), higher is better** | | | | | |
 | FR-PII-Bench | **96.9** | 96.2 | 80.7 | 80.7 | 66.5 |
@@ -216,8 +216,8 @@ readable. We measured Shield against Hexagone and Presidio on four French benchm
 | REF | **4.1 %** | **4.1 %** | 17.8 % | 47.1 % | 15.3 % |
 | Max | **2.1 %** | 4.2 % | 47.2 % | 58.3 % | 55.6 % |
 | **Speed and memory, lower is better** | | | | | |
-| Time for one document | **0.59 s** | 17.4 s | 26.93 s | 9 min | 1.59 s |
-| Peak memory | **74 to 75 MB** | 3.8 GB | 1.6 to 1.7 GB | 3.8 to 5.4 GB | 0.57 GB |
+| Time for one document | **0.61 s** | 17.7 s | 26.93 s | 9 min | 1.59 s |
+| Peak memory | **78 to 79 MB** | 3.7 to 3.8 GB | 1.6 to 1.7 GB | 3.8 to 5.4 GB | 0.57 GB |
 
 Fast is the default mode. Precise adds an AI model that runs on your computer. The best value of each row is in bold.
 

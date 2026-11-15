@@ -59,7 +59,7 @@ Claude en a besoin pour travailler.
 Dans un même dossier, une personne garde toujours le même code.
 « M. Mercadier », « Thibault Mercadier » et « MERCADIER Thibault » deviennent tous PERSONNE_A.
 
-Après « M. », « Mme », « Mlle » ou « Me », Shield masque le nom qui suit, avec ou sans majuscules, dans tous les textes.
+Après « M. », « Mme », « Mlle » ou « Me », Shield masque le nom qui suit, avec ou sans majuscules, dans tous les textes en français.
 Dans un texte tapé sans majuscules, comme sur un téléphone ou dans une note rapide, Shield masque aussi les noms avec ou sans civilité, les sociétés écrites avec leur forme juridique, les adresses postales et les champs « nom : » et « prénom : ».
 Le réglage RAGBASE_SHIELD_LOWERCASE_NAMES=0 désactive ces règles.
 
@@ -206,7 +206,7 @@ Pour les habitués du terminal, la même chose en deux commandes :
 Tout masquer est facile, mais Claude ne peut plus travailler. Shield masque les données de vos clients et garde le droit
 lisible. Nous avons mesuré Shield face à Hexagone et à Presidio sur quatre benchmarks en français, tous publics.
 
-| | Shield 0.4.0 Rapide | Shield 0.4.0 Précis | Hexagone 0.3.9 Rapide | Hexagone 0.3.9 Précis | Presidio 2.2.364 |
+| | Shield 0.4.1 Rapide | Shield 0.4.1 Précis | Hexagone 0.3.9 Rapide | Hexagone 0.3.9 Précis | Presidio 2.2.364 |
 |---|---|---|---|---|---|
 | **Score global (F1), plus haut = mieux** | | | | | |
 | FR-PII-Bench | **96,9** | 96,2 | 80,7 | 80,7 | 66,5 |
@@ -218,8 +218,8 @@ lisible. Nous avons mesuré Shield face à Hexagone et à Presidio sur quatre be
 | REF | **4,1 %** | **4,1 %** | 17,8 % | 47,1 % | 15,3 % |
 | Max | **2,1 %** | 4,2 % | 47,2 % | 58,3 % | 55,6 % |
 | **Vitesse et mémoire, plus bas = mieux** | | | | | |
-| Temps pour un document | **0,59 s** | 17,4 s | 26,93 s | 9 min | 1,59 s |
-| Mémoire au pic | **74 à 75 Mo** | 3,8 Go | 1,6 à 1,7 Go | 3,8 à 5,4 Go | 0,57 Go |
+| Temps pour un document | **0,61 s** | 17,7 s | 26,93 s | 9 min | 1,59 s |
+| Mémoire au pic | **78 à 79 Mo** | 3,7 à 3,8 Go | 1,6 à 1,7 Go | 3,8 à 5,4 Go | 0,57 Go |
 
 Rapide est le mode par défaut. Précis ajoute un modèle d'IA qui tourne sur votre ordinateur. La meilleure valeur de
 chaque ligne est en gras.

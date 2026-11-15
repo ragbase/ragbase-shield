@@ -5,15 +5,18 @@
 #
 #   SET    ref | max
 #   MODE   fast (default) | precise | presidio
-#          fast and precise are the two modes of RAGbase Shield; presidio is Microsoft Presidio 2.2.364.
+#          fast and precise are the two modes of RAGbase Shield 0.4.1; presidio is Microsoft Presidio 2.2.364.
 #
 # Run it from a clone of https://github.com/ragbase/ragbase-shield, with Python 3.10 or newer and an internet
 # connection for the installs. On Windows, use Git Bash or WSL. To choose the Python, set PYTHON to its path:
 #
 #   PYTHON=/usr/local/bin/python3.12 bash evaluation/datasets/reproduce.sh ref
 #
-# The virtual environment of each mode, the tool's output and the scores go under .bench_data/datasets (ignored
-# by git). The tool itself runs with the network closed.
+# Shield comes from the release page of the repository: the script downloads the wheel, checks its SHA-256 and
+# installs the file.
+#
+# The virtual environment of each mode, the downloaded wheel, the tool's output and the scores go under
+# .bench_data/datasets (ignored by git). The tool itself runs with the network closed.
 #
 # precise downloads the Shield model once (about 1.25 GB) into RAGBASE_SHIELD_MODELS_DIR
 # (default: ~/.ragbase-shield/models). On an Intel Mac, precise needs Python 3.10 to 3.12.
@@ -31,7 +34,12 @@ DATA="$ROOT/evaluation/datasets/$SET"
 WORK="$ROOT/.bench_data/datasets"
 VENV="$WORK/venv-$MODE"
 OUT="$WORK/out/$SET-$MODE"
-SHIELD="${SHIELD_VERSION:-0.4.0}"   # the version of the benchmark page
+SHIELD="0.4.1"   # the version of the benchmark page
+# The wheel of that version on the release page, its SHA-256 (the value of SHA256SUMS on the same page), its copy here.
+WHEEL="ragbase_shield-$SHIELD-py3-none-any.whl"
+WHEEL_URL="https://github.com/ragbase/ragbase-shield/releases/download/v$SHIELD/$WHEEL"
+WHEEL_SHA256="1710644a4e93e3e436f4d46d9d931d98eee208fe6b58d6f82a5f2e455aad54c5"
+WHEEL_FILE="$WORK/wheels/$WHEEL"
 READERS="pdfplumber==0.11.10 pdfminer.six==20260107 openpyxl==3.1.2"
 
 # 1. The files of the set are the published ones.
@@ -52,14 +60,31 @@ mkdir -p "$WORK"
 if [ ! -d "$VENV" ]; then "$PYTHON" -m venv "$VENV"; fi
 if [ -d "$VENV/Scripts" ]; then BIN="$VENV/Scripts"; else BIN="$VENV/bin"; fi
 PY="$BIN/python"
+# Shield comes from the release page: download the wheel once, check its SHA-256, and only then install the file.
+shield_checked() {
+  "$PY" -c 'import hashlib, sys; sys.exit(hashlib.sha256(open(sys.argv[1], "rb").read()).hexdigest() != sys.argv[2])' \
+    "$WHEEL_FILE" "$WHEEL_SHA256" 2>/dev/null
+}
+get_shield() {
+  if ! shield_checked; then
+    rm -f "$WHEEL_FILE"
+    "$PY" -m pip download --quiet --no-deps --dest "$WORK/wheels" "$WHEEL_URL" \
+      || { echo "The download of $WHEEL_URL failed." >&2; exit 1; }
+    shield_checked \
+      || { echo "The SHA-256 of $WHEEL_FILE is not the value of the release page. The script stops." >&2; exit 1; }
+  fi
+  echo "Shield $SHIELD: $WHEEL from the release page, SHA-256 checked."
+}
 echo "Installing ($MODE). The first run takes a few minutes."
 "$PY" -m pip install --quiet --upgrade pip
 case "$MODE" in
   fast)
-    "$PY" -m pip install --quiet "ragbase-shield==$SHIELD" $READERS
+    get_shield
+    "$PY" -m pip install --quiet "$WHEEL_FILE" $READERS
     TOOL="Shield $SHIELD Fast" ;;
   precise)
-    "$PY" -m pip install --quiet "ragbase-shield[ner]==$SHIELD" $READERS
+    get_shield
+    "$PY" -m pip install --quiet "${WHEEL_FILE}[ner]" $READERS
     export RAGBASE_SHIELD_MODELS_DIR="${RAGBASE_SHIELD_MODELS_DIR:-$HOME/.ragbase-shield/models}"
     case "$("$BIN/ragbase-shield" ner download --dry-run 2>&1 || true)" in
       *"already present"*) ;;

@@ -650,7 +650,7 @@ Every rule below is a general rule (a pattern, a lexicon category or an algorith
 - Names, companies and addresses typed in lower case, French text (0.4.1; `names.py`, `detectors.py`,
   `masker.py`, `lexicon/verbs_fr.txt`, `lexicon/lowercase_fr.txt`; tests: `tests/test_lowercase_names_fr.py`,
   `tests/test_lowercase_prompts_fr.py`).
-  After "M.", "Mme", "Mlle" or "Me", Shield masks the name that follows, with or without capitals, in every text.
+  After "M.", "Mme", "Mlle" or "Me", Shield masks the name that follows, with or without capitals, in every French text.
   In text typed without capitals, as on a phone or in a quick note, Shield also masks names with or without a title, companies written with their legal form, postal addresses and the fields "nom :" and "prénom :".
   The setting RAGBASE_SHIELD_LOWERCASE_NAMES=0 turns these rules off.
   The engine reads the setting at each mask call (`config.lowercase_names()`). The rules of the second sentence

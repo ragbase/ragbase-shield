@@ -1,4 +1,4 @@
-# Benchmark: RAGbase Shield 0.4.0
+# Benchmark: RAGbase Shield 0.4.1
 
 How we measure Shield, and the results. En français : https://shield.ragbase.ai/resultats/
 
@@ -17,7 +17,7 @@ data and leaves the rest of the document intact. So we measure both at the same 
 
 | Tool | Version | Modes |
 |---|---|---|
-| RAGbase Shield | 0.4.0 | Fast (rules only, the default) and Precise (rules and a GLiNER model on the CPU) |
+| RAGbase Shield | 0.4.1 | Fast (rules only, the default) and Precise (rules and a GLiNER model on the CPU) |
 | Hexagone AI Desktop | 0.3.9 | Fast and Precis, default settings |
 | Microsoft Presidio | 2.2.364 | default recognizers, spaCy `fr_core_news_md` |
 
@@ -65,8 +65,8 @@ Precision (P) and recall (R) are next to each score.
 
 | | Shield Fast | Shield Precise | Hexagone Fast | Hexagone Precis | Presidio |
 |---|---|---|---|---|---|
-| Time for one document | **0.59 s** | 17.4 s | 26.93 s | 9 min | 1.59 s |
-| Peak memory | **74 to 75 MB** | 3.8 GB | 1.6 to 1.7 GB | 3.8 to 5.4 GB | 0.57 GB |
+| Time for one document | **0.61 s** | 17.7 s | 26.93 s | 9 min | 1.59 s |
+| Peak memory | **78 to 79 MB** | 3.7 to 3.8 GB | 1.6 to 1.7 GB | 3.8 to 5.4 GB | 0.57 GB |
 
 ## Run it yourself
 
