@@ -64,8 +64,24 @@ Installation dans Claude Code (version 2.1.275 ou plus récente) :
 `/plugin install ragbase-shield --marketplace ragbase/ragbase-shield`. Avec une version plus ancienne :
 `/plugin marketplace add ragbase/ragbase-shield`, puis `/plugin install ragbase-shield@ragbase`.
 
-Pour commencer : installez uv, puis la commande `ragbase-shield`, depuis le fichier de la version 0.4.1 publiée
-sur GitHub :
+Pour commencer : installez uv, l'outil open source qui télécharge et lance Shield.
+
+Sur Mac : ouvrez l'application Terminal, collez cette ligne, puis appuyez sur Entrée.
+
+```sh
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+Sur Windows : ouvrez PowerShell, collez cette ligne, puis appuyez sur Entrée.
+
+```powershell
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
+Si uv est déjà installé sur votre ordinateur, collez quand même cette ligne : elle met uv à jour.
+
+Fermez la fenêtre, puis ouvrez-en une nouvelle. Installez ensuite la commande `ragbase-shield`, depuis le fichier
+de la version 0.4.1 publiée sur GitHub :
 
 ```sh
 uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl
@@ -139,7 +155,24 @@ Install in Claude Code (version 2.1.275 or later):
 `/plugin install ragbase-shield --marketplace ragbase/ragbase-shield`. With an older version:
 `/plugin marketplace add ragbase/ragbase-shield`, then `/plugin install ragbase-shield@ragbase`.
 
-To start: install uv, then the `ragbase-shield` command, from the file of the 0.4.1 release on GitHub:
+To start: install uv, the open-source tool that downloads and runs Shield.
+
+On a Mac: open the Terminal app, paste this line, press Enter.
+
+```sh
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+On Windows: open PowerShell, paste this line, press Enter.
+
+```powershell
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
+If uv is already on your computer, paste this line anyway: it updates uv.
+
+Close the window and open a new one. Then install the `ragbase-shield` command, from the file of the 0.4.1 release
+on GitHub:
 
 ```sh
 uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl

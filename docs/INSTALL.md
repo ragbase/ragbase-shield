@@ -530,7 +530,7 @@ Il tourne sur le processeur, hors ligne, et pèse environ 1,2 Go. Il s'installe 
 l'installateur en un clic ne le prend pas encore en charge.
 
 ```sh
-uv tool install "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl"
+uv tool install --python 3.12 "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl"
 ragbase-shield ner download
 ragbase-shield ner status
 ```
@@ -905,7 +905,7 @@ It runs on the CPU, offline, and takes about 1.2 GB. You install it with uv (sec
 installer does not support it yet.
 
 ```sh
-uv tool install "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl"
+uv tool install --python 3.12 "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl"
 ragbase-shield ner download
 ragbase-shield ner status
 ```

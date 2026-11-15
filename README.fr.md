@@ -169,7 +169,7 @@ ragbase-shield desk
 Le mode Précis (avec modèle IA) est optionnel (voir [docs/NER.md](docs/NER.md)). Avec uv :
 
 ```sh
-uv tool install "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl"
+uv tool install --python 3.12 "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl"
 ```
 
 Avec pip :
@@ -320,7 +320,7 @@ Modèle complet : [docs/PRIVACY_MODEL.md](docs/PRIVACY_MODEL.md).
   ou avec uv :
 
   ```sh
-  uv tool install "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl"
+  uv tool install --python 3.12 "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl"
   ```
 
   Téléchargez ensuite le modèle une fois (fastino/gliner2-privacy-filter-PII-multi, dans `~/.ragbase-shield/models`),

@@ -39,7 +39,24 @@ Not covered: text you **type** goes out as typed. A file pasted or dropped on th
 
 ## Install (unpacked, developer mode)
 
-1. Install the `ragbase-shield` command once, from the wheel of the release, then start Shield Desk:
+1. Start Shield Desk with uv. uv is the open-source tool that downloads and runs Shield.
+
+   On a Mac: open the Terminal app, paste this line, press Enter.
+
+   ```sh
+   curl -LsSf https://astral.sh/uv/install.sh | sh
+   ```
+
+   On Windows: open PowerShell, paste this line, press Enter.
+
+   ```powershell
+   powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+   ```
+
+   If uv is already on your computer, paste this line anyway: it updates uv.
+
+   Close the window and open a new one. Then install the `ragbase-shield` command once, from the wheel of the
+   release, and start Shield Desk:
 
    ```sh
    uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl

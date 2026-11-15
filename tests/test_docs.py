@@ -147,7 +147,7 @@ def test_release_wheel_commands_are_in_the_guides():
     for part in install.split("## Part 2. English", 1):
         assert f"uvx --from {WHEEL_URL} ragbase-shield desk" in part
         assert f"\nuv tool install {WHEEL_URL}\n" in part
-        assert f'uv tool install "ragbase-shield[ner] @ {WHEEL_URL}"' in part
+        assert f'uv tool install --python 3.12 "ragbase-shield[ner] @ {WHEEL_URL}"' in part
         assert f"uvx --from {WHEEL_URL} ragbase-shield doctor" in part
         assert f'args = ["--from", "{WHEEL_URL}", "ragbase-shield", "mcp"]' in part
     for rel in ("README.md", "README.fr.md"):
@@ -331,6 +331,98 @@ def test_readme_uv_texts():
         text = _read(rel)
         assert row in text, rel
         assert heading in text, rel
+
+
+# Every user doc that gives "uv tool install <wheel>" (the Precise form too) tells how to install uv and asks to paste
+# the uv line even when uv is already on the computer, so the command is installed with a current uv (check of
+# 15 November 2026). Before the first "uv tool install <wheel>" of each language part, the doc gives the sentence of
+# README.md, either right after the uv install lines (README form: an sh block for the Mac, a powershell block for
+# Windows, then the sentence as its own paragraph) or in the paragraph of a link to the README section that has them.
+_UV_UPDATE = {"fr": "Si uv est déjà installé sur votre ordinateur, collez quand même cette ligne : elle met uv à jour.",
+              "en": "If uv is already on your computer, paste this line anyway: it updates uv."}
+_UV_MAC = "curl -LsSf https://astral.sh/uv/install.sh | sh"
+_UV_WINDOWS = 'powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"'
+_UV_README_LINK = re.compile(r"\]\(((?:\.\./)*)(README\.md#install|README\.fr\.md#installer)\)")
+_UV_TOOL_INSTALL_WHEEL = re.compile(
+    r"uv tool install (?:--python 3\.12 )?(?:\"ragbase-shield\[ner\] @ )?" + re.escape(WHEEL_URL))
+# Docs in two languages, cut where the English part starts.
+_TWO_LANGUAGES = {"docs/INSTALL.md": "## Part 2. English", "integrations/claude-code/plugin/README.md": "\n## English\n"}
+
+
+def _language_parts(rel: str) -> list[tuple[str, str]]:
+    """(language, text) of each language part of a user doc."""
+    text = _read(rel)
+    if rel in _TWO_LANGUAGES:
+        fr, en = text.split(_TWO_LANGUAGES[rel], 1)
+        return [("fr", fr), ("en", en)]
+    return [("fr" if rel.endswith(".fr.md") else "en", text)]
+
+
+def _paragraphs(text: str) -> list[str]:
+    """The paragraphs of a Markdown text (a short fenced block is one paragraph), with the spaces collapsed."""
+    return [" ".join(p.split()) for p in re.split(r"\n[ \t]*\n", text) if p.strip()]
+
+
+@pytest.mark.parametrize("rel", _shell_doc_files())
+def test_uv_tool_install_comes_after_the_uv_line_and_the_update_sentence(rel):
+    mac_block, windows_block = f"```sh {_UV_MAC} ```", f"```powershell {_UV_WINDOWS} ```"
+    for lang, part in _language_parts(rel):
+        name, sentence, paras = f"{rel} ({lang})", _UV_UPDATE[lang], _paragraphs(part)
+        # Each uv install line for Windows is followed by the sentence, as its own paragraph.
+        for i, p in enumerate(paras):
+            if p == windows_block:
+                assert i + 1 < len(paras) and paras[i + 1] == sentence, f"{name}: no update sentence after the uv line"
+        flat = " ".join(part.split())
+        first = _UV_TOOL_INSTALL_WHEEL.search(flat)
+        if first is None:
+            continue
+        at = next((i for i, p in enumerate(paras) if sentence in p), None)
+        assert at is not None and flat.index(sentence) < first.start(), \
+            f"{name}: the first uv tool install comes before the uv update sentence"
+        if paras[at] == sentence:
+            assert at >= 3 and paras[at - 1] == windows_block and mac_block in paras[:at - 1], \
+                f"{name}: the update sentence does not follow the uv install lines"
+        else:
+            link = _UV_README_LINK.search(paras[at])
+            assert link and paras[at].index(link.group(0)) < paras[at].index(sentence), \
+                f"{name}: the update sentence has no uv install lines and no link to the README section before it"
+            target = ((ROOT / rel).parent / link.group(1) / link.group(2).split("#")[0]).resolve()
+            assert target in (ROOT / "README.md", ROOT / "README.fr.md"), f"{name}: the link does not reach the README"
+            heading = "## Install" if link.group(2).endswith("#install") else "## Installer"
+            assert re.search(rf"^{heading}$", target.read_text(encoding="utf-8"), re.M), f"{name}: no {heading}"
+
+
+def test_uv_update_scan_sees_every_uv_tool_install():
+    """The test above checks the 13 language parts that give "uv tool install <wheel>": the READMEs, SECURITY.md, the
+    two parts of the install guide, docs/NER.md, the 6 guides of integrations/ (the plugin README in two parts)."""
+    seen = {(rel, lang) for rel in _shell_doc_files() for lang, part in _language_parts(rel)
+            if _UV_TOOL_INSTALL_WHEEL.search(" ".join(part.split()))}
+    expected = {("README.md", "en"), ("README.fr.md", "fr"), ("SECURITY.md", "en"), ("docs/INSTALL.md", "fr"),
+                ("docs/INSTALL.md", "en"), ("docs/NER.md", "en"), ("integrations/browser-extension/README.md", "en"),
+                ("integrations/chatgpt/README.md", "en"), ("integrations/claude-code/plugin/README.md", "fr"),
+                ("integrations/claude-code/plugin/README.md", "en"), ("integrations/claude-desktop/README.md", "en"),
+                ("integrations/microsoft-copilot/README.md", "en"), ("integrations/vscode/README.md", "en")}
+    assert expected <= seen, sorted(expected - seen)
+
+
+# The Precise extra needs torch. On an Intel Mac the last torch is 2.2.2, built for Python 3.8 to 3.12 (docs/NER.md,
+# section 1), so every uv command of Precise mode names Python 3.12: uv then uses or downloads that Python, on every
+# computer. A pip command uses the Python of its environment and has no such option.
+_UV_PRECISE = re.compile(r"\buv(?:x| tool install| tool upgrade| pip install)\b[^\n`]*?ragbase-shield\[ner\]")
+
+
+@pytest.mark.parametrize("rel", _user_command_files())
+def test_uv_precise_command_names_python_3_12(rel):
+    for m in _UV_PRECISE.finditer(_read(rel)):
+        assert " --python 3.12 " in m.group(0), f"{rel}: a uv Precise command without --python 3.12: {m.group(0)!r}"
+
+
+def test_uv_precise_command_in_the_guides():
+    cmd = f'uv tool install --python 3.12 "ragbase-shield[ner] @ {WHEEL_URL}"'
+    for rel, count in (("README.md", 2), ("README.fr.md", 2), ("docs/NER.md", 1)):
+        assert _read(rel).count(cmd) == count, rel
+    for part in _read("docs/INSTALL.md").split("## Part 2. English", 1):
+        assert part.count(cmd) == 1
 
 
 KEY_WARNINGS = {

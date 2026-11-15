@@ -22,7 +22,23 @@ configuration; ask your admin if the server does not appear.
 
 ## Before you start
 
-1. Install [uv](https://docs.astral.sh/uv/getting-started/installation/) (it provides `uvx`).
+1. Install uv (it provides `uvx`). uv is the open-source tool that downloads and runs Shield.
+
+   On a Mac: open the Terminal app, paste this line, press Enter.
+
+   ```sh
+   curl -LsSf https://astral.sh/uv/install.sh | sh
+   ```
+
+   On Windows: open PowerShell, paste this line, press Enter.
+
+   ```powershell
+   powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+   ```
+
+   If uv is already on your computer, paste this line anyway: it updates uv.
+
+   Close the window and open a new one.
 2. Install the `ragbase-shield` command from the wheel of the release, then register a dossier folder with
    Shield Desk (`ragbase-shield desk`) or with `ragbase-shield add <folder>`:
 

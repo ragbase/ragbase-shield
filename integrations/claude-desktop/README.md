@@ -13,8 +13,25 @@ your dossier documents **masked** through 6 tools and never sees the real names.
    - drag it into the Claude Desktop window;
    - **Settings > Extensions > Advanced settings > Install Extension…** and choose the file.
 3. Review the details and confirm.
-4. Register a dossier folder once: open Shield Desk or run `ragbase-shield add <folder>`. With uv, install the
-   `ragbase-shield` command once, from the wheel of the release, then start Shield Desk:
+4. Register a dossier folder once: open Shield Desk or run `ragbase-shield add <folder>`. **With uv.** uv is the
+   open-source tool that downloads and runs Shield.
+
+   On a Mac: open the Terminal app, paste this line, press Enter.
+
+   ```sh
+   curl -LsSf https://astral.sh/uv/install.sh | sh
+   ```
+
+   On Windows: open PowerShell, paste this line, press Enter.
+
+   ```powershell
+   powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+   ```
+
+   If uv is already on your computer, paste this line anyway: it updates uv.
+
+   Close the window and open a new one. Then install the `ragbase-shield` command once, from the wheel of the
+   release, and start Shield Desk:
 
    ```sh
    uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl
