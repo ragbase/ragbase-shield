@@ -119,9 +119,9 @@ https://github.com/ragbase/ragbase-shield/releases/latest. Paquet Python : `ragb
 | Windows 10 ou 11 | `RAGbase-Shield-0.4.1-win64.msi` : installation pour l'utilisateur (prévue sans droits administrateur). Pas encore signé : SmartScreen vous demande de confirmer | [docs/INSTALL.md](docs/INSTALL.md), section 0 |
 | Claude Desktop | `ragbase-shield-0.4.1.mcpb` : double-clic, puis « Installer » | [docs/INSTALL.md](docs/INSTALL.md), section 2 |
 | Claude Code et Cowork | Plugin : `/plugin marketplace add ragbase/ragbase-shield`, puis `/plugin install ragbase-shield@ragbase` | [docs/INSTALL.md](docs/INSTALL.md), section 3 |
-| ChatGPT desktop et Codex, GitHub Copilot dans VS Code | `uvx ragbase-shield install chatgpt` (ou `codex`, `vscode`) | [docs/INSTALL.md](docs/INSTALL.md), sections 4 et 5 |
+| ChatGPT desktop et Codex, GitHub Copilot dans VS Code | `ragbase-shield install chatgpt` (ou `codex`, `vscode`), une fois la commande installée | [docs/INSTALL.md](docs/INSTALL.md), sections 4 et 5 |
 | Toute application web (claude.ai, chatgpt.com, Copilot web) | Shield Desk, et l'extension de navigateur pour Chrome et Edge (pas encore dans les boutiques : chargez le dossier `integrations/browser-extension` en mode développeur) | [docs/INSTALL.md](docs/INSTALL.md), sections 6 et 7 |
-| Terminal, avec uv ou pip | `uvx ragbase-shield desk`, ou `pip install ragbase-shield` | ci-dessous |
+| Terminal, avec uv ou pip | Shield Desk avec uv, ou le paquet avec pip | ci-dessous |
 
 **Avec uv (une seule commande).** uv est l'outil open source qui télécharge et lance Shield.
 
@@ -140,7 +140,7 @@ powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | ie
 Fermez la fenêtre, puis ouvrez-en une nouvelle. Lancez ensuite Shield Desk :
 
 ```sh
-uvx ragbase-shield desk
+uvx --from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield desk
 ```
 
 Votre navigateur s'ouvre sur **http://127.0.0.1:7878**, avec un lien privé qui contient un jeton secret.
@@ -149,8 +149,18 @@ Pour la rouvrir, relancez la commande ci-dessus ou utilisez le lien affiché dan
 L'adresse seule, sans le jeton, affiche « Jeton refusé ».
 Laissez la fenêtre du Terminal ouverte : la fermer arrête Shield Desk et l'extension de navigateur.
 
-**Avec pip :** `pip install ragbase-shield`, puis `ragbase-shield desk`. Le mode Précis (avec modèle IA) est
-optionnel : `pip install "ragbase-shield[ner]"` (voir [docs/NER.md](docs/NER.md)).
+**Avec pip :** installez le fichier wheel de la version, puis lancez Shield Desk.
+
+```sh
+pip install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl
+ragbase-shield desk
+```
+
+Le mode Précis (avec modèle IA) est optionnel (voir [docs/NER.md](docs/NER.md)) :
+
+```sh
+pip install "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl"
+```
 
 Sur Mac, au premier usage, une fenêtre peut demander l'accès au trousseau pour la clé de Shield :
 cliquez sur « Toujours autoriser ».
@@ -184,7 +194,7 @@ Les mêmes étapes valent pour ChatGPT desktop, Codex et GitHub Copilot dans VS 
 
 Pour claude.ai, chatgpt.com, Microsoft 365 Copilot, Word et Outlook.
 
-1. Ouvrez Shield Desk avec le lien affiché par `uvx ragbase-shield desk`, page **Masquer**. Choisissez le
+1. Ouvrez Shield Desk avec le lien affiché par sa commande (voir Installer), page **Masquer**. Choisissez le
    dossier. Sans dossier, les noms enregistrés deviennent [PERSONNE] ou [SOCIETE] et la restauration est
    impossible.
 2. Collez votre texte dans « Texte d'origine » (pas dans le chat), puis cliquez sur « Masquer ».
@@ -288,7 +298,8 @@ Modèle complet : [docs/PRIVACY_MODEL.md](docs/PRIVACY_MODEL.md).
   Aucun modèle n'est installé par défaut. Pour l'ajouter :
 
   ```
-  pip install "ragbase-shield[ner]"      # ou : uv pip install "ragbase-shield[ner]"
+  pip install "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl"
+  # ou, avec uv : uv tool install "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl"
   ragbase-shield ner download            # fastino/gliner2-privacy-filter-PII-multi, une fois, dans ~/.ragbase-shield/models
   ragbase-shield ner status              # ou : ragbase-shield doctor
   ```
@@ -330,8 +341,18 @@ ragbase-shield export <DOSSIER_n> <FILE> / import <FILE>      # encrypted vault 
 ragbase-shield journal [DOSSIER_n]
 ```
 
-Avec uv, préfixez par `uvx` (`uvx ragbase-shield doctor`),
-ou installez la commande une fois pour toutes : `uv tool install ragbase-shield`.
+Avec uv, installez la commande une fois pour toutes, depuis le fichier wheel de la version :
+
+```sh
+uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl
+```
+
+Ou lancez une commande sans l'installer :
+
+```sh
+uvx --from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield doctor
+```
+
 Depuis une copie du dépôt : `uv tool install .` (ou `uv tool install --editable .` pour développer).
 Les configurations écrites par `install` marchent alors, et `doctor` vérifie que chaque application peut
 démarrer Shield.

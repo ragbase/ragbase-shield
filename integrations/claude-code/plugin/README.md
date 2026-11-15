@@ -64,9 +64,16 @@ Installation dans Claude Code (version 2.1.275 ou plus récente) :
 `/plugin install ragbase-shield --marketplace ragbase/ragbase-shield`. Avec une version plus ancienne :
 `/plugin marketplace add ragbase/ragbase-shield`, puis `/plugin install ragbase-shield@ragbase`.
 
-Pour commencer : installez uv, enregistrez un dossier avec Shield Desk (`uvx ragbase-shield desk`) ou avec
-`uvx ragbase-shield add <dossier> --title "Titre"`, puis lancez Claude Code. Pour tester sans vos données :
-`uvx ragbase-shield verify` vérifie chaque chemin avec des données inventées et répond CLEAN ou LEAK.
+Pour commencer : installez uv, puis la commande `ragbase-shield`, depuis le fichier de la version 0.4.1 publiée
+sur GitHub :
+
+```sh
+uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl
+```
+
+Enregistrez un dossier avec Shield Desk (`ragbase-shield desk`) ou avec
+`ragbase-shield add <dossier> --title "Titre"`, puis lancez Claude Code. Pour tester sans vos données :
+`ragbase-shield verify` vérifie chaque chemin avec des données inventées et répond CLEAN ou LEAK.
 
 Limites : la détection n'est pas complète, relisez le texte masqué dans les cas sensibles. Le texte que vous tapez ou
 joignez directement dans une autre application d'IA n'est pas protégé. Les résultats mesurés :
@@ -132,9 +139,15 @@ Install in Claude Code (version 2.1.275 or later):
 `/plugin install ragbase-shield --marketplace ragbase/ragbase-shield`. With an older version:
 `/plugin marketplace add ragbase/ragbase-shield`, then `/plugin install ragbase-shield@ragbase`.
 
-To start: install uv, register a folder with Shield Desk (`uvx ragbase-shield desk`) or with
-`uvx ragbase-shield add <folder> --title "Title"`, then start Claude Code. To test without your data:
-`uvx ragbase-shield verify` checks every path with invented data and answers CLEAN or LEAK.
+To start: install uv, then the `ragbase-shield` command, from the file of the 0.4.1 release on GitHub:
+
+```sh
+uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl
+```
+
+Register a folder with Shield Desk (`ragbase-shield desk`) or with
+`ragbase-shield add <folder> --title "Title"`, then start Claude Code. To test without your data:
+`ragbase-shield verify` checks every path with invented data and answers CLEAN or LEAK.
 
 Limits: detection is not complete, so review the masked text in sensitive cases. Text that you type or attach
 directly in another AI app is not protected. The measured results: https://shield.ragbase.ai/en/results/.

@@ -35,6 +35,16 @@ def _read(rel: str) -> str:
     return (ROOT / rel).read_text(encoding="utf-8")
 
 
+def _version() -> str:
+    return re.search(r'^version = "([^"]+)"', _read("pyproject.toml"), re.M).group(1)
+
+
+# The wheel of the GitHub release of the version of pyproject.toml. Every uv and pip command of the docs installs or
+# runs this file, so a copied command gives that version (since 15 November 2026).
+WHEEL_NAME = f"ragbase_shield-{_version()}-py3-none-any.whl"
+WHEEL_URL = f"https://github.com/ragbase/ragbase-shield/releases/download/v{_version()}/{WHEEL_NAME}"
+
+
 @pytest.mark.parametrize("rel", DOCS)
 def test_doc_exists(rel):
     assert (ROOT / rel).is_file(), f"missing doc: {rel}"
@@ -82,9 +92,69 @@ def test_cli_block_matches_contract(rel):
 def test_desk_url_and_uv_install(rel):
     text = _read(rel)
     assert "http://127.0.0.1:7878" in text
-    assert "uvx ragbase-shield desk" in text
+    assert f"uvx --from {WHEEL_URL} ragbase-shield desk" in text
     assert "https://astral.sh/uv/install.sh" in text
     assert "https://astral.sh/uv/install.ps1" in text
+
+
+# uvx, uv tool install or upgrade, uv pip install, pipx or pip install, then options (an option other than --from may
+# take a value, as "--python 3.12"), then the package name alone, with or without an extra: that form installs the
+# package of PyPI, not the wheel of the release. A direct reference ("ragbase-shield[ner] @ <url>") is not this form;
+# its URL is checked below. tests/pages-release.spec.ts of the site uses the same pattern.
+_PYPI_FORM = re.compile(
+    r"\b(?:uvx|uv tool (?:install|upgrade)|uv pip install|pipx (?:install|run)|pip3? install)\s+"
+    r"(?:--(?!from\b)[a-z][a-z-]*(?:[ =](?!-)(?![\"']?ragbase-shield)\S+)?\s+)*"
+    r"[\"']?ragbase-shield(?:\[[a-z,]+\])?(?!\[|\s+@\s+https:)"
+)
+_FROM = re.compile(r"--from[\"',\s]+([^\"',\s<)`]+)")
+_DIRECT = re.compile(r"ragbase-shield(?:\[[a-z,]+\])?\s+@\s+([^\"'\s<)`]+)")
+
+
+def _user_command_files() -> list[str]:
+    """The texts a user copies commands from: the docs, the integration guides and the MCP config examples.
+    Not scanned: CHANGELOG.md (history of past versions), NOTICE (licence notice), ARCHITECTURE.md (developer
+    contract), and the messages printed by the code (CLI, Shield Desk, browser extension)."""
+    files = [d for d in DOCS if d not in ("CHANGELOG.md", "NOTICE")] + ["docs/NER.md"]
+    integ = ROOT / "integrations"
+    files += sorted(p.relative_to(ROOT).as_posix() for p in integ.rglob("*.md"))
+    files += sorted(p.relative_to(ROOT).as_posix() for p in integ.rglob("*.example"))
+    files += ["integrations/openai-plugin/mcp.json", "integrations/claude-code/plugin/.mcp.json",
+              "integrations/claude-code/plugin/hooks/hooks.json"]
+    return files
+
+
+@pytest.mark.parametrize("rel", _user_command_files())
+def test_uv_and_pip_commands_install_the_release_wheel(rel):
+    """Every uv and pip command installs or runs the wheel of the release: "uvx --from <wheel URL>",
+    "uv tool install <wheel URL>", "pip install "ragbase-shield[ner] @ <wheel URL>"". The Claude plugin runs the same
+    wheel from its vendor/ folder. No MCP config runs the package name alone."""
+    text = _read(rel)
+    m = _PYPI_FORM.search(text)
+    assert m is None, f"{rel}: a command with the package name alone: {text[max(0, m.start() - 20):m.end() + 40]!r}"
+    allowed = {WHEEL_URL, "${CLAUDE_PLUGIN_ROOT}/vendor/" + WHEEL_NAME}
+    for url in _FROM.findall(text) + _DIRECT.findall(text):
+        assert url in allowed, f"{rel}: installs {url}, not the wheel of the release"
+    for url in re.findall(r"https://github\.com/\S+?/releases/download/[^\s\"'`)]+?\.whl", text):
+        assert url == WHEEL_URL, f"{rel}: {url} is not the wheel of the release"
+    for v in re.findall(r"ragbase_shield-([0-9][^-\s]*)-py3-none-any\.whl", text):
+        assert v == _version(), f"{rel}: names the wheel of {v}, pyproject.toml says {_version()}"
+    assert not re.search(r'\[\s*"ragbase-shield",\s*"mcp"\s*\]', text), f"{rel}: an MCP config without the wheel"
+
+
+def test_release_wheel_commands_are_in_the_guides():
+    """The install guide and the READMEs give the commands that the site gives: run, install, update, Precise mode."""
+    install = _read("docs/INSTALL.md")
+    for part in install.split("## Part 2. English", 1):
+        assert f"uvx --from {WHEEL_URL} ragbase-shield desk" in part
+        assert f"\nuv tool install {WHEEL_URL}\n" in part
+        assert f'uv tool install "ragbase-shield[ner] @ {WHEEL_URL}"' in part
+        assert f"uvx --from {WHEEL_URL} ragbase-shield doctor" in part
+        assert f'args = ["--from", "{WHEEL_URL}", "ragbase-shield", "mcp"]' in part
+    for rel in ("README.md", "README.fr.md"):
+        text = _read(rel)
+        assert f"\nuv tool install {WHEEL_URL}\n" in text
+        assert f"\npip install {WHEEL_URL}\n" in text
+        assert f'pip install "ragbase-shield[ner] @ {WHEEL_URL}"' in text
 
 
 KEY_WARNINGS = {

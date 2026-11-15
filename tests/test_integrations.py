@@ -38,7 +38,6 @@ PROVIDER_SITES = [
     "https://m365.cloud.microsoft/*",
     "https://gemini.google.com/*",
 ]
-SERVER_ARGS = ["ragbase-shield", "mcp"]
 
 
 def load(path: Path):
@@ -48,6 +47,16 @@ def load(path: Path):
 def project_version() -> str:
     text = (ROOT / "pyproject.toml").read_text(encoding="utf-8")
     return re.search(r'^version\s*=\s*"([^"]+)"', text, re.M).group(1)
+
+
+def release_wheel_url() -> str:
+    """The wheel of the GitHub release of the project version. The MCP config examples (Codex, VS Code, the OpenAI
+    plugin) run it with uvx --from, so a copied example gives that version, as the Claude plugin's vendor/ wheel."""
+    v = project_version()
+    return f"https://github.com/ragbase/ragbase-shield/releases/download/v{v}/ragbase_shield-{v}-py3-none-any.whl"
+
+
+SERVER_ARGS = ["--from", release_wheel_url(), "ragbase-shield", "mcp"]
 
 
 def png_size(path: Path) -> tuple[int, int]:

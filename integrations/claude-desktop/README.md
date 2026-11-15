@@ -13,8 +13,9 @@ your dossier documents **masked** through 6 tools and never sees the real names.
    - drag it into the Claude Desktop window;
    - **Settings > Extensions > Advanced settings > Install Extension…** and choose the file.
 3. Review the details and confirm.
-4. Register a dossier folder once: open Shield Desk (`uvx ragbase-shield desk`) or run
-   `uvx ragbase-shield add <folder>`.
+4. Register a dossier folder once: open Shield Desk or run `ragbase-shield add <folder>`. With uv, Shield Desk
+   starts with
+   `uvx --from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield desk`.
 5. In a chat, ask: "List my RAGbase Shield dossiers, read DOSSIER_1 and draft a summary, then save it."
    The restored file appears in the `Shield - sorties` folder of the dossier.
 

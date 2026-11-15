@@ -4,12 +4,14 @@ Every app integration runs the **same local stdio MCP server**:
 
 ```text
 command: uvx
-args:    ["ragbase-shield", "mcp"]
+args:    ["--from", "https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl", "ragbase-shield", "mcp"]
 ```
 
-`uvx` comes with [uv](https://docs.astral.sh/uv/getting-started/installation/). It downloads the
-`ragbase-shield` package from PyPI on first use and caches it. The server talks to the app over stdio only:
-no port, no network.
+`uvx` comes with [uv](https://docs.astral.sh/uv/getting-started/installation/). On first use it downloads this
+file, the wheel of the GitHub release, and its dependencies from PyPI, then caches them. `ragbase-shield install
+<app>` writes a shorter entry (uvx with the arguments `ragbase-shield mcp`): uvx then runs the command installed
+with `uv tool install` and the same URL, so the guides install that command first. The server talks to the app over
+stdio only: no port, no network.
 
 The browser extension is the exception: it does not run the MCP server. It talks to Shield Desk
 (`ragbase-shield desk`) on `http://127.0.0.1:7878` with the per-install token.
@@ -37,8 +39,8 @@ Shared files:
 To test a checkout, use one of these:
 
 ```sh
-# 1. Make every "uvx ragbase-shield ..." use your checkout (not the Claude Code plugin: it runs its own wheel).
-#    uvx uses an installed tool unless --isolated is given.
+# 1. Make the entries written by "ragbase-shield install" use your checkout (not the Claude Code plugin: it runs
+#    its own wheel). uvx uses an installed tool unless --isolated is given.
 uv tool install --editable /path/to/ragbase-shield
 
 # 2. Or point one app at the checkout directly:

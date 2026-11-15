@@ -11,7 +11,9 @@ So Shield uses three local paths instead.
 
 ## 1. Shield Desk (any Copilot: web, app, Teams, Word, Outlook)
 
-Start it with `uvx ragbase-shield desk`. It opens a local page on `http://127.0.0.1:7878`.
+Start it with
+`uvx --from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield desk`.
+It opens a local page on `http://127.0.0.1:7878`.
 
 1. **Masquer**: choose the dossier, paste the client text, check the detected entities, click copy.
 2. Paste the masked text into Copilot. Copilot sees codes such as `PERSONNE_A`, `SOCIETE_B`, `IBAN_1`.

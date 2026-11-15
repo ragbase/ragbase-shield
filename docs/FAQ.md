@@ -157,8 +157,8 @@ Shield fails closed. Tools return an error with codes only, never the raw text.
 ### Is there telemetry or any network call?
 
 No. The library makes no network calls; tests block outbound sockets. The Desk listens on 127.0.0.1 only, checks the
-Host header and needs a per-install token. Installing with `uvx` downloads the package once from PyPI; after that,
-nothing else goes out.
+Host header and needs a per-install token. With uv, the install downloads Shield from the release page on GitHub
+and its libraries from PyPI; once the command is installed (`uv tool install`), nothing else goes out.
 
 ### Can I turn on Precise mode (the AI model)?
 
@@ -190,7 +190,8 @@ port (default 7878).
 ### uv prints "Failed to patch the install name of the dynamic library". Is it a problem?
 
 No. uv prints it on macOS the first time it downloads a managed Python. Shield works. Shield needs Python 3.10 or
-later, and uv picks one for you. To pin a version: `uvx --python 3.12 ragbase-shield desk`.
+later, and uv picks one for you. To pin a version:
+`uvx --python 3.12 --from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield desk`.
 
 ### Why are some commands refused in Claude Code or Codex?
 

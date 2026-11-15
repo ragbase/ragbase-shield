@@ -8,7 +8,9 @@ The config files follow the official VS Code documentation.
 ## Before you start
 
 - Install [uv](https://docs.astral.sh/uv/getting-started/installation/) (it provides `uvx`).
-- Register at least one dossier folder: `ragbase-shield add <folder>` or Shield Desk.
+- Register at least one dossier folder: `ragbase-shield add <folder>` or Shield Desk. The `ragbase-shield`
+  command comes from the wheel of the release:
+  `uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl`.
 - **Copilot Business and Copilot Enterprise:** an organization or enterprise owner must turn on the
   **"MCP servers in Copilot"** policy in the GitHub Copilot policy settings. It is off by default for
   these plans, and Copilot will not start MCP servers until it is on. (GitHub announced a new global default
@@ -21,38 +23,44 @@ Open this link (VS Code must be installed). VS Code asks you to confirm, then ad
 user profile:
 
 ```
-vscode:mcp/install?%7B%22name%22%3A%22ragbase-shield%22%2C%22type%22%3A%22stdio%22%2C%22command%22%3A%22uvx%22%2C%22args%22%3A%5B%22ragbase-shield%22%2C%22mcp%22%5D%7D
+vscode:mcp/install?%7B%22name%22%3A%22ragbase-shield%22%2C%22type%22%3A%22stdio%22%2C%22command%22%3A%22uvx%22%2C%22args%22%3A%5B%22--from%22%2C%22https%3A%2F%2Fgithub.com%2Fragbase%2Fragbase-shield%2Freleases%2Fdownload%2Fv0.4.1%2Fragbase_shield-0.4.1-py3-none-any.whl%22%2C%22ragbase-shield%22%2C%22mcp%22%5D%7D
 ```
 
 VS Code Insiders:
 
 ```
-vscode-insiders:mcp/install?%7B%22name%22%3A%22ragbase-shield%22%2C%22type%22%3A%22stdio%22%2C%22command%22%3A%22uvx%22%2C%22args%22%3A%5B%22ragbase-shield%22%2C%22mcp%22%5D%7D
+vscode-insiders:mcp/install?%7B%22name%22%3A%22ragbase-shield%22%2C%22type%22%3A%22stdio%22%2C%22command%22%3A%22uvx%22%2C%22args%22%3A%5B%22--from%22%2C%22https%3A%2F%2Fgithub.com%2Fragbase%2Fragbase-shield%2Freleases%2Fdownload%2Fv0.4.1%2Fragbase_shield-0.4.1-py3-none-any.whl%22%2C%22ragbase-shield%22%2C%22mcp%22%5D%7D
 ```
 
 The link is `vscode:mcp/install?` followed by the URL-encoded JSON of the server
-(`encodeURIComponent(JSON.stringify(config))`), here:
+(`encodeURIComponent(JSON.stringify(config))`), here (uvx runs the wheel of the release):
 
 ```json
-{"name":"ragbase-shield","type":"stdio","command":"uvx","args":["ragbase-shield","mcp"]}
+{"name":"ragbase-shield","type":"stdio","command":"uvx","args":["--from","https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl","ragbase-shield","mcp"]}
 ```
 
 GitHub pages do not open `vscode:` links. For a README button, use the web redirect that many MCP
 READMEs use (it opens VS Code with the same configuration):
 
 ```
-https://insiders.vscode.dev/redirect/mcp/install?name=ragbase-shield&config=%7B%22type%22%3A%22stdio%22%2C%22command%22%3A%22uvx%22%2C%22args%22%3A%5B%22ragbase-shield%22%2C%22mcp%22%5D%7D
+https://insiders.vscode.dev/redirect/mcp/install?name=ragbase-shield&config=%7B%22type%22%3A%22stdio%22%2C%22command%22%3A%22uvx%22%2C%22args%22%3A%5B%22--from%22%2C%22https%3A%2F%2Fgithub.com%2Fragbase%2Fragbase-shield%2Freleases%2Fdownload%2Fv0.4.1%2Fragbase_shield-0.4.1-py3-none-any.whl%22%2C%22ragbase-shield%22%2C%22mcp%22%5D%7D
 ```
 
 Command line alternative:
 
 ```bash
-code --add-mcp '{"name":"ragbase-shield","type":"stdio","command":"uvx","args":["ragbase-shield","mcp"]}'
+code --add-mcp '{"name":"ragbase-shield","type":"stdio","command":"uvx","args":["--from","https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl","ragbase-shield","mcp"]}'
 ```
 
 ## Option 2: `ragbase-shield install vscode`
 
 The Shield CLI writes the server into your VS Code user `mcp.json`. Use `--dry-run` to see the change first.
+
+```sh
+uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl
+ragbase-shield install vscode --dry-run
+ragbase-shield install vscode
+```
 
 ## Option 3: by hand
 
@@ -62,7 +70,7 @@ Current VS Code docs prefer two portable places and call the older ones "depreca
   (`~/.copilot/mcp-config.json`) for every project, with a top-level `"mcpServers"` key:
 
   ```json
-  {"mcpServers": {"ragbase-shield": {"type": "stdio", "command": "uvx", "args": ["ragbase-shield", "mcp"]}}}
+  {"mcpServers": {"ragbase-shield": {"type": "stdio", "command": "uvx", "args": ["--from", "https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl", "ragbase-shield", "mcp"]}}}
   ```
 
 - the older `.vscode/mcp.json` and the user-profile `mcp.json` (top-level `"servers"`) still work today.
@@ -74,7 +82,7 @@ Current VS Code docs prefer two portable places and call the older ones "depreca
 
 VS Code shows a trust dialog the first time the server starts. Accept it for `ragbase-shield`.
 
-Local development (run from a checkout of the repository instead of PyPI):
+Local development (run from a checkout of the repository instead of the wheel of the release):
 
 ```json
 {

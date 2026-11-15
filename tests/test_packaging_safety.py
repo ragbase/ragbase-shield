@@ -204,9 +204,12 @@ def test_install_guide_has_the_one_click_section_in_both_languages():
     fr, en = text.split("## Part 2. English", 1)
     assert "### 0. Installer en un clic" in fr and "### 0 bis. Autre méthode" in fr
     assert "### 0. One-click install" in en and "### 0b. Other way" in en
+    version = re.search(r'^version = "([^"]+)"', (ROOT / "pyproject.toml").read_text(encoding="utf-8"), re.M).group(1)
+    wheel = f"https://github.com/ragbase/ragbase-shield/releases/download/v{version}/ragbase_shield-{version}-py3-none-any.whl"
     for part in (fr, en):
         assert "RAGbase-Shield-<version>.pkg" in part and "RAGbase-Shield-<version>-win64.msi" in part
-        assert "uvx ragbase-shield desk" in part
+        # The uv way runs the wheel of the release of this version (the 0 bis / 0b section).
+        assert f"uvx --from {wheel} ragbase-shield desk" in part
         # No placeholder for a screenshot that does not exist (a public guide must not look unfinished).
         assert "à venir" not in part and "to come" not in part
     assert fr.index("### 0. Installer en un clic") < fr.index("### 0 bis. Autre méthode")

@@ -120,9 +120,9 @@ https://github.com/ragbase/ragbase-shield/releases/latest. Python package: `ragb
 | Windows 10 or 11 | `RAGbase-Shield-0.4.1-win64.msi`: per-user install (designed to need no administrator rights). Not signed yet: SmartScreen asks you to confirm | [docs/INSTALL.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/INSTALL.md), section 0 |
 | Claude Desktop | `ragbase-shield-0.4.1.mcpb`: double-click, then "Install" | [docs/INSTALL.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/INSTALL.md), section 2 |
 | Claude Code and Cowork | Plugin: `/plugin marketplace add ragbase/ragbase-shield`, then `/plugin install ragbase-shield@ragbase` | [docs/INSTALL.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/INSTALL.md), section 3 |
-| ChatGPT desktop and Codex, GitHub Copilot in VS Code | `uvx ragbase-shield install chatgpt` (or `codex`, `vscode`) | [docs/INSTALL.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/INSTALL.md), sections 4 and 5 |
+| ChatGPT desktop and Codex, GitHub Copilot in VS Code | `ragbase-shield install chatgpt` (or `codex`, `vscode`), once the command is installed | [docs/INSTALL.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/INSTALL.md), sections 4 and 5 |
 | Any web app (claude.ai, chatgpt.com, Copilot web) | Shield Desk, and the browser extension for Chrome and Edge (not in the stores yet: load the folder `integrations/browser-extension` in developer mode) | [docs/INSTALL.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/INSTALL.md), sections 6 and 7 |
-| Terminal, with uv or pip | `uvx ragbase-shield desk`, or `pip install ragbase-shield` | below |
+| Terminal, with uv or pip | Shield Desk with uv, or the package with pip | below |
 
 **With uv (one command).** uv is the open-source tool that downloads and runs Shield.
 
@@ -141,7 +141,7 @@ powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | ie
 Close the window and open a new one. Then start Shield Desk:
 
 ```sh
-uvx ragbase-shield desk
+uvx --from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield desk
 ```
 
 Your browser opens **http://127.0.0.1:7878** with a private link that holds a secret token.
@@ -150,8 +150,18 @@ To open it again, run the command again or use the link shown in the Terminal.
 The address alone, without the token, shows "Token refused".
 Keep the Terminal window open: closing it stops Shield Desk and the browser extension.
 
-**With pip:** `pip install ragbase-shield`, then `ragbase-shield desk`. Precise mode (with AI model) is optional:
-`pip install "ragbase-shield[ner]"` (see [docs/NER.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/NER.md)).
+**With pip:** install the wheel of the release, then start Shield Desk.
+
+```sh
+pip install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl
+ragbase-shield desk
+```
+
+Precise mode (with AI model) is optional (see [docs/NER.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/NER.md)):
+
+```sh
+pip install "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl"
+```
 
 On a Mac, the first use may ask for keychain access for the Shield key: click "Always Allow".
 
@@ -183,7 +193,7 @@ The same steps work in ChatGPT desktop, Codex and GitHub Copilot in VS Code.
 
 For claude.ai, chatgpt.com, Microsoft 365 Copilot, Word and Outlook.
 
-1. Open Shield Desk with the link that `uvx ragbase-shield desk` shows, page **Masquer** (Mask). Choose the
+1. Open Shield Desk with the link that its command shows (see Install), page **Masquer** (Mask). Choose the
    dossier. Without a dossier, registered names become [PERSONNE] or [SOCIETE] and restore is not possible.
 2. Paste your text into the original-text box (not into the chat), then click "Masquer" (Mask).
 3. Check the detected items, then click "Copier le texte masqué" (Copy masked text).
@@ -283,7 +293,8 @@ Full model: [docs/PRIVACY_MODEL.md](https://github.com/ragbase/ragbase-shield/bl
   To add it:
 
   ```
-  pip install "ragbase-shield[ner]"      # or: uv pip install "ragbase-shield[ner]"
+  pip install "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl"
+  # or, with uv: uv tool install "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl"
   ragbase-shield ner download            # fastino/gliner2-privacy-filter-PII-multi, once, into ~/.ragbase-shield/models
   ragbase-shield ner status              # or: ragbase-shield doctor
   ```
@@ -324,8 +335,18 @@ ragbase-shield export <DOSSIER_n> <FILE> / import <FILE>      # encrypted vault 
 ragbase-shield journal [DOSSIER_n]
 ```
 
-With uv, prefix with `uvx` (`uvx ragbase-shield doctor`),
-or install the command once: `uv tool install ragbase-shield`.
+With uv, install the command once, from the wheel of the release:
+
+```sh
+uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl
+```
+
+Or run one command without installing it:
+
+```sh
+uvx --from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield doctor
+```
+
 From a copy of the repository: `uv tool install .` (or `uv tool install --editable .` to develop).
 The configs written by `install` then work, and `doctor` checks that each app can start Shield.
 

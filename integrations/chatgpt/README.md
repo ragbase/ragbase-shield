@@ -23,22 +23,28 @@ configuration; ask your admin if the server does not appear.
 ## Before you start
 
 1. Install [uv](https://docs.astral.sh/uv/getting-started/installation/) (it provides `uvx`).
-2. Register a dossier folder: Shield Desk (`uvx ragbase-shield desk`) or `uvx ragbase-shield add <folder>`.
+2. Install the `ragbase-shield` command from the wheel of the release, then register a dossier folder with
+   Shield Desk (`ragbase-shield desk`) or with `ragbase-shield add <folder>`:
+
+   ```sh
+   uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl
+   ```
 
 ## Add the server: pick one way
 
 **A. From the terminal (simplest)**
 
 ```sh
-uvx ragbase-shield install chatgpt --dry-run   # shows the change
-uvx ragbase-shield install chatgpt             # writes [mcp_servers.ragbase-shield] into ~/.codex/config.toml
+ragbase-shield install chatgpt --dry-run   # shows the change
+ragbase-shield install chatgpt             # writes [mcp_servers.ragbase-shield] into ~/.codex/config.toml
 ```
 
 **B. In the ChatGPT desktop app**
 
 1. Open **Settings**, then **MCP servers**.
 2. Click **Add server**.
-3. Name: `ragbase-shield`. Type: **STDIO**. Command: `uvx`. Arguments: `ragbase-shield mcp`.
+3. Name: `ragbase-shield`. Type: **STDIO**. Command: `uvx`. Arguments:
+   `--from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield mcp`.
 4. Save, then click **Restart**.
 
 **C. By hand**
@@ -49,7 +55,7 @@ Copy the table from [`../codex/config.toml.example`](../codex/config.toml.exampl
 ```toml
 [mcp_servers.ragbase-shield]
 command = "uvx"
-args = ["ragbase-shield", "mcp"]
+args = ["--from", "https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl", "ragbase-shield", "mcp"]
 startup_timeout_sec = 60
 tool_timeout_sec = 120
 default_tools_approval_mode = "writes"
@@ -58,7 +64,11 @@ default_tools_approval_mode = "writes"
 `default_tools_approval_mode = "writes"`: the read-only Shield tools run without a prompt;
 `shield_save_draft` (it writes a file) asks first.
 
-Codex CLI alternative: `codex mcp add ragbase-shield -- uvx ragbase-shield mcp`.
+Codex CLI alternative:
+
+```sh
+codex mcp add ragbase-shield -- uvx --from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield mcp
+```
 
 ## Check and use
 
@@ -90,9 +100,9 @@ or the `config.toml` entry, not both, so the tools are not listed twice.
 - "uvx not found": use the full path in `command`: `~/.local/bin/uvx` (macOS, Linux) or
   `%USERPROFILE%\.local\bin\uvx.exe` (Windows).
 - First start is slow: `uvx` downloads the package once. `startup_timeout_sec = 60` covers it.
-- Run `uvx ragbase-shield doctor`.
+- Run `ragbase-shield doctor`.
 
-Local development (server from a checkout instead of PyPI):
+Local development (server from a checkout instead of the wheel of the release):
 
 ```toml
 [mcp_servers.ragbase-shield]

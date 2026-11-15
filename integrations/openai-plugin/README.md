@@ -5,7 +5,7 @@ Agent Plugins 1.0.0 package (the portable format OpenAI recommends), for the Cha
 | File | Content |
 |---|---|
 | [`plugin.json`](plugin.json) | Root manifest with the Agent Plugins schema; OpenAI display data under `extensions.com.openai` |
-| [`mcp.json`](mcp.json) | One stdio server: `uvx ragbase-shield mcp`, `cwd` `${PLUGIN_ROOT}` |
+| [`mcp.json`](mcp.json) | One stdio server: uvx runs `ragbase-shield mcp` from the wheel of the release (`--from` with its URL), `cwd` `${PLUGIN_ROOT}` |
 | [`skills/ragbase-shield/SKILL.md`](skills/ragbase-shield/SKILL.md) | Safe workflow, French and English (same file as the Claude Code skill; a test keeps them identical) |
 | `assets/icon.png` | 512 x 512 icon |
 

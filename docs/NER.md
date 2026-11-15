@@ -15,7 +15,9 @@ section 7, `tests/test_v02_ner.py`, the `ner` extra of `pyproject.toml`.
 ## 1. Install and download
 
 ```
-pip install "ragbase-shield[ner]"          # gliner2, gliner, torch (CPU), transformers, huggingface_hub
+# the extra "ner": gliner2, gliner, torch (CPU), transformers, huggingface_hub
+pip install "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl"
+# or, with uv: uv tool install "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl"
 ragbase-shield ner download                 # fastino/gliner2-privacy-filter-PII-multi, about 1.25 GB (one time)
 ragbase-shield ner download --model urchade # alternative: urchade/gliner_multi_pii-v1, about 1.16 GB
 ragbase-shield ner status                   # packages, cached models, the backend that "auto" resolves to

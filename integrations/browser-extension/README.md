@@ -39,8 +39,9 @@ Not covered: text you **type** goes out as typed. A file pasted or dropped on th
 
 ## Install (unpacked, developer mode)
 
-1. Start Shield Desk: `uvx ragbase-shield desk`. Copy the token it shows (it is stored in the
-   `desk_token` file of the Shield data folder).
+1. Start Shield Desk:
+   `uvx --from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield desk`.
+   Copy the token it shows (it is stored in the `desk_token` file of the Shield data folder).
 2. Chrome: open `chrome://extensions`. Edge: open `edge://extensions`.
 3. Turn on **Developer mode**, click **Load unpacked**, choose this `browser-extension` folder.
 4. The options page opens. Paste the token, click **Tester la connexion**, choose the dossier.
