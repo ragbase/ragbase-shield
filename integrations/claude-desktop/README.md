@@ -51,10 +51,13 @@ before Shield can act. Connect the folder in Shield Desk instead.
 ## Build (maintainers)
 
 ```sh
-integrations/claude-desktop/build_mcpb.sh            # assemble, uv lock, validate, pack
-integrations/claude-desktop/build_mcpb.sh --smoke    # also start the server once and compare its tools
-integrations/claude-desktop/build_mcpb.sh --no-lock  # offline build, no uv.lock
+integrations/claude-desktop/build_mcpb.sh
 ```
+
+This command assembles the bundle, runs uv lock, validates and packs. Two options:
+
+- `--smoke` also starts the server once and compares its tools;
+- `--no-lock` builds offline, with no uv.lock.
 
 Output: `dist/ragbase-shield-<version>.mcpb` (`dist/` is gitignored).
 

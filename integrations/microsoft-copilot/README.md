@@ -29,9 +29,16 @@ client document: open the masked copy instead.**
 
 ## 2. Clipboard commands (fastest in Word and Outlook)
 
+This command replaces the clipboard with the masked text:
+
 ```sh
-ragbase-shield mask --dossier DOSSIER_1 --clipboard      # replaces the clipboard with the masked text
-ragbase-shield restore --dossier DOSSIER_1 --clipboard   # replaces the clipboard with the restored text
+ragbase-shield mask --dossier DOSSIER_1 --clipboard
+```
+
+This command replaces the clipboard with the restored text:
+
+```sh
+ragbase-shield restore --dossier DOSSIER_1 --clipboard
 ```
 
 Copy, run the mask command, paste into Copilot. Copy the answer, run the restore command, paste into

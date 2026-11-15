@@ -67,9 +67,11 @@ is not the file of the release.
 
 ```sh
 claude --plugin-dir /path/to/ragbase-shield/integrations/claude-code/plugin
-claude plugin validate /path/to/ragbase-shield                       # marketplace
+claude plugin validate /path/to/ragbase-shield
 claude plugin validate /path/to/ragbase-shield/integrations/claude-code/plugin
 ```
+
+The second line validates the marketplace, the third line the plugin.
 
 ## Notes
 

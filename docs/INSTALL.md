@@ -207,23 +207,24 @@ Fermez la fenêtre, puis ouvrez-en une nouvelle.
 > `uv tool install .` : les commandes `ragbase-shield` de ce guide utilisent alors cette copie.
 > `ragbase-shield doctor` le vérifie.
 
-Lancez Shield Desk :
+Installez la commande `ragbase-shield` une fois, depuis le fichier wheel de la version, puis lancez Shield Desk :
 
 ```sh
-uvx --from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield desk
+uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl
+ragbase-shield desk
 ```
 
 Le navigateur s'ouvre sur **http://127.0.0.1:7878**, avec un lien privé qui contient un jeton secret.
 Cette page est locale : elle n'existe que sur votre ordinateur.
-Pour la rouvrir, relancez la commande ou utilisez le lien affiché dans le terminal : l'adresse seule, sans le
-jeton, affiche « Jeton refusé ». Si Shield Desk tourne déjà, la commande affiche de nouveau le lien.
+Pour la rouvrir, relancez `ragbase-shield desk` ou utilisez le lien affiché dans le terminal : l'adresse seule, sans
+le jeton, affiche « Jeton refusé ». Si Shield Desk tourne déjà, la commande affiche de nouveau le lien.
 Laissez la fenêtre du terminal ouverte. Pour arrêter Shield Desk, fermez-la (ou Ctrl+C) : l'extension de
 navigateur s'arrête aussi.
 
-Option : pour taper `ragbase-shield` sans `uvx` devant, installez la commande une fois :
+Pour lancer Shield Desk sans installer la commande :
 
 ```sh
-uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl
+uvx --from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield desk
 ```
 
 
@@ -264,11 +265,11 @@ Le titre et le chemin restent sur votre ordinateur. L'IA ne voit que DOSSIER_1.
 3. Ouvrez une nouvelle conversation et demandez : « Quel est le statut de Shield ? ».
    Claude doit utiliser l'outil `shield_status`.
 
-Autre méthode, depuis le terminal :
+Autre méthode, depuis le terminal (la ligne `--dry-run` montre ce qui sera modifié, sans rien écrire) :
 
 ```sh
 uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl
-ragbase-shield install claude-desktop --dry-run   # montre ce qui sera modifié, sans rien écrire
+ragbase-shield install claude-desktop --dry-run
 ragbase-shield install claude-desktop
 ```
 
@@ -328,11 +329,12 @@ Pour le chat, utilisez l'extension `.mcpb` (section 2).
 ```sh
 uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl
 ragbase-shield install chatgpt --dry-run
-ragbase-shield install chatgpt     # ChatGPT desktop
-ragbase-shield install codex       # Codex
+ragbase-shield install chatgpt
+ragbase-shield install codex
 ```
 
-Ces commandes ajoutent Shield dans `~/.codex/config.toml`.
+Ces commandes ajoutent Shield dans `~/.codex/config.toml` : la ligne `install chatgpt` pour ChatGPT desktop, la
+ligne `install codex` pour Codex.
 
 **Méthode manuelle (Codex).** Ajoutez ce bloc dans `~/.codex/config.toml`
 (sous Windows : `%USERPROFILE%\.codex\config.toml`), puis relancez l'application.
@@ -352,9 +354,12 @@ Avec `"writes"`, les outils de lecture tournent sans question ; l'enregistrement
 (`shield_save_draft`) vous demande d'abord votre accord.
 
 **Méthode manuelle (ChatGPT desktop).** Settings > MCP servers > Add server.
-Nom : `ragbase-shield`. Type : STDIO. Commande : `uvx`. Arguments :
-`--from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield mcp`.
+Nom : `ragbase-shield`. Type : STDIO. Commande : `uvx`. Arguments : le bloc ci-dessous.
 Enregistrez, puis cliquez sur Restart.
+
+```text
+--from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield mcp
+```
 
 Bon à savoir :
 
@@ -432,11 +437,16 @@ clair, donc nous n'en construisons pas. Utilisez Shield Desk et le presse-papier
 N'appelez jamais Copilot sur l'original. Ouvrez la copie masquée.
 
 **Raccourci terminal** (le presse-papiers est remplacé directement ; il faut la commande `ragbase-shield`,
-section 0 bis) :
+section 0 bis). Avant de coller dans Copilot :
 
 ```sh
-ragbase-shield mask --dossier DOSSIER_1 --clipboard      # avant de coller dans Copilot
-ragbase-shield restore --dossier DOSSIER_1 --clipboard   # après avoir copié la réponse
+ragbase-shield mask --dossier DOSSIER_1 --clipboard
+```
+
+Après avoir copié la réponse :
+
+```sh
+ragbase-shield restore --dossier DOSSIER_1 --clipboard
 ```
 
 ### 7. Toute application web (claude.ai, chatgpt.com, Copilot web)
@@ -459,9 +469,12 @@ Les vrais noms ne reviennent que dans le panneau latéral de l'extension, jamais
 ### 8. Vérifier que tout fonctionne
 
 ```sh
-uvx --from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield doctor   # installation, stockage de la clé, chaque intégration
-uvx --from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield verify   # place des données inventées, teste chaque chemin, affiche CLEAN ou LEAK
+uvx --from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield doctor
+uvx --from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield verify
 ```
+
+La ligne `doctor` vérifie l'installation, le stockage de la clé et chaque intégration. La ligne `verify` place des
+données inventées, teste chaque chemin et affiche CLEAN ou LEAK.
 
 CLEAN veut dire qu'aucune donnée inventée n'a fui par les chemins testés.
 LEAK veut dire qu'un chemin a laissé passer une donnée : n'utilisez pas Shield, et signalez-le
@@ -476,6 +489,8 @@ et vos applications.
 ```sh
 uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl
 ```
+
+Mode Précis : relancez plutôt la commande du mode Précis (section 10).
 
 **Désinstaller Shield installé en un clic :** icône Shield > « Désinstaller... » (détails en section 0).
 
@@ -512,11 +527,14 @@ prénom connu, les sociétés sans forme juridique, les pseudonymes et les matri
 Il tourne sur le processeur, hors ligne, et pèse environ 1,2 Go. Il s'installe avec uv (section 0 bis) :
 l'installateur en un clic ne le prend pas encore en charge.
 
-```
+```sh
 uv tool install "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl"
-ragbase-shield ner download          # une fois ; dans ~/.ragbase-shield/models
-ragbase-shield ner status            # ou : ragbase-shield doctor
+ragbase-shield ner download
+ragbase-shield ner status
 ```
+
+`ner download` télécharge le modèle une fois, dans `~/.ragbase-shield/models`. `ner status` (ou
+`ragbase-shield doctor`) affiche l'état du mode Précis.
 
 `RAGBASE_SHIELD_NER=off` le désactive ; `RAGBASE_SHIELD_NER_MODEL=urchade` choisit l'autre modèle
 (`ragbase-shield ner download --model urchade`). Les hooks et le contrôle final n'utilisent jamais le modèle.
@@ -609,13 +627,15 @@ stay), Quit (Shield Desk stops until the next login, and the browser extension s
 | Claude Code and Cowork (plugin) | The plugin still needs uv: install uv (section 0b, first command), then follow section 3. |
 | ChatGPT desktop, Codex, VS Code | One Terminal command with the installed Shield (below). The apps then use the installed Shield, without uv. |
 
+On a Mac (replace `codex` with `chatgpt` or `vscode`):
+
 ```sh
-# Mac (replace codex with chatgpt or vscode)
 "$HOME/Library/Application Support/RAGbase Shield/bin/ragbase-shield" install codex
 ```
 
+On Windows (PowerShell):
+
 ```powershell
-# Windows (PowerShell)
 & "$env:LOCALAPPDATA\Programs\RAGbase Shield\bin\ragbase-shield.cmd" install codex
 ```
 
@@ -646,15 +666,17 @@ keep using the old Shield started by `uvx`; the `ragbase-shield` command of uv i
 ### 0b. Other way: uv and Shield Desk (Terminal)
 
 For Terminal users, the Claude Code plugin (section 3) and Precise mode (section 10). Install uv (one command),
-then start Shield Desk.
+then install the `ragbase-shield` command and start Shield Desk.
+
+macOS (Terminal):
 
 ```sh
-# macOS (Terminal)
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
+Windows (PowerShell):
+
 ```powershell
-# Windows (PowerShell)
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
 
@@ -663,20 +685,22 @@ Open a new terminal window.
 > **From a copy of the repository (development).** In the repository folder, type once `uv tool install .`:
 > the `ragbase-shield` commands of this guide then use that copy. `ragbase-shield doctor` checks it.
 
-Then:
-
-```sh
-uvx --from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield desk
-```
-
-The browser opens **http://127.0.0.1:7878** with a private link that holds a per-install token.
-To open it again, run the command again or use the link shown in the terminal: the address alone shows
-"Token refused". If Desk already runs, the command prints the link again. Keep the terminal open: closing it
-stops Desk and the browser extension.
-Optional: this command puts `ragbase-shield` on your PATH:
+Then install the `ragbase-shield` command once, from the wheel of the release, and start Shield Desk:
 
 ```sh
 uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl
+ragbase-shield desk
+```
+
+The browser opens **http://127.0.0.1:7878** with a private link that holds a per-install token.
+To open it again, run `ragbase-shield desk` again or use the link shown in the terminal: the address alone shows
+"Token refused". If Desk already runs, the command prints the link again. Keep the terminal open: closing it
+stops Desk and the browser extension.
+
+To start Shield Desk without installing the command:
+
+```sh
+uvx --from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield desk
 ```
 
 ### 1. Add a case folder
@@ -738,12 +762,14 @@ A local MCP server shipped in a plugin does not run in Claude Desktop chat; use 
 
 ```sh
 uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl
-ragbase-shield install chatgpt [--dry-run]
-ragbase-shield install codex [--dry-run]
+ragbase-shield install chatgpt --dry-run
+ragbase-shield install chatgpt
+ragbase-shield install codex
 ```
 
-Both write the `[mcp_servers.ragbase-shield]` table into `~/.codex/config.toml` (Windows:
-`%USERPROFILE%\.codex\config.toml`). By hand, add this table; it runs the wheel of the release.
+The `--dry-run` line shows the change and writes nothing. The `install chatgpt` line is for ChatGPT desktop, the
+`install codex` line for Codex. Both write the `[mcp_servers.ragbase-shield]` table into `~/.codex/config.toml`
+(Windows: `%USERPROFILE%\.codex\config.toml`). By hand, add this table; it runs the wheel of the release.
 Annotated version: [integrations/codex/config.toml.example](../integrations/codex/config.toml.example).
 
 ```toml
@@ -756,11 +782,14 @@ default_tools_approval_mode = "writes"
 ```
 
 ChatGPT desktop manual setup: Settings > MCP servers > Add server; name `ragbase-shield`, type STDIO,
-command `uvx`, arguments
-`--from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield mcp`;
-save, then Restart. Business, Edu and Enterprise admins can
-restrict MCP servers. It works in local Work threads (running on this computer) and in Codex; hosted
-(cloud) Work threads do not see Shield.
+command `uvx`, arguments: the block below. Save, then Restart.
+
+```text
+--from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield mcp
+```
+
+Business, Edu and Enterprise admins can restrict MCP servers. It works in local Work threads (running on this
+computer) and in Codex; hosted (cloud) Work threads do not see Shield.
 UI labels can change.
 ChatGPT web is not supported natively: use Shield Desk or the browser extension.
 
@@ -768,7 +797,8 @@ ChatGPT web is not supported natively: use Shield Desk or the browser extension.
 
 ```sh
 uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl
-ragbase-shield install vscode [--dry-run]
+ragbase-shield install vscode --dry-run
+ragbase-shield install vscode
 ```
 
 One click: [Install RAGbase Shield in VS Code](https://insiders.vscode.dev/redirect/mcp/install?name=ragbase-shield&config=%7B%22type%22%3A%22stdio%22%2C%22command%22%3A%22uvx%22%2C%22args%22%3A%5B%22--from%22%2C%22https%3A%2F%2Fgithub.com%2Fragbase%2Fragbase-shield%2Freleases%2Fdownload%2Fv0.4.1%2Fragbase_shield-0.4.1-py3-none-any.whl%22%2C%22ragbase-shield%22%2C%22mcp%22%5D%7D).
@@ -824,10 +854,11 @@ shows codes before you send.
 
 ```sh
 uvx --from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield doctor
-uvx --from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield verify   # CLEAN or LEAK per path
+uvx --from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield verify
 ```
 
-If `verify` prints LEAK, stop using Shield and report it privately ([SECURITY.md](../SECURITY.md)).
+The `doctor` line checks the install, the key storage and each app integration. The `verify` line prints CLEAN or
+LEAK per path. If `verify` prints LEAK, stop using Shield and report it privately ([SECURITY.md](../SECURITY.md)).
 
 ### 9. Update and uninstall
 
@@ -837,6 +868,8 @@ version 0.4.1 or replaces the one you have; then restart Shield Desk and your ap
 ```sh
 uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl
 ```
+
+Precise mode: run the Precise command again instead (section 10).
 
 Uninstall the one-click install: Shield icon > "Uninstall..." (details in section 0).
 Remove integrations: Claude Desktop Settings > Extensions; `/plugin uninstall ragbase-shield@ragbase`;
@@ -862,11 +895,14 @@ companies without a legal form, the usernames and the employee ids.
 It runs on the CPU, offline, and takes about 1.2 GB. You install it with uv (section 0b): the one-click
 installer does not support it yet.
 
-```
+```sh
 uv tool install "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl"
-ragbase-shield ner download          # once; into ~/.ragbase-shield/models
-ragbase-shield ner status            # or: ragbase-shield doctor
+ragbase-shield ner download
+ragbase-shield ner status
 ```
+
+`ner download` downloads the model once, into `~/.ragbase-shield/models`. `ner status` (or `ragbase-shield doctor`)
+shows the state of Precise mode.
 
 `RAGBASE_SHIELD_NER=off` turns it off; `RAGBASE_SHIELD_NER_MODEL=urchade` picks the other model
 (`ragbase-shield ner download --model urchade`). The hooks and the final check never use the model.

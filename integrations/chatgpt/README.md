@@ -35,16 +35,23 @@ configuration; ask your admin if the server does not appear.
 **A. From the terminal (simplest)**
 
 ```sh
-ragbase-shield install chatgpt --dry-run   # shows the change
-ragbase-shield install chatgpt             # writes [mcp_servers.ragbase-shield] into ~/.codex/config.toml
+ragbase-shield install chatgpt --dry-run
+ragbase-shield install chatgpt
 ```
+
+The first line shows the change. The second line writes the `[mcp_servers.ragbase-shield]` table into
+`~/.codex/config.toml`.
 
 **B. In the ChatGPT desktop app**
 
 1. Open **Settings**, then **MCP servers**.
 2. Click **Add server**.
-3. Name: `ragbase-shield`. Type: **STDIO**. Command: `uvx`. Arguments:
-   `--from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield mcp`.
+3. Name: `ragbase-shield`. Type: **STDIO**. Command: `uvx`. Arguments: the block below.
+
+   ```text
+   --from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield mcp
+   ```
+
 4. Save, then click **Restart**.
 
 **C. By hand**

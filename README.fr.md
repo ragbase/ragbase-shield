@@ -111,7 +111,7 @@ les lois, les codes, les articles, les mois et les jours.
 ## Installer
 
 Téléchargements (installateurs, extension Claude Desktop, fichier `SHA256SUMS`) : la page des versions,
-https://github.com/ragbase/ragbase-shield/releases/latest. Paquet Python : `ragbase-shield` sur PyPI.
+https://github.com/ragbase/ragbase-shield/releases/latest. Paquet Python : le fichier wheel de la version (commandes plus bas).
 
 | Votre application ou votre système | Quoi installer | Guide |
 |---|---|---|
@@ -137,17 +137,25 @@ Sur Windows : ouvrez PowerShell, collez cette ligne, puis appuyez sur Entrée.
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
 
-Fermez la fenêtre, puis ouvrez-en une nouvelle. Lancez ensuite Shield Desk :
+Fermez la fenêtre, puis ouvrez-en une nouvelle. Installez ensuite la commande `ragbase-shield` une fois, depuis le
+fichier wheel de la version, puis lancez Shield Desk :
 
 ```sh
-uvx --from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield desk
+uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl
+ragbase-shield desk
 ```
 
 Votre navigateur s'ouvre sur **http://127.0.0.1:7878**, avec un lien privé qui contient un jeton secret.
 C'est une page locale : elle fonctionne seulement sur votre ordinateur.
-Pour la rouvrir, relancez la commande ci-dessus ou utilisez le lien affiché dans le Terminal.
+Pour la rouvrir, relancez `ragbase-shield desk` ou utilisez le lien affiché dans le Terminal.
 L'adresse seule, sans le jeton, affiche « Jeton refusé ».
 Laissez la fenêtre du Terminal ouverte : la fermer arrête Shield Desk et l'extension de navigateur.
+
+Pour lancer Shield Desk sans installer la commande :
+
+```sh
+uvx --from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield desk
+```
 
 **Avec pip :** installez le fichier wheel de la version, puis lancez Shield Desk.
 
@@ -156,7 +164,13 @@ pip install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/r
 ragbase-shield desk
 ```
 
-Le mode Précis (avec modèle IA) est optionnel (voir [docs/NER.md](docs/NER.md)) :
+Le mode Précis (avec modèle IA) est optionnel (voir [docs/NER.md](docs/NER.md)). Avec uv :
+
+```sh
+uv tool install "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl"
+```
+
+Avec pip :
 
 ```sh
 pip install "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl"
@@ -295,13 +309,24 @@ Modèle complet : [docs/PRIVACY_MODEL.md](docs/PRIVACY_MODEL.md).
   fixée avec `RAGBASE_SHIELD_LANGUAGE`).
 - **Mode Précis** (optionnel ; nom technique : GLiNER). Un modèle IA de reconnaissance des noms travaille à côté
   des règles. Il pèse environ 1,2 Go, sa licence est Apache-2.0 et il fonctionne hors ligne, sur le processeur.
-  Aucun modèle n'est installé par défaut. Pour l'ajouter :
+  Aucun modèle n'est installé par défaut. Pour l'ajouter avec pip :
 
-  ```
+  ```sh
   pip install "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl"
-  # ou, avec uv : uv tool install "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl"
-  ragbase-shield ner download            # fastino/gliner2-privacy-filter-PII-multi, une fois, dans ~/.ragbase-shield/models
-  ragbase-shield ner status              # ou : ragbase-shield doctor
+  ```
+
+  ou avec uv :
+
+  ```sh
+  uv tool install "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl"
+  ```
+
+  Téléchargez ensuite le modèle une fois (fastino/gliner2-privacy-filter-PII-multi, dans `~/.ragbase-shield/models`),
+  puis vérifiez-le (`ragbase-shield doctor` le vérifie aussi) :
+
+  ```sh
+  ragbase-shield ner download
+  ragbase-shield ner status
   ```
 
   Ce que le modèle trouve passe par la même liste blanche et les mêmes garde-fous que les règles ; les hooks et
@@ -321,7 +346,7 @@ Contrat complet : [ARCHITECTURE.md](ARCHITECTURE.md). Modèle de confidentialit�
 
 ### Ligne de commande
 
-```
+```text
 ragbase-shield add <folder> [--title TEXT]           # register a dossier folder, prints DOSSIER_n, scans it
 ragbase-shield list                                  # dossiers (real titles: local terminal)
 ragbase-shield entities <DOSSIER_n>                  # detected and registered entities

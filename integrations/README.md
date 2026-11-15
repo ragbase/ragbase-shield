@@ -36,16 +36,20 @@ Shared files:
 
 ## Local development form
 
-To test a checkout, use one of these:
+To test a checkout, use one of these.
 
-```sh
-# 1. Make the entries written by "ragbase-shield install" use your checkout (not the Claude Code plugin: it runs
-#    its own wheel). uvx uses an installed tool unless --isolated is given.
-uv tool install --editable /path/to/ragbase-shield
+1. Make the entries written by `ragbase-shield install` use your checkout (not the Claude Code plugin: it runs its
+   own wheel). uvx uses an installed tool unless `--isolated` is given.
 
-# 2. Or point one app at the checkout directly:
-uv run --directory /path/to/ragbase-shield ragbase-shield mcp
-```
+   ```sh
+   uv tool install --editable /path/to/ragbase-shield
+   ```
+
+2. Or point one app at the checkout directly:
+
+   ```sh
+   uv run --directory /path/to/ragbase-shield ragbase-shield mcp
+   ```
 
 For form 2 the app config becomes `command: "uv"`, `args: ["run", "--directory", "/path/to/ragbase-shield",
 "ragbase-shield", "mcp"]`. Each folder's README shows it for that app.

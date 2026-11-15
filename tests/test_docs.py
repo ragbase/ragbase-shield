@@ -157,6 +157,125 @@ def test_release_wheel_commands_are_in_the_guides():
         assert f'pip install "ragbase-shield[ner] @ {WHEEL_URL}"' in text
 
 
+# Code blocks of the user docs (round 2 of 15 November 2026). GitHub adds a copy button to every code block, and the
+# copy button copies the whole block. The default zsh of macOS does not read "#" as the start of a comment (the option
+# interactivecomments is off): a pasted line with "  # ..." fails (the words reach the command as arguments), and a
+# line that starts with "#" runs a command named "#". bash and PowerShell read the comment, zsh does not. So no shell
+# block (sh, bash, zsh, shell, console, powershell, or a block with no language) holds a comment: what a line does is
+# in the text next to the block. A block that is not a command (a usage summary, an example text, the arguments of an
+# app) is a "text" block.
+_FENCE = re.compile(r"^\s*(`{3,}|~{3,})(.*)$")
+_SHELL_TAGS = {"sh", "bash", "zsh", "shell", "console", "powershell", "pwsh", "ps1", ""}
+_ZSH_TAGS = {"sh", "bash", "zsh", "shell", "console"}
+
+
+def _shell_doc_files() -> list[str]:
+    """The user docs with code blocks to copy: the READMEs, SECURITY.md, docs/ and every guide of integrations/."""
+    files = ["README.md", "README.fr.md", "SECURITY.md"]
+    files += sorted(p.relative_to(ROOT).as_posix() for p in (ROOT / "docs").glob("*.md"))
+    files += sorted(p.relative_to(ROOT).as_posix() for p in (ROOT / "integrations").rglob("*.md"))
+    return files
+
+
+def _code_blocks(rel: str) -> list[tuple[int, str, list[tuple[int, str]]]]:
+    """Each fenced block of a Markdown file: (line of the opening fence, language in lower case or "", lines)."""
+    out: list[tuple[int, str, list[tuple[int, str]]]] = []
+    fence, start, tag, body = None, 0, "", []
+    for i, line in enumerate(_read(rel).splitlines(), 1):
+        m = _FENCE.match(line)
+        if m and fence is None:
+            fence, start, tag, body = m.group(1), i, m.group(2).strip().lower(), []
+        elif m and fence is not None and m.group(1)[0] == fence[0] and len(m.group(1)) >= len(fence) \
+                and not m.group(2).strip():
+            out.append((start, tag, body))
+            fence = None
+        elif fence is not None:
+            body.append((i, line))
+    assert fence is None, f"{rel}: the code block of line {start} is not closed"
+    return out
+
+
+@pytest.mark.parametrize("rel", _shell_doc_files())
+def test_shell_blocks_hold_no_comment(rel):
+    for _start, tag, body in _code_blocks(rel):
+        if tag not in _SHELL_TAGS:
+            continue
+        for i, line in body:
+            assert not re.search(r"(^|[ \t])#", line), \
+                f"{rel}:{i}: a comment in a ```{tag or '(no language)'} block: {line.strip()!r}"
+
+
+@pytest.mark.parametrize("rel", _shell_doc_files())
+def test_shell_blocks_paste_into_zsh(rel):
+    """Outside quotes, a line of a sh, bash, zsh, shell or console block holds no character that zsh reads as a
+    pattern, a redirection or the end of a command: "[--dry-run]" stops the line ("no matches found"), "<folder>"
+    reads a file, ";" starts a second command. A pipe ("curl ... | sh") is allowed."""
+    for _start, tag, body in _code_blocks(rel):
+        if tag not in _ZSH_TAGS:
+            continue
+        for i, line in body:
+            bare = re.sub(r"\"[^\"]*\"|'[^']*'", "", line)
+            bad = sorted(set(re.findall(r"[\[\]<>;*?]", bare)))
+            assert not bad, f"{rel}:{i}: {''.join(bad)} outside quotes in a ```{tag} block: {line.strip()!r}"
+
+
+def test_shell_block_scan_sees_the_guides():
+    """The two tests above read the blocks of the guides (a guard against a parser that finds nothing)."""
+    files = _shell_doc_files()
+    for rel in ("README.md", "README.fr.md", "docs/INSTALL.md", "docs/NER.md", "integrations/chatgpt/README.md",
+                "integrations/browser-extension/README.md"):
+        assert rel in files
+    count = {rel: sum(1 for b in _code_blocks(rel) if b[1] in _ZSH_TAGS) for rel in ("README.md", "docs/INSTALL.md")}
+    assert count["README.md"] >= 10 and count["docs/INSTALL.md"] >= 25, count
+    assert any(t == "powershell" for rel in ("README.md", "docs/INSTALL.md") for _s, t, _b in _code_blocks(rel))
+
+
+def _sh_block_starts(rel: str, lines: list[str]) -> list[int]:
+    """Opening lines of the sh blocks that hold exactly these lines (indentation aside)."""
+    return [s for s, t, b in _code_blocks(rel) if t == "sh" and [ln.strip() for _i, ln in b] == lines]
+
+
+def test_main_uv_way_installs_the_command_first():
+    """The main uv way installs the command from the wheel of the release, then starts Shield Desk: one sh block, before
+    the way without an install ("uvx --from <wheel> ragbase-shield desk"). Shield Desk, the browser extension and the
+    configs written by "ragbase-shield install" call "uvx ragbase-shield", and uvx then runs the installed command."""
+    main = [f"uv tool install {WHEEL_URL}", "ragbase-shield desk"]
+    no_install = f"uvx --from {WHEEL_URL} ragbase-shield desk"
+    install = _read("docs/INSTALL.md").splitlines()
+    part2 = next(i for i, ln in enumerate(install, 1) if ln.startswith("## Part 2. English"))
+    places = {"README.md": [None], "README.fr.md": [None], "integrations/browser-extension/README.md": [None],
+              "docs/INSTALL.md": [(1, part2), (part2, len(install) + 1)]}
+    for rel, parts in places.items():
+        lines = _read(rel).splitlines()
+        for part in parts:
+            lo, hi = part or (1, len(lines) + 1)
+            starts = [s for s in _sh_block_starts(rel, main) if lo <= s < hi]
+            assert starts, f"{rel} (lines {lo} to {hi}): no block with the main uv way"
+            later = [i for i, ln in enumerate(lines, 1) if lo <= i < hi and no_install in ln]
+            assert later and min(later) > starts[0], f"{rel}: the way without an install must come after the main way"
+
+
+def test_install_texts_of_round_2():
+    """The READMEs offer no PyPI package as a way to install; the arguments of ChatGPT desktop are a block of their
+    own, named by the step; the update of the install guide says what to do in Precise mode."""
+    for rel, sentence in (("README.md", "Python package: the wheel of the release (commands below)."),
+                          ("README.fr.md", "Paquet Python : le fichier wheel de la version (commandes plus bas).")):
+        text = _read(rel)
+        assert sentence in text, rel
+        assert not re.search(r"(?i)(package|paquet)[^.\n]*pypi|pypi[^.\n]*(package|paquet)", text), rel
+    args = f"--from {WHEEL_URL} ragbase-shield mcp"
+    install = _read("docs/INSTALL.md")
+    fr, en = install.split("## Part 2. English", 1)
+    for part, step, ner in ((fr, "Arguments : le bloc ci-dessous.", "Mode Précis : relancez plutôt la commande du mode Précis"),
+                            (en, "arguments: the block below.", "Precise mode: run the Precise command again instead")):
+        assert f"```text\n{args}\n```" in part
+        assert step in part and ner in part
+    guide = _read("integrations/chatgpt/README.md")
+    assert "Arguments: the block below." in guide
+    assert [b for _s, t, b in _code_blocks("integrations/chatgpt/README.md")
+            if t == "text" and [ln.strip() for _i, ln in b] == [args]]
+
+
 KEY_WARNINGS = {
     "README.fr.md": ["n'attachez pas le fichier", "Ne collez pas de texte brut", "ne peut pas être rappelé"],
     "docs/INSTALL.md": ["n'attachez pas le fichier", "Ne collez pas de texte brut", "ne peut pas être rappelé"],

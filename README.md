@@ -112,7 +112,7 @@ articles, months and days.
 ## Install
 
 Downloads (installers, Claude Desktop extension, `SHA256SUMS`): the releases page,
-https://github.com/ragbase/ragbase-shield/releases/latest. Python package: `ragbase-shield` on PyPI.
+https://github.com/ragbase/ragbase-shield/releases/latest. Python package: the wheel of the release (commands below).
 
 | Your app or system | What to install | Guide |
 |---|---|---|
@@ -138,17 +138,25 @@ On Windows: open PowerShell, paste this line, press Enter.
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
 
-Close the window and open a new one. Then start Shield Desk:
+Close the window and open a new one. Then install the `ragbase-shield` command once, from the wheel of the release,
+and start Shield Desk:
 
 ```sh
-uvx --from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield desk
+uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl
+ragbase-shield desk
 ```
 
 Your browser opens **http://127.0.0.1:7878** with a private link that holds a secret token.
 This is a local page: it works only on your computer.
-To open it again, run the command again or use the link shown in the Terminal.
+To open it again, run `ragbase-shield desk` again or use the link shown in the Terminal.
 The address alone, without the token, shows "Token refused".
 Keep the Terminal window open: closing it stops Shield Desk and the browser extension.
+
+To start Shield Desk without installing the command:
+
+```sh
+uvx --from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield desk
+```
 
 **With pip:** install the wheel of the release, then start Shield Desk.
 
@@ -157,7 +165,13 @@ pip install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/r
 ragbase-shield desk
 ```
 
-Precise mode (with AI model) is optional (see [docs/NER.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/NER.md)):
+Precise mode (with AI model) is optional (see [docs/NER.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/NER.md)). With uv:
+
+```sh
+uv tool install "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl"
+```
+
+With pip:
 
 ```sh
 pip install "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl"
@@ -290,13 +304,24 @@ Full model: [docs/PRIVACY_MODEL.md](https://github.com/ragbase/ragbase-shield/bl
   `RAGBASE_SHIELD_LANGUAGE`).
 - **Precise mode** (optional; technical name: GLiNER). An AI model for name recognition works next to the rules.
   It takes about 1.2 GB, has an Apache-2.0 licence and runs offline, on the CPU. No model is installed by default.
-  To add it:
+  To add it with pip:
 
-  ```
+  ```sh
   pip install "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl"
-  # or, with uv: uv tool install "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl"
-  ragbase-shield ner download            # fastino/gliner2-privacy-filter-PII-multi, once, into ~/.ragbase-shield/models
-  ragbase-shield ner status              # or: ragbase-shield doctor
+  ```
+
+  or with uv:
+
+  ```sh
+  uv tool install "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl"
+  ```
+
+  Then download the model once (fastino/gliner2-privacy-filter-PII-multi, into `~/.ragbase-shield/models`) and check
+  it (`ragbase-shield doctor` checks it too):
+
+  ```sh
+  ragbase-shield ner download
+  ragbase-shield ner status
   ```
 
   What the model finds passes the same whitelist and precision guards as the rules; the hooks and the canary never
@@ -315,7 +340,7 @@ Full contract: [ARCHITECTURE.md](https://github.com/ragbase/ragbase-shield/blob/
 
 ### Command line
 
-```
+```text
 ragbase-shield add <folder> [--title TEXT]           # register a dossier folder, prints DOSSIER_n, scans it
 ragbase-shield list                                  # dossiers (real titles: local terminal)
 ragbase-shield entities <DOSSIER_n>                  # detected and registered entities
