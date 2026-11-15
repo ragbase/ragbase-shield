@@ -488,6 +488,21 @@ def test_intel_line_follows_each_pip_precise_command(idx):
     assert text.count(INTEL_PIP) == n == text.count(DOC_PIP), name
 
 
+@pytest.mark.parametrize("idx", range(5))
+def test_precise_command_ends_its_block(idx):
+    """The documented Precise command is the last line of its code block, so the Intel line comes before any next
+    step. A block "install + ner download + ner status" followed by the Intel line would make an Intel Mac user run
+    ner download before a working install, then run it again."""
+    name, text, _ = _intel_parts()[idx]
+    lines = text.split("\n")
+    seen = 0
+    for i, line in enumerate(lines):
+        if line.strip() in (DOC_UV, DOC_PIP, INTEL_UV, INTEL_PIP):
+            seen += 1
+            assert lines[i + 1].strip() == "```", f"{name}:{i + 1}: more lines after the Precise command in its block"
+    assert seen >= 2, name
+
+
 @pytest.mark.parametrize("rel", _user_command_files())
 def test_every_intel_line_is_the_tested_line(rel):
     """Any uv or pip Precise command with a pin is exactly one of the tested Intel lines, and the pins appear nowhere
