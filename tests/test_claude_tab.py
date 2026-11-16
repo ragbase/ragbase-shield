@@ -518,3 +518,287 @@ def test_systemroot_fix_runs_before_asyncio_is_imported():
     head = src[:call]
     imports = re.findall(r"^(?:import|from) ([\w.]+)", head, re.M)  # top-level imports before the fix
     assert imports and not any(m.split(".")[0] in ("asyncio", "mcp", "anyio") or m == "." for m in imports)
+
+
+# ------------------------------------------------------------------ round 7: the Windows folder window, two extras
+
+class FakeWin:
+    """Stands for the user32 calls: windows = {handle: (process id, title)}."""
+
+    def __init__(self, windows=None):
+        self.windows = dict(windows or {})
+        self.front: list = []
+        self.closed: list = []
+        self.on_close = None
+        self.broken: set = set()  # windows that go away during the look
+        self.refuse: set = set()  # windows that bring_front fails on
+
+    def top_windows(self):
+        return list(self.windows)
+
+    def process_of(self, h):
+        if h in self.broken:
+            raise OSError("window went away")
+        return self.windows[h][0]
+
+    def title_of(self, h):
+        return self.windows[h][1]
+
+    def bring_front(self, h):
+        self.front.append(h)
+        if h in self.refuse:
+            raise OSError("refused")
+
+    def close(self, h):
+        self.closed.append(h)
+        if self.on_close:
+            self.on_close(h)
+
+
+class FakeThread:
+    """A window thread that never ends by itself; it ends when ``stop`` is set."""
+
+    def __init__(self, ends_after_joins=None):
+        self.joins: list = []
+        self.ends_after_joins = ends_after_joins
+        self.stopped = False
+
+    def is_alive(self):
+        if self.ends_after_joins is not None and len(self.joins) >= self.ends_after_joins:
+            return False
+        return not self.stopped
+
+    def join(self, timeout=None):
+        self.joins.append(timeout)
+
+
+class FakeClock:
+    def __init__(self, thread, step=0.2):
+        self.now, self.thread, self.step = 100.0, thread, step
+
+    def __call__(self):
+        self.now += self.step if self.thread.joins else 0.0
+        return self.now
+
+
+ME = os.getpid()
+TITLE = claude_tab.PICK_TITLE
+
+
+def test_own_windows_are_this_process_and_this_title_only():
+    win = FakeWin({1: (ME, TITLE), 2: (ME + 1, TITLE), 3: (ME, "RAGbase Shield"), 4: (ME, TITLE), 5: (ME, TITLE)})
+    win.broken.add(5)  # gone during the look: skipped, no error
+    assert claude_tab._own_windows(TITLE, win) == [1, 4]
+
+    class NoAnswer(FakeWin):
+        def top_windows(self):
+            raise OSError("EnumWindows")
+
+    assert claude_tab._own_windows(TITLE, NoAnswer()) == []
+
+
+def test_each_new_window_is_put_in_front_once_and_errors_stay_inside(monkeypatch):
+    win = FakeWin({7: (ME + 1, TITLE)})  # another program's window with the same title is never touched
+    thread = FakeThread(ends_after_joins=6)
+
+    def join(timeout=None):
+        thread.joins.append(timeout)
+        if len(thread.joins) == 2:
+            win.windows.update({8: (ME, TITLE), 9: (ME, TITLE)})
+            win.refuse.add(9)  # bring_front fails on this one: the loop goes on, and it is not tried again
+
+    thread.join = join
+    claude_tab._watch_pick(thread, TITLE, 60.0, win, clock=FakeClock(thread))
+    assert sorted(win.front) == [8, 9] and win.closed == [] and len(thread.joins) == 6
+    assert all(t <= claude_tab.PICK_POLL for t in thread.joins)
+
+
+def test_time_limit_closes_shields_own_window_then_waits(monkeypatch):
+    win = FakeWin({11: (ME, TITLE), 12: (ME + 1, TITLE), 13: (ME, "RAGbase Shield")})
+    thread = FakeThread()
+    with pytest.raises(claude_tab.PickFailed) as exc:
+        claude_tab._watch_pick(thread, TITLE, 1.0, win, clock=FakeClock(thread))
+    assert exc.value.kind == "timeout"
+    assert win.closed == [11]  # only Shield's own folder window, never Claude's or another program's
+    assert thread.joins[-1] == claude_tab.PICK_CLOSE_WAIT
+    assert claude_tab.PICK_TIMEOUT == 290.0
+
+
+def _window_thread_fakes():
+    import threading
+
+    win = FakeWin()
+    closed = threading.Event()
+    calls: list = []
+
+    def dialog(title, button):
+        calls.append((title, button))
+        win.windows[21] = (ME, title)
+        closed.wait(10)
+        win.windows.pop(21, None)
+        return None  # WM_CLOSE closes the window as "Cancel"
+
+    win.on_close = lambda h: closed.set()
+    return win, dialog, calls
+
+
+def test_time_limit_with_a_real_window_thread(monkeypatch):
+    monkeypatch.setattr(claude_tab, "_PICK_THREAD", None)
+    monkeypatch.setattr(claude_tab, "PICK_POLL", 0.01)
+    win, dialog, calls = _window_thread_fakes()
+    with pytest.raises(claude_tab.PickFailed) as exc:
+        claude_tab._pick_windows(TITLE, 0.3, win=win, dialog=dialog)
+    assert exc.value.kind == "timeout" and win.closed == [21] and win.front == [21]
+    assert not claude_tab._PICK_THREAD.is_alive()  # the window is gone before the answer
+    assert calls == [(TITLE, claude_tab.PICK_BUTTON)]
+    # the next call opens a new window and the lawyer's choice comes back
+    assert claude_tab._pick_windows(TITLE, 5.0, win=FakeWin(), dialog=lambda t, b: r"C:\Cabinet\Client A") == \
+        r"C:\Cabinet\Client A"
+
+
+def test_window_answers_cancel_and_failure(monkeypatch):
+    monkeypatch.setattr(claude_tab, "_PICK_THREAD", None)
+    with pytest.raises(claude_tab.PickCancelled):
+        claude_tab._pick_windows(TITLE, 5.0, win=FakeWin(), dialog=lambda t, b: None)
+
+    def broken(t, b):
+        raise OSError("Show")
+
+    with pytest.raises(claude_tab.PickFailed) as exc:
+        claude_tab._pick_windows(TITLE, 5.0, win=FakeWin(), dialog=broken)
+    assert exc.value.kind == "failed"
+
+
+def test_a_window_that_did_not_close_blocks_a_second_one(monkeypatch):
+    stuck = FakeThread()
+    monkeypatch.setattr(claude_tab, "_PICK_THREAD", stuck)
+    win = FakeWin({31: (ME, TITLE)})
+    opened: list = []
+    with pytest.raises(claude_tab.PickFailed) as exc:
+        claude_tab._pick_windows(TITLE, 5.0, win=win, dialog=lambda t, b: opened.append(t))
+    assert exc.value.kind == "failed" and opened == [] and win.closed == [31]
+    stuck.stopped = True  # it closed after all: the next call opens a window
+    assert claude_tab._pick_windows(TITLE, 5.0, win=FakeWin(), dialog=lambda t, b: "C:\\Dossier") == "C:\\Dossier"
+
+
+class FakeUser32:
+    def __init__(self, front=0, front_thread=0, fail_focus=False):
+        self.log: list = []
+        self.front, self.front_thread, self.fail_focus = front, front_thread, fail_focus
+
+    def SetWindowPos(self, *a):
+        self.log.append(("SetWindowPos",) + a)
+        return 1
+
+    def GetForegroundWindow(self):
+        return self.front
+
+    def GetWindowThreadProcessId(self, h, out):
+        assert out is None
+        return self.front_thread
+
+    def AttachThreadInput(self, me, other, attach):
+        self.log.append(("AttachThreadInput", me, other, attach))
+        return 1
+
+    def SetForegroundWindow(self, h):
+        self.log.append(("SetForegroundWindow", h))
+        if self.fail_focus:
+            raise OSError("focus")
+        return 1
+
+    def PostMessageW(self, *a):
+        self.log.append(("PostMessageW",) + a)
+        return 1
+
+    def GetSystemMetrics(self, i):
+        return (1920, 1080)[i]
+
+    def CreateWindowExW(self, *a):
+        self.log.append(("CreateWindowExW",) + a)
+        return 777
+
+
+def _win_with(user32, me=50):
+    w = object.__new__(claude_tab._Win32)
+    w.user32 = user32
+
+    class K:
+        @staticmethod
+        def GetCurrentThreadId():
+            return me
+
+    w.kernel32 = K
+    return w
+
+
+def test_focus_shares_input_for_one_call_and_always_detaches():
+    u = FakeUser32(front=900, front_thread=60, fail_focus=True)
+    with pytest.raises(OSError):
+        _win_with(u).bring_front(41)
+    assert u.log[0] == ("SetWindowPos", 41, -1, 0, 0, 0, 0, 0x1 | 0x2 | 0x40)  # HWND_TOPMOST, no size/move, shown
+    assert u.log[1:] == [("AttachThreadInput", 50, 60, True), ("SetForegroundWindow", 41),
+                         ("AttachThreadInput", 50, 60, False)]
+    for front, thread in ((0, 0), (900, 50)):  # nothing in front, or our own thread in front: no attach at all
+        u = FakeUser32(front=front, front_thread=thread)
+        _win_with(u).bring_front(42)
+        assert [e[0] for e in u.log] == ["SetWindowPos", "SetForegroundWindow"]
+
+
+def test_owner_is_an_invisible_window_of_shield_and_close_is_wm_close():
+    u = FakeUser32()
+    w = _win_with(u)
+    assert w.make_owner() == 777
+    _name, ex, cls, title, style, x, y, cx, cy, parent, *_rest = u.log[0]
+    assert (ex, cls, title, style) == (0x80 | 0x8, "STATIC", "RAGbase Shield", 0x80000000)  # no WS_VISIBLE
+    assert (x, y, cx, cy, parent) == (960, 540, 0, 0, None)
+    w.close(43)
+    assert u.log[-1] == ("PostMessageW", 43, 0x0010, 0, 0)
+    src = Path(claude_tab.__file__).read_text(encoding="utf-8")
+    dialog_src = src[src.index("def _pick_windows_dialog"):src.index("def _pick_windows(")]
+    assert "GetForegroundWindow" not in dialog_src and "owner = win.make_owner()" in dialog_src
+    assert "win.destroy(owner)" in dialog_src[dialog_src.index("finally:"):]
+
+
+def _make_xlsx(path: Path) -> None:
+    import zipfile
+
+    ns = 'xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"'
+    rel = 'xmlns="http://schemas.openxmlformats.org/package/2006/relationships"'
+    with zipfile.ZipFile(path, "w") as zf:
+        zf.writestr("[Content_Types].xml", '<?xml version="1.0"?><Types xmlns="http://schemas.openxmlformats.org/'
+                    'package/2006/content-types"><Default Extension="xml" ContentType="application/xml"/></Types>')
+        zf.writestr("_rels/.rels", f'<?xml version="1.0"?><Relationships {rel}><Relationship Id="rId1" '
+                    'Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" '
+                    'Target="xl/workbook.xml"/></Relationships>')
+        zf.writestr("xl/workbook.xml", f'<?xml version="1.0"?><workbook {ns} xmlns:r="http://schemas.openxmlformats.'
+                    'org/officeDocument/2006/relationships"><sheets><sheet name="Frais" sheetId="1" r:id="rId1"/>'
+                    "</sheets></workbook>")
+        zf.writestr("xl/_rels/workbook.xml.rels", f'<?xml version="1.0"?><Relationships {rel}><Relationship '
+                    'Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" '
+                    'Target="worksheets/sheet1.xml"/></Relationships>')
+        zf.writestr("xl/worksheets/sheet1.xml", f'<?xml version="1.0"?><worksheet {ns}><sheetData><row r="1">'
+                    '<c r="A1" t="inlineStr"><is><t>Frais de greffe</t></is></c><c r="B1"><v>45</v></c></row>'
+                    "</sheetData></worksheet>")
+
+
+def test_excel_files_are_named_excel_in_the_document_list(folder):
+    _make_xlsx(folder / "frais.xlsx")
+    pick(folder)
+    server = claude_tab.build_server()
+    call(server, "shield_protect_folder")
+    err, docs = call(server, "shield_list_documents", {"dossier": "DOSSIER_1"})
+    assert not err and "| Excel |" in docs and "xlsx |" not in docs, docs
+    assert claude_tab.TYPE_WORDS["xlsx"] == "Excel"
+
+
+def test_unknown_argument_writes_one_french_sentence(capsys):
+    for argv in (["--home", "/x"], ["--test-data", "/d", "--bogus"]):
+        with pytest.raises(SystemExit) as exc:
+            claude_tab._parse(argv)
+        assert exc.value.code == 2
+        out = capsys.readouterr()
+        assert out.out == "" and out.err == "RAGbase Shield ne peut pas démarrer : réinstallez le plugin.\n"
+    with pytest.raises(SystemExit) as exc:
+        claude_tab.main(["--plugin-root"])  # stops before anything starts
+    assert exc.value.code == 2 and "réinstallez le plugin" in capsys.readouterr().err

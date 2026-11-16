@@ -31,6 +31,7 @@ import re
 import subprocess
 import sys
 import threading
+import time
 from collections import Counter
 from pathlib import Path
 from typing import Annotated, Callable, Literal, Optional
@@ -77,6 +78,12 @@ MAX_FOLDER_BYTES = 2 * 1024 ** 3
 PICK_TIMEOUT = 290.0
 PICK_TITLE = "RAGbase Shield : choisissez le dossier client à protéger"
 PICK_BUTTON = "Protéger ce dossier"
+#: Windows: how often Shield looks for its folder window, and how long it waits for the window to close at the time
+#: limit (seconds).
+PICK_POLL = 0.2
+PICK_CLOSE_WAIT = 10.0
+#: The one sentence on standard error when the plugin command is wrong (same as the start module's).
+START_FAILED = "RAGbase Shield ne peut pas démarrer : réinstallez le plugin."
 
 log = logging.getLogger(__name__)
 
@@ -512,6 +519,160 @@ def _pick_mac(title: str, timeout: float) -> str:
     return out
 
 
+# Windows (winuser.h): the few messages and flags of the folder window.
+_WM_CLOSE = 0x0010
+_HWND_TOPMOST = -1
+_SWP_NOSIZE, _SWP_NOMOVE, _SWP_SHOWWINDOW = 0x0001, 0x0002, 0x0040
+_WS_POPUP = 0x80000000
+_WS_EX_TOPMOST, _WS_EX_TOOLWINDOW = 0x00000008, 0x00000080
+_SM_CXSCREEN, _SM_CYSCREEN = 0, 1
+_OWNER_TITLE = "RAGbase Shield"
+
+
+class _Win32:
+    """The user32 calls of the folder window, each with argtypes and restype (window handles are 64-bit). Own WinDLL
+    objects: these settings never reach other code that uses ``ctypes.windll``."""
+
+    def __init__(self) -> None:  # pragma: no cover - Windows
+        import ctypes
+        from ctypes import wintypes as w
+
+        self._ctypes, self._w = ctypes, w
+        self._enum_proc = ctypes.WINFUNCTYPE(w.BOOL, w.HWND, w.LPARAM)
+        user32 = ctypes.WinDLL("user32", use_last_error=True)
+        kernel32 = ctypes.WinDLL("kernel32", use_last_error=True)
+        i = ctypes.c_int
+        signatures = {
+            "EnumWindows": (w.BOOL, (self._enum_proc, w.LPARAM)),
+            "GetWindowThreadProcessId": (w.DWORD, (w.HWND, ctypes.POINTER(w.DWORD))),
+            "GetWindowTextW": (i, (w.HWND, w.LPWSTR, i)),
+            "GetForegroundWindow": (w.HWND, ()),
+            "SetForegroundWindow": (w.BOOL, (w.HWND,)),
+            "SetWindowPos": (w.BOOL, (w.HWND, w.HWND, i, i, i, i, w.UINT)),
+            "AttachThreadInput": (w.BOOL, (w.DWORD, w.DWORD, w.BOOL)),
+            "PostMessageW": (w.BOOL, (w.HWND, w.UINT, w.WPARAM, w.LPARAM)),
+            "CreateWindowExW": (w.HWND, (w.DWORD, w.LPCWSTR, w.LPCWSTR, w.DWORD, i, i, i, i, w.HWND, w.HMENU,
+                                         w.HINSTANCE, w.LPVOID)),
+            "DestroyWindow": (w.BOOL, (w.HWND,)),
+            "GetSystemMetrics": (i, (i,)),
+        }
+        for name, (restype, argtypes) in signatures.items():
+            fn = getattr(user32, name)
+            fn.restype, fn.argtypes = restype, argtypes
+        kernel32.GetCurrentThreadId.restype = w.DWORD
+        kernel32.GetCurrentThreadId.argtypes = ()
+        self.user32, self.kernel32 = user32, kernel32
+
+    def top_windows(self) -> list:  # pragma: no cover - Windows
+        found: list = []
+
+        def each(hwnd, _lparam):
+            if hwnd:
+                found.append(hwnd)
+            return True
+
+        callback = self._enum_proc(each)  # kept alive for the whole call
+        self.user32.EnumWindows(callback, 0)
+        return found
+
+    def process_of(self, hwnd: int) -> int:  # pragma: no cover - Windows
+        pid = self._w.DWORD()
+        self.user32.GetWindowThreadProcessId(hwnd, self._ctypes.byref(pid))
+        return pid.value
+
+    def title_of(self, hwnd: int) -> str:  # pragma: no cover - Windows
+        buf = self._ctypes.create_unicode_buffer(512)
+        return buf.value if self.user32.GetWindowTextW(hwnd, buf, 512) > 0 else ""
+
+    def make_owner(self) -> Optional[int]:
+        """An invisible window of THIS process (popup, 0 x 0, tool window, topmost) in the middle of the screen."""
+        u = self.user32
+        x, y = u.GetSystemMetrics(_SM_CXSCREEN) // 2, u.GetSystemMetrics(_SM_CYSCREEN) // 2
+        return u.CreateWindowExW(_WS_EX_TOOLWINDOW | _WS_EX_TOPMOST, "STATIC", _OWNER_TITLE, _WS_POPUP, x, y, 0, 0,
+                                 None, None, None, None)
+
+    def destroy(self, hwnd: int) -> None:
+        self.user32.DestroyWindow(hwnd)
+
+    def bring_front(self, hwnd: int) -> None:
+        """On top of every window, then ask for the keyboard focus. Windows gives the focus only to the program of
+        the window in front, so Shield shares that thread's input state for the one SetForegroundWindow call, and
+        always detaches after it."""
+        u = self.user32
+        u.SetWindowPos(hwnd, _HWND_TOPMOST, 0, 0, 0, 0, _SWP_NOSIZE | _SWP_NOMOVE | _SWP_SHOWWINDOW)
+        me = self.kernel32.GetCurrentThreadId()
+        front = u.GetForegroundWindow()
+        other = u.GetWindowThreadProcessId(front, None) if front else 0
+        joined = bool(other) and other != me and bool(u.AttachThreadInput(me, other, True))
+        try:
+            u.SetForegroundWindow(hwnd)
+        finally:
+            if joined:
+                u.AttachThreadInput(me, other, False)
+
+    def close(self, hwnd: int) -> None:
+        self.user32.PostMessageW(hwnd, _WM_CLOSE, 0, 0)  # the folder window closes as "Cancel"
+
+
+_WIN32: Optional[_Win32] = None
+
+
+def _win32() -> _Win32:  # pragma: no cover - Windows
+    global _WIN32
+    if _WIN32 is None:
+        _WIN32 = _Win32()
+    return _WIN32
+
+
+def _own_windows(title: str, win, pid: Optional[int] = None) -> list:
+    """The top-level windows of THIS process whose title is ``title`` (visible or not). Never raises: a window that
+    goes away during the look is skipped; no answer from the system gives an empty list."""
+    pid = os.getpid() if pid is None else pid
+    try:
+        handles = list(win.top_windows())
+    except Exception:  # noqa: BLE001
+        return []
+    found = []
+    for h in handles:
+        try:
+            if win.process_of(h) == pid and win.title_of(h) == title:
+                found.append(h)
+        except Exception:  # noqa: BLE001
+            continue
+    return found
+
+
+def _close_pick_window(thread, title: str, win) -> None:
+    """Close Shield's own folder window (WM_CLOSE, as "Cancel") and wait for its thread."""
+    for h in _own_windows(title, win):
+        try:
+            win.close(h)
+        except Exception:  # noqa: BLE001
+            pass
+    thread.join(PICK_CLOSE_WAIT)
+
+
+def _watch_pick(thread, title: str, timeout: float, win, clock: Callable[[], float] = time.monotonic) -> None:
+    """While the window thread runs: each new Shield folder window is put on top and asks for the focus, once. At the
+    time limit Shield closes its own window, waits for the thread, then raises PickFailed("timeout"): no window
+    stays open behind an answer. No Windows call raises out of this loop."""
+    raised: set = set()
+    end = clock() + timeout
+    while thread.is_alive():
+        left = end - clock()
+        if left <= 0:
+            _close_pick_window(thread, title, win)
+            raise PickFailed("timeout")
+        for h in _own_windows(title, win):
+            if h not in raised:
+                raised.add(h)
+                try:
+                    win.bring_front(h)
+                except Exception:  # noqa: BLE001
+                    pass
+        thread.join(min(PICK_POLL, left))
+
+
 def _pick_windows_dialog(title: str, button: str) -> Optional[str]:  # pragma: no cover - Windows
     """The Windows "choose a folder" window (IFileOpenDialog with FOS_PICKFOLDERS), in-process through ctypes: no
     console, no PowerShell. Returns the path, or None when the user closes the window."""
@@ -543,6 +704,8 @@ def _pick_windows_dialog(title: str, button: str) -> Optional[str]:  # pragma: n
         raise OSError("CoInitializeEx")
     dialog = c_void_p()
     item = c_void_p()
+    win = _win32()
+    owner = None
     try:
         if ole32.CoCreateInstance(byref(guid("{DC1C5A9C-E88A-4DDE-A5A1-60F82A20AEF7}")), None, 1,
                                   byref(guid("{D57C7288-D4AD-4768-BE02-9D969532D960}")), byref(dialog)) != 0:
@@ -552,7 +715,9 @@ def _pick_windows_dialog(title: str, button: str) -> Optional[str]:  # pragma: n
             call(dialog, 9, c_uint(opts.value | FOS), argtypes=(c_uint,))  # SetOptions
         call(dialog, 17, c_wchar_p(title), argtypes=(c_wchar_p,))  # SetTitle
         call(dialog, 18, c_wchar_p(button), argtypes=(c_wchar_p,))  # SetOkButtonLabel
-        owner = ctypes.windll.user32.GetForegroundWindow()
+        # Owner = an invisible window of this process, never the window in front (Claude, or any other program):
+        # Windows disables the owner while the folder window is open, and for ever if Shield is stopped then.
+        owner = win.make_owner()
         hr = call(dialog, 3, wintypes.HWND(owner), argtypes=(wintypes.HWND,))  # Show
         if hr == ERROR_CANCELLED:
             return None
@@ -571,23 +736,37 @@ def _pick_windows_dialog(title: str, button: str) -> Optional[str]:  # pragma: n
         for obj in (item, dialog):
             if obj:
                 call(obj, 2)  # Release
+        if owner:
+            win.destroy(owner)  # same thread that made it
         ole32.CoUninitialize()
 
 
-def _pick_windows(title: str, timeout: float) -> str:  # pragma: no cover - Windows
+_PICK_THREAD: Optional[threading.Thread] = None
+
+
+def _pick_windows(title: str, timeout: float, win=None,
+                  dialog: Callable[[str, str], Optional[str]] = _pick_windows_dialog) -> str:
+    """The folder window runs in its own thread (its own COM apartment); this thread watches it (on top, focus, time
+    limit). Tests pass a fake ``win`` and ``dialog``."""
+    global _PICK_THREAD
+    win = _win32() if win is None else win
+    old = _PICK_THREAD
+    if old is not None and old.is_alive():  # a window left from an earlier call: close it, never open a second one
+        _close_pick_window(old, title, win)
+        if old.is_alive():
+            raise PickFailed("failed")
     box: dict = {}
 
     def run() -> None:
         try:
-            box["path"] = _pick_windows_dialog(title, PICK_BUTTON)
+            box["path"] = dialog(title, PICK_BUTTON)
         except Exception as exc:  # noqa: BLE001
             box["error"] = type(exc).__name__
 
-    t = threading.Thread(target=run, name="shield-pick-folder", daemon=True)  # its own COM apartment
+    t = threading.Thread(target=run, name="shield-pick-folder", daemon=True)
+    _PICK_THREAD = t
     t.start()
-    t.join(timeout)
-    if t.is_alive():
-        raise PickFailed("timeout")
+    _watch_pick(t, title, timeout, win)
     if "error" in box:
         raise PickFailed("failed")
     if not box.get("path"):
@@ -739,8 +918,8 @@ KIND_WORDS = {
     "ACCOUNT_NUMBER": "numéro(s) de compte", "BIRTHPLACE": "lieu(x) de naissance",
 }
 
-TYPE_WORDS = {"pdf": "PDF", "docx": "Word", "txt": "texte", "md": "texte", "eml": "e-mail", "html": "page web",
-              "unsupported": "illisible par Shield"}
+TYPE_WORDS = {"pdf": "PDF", "docx": "Word", "xlsx": "Excel", "txt": "texte", "md": "texte", "eml": "e-mail",
+              "html": "page web", "unsupported": "illisible par Shield"}
 
 LIMITS_FR = (
     "Shield remplace les noms et numéros détectés par des codes ; les vrais noms restent sur cet ordinateur. "
@@ -1114,6 +1293,7 @@ def _parse(argv: list[str]) -> tuple[Optional[Path], Optional[str]]:
         elif a == "--test-pick":
             test_pick = next(it)
         else:
+            print(START_FAILED, file=sys.stderr)
             raise SystemExit(2)
     if test_pick is not None and test_data is None:
         raise SystemExit(2)  # never point the real vault at a test answer
