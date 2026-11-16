@@ -283,6 +283,37 @@ def test_fixed_places_come_from_the_system(monkeypatch, tmp_path):
     assert claude_tab.plugin_home() != Path(config.home())
 
 
+def test_windows_vault_is_in_the_profile_not_in_appdata(monkeypatch, tmp_path):
+    """Windows: the packaged Claude app can redirect writes under AppData to a folder that Windows deletes with the
+    app. The vault goes to <profile>\\RAGbase Shield; the profile comes from the shell, never from a variable."""
+    profile, local = tmp_path / "profile", tmp_path / "profile" / "AppData" / "Local"
+    folders = {claude_tab._FOLDERID["Profile"]: profile, claude_tab._FOLDERID["LocalAppData"]: local}
+    monkeypatch.setattr(claude_tab, "_known_folder", lambda guid: folders.get(guid))
+    monkeypatch.setattr(claude_tab.sys, "platform", "win32")
+    monkeypatch.setenv("USERPROFILE", str(tmp_path / "planted-profile"))
+    monkeypatch.setenv("LOCALAPPDATA", str(tmp_path / "planted-local"))
+    home = claude_tab.plugin_home()
+    assert home == profile / "RAGbase Shield"
+    assert "AppData" not in home.parts and "planted" not in str(home)
+    folders.clear()  # the shell gives no answer: an error, never %USERPROFILE%
+    with pytest.raises(OSError):
+        claude_tab.plugin_home()
+
+
+def test_status_names_the_vault_place_without_a_path(folder, tmp_path):
+    assert "dossier personnel Windows" in claude_tab.data_place_fr("win32")
+    assert "Bibliothèque" in claude_tab.data_place_fr("darwin")
+    for platform in ("win32", "darwin", "linux"):
+        text = claude_tab.data_place_fr(platform)
+        assert "\\" not in text and "/" not in text and "AppData" not in text
+    pick(folder)
+    server = claude_tab.build_server()
+    call(server, "shield_protect_folder")
+    err, text = call(server, "shield_status")
+    assert not err and claude_tab.data_place_fr() in text
+    assert clean(text, folder) and str(tmp_path) not in text and not ENGLISH.search(text)
+
+
 def test_key_store_failure_is_an_error_not_a_file(folder, tmp_path):
     class Broken:
         source = "broken"

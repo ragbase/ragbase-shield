@@ -4,6 +4,9 @@ The plugin carries its own Python (``engine/`` in the plugin folder) and starts 
 
     ${CLAUDE_PLUGIN_ROOT}/engine/shield -I -B -X utf8 -m ragbase_shield.claude_tab
 
+On Windows the plugin starts ``-m shield_boot`` (packaging/claude_plugin/shield_boot.py), which unpacks the packages
+into a short cache folder (Windows path limit) and then runs this module the same way.
+
 What differs from ``ragbase-shield mcp``:
 
 - **Locked settings.** The process ignores every environment variable that could move or weaken Shield (data folder,
@@ -132,15 +135,27 @@ def user_home() -> Path:
     return _posix_home()
 
 
+def windows_profile() -> Path:
+    """Windows: the user's profile folder (C:\\Users\\<name>) from the shell (FOLDERID_Profile). Never from
+    %USERPROFILE% or another variable: when the shell gives no answer, this is an error."""
+    p = _known_folder(_FOLDERID["Profile"])
+    if p is None:
+        raise OSError("the system gave no profile folder")
+    return p
+
+
 def plugin_home() -> Path:
     """Fixed data folder of the plugin: the encrypted vaults and the registry, never the key.
 
-    macOS: ~/Library/Application Support/RAGbase Shield. Windows: %LOCALAPPDATA%\\RAGbase Shield (from the shell,
-    not from the variable). Other systems: ~/.local/share/ragbase-shield-plugin. It is NOT the data folder of the
-    Shield installers and command line (~/.ragbase-shield), whose key lives in another keychain item."""
-    if sys.platform == "win32":  # pragma: no cover - Windows
-        base = _known_folder(_FOLDERID["LocalAppData"]) or (user_home() / "AppData" / "Local")
-        return base / APP_DIR_NAME
+    macOS: ~/Library/Application Support/RAGbase Shield. Windows: <profile>\\RAGbase Shield, for example
+    C:\\Users\\<name>\\RAGbase Shield (profile from the shell, not from a variable). Not under AppData: the packaged
+    (MSIX) Claude app can redirect what its programs write under AppData to a private folder of the app, which
+    Windows deletes with the app; the vault must outlive the app. Only the engine cache of the plugin (rebuilt at
+    any time, see packaging/claude_plugin/shield_boot.py) stays under <Local AppData>\\RAGbase Shield\\engine.
+    Other systems: ~/.local/share/ragbase-shield-plugin. It is NOT the data folder of the Shield installers and
+    command line (~/.ragbase-shield), whose key lives in another keychain item."""
+    if sys.platform == "win32":
+        return windows_profile() / APP_DIR_NAME
     if sys.platform == "darwin":
         return _posix_home() / "Library" / "Application Support" / APP_DIR_NAME
     return _posix_home() / ".local" / "share" / "ragbase-shield-plugin"
@@ -387,7 +402,7 @@ def _protected_places(home: Path) -> dict[str, list[Path]]:
         local = _known_folder(_FOLDERID["LocalAppData"]) or appdata / "Local"
         roaming = _known_folder(_FOLDERID["RoamingAppData"]) or appdata / "Roaming"
         claude += [roaming / "Claude", local / "Claude-Data", local / "AnthropicClaude", local / "Claude"]
-        shield_data.append(local / "ragbase-shield")
+        shield_data += [local / "ragbase-shield", local / APP_DIR_NAME]  # Shield's own data, the engine cache
         inside_refused += [appdata, local, roaming]
         for fid in ("Windows", "ProgramFiles", "ProgramFilesX86", "ProgramData"):
             p = _known_folder(_FOLDERID[fid])
@@ -1030,6 +1045,7 @@ def build_server():
             lines = [f"RAGbase Shield {s['version']} fonctionne sur cet ordinateur, sans connexion à internet. "
                      f"{s['dossiers']} dossier(s) protégé(s)." + (f" Cette conversation travaille sur {scope.pinned}."
                                                                 if scope.pinned else ""),
+                     data_place_fr(),
                      "Limites :"]
             lines += [f"- {t}" for t in LIMITS_FR]
             return out("\n".join(lines))
@@ -1067,6 +1083,18 @@ def build_server():
                         structured_output=False)
     server._shield_scope = scope  # tests
     return server
+
+
+def data_place_fr(platform: Optional[str] = None) -> str:
+    """Where the vault is, in plain French for the lawyer (no path: a path holds the account name)."""
+    platform = sys.platform if platform is None else platform
+    if platform == "win32":
+        where = "dans le dossier « RAGbase Shield » de votre dossier personnel Windows"
+    elif platform == "darwin":
+        where = "dans le dossier « RAGbase Shield » de la Bibliothèque de votre compte"
+    else:
+        where = "sur cet ordinateur"
+    return f"Le lien entre les codes et les vrais noms est gardé, chiffré, {where}."
 
 
 TOOL_NAMES = ("shield_protect_folder", "shield_list_dossiers", "shield_list_documents", "shield_read_document",
