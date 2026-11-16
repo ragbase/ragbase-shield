@@ -279,20 +279,20 @@ Pour les habitués du terminal, la même chose en deux commandes :
 Tout masquer est facile, mais Claude ne peut plus travailler. Shield masque les données de vos clients et garde le droit
 lisible. Nous avons mesuré Shield face à Hexagone et à Presidio sur quatre benchmarks en français, tous publics.
 
-| | Shield 0.4.1 Rapide | Shield 0.4.1 Précis | Hexagone 0.3.9 Rapide | Hexagone 0.3.9 Précis | Presidio 2.2.364 |
+| | Shield 0.4.4 Rapide | Shield 0.4.4 Précis | Hexagone 0.3.9 Rapide | Hexagone 0.3.9 Précis | Presidio 2.2.364 |
 |---|---|---|---|---|---|
 | **Score global (F1), plus haut = mieux** | | | | | |
 | FR-PII-Bench | **96,9** | 96,2 | 80,7 | 80,7 | 66,5 |
-| MAPA | 80,4 | **82,2** | 43,8 | 37,9 | 63,5 |
-| REF | **97,1** | **97,1** | 66,7 | 61,1 | 79,2 |
-| Max | **95,3** | 91,8 | 54,0 | 48,9 | 47,4 |
+| MAPA | 81,1 | **82,8** | 43,8 | 37,9 | 63,5 |
+| REF | **97,3** | **97,3** | 66,7 | 61,1 | 79,2 |
+| Max | **94,9** | 91,5 | 54,0 | 48,9 | 47,4 |
 | **Termes juridiques modifiés, plus bas = mieux** | | | | | |
 | MAPA | **0,0 %** | **0,0 %** | 43,1 % | 47,6 % | 18,0 % |
 | REF | **4,1 %** | **4,1 %** | 17,8 % | 47,1 % | 15,3 % |
 | Max | **2,1 %** | 4,2 % | 47,2 % | 58,3 % | 55,6 % |
 | **Vitesse et mémoire, plus bas = mieux** | | | | | |
-| Temps pour un document | **0,61 s** | 17,7 s | 26,93 s | 9 min | 1,59 s |
-| Mémoire au pic | **78 à 79 Mo** | 3,7 à 3,8 Go | 1,6 à 1,7 Go | 3,8 à 5,4 Go | 0,57 Go |
+| Temps pour un document | **0,63 s** | 17,7 s | 26,93 s | 9 min | 1,59 s |
+| Mémoire au pic | **79 à 80 Mo** | 3,7 à 3,8 Go | 1,6 à 1,7 Go | 3,8 à 5,4 Go | 0,57 Go |
 
 Rapide est le mode par défaut. Précis ajoute un modèle d'IA qui tourne sur votre ordinateur. La meilleure valeur de
 chaque ligne est en gras.

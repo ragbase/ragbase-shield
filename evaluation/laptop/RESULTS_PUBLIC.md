@@ -1,4 +1,4 @@
-# Benchmark: RAGbase Shield 0.4.1
+# Benchmark: RAGbase Shield 0.4.4
 
 How we measure Shield, and the results. En français : https://shield.ragbase.ai/resultats/
 
@@ -17,7 +17,7 @@ data and leaves the rest of the document intact. So we measure both at the same 
 
 | Tool | Version | Modes |
 |---|---|---|
-| RAGbase Shield | 0.4.1 | Fast (rules only, the default) and Precise (rules and a GLiNER model on the CPU) |
+| RAGbase Shield | 0.4.4 | Fast (rules only, the default) and Precise (rules and a GLiNER model on the CPU) |
 | Hexagone AI Desktop | 0.3.9 | Fast and Precis, default settings |
 | Microsoft Presidio | 2.2.364 | default recognizers, spaCy `fr_core_news_md` |
 
@@ -40,6 +40,16 @@ REF and Max are in [`evaluation/datasets`](../datasets) with their answer keys. 
 
 ## Results
 
+**Update of 17 November 2026: Shield 0.4.4.** The Shield columns were computed again for Shield 0.4.4, on the same
+files, with the same scorer and the same method as for Shield 0.4.1. Two changes of Shield move some scores. First,
+Shield now masks a place of birth where the text says that it is a place of birth. The place of birth is in the answer
+key of REF, so the recall on REF goes up. It is not in the answer key of Max, so there it counts as a word masked by
+mistake, and the precision on Max goes down. Second, a value of one or two characters is no longer masked again in the
+rest of the document. This removes false masks in MAPA, so the precision on MAPA goes up. The peak memory of Shield
+0.4.4 was measured again on the same machine. That machine was slower on the day of the new measure, so Shield 0.4.1
+and Shield 0.4.4 ran in alternation on it, and the time of Shield 0.4.4 is the published time of Shield 0.4.1
+multiplied by the ratio of their two times (1.037 in mode Fast and 1.000 in mode Precise).
+
 The best value of each row is in bold.
 
 ### Overall score (F1), higher is better
@@ -49,9 +59,9 @@ Precision (P) and recall (R) are next to each score.
 | Benchmark | Shield Fast | Shield Precise | Hexagone Fast | Hexagone Precis | Presidio |
 |---|---|---|---|---|---|
 | FR-PII-Bench | **96.9** (P 95.0, R 98.9) | 96.2 (P 93.6, R 99.1) | 80.7 (P 68.4, R 98.4) | 80.7 (P 67.7, R 99.9) | 66.5 (P 69.2, R 64.1) |
-| MAPA | 80.4 (P 81.8, R 79.1) | **82.2** (P 77.6, R 87.3) | 43.8 (P 28.5, R 95.3) | 37.9 (P 23.8, R 93.9) | 63.5 (P 51.0, R 84.1) |
-| REF | **97.1** (P 97.9, R 96.2) | **97.1** (P 97.9, R 96.2) | 66.7 (P 50.6, R 97.6) | 61.1 (P 44.0, R 99.9) | 79.2 (P 82.5, R 76.1) |
-| Max | **95.3** (P 95.9, R 94.7) | 91.8 (P 88.5, R 95.3) | 54.0 (P 38.1, R 92.4) | 48.9 (P 32.7, R 96.2) | 47.4 (P 38.0, R 63.0) |
+| MAPA | 81.1 (P 83.1, R 79.1) | **82.8** (P 78.7, R 87.3) | 43.8 (P 28.5, R 95.3) | 37.9 (P 23.8, R 93.9) | 63.5 (P 51.0, R 84.1) |
+| REF | **97.3** (P 97.9, R 96.7) | **97.3** (P 97.9, R 96.7) | 66.7 (P 50.6, R 97.6) | 61.1 (P 44.0, R 99.9) | 79.2 (P 82.5, R 76.1) |
+| Max | **94.9** (P 95.2, R 94.7) | 91.5 (P 87.9, R 95.3) | 54.0 (P 38.1, R 92.4) | 48.9 (P 32.7, R 96.2) | 47.4 (P 38.0, R 63.0) |
 
 ### Legal terms changed, lower is better
 
@@ -65,8 +75,8 @@ Precision (P) and recall (R) are next to each score.
 
 | | Shield Fast | Shield Precise | Hexagone Fast | Hexagone Precis | Presidio |
 |---|---|---|---|---|---|
-| Time for one document | **0.61 s** | 17.7 s | 26.93 s | 9 min | 1.59 s |
-| Peak memory | **78 to 79 MB** | 3.7 to 3.8 GB | 1.6 to 1.7 GB | 3.8 to 5.4 GB | 0.57 GB |
+| Time for one document | **0.63 s** | 17.7 s | 26.93 s | 9 min | 1.59 s |
+| Peak memory | **79 to 80 MB** | 3.7 to 3.8 GB | 1.6 to 1.7 GB | 3.8 to 5.4 GB | 0.57 GB |
 
 ## Run it yourself
 

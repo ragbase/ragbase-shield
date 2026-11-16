@@ -5,7 +5,7 @@
 #
 #   SET    ref | max
 #   MODE   fast (default) | precise | presidio
-#          fast and precise are the two modes of RAGbase Shield 0.4.1; presidio is Microsoft Presidio 2.2.364.
+#          fast and precise are the two modes of RAGbase Shield 0.4.4; presidio is Microsoft Presidio 2.2.364.
 #
 # Run it from a clone of https://github.com/ragbase/ragbase-shield, with Python 3.10 or newer and an internet
 # connection for the installs. On Windows, use Git Bash or WSL. To choose the Python, set PYTHON to its path:
@@ -34,11 +34,11 @@ DATA="$ROOT/evaluation/datasets/$SET"
 WORK="$ROOT/.bench_data/datasets"
 VENV="$WORK/venv-$MODE"
 OUT="$WORK/out/$SET-$MODE"
-SHIELD="0.4.1"   # the version of the benchmark page
+SHIELD="0.4.4"   # the version of the benchmark page
 # The wheel of that version on the release page, its SHA-256 (the value of SHA256SUMS on the same page), its copy here.
 WHEEL="ragbase_shield-$SHIELD-py3-none-any.whl"
 WHEEL_URL="https://github.com/ragbase/ragbase-shield/releases/download/v$SHIELD/$WHEEL"
-WHEEL_SHA256="1710644a4e93e3e436f4d46d9d931d98eee208fe6b58d6f82a5f2e455aad54c5"
+WHEEL_SHA256="b70d309802890ef5e7da817e9f5c86171eb9ec461441950fd5e3c4287b8f6e9a"
 WHEEL_FILE="$WORK/wheels/$WHEEL"
 READERS="pdfplumber==0.11.10 pdfminer.six==20260107 openpyxl==3.1.2"
 

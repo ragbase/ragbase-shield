@@ -274,20 +274,20 @@ From a terminal, the same in two commands:
 Masking everything is easy, but then Claude cannot do the work. Shield masks your clients' data and keeps the law
 readable. We measured Shield against Hexagone and Presidio on four French benchmarks, all public.
 
-| | Shield 0.4.1 Fast | Shield 0.4.1 Precise | Hexagone 0.3.9 Fast | Hexagone 0.3.9 Precis | Presidio 2.2.364 |
+| | Shield 0.4.4 Fast | Shield 0.4.4 Precise | Hexagone 0.3.9 Fast | Hexagone 0.3.9 Precis | Presidio 2.2.364 |
 |---|---|---|---|---|---|
 | **Overall score (F1), higher is better** | | | | | |
 | FR-PII-Bench | **96.9** | 96.2 | 80.7 | 80.7 | 66.5 |
-| MAPA | 80.4 | **82.2** | 43.8 | 37.9 | 63.5 |
-| REF | **97.1** | **97.1** | 66.7 | 61.1 | 79.2 |
-| Max | **95.3** | 91.8 | 54.0 | 48.9 | 47.4 |
+| MAPA | 81.1 | **82.8** | 43.8 | 37.9 | 63.5 |
+| REF | **97.3** | **97.3** | 66.7 | 61.1 | 79.2 |
+| Max | **94.9** | 91.5 | 54.0 | 48.9 | 47.4 |
 | **Legal terms changed, lower is better** | | | | | |
 | MAPA | **0.0 %** | **0.0 %** | 43.1 % | 47.6 % | 18.0 % |
 | REF | **4.1 %** | **4.1 %** | 17.8 % | 47.1 % | 15.3 % |
 | Max | **2.1 %** | 4.2 % | 47.2 % | 58.3 % | 55.6 % |
 | **Speed and memory, lower is better** | | | | | |
-| Time for one document | **0.61 s** | 17.7 s | 26.93 s | 9 min | 1.59 s |
-| Peak memory | **78 to 79 MB** | 3.7 to 3.8 GB | 1.6 to 1.7 GB | 3.8 to 5.4 GB | 0.57 GB |
+| Time for one document | **0.63 s** | 17.7 s | 26.93 s | 9 min | 1.59 s |
+| Peak memory | **79 to 80 MB** | 3.7 to 3.8 GB | 1.6 to 1.7 GB | 3.8 to 5.4 GB | 0.57 GB |
 
 Fast is the default mode. Precise adds an AI model that runs on your computer. The best value of each row is in bold.
 

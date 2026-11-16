@@ -54,23 +54,23 @@ bash evaluation/datasets/reproduce.sh max precise
 bash evaluation/datasets/reproduce.sh ref presidio
 ```
 
-The first argument is the set: `ref` or `max`. The second is the tool: `fast` for Shield 0.4.1 Fast (the default),
-`precise` for Shield 0.4.1 Precise (one download of the model, about 1.25 GB) or `presidio` for Presidio 2.2.364.
+The first argument is the set: `ref` or `max`. The second is the tool: `fast` for Shield 0.4.4 Fast (the default),
+`precise` for Shield 0.4.4 Precise (one download of the model, about 1.25 GB) or `presidio` for Presidio 2.2.364.
 The script installs the tool, runs it on the set with the network closed, and prints the overall score (F1) with
 precision and recall, the legal terms changed, the time and the peak memory. Time and memory depend on the
 computer.
 
-Shield 0.4.1 comes from the [release page](https://github.com/ragbase/ragbase-shield/releases/tag/v0.4.1): the
-script downloads the file `ragbase_shield-0.4.1-py3-none-any.whl`, checks its SHA-256 and installs it.
+Shield 0.4.4 comes from the [release page](https://github.com/ragbase/ragbase-shield/releases/tag/v0.4.4): the
+script downloads the file `ragbase_shield-0.4.4-py3-none-any.whl`, checks its SHA-256 and installs it.
 
 By hand, for Shield Fast on REF:
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
-W=ragbase_shield-0.4.1-py3-none-any.whl
-pip download --no-deps --dest .bench_data https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/$W
-echo "1710644a4e93e3e436f4d46d9d931d98eee208fe6b58d6f82a5f2e455aad54c5  .bench_data/$W" | shasum -a 256 -c
+W=ragbase_shield-0.4.4-py3-none-any.whl
+pip download --no-deps --dest .bench_data https://github.com/ragbase/ragbase-shield/releases/download/v0.4.4/$W
+echo "b70d309802890ef5e7da817e9f5c86171eb9ec461441950fd5e3c4287b8f6e9a  .bench_data/$W" | shasum -a 256 -c
 pip install .bench_data/$W pdfplumber==0.11.10 pdfminer.six==20260107 openpyxl==3.1.2
 S=evaluation/datasets/ref; L=evaluation/laptop; O=.bench_data/ref
 python $L/run_shield_files.py --set-dir $S --out $O --mode rules
