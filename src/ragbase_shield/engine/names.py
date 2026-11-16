@@ -4497,11 +4497,34 @@ def has_party_separator(title: str) -> bool:
     return bool(title and _TITLE_SPLIT_RE.search(f" {title.strip()} "))
 
 
+# 0.4.4 (birth place fix, review): a public body named in a title ("X c. Métropole de Lyon", "X c. Pôle emploi
+# Paris", "X c. Ville de Paris", "X c. CPAM du Rhône") is no party to mask: it is public, the documents keep it in
+# clear, and as a stored name its town spread into the courts ("cour d'appel de PERSONNE_B").
+_PUBLIC_BODY_RE = re.compile(
+    r"^(?:(?:la|le|les|l')\s*)?(?:ville|commune|mairie|metropole|departement|conseil\s+(?:departemental|regional"
+    r"|general|municipal)|region|collectivite|prefet|prefete|prefecture|sous-prefecture|etat|agent\s+judiciaire"
+    r"|tresor\s+public|direction\s+(?:generale|regionale|departementale)|dgfip|ministere|ministre|pole\s+emploi"
+    r"|france\s+travail|cpam|caisse\s+primaire|caf|caisse\s+d'allocations|urssaf|msa|carsat|cnav|cram|ars|agence"
+    r"\s+regionale\s+de\s+sante|centre\s+hospitalier|chu|chr|hopital|hopitaux|assistance\s+publique|ap-hp"
+    r"|universite|academie|rectorat|communaute\s+(?:de\s+communes|d'agglomeration|urbaine)|agglomeration"
+    r"|office\s+public|opac|oph|syndicat\s+intercommunal|epci|tresorerie|recette\s+des\s+finances)(?![\w-])")
+
+
+def is_public_body(piece: str) -> bool:
+    """True for a title party that is a public body ("Métropole de Lyon", "Pôle emploi Paris", "Ville de Paris",
+    "CPAM du Rhône", "l'État"). One word that is also a town ("Dupont c. Laval") stays a party: it may be a
+    surname; its town stays in clear in the courts through ``masker.place_word_hit``."""
+    low = fold(piece.strip(" .;:,")).text.replace("’", "'")
+    return bool(_PUBLIC_BODY_RE.match(low))
+
+
 def _classify_party(piece: str) -> Optional[tuple[str, str]]:
     piece = piece.strip(" .;:()[]\"'«»")
     piece = _OTHERS_RE.sub("", piece).strip(" .;:,")
     piece = _strip_descriptors(piece).strip(" .;:,")
     if not piece or fold_word(piece) in ("autres", "consorts", "cts", "al", "a"):
+        return None
+    if is_public_body(piece):
         return None
     words = _words(piece)
     if not words:
@@ -4525,6 +4548,8 @@ def _classify_party(piece: str) -> Optional[tuple[str, str]]:
         return "PERSON", piece
     if len(words) >= 2 and words[0].upper and _is_first_name(words[-1]):
         return "PERSON", piece
+    if len(words) >= 2 and words[0].low in _lc_sets()["places"]:
+        return "ORG", piece  # 0.4.4 (review): "Lyon Ascenseurs": a name that starts with a town is a company
     if len(words) == 1:
         w = words[0]
         if w.upper and len(w.low) <= 4:

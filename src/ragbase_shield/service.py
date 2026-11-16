@@ -1086,10 +1086,20 @@ class Service:
         if sp.kind not in ("PERSON", "ORG"):
             return True
         word = sp.value.strip()
-        if not word or any(c.isspace() for c in word):
+        if not word:
             return True
         if self._index(d)["key"].get((sp.kind, _safe_norm(sp.kind, word))):
             return True  # the whole registered value
+        from .engine import names as nm
+        from .engine.normalize import phrase_tokens
+
+        # 0.4.4 (review): "de Lyon" is ONE name word: the particle does not make it a name of several words
+        sig = [t for t in phrase_tokens(word) if t not in nm.PARTICLES]
+        if len(sig) > 1 or (any(c.isspace() for c in word) and not sig):
+            return True
+        if sig and sig[0] in nm._lc_sets()["places"]:
+            return False  # a town alone is never made into a name of another dossier ("cour d'appel de Lyon")
+        word = word.split()[-1] if sig else word
         if sp.start > 0 and text[sp.start - 1] == "@":
             return True
         if not word[0].isupper():
@@ -1422,11 +1432,15 @@ class Service:
         acro: dict[str, set[str]] = {}
         initials: dict[str, set[str]] = {}
 
-        def classify(tok: str, code: str, surname: bool = False) -> None:
+        places = nm._lc_sets()["places"]
+
+        def classify(tok: str, code: str, surname: bool = False, town_ok: bool = True) -> None:
             if len(tok) < 3 or tok in stop or tok in legal or tok in months or tok in wl or tok in nm.LEGAL_FORMS \
                     or tok in nm.ORG_GENERIC or tok in nm.TITLE_WORDS or tok in nm.PARTICLES:
                 return
-            is_weak = tok in common or tok in afn or len(tok) < 4
+            if tok in places and not town_ok:
+                return  # 0.4.4 (review): "Lyon - pièces" is the town, not "Lyon Ascenseurs"
+            is_weak = tok in common or tok in afn or len(tok) < 4 or tok in places
             (weak if is_weak else strong).setdefault(tok, set()).add(code)
             if is_weak and surname and len(tok) >= 4:
                 weak_surname.setdefault(tok, set()).add(code)
@@ -1441,8 +1455,9 @@ class Service:
                 for ini in _person_initials(e.value):
                     initials.setdefault(ini, set()).add(e.code)
             elif e.kind == "ORG":
-                for tok in _safe_norm("ORG", e.value).split():
-                    classify(tok, e.code)
+                core = _safe_norm("ORG", e.value).split()
+                for tok in core:
+                    classify(tok, e.code, town_ok=len(core) == 1)
                 for a in _org_acronyms(e.value):
                     acro.setdefault(a, set()).add(e.code)
         index = {"strong": strong, "weak": weak, "first": first, "weak_surname": weak_surname, "acro": acro,

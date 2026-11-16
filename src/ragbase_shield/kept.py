@@ -52,7 +52,7 @@ FORMAT = 1
 #: The "rules fingerprint" constant. BUMP IT whenever the masked output can change for the same files and the same
 #: vault state: a rule, a word list, a reader, a limit, the order of the reading. The engine version text is part of
 #: the fingerprint too, so a new version never uses a kept set of another one.
-RULES_REVISION = "0.4.4-r3"  # r3: the birth place fix (BIRTHPLACE never spreads)
+RULES_REVISION = "0.4.4-r4"  # r3: the birth place fix (BIRTHPLACE never spreads); r4: its review (towns of names, wider birth contexts, weak ids after an id word)
 _MANIFEST_RE = re.compile(r"^m-([0-9]{20})-([0-9a-f]{8})\.bin$")
 _ENTRY_RE = re.compile(r"^([0-9a-f]{8})\.([0-9]{1,6})\.bin$")
 _TMP_SUFFIX = ".tmp"

@@ -1242,16 +1242,34 @@ _PLACE = (
     r"(?:" + _PLACE_WORD + r")"
     r"|\s+(?:sur|sous|en|lès|lez)\s+(?:" + _PLACE_WORD + r")){0,4})"
 )
-# Right after a birth date: "à Angers", "au Mans", ", à Saint-Étienne", "in Leeds".
-_AFTER_BIRTHDATE_RE = re.compile(r"\s*,?\s*(?:à|À|au|aux|AU|AUX|in)\s+" + _PLACE)
-# "né à Angers", "née DURAND à Brest", "née au Mans", "born in Leeds".
+# Right after a birth date: "à Angers", "au Mans", ", à Saint-Étienne", "in Leeds", "dans la ville de Lyon" (0.4.4).
+_AFTER_BIRTHDATE_RE = re.compile(r"\s*,?\s*(?:(?:à|À|au|aux|AU|AUX|in)\s+"
+                                 r"|(?i:dans\s+la\s+(?:ville|commune)\s+(?:de\s+|d['’])))" + _PLACE)
+# "né à Angers", "née DURAND à Brest", "née au Mans", "born in Leeds"; 0.4.4 (review): "a vu le jour à Lyon",
+# "sa naissance à Lyon".
 _BORN_AT_RE = re.compile(
-    r"(?:\b(?:[Nn]é(?:e|s|es)?|NÉ(?:E|S|ES)?|NEE?S?)\b(?:\s*\([eE]\))?|\b[Nn]é\(e\)|\b[Bb]orn\b)"
+    r"(?:\b(?:[Nn]é(?:e|s|es)?|NÉ(?:E|S|ES)?|NEE?S?)\b(?:\s*\([eE]\))?|\b[Nn]é\(e\)|\b[Bb]orn\b"
+    r"|(?i:(?<=\bsa )naissance|(?<=\bson )naissance|(?<=\bleur )naissance)\b|(?i:\bvu\s+le\s+jour\b))"
     r"(?:\s+[A-ZÀ-Þ][\w'\-]*){0,3}?\s+(?:à|À|au|aux|AU|AUX|in)\s+" + _PLACE)
-# "Lieu de naissance : Angers", "Place of birth: Leeds", "Birthplace | Leeds".
+# "Lieu de naissance : Angers", "Place of birth: Leeds", "Birthplace | Leeds"; 0.4.4 (review): "Ville de naissance :
+# Lyon", "Lieu et date de naissance : Lyon, le ...", "Naissance : Lyon, 3 mars 1980" (at the head of a line, never
+# "Nom de naissance : Durand"), "POB: Lyon".
 _PLACE_LABEL_RE = re.compile(
-    r"(?i:\blieu\s+de\s+naissance|\bplace\s+of\s+birth|\bbirth\s*place|\bcommune\s+de\s+naissance)"
-    r"\s*[:|]?\s*(?:(?i:à|in)\s+)?" + _PLACE)
+    r"(?:(?i:\blieu\s+(?:et\s+date\s+)?de\s+naissance|\bplace\s+of\s+birth|\bbirth\s*place"
+    r"|\b(?:commune|ville)\s+de\s+naissance)\s*[:|]?|(?m:^)[ \t|*•-]*(?i:naissance)\s*:|\bPOB\s*:)"
+    r"\s*(?:(?i:à|in)\s+)?" + _PLACE)
+# 0.4.4 (review): a birth date given in a label that also names the place, then the place after a comma or a dash:
+# "Date et lieu de naissance : 03/03/1980, Lyon", "Date of birth: 3 March 1980, Lyon"
+_LABEL_DATE_CTX = re.compile(r"(?i:date\s+et\s+lieu\s+de\s+naissance|date\s+and\s+place\s+of\s+birth"
+                             r"|date\s+of\s+birth)\s*[:|]?\s*$")
+_AFTER_LABEL_DATE_RE = re.compile(r"[ \t\u00a0]*(?:,|-|–)[ \t\u00a0]*" + _PLACE + r"(?=[ \t\u00a0]*(?:$|[\n.;|(),]))")
+# 0.4.4 (review): "originaire de Lyon, où il est né"
+_ORIGIN_BORN_RE = re.compile(r"(?i:\boriginaire\s+(?:de\s+|d['’]))" + _PLACE
+                             + r"(?=\s*,?\s*(?i:o[uù]\s+(?:il|elle)\s+(?:est|était|etait)\s+n[ée]))")
+# 0.4.4 (review): a town typed in lower case right after a birth word or date ("né à lyon"): only a town of the place
+# list, so an ordinary word is never taken
+_LOWER_PLACE_RE = re.compile(r"\s*,?\s*(?:à|au|in)\s+(?P<place>[a-zà-öø-ÿ][a-zà-öø-ÿ'’\-]*[a-zà-öø-ÿ])(?![\w'’\-])")
+_BORN_LOWER_RE = re.compile(r"(?:\b(?:[Nn]é(?:e|s|es)?)\b(?:\s*\([eE]\))?|\b[Nn]é\(e\))(?=\s*(?:à|au)\s)")
 _NOT_PLACE = frozenset({"monsieur", "madame", "mademoiselle", "maitre", "me", "mr", "mrs", "ms", "dr", "docteur",
                         "le", "la", "les", "l", "un", "une", "des", "son", "sa", "ses", "leur", "cette", "ce"})
 
@@ -1268,30 +1286,117 @@ def _place_ok(text: str, s: int, e: int) -> bool:
 
 #: Birth words: the place is looked for only near them (a C-speed scan, then small windows).
 _BIRTH_WORD_RE = re.compile(r"(?:\b(?:[Nn]é(?:e|s|es)?|NÉ(?:E|S|ES)?|NEE?S?)\b|\b[Nn]é\(e\)|\b[Bb]orn\b|"
-                            r"(?i:naissance)|(?i:\bbirth)|\bDDN\b|\bDOB\b)")
+                            r"(?i:naissance)|(?i:\bbirth)|\bDDN\b|\bDOB\b|\bPOB\b|(?i:\bvu\s+le\s+jour\b))")
+
+
+def lower_town_at(text: str, pos: int) -> "Optional[tuple[int, int]]":
+    """0.4.4 (review): (start, end) of a town of the place list typed in lower case right after ``pos`` ("à lyon")."""
+    m = _LOWER_PLACE_RE.match(text, pos)
+    if m and fold_word(m.group("place")) in lx.lowercase_words()["places"]:
+        return m.start("place"), m.end("place")
+    return None
+
+
+def birthplace_after(text: str, pos: int) -> "Optional[tuple[int, int]]":
+    """0.4.4 (review): the place written right after a birth date that ends at ``pos`` ("NAISSANCE_1 à Crest",
+    "03/03/1980 à Lyon"), or None. The masker uses it after every birth date it masks, whatever found the date."""
+    m = _AFTER_BIRTHDATE_RE.match(text, pos)
+    if m and _place_ok(text, m.start("place"), m.end("place")):
+        return m.start("place"), m.end("place")
+    return lower_town_at(text, pos)
+
+
+# 0.4.4 (review): a table whose header names a birth place column ("| Nom | Né le | À |", "| Lieu de naissance |")
+_TABLE_PLACE_HEAD = re.compile(r"(?i)^(?:lieu|ville|commune)\s+(?:et\s+date\s+)?de\s+naissance$|^(?:place\s+of\s+birth"
+                               r"|birth\s*place|pob|n[ée]e?\s*(?:\(e\)\s*)?[àa]|n[ée]\(e\)\s*[àa])$")
+_TABLE_PLACE_WEAK = re.compile(r"(?i)^(?:[àa]|lieu|ville|commune|place)$")
+_TABLE_DATE_HEAD = re.compile(r"(?i)^(?:n[ée]e?\s*(?:\(e\)\s*)?le|n[ée]\(e\)\s*le|date\s+de\s+naissance|naissance|ddn"
+                              r"|dob|date\s+of\s+birth|born)$")
+_TABLE_SEP = re.compile(r"^\s*\|?\s*:?-{2,}")
+
+
+def _table_cells(line: str, base: int) -> list[tuple[int, int]]:
+    """(start, end) of the stripped cells of a pipe table line that starts at offset ``base``."""
+    out = []
+    pos = [i for i, ch in enumerate(line) if ch == "|"]
+    for a, b in zip(pos, pos[1:]):
+        cell = line[a + 1:b]
+        lead = len(cell) - len(cell.lstrip())
+        out.append((base + a + 1 + lead, base + a + 1 + len(cell.rstrip())))
+    return out
+
+
+def _find_birthplace_table(text: str) -> Iterator[Candidate]:
+    lines = text.split("\n")
+    offs = []
+    o = 0
+    for ln in lines:
+        offs.append(o)
+        o += len(ln) + 1
+    i = 0
+    while i < len(lines):
+        ln = lines[i]
+        if ln.count("|") < 2 or _TABLE_SEP.match(ln):
+            i += 1
+            continue
+        cells = _table_cells(ln, offs[i])
+        heads = [" ".join(text[a:b].split()) for a, b in cells]
+        col = next((k for k, h in enumerate(heads) if _TABLE_PLACE_HEAD.match(h)), None)
+        if col is None and any(_TABLE_DATE_HEAD.match(h) for h in heads):
+            col = next((k for k, h in enumerate(heads) if _TABLE_PLACE_WEAK.match(h)), None)
+        j = i + 1
+        while j < len(lines) and lines[j].count("|") >= 2:
+            if col is not None and not _TABLE_SEP.match(lines[j]):
+                row = _table_cells(lines[j], offs[j])
+                if col < len(row):
+                    a, b = row[col]
+                    m = re.match(_PLACE + r"(?=[ \t\u00a0]*(?:\(|$))", text[a:b])
+                    if m and _place_ok(text, a + m.start("place"), a + m.end("place")):
+                        yield Candidate(a + m.start("place"), a + m.end("place"), "BIRTHPLACE", True,
+                                        PRIORITY["BIRTHPLACE"], "birthplace_table")
+            j += 1
+        i = j
 
 
 def _find_birthplace(text: str) -> Iterator[Candidate]:
     seen: set[tuple[int, int]] = set()
 
+    def emit_span(span: "Optional[tuple[int, int]]") -> Iterator[Candidate]:
+        if span is not None and span not in seen:
+            seen.add(span)
+            yield Candidate(span[0], span[1], "BIRTHPLACE", True, PRIORITY["BIRTHPLACE"], "birthplace")
+
     def emit(m: "Optional[re.Match[str]]") -> Iterator[Candidate]:
         if m is None:
             return
         s, e = m.start("place"), m.end("place")
-        if (s, e) not in seen and _place_ok(text, s, e):
-            seen.add((s, e))
-            yield Candidate(s, e, "BIRTHPLACE", True, PRIORITY["BIRTHPLACE"], "birthplace")
+        if _place_ok(text, s, e):
+            yield from emit_span((s, e))
 
+    found = False
     for h in _BIRTH_WORD_RE.finditer(text):
+        found = True
         a, b = h.start(), h.end()
         yield from emit(_BORN_AT_RE.match(text, a))  # "née DURAND à Brest", "born in Leeds"
+        if _BORN_LOWER_RE.match(text, a):  # "né à lyon" (a town of the place list)
+            yield from emit_span(lower_town_at(text, b))
         yield from emit(_PLACE_LABEL_RE.search(text, max(0, a - 30), min(len(text), b + 80)))
         y = _BIRTH_YEAR_RE.match(text, a)  # "né en 1958 à Brest"
         if y:
-            yield from emit(_AFTER_BIRTHDATE_RE.match(text, y.end("y")))
+            yield from emit_span(birthplace_after(text, y.end("y")))
         for m in _DATE_RE.finditer(text, b, min(len(text), b + 90)):  # "né le 12 mars 1971 à Angers"
-            if _BIRTH_CTX.search(_before_raw(text, m.start(), 90)):
-                yield from emit(_AFTER_BIRTHDATE_RE.match(text, m.end()))
+            before = _before_raw(text, m.start(), 90)
+            if _BIRTH_CTX.search(before):
+                yield from emit_span(birthplace_after(text, m.end()))
+                if _LABEL_DATE_CTX.search(before):  # "Date et lieu de naissance : 03/03/1980, Lyon"
+                    yield from emit(_AFTER_LABEL_DATE_RE.match(text, m.end()))
+        for m in _ORIGIN_BORN_RE.finditer(text, max(0, a - 80), b):  # "originaire de Lyon, où il est né"
+            yield from emit(m)
+    if found and "|" in text:
+        for c in _find_birthplace_table(text):
+            if (c.start, c.end) not in seen:
+                seen.add((c.start, c.end))
+                yield c
 
 
 # ---------------------------------------------------------------------------
