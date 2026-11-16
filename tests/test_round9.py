@@ -174,7 +174,7 @@ class SlowRead:
         self.calls = 0
         self.too_long = too_long
 
-    def __call__(self, path, *, progress=None, budget=None, clock=time.monotonic):
+    def __call__(self, path, *, progress=None, budget=None, clock=time.monotonic, max_chars=None):
         if Path(path).name == GRAND:
             self.calls += 1
             if progress:
@@ -185,7 +185,7 @@ class SlowRead:
             if self.too_long:
                 raise ReadTooLong()
             return documents.ReadResult(GRAND_TEXT, pages=846)
-        return self.real(path, progress=progress, budget=budget, clock=clock)
+        return self.real(path, progress=progress, budget=budget, clock=clock, max_chars=max_chars)
 
 
 @pytest.fixture
@@ -451,6 +451,7 @@ def plugin(tmp_path, monkeypatch):
     service.reset()
     claude_tab.lock_settings(tmp_path / "shield-data")
     monkeypatch.setattr(claude_tab, "PROTECT_ANSWER_SECONDS", 0.3)
+    monkeypatch.setattr(claude_tab, "STATUS_WAIT_SECONDS", 0.3)
     yield
     service.reset()
     vault.KEY_STORE = None

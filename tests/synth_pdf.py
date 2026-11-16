@@ -146,3 +146,39 @@ def make_dossier(folder: Path, pdf_pages: Optional[int] = 800, small_files: int 
         else:
             p.write_text(body * 3, encoding="utf-8")
     return folder
+
+
+def make_vector_pdf(path: Path, segments: int, pages: int = 3, heavy_page: int = 2) -> Path:
+    """v0.4.3 fix: a short PDF with one plan-like page (``segments`` line segments, a few words) among plain pages,
+    like a construction plan. Invented content."""
+    path = Path(path)
+
+    def stream(heavy: bool) -> bytes:
+        ops = [b"BT /F1 9 Tf 1 0 0 1 40 800 Tm (" + _esc(f"Plan fictif du lot 3, M. {PERSON_LATE}") + b") Tj ET",
+               b"0.2 w"]
+        if heavy:
+            for i in range(segments):
+                x, y = 40 + (i * 7) % 500, 60 + (i * 13) % 700
+                ops.append(b"%d %d m %d %d l S" % (x, y, x + 5 + i % 9, y + 3 + i % 7))
+        return b"\n".join(ops)
+
+    objs: list[Optional[bytes]] = [b"<< /Type /Catalog /Pages 2 0 R >>", None,
+                                   b"<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>"]
+    kids = []
+    for p in range(pages):
+        data = zlib.compress(stream(p + 1 == heavy_page), 6)
+        objs.append(b"<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> "
+                    b"/Contents %d 0 R >>" % (len(objs) + 2))
+        kids.append(len(objs))
+        objs.append(b"<< /Length %d /Filter /FlateDecode >>\nstream\n" % len(data) + data + b"\nendstream")
+    objs[1] = b"<< /Type /Pages /Kids [" + b" ".join(b"%d 0 R" % k for k in kids) + b"] /Count %d >>" % pages
+    buf = bytearray(b"%PDF-1.4\n")
+    offsets = []
+    for i, body in enumerate(objs, 1):
+        offsets.append(len(buf))
+        buf += b"%d 0 obj\n" % i + body + b"\nendobj\n"
+    xref = len(buf)
+    buf += b"xref\n0 %d\n0000000000 65535 f \n" % (len(objs) + 1) + b"".join(b"%010d 00000 n \n" % o for o in offsets)
+    buf += b"trailer\n<< /Size %d /Root 1 0 R >>\nstartxref\n%d\n%%%%EOF\n" % (len(objs) + 1, xref)
+    path.write_bytes(bytes(buf))
+    return path

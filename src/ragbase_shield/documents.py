@@ -60,6 +60,15 @@ DOCUMENT_TIME_BUDGET = 180.0
 PDF_PLUMBER_MAX_PAGES = 40
 #: v0.4.3: the pdfplumber reading of a short PDF falls back to pypdf for the whole file past this time (seconds).
 PDF_PLUMBER_SECONDS = 20.0
+#: v0.4.3 (fix): a short PDF with one page whose drawing instructions pass this size (decoded bytes), or with more
+#: than :data:`PDF_PLUMBER_MAX_BYTES` in all, is read with pypdf: pdfplumber can spend minutes on one plan-like page
+#: and its time budget is only checked between pages. The repository PDFs have at most 15 KB per page.
+PDF_PLUMBER_MAX_PAGE_BYTES = 256 * 1024
+PDF_PLUMBER_MAX_BYTES = 4 * 1024 * 1024
+#: v0.4.3 (fix): inside one pypdf page, the time budget is checked every this many drawing instructions.
+PDF_CHECK_EVERY_OPS = 2_000
+#: v0.4.3 (fix): the code of a document whose text passes the ``max_chars`` limit of :func:`read_text`.
+READ_TOO_LARGE = "read_too_large"
 
 #: ``progress(done, total)``: pages read so far and pages of the document (PDF only).
 Progress = Optional[Callable[[int, int], None]]
@@ -70,6 +79,14 @@ class ReadTooLong(DocumentError):
 
     def __init__(self) -> None:
         super().__init__(READ_TOO_LONG)
+
+
+class ReadTooLarge(DocumentError):
+    """The text of the document passes the ``max_chars`` limit of :func:`read_text` (code :data:`READ_TOO_LARGE`):
+    the reading stops there, so no minute is lost on a document Shield will not mask."""
+
+    def __init__(self) -> None:
+        super().__init__(READ_TOO_LARGE)
 
 
 class _PlumberTooSlow(Exception):
@@ -120,7 +137,7 @@ def kind_of(path: os.PathLike | str) -> Optional[str]:
 # --------------------------------------------------------------------------------------------- reading
 
 def read_text(path: os.PathLike | str, *, progress: Progress = None, budget: Optional[float] = None,
-              clock: Callable[[], float] = time.monotonic) -> ReadResult:
+              clock: Callable[[], float] = time.monotonic, max_chars: Optional[int] = None) -> ReadResult:
     """Extract the text of a supported document. Raises DocumentError (code only) on failure.
 
     Fail closed: a reader error never returns partial raw content.
@@ -128,6 +145,10 @@ def read_text(path: os.PathLike | str, *, progress: Progress = None, budget: Opt
     v0.4.3: ``progress(done, total)`` is called between the pages of a PDF. ``budget`` (seconds, default
     :data:`DOCUMENT_TIME_BUDGET`) is checked between pages: past it, :class:`ReadTooLong` (code ``read_too_long``).
     ``clock``: the time source (tests).
+
+    v0.4.3 (fix): ``max_chars``: a PDF stops as soon as its pages hold more than this many non-space characters, and
+    any document whose text is longer than this raises :class:`ReadTooLarge` (code ``read_too_large``). The text of a
+    document under the limit is the same as without it.
     """
     p = Path(path)
     kind = kind_of(p)
@@ -138,7 +159,8 @@ def read_text(path: os.PathLike | str, *, progress: Progress = None, budget: Opt
     deadline = clock() + (DOCUMENT_TIME_BUDGET if budget is None else float(budget))
     try:
         if kind == "pdf":
-            text, pages, needs_ocr, warnings = _read_pdf(p, progress=progress, deadline=deadline, clock=clock)
+            text, pages, needs_ocr, warnings = _read_pdf(p, progress=progress, deadline=deadline, clock=clock,
+                                                         max_chars=max_chars)
         else:
             reader = {"docx": _read_docx, "xlsx": _read_xlsx, "txt": _read_plain, "md": _read_plain,
                       "eml": _read_eml, "html": _read_html}[kind]
@@ -148,7 +170,10 @@ def read_text(path: os.PathLike | str, *, progress: Progress = None, budget: Opt
     except Exception as exc:  # noqa: BLE001 - fail closed with a code, no content in the message
         log.debug("%s reader failed: %s", kind, type(exc).__name__)
         raise DocumentError(f"{kind}_unreadable") from None
-    return ReadResult(_clean_text(text), pages, needs_ocr, warnings)
+    text = _clean_text(text)
+    if max_chars is not None and len(text) > max_chars:
+        raise ReadTooLarge()
+    return ReadResult(text, pages, needs_ocr, warnings)
 
 
 def _clean_text(text: str) -> str:
@@ -311,23 +336,49 @@ def _pdf_page_count(path: Path) -> Optional[int]:
         return None
 
 
+def _pdf_heavy(path: Path) -> bool:
+    """v0.4.3 (fix): True when one page of a short PDF holds more than :data:`PDF_PLUMBER_MAX_PAGE_BYTES` of drawing
+    instructions (decoded), or the file more than :data:`PDF_PLUMBER_MAX_BYTES` in all: pypdf reads it, with its
+    time budget checked inside each page. False when pypdf cannot tell (the 0.4.2 reading then decides)."""
+    try:
+        from pypdf import PdfReader
+
+        reader = PdfReader(str(path))
+        if reader.is_encrypted and not reader.decrypt(""):
+            return False
+        total = 0
+        for index in range(len(reader.pages)):
+            page = reader.pages[index]
+            try:
+                contents = page.get_contents()
+                size = len(contents.get_data()) if contents is not None else 0
+            finally:
+                _free_pypdf_page(page)
+            total += size
+            if size > PDF_PLUMBER_MAX_PAGE_BYTES or total > PDF_PLUMBER_MAX_BYTES:
+                return True
+        return False
+    except Exception:  # noqa: BLE001 - a size is only a choice of reader
+        return False
+
+
 def _read_pdf(path: Path, progress: Progress = None, deadline: Optional[float] = None,
-              clock: Callable[[], float] = time.monotonic):
+              clock: Callable[[], float] = time.monotonic, max_chars: Optional[int] = None):
     """v0.4.3: pdfplumber (table cells) for a PDF of :data:`PDF_PLUMBER_MAX_PAGES` pages or fewer, exactly as in
-    0.4.2; pypdf from the first page for a longer one, or when pdfplumber takes more than
-    :data:`PDF_PLUMBER_SECONDS`."""
+    0.4.2; pypdf from the first page for a longer one, for a short one with a very heavy page (:func:`_pdf_heavy`),
+    or when pdfplumber takes more than :data:`PDF_PLUMBER_SECONDS`."""
     try:
         import pdfplumber  # noqa: F401 - optional: word boxes give the table cells (v0.3)
     except ImportError:
-        return _read_pdf_pypdf(path, progress, deadline, clock)
+        return _read_pdf_pypdf(path, progress, deadline, clock, max_chars)
     pages = _pdf_page_count(path)
-    if pages is not None and pages > PDF_PLUMBER_MAX_PAGES:
-        return _read_pdf_pypdf(path, progress, deadline, clock)
+    if pages is not None and (pages > PDF_PLUMBER_MAX_PAGES or _pdf_heavy(path)):
+        return _read_pdf_pypdf(path, progress, deadline, clock, max_chars)
     try:
-        return _read_pdf_plumber(path, progress, deadline, clock)
+        return _read_pdf_plumber(path, progress, deadline, clock, max_chars)
     except _PlumberTooSlow:
         log.info("RAGbase Shield: a PDF took more than %ss with pdfplumber; read with pypdf", PDF_PLUMBER_SECONDS)
-        return _read_pdf_pypdf(path, progress, deadline, clock)
+        return _read_pdf_pypdf(path, progress, deadline, clock, max_chars)
 
 
 def _check_time(deadline: Optional[float], clock: Callable[[], float]) -> None:
@@ -335,14 +386,26 @@ def _check_time(deadline: Optional[float], clock: Callable[[], float]) -> None:
         raise ReadTooLong()
 
 
+def _non_space(text: str) -> int:
+    """Characters of ``text`` that are not white space: the cleaned text of a document is never shorter (except for
+    accents written as two characters), so a running count of them can stop a reading over ``max_chars`` early."""
+    return len("".join(text.split()))
+
+
+def _check_size(seen: int, max_chars: Optional[int]) -> None:
+    if max_chars is not None and seen > max_chars:
+        raise ReadTooLarge()
+
+
 def _read_pdf_plumber(path: Path, progress: Progress = None, deadline: Optional[float] = None,
-                      clock: Callable[[], float] = time.monotonic):
+                      clock: Callable[[], float] = time.monotonic, max_chars: Optional[int] = None):
     import pdfplumber
 
     logging.getLogger("pdfminer").setLevel(logging.ERROR)
     warnings: list[str] = []
     texts: list[str] = []
     empty = 0
+    seen = 0
     started = clock()
     try:
         pdf = pdfplumber.open(str(path), password="")  # many PDFs only carry an owner password
@@ -371,6 +434,9 @@ def _read_pdf_plumber(path: Path, progress: Progress = None, deadline: Optional[
             if not page_text.strip():
                 empty += 1
             texts.append(page_text.strip("\n"))
+            if max_chars is not None:
+                seen += _non_space(page_text)
+                _check_size(seen, max_chars)
             if progress is not None:
                 progress(number, total)
             if number < total:
@@ -411,7 +477,7 @@ def _free_pypdf_page(page) -> None:
 
 
 def _read_pdf_pypdf(path: Path, progress: Progress = None, deadline: Optional[float] = None,
-                    clock: Callable[[], float] = time.monotonic):
+                    clock: Callable[[], float] = time.monotonic, max_chars: Optional[int] = None):
     from pypdf import PdfReader
 
     reader = PdfReader(str(path))
@@ -426,6 +492,16 @@ def _read_pdf_pypdf(path: Path, progress: Progress = None, deadline: Optional[fl
     texts: list[str] = []
     empty = 0
     total = len(reader.pages)
+    seen = 0
+    ops = [0]
+
+    def check(_operator, _operands, _cm, _tm) -> None:
+        # v0.4.3 (fix): the time budget inside one page too (a plan-like page can hold millions of instructions)
+        ops[0] += 1
+        if ops[0] % PDF_CHECK_EVERY_OPS == 0:
+            _check_time(deadline, clock)
+
+    visitor = check if deadline is not None else None
     if progress is not None:
         progress(0, total)
     for index in range(total):  # one page at a time: no list of page objects is kept
@@ -433,7 +509,10 @@ def _read_pdf_pypdf(path: Path, progress: Progress = None, deadline: Optional[fl
         page = None
         try:
             page = reader.pages[index]
-            page_text = page.extract_text() or ""
+            page_text = (page.extract_text(visitor_operand_before=visitor) if visitor is not None
+                         else page.extract_text()) or ""
+        except ReadTooLong:
+            raise
         except Exception:  # noqa: BLE001
             page_text = ""
             warnings.append(f"pdf_page_unreadable:{number}")
@@ -444,6 +523,9 @@ def _read_pdf_pypdf(path: Path, progress: Progress = None, deadline: Optional[fl
         if not page_text.strip():
             empty += 1
         texts.append(page_text.strip("\n"))
+        if max_chars is not None:
+            seen += _non_space(page_text)
+            _check_size(seen, max_chars)
         if progress is not None:
             progress(number, total)
         if number < total:
