@@ -113,8 +113,11 @@ Tools take dossier codes and document codes, and read the files locally.
 
 ### Data flow per surface
 
-- **MCP (Claude Desktop, Claude Code, Cowork, ChatGPT desktop, Codex, VS Code):** the app starts
+- **MCP (Claude Desktop, Claude Code, ChatGPT desktop, Codex, VS Code):** the app starts
   `ragbase-shield mcp` over stdio. Files are read on disk, masked, and only the masked text is returned.
+- **Claude plugin (Claude tab of the Claude app; its agent mode is also called Cowork):** the plugin carries the engine and the app
+  starts it as a local MCP server. The user chooses a folder in a RAGbase Shield window; Shield masks it on the
+  computer and Claude gets only masked text. No hooks: text typed or files dropped in the chat are not masked.
 - **Claude Code hooks:** `UserPromptSubmit` blocks a prompt that contains a registered value of any dossier
   and names the code to use. `PreToolUse` denies `Read`, `Grep`, `Glob` and `Bash cat` inside a registered
   dossier folder and points to `shield_read_document`. `PostToolUse` replaces any registered value left in a

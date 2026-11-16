@@ -11,7 +11,8 @@ computer afterwards. Nothing goes to RAGbase. It installs in one step and plugs 
 | App | How Shield plugs in |
 |---|---|
 | Claude Desktop | One-click desktop extension (.mcpb) that runs the local MCP server |
-| Claude Code / Cowork | Plugin (MCP server + skill + hooks that block raw names and mask file reads) |
+| Claude app (Claude tab; its agent mode is also called Cowork) | The Claude plugin, in its own repositories (`ragbase/ragbase-shield-mac`, `ragbase/ragbase-shield-windows`): engine inside the plugin, local MCP server, no hooks |
+| Claude Code | Plugin of this repository (MCP server + skill + hooks that block raw names and mask file reads) |
 | ChatGPT desktop / Codex | Local MCP server (Codex `config.toml`; ChatGPT desktop where local MCP is allowed) |
 | GitHub Copilot (VS Code) | Local MCP server (`.vscode/mcp.json` / user `mcp.json`) |
 | Any app (claude.ai, chatgpt.com, Copilot app, Word, Outlook) | Shield Desk (local web page) + clipboard commands + browser extension |

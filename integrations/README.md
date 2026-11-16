@@ -1,6 +1,6 @@
 # RAGbase Shield integrations
 
-Every app integration runs the **same local stdio MCP server**:
+Every app integration in this folder runs the **same local stdio MCP server**:
 
 ```text
 command: uvx
@@ -21,13 +21,19 @@ The browser extension is the exception: it does not run the MCP server. It talks
 | App | Folder | What it is |
 |---|---|---|
 | Claude Desktop (chat) | [`claude-desktop/`](claude-desktop/) | MCPB desktop extension, `manifest_version` 0.4, `server.type` `"uv"`, 6 tools declared, `build_mcpb.sh` |
-| Claude Code and Cowork | [`claude-code/`](claude-code/) + repo-root [`/.claude-plugin/marketplace.json`](../.claude-plugin/marketplace.json) | Plugin: MCP server, skill, 3 hooks; runs the release wheel it ships in `plugin/vendor/` |
+| Claude app (Claude tab), Mac and Windows | Not in this repository: [ragbase/ragbase-shield-mac](https://github.com/ragbase/ragbase-shield-mac), [ragbase/ragbase-shield-windows](https://github.com/ragbase/ragbase-shield-windows) | The Claude plugin: engine inside the plugin, 7 tools, skill, no hooks |
+| Claude Code | [`claude-code/`](claude-code/) + repo-root [`/.claude-plugin/marketplace.json`](../.claude-plugin/marketplace.json) | Plugin for Claude Code: MCP server, skill, 3 hooks; runs the release wheel it ships in `plugin/vendor/` |
 | ChatGPT desktop (Work, Codex) | [`chatgpt/`](chatgpt/) | Step-by-step guide |
 | Codex CLI and IDE | [`codex/`](codex/) | `config.toml.example` |
 | ChatGPT and Codex plugin | [`openai-plugin/`](openai-plugin/) + repo-root [`/.agents/plugins/marketplace.json`](../.agents/plugins/marketplace.json) | Portable Agent Plugins package: `plugin.json`, `mcp.json` (stdio), skill |
 | GitHub Copilot (VS Code) | [`vscode/`](vscode/) | `mcp.json.example`, one-click `vscode:mcp/install` link |
 | Microsoft 365 Copilot, Word, Outlook, Copilot app | [`microsoft-copilot/`](microsoft-copilot/) | Guide: Shield Desk, clipboard, browser extension. No native connector, by design |
 | claude.ai, chatgpt.com, Copilot web, Gemini | [`browser-extension/`](browser-extension/) | Manifest V3 extension for Chrome and Edge, no build step. Not in the stores yet: load it unpacked |
+
+> **The plugin in [`claude-code/`](claude-code/) is for Claude Code only.** Do not add it in the Claude tab of the
+> Claude app: it needs uv, and its hooks can stop every message there. In the Claude app, use the Claude plugin:
+> [ragbase/ragbase-shield-mac](https://github.com/ragbase/ragbase-shield-mac) (Mac) or
+> [ragbase/ragbase-shield-windows](https://github.com/ragbase/ragbase-shield-windows) (Windows).
 
 Shared files:
 

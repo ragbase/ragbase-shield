@@ -1,9 +1,14 @@
-# RAGbase Shield (plugin for Claude Code and Cowork)
+# RAGbase Shield (plugin for Claude Code)
 
 Version 0.4.1. Free and open source (Apache-2.0). Publisher: RAGbase, Paris.
 English version below.
 
 ## Français
+
+> **Pour Claude Code seulement.** N'ajoutez pas ce plugin dans l'onglet Claude de l'application Claude : il a besoin
+> de uv, et ses hooks peuvent y bloquer chaque message. Dans l'application Claude, utilisez le plugin Claude :
+> [ragbase/ragbase-shield-mac](https://github.com/ragbase/ragbase-shield-mac) (Mac) ou
+> [ragbase/ragbase-shield-windows](https://github.com/ragbase/ragbase-shield-windows) (Windows).
 
 RAGbase Shield fait une **pseudonymisation locale et réversible** des dossiers clients. Sur votre ordinateur, il
 remplace les noms, adresses, IBAN, e-mails et numéros de vos clients par des codes (PERSONNE_A, SOCIETE_B, IBAN_1).
@@ -16,7 +21,7 @@ Ce que le plugin ajoute :
   pièces, lire une pièce masquée, chercher dans un dossier, enregistrer le projet final, statut de Shield.
 - **Une compétence (skill)** qui explique à Claude la procédure sûre : lire par les outils Shield, garder les codes,
   enregistrer avec `shield_save_draft`.
-- **Des hooks** (Claude Code et Cowork) que vous installez pour protéger vos dossiers :
+- **Des hooks** (Claude Code) que vous installez pour protéger vos dossiers :
   - un message qui contient une valeur enregistrée d'un dossier est bloqué, et Shield indique le code à utiliser ;
   - une lecture directe d'un dossier enregistré (Read, Grep, Bash, un outil de fichiers d'un autre serveur MCP) est
     refusée, et Claude est renvoyé vers `shield_read_document` ;
@@ -97,6 +102,11 @@ https://shield.ragbase.ai/resultats/.
 
 ## English
 
+> **For Claude Code only.** Do not add this plugin in the Claude tab of the Claude app: it needs uv, and its hooks
+> can stop every message there. In the Claude app, use the Claude plugin:
+> [ragbase/ragbase-shield-mac](https://github.com/ragbase/ragbase-shield-mac) (Mac) or
+> [ragbase/ragbase-shield-windows](https://github.com/ragbase/ragbase-shield-windows) (Windows).
+
 RAGbase Shield does **local, reversible pseudonymisation** of client files. On your computer, it replaces your
 clients' names, addresses, IBANs, e-mails and numbers with codes (PERSON_A, COMPANY_B, IBAN_1 in the English
 locale; PERSONNE_A, SOCIETE_B in the default French locale). Claude works with these codes. The real names come back
@@ -109,7 +119,7 @@ What the plugin adds:
   masked document, search a dossier, save the final draft, Shield status.
 - **A skill** that tells Claude the safe workflow: read through the Shield tools, keep the codes, save with
   `shield_save_draft`.
-- **Hooks** (Claude Code and Cowork) that you install to protect your dossiers:
+- **Hooks** (Claude Code) that you install to protect your dossiers:
   - a prompt that contains a registered value of a dossier is blocked, and Shield gives the code to use;
   - a direct read of a registered dossier (Read, Grep, Bash, a file tool of another MCP server) is denied, and
     Claude is sent to `shield_read_document`;

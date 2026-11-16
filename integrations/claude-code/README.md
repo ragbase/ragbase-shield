@@ -1,4 +1,9 @@
-# RAGbase Shield plugin for Claude Code and Cowork
+# RAGbase Shield plugin for Claude Code
+
+> **For Claude Code only.** Do not add this plugin in the Claude tab of the Claude app: it needs uv, and its hooks
+> can stop every message there. In the Claude app, use the Claude plugin:
+> [ragbase/ragbase-shield-mac](https://github.com/ragbase/ragbase-shield-mac) (Mac) or
+> [ragbase/ragbase-shield-windows](https://github.com/ragbase/ragbase-shield-windows) (Windows).
 
 The plugin adds three things:
 
@@ -35,11 +40,6 @@ In Claude Code:
 ```
 
 Then run `/reload-plugins` or restart Claude Code.
-
-In the Claude app (Cowork): **Customize > Plugins > Add > Add marketplace**, enter `ragbase/ragbase-shield`,
-then add **RAGbase Shield**. The MCP server is marked "Runs in each session": it runs on your computer, in
-Claude Code and in Cowork sessions on your computer, not in plain chat. For plain chat in Claude Desktop,
-use the `.mcpb` extension ([`../claude-desktop/`](../claude-desktop/)).
 
 The plugin pins the package as Anthropic's plugin directory requires for `uvx`: it ships the wheel of the GitHub
 release, [`plugin/vendor/ragbase_shield-0.4.1-py3-none-any.whl`](plugin/vendor/) (same SHA-256 as in the

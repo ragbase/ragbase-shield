@@ -2,7 +2,7 @@
   "name": "ragbase-shield",
   "displayName": "RAGbase Shield",
   "version": "0.4.1",
-  "description": "Local, reversible pseudonymisation of client files. Claude reads dossier documents masked (PERSONNE_A, SOCIETE_B, IBAN_1) through local MCP tools; hooks block real names in prompts and direct reads of dossier folders; final drafts are restored on this computer only.",
+  "description": "For Claude Code (developers). Local, reversible pseudonymisation of client files. Claude reads dossier documents masked (PERSONNE_A, SOCIETE_B, IBAN_1) through local MCP tools; hooks block real names in prompts and direct reads of dossier folders; final drafts are restored on this computer only. In the Claude app, use RAGbase Shield (Mac) or RAGbase Shield (Windows) from shield.ragbase.ai.",
   "author": {
     "name": "RAGbase",
     "url": "https://ragbase.ai"

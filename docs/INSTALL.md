@@ -8,11 +8,13 @@ Partie 1 en français. [Part 2 in English](#part-2-english).
 
 Sommaire :
 
+- [Le plugin Claude (application Claude, Mac et Windows)](#le-plugin-claude-application-claude-mac-et-windows) : le plus simple pour l'application Claude.
+
 0. [Installer en un clic](#0-installer-en-un-clic) (autre méthode :
    [uv et le Terminal](#0-bis-autre-méthode--uv-et-shield-desk-terminal))
 1. [Ajouter un dossier client](#1-ajouter-un-dossier-client)
 2. [Claude Desktop (un clic)](#2-claude-desktop-un-clic)
-3. [Claude Code et Cowork (plugin)](#3-claude-code-et-cowork-plugin)
+3. [Claude Code (plugin)](#3-claude-code-plugin)
 4. [ChatGPT desktop et Codex](#4-chatgpt-desktop-et-codex)
 5. [GitHub Copilot dans VS Code](#5-github-copilot-dans-vs-code)
 6. [Microsoft 365 Copilot, Word, Outlook, application Copilot](#6-microsoft-365-copilot-word-outlook-application-copilot)
@@ -25,6 +27,57 @@ Avant de commencer, retenez trois règles :
 - Connectez un dossier, n'attachez pas le fichier au chat.
 - Ne collez pas de texte brut dans le chat. Passez par Shield.
 - Un texte déjà envoyé ne peut pas être rappelé.
+
+### Le plugin Claude (application Claude, Mac et Windows)
+
+Le plugin Claude ajoute Shield à l'application Claude, sur Mac et sur Windows : c'est la méthode la plus simple.
+Il contient tout le moteur de Shield, donc rien d'autre à installer : ni uv, ni Python, ni Terminal, ni installateur.
+
+Il fonctionne dans l'onglet Claude de l'application (Anthropic appelle aussi « Cowork » le mode agent de cet
+onglet). Il apporte 7 outils en français et une compétence (skill), sans hooks. Il y a un plugin par système,
+chacun dans son dépôt public : [ragbase/ragbase-shield-mac](https://github.com/ragbase/ragbase-shield-mac) et
+[ragbase/ragbase-shield-windows](https://github.com/ragbase/ragbase-shield-windows). Ce n'est pas le plugin de la section 3, qui est
+pour Claude Code.
+
+**Ajouter le plugin :**
+
+1. Ouvrez l'application Claude sur l'onglet **Claude**. Pas l'onglet **Code** : depuis l'onglet Code,
+   l'application ajoute le plugin pour les sessions Code seulement.
+2. Ouvrez **Customize > Plugins > Add > Add marketplace > Add from a repository**.
+3. Écrivez le nom du plugin de votre système, puis cliquez sur **Sync** :
+   - sur Mac : `ragbase/ragbase-shield-mac` ;
+   - sous Windows : `ragbase/ragbase-shield-windows`.
+4. Dans l'onglet **Discover**, cliquez sur **Add** à droite de « RAGbase Shield (Mac) » ou de
+   « RAGbase Shield (Windows) ».
+
+Vous pouvez aussi utiliser le bouton de votre système sur [shield.ragbase.ai](https://shield.ragbase.ai).
+
+**Utiliser le plugin en 3 étapes :**
+
+1. **Protéger un dossier.** Dans une conversation, écrivez : « Protège un dossier avec Shield ». Une fenêtre
+   RAGbase Shield s'ouvre par-dessus Claude : choisissez le dossier d'un seul client. Shield lit et masque tout le
+   dossier sur votre ordinateur, à ce moment-là. Pour un gros dossier, cela prend quelques minutes. Claude reçoit
+   seulement un code, par exemple `DOSSIER_1`.
+2. **Demander le travail.** Par exemple : « Fais une synthèse du dossier » ou « Rédige une mise en demeure ».
+   Claude lit les documents avec les codes.
+3. **Enregistrer le document final.** Écrivez : « Enregistre le document final avec Shield ». Shield remet les
+   vrais noms sur votre ordinateur. Le document est dans le dossier « Shield - sorties » de votre dossier client.
+
+**Limites :**
+
+- Un dossier par client. 2 000 fichiers ou 2 Go au plus par dossier.
+- Un texte que vous tapez dans la conversation, ou un fichier que vous y déposez directement, n'est pas masqué par
+  le plugin : il part tel quel.
+- La détection n'est jamais parfaite : relisez les passages sensibles.
+
+**Où restent vos données :** sur votre ordinateur, avec la clé du coffre.
+
+- Mac : le dossier `~/Library/Application Support/RAGbase Shield`. La clé est dans le trousseau de votre session.
+- Windows : le dossier « RAGbase Shield » de votre profil utilisateur (`C:\Users\<votre nom>\RAGbase Shield`).
+  La clé est dans le Gestionnaire d'identification de Windows.
+
+Pour retirer le plugin : dans l'application Claude, ouvrez **Customize > Plugins**, puis retirez
+« RAGbase Shield (Mac) » ou « RAGbase Shield (Windows) ».
 
 ### 0. Installer en un clic
 
@@ -126,8 +179,9 @@ Il faut Windows 10 ou 11 (64 bits). Une carte graphique n'est pas nécessaire. S
 | Application | À faire |
 |---|---|
 | Shield Desk et l'extension de navigateur | Rien : Shield Desk tourne toujours, sans fenêtre de terminal. Pour l'extension, collez le jeton dans ses options (section 7). |
+| Application Claude (onglet Claude) | Rien à installer : ajoutez le plugin Claude ([Le plugin Claude](#le-plugin-claude-application-claude-mac-et-windows)). |
 | Claude Desktop | Installez le fichier `.mcpb` (section 2). |
-| Claude Code et Cowork (plugin) | Le plugin a encore besoin de uv : installez uv (section 0 bis, première commande), puis suivez la section 3. |
+| Claude Code (plugin) | Le plugin a encore besoin de uv : installez uv (section 0 bis, première commande), puis suivez la section 3. |
 | ChatGPT desktop, Codex, VS Code | Une commande dans le Terminal (ci-dessous). Ces applications utilisent ensuite le Shield installé, sans uv. |
 
 Sur Mac (remplacez `codex` par `chatgpt` ou `vscode` selon l'application) :
@@ -286,7 +340,13 @@ Bon à savoir :
 - Dans Claude Team ou Enterprise, un administrateur peut bloquer les extensions.
 - N'attachez pas les pièces au chat. Demandez à Claude de les lire avec Shield.
 
-### 3. Claude Code et Cowork (plugin)
+<a id="3-claude-code-et-cowork-plugin"></a>
+
+### 3. Claude Code (plugin)
+
+> **Pour Claude Code seulement.** N'ajoutez pas ce plugin dans l'onglet Claude de l'application Claude : il a
+> besoin de uv, et ses hooks peuvent y bloquer chaque message. Dans l'onglet Claude, utilisez le
+> [plugin Claude](#le-plugin-claude-application-claude-mac-et-windows).
 
 Le plugin installe trois choses : le serveur MCP de Shield, une compétence (skill) qui apprend à Claude
 la bonne méthode, et des hooks qui bloquent les erreurs :
@@ -304,10 +364,6 @@ la bonne méthode, et des hooks qui bloquent les erreurs :
 
 Depuis une copie du dépôt : `/plugin marketplace add /chemin/vers/ragbase-shield`.
 
-**Cowork.** Dans l'application Claude : Customize > Plugins > Add > Add marketplace. Saisissez
-`ragbase/ragbase-shield` (ou le chemin d'une copie du dépôt), puis installez RAGbase Shield. Les libellés de
-l'écran peuvent changer.
-
 **Méthode terminal :**
 
 ```sh
@@ -320,9 +376,6 @@ Attention : lancée depuis une copie du projet (ou avec `RAGBASE_SHIELD_MARKETPL
 commande installe le plugin complet. Sinon, elle installe le **serveur MCP seul, sans les hooks ni la
 compétence** : rien ne bloque alors un vrai nom tapé dans Claude Code. La commande l'affiche. Préférez la
 méthode plugin.
-
-Bon à savoir : un serveur MCP local fourni par un plugin ne fonctionne pas dans le chat de Claude Desktop.
-Pour le chat, utilisez l'extension `.mcpb` (section 2).
 
 ### 4. ChatGPT desktop et Codex
 
@@ -498,6 +551,8 @@ Mode Précis : relancez plutôt la commande du mode Précis (section 10).
 
 **Retirer une intégration :**
 
+- Plugin Claude (application Claude) : Customize > Plugins, puis retirez « RAGbase Shield (Mac) » ou
+  « RAGbase Shield (Windows) ».
 - Claude Desktop : Réglages > Extensions > RAGbase Shield > désinstaller.
 - Claude Code : `/plugin uninstall ragbase-shield@ragbase`.
 - ChatGPT desktop, Codex : supprimez le bloc `[mcp_servers.ragbase-shield]` de `~/.codex/config.toml`.
@@ -511,8 +566,10 @@ La clé peut aussi rester dans le trousseau du système : supprimez l'entrée `r
 si vous le souhaitez.
 
 **Détails techniques par application** (pour l'informatique du cabinet) :
+[Plugin Claude pour Mac](https://github.com/ragbase/ragbase-shield-mac) ·
+[Plugin Claude pour Windows](https://github.com/ragbase/ragbase-shield-windows) ·
 [Claude Desktop](../integrations/claude-desktop/README.md) ·
-[Claude Code et Cowork](../integrations/claude-code/README.md) ·
+[Claude Code](../integrations/claude-code/README.md) ·
 [ChatGPT desktop et Codex](../integrations/chatgpt/README.md) ·
 [VS Code](../integrations/vscode/README.md) ·
 [Microsoft 365 Copilot](../integrations/microsoft-copilot/README.md) ·
@@ -559,6 +616,55 @@ Three rules first:
 - Connect a folder. Do not attach the file to the chat.
 - Do not paste raw text into the chat. Go through Shield.
 - Text already sent cannot be recalled.
+
+### The Claude plugin (Claude app, Mac and Windows)
+
+The Claude plugin adds Shield to the Claude app, on a Mac and on Windows: it is the simplest way. It carries the
+whole Shield engine, so there is nothing else to install: no uv, no Python, no Terminal, no installer.
+
+It works in the Claude tab of the app (Anthropic also calls the agent mode of that tab "Cowork"). It brings 7 tools
+in French and a skill, with no hooks. There is one plugin per system, each in its own public repository:
+[ragbase/ragbase-shield-mac](https://github.com/ragbase/ragbase-shield-mac) and
+[ragbase/ragbase-shield-windows](https://github.com/ragbase/ragbase-shield-windows). It is not the plugin of section 3, which is for
+Claude Code.
+
+**Add the plugin:**
+
+1. Open the Claude app on the **Claude** tab. Not the **Code** tab: from the Code tab, the app adds the plugin for
+   Code sessions only.
+2. Open **Customize > Plugins > Add > Add marketplace > Add from a repository**.
+3. Type the name of the plugin for your system, then click **Sync**:
+   - on a Mac: `ragbase/ragbase-shield-mac`;
+   - on Windows: `ragbase/ragbase-shield-windows`.
+4. In the **Discover** tab, click **Add** next to "RAGbase Shield (Mac)" or "RAGbase Shield (Windows)".
+
+You can also use the button for your system on [shield.ragbase.ai](https://shield.ragbase.ai).
+
+**Use the plugin in 3 steps:**
+
+1. **Protect a folder.** In a conversation, write: "Protège un dossier avec Shield". A RAGbase Shield window opens
+   on top of Claude: choose the folder of one client. Shield reads and masks the whole folder on your computer, at
+   that moment. A large folder takes some minutes. Claude only gets a code, for example `DOSSIER_1`.
+2. **Ask for the work.** For example: "Summarise the file" or "Draft a formal notice". Claude reads the documents
+   with the codes.
+3. **Save the final document.** Write: "Save the final document with Shield". Shield puts the real names back on
+   your computer. The document is in the "Shield - sorties" folder of your client folder.
+
+**Limits:**
+
+- One client per folder. 2,000 files or 2 GB at most per folder.
+- Text you type in the conversation, or a file you drop directly into it, is not masked by the plugin: it is sent
+  as it is.
+- Detection is never perfect: check sensitive passages.
+
+**Where your data stays:** on your computer, with the vault key.
+
+- Mac: the folder `~/Library/Application Support/RAGbase Shield`. The key is in your login keychain.
+- Windows: the "RAGbase Shield" folder of your user profile (`C:\Users\<your name>\RAGbase Shield`). The key is
+  in Windows Credential Manager.
+
+To remove the plugin: in the Claude app, open **Customize > Plugins**, then remove "RAGbase Shield (Mac)" or
+"RAGbase Shield (Windows)".
 
 ### 0. One-click install
 
@@ -636,8 +742,9 @@ stay), Quit (Shield Desk stops until the next login, and the browser extension s
 | App | What to do |
 |---|---|
 | Shield Desk and the browser extension | Nothing: Desk always runs, with no terminal window. Paste the token in the extension options (section 7). |
+| Claude app (Claude tab) | Nothing to install: add the Claude plugin ([The Claude plugin](#the-claude-plugin-claude-app-mac-and-windows)). |
 | Claude Desktop | Install the `.mcpb` (section 2). |
-| Claude Code and Cowork (plugin) | The plugin still needs uv: install uv (section 0b, first command), then follow section 3. |
+| Claude Code (plugin) | The plugin still needs uv: install uv (section 0b, first command), then follow section 3. |
 | ChatGPT desktop, Codex, VS Code | One Terminal command with the installed Shield (below). The apps then use the installed Shield, without uv. |
 
 On a Mac (replace `codex` with `chatgpt` or `vscode`):
@@ -749,7 +856,12 @@ program than Shield Desk): click "Always Allow". If you deny it, the Shield tool
 show nothing to Claude.
 Claude Team and Enterprise admins can block extensions.
 
-### 3. Claude Code and Cowork (plugin)
+<a id="3-claude-code-and-cowork-plugin"></a>
+
+### 3. Claude Code (plugin)
+
+> **For Claude Code only.** Do not add this plugin in the Claude tab of the Claude app: it needs uv, and its hooks
+> can stop every message there. In the Claude tab, use the [Claude plugin](#the-claude-plugin-claude-app-mac-and-windows).
 
 The plugin ships the MCP server, a skill (work with codes, never ask for real names, save with
 `shield_save_draft`) and hooks (`UserPromptSubmit` blocks registered values and names the code to use,
@@ -763,15 +875,12 @@ In Claude Code (recommended):
 ```
 
 From a copy of the repository: `/plugin marketplace add /path/to/ragbase-shield`.
-Cowork: Customize > Plugins > Add > Add marketplace, enter `ragbase/ragbase-shield` (or the path of a copy of the
-repository), then install RAGbase Shield.
 
 Terminal, with the command of section 0b: `ragbase-shield install claude-code [--dry-run]`. Run from a copy of
 the project (or with
 `RAGBASE_SHIELD_MARKETPLACE=<project folder>`) it installs the full plugin; otherwise it installs the **MCP
 server only, without the hooks and the skill** (nothing then blocks a real name typed in Claude Code). It says
 so. Prefer the plugin method.
-A local MCP server shipped in a plugin does not run in Claude Desktop chat; use the `.mcpb` there.
 
 ### 4. ChatGPT desktop and Codex
 
@@ -892,15 +1001,18 @@ uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4
 Precise mode: run the Precise command again instead (section 10).
 
 Uninstall the one-click install: Shield icon > "Uninstall..." (details in section 0).
-Remove integrations: Claude Desktop Settings > Extensions; `/plugin uninstall ragbase-shield@ragbase`;
+Remove integrations: Claude plugin: Customize > Plugins in the Claude app, remove "RAGbase Shield (Mac)" or
+"RAGbase Shield (Windows)"; Claude Desktop Settings > Extensions; `/plugin uninstall ragbase-shield@ragbase`;
 delete `[mcp_servers.ragbase-shield]` from `~/.codex/config.toml`; delete the `ragbase-shield` entry in `mcp.json`.
 Delete data: remove `~/.ragbase-shield` (or `%LOCALAPPDATA%\ragbase-shield` on Windows). This deletes the vaults: old answers can
 no longer be restored. Export first if needed. The key may remain in the OS keychain (service `ragbase-shield`,
 user `vault-key`); delete that entry if you wish.
 
 Technical details per app:
+[Claude plugin for Mac](https://github.com/ragbase/ragbase-shield-mac) ·
+[Claude plugin for Windows](https://github.com/ragbase/ragbase-shield-windows) ·
 [Claude Desktop](../integrations/claude-desktop/README.md) ·
-[Claude Code and Cowork](../integrations/claude-code/README.md) ·
+[Claude Code](../integrations/claude-code/README.md) ·
 [ChatGPT desktop and Codex](../integrations/chatgpt/README.md) ·
 [VS Code](../integrations/vscode/README.md) ·
 [Microsoft 365 Copilot](../integrations/microsoft-copilot/README.md) ·

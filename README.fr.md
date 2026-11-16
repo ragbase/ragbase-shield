@@ -110,15 +110,24 @@ les lois, les codes, les articles, les mois et les jours.
 
 ## Installer
 
+**Le plus simple, dans l'application Claude sur Mac ou sur PC : le plugin Claude.** Il contient tout le moteur de
+Shield : rien d'autre à installer (ni uv, ni Python, ni Terminal, ni installateur). Dans l'application Claude, sur
+l'onglet **Claude** (pas l'onglet Code), ouvrez **Customize > Plugins > Add > Add marketplace > Add from a repository**.
+Écrivez `ragbase/ragbase-shield-mac` (Mac) ou `ragbase/ragbase-shield-windows` (Windows) et cliquez sur **Sync**.
+Dans l'onglet **Discover**, cliquez ensuite sur **Add** à droite de « RAGbase Shield (Mac) » ou de « RAGbase Shield (Windows) ».
+Vous pouvez aussi utiliser le bouton de votre système sur [shield.ragbase.ai](https://shield.ragbase.ai).
+Utilisation et limites : [docs/INSTALL.md](docs/INSTALL.md#le-plugin-claude-application-claude-mac-et-windows).
+
 Téléchargements (installateurs, extension Claude Desktop, fichier `SHA256SUMS`) : la page des versions,
 https://github.com/ragbase/ragbase-shield/releases/latest. Paquet Python : le fichier wheel de la version (commandes plus bas).
 
 | Votre application ou votre système | Quoi installer | Guide |
 |---|---|---|
+| Application Claude sur Mac ou sur PC (onglet Claude) | Le plugin Claude, rien d'autre à installer : ajoutez `ragbase/ragbase-shield-mac` ou `ragbase/ragbase-shield-windows` (étapes ci-dessus) | [Plugin Mac](https://github.com/ragbase/ragbase-shield-mac), [plugin Windows](https://github.com/ragbase/ragbase-shield-windows), [docs/INSTALL.md](docs/INSTALL.md#le-plugin-claude-application-claude-mac-et-windows) |
 | Mac (macOS 13 ou plus récent) | `RAGbase-Shield-0.4.1.pkg` : double-clic, installation pour vous seul (prévue sans mot de passe administrateur), sans Terminal. Pas encore signé : macOS vous demande de confirmer la première fois | [docs/INSTALL.md](docs/INSTALL.md), section 0 |
 | Windows 10 ou 11 | `RAGbase-Shield-0.4.1-win64.msi` : installation pour l'utilisateur (prévue sans droits administrateur). Pas encore signé : SmartScreen vous demande de confirmer | [docs/INSTALL.md](docs/INSTALL.md), section 0 |
 | Claude Desktop | `ragbase-shield-0.4.1.mcpb` : double-clic, puis « Installer » | [docs/INSTALL.md](docs/INSTALL.md), section 2 |
-| Claude Code et Cowork | Plugin : `/plugin marketplace add ragbase/ragbase-shield`, puis `/plugin install ragbase-shield@ragbase` | [docs/INSTALL.md](docs/INSTALL.md), section 3 |
+| Claude Code | Plugin : `/plugin marketplace add ragbase/ragbase-shield`, puis `/plugin install ragbase-shield@ragbase`. Pas pour l'onglet Claude de l'application Claude : il a besoin de uv, et ses hooks peuvent y bloquer chaque message. Là, utilisez le plugin Claude | [docs/INSTALL.md](docs/INSTALL.md), section 3 |
 | ChatGPT desktop et Codex, GitHub Copilot dans VS Code | `ragbase-shield install chatgpt` (ou `codex`, `vscode`), une fois la commande installée avec uv (commandes plus bas) | [docs/INSTALL.md](docs/INSTALL.md), sections 4 et 5 |
 | Toute application web (claude.ai, chatgpt.com, Copilot web) | Shield Desk, et l'extension de navigateur pour Chrome et Edge (pas encore dans les boutiques : chargez le dossier `integrations/browser-extension` en mode développeur) | [docs/INSTALL.md](docs/INSTALL.md), sections 6 et 7 |
 | Terminal, avec uv ou pip | Shield Desk avec uv, ou le paquet avec pip | ci-dessous |
@@ -197,7 +206,20 @@ cliquez sur « Toujours autoriser ».
 
 ## Utiliser au quotidien
 
-### Avec Claude (Claude Desktop, Claude Code, Cowork)
+### Avec le plugin Claude (application Claude)
+
+1. Dans une conversation, écrivez : « Protège un dossier avec Shield ». Une fenêtre RAGbase Shield s'ouvre
+   par-dessus Claude : choisissez le dossier d'un seul client (2 000 fichiers ou 2 Go au plus). Shield lit et masque
+   tout le dossier sur votre ordinateur : pour un gros dossier, cela prend quelques minutes. Claude reçoit seulement
+   un code, par exemple `DOSSIER_1`.
+2. Demandez votre travail, par exemple : « Rédige une mise en demeure ». Claude lit les documents avec les codes.
+3. Écrivez : « Enregistre le document final avec Shield ». Shield remet les vrais noms sur votre ordinateur, dans le
+   dossier « Shield - sorties » du dossier client.
+
+Un texte que vous tapez dans la conversation, ou un fichier que vous y déposez directement, n'est pas masqué par le
+plugin.
+
+### Avec Claude Desktop et Claude Code
 
 1. Dans Shield Desk, page **Dossiers**, rubrique « Ajouter un dossier » : indiquez le chemin complet du
    répertoire du dossier client, puis cliquez sur « Ajouter et analyser ».
@@ -417,8 +439,9 @@ Lancez ces commandes dans votre propre terminal, ou utilisez Shield Desk.
 
 | Application | Branchement |
 |---|---|
+| Application Claude (onglet Claude), Mac et Windows | Le plugin Claude : moteur dans le plugin, serveur MCP local avec 7 outils, skill, sans hooks |
 | Claude Desktop | Extension en un clic (`.mcpb`) qui lance le serveur MCP local |
-| Claude Code et Cowork | Plugin : serveur MCP + skill + hooks |
+| Claude Code | Plugin : serveur MCP + skill + hooks |
 | ChatGPT desktop et Codex | Serveur MCP local (`~/.codex/config.toml`), là où le MCP local est permis |
 | GitHub Copilot (VS Code) | Serveur MCP local (`mcp.json`) |
 | Toute autre application (claude.ai, chatgpt.com, Copilot, Word, Outlook) | Shield Desk, presse-papiers, extension de navigateur |
