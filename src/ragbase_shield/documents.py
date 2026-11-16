@@ -69,6 +69,32 @@ PDF_PLUMBER_MAX_BYTES = 4 * 1024 * 1024
 PDF_CHECK_EVERY_OPS = 2_000
 #: v0.4.3 (fix): the code of a document whose text passes the ``max_chars`` limit of :func:`read_text`.
 READ_TOO_LARGE = "read_too_large"
+#: v0.4.4 (B2): a long PDF gets more time: :data:`DOCUMENT_TIME_BUDGET`, plus this many seconds for each page over
+#: :data:`BUDGET_FREE_PAGES`, at most :data:`DOCUMENT_TIME_BUDGET_MAX` seconds.
+BUDGET_SECONDS_PER_PAGE = 0.5
+BUDGET_FREE_PAGES = 300
+DOCUMENT_TIME_BUDGET_MAX = 1800.0
+#: v0.4.4 (F4): the codes of a file that the system did not let Shield open: held open and locked by another program
+#: (Windows sharing violation, errors 32 and 33), or access refused. Both can pass, so a dossier with such a file is
+#: read again at its next start.
+READ_LOCKED = "file_locked"
+READ_DENIED = "file_denied"
+#: v0.4.4 (F1, F3): the codes of a final document that could not be saved: the system refused the write (Windows
+#: ransomware protection, macOS privacy settings, rights), or the folder path is too long for Windows.
+WRITE_BLOCKED = "write_blocked"
+OUTPUT_PATH_TOO_LONG = "output_path_too_long"
+#: v0.4.4 (F3): longest full path of a saved file on Windows (long paths are off on most computers), the shortest
+#: file name Shield writes there, and the room kept for " (99)" when a name is already taken.
+WINDOWS_MAX_OUTPUT_PATH = 255
+MIN_OUTPUT_STEM = 12
+_UNIQUE_ROOM = 5
+
+
+def document_budget(pages: Optional[int] = None) -> float:
+    """v0.4.4 (B2): time budget of one document in seconds. 180 s; a PDF gets 0.5 s more for each page over 300,
+    at most 1,800 s."""
+    extra = max(0, int(pages or 0) - BUDGET_FREE_PAGES) * BUDGET_SECONDS_PER_PAGE
+    return min(DOCUMENT_TIME_BUDGET_MAX, DOCUMENT_TIME_BUDGET + extra)
 
 #: ``progress(done, total)``: pages read so far and pages of the document (PDF only).
 Progress = Optional[Callable[[int, int], None]]
@@ -87,6 +113,51 @@ class ReadTooLarge(DocumentError):
 
     def __init__(self) -> None:
         super().__init__(READ_TOO_LARGE)
+
+
+class ReadLocked(DocumentError):
+    """v0.4.4 (F4): another program holds the file open and locked (code :data:`READ_LOCKED`)."""
+
+    def __init__(self) -> None:
+        super().__init__(READ_LOCKED)
+
+
+class ReadDenied(DocumentError):
+    """v0.4.4 (F4): the system refused to open the file (code :data:`READ_DENIED`)."""
+
+    def __init__(self) -> None:
+        super().__init__(READ_DENIED)
+
+
+def _os_causes(exc: BaseException) -> list[BaseException]:
+    """The exception and its causes (a reader can wrap the system error)."""
+    out: list[BaseException] = []
+    cur: Optional[BaseException] = exc
+    while cur is not None and len(out) < 8 and cur not in out:
+        out.append(cur)
+        cur = cur.__cause__ or cur.__context__
+    return out
+
+
+def open_refusal(exc: BaseException) -> Optional[str]:
+    """v0.4.4 (F4): :data:`READ_LOCKED` when the error (or one of its causes) is a Windows sharing or lock violation
+    (winerror 32 or 33), :data:`READ_DENIED` when it is another refusal of the system (PermissionError, winerror 5),
+    else None."""
+    causes = _os_causes(exc)
+    for c in causes:
+        if isinstance(c, OSError) and getattr(c, "winerror", None) in (32, 33):
+            return READ_LOCKED
+    for c in causes:
+        if isinstance(c, PermissionError) or (isinstance(c, OSError) and getattr(c, "winerror", None) == 5):
+            return READ_DENIED
+    return None
+
+
+def write_refused(exc: BaseException) -> bool:
+    """v0.4.4 (F1): True when the system refused a write (PermissionError, or an OSError with winerror 5): the
+    ransomware protection of Windows ("Controlled folder access"), the privacy settings of macOS, or rights."""
+    return any(isinstance(c, PermissionError) or (isinstance(c, OSError) and getattr(c, "winerror", None) == 5)
+               for c in _os_causes(exc))
 
 
 class _PlumberTooSlow(Exception):
@@ -156,11 +227,14 @@ def read_text(path: os.PathLike | str, *, progress: Progress = None, budget: Opt
         raise DocumentError("unsupported_format")
     if not p.is_file():
         raise DocumentError("file_not_found")
-    deadline = clock() + (DOCUMENT_TIME_BUDGET if budget is None else float(budget))
+    started = clock()
+    deadline = started + (DOCUMENT_TIME_BUDGET if budget is None else float(budget))
     try:
         if kind == "pdf":
+            # v0.4.4 (B2): with no budget given, a long PDF gets more time (document_budget, from its page count)
             text, pages, needs_ocr, warnings = _read_pdf(p, progress=progress, deadline=deadline, clock=clock,
-                                                         max_chars=max_chars)
+                                                         max_chars=max_chars,
+                                                         started=started if budget is None else None)
         else:
             reader = {"docx": _read_docx, "xlsx": _read_xlsx, "txt": _read_plain, "md": _read_plain,
                       "eml": _read_eml, "html": _read_html}[kind]
@@ -169,6 +243,11 @@ def read_text(path: os.PathLike | str, *, progress: Progress = None, budget: Opt
         raise
     except Exception as exc:  # noqa: BLE001 - fail closed with a code, no content in the message
         log.debug("%s reader failed: %s", kind, type(exc).__name__)
+        refusal = open_refusal(exc)  # v0.4.4 (F4): a locked or refused file says so (it can pass)
+        if refusal == READ_LOCKED:
+            raise ReadLocked() from None
+        if refusal == READ_DENIED:
+            raise ReadDenied() from None
         raise DocumentError(f"{kind}_unreadable") from None
     text = _clean_text(text)
     if max_chars is not None and len(text) > max_chars:
@@ -363,15 +442,21 @@ def _pdf_heavy(path: Path) -> bool:
 
 
 def _read_pdf(path: Path, progress: Progress = None, deadline: Optional[float] = None,
-              clock: Callable[[], float] = time.monotonic, max_chars: Optional[int] = None):
+              clock: Callable[[], float] = time.monotonic, max_chars: Optional[int] = None,
+              started: Optional[float] = None):
     """v0.4.3: pdfplumber (table cells) for a PDF of :data:`PDF_PLUMBER_MAX_PAGES` pages or fewer, exactly as in
     0.4.2; pypdf from the first page for a longer one, for a short one with a very heavy page (:func:`_pdf_heavy`),
-    or when pdfplumber takes more than :data:`PDF_PLUMBER_SECONDS`."""
+    or when pdfplumber takes more than :data:`PDF_PLUMBER_SECONDS`.
+
+    v0.4.4 (B2): ``started`` (the start of the reading, when no budget was given): the deadline becomes ``started``
+    plus :func:`document_budget` of the page count."""
+    pages = _pdf_page_count(path)
+    if started is not None and pages is not None:
+        deadline = started + document_budget(pages)
     try:
         import pdfplumber  # noqa: F401 - optional: word boxes give the table cells (v0.3)
     except ImportError:
         return _read_pdf_pypdf(path, progress, deadline, clock, max_chars)
-    pages = _pdf_page_count(path)
     if pages is not None and (pages > PDF_PLUMBER_MAX_PAGES or _pdf_heavy(path)):
         return _read_pdf_pypdf(path, progress, deadline, clock, max_chars)
     try:
@@ -1081,8 +1166,8 @@ def write_md(path: os.PathLike | str, text: str, *, overwrite: bool = False) -> 
 
     try:
         _write_atomic(target, write, reserved=not overwrite)
-    except OSError:
-        raise DocumentError("write_failed") from None
+    except OSError as exc:
+        raise DocumentError(WRITE_BLOCKED if write_refused(exc) else "write_failed") from None
     return target
 
 
@@ -1106,19 +1191,57 @@ def write_docx(path: os.PathLike | str, markdown_text: str, dossier_code: str, *
     target = _reserve(Path(path), overwrite)
     try:
         _write_atomic(target, document.save, reserved=not overwrite)
-    except OSError:
-        raise DocumentError("write_failed") from None
+    except OSError as exc:
+        raise DocumentError(WRITE_BLOCKED if write_refused(exc) else "write_failed") from None
     return target
+
+
+def windows_paths(platform: Optional[str] = None) -> bool:
+    """v0.4.4 (F2, F3): True when the path length rules of Windows apply (long paths are off on most computers)."""
+    import sys
+
+    return (sys.platform if platform is None else platform) == "win32"
+
+
+def output_stem_room(directory: os.PathLike | str, ext: str) -> int:
+    """v0.4.4 (F3): how many characters the stem of a file saved in ``directory`` may have so that its full path,
+    with " (99)" added when the name is taken, stays at :data:`WINDOWS_MAX_OUTPUT_PATH` characters or less."""
+    return WINDOWS_MAX_OUTPUT_PATH - len(str(Path(directory))) - 1 - len(ext) - _UNIQUE_ROOM
+
+
+def output_folder_too_long(directory: os.PathLike | str, fmt: str = "docx", platform: Optional[str] = None) -> bool:
+    """v0.4.4 (F3): True on Windows when the folder path leaves less than :data:`MIN_OUTPUT_STEM` characters for a
+    file name."""
+    return windows_paths(platform) and output_stem_room(directory, "." + fmt.lstrip(".")) < MIN_OUTPUT_STEM
+
+
+def fit_output_name(directory: os.PathLike | str, name: str, platform: Optional[str] = None) -> str:
+    """v0.4.4 (F3): on Windows, ``name`` cut at a word so that the full path of the saved file stays at 255
+    characters or less (the extension is kept; " (2)" still fits when the name is taken). Elsewhere, and for a
+    path that already fits, ``name`` is returned unchanged."""
+    if not windows_paths(platform):
+        return name
+    stem, ext = os.path.splitext(name)
+    room = output_stem_room(directory, ext)
+    if len(stem) <= room:
+        return name
+    if room < MIN_OUTPUT_STEM:
+        raise DocumentError(OUTPUT_PATH_TOO_LONG)
+    cut = cut_at_word(stem, room).rstrip(" .") or stem[:room].rstrip(" .")
+    return (cut or "document") + ext
 
 
 def save_output(directory: os.PathLike | str, title: str, text: str, fmt: str = "docx",
                 dossier_code: Optional[str] = None) -> Path:
-    """Safe name + unique name + write, inside ``directory`` only. fmt: "docx" or "md"."""
+    """Safe name + unique name + write, inside ``directory`` only. fmt: "docx" or "md".
+
+    v0.4.4: on Windows the name is cut so that the full path fits (F3); a write that the system refuses raises
+    DocumentError ``write_blocked`` (F1)."""
     fmt = fmt.lower().lstrip(".")
     if fmt not in ("docx", "md"):
         raise ValueError("fmt must be docx or md")
     base = Path(directory)
-    target = base / safe_filename(title, fmt)
+    target = base / fit_output_name(base, safe_filename(title, fmt))
     if target.parent.resolve() != base.resolve():  # defence in depth; safe_filename has no separators
         raise DocumentError("unsafe_file_name")
     if fmt == "docx":

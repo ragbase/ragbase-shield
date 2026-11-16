@@ -266,7 +266,7 @@ def test_status_and_dossier_list_answer_while_a_masking_holds_the_service(svc, d
         state = svc.reading_state(code)
         states = svc.readings()
         assert time.monotonic() - t0 < 1.0
-        assert st["version"] == "0.4.3" and rows[0]["reading"]["state"] in ("reading", "waiting")
+        assert st["version"] == __version__ and rows[0]["reading"]["state"] in ("reading", "waiting")
         assert state is not None and states[0]["code"] == code
         with pytest.raises(service.ShieldError):
             svc.list_documents(code)  # the refusal does not wait for the lock either
@@ -388,8 +388,9 @@ def test_a_removed_dossier_is_not_read_again(tmp_path, dossier, slow):
 
 
 def test_after_a_restart_a_long_pdf_is_read_again_in_the_background(tmp_path, dossier, slow, monkeypatch):
-    """A ready dossier, a new process (empty cache): the first call does not read an 846-page PDF inside the tool
-    call; it starts a background reading (no mark: the dossier stays ready on disk) and answers the progress."""
+    """Round 10 (0.4.4): a ready dossier, a new process (empty cache). With its kept set, the dossier is ready at once
+    and no file is read. Without it (deleted here), the WHOLE dossier is read again in the background, with its mark,
+    and the first call answers the progress instead of reading an 846-page PDF inside the tool call."""
     home = tmp_path / "data"
     first = service.Service(home)
     code = first.protect_folder(dossier)["code"]
@@ -400,16 +401,27 @@ def test_after_a_restart_a_long_pdf_is_read_again_in_the_background(tmp_path, do
     monkeypatch.setattr(service.Service, "_pdf_pages", lambda self, path, m, z: 846 if path.name == GRAND else 1)
     second = service.Service(home)
     try:
-        with pytest.raises(service.ShieldError) as exc:
-            second.list_documents(code)
-        assert exc.value.kind == "dossier_reading"
-        assert second.pending_readings() == {}  # no mark: a stop now would leave the dossier ready
-        slow.release.set()
-        _wait(second, code)
-        assert len(second.list_documents(code)) == 2  # once per process: no second background reading
-        assert slow.calls == 2
+        assert len(second.list_documents(code)) == 2  # the kept set: ready, nothing read
+        assert slow.calls == 1
     finally:
         second.close()
+    service.Service(home).kept_size(code)
+    import shutil
+    shutil.rmtree(home / "kept" / code)
+    monkeypatch.setattr(service, "KEPT_WAIT_SECONDS", 0.2)
+    third = service.Service(home)
+    try:
+        with pytest.raises(service.ShieldError) as exc:
+            third.list_documents(code)
+        assert exc.value.kind == "dossier_reading"
+        assert third.pending_readings() == {code: third.registry.get(code).uuid}  # a full reading, with its mark
+        slow.release.set()
+        _wait(third, code)
+        assert len(third.list_documents(code)) == 2  # once per process: no second background reading
+        assert slow.calls == 2
+        assert list((home / "kept" / code).glob("m-*.bin"))  # the kept set is written again
+    finally:
+        third.close()
 
 
 def test_a_ready_dossier_of_small_files_answers_at_once_after_a_restart(tmp_path, dossier, slow):
@@ -498,7 +510,7 @@ def test_protect_answers_fast_with_the_progress_then_status_says_ready(plugin, d
     t0 = time.monotonic()
     err, text = call(server, "shield_status")
     assert time.monotonic() - t0 < 1.0 and not err
-    assert "RAGbase Shield 0.4.3" in text and "lu(s) sur 2" in text and "Ne faites rien d'autre" in text
+    assert f"RAGbase Shield {__version__}" in text and "lu(s) sur 2" in text and "Ne faites rien d'autre" in text
     _, text = call(server, "shield_list_dossiers")
     assert "DOSSIER_1 : pas encore prêt." in text
     assert not list((service.default().registry.home / "vaults").parent.glob("**/*.pdf"))  # nothing copied
@@ -561,14 +573,14 @@ def test_tool_texts_tell_about_the_background_reading(plugin):
     assert "7. Shield lit un grand dossier en arrière-plan." in claude_tab.INSTRUCTIONS
 
 
-def test_version_is_0_4_3():
-    assert __version__ == "0.4.3"
+def test_version_is_0_4_x():
+    assert __version__.startswith("0.4.")  # round 10: 0.4.4 (tests/test_round10.py checks the exact text)
     sys.path.insert(0, str(HERE.parent / "packaging" / "claude_plugin"))
     try:
         import shield_boot
     finally:
         sys.path.pop(0)
-    assert shield_boot.VERSION == "0.4.3"
+    assert shield_boot.VERSION == __version__
 
 
 def test_reading_sentences_are_plain_french():
