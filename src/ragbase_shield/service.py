@@ -154,7 +154,7 @@ KEPT_WAIT_SECONDS = 8.0
 #: least 180 s plus 1 s for each 20,000 characters, at most documents.DOCUMENT_TIME_BUDGET_MAX.
 MASK_CHARS_PER_SECOND = 20_000
 #: v0.4.4 (F4): causes of a document that the last reading could not read, as kept in Service._not_read.
-TRANSIENT_CAUSES = ("too_long", "locked", "denied")
+TRANSIENT_CAUSES = ("too_long", "locked", "denied", "io")
 
 #: Honest limits, shown by ``shield_status`` and the Desk (French, then English).
 LIMITS: tuple[tuple[str, str], ...] = (
@@ -274,6 +274,13 @@ def _locked(doc_id: str) -> "ShieldError":
     """v0.4.4 (F4): a document that another program held open and locked when the dossier was read."""
     return ShieldError(f"{doc_id} est ouvert dans un autre programme qui le bloque (document_locked).",
                        "document_locked")
+
+
+def _unavailable(doc_id: str) -> "ShieldError":
+    """v0.4.4 (review fix): the system could not give the file at that moment (disk, network, a file in the cloud
+    only while offline): it can pass, so the document is tried again at the next call."""
+    return ShieldError(f"{doc_id} n'a pas pu être ouvert pour le moment (document_unavailable).",
+                       "document_unavailable")
 
 
 def _mask_budget(chars: int, read_budget: float = 0.0) -> float:
@@ -696,6 +703,7 @@ class _Reading:
         self.started = time.monotonic()
         self.step_started = self.started  # start of the current document or step (v0.4.3 fix: stuck readings)
         self.marked = False               # this reading owns the mark on disk
+        self.kept = False                 # v0.4.4: it ended on the kept set (the cheaper re-check), nothing read
         self.finished = threading.Event()
         self.thread: Optional[threading.Thread] = None
         #: v0.4.4 (B2): the time budget of the current document or step, and the reading budget of each document
@@ -1319,6 +1327,8 @@ class Service:
         """Read a document with its time budget (v0.4.3). A document that was not read in its budget is not read
         again while the file is the same: ShieldError ``document_too_long`` at once."""
         bad = self._not_read.get(key)
+        if bad is not None and bad[2] == "io":
+            bad = None  # v0.4.4 (review fix): a failure of the disk, the network or a cloud file can pass: try again
         if bad is not None and bad[0] == st.st_mtime_ns and bad[1] == st.st_size:
             # v0.4.4 (F4): a document the last reading could not read is not read alone now (a name found in it must
             # also be hidden in the others): the lawyer protects the folder again
@@ -1330,7 +1340,10 @@ class Service:
                 raise documents.DocumentError(bad[3] if len(bad) > 3 else "unreadable")
             raise _too_long(key[1])
         try:
-            return documents.read_text(path, progress=progress, max_chars=MAX_DOCUMENT_CHARS)
+            got = documents.read_text(path, progress=progress, max_chars=MAX_DOCUMENT_CHARS)
+            if (self._not_read.get(key) or (0, 0, ""))[2] == "io":
+                self._not_read.pop(key, None)  # it opens now: no longer marked "(non lu)"
+            return got
         except documents.ReadTooLong:
             self._not_read[key] = (st.st_mtime_ns, st.st_size, "too_long")
             raise _too_long(key[1]) from None
@@ -1343,6 +1356,9 @@ class Service:
         except documents.ReadDenied as exc:
             self._not_read[key] = (st.st_mtime_ns, st.st_size, "denied", str(exc))
             raise
+        except documents.ReadIO:  # v0.4.4 (review fix): can pass; marked "(non lu)", tried again at the next call
+            self._not_read[key] = (st.st_mtime_ns, st.st_size, "io")
+            raise _unavailable(key[1]) from None
         except documents.DocumentError as exc:
             self._not_read[key] = (st.st_mtime_ns, st.st_size, "unreadable", str(exc))
             raise
@@ -1709,7 +1725,8 @@ class Service:
                 except documents.DocumentError:
                     continue
                 except ShieldError as exc:
-                    if exc.kind in ("document_too_large", "document_too_long", "document_locked"):
+                    if exc.kind in ("document_too_large", "document_too_long", "document_locked",
+                                    "document_unavailable"):
                         continue
                     raise
                 entries[ref.id] = entry
@@ -2454,6 +2471,13 @@ class Service:
             return None
         return dict(job.summary)
 
+    def reading_kept(self, dossier_code: str) -> bool:
+        """v0.4.4: True when the last reading of the dossier in this process ended on its kept set (the cheaper
+        re-check): nothing was read again, the dossier is simply ready (A5)."""
+        with self._reads_lock:
+            job = self._reads.get(str(dossier_code or "").strip().upper())
+        return job is not None and job.state == "ready" and job.kept
+
     def ready_counts(self, dossier_code: str) -> dict:
         """{documents, unreadable, too_long, needs_ocr, counts} of a ready dossier that another service read (no
         summary here): the documents found and the elements replaced. Codes and counts only."""
@@ -2641,41 +2665,51 @@ class Service:
         the same (mtime_ns, size), (b) the same engine version and rules fingerprint, (c) the same lexicon
         fingerprint of the dossier and the same values in every dossier (the last check), (d) the manifest and every
         entry decrypt and match their hashes, (e) the last reading had no failure that can pass (such a set is never
-        written). Any point fails: False (the caller reads the whole dossier again)."""
+        written). Any point fails: False (the caller starts a reading of the dossier). When ONLY the values of the
+        other dossiers changed, that reading first runs the cheaper re-check (:meth:`_kset_recheck`)."""
+        snap = self._kset_decode(code)
+        if snap is None or snap["recheck"]:
+            return False
+        self._kset_install(code, snap)
+        return True
+
+    def _kset_decode(self, code: str) -> Optional[dict]:
+        """The kept set of a dossier, checked (A2 a to e) and decoded, or None. ``recheck`` is True when every point
+        holds except the values of the OTHER dossiers (guard fingerprint): the set may then be used only after the
+        last check gave the same texts again (:meth:`_kset_recheck`)."""
         d = self.registry.get(code)
         got = self._kset_store().load(d)
         if got is None:
-            return False
+            return None
         man, payloads = got
         if man.get("dossier") != d.uuid or man.get("code") != d.code:
-            return False
+            return None
         if man.get("engine") != __version__ or man.get("rules") != _kset.rules_fingerprint():
-            return False
+            return None
         all_refs = d.documents(include_unsupported=True)
         if self._kset_files(d, all_refs) != man.get("files"):
-            return False
+            return None
         if man.get("lexicon") != _kset.lexicon_fingerprint(d):
-            return False
-        if man.get("guard") != _kset.guard_fingerprint(self._open_dossiers()):
-            return False
+            return None
+        recheck = man.get("guard") != _kset.guard_fingerprint(self._open_dossiers())
         refs = {ref.id: ref for ref in all_refs}
         rows = {r[0]: r for r in man["files"]}
         states = man.get("docs") or {}
         rev = self._version(d)
-        epoch = self._guard_epoch()
+        epoch = None if recheck else self._guard_epoch()  # a re-checked entry is guarded again before any answer
         entries: dict[str, _CachedDoc] = {}
         not_read: dict[tuple[str, str], tuple] = {}
         for ref in d.documents():
             st = states.get(ref.id)
             if not isinstance(st, dict):
-                return False
+                return None
             if st.get("state") == "read":
                 payload = payloads.get(ref.id)
                 if payload is None:
-                    return False
+                    return None
                 meta, texts = _kset.unpack(payload)
                 if ref.id not in rows or [meta.get("mtime_ns"), meta.get("size")] != rows[ref.id][3:5]:
-                    return False
+                    return None
                 masked = texts["masked"]
                 a0 = _al_load(meta.get("a0"))
                 steps = meta.get("steps")
@@ -2691,28 +2725,88 @@ class Service:
                                                          if st["state"] == "unreadable" else ())
                 not_read[(d.code, ref.id)] = cause
             else:
-                return False
-        pages = man.get("pages") or {}
+                return None
+        return {"d": d, "man": man, "payloads": payloads, "refs": refs, "rows": rows, "rev": rev, "epoch": epoch,
+                "entries": entries, "not_read": not_read, "recheck": recheck,
+                "labels": {k: list(v) for k, v in (man.get("labels") or {}).items()}}
+
+    def _kset_install(self, code: str, snap: dict, job: Optional[_Reading] = None) -> None:
+        """Make a decoded kept set the state of the dossier in this process. With ``job`` (the re-check inside a
+        reading): that reading takes the summary; its end removes the mark and says "ready"."""
+        man, refs, rows = snap["man"], snap["refs"], snap["rows"]
         with self._lock:
             self._invalidate(code)
-            self._kset_docs[code] = entries
-            self._kset_labels[code] = (rev, epoch, {k: list(v) for k, v in (man.get("labels") or {}).items()})
+            self._kset_docs[code] = snap["entries"]
+            self._kset_labels[code] = (snap["rev"], snap["epoch"], snap["labels"])
             for k in [k for k in self._not_read if k[0] == code]:
                 del self._not_read[k]
-            self._not_read.update(not_read)
-            for doc_id, n in pages.items():
+            self._not_read.update(snap["not_read"])
+            for doc_id, n in (man.get("pages") or {}).items():
                 ref = refs.get(doc_id)
                 if ref is not None and doc_id in rows:
                     self._pages[(str(ref.path), rows[doc_id][3], rows[doc_id][4])] = n
-        job = _Reading(code, d.uuid)
+        summary = dict(man.get("summary") or {})
+        if isinstance(summary.get("counts"), list):
+            summary["counts"] = {k: v for k, v in summary["counts"]}
+        if job is not None:
+            job.summary = summary
+            job.kept = True
+            return
+        job = _Reading(code, snap["d"].uuid)
         job.state = "ready"
-        job.summary = dict(man.get("summary") or {})
-        if isinstance(job.summary.get("counts"), list):
-            job.summary["counts"] = {k: v for k, v in job.summary["counts"]}
+        job.summary = summary
         job.finished.set()
         with self._reads_lock:
             self._reads[code] = job
             self._warmed.add(code)
+
+    def _kset_recheck(self, d: Dossier, job: _Reading) -> bool:
+        """The cheaper path when only ANOTHER dossier changed (a new client folder protected, a name added there).
+        The masked texts of this dossier do not depend on the other dossiers; only the last check (their values in
+        each text) and the masked file names do. So the last check runs again on the kept masker output of every
+        document, and the file names are masked again. When every text, every edit of the last check and every name
+        come out exactly as kept, and this dossier did not change meanwhile, the kept set is the state a full
+        reading would give: it is used, and written again with the new fingerprints. Any difference: False, and the
+        WHOLE dossier is read again (all or nothing). No file of the lawyer is read here."""
+        try:
+            snap = self._kset_decode(d.code)
+        except Exception as exc:  # noqa: BLE001 - a kept set is an aid: a full reading instead
+            log.info("RAGbase Shield: %s: kept set not re-checked (%s)", d.code, type(exc).__name__)
+            return False
+        if snap is None or not snap["recheck"] or snap["d"].uuid != d.uuid:
+            return False
+        with self._lock:
+            rev0, epoch0 = self._version(d), self._safe_epoch()
+        if epoch0 is None or rev0 != snap["rev"]:
+            return False
+        job.state = "masking"
+        job.done = job.total or 0
+        for entry in snap["entries"].values():
+            if self._stop.is_set():
+                raise _Stopped()
+            job.step(_mask_budget(len(entry.masked0)))
+            guarded, steps, _n = self._guard_full(entry.masked0, d)
+            chain = _Chain([entry.align0] + steps) if entry.align0 is not None and steps is not None else None
+            if guarded != entry.masked or _steps_sig(chain) != _steps_sig(entry.alignment):
+                return False
+            job.masked += 1
+        job.step()
+        with self._lock:
+            if self._version(d) != rev0 or self._safe_epoch() != epoch0:
+                return False  # the last check gave this dossier a new code, or a dossier changed meanwhile
+            all_refs = d.documents(include_unsupported=True)
+            labels = {ref.id: self._ref_labels(d, ref) for ref in all_refs}
+            if labels != snap["labels"] or self._version(d) != rev0:
+                return False
+            if self._kset_files(d, all_refs) != snap["man"].get("files"):
+                return False  # a file changed during the re-check
+            for entry in snap["entries"].values():
+                entry.epoch = epoch0
+            snap["epoch"] = epoch0
+            self._kset_install(d.code, snap, job)
+            man = {k: v for k, v in snap["man"].items() if k not in ("entries", "gen", "format")}
+            man.update(lexicon=_kset.lexicon_fingerprint(d), guard=_kset.guard_fingerprint(self._open_dossiers()))
+        self._kset_store().write(d, man, snap["payloads"])  # never fails the reading
         return True
 
     def _kset_finish(self, d: Dossier, job: _Reading, refs: list, raws: dict, labels: dict, summary: dict) -> None:
@@ -2720,8 +2814,8 @@ class Service:
         file is dropped; the search runs on its shadow), so this process answers exactly as the next one will; then
         the kept set is written, or deleted when the reading had a failure that can pass (A2 e)."""
         code = d.code
-        keepable = not any(raw in (documents.READ_TOO_LONG, documents.READ_LOCKED, documents.READ_DENIED)
-                           for raw in raws.values())
+        keepable = not any(raw in (documents.READ_TOO_LONG, documents.READ_LOCKED, documents.READ_DENIED,
+                                   documents.READ_IO) for raw in raws.values())
         all_refs = d.documents(include_unsupported=True)
         files = self._kset_files(d, all_refs)
         keepable = keepable and files is not None
@@ -2796,8 +2890,25 @@ class Service:
     @_guarded("clean_kept")
     def clean_kept(self) -> list[str]:
         """v0.4.4 (A3): at a start, delete the kept sets of dossiers that are no longer in the vault (and the files
-        of a set whose writer stopped). Returns the codes deleted."""
-        return self._kset_store().clean(self.registry.folders())
+        of a set whose writer stopped). Returns the codes deleted.
+
+        Review fix: also the set of a dossier whose folder is gone (the firm deleted the client folder at the end of a
+        matter): Shield keeps no copy of the content of a folder that no longer exists. A folder on a drive that is
+        not plugged in only loses its set: the dossier is read again when the drive comes back."""
+        store = self._kset_store()
+        registered = self.registry.folders()
+        gone = store.clean(registered)
+        for code, folder in registered.items():
+            if code in gone or not store.folder(code).is_dir():
+                continue
+            try:
+                present = Path(folder).is_dir()
+            except OSError:
+                present = False
+            if not present:
+                store.delete(code)
+                gone.append(code)
+        return gone
 
     def kept_size(self, dossier_code: str) -> int:
         """Bytes on disk of the kept set of a dossier (measures)."""
@@ -2883,7 +2994,7 @@ class Service:
                         documents.ReadResult(cached.raw, cached.pages, cached.needs_ocr, cached.warnings))
             # v0.4.4 (F4): a file that was locked or refused is tried again (the lawyer closed it, then protects the
             # folder again); a too long or unreadable file is not read again while it is the same (as in 0.4.3)
-            if (self._not_read.get((code, ref.id)) or (0, 0, ""))[2] in ("locked", "denied"):
+            if (self._not_read.get((code, ref.id)) or (0, 0, ""))[2] in ("locked", "denied", "io"):
                 self._not_read.pop((code, ref.id), None)
             raw = self._read_file((code, ref.id), ref.path, st, progress=progress)
             return (st.st_mtime_ns, st.st_size, raw)
@@ -2894,10 +3005,16 @@ class Service:
                 return documents.READ_TOO_LARGE
             if exc.kind == "document_locked":  # v0.4.4 (F4)
                 return documents.READ_LOCKED
+            if exc.kind == "document_unavailable":  # v0.4.4 (review fix): can pass
+                return documents.READ_IO
             return "unreadable"
         except documents.ReadDenied:
             return documents.READ_DENIED
-        except (documents.DocumentError, OSError):
+        except OSError:  # v0.4.4 (review fix): the file could not be looked at now (disk, network): can pass
+            if (code, ref.id) not in self._not_read:
+                self._not_read[(code, ref.id)] = (0, ref.size, "io")
+            return documents.READ_IO
+        except documents.DocumentError:
             return "unreadable"
         finally:
             job.budgets[ref.id] = job.budget
@@ -2930,6 +3047,21 @@ class Service:
                     return
                 refs = d.documents()
             job.total = len(refs)
+            # v0.4.4: only the other dossiers changed since the kept set: the cheaper re-check, no file read
+            try:
+                kept_ok = self._kset_recheck(d, job)
+            except _Stopped:
+                raise
+            except Exception as exc:  # noqa: BLE001 - a kept set is an aid: a full reading instead
+                log.info("RAGbase Shield: %s: kept set not re-checked (%s)", d.code, type(exc).__name__)
+                kept_ok = False
+            if kept_ok:
+                self._clear_mark(job.code, job.uuid)  # first the mark, then "ready"
+                job.state = "ready"
+                return
+            job.state = "reading"
+            job.done = job.masked = 0
+            job.step()
             raws: dict[str, Any] = {}
             for ref in refs:
                 if self._stop.is_set():
@@ -3508,6 +3640,10 @@ def readings() -> list[dict]:
 
 def reading_summary(dossier_code: str) -> Optional[dict]:
     return default().reading_summary(dossier_code)
+
+
+def reading_kept(dossier_code: str) -> bool:
+    return default().reading_kept(dossier_code)
 
 
 def wait_reading(dossier_code: str, timeout: float) -> bool:

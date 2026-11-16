@@ -17,6 +17,7 @@ import copy
 import logging
 import os
 import re
+import stat
 import tempfile
 import time
 import unicodedata
@@ -79,6 +80,11 @@ DOCUMENT_TIME_BUDGET_MAX = 1800.0
 #: read again at its next start.
 READ_LOCKED = "file_locked"
 READ_DENIED = "file_denied"
+#: v0.4.4 (review fix): the code of a file that the system could not give at that moment: an error of the disk or
+#: of the network (EIO, ETIMEDOUT...), a file "in the cloud only" that is not on the computer (OneDrive Files
+#: On-Demand, iCloud) while offline, a file that is missing for a moment, or no memory. It can pass, like a locked
+#: file: the document is tried again, and a dossier with such a file is never kept (A2 e).
+READ_IO = "file_io"
 #: v0.4.4 (F1, F3): the codes of a final document that could not be saved: the system refused the write (Windows
 #: ransomware protection, macOS privacy settings, rights), or the folder path is too long for Windows.
 WRITE_BLOCKED = "write_blocked"
@@ -127,6 +133,28 @@ class ReadDenied(DocumentError):
 
     def __init__(self) -> None:
         super().__init__(READ_DENIED)
+
+
+class ReadIO(DocumentError):
+    """v0.4.4 (review fix): the system could not give the file at that moment (code :data:`READ_IO`, or
+    ``file_not_found`` for a file that is missing for a moment). It can pass: never kept as "unreadable"."""
+
+    def __init__(self, code: str = READ_IO) -> None:
+        super().__init__(code)
+
+
+def io_failure(exc: BaseException) -> bool:
+    """v0.4.4 (review fix): True when the error, or a cause it was raised from, is a system error of the disk, of the
+    network or of the memory (OSError, MemoryError): it can pass. A reader's own error about the content (a broken
+    zip, a bad PDF) is not one: such a file stays "unreadable" while it is the same."""
+    cur: Optional[BaseException] = exc
+    seen: list[BaseException] = []
+    while cur is not None and len(seen) < 8 and cur not in seen:
+        if isinstance(cur, (OSError, MemoryError)):
+            return True
+        seen.append(cur)
+        cur = cur.__cause__
+    return False
 
 
 def _os_causes(exc: BaseException) -> list[BaseException]:
@@ -225,7 +253,17 @@ def read_text(path: os.PathLike | str, *, progress: Progress = None, budget: Opt
     kind = kind_of(p)
     if kind is None:
         raise DocumentError("unsupported_format")
-    if not p.is_file():
+    try:
+        st = p.stat()
+    except OSError as exc:  # v0.4.4 (review fix): a file the system cannot give now, not a broken file
+        refusal = open_refusal(exc)
+        if refusal == READ_LOCKED:
+            raise ReadLocked() from None
+        if refusal == READ_DENIED:
+            raise ReadDenied() from None
+        raise ReadIO("file_not_found" if isinstance(exc, (FileNotFoundError, NotADirectoryError)) else READ_IO) \
+            from None
+    if not stat.S_ISREG(st.st_mode):
         raise DocumentError("file_not_found")
     started = clock()
     deadline = started + (DOCUMENT_TIME_BUDGET if budget is None else float(budget))
@@ -248,6 +286,8 @@ def read_text(path: os.PathLike | str, *, progress: Progress = None, budget: Opt
             raise ReadLocked() from None
         if refusal == READ_DENIED:
             raise ReadDenied() from None
+        if io_failure(exc):  # v0.4.4 (review fix): disk, network, cloud file offline, memory: it can pass
+            raise ReadIO() from None
         raise DocumentError(f"{kind}_unreadable") from None
     text = _clean_text(text)
     if max_chars is not None and len(text) > max_chars:
@@ -723,6 +763,10 @@ def _read_docx(path: Path):
     import docx
     from docx.opc.constants import RELATIONSHIP_TYPE as RT
 
+    # v0.4.4 (review fix): python-docx first asks zipfile.is_zipfile(), which hides the error of a refused or locked
+    # open and then says "not a Word file". This open lets that system error reach open_refusal (F4). Same reader.
+    with open(path, "rb"):
+        pass
     document = docx.Document(str(path))
     kinds = {RT.HEADER: "header", RT.FOOTER: "footer", RT.FOOTNOTES: "footnotes",
              RT.ENDNOTES: "endnotes", RT.COMMENTS: "comments"}

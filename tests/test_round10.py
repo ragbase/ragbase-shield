@@ -195,7 +195,7 @@ def _second_start_reads(monkeypatch, code: str) -> int:
         svc.start_reading(code)
         _wait(code)
     svc.list_documents(code)
-    return 0 if ready else max(1, reads.calls)
+    return 0 if ready else reads.calls  # a not-ready start with zero reads is the cheaper re-check
 
 
 def _set_files(data: Path, code: str) -> tuple[list[Path], list[Path]]:
@@ -229,10 +229,14 @@ def _cut(p: Path) -> None:
 
 
 def _other_dossier(f: Path) -> None:
+    """Another dossier whose values hold a word of this dossier's texts ("Lorient", in clear there): the last check
+    now changes the kept texts, so the cheaper re-check fails and the WHOLE dossier is read again. (Another dossier
+    whose values are not in the texts needs no reading: test_round10_fixes.py.)"""
     other = f.parent / "Dossier Ondine"
     other.mkdir()
     (other / "a.txt").write_text("Mme Ondine Valcrest et M. Corentin Faubeau.\n", encoding="utf-8")
-    service.default().add_dossier(other)
+    code2 = service.default().add_dossier(other)["code"]
+    service.default().register(code2, "PERSON", "Lorient")
 
 
 @pytest.mark.parametrize("cause", sorted(CHANGES))

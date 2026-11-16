@@ -52,7 +52,7 @@ FORMAT = 1
 #: The "rules fingerprint" constant. BUMP IT whenever the masked output can change for the same files and the same
 #: vault state: a rule, a word list, a reader, a limit, the order of the reading. The engine version text is part of
 #: the fingerprint too, so a new version never uses a kept set of another one.
-RULES_REVISION = "0.4.4-r1"
+RULES_REVISION = "0.4.4-r2"
 _MANIFEST_RE = re.compile(r"^m-([0-9]{20})-([0-9a-f]{8})\.bin$")
 _ENTRY_RE = re.compile(r"^([0-9a-f]{8})\.([0-9]{1,6})\.bin$")
 _TMP_SUFFIX = ".tmp"
@@ -102,30 +102,39 @@ def rules_fingerprint() -> str:
     })
 
 
-def lexicon_fingerprint(d: Any) -> str:
+def lexicon_fingerprint(d: Any, evidence: bool = True) -> str:
     """(c) Everything in the vault state of dossier ``d`` that can change its masked output: its entities (kind,
     code, key, value, source, fake value), the terms kept in clear, the identifier layouts, the directory, the
-    settings, the title, the folder, the locale and the id. When in doubt, more is included.
+    settings, the title, the folder, the locale, the id, and (review fix) the "evidence" counts (vault table
+    ``evidence``). When in doubt, more is included.
 
-    Not included, on purpose: the "evidence" counts (vault table ``evidence``). Every masking of the dossier's own
-    texts adds to them, also the masking of the file names when the documents are listed, so a dossier would never
-    stay ready after one list. They only come from the dossier's own documents and file names, which (a) covers."""
+    The evidence decides whether a disputed name is masked at all (masker ``_evidence_pass``), and it can change from
+    outside the documents: the Desk, the command line, the browser extension and the hooks mask other texts with the
+    dossier's own masker. Measured: the answers of a kept dossier (list, reads, searches, saved draft, status) do not
+    add to it, so a kept dossier stays ready after them (test).
+
+    ``evidence=False``: for the guard fingerprint of the other dossiers. The last check reads their values only (the
+    canary ``scan`` and the label pass never use evidence), so their evidence cannot change this dossier's output."""
     ents = [[e.kind, e.code, e.norm, e.value, getattr(e, "source", ""), _safe(lambda e=e: d.synthetic(e.code), "")]
             for e in d.all()]
-    return _sha({
+    state = {
         "uuid": d.uuid, "code": d.code, "locale": d.locale, "title": d.title, "folder": str(d.folder),
         "entities": ents,
         "clear": sorted(_safe(d.kept_clear_terms, [])),
         "shapes": [list(x) for x in _safe(d.shapes, [])],
         "directory": _safe(d.directory, {}),
         "settings": _safe(d.settings, {}),
-    })
+    }
+    if evidence:
+        state["evidence"] = _safe(d.evidence, {})
+    return _sha(state)
 
 
 def guard_fingerprint(dossiers: Iterable[Any]) -> str:
     """The values of EVERY dossier that the last check uses (a document text is checked against all of them): the
-    lexicon fingerprint of each dossier that has entities. A new, changed or removed dossier changes it."""
-    return _sha(sorted([d.code, d.uuid, lexicon_fingerprint(d)] for d in dossiers if d.all()))
+    lexicon fingerprint (without evidence) of each dossier that has entities. A new, changed or removed dossier
+    changes it."""
+    return _sha(sorted([d.code, d.uuid, lexicon_fingerprint(d, evidence=False)] for d in dossiers if d.all()))
 
 
 # ------------------------------------------------------------------------------------------ store

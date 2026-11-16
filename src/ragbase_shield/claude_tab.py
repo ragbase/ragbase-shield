@@ -925,6 +925,9 @@ ERRORS = {
     "document_too_long": "Ce document n'a pas été lu : il est trop long pour Shield (sa lecture prend trop de "
                          "temps). Demandez à l'utilisateur de le couper en plusieurs fichiers, puis de redemander la "
                          "protection du dossier (shield_protect_folder).",
+    "document_unavailable": "Ce document n'a pas pu être ouvert pour le moment (par exemple un fichier en ligne qui "
+                            "n'est pas encore sur cet ordinateur). Vérifiez qu'il s'ouvre sur l'ordinateur, puis "
+                            "rappelez shield_protect_folder.",
     "document_locked": "Ce document est ouvert dans un autre programme qui le bloque (par exemple Word ou Excel). "
                        "Fermez-le, puis rappelez shield_protect_folder.",
     "output_path_too_long": "Le chemin du dossier client est trop long pour que Windows y enregistre le fichier. "
@@ -956,7 +959,7 @@ LONG_PATHS = ("{n} document(s) ou sous-dossier(s) n'ont pas pu être lus : leur 
 #: v0.4.4 (F4): the mark of a document that the last reading could not read, in the list of documents.
 NOT_READ_MARKS = {"too_long": " | non lu (trop long)", "too_large": " | non lu (trop long)",
                   "locked": " | (non lu : ouvert dans un autre programme)", "denied": " | (non lu)",
-                  "unreadable": " | (non lu)"}
+                  "unreadable": " | (non lu)", "io": " | (non lu)"}
 
 
 def write_blocked_text(platform: Optional[str] = None) -> str:
@@ -1203,10 +1206,10 @@ def build_server():
                 return reading_answer(state or {"code": code, "state": "pending", "total": None}, head)
             if part_of:
                 head = (f"Ce dossier fait partie de {code}, déjà protégé, qui est prêt ; la conversation travaille sur "
-                        "ce dossier." if r.get("kept") else
+                        "ce dossier." if r.get("kept") or service.reading_kept(code) else
                         f"Ce dossier fait partie de {code}, déjà protégé. Shield a relu {code} en entier ; la "
                         "conversation travaille sur ce dossier.")
-            elif r.get("kept"):  # v0.4.4 (A5): nothing changed since its last reading: simply ready
+            elif r.get("kept") or service.reading_kept(code):  # v0.4.4 (A5): nothing read again: simply ready
                 head = f"Ce dossier était déjà protégé : {code}. Il est prêt."
             else:
                 head = (f"Ce dossier était déjà protégé : {code}. Shield l'a relu." if r.get("existing")
