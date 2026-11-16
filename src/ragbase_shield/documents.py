@@ -1,6 +1,6 @@
 """Read and write documents on this computer (contract: ARCHITECTURE.md section 4.3).
 
-Readers: .pdf (pypdf), .docx (python-docx + raw WordprocessingML), .xlsx (stdlib zipfile + SpreadsheetML, v0.4),
+Readers: .pdf (pdfplumber up to 40 pages, pypdf beyond: v0.4.3), .docx (python-docx + raw WordprocessingML), .xlsx (stdlib zipfile + SpreadsheetML, v0.4),
 .txt/.md, .eml (stdlib email), .html/.htm (stdlib html.parser). Writers: DOCX from simple Markdown, and Markdown.
 
 Privacy rules for this module:
@@ -18,6 +18,7 @@ import logging
 import os
 import re
 import tempfile
+import time
 import unicodedata
 import zipfile
 from datetime import datetime, timezone
@@ -25,7 +26,7 @@ from email import policy
 from email.parser import BytesParser
 from html.parser import HTMLParser
 from pathlib import Path
-from typing import Iterable, Iterator, Optional
+from typing import Callable, Iterable, Iterator, Optional
 from xml.sax.saxutils import escape as _xml_escape
 
 from . import config
@@ -46,6 +47,33 @@ _DOSSIER_CODE_RE = re.compile(r"^DOSSIER_[0-9]{1,6}$")
 
 class DocumentError(Exception):
     """A document could not be read or written. The message is a short code, never a name or content."""
+
+
+#: v0.4.3: the code of a document that was not read in its time budget (:data:`DOCUMENT_TIME_BUDGET`).
+READ_TOO_LONG = "read_too_long"
+#: v0.4.3: time budget of one document, in seconds, checked between the pages of a PDF. Past it the document is not
+#: read (like a scanned PDF): the reading of a dossier always ends.
+DOCUMENT_TIME_BUDGET = 180.0
+#: v0.4.3: a PDF of more pages than this is read with pypdf from the first page. pdfplumber gives the table cells
+#: (the published quality numbers were measured with it) but is far too slow on long files with ruled tables, and its
+#: memory grows with every page. A PDF of this many pages or fewer is read exactly as in 0.4.2.
+PDF_PLUMBER_MAX_PAGES = 40
+#: v0.4.3: the pdfplumber reading of a short PDF falls back to pypdf for the whole file past this time (seconds).
+PDF_PLUMBER_SECONDS = 20.0
+
+#: ``progress(done, total)``: pages read so far and pages of the document (PDF only).
+Progress = Optional[Callable[[int, int], None]]
+
+
+class ReadTooLong(DocumentError):
+    """The document was not read in its time budget (code :data:`READ_TOO_LONG`)."""
+
+    def __init__(self) -> None:
+        super().__init__(READ_TOO_LONG)
+
+
+class _PlumberTooSlow(Exception):
+    """Internal: the pdfplumber reading went past :data:`PDF_PLUMBER_SECONDS`; pypdf reads the file instead."""
 
 
 class ReadResult(str):
@@ -91,10 +119,15 @@ def kind_of(path: os.PathLike | str) -> Optional[str]:
 
 # --------------------------------------------------------------------------------------------- reading
 
-def read_text(path: os.PathLike | str) -> ReadResult:
+def read_text(path: os.PathLike | str, *, progress: Progress = None, budget: Optional[float] = None,
+              clock: Callable[[], float] = time.monotonic) -> ReadResult:
     """Extract the text of a supported document. Raises DocumentError (code only) on failure.
 
     Fail closed: a reader error never returns partial raw content.
+
+    v0.4.3: ``progress(done, total)`` is called between the pages of a PDF. ``budget`` (seconds, default
+    :data:`DOCUMENT_TIME_BUDGET`) is checked between pages: past it, :class:`ReadTooLong` (code ``read_too_long``).
+    ``clock``: the time source (tests).
     """
     p = Path(path)
     kind = kind_of(p)
@@ -102,10 +135,14 @@ def read_text(path: os.PathLike | str) -> ReadResult:
         raise DocumentError("unsupported_format")
     if not p.is_file():
         raise DocumentError("file_not_found")
-    reader = {"pdf": _read_pdf, "docx": _read_docx, "xlsx": _read_xlsx, "txt": _read_plain, "md": _read_plain,
-              "eml": _read_eml, "html": _read_html}[kind]
+    deadline = clock() + (DOCUMENT_TIME_BUDGET if budget is None else float(budget))
     try:
-        text, pages, needs_ocr, warnings = reader(p)
+        if kind == "pdf":
+            text, pages, needs_ocr, warnings = _read_pdf(p, progress=progress, deadline=deadline, clock=clock)
+        else:
+            reader = {"docx": _read_docx, "xlsx": _read_xlsx, "txt": _read_plain, "md": _read_plain,
+                      "eml": _read_eml, "html": _read_html}[kind]
+            text, pages, needs_ocr, warnings = reader(p)
     except DocumentError:
         raise
     except Exception as exc:  # noqa: BLE001 - fail closed with a code, no content in the message
@@ -260,21 +297,53 @@ def pdf_page_text(page, *, line_tolerance: float = PDF_LINE_TOLERANCE, factor: f
     return "\n".join(out)
 
 
-def _read_pdf(path: Path):
+def _pdf_page_count(path: Path) -> Optional[int]:
+    """Number of pages from pypdf (fast: the page tree only), or None when pypdf cannot open the file (the 0.4.2
+    reading then decides, with its own error codes)."""
+    try:
+        from pypdf import PdfReader
+
+        reader = PdfReader(str(path))
+        if reader.is_encrypted and not reader.decrypt(""):
+            return None
+        return len(reader.pages)
+    except Exception:  # noqa: BLE001 - a count is only a choice of reader
+        return None
+
+
+def _read_pdf(path: Path, progress: Progress = None, deadline: Optional[float] = None,
+              clock: Callable[[], float] = time.monotonic):
+    """v0.4.3: pdfplumber (table cells) for a PDF of :data:`PDF_PLUMBER_MAX_PAGES` pages or fewer, exactly as in
+    0.4.2; pypdf from the first page for a longer one, or when pdfplumber takes more than
+    :data:`PDF_PLUMBER_SECONDS`."""
     try:
         import pdfplumber  # noqa: F401 - optional: word boxes give the table cells (v0.3)
     except ImportError:
-        return _read_pdf_pypdf(path)
-    return _read_pdf_plumber(path)
+        return _read_pdf_pypdf(path, progress, deadline, clock)
+    pages = _pdf_page_count(path)
+    if pages is not None and pages > PDF_PLUMBER_MAX_PAGES:
+        return _read_pdf_pypdf(path, progress, deadline, clock)
+    try:
+        return _read_pdf_plumber(path, progress, deadline, clock)
+    except _PlumberTooSlow:
+        log.info("RAGbase Shield: a PDF took more than %ss with pdfplumber; read with pypdf", PDF_PLUMBER_SECONDS)
+        return _read_pdf_pypdf(path, progress, deadline, clock)
 
 
-def _read_pdf_plumber(path: Path):
+def _check_time(deadline: Optional[float], clock: Callable[[], float]) -> None:
+    if deadline is not None and clock() > deadline:
+        raise ReadTooLong()
+
+
+def _read_pdf_plumber(path: Path, progress: Progress = None, deadline: Optional[float] = None,
+                      clock: Callable[[], float] = time.monotonic):
     import pdfplumber
 
     logging.getLogger("pdfminer").setLevel(logging.ERROR)
     warnings: list[str] = []
     texts: list[str] = []
     empty = 0
+    started = clock()
     try:
         pdf = pdfplumber.open(str(path), password="")  # many PDFs only carry an owner password
     except Exception as exc:  # noqa: BLE001
@@ -288,15 +357,26 @@ def _read_pdf_plumber(path: Path):
             raise DocumentError("pdf_encrypted") from None
         raise
     with pdf:
+        total = len(pdf.pages)
+        if progress is not None:
+            progress(0, total)
         for number, page in enumerate(pdf.pages, start=1):
             try:
                 page_text = pdf_page_text(page)
             except Exception:  # noqa: BLE001
                 page_text = ""
                 warnings.append(f"pdf_page_unreadable:{number}")
+            finally:
+                _close_quietly(page)  # v0.4.3: free the page's objects (memory stays flat)
             if not page_text.strip():
                 empty += 1
             texts.append(page_text.strip("\n"))
+            if progress is not None:
+                progress(number, total)
+            if number < total:
+                _check_time(deadline, clock)
+                if clock() - started > PDF_PLUMBER_SECONDS:
+                    raise _PlumberTooSlow()
     pages = len(texts)
     needs_ocr = pages > 0 and empty == pages
     if needs_ocr:
@@ -306,7 +386,32 @@ def _read_pdf_plumber(path: Path):
     return "\n\n".join(t for t in texts if t.strip()), pages, needs_ocr, warnings
 
 
-def _read_pdf_pypdf(path: Path):
+def _close_quietly(page) -> None:
+    close = getattr(page, "close", None)
+    if callable(close):
+        try:
+            close()
+        except Exception:  # noqa: BLE001 - freeing memory never fails a reading
+            pass
+
+
+def _free_pypdf_page(page) -> None:
+    """Drop the decoded content of a pypdf page once its text is read (pypdf keeps it with the file's objects), so
+    the memory of a long reading does not grow with the page count."""
+    try:
+        contents = page.get("/Contents")
+        contents = contents.get_object() if contents is not None else None
+        items = contents if isinstance(contents, list) else [contents]
+        for item in items:
+            obj = item.get_object() if item is not None else None
+            if obj is not None and getattr(obj, "decoded_self", None) is not None:
+                obj.decoded_self = None
+    except Exception:  # noqa: BLE001 - freeing memory never fails a reading
+        pass
+
+
+def _read_pdf_pypdf(path: Path, progress: Progress = None, deadline: Optional[float] = None,
+                    clock: Callable[[], float] = time.monotonic):
     from pypdf import PdfReader
 
     reader = PdfReader(str(path))
@@ -320,15 +425,29 @@ def _read_pdf_pypdf(path: Path):
     warnings: list[str] = []
     texts: list[str] = []
     empty = 0
-    for number, page in enumerate(reader.pages, start=1):
+    total = len(reader.pages)
+    if progress is not None:
+        progress(0, total)
+    for index in range(total):  # one page at a time: no list of page objects is kept
+        number = index + 1
+        page = None
         try:
+            page = reader.pages[index]
             page_text = page.extract_text() or ""
         except Exception:  # noqa: BLE001
             page_text = ""
             warnings.append(f"pdf_page_unreadable:{number}")
+        finally:
+            if page is not None:
+                _free_pypdf_page(page)
+            page = None
         if not page_text.strip():
             empty += 1
         texts.append(page_text.strip("\n"))
+        if progress is not None:
+            progress(number, total)
+        if number < total:
+            _check_time(deadline, clock)
     pages = len(texts)
     needs_ocr = pages > 0 and empty == pages
     if needs_ocr:

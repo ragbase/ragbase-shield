@@ -82,6 +82,10 @@ PICK_BUTTON = "Protéger ce dossier"
 #: limit (seconds).
 PICK_POLL = 0.2
 PICK_CLOSE_WAIT = 10.0
+#: v0.4.3: how long shield_protect_folder waits for the reading of the chosen folder before it answers with the
+#: progress (seconds after the lawyer chose the folder; with the folder checks, the answer comes in 10 s or less).
+#: The reading goes on in the background.
+PROTECT_ANSWER_SECONDS = 8.0
 #: The one sentence on standard error when the plugin command is wrong (same as the start module's).
 START_FAILED = "RAGbase Shield ne peut pas démarrer : réinstallez le plugin."
 
@@ -909,6 +913,8 @@ ERRORS = {
     "document_unreadable": "Ce document ne peut pas être lu (fichier abîmé, vide ou protégé par un mot de passe).",
     "document_too_large": "Ce document est trop long pour Shield. Demandez à l'utilisateur de le couper en "
                           "plusieurs fichiers.",
+    "document_too_long": "Ce document n'a pas été lu : il est trop long pour Shield (sa lecture dépasse trois "
+                         "minutes). Demandez à l'utilisateur de le couper en plusieurs fichiers.",
     "vault_error": "Le coffre de Shield ne peut pas être ouvert sur cet ordinateur. Rien n'a été envoyé. "
                    "Redémarrez l'application Claude ; si cela continue, contactez le support RAGbase.",
     "write_failed": "Le fichier n'a pas pu être enregistré dans le dossier « Shield - sorties ». Vérifiez que le "
@@ -959,7 +965,57 @@ Règles :
 6. Enregistrez le document final, écrit avec les codes, avec shield_save_draft. Shield remet les vrais noms sur
    l'ordinateur, dans le dossier « Shield - sorties » du dossier client. Dites à l'avocat de l'ouvrir sur son
    ordinateur.
+7. Shield lit un grand dossier en arrière-plan. Quand Shield répond que la lecture du dossier continue, dites à
+   l'avocat, en mots simples, combien de documents sont lus, attendez quelques secondes, puis appelez de nouveau
+   shield_status. Ne faites rien d'autre sur ce dossier en attendant.
 """
+
+
+def reading_sentence(state: dict) -> str:
+    """v0.4.3: where the background reading of a dossier is, in plain French (code and numbers only)."""
+    code = state.get("code") or "Ce dossier"
+    st = state.get("state")
+    total = state.get("total")
+    if st == "waiting":
+        return (f"Shield va lire les documents de {code} sur cet ordinateur, juste après ceux d'un autre dossier."
+                if total is None else f"Shield va lire les {total} document(s) de {code} sur cet ordinateur, juste "
+                                      "après ceux d'un autre dossier.")
+    if st == "masking" and total is not None:
+        return (f"Shield a lu les {total} document(s) de {code} et remplace maintenant les noms par des codes, sur cet "
+                f"ordinateur : {min(state.get('masked') or 0, total)} sur {total} terminé(s).")
+    if st == "failed" and state.get("gave_up"):
+        return (f"Shield n'arrive pas à finir la lecture de {code}. Rien n'a été envoyé. Redémarrez l'application "
+                "Claude ; si cela continue, contactez le support RAGbase.")
+    if st == "failed":
+        return f"La lecture de {code} s'est arrêtée avant la fin. Shield la reprend sur cet ordinateur."
+    if total is None:
+        return f"Shield lit les documents de {code} sur cet ordinateur."
+    text = f"Shield lit les documents de {code} sur cet ordinateur : {min(state.get('done') or 0, total)} lu(s) sur {total}"
+    page, pages = state.get("page") or 0, state.get("pages") or 0
+    if pages > 1:
+        text += f" (document en cours : page {max(1, min(page, pages))} sur {pages})"
+    return text + "."
+
+
+def reading_answer(state: dict, head: Optional[str] = None) -> str:
+    """v0.4.3: the answer of every dossier tool while the dossier is being read (no content, no name, no list)."""
+    lines = [head] if head else []
+    lines += [reading_sentence(state),
+              "Aucun document n'est montré avant la fin de la lecture : un nom trouvé dans le dernier document doit "
+              "aussi être caché dans les premiers.",
+              "Les vrais noms restent sur cet ordinateur.",
+              "Dites à l'avocat où en est la lecture, attendez quelques secondes, puis appelez shield_status."]
+    return "\n".join(lines)
+
+
+def summary_line(r: dict) -> str:
+    """Documents found, read, not read (codes and numbers only)."""
+    too_long = r.get("too_long") or 0
+    readable = r["documents"] - r["unreadable"] - too_long
+    return (f"{r['documents']} document(s) trouvé(s), {readable} lu(s)"
+            + (f", {r['unreadable']} illisible(s)" if r["unreadable"] else "")
+            + (f", dont {r['needs_ocr']} scanné(s) sans texte" if r["needs_ocr"] else "")
+            + (f", {too_long} non lu(s) car trop long(s)" if too_long else "") + ".")
 
 
 def _msg(exc: BaseException, scope_code: Optional[str] = None) -> str:
@@ -1007,7 +1063,11 @@ def build_server():
         # Returned, not raised: a raised ToolError reaches Claude with an English prefix ("Error executing tool").
         return CallToolResult(content=[TextContent(type="text", text=text)], is_error=True)
 
-    def fail(exc: BaseException) -> CallToolResult:
+    def fail(exc: BaseException):
+        if isinstance(exc, service.ShieldError) and exc.kind == "dossier_reading":
+            code = getattr(exc, "dossier", None) or ""
+            state = service.reading_state(code) or {"code": code, "state": "pending", "total": None}
+            return reading_answer(state)  # codes, numbers and fixed words: no canary, no wait
         return error_result(_msg(exc, scope.pinned))
 
     def out(text: str, dossier: Optional[str] = None) -> str:
@@ -1024,12 +1084,15 @@ def build_server():
         """Protéger un dossier client avec Shield. Ouvre sur l'ordinateur de l'avocat une fenêtre pour choisir le
         dossier : l'avocat le choisit lui-même. Ne demandez jamais le nom ni l'emplacement du dossier, ils
         contiennent souvent le nom des parties. Répond par le code du dossier (DOSSIER_1) et des nombres. Appelez
-        aussi cet outil pour revenir à un dossier déjà protégé : il garde son code."""
+        aussi cet outil pour revenir à un dossier déjà protégé : il garde son code. Un grand dossier est lu en
+        arrière-plan : si Shield répond que la lecture continue, dites-le à l'avocat, attendez quelques secondes et
+        appelez shield_status."""
         if not lock.acquire(blocking=False):
             return "Une fenêtre de choix est déjà ouverte sur l'ordinateur de l'avocat. Attendez qu'il la ferme."
         try:
             try:
                 chosen = PICKER(PICK_TITLE, PICK_TIMEOUT)
+                chosen_at = time.monotonic()
             except PickCancelled:
                 return PICK_MESSAGES["cancelled"]
             except PickFailed as exc:
@@ -1051,31 +1114,38 @@ def build_server():
                 elif _norm_inside(folder, Path(f)):
                     if parent is None or _norm_inside(Path(f), Path(registered[parent])):
                         parent = c  # the deepest protected folder that holds the chosen one
+            part_of = parent is not None and same is None
             try:
-                if parent is not None and same is None:
-                    r = service.scan_dossier(parent)  # a part of a protected dossier: same codes, no second vault
-                    r["existing"] = True
-                else:
-                    r = service.add_dossier(folder)
-                if service.register_folder_parties(r["code"]):
-                    r.update({k: v for k, v in service.scan_dossier(r["code"]).items() if k != "existing"})
+                # v0.4.3: the reading goes on in the background (documents, title and sub-folder parties); a part of
+                # a protected dossier reads that dossier again (same codes, no second vault)
+                r = service.start_reading(parent) if part_of else service.protect_folder(folder)
             except Exception as exc:  # noqa: BLE001
                 return fail(exc)
             code = r["code"]
             with scope._lock:
                 scope.pinned = code  # the lawyer chose this folder himself in the window
-            readable = r["documents"] - r["unreadable"]
-            if parent is not None and same is None:
+            service.wait_reading(code, PROTECT_ANSWER_SECONDS - (time.monotonic() - chosen_at))
+            state = service.reading_state(code)
+            summary = service.reading_summary(code) if state is None else None
+            if state is not None or summary is None:
+                if part_of:
+                    head = f"Ce dossier fait partie de {code}, déjà protégé ; la conversation travaille sur ce dossier."
+                elif r.get("already_reading"):
+                    head = f"Ce dossier est déjà protégé : {code}. Sa lecture continue."
+                elif r.get("existing"):
+                    head = f"Ce dossier était déjà protégé : {code}. Shield le relit."
+                else:
+                    head = f"Le dossier choisi est maintenant protégé : {code}."
+                return reading_answer(state or {"code": code, "state": "pending", "total": None}, head)
+            if part_of:
                 head = (f"Ce dossier fait partie de {code}, déjà protégé. Shield a relu {code} en entier ; la "
                         "conversation travaille sur ce dossier.")
             else:
                 head = (f"Ce dossier était déjà protégé : {code}. Shield l'a relu." if r.get("existing")
                         else f"Le dossier choisi est maintenant protégé : {code}.")
             lines = [head,
-                     f"{r['documents']} document(s) trouvé(s), {readable} lu(s)"
-                     + (f", {r['unreadable']} illisible(s)" if r["unreadable"] else "")
-                     + (f", dont {r['needs_ocr']} scanné(s) sans texte" if r["needs_ocr"] else "") + ".",
-                     _counts_line(r.get("counts") or {}),
+                     summary_line(summary),
+                     _counts_line(summary.get("counts") or {}),
                      "Les vrais noms restent sur cet ordinateur.",
                      f"Suite : shield_list_documents avec {code}."]
             return out("\n".join(lines), code)
@@ -1098,6 +1168,8 @@ def build_server():
             for r in rows:
                 if r.get("error"):
                     lines.append(f"- {r['code']} : coffre illisible")
+                elif r.get("reading"):
+                    lines.append(f"- {r['code']} : pas encore prêt. " + reading_sentence(r["reading"]))
                 else:
                     lines.append(f"- {r['code']} : {r['documents']} document(s), {r['entities']} élément(s) "
                                  "remplacé(s) par des codes")
@@ -1105,7 +1177,8 @@ def build_server():
                 lines.append("La conversation se limitera au premier dossier ouvert. Pour un autre dossier : "
                              "shield_protect_folder.")
             lines.append("Suite : shield_list_documents avec le code du dossier.")
-            return out("\n".join(lines))
+            # v0.4.3: codes, numbers and fixed words only, so no last canary: the answer never waits for a masking
+            return "\n".join(lines)
         except Exception as exc:  # noqa: BLE001
             return fail(exc)
 
@@ -1137,7 +1210,8 @@ def build_server():
                 name = safe_file_name(d["masked_name"])
                 sub = sub_labels.get(folders.get(d["id"], ""))
                 lines.append(f"{d['id']} | {TYPE_WORDS.get(d['kind'], d['kind'])} | {size} | "
-                             + (f"{sub} / {name}" if sub else name))
+                             + (f"{sub} / {name}" if sub else name)
+                             + (" | non lu (trop long)" if d.get("not_read") == "too_long" else ""))
             if unsupported:
                 lines.append(f"{unsupported} fichier(s) que Shield ne sait pas lire (tableur, image...). Si leur "
                              "contenu compte, demandez à l'utilisateur une copie en PDF, Word ou texte.")
@@ -1228,16 +1302,37 @@ def build_server():
             return fail(exc)
 
     def shield_status() -> str:
-        """Voir l'état de Shield sur cet ordinateur et ses limites."""
+        """Voir l'état de Shield sur cet ordinateur, ses limites et l'avancement de la lecture d'un dossier. Un
+        grand dossier est lu en arrière-plan : rappelez cet outil après quelques secondes tant que la lecture
+        continue."""
         try:
-            s = service.status()
-            lines = [f"RAGbase Shield {s['version']} fonctionne sur cet ordinateur, sans connexion à internet. "
-                     f"{s['dossiers']} dossier(s) protégé(s)." + (f" Cette conversation travaille sur {scope.pinned}."
-                                                                if scope.pinned else ""),
-                     data_place_fr(),
-                     "Limites :"]
+            # v0.4.3: the version and the registry count only (no model check, no masker): a status call stays under
+            # one second while a long document is masked in the background
+            dossiers = len(service.registered_folders())
+            pinned = scope.pinned
+            lines = [f"RAGbase Shield {__version__} fonctionne sur cet ordinateur, sans connexion à internet. "
+                     f"{dossiers} dossier(s) protégé(s)." + (f" Cette conversation travaille sur {pinned}."
+                                                           if pinned else "")]
+            service.resume_readings()  # a reading that a stop left unfinished starts again
+            waiting = False
+            for r in service.readings():
+                if pinned is not None and r["code"] != pinned:
+                    continue
+                if r["state"] == "ready":
+                    sm = r["summary"]
+                    lines.append(f"{r['code']} est prêt : " + summary_line(sm) + " " + _counts_line(sm.get("counts") or {})
+                                 + f" Suite : shield_list_documents avec {r['code']}.")
+                else:
+                    waiting = True
+                    lines.append(reading_sentence(r))
+            if waiting:
+                lines.append("Les vrais noms restent sur cet ordinateur. Dites à l'avocat où en est la lecture, "
+                             "attendez quelques secondes, puis appelez de nouveau shield_status. Ne faites rien "
+                             "d'autre sur ce dossier en attendant.")
+            lines += [data_place_fr(), "Limites :"]
             lines += [f"- {t}" for t in LIMITS_FR]
-            return out("\n".join(lines))
+            # v0.4.3: codes, numbers and fixed words only, so no last canary: the answer never waits for a masking
+            return "\n".join(lines)
         except Exception as exc:  # noqa: BLE001
             return fail(exc)
 
@@ -1317,6 +1412,12 @@ def main(argv: Optional[list[str]] = None) -> int:
     if not logging.getLogger().handlers:
         logging.basicConfig(stream=sys.stderr, level=logging.WARNING, format="%(levelname)s %(name)s: %(message)s")
     lock_settings(test_data)
+    try:  # v0.4.3: a reading that a stop left unfinished starts again (marks on disk; no vault opened here)
+        from . import service
+
+        service.resume_readings()
+    except Exception as exc:  # noqa: BLE001 - the next call for that dossier starts it
+        log.warning("RAGbase Shield (Claude tab): readings not resumed (%s)", type(exc).__name__)
     if test_pick is not None:
         answer = test_pick
         PICKER = lambda title, timeout: answer  # noqa: E731

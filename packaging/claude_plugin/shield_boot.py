@@ -26,7 +26,7 @@ start builds it again. The vault (names and codes) is NOT here: see ``ragbase_sh
 import os
 import sys
 
-VERSION = "0.4.2"
+VERSION = "0.4.3"
 APP_DIR_NAME = "RAGbase Shield"
 ARCHIVE = "pkgs.zip"
 ID_FILE = "pkgs.id"

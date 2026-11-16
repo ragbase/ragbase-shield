@@ -26,6 +26,7 @@ import os
 import re
 import sys
 import threading
+import time
 import traceback
 import unicodedata
 import uuid as uuidlib
@@ -105,6 +106,14 @@ MAX_MASK_CHARS = 5_000_000
 MAX_DOCUMENT_CHARS = 3_000_000
 MAX_TITLE_CHARS = 200
 _CACHE_DOCS = 64
+#: v0.4.3: folder (in the data folder) of the marks "the reading of this dossier is not finished". One small file per
+#: dossier, named by its code, holding its random id only (no name, no path). A dossier with a mark is never readable;
+#: its reading starts again by itself after a stop.
+READING_DIR_NAME = "reading"
+_READING_SUFFIX = ".pending"
+#: v0.4.3: a reading that fails this many times in one process is not started again by itself (the answer then asks
+#: to restart the app), so Claude never waits for ever.
+MAX_READING_FAILURES = 3
 
 #: Honest limits, shown by ``shield_status`` and the Desk (French, then English).
 LIMITS: tuple[tuple[str, str], ...] = (
@@ -195,6 +204,11 @@ def _current_exc() -> BaseException:
     exc = sys.exc_info()[1]
     assert exc is not None
     return exc
+
+
+def _too_long(doc_id: str) -> "ShieldError":
+    return ShieldError(f"{doc_id} n'a pas été lu : sa lecture prend trop de temps (document_too_long).",
+                       "document_too_long")
 
 
 def _dossier_code(value: Any) -> str:
@@ -479,6 +493,36 @@ class _CachedDoc:
         return self._folded_masked
 
 
+class _Stopped(BaseException):
+    """Internal: the service closes; a background reading stops between two pages (its mark stays on disk)."""
+
+
+class _Reading:
+    """v0.4.3: the background reading of one dossier (codes and counts only).
+
+    ``state``: "waiting" (another dossier is read first), "reading" (text of the documents), "masking" (names
+    replaced by codes), "ready", "failed" or "gone" (the dossier was removed)."""
+
+    def __init__(self, code: str, uuid: str):
+        self.code = code
+        self.uuid = uuid
+        self.state = "waiting"
+        self.total: Optional[int] = None  # documents to read
+        self.done = 0                     # documents read
+        self.masked = 0                   # documents whose names are replaced
+        self.page = 0                     # page of the document being read
+        self.pages = 0                    # pages of the document being read (0: not a PDF, or not started)
+        self.summary: Optional[dict] = None
+        self.error: Optional[str] = None
+        self.started = time.monotonic()
+        self.finished = threading.Event()
+        self.thread: Optional[threading.Thread] = None
+
+    def view(self) -> dict:
+        return {"code": self.code, "state": self.state, "total": self.total, "done": self.done,
+                "masked": self.masked, "page": self.page, "pages": self.pages}
+
+
 # ------------------------------------------------------------------------------------------ service
 
 class Service:
@@ -494,16 +538,37 @@ class Service:
         self._label_indexes: dict[str, tuple[Any, dict]] = {}
         self._docs: OrderedDict[tuple[str, str], _CachedDoc] = OrderedDict()
         self._pages: dict[tuple[str, int, int], Optional[int]] = {}
+        # v0.4.3: background readings (plugin). Their own small lock: a status call never waits for a masking.
+        self._reads: dict[str, _Reading] = {}
+        self._reads_lock = threading.RLock()
+        self._job_gate = threading.Lock()  # one reading at a time (one processor core, flat memory)
+        self._stop = threading.Event()
+        #: (dossier, DOC_n) -> (mtime_ns, size, reason): documents not read in their time budget ("too_long")
+        self._not_read: dict[tuple[str, str], tuple[int, int, str]] = {}
+        self._failures: Counter = Counter()  # failed readings per dossier (this process)
+        self._warmed: set[str] = set()  # dossiers whose long PDF files were read once in this process
+        self._marks: Optional[dict[str, str]] = None  # the marks on disk, read once, then kept up to date here
 
     # ---------------------------------------------------------------- plumbing
     @property
     def registry(self) -> Registry:
+        reg = self._registry  # v0.4.3: no lock once open, so a status call never waits for a background masking
+        if reg is not None:
+            return reg
         with self._lock:
             if self._registry is None:
                 self._registry = Registry(self._home)
             return self._registry
 
     def close(self) -> None:
+        # v0.4.3: background readings stop between two pages or two documents; their marks stay on disk, so they
+        # start again at the next start (a half-read dossier is never readable).
+        self._stop.set()
+        with self._reads_lock:
+            jobs = list(self._reads.values())
+        for job in jobs:
+            if job.thread is not None and job.thread is not threading.current_thread():
+                job.thread.join(timeout=30.0)
         with self._lock:
             if self._registry is not None:
                 self._registry.close()
@@ -513,6 +578,13 @@ class Service:
             self._indexes.clear()
             self._label_indexes.clear()
             self._docs.clear()
+            self._not_read.clear()
+        with self._reads_lock:
+            self._reads.clear()
+            self._failures.clear()
+            self._warmed.clear()
+            self._marks = None
+        self._stop.clear()
 
     def _dossier(self, code: Any) -> Dossier:
         return self.registry.get(_dossier_code(code))
@@ -866,15 +938,20 @@ class Service:
             self._pages[key] = pages
         return self._pages[key]
 
-    def _doc(self, d: Dossier, ref: Any, fresh: bool, epoch: Optional[tuple] = None) -> _CachedDoc:
+    def _doc(self, d: Dossier, ref: Any, fresh: bool, epoch: Optional[tuple] = None,
+             raw: Optional[tuple] = None) -> _CachedDoc:
         """Masked document from the cache, or read + masked now. ``fresh`` re-masks when the dossier changed.
 
         The cached text is the masked text after the last canary of every dossier (R1 correction CL-25): the
         offsets of ``read_document`` and the alignment used by ``search`` are those of the text the model reads,
-        so a raw word the canary hid can never be confirmed by a search hit."""
+        so a raw word the canary hid can never be confirmed by a search hit.
+
+        v0.4.3: ``raw`` is ``(mtime_ns, size, ReadResult)`` read before (background reading); a re-mask of an
+        unchanged file uses the text read before instead of reading the file again (same text, same output)."""
         key = (d.code, ref.id)
         st = ref.path.stat()
         cached = self._docs.get(key)
+        raw_text: Optional[documents.ReadResult] = None
         if cached is not None and cached.mtime_ns == st.st_mtime_ns and cached.size == st.st_size:
             if not fresh or cached.version == self._version(d):
                 now = epoch if epoch is not None else self._safe_epoch()
@@ -885,8 +962,14 @@ class Service:
                         cached.version = self._version(d)
                 self._docs.move_to_end(key)
                 return cached
-        raw = documents.read_text(ref.path)
+            raw_text = documents.ReadResult(cached.raw, cached.pages, cached.needs_ocr, cached.warnings)
+        elif raw is not None and raw[0] == st.st_mtime_ns and raw[1] == st.st_size:
+            raw_text = raw[2]
+        if raw_text is None:
+            raw_text = self._read_file(key, ref.path, st)
+        raw = raw_text
         if len(raw.text) > MAX_DOCUMENT_CHARS:
+            self._not_read[key] = (st.st_mtime_ns, st.st_size, "too_long")  # v0.4.3: never read again for nothing
             raise ShieldError(f"{ref.id} est trop volumineux pour être lu (plus de {MAX_DOCUMENT_CHARS:,} caractères) "
                               "(document_too_large).".replace(",", " "), "document_too_large")
         m = self._masker(d)
@@ -912,6 +995,19 @@ class Service:
         while len(self._docs) > _CACHE_DOCS:
             self._docs.popitem(last=False)
         return entry
+
+    def _read_file(self, key: tuple[str, str], path: Path, st: os.stat_result,
+                   progress: documents.Progress = None) -> documents.ReadResult:
+        """Read a document with its time budget (v0.4.3). A document that was not read in its budget is not read
+        again while the file is the same: ShieldError ``document_too_long`` at once."""
+        bad = self._not_read.get(key)
+        if bad is not None and bad[0] == st.st_mtime_ns and bad[1] == st.st_size:
+            raise _too_long(key[1])
+        try:
+            return documents.read_text(path, progress=progress)
+        except documents.ReadTooLong:
+            self._not_read[key] = (st.st_mtime_ns, st.st_size, "too_long")
+            raise _too_long(key[1]) from None
 
     def _guard_doc(self, d: Dossier, entry: _CachedDoc) -> None:
         """Run the last canary on a whole cached document and chain its edits to the masker alignment.
@@ -1119,19 +1215,30 @@ class Service:
     # ================================================================ model-facing API
     @_guarded("list_dossiers")
     def list_dossiers(self, include_private: bool = False) -> list[dict]:
-        """[{code, documents, entities}] (codes only). ``include_private`` adds title and folder (local only)."""
-        with self._lock:
-            out = []
-            for code in self.registry.folders():
-                try:
-                    d = self.registry.get(code)
-                    row: dict[str, Any] = {"code": d.code, "documents": len(d.documents()), "entities": len(d.all())}
-                    if include_private:
-                        row.update(title=d.title, folder=str(d.folder), replacement=self._dossier_replacement(d))
-                except VaultError:
-                    row = {"code": code, "documents": None, "entities": None, "error": "vault_unreadable"}
-                out.append(row)
-            return out
+        """[{code, documents, entities}] (codes only). ``include_private`` adds title and folder (local only).
+
+        v0.4.3: no service lock (the registry and the vaults have their own): it answers during a background
+        reading. ``reading`` is the progress of a dossier whose reading is not finished."""
+        out = []
+        for code in self.registry.folders():
+            try:
+                reading = self.reading_state(code)
+                if reading is not None and not include_private:
+                    # being read: the progress only (no folder walk, no vault query: the answer stays fast while a
+                    # long document is masked in the background)
+                    out.append({"code": code, "documents": reading.get("total"), "entities": None,
+                                "reading": reading})
+                    continue
+                d = self.registry.get(code)
+                row: dict[str, Any] = {"code": d.code, "documents": len(d.documents()), "entities": len(d.all())}
+                if reading is not None:
+                    row["reading"] = reading
+                if include_private:
+                    row.update(title=d.title, folder=str(d.folder), replacement=self._dossier_replacement(d))
+            except VaultError:
+                row = {"code": code, "documents": None, "entities": None, "error": "vault_unreadable"}
+            out.append(row)
+        return out
 
     @_guarded("list_documents")
     def list_documents(self, dossier_code: str) -> list[dict]:
@@ -1139,6 +1246,7 @@ class Service:
 
         Files Shield cannot read (spreadsheets, images...) are listed too, with kind ``"unsupported"`` (R1
         correction CL-28): the model can tell the user a file exists and ask for a readable copy."""
+        self._require_ready(dossier_code)  # v0.4.3: never a half-read dossier
         with self._lock:
             d = self._dossier(dossier_code)
             refs = d.documents(include_unsupported=True)
@@ -1161,9 +1269,11 @@ class Service:
                     cached = self._docs.get((d.code, ref.id))
                     pages = cached.pages if cached is not None and cached.pages is not None else \
                         self._pdf_pages(ref.path, ref.path.stat().st_mtime_ns, ref.size)
+                bad = self._not_read.get((d.code, ref.id))
+                not_read = bad[2] if bad is not None and bad[1] == ref.size else None
                 out.append({"id": ref.id, "masked_name": masked_name,
                             "masked_path": "/".join(labels[a:b - 1] + [masked_name]),
-                            "kind": ref.kind, "size": ref.size, "pages": pages})
+                            "kind": ref.kind, "size": ref.size, "pages": pages, "not_read": not_read})
             d.journal("list_documents", documents=len(out))
             return out
 
@@ -1171,6 +1281,7 @@ class Service:
     def read_document(self, dossier_code: str, doc_id: str, start: int = 0,
                       max_chars: int = DEFAULT_READ_CHARS) -> dict:
         """One page of a masked document: {id, text, start, next, total_chars, needs_ocr, pages, warnings}."""
+        self._require_ready(dossier_code)  # v0.4.3: never a half-read dossier
         with self._lock:
             d = self._dossier(dossier_code)
             doc = _doc_code(doc_id)
@@ -1207,6 +1318,7 @@ class Service:
         """Search the dossier locally. Codes in the query match every masked mention of that entity; other
         words are searched in the real text, case and accent insensitive. Returns masked snippets:
         [{document, snippet, offset}] where ``offset`` is a ``start`` for ``read_document``."""
+        self._require_ready(dossier_code)  # v0.4.3: never a half-read dossier
         with self._lock:
             d = self._dossier(dossier_code)
             q = " ".join(str(query or "").split())
@@ -1237,7 +1349,7 @@ class Service:
                 except documents.DocumentError:
                     continue
                 except ShieldError as exc:
-                    if exc.kind == "document_too_large":
+                    if exc.kind in ("document_too_large", "document_too_long"):
                         continue
                     raise
                 if not entry.masked:
@@ -1333,6 +1445,7 @@ class Service:
         """:meth:`save_draft` that also returns ``placeholders`` (generic marks left in the file, one entry per
         occurrence, "[SOCIETE]") and ``shield_ids`` (DOC_n / DOSSIER_n / OUTPUT_n that got no local name): R1
         corrections CL-31 and CL-36. Codes and generic marks only, never a value or a label."""
+        self._require_ready(dossier_code)  # v0.4.3: never a half-read dossier
         with self._lock:
             d = self._dossier(dossier_code)
             fmt = str(fmt or "docx").strip().lower().lstrip(".")
@@ -1436,24 +1549,25 @@ class Service:
     @_guarded("status")
     def status(self) -> dict:
         """{version, engine_mode, locale, language, ner, dossiers, key_storage, ocr, limits, replacement}. Codes
-        and counts only (the NER block names packages, models and the models directory, never a dossier)."""
-        with self._lock:
-            mode = Masker(MemoryStore(), locale=config.locale(), ner_model=config.ner_model()).mode
-            try:
-                st = _ner.status(config.ner_model())
-                ner_info = {"setting": st["setting"], "model_setting": st["model_setting"], "backend": st["backend"],
-                            "loaded": bool(st["loaded"]), "max_chars": st["max_chars"],
-                            "models": {k: bool(m["cached"]) for k, m in st["models"].items()},
-                            "models_dir": st["models_dir"]}
-            except Exception:  # noqa: BLE001 - status never fails on the optional layer
-                ner_info = {"setting": "auto", "backend": None, "loaded": False, "models": {}}
-            return {"version": __version__, "engine_mode": mode, "locale": config.locale(),
-                    "language": config.language(), "ner": ner_info,
-                    "dossiers": len(self.registry.folders()), "key_storage": self.registry.key_source,
-                    "ocr": False, "network": False,
-                    "replacement": config.replacement(), "replacements": ["codes", "synthetic"],
-                    "own_company_vendor": config.own_company_vendor(),
-                    "limits": [fr for fr, _en in LIMITS], "limits_en": [en for _fr, en in LIMITS]}
+        and counts only (the NER block names packages, models and the models directory, never a dossier).
+
+        v0.4.3: no service lock (it answers while a background reading masks a long document)."""
+        mode = Masker(MemoryStore(), locale=config.locale(), ner_model=config.ner_model()).mode
+        try:
+            st = _ner.status(config.ner_model())
+            ner_info = {"setting": st["setting"], "model_setting": st["model_setting"], "backend": st["backend"],
+                        "loaded": bool(st["loaded"]), "max_chars": st["max_chars"],
+                        "models": {k: bool(m["cached"]) for k, m in st["models"].items()},
+                        "models_dir": st["models_dir"]}
+        except Exception:  # noqa: BLE001 - status never fails on the optional layer
+            ner_info = {"setting": "auto", "backend": None, "loaded": False, "models": {}}
+        return {"version": __version__, "engine_mode": mode, "locale": config.locale(),
+                "language": config.language(), "ner": ner_info,
+                "dossiers": len(self.registry.folders()), "key_storage": self.registry.key_source,
+                "ocr": False, "network": False,
+                "replacement": config.replacement(), "replacements": ["codes", "synthetic"],
+                "own_company_vendor": config.own_company_vendor(),
+                "limits": [fr for fr, _en in LIMITS], "limits_en": [en for _fr, en in LIMITS]}
 
     # ================================================================ hook support
     @_guarded("guard_output")
@@ -1571,32 +1685,52 @@ class Service:
         code for them. Only names with opposing parties ("X c. Y") are read. Local API (plugin). Returns the
         number of new entities."""
         with self._lock:
-            d = self._dossier(dossier_code)
-            seen: set[str] = set()
-            added = 0
-            for ref in d.documents(include_unsupported=True):
-                parent = Path(ref.rel).parent if ref.rel else Path(".")
-                for part in parent.parts:
-                    if part in seen or part in (".", "") or not has_party_separator(part):
+            return self._register_folder_parties(self._dossier(dossier_code))
+
+    def _register_folder_parties(self, d: Dossier) -> int:
+        seen: set[str] = set()
+        added = 0
+        for ref in d.documents(include_unsupported=True):
+            parent = Path(ref.rel).parent if ref.rel else Path(".")
+            for part in parent.parts:
+                if part in seen or part in (".", "") or not has_party_separator(part):
+                    continue
+                seen.add(part)
+                for kind, name in parse_parties(part):
+                    if self._party_known(d, kind, name):
                         continue
-                    seen.add(part)
-                    for kind, name in parse_parties(part):
-                        if self._party_known(d, kind, name):
-                            continue
-                        try:
-                            d.register(kind, name)
-                            added += 1
-                        except ValueError:
-                            continue
-            if added:
-                self._invalidate(d.code)
-                d.journal("register_folder_parties", parties=added)
-            return added
+                    try:
+                        d.register(kind, name)
+                        added += 1
+                    except ValueError:
+                        continue
+        if added:
+            self._invalidate(d.code)
+            d.journal("register_folder_parties", parties=added)
+        return added
+
+    def _register_title_parties(self, d: Dossier) -> int:
+        """The parties named in the dossier title when it names opposing parties ("X c. Y"), as
+        :meth:`add_dossier` does for a folder-name title (plugin: the title is always the folder name)."""
+        added = 0
+        source = d.title if has_party_separator(d.title) else ""
+        for kind, name in parse_parties(source):
+            if self._party_known(d, kind, name):
+                continue
+            try:
+                d.register(kind, name)
+                added += 1
+            except ValueError:
+                continue
+        if added:
+            self._invalidate(d.code)
+        return added
 
     @_guarded("document_folders")
     def document_folders(self, dossier_code: str) -> dict[str, str]:
         """{DOC_n: sub-folder of the document, relative to the dossier ("" at the top)}. REAL names: local use only
         (the plugin turns them into neutral labels)."""
+        self._require_ready(dossier_code)  # v0.4.3: never a half-read dossier
         with self._lock:
             d = self._dossier(dossier_code)
             out: dict[str, str] = {}
@@ -1607,9 +1741,9 @@ class Service:
 
     @_guarded("registered_folders")
     def registered_folders(self) -> dict[str, Path]:
-        """{DOSSIER_n: folder} from the registry. REAL paths: local use only."""
-        with self._lock:
-            return self.registry.folders()
+        """{DOSSIER_n: folder} from the registry. REAL paths: local use only. No service lock (v0.4.3): the
+        registry has its own, so the folder window's answer never waits for a background masking."""
+        return self.registry.folders()
 
     def _party_known(self, d: Dossier, kind: str, name: str) -> bool:
         """True when a title party is already one of the dossier's entities, under ANY kind: "Ateliers Brunelac"
@@ -1668,16 +1802,22 @@ class Service:
             log.warning("RAGbase Shield: %s: directory not built (%s)", d.code, type(exc).__name__)
             return 0
 
-    def _register_pass(self, d: Dossier) -> None:
+    def _register_pass(self, d: Dossier, raws: Optional[dict] = None) -> None:
         """v0.3 (synthetic leak fix, PLAN 5.1): a dossier in synthetic mode registers every value of every readable
         document in codes mode before a single fake is drawn, so the Synthesizer's collision rules see the whole
         dossier (a fake can never equal a real value that a later document holds). Rules-speed; never blocks."""
         m = self._masker(d, "codes")
         for ref in d.documents():
-            try:
-                raw = documents.read_text(ref.path)
-            except (documents.DocumentError, OSError):
-                continue
+            known = (raws or {}).get(ref.id)
+            if isinstance(known, tuple):
+                raw = known[2]
+            elif isinstance(known, str):
+                continue  # not read (too long, unreadable)
+            else:
+                try:
+                    raw = documents.read_text(ref.path)
+                except (documents.DocumentError, OSError):
+                    continue
             if raw.needs_ocr or not raw.text or len(raw.text) > MAX_DOCUMENT_CHARS:
                 continue
             try:
@@ -1686,28 +1826,46 @@ class Service:
                 log.warning("RAGbase Shield: %s %s: registration pass failed (%s)", d.code, ref.id, type(exc).__name__)
 
     def _scan(self, d: Dossier) -> dict:
-        n = unreadable = ocr = 0
         persons = self._build_directory(d)
         if self._dossier_replacement(d) == "synthetic":
             self._register_pass(d)
-        for ref in d.documents():
+        summary = self._mask_all(d, d.documents())
+        summary["directory"] = persons
+        return summary
+
+    def _mask_all(self, d: Dossier, refs: list, raws: Optional[dict] = None, job: Optional[_Reading] = None,
+                  locked: bool = True, count: bool = True) -> dict:
+        """Mask every document of ``refs`` (read before when ``raws`` holds its text). Returns the counts:
+        {documents, unreadable, too_long, needs_ocr}. ``locked=False`` (background reading): the service lock is
+        taken for one document at a time, so the other calls go on between two documents."""
+        n = unreadable = ocr = too_long = 0
+        for ref in refs:
+            if job is not None and self._stop.is_set():
+                raise _Stopped()
             n += 1
-            try:
-                entry = self._doc(d, ref, fresh=True)
-            except documents.DocumentError:
+            raw = (raws or {}).get(ref.id)
+            if raw == documents.READ_TOO_LONG:
+                too_long += 1
+            elif isinstance(raw, str):
                 unreadable += 1
-                continue
-            except OSError:
-                unreadable += 1
-                continue
-            except ShieldError as exc:
-                if exc.kind != "document_too_large":
-                    raise
-                unreadable += 1
-                continue
-            if entry.needs_ocr:
-                ocr += 1
-        return {"documents": n, "unreadable": unreadable, "needs_ocr": ocr, "directory": persons}
+            else:
+                with (contextlib.nullcontext() if locked else self._lock):
+                    try:
+                        entry = self._doc(d, ref, fresh=True, raw=raw)
+                        if entry.needs_ocr:
+                            ocr += 1
+                    except (documents.DocumentError, OSError):
+                        unreadable += 1
+                    except ShieldError as exc:
+                        if exc.kind == "document_too_long":
+                            too_long += 1
+                        elif exc.kind == "document_too_large":
+                            unreadable += 1
+                        else:
+                            raise
+            if job is not None and count:
+                job.masked += 1
+        return {"documents": n, "unreadable": unreadable, "too_long": too_long, "needs_ocr": ocr}
 
     @_guarded("scan_dossier")
     def scan_dossier(self, dossier_code: str) -> dict:
@@ -1719,6 +1877,324 @@ class Service:
             summary.update(code=d.code, entities=len(d.all()), counts=_kind_counts(d))
             return summary
 
+    # ================================================================ background reading (v0.4.3, plugin)
+    def _home_dir(self) -> Path:
+        reg = self._registry
+        if reg is not None:
+            return Path(reg.home)
+        return Path(self._home) if self._home is not None else config.home()
+
+    def _mark_path(self, code: str) -> Path:
+        return self._home_dir() / READING_DIR_NAME / (code + _READING_SUFFIX)
+
+    def _write_mark(self, code: str, uuid: str) -> None:
+        path = self._mark_path(code)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        tmp = path.with_name(path.name + ".tmp")
+        tmp.write_text(uuid, encoding="ascii")
+        os.replace(tmp, path)
+        with self._reads_lock:
+            if self._marks is not None:
+                self._marks[code] = uuid
+
+    def _disk_mark(self, code: str) -> Optional[str]:
+        try:
+            return self._mark_path(code).read_text(encoding="ascii").strip() or None
+        except (OSError, UnicodeDecodeError):
+            return None
+
+    def _mark_table(self) -> dict[str, str]:
+        """The marks, read from disk once per process and then kept in memory (only this process writes them):
+        a progress answer reads no file, so it never waits for the reading thread at a file access."""
+        with self._reads_lock:
+            if self._marks is not None:
+                return self._marks
+        found: dict[str, str] = {}
+        try:
+            entries = list((self._home_dir() / READING_DIR_NAME).iterdir())
+        except OSError:
+            entries = []
+        for path in entries:
+            name = path.name
+            if name.endswith(_READING_SUFFIX) and DOSSIER_RE.match(name[: -len(_READING_SUFFIX)]):
+                code = name[: -len(_READING_SUFFIX)]
+                uuid = self._disk_mark(code)
+                if uuid:
+                    found[code] = uuid
+        with self._reads_lock:
+            if self._marks is None:
+                self._marks = found
+            return self._marks
+
+    def _mark_uuid(self, code: str) -> Optional[str]:
+        table = self._mark_table()
+        with self._reads_lock:
+            return table.get(code)
+
+    def _clear_mark(self, code: str, uuid: Optional[str] = None) -> None:
+        if uuid is not None and self._disk_mark(code) not in (None, uuid):
+            return  # a newer reading of a dossier with the same code
+        try:
+            self._mark_path(code).unlink()
+        except OSError:
+            pass
+        with self._reads_lock:
+            if self._marks is not None:
+                self._marks.pop(code, None)
+
+    def pending_readings(self) -> dict[str, str]:
+        """{DOSSIER_n: dossier id} of every dossier whose reading is not finished (marks on disk). No vault is
+        opened."""
+        table = self._mark_table()
+        with self._reads_lock:
+            return dict(table)
+
+    def reading_state(self, dossier_code: str) -> Optional[dict]:
+        """None when the dossier is ready to read (no reading going on, no mark). Else {code, state, total, done,
+        masked, page, pages}: ``state`` "waiting", "reading", "masking", "failed" or "pending" (a mark on disk and
+        no reading in this process). Codes and counts only; no service lock."""
+        code = str(dossier_code or "").strip().upper()
+        with self._reads_lock:
+            job = self._reads.get(code)
+        if job is not None and not job.finished.is_set() and job.state not in ("ready", "gone"):
+            return job.view()
+        if self._mark_uuid(code) is None:
+            return None
+        if job is not None and job.state == "failed":
+            view = job.view()
+            view["gave_up"] = self._failures[code] >= MAX_READING_FAILURES
+            return view
+        return {"code": code, "state": "pending", "total": None, "done": 0, "masked": 0, "page": 0, "pages": 0}
+
+    def readings(self) -> list[dict]:
+        """Every reading known in this process and every mark on disk: the progress of each dossier, or its
+        counts once ready ({code, state: "ready", summary}). Codes and counts only; no service lock."""
+        with self._reads_lock:
+            jobs = dict(self._reads)
+        out: dict[str, dict] = {}
+        for code, job in jobs.items():
+            if job.state == "ready" and job.summary is not None:
+                out[code] = {"code": code, "state": "ready", "summary": dict(job.summary)}
+            elif job.state != "gone":
+                view = self.reading_state(code)
+                if view is not None:
+                    out[code] = view
+        for code in self.pending_readings():
+            if code not in out:
+                view = self.reading_state(code)
+                if view is not None:
+                    out[code] = view
+        return [out[c] for c in sorted(out, key=lambda c: int(DOSSIER_RE.match(c).group(1)))]
+
+    def reading_summary(self, dossier_code: str) -> Optional[dict]:
+        """The counts of the last finished reading of the dossier in this process, or None."""
+        with self._reads_lock:
+            job = self._reads.get(str(dossier_code or "").strip().upper())
+        if job is None or job.state != "ready" or job.summary is None:
+            return None
+        return dict(job.summary)
+
+    def wait_reading(self, dossier_code: str, timeout: float) -> bool:
+        """Wait up to ``timeout`` seconds for the reading of the dossier. True when no reading goes on."""
+        with self._reads_lock:
+            job = self._reads.get(str(dossier_code or "").strip().upper())
+        if job is None:
+            return True
+        return job.finished.wait(max(0.0, float(timeout)))
+
+    def _require_ready(self, dossier_code: Any) -> None:
+        """Model-facing dossier calls: a dossier whose reading is not finished gives no content, no name and no
+        list (a name found in a late document must also be hidden in the documents read before). A mark with no
+        reading in this process (a stop in the middle) starts the reading again."""
+        code = _dossier_code(dossier_code)
+        state = self.reading_state(code)
+        if state is None:
+            self._warm(code)
+            return
+        if state["state"] in ("pending", "failed"):
+            self.resume_readings(code)
+        exc = ShieldError(f"{code} n'est pas encore prêt : Shield lit ses documents (dossier_reading).",
+                          "dossier_reading")
+        exc.dossier = code  # type: ignore[attr-defined]
+        raise exc
+
+    def resume_readings(self, only: Optional[str] = None) -> list[str]:
+        """Start again the readings that a stop left unfinished (marks on disk, no reading in this process).
+        Returns the codes started. Never opens a vault itself (the reading does, in its own thread)."""
+        started = []
+        for code, uuid in self.pending_readings().items():
+            if only is not None and code != only:
+                continue
+            with self._reads_lock:
+                job = self._reads.get(code)
+                running = job is not None and not job.finished.is_set()
+                gave_up = self._failures[code] >= MAX_READING_FAILURES
+            if not running and not gave_up:
+                self._launch(code, uuid)
+                started.append(code)
+        return started
+
+    @_guarded("protect_folder")
+    def protect_folder(self, folder: os.PathLike | str) -> dict:
+        """Plugin: register the folder (or find its dossier) and read it in the background. Returns at once:
+        {code, existing, already_reading}. The reading is the one of :meth:`add_dossier` (documents, title
+        parties, sub-folder parties); :meth:`reading_state` gives its progress."""
+        # The registry has its own lock (no service lock: a background masking never delays this answer).
+        existed = self.registry.is_registered(folder)
+        d = self.registry.add_dossier(folder)
+        code, uuid = d.code, d.uuid
+        already = self._running(code)
+        self._launch(code, uuid)
+        return {"code": code, "existing": existed, "already_reading": already}
+
+    @_guarded("start_reading")
+    def start_reading(self, dossier_code: str) -> dict:
+        """Plugin: read a registered dossier again in the background (same codes). {code, already_reading}."""
+        d = self._dossier(dossier_code)  # the registry's own lock only
+        code, uuid = d.code, d.uuid
+        already = self._running(code)
+        self._launch(code, uuid)
+        return {"code": code, "existing": True, "already_reading": already}
+
+    def _running(self, code: str) -> bool:
+        with self._reads_lock:
+            job = self._reads.get(code)
+            return job is not None and not job.finished.is_set()
+
+    def _warm(self, code: str) -> None:
+        """First dossier call of this process on a ready dossier: when a long PDF of it is not in the cache yet
+        (after a restart), it is read in the background, with the progress answer, instead of inside one tool call
+        that would wait a minute or more. Once per dossier and process; no mark (the dossier stays ready on disk)."""
+        with self._reads_lock:
+            if code in self._warmed:
+                return
+            self._warmed.add(code)
+        try:
+            d = self.registry.get(code)
+            long_pdf = False
+            for ref in d.documents():
+                if ref.kind != "pdf" or (code, ref.id) in self._docs:
+                    continue
+                st = ref.path.stat()
+                pages = self._pdf_pages(ref.path, st.st_mtime_ns, st.st_size)
+                if pages is not None and pages > documents.PDF_PLUMBER_MAX_PAGES:
+                    long_pdf = True
+                    break
+        except Exception:  # noqa: BLE001 - the call goes on as before and gives its own answer
+            return
+        if not long_pdf:
+            return
+        self._launch(code, d.uuid, mark=False)
+        exc = ShieldError(f"{code} n'est pas encore prêt : Shield relit ses longs documents (dossier_reading).",
+                          "dossier_reading")
+        exc.dossier = code  # type: ignore[attr-defined]
+        raise exc
+
+    def _launch(self, code: str, uuid: str, mark: bool = True) -> _Reading:
+        """Start the reading of a dossier, or return the one going on. The mark is written before the thread
+        starts: from now until the end, the dossier is not readable (``mark=False``: a second reading of a ready
+        dossier, to fill the cache)."""
+        with self._reads_lock:
+            job = self._reads.get(code)
+            if job is not None and not job.finished.is_set():
+                return job
+            self._warmed.add(code)
+            if mark:
+                self._write_mark(code, uuid)
+            job = _Reading(code, uuid)
+            job.thread = threading.Thread(target=self._read_job, args=(job,), name=f"shield-reading-{code}",
+                                          daemon=True)
+            self._reads[code] = job
+            job.thread.start()
+            return job
+
+    def _read_raw(self, code: str, ref: Any, job: _Reading):
+        """Text of one document for a background reading: (mtime_ns, size, ReadResult), or a short code when it
+        cannot be read (``read_too_long``, ``unreadable``). The text of an unchanged cached document is reused."""
+        def progress(done: int, total: int) -> None:
+            job.page, job.pages = done, total
+            if self._stop.is_set():
+                raise _Stopped()
+
+        try:
+            st = ref.path.stat()
+            cached = self._docs.get((code, ref.id))
+            if cached is not None and cached.mtime_ns == st.st_mtime_ns and cached.size == st.st_size:
+                return (st.st_mtime_ns, st.st_size,
+                        documents.ReadResult(cached.raw, cached.pages, cached.needs_ocr, cached.warnings))
+            raw = self._read_file((code, ref.id), ref.path, st, progress=progress)
+            return (st.st_mtime_ns, st.st_size, raw)
+        except ShieldError as exc:
+            return documents.READ_TOO_LONG if exc.kind == "document_too_long" else "unreadable"
+        except (documents.DocumentError, OSError):
+            return "unreadable"
+
+    def _read_job(self, job: _Reading) -> None:
+        """The background reading: (1) the text of every document, page by page, with no service lock; (2) the
+        directory, then the names replaced by codes, one document at a time under the service lock; (3) the parties
+        of the title and of the sub-folders (one more masking pass when they add a name); (4) the mark is removed."""
+        try:
+            with self._job_gate:
+                if self._stop.is_set():
+                    raise _Stopped()
+                job.state = "reading"
+                job.started = time.monotonic()
+                with self._lock:
+                    try:
+                        d = self._dossier(job.code)
+                    except UnknownDossier:
+                        d = None
+                    if d is None or d.uuid != job.uuid:
+                        job.state = "gone"
+                        self._clear_mark(job.code, job.uuid)
+                        return
+                    refs = d.documents()
+                job.total = len(refs)
+                raws: dict[str, Any] = {}
+                for ref in refs:
+                    if self._stop.is_set():
+                        raise _Stopped()
+                    job.page = job.pages = 0
+                    raws[ref.id] = self._read_raw(job.code, ref, job)
+                    job.done += 1
+                job.page = job.pages = 0
+                job.state = "masking"
+                read_seconds = time.monotonic() - job.started
+                with self._lock:
+                    persons = self._build_directory(d)
+                    if self._dossier_replacement(d) == "synthetic":
+                        self._register_pass(d, raws)
+                # Small documents first: they name most people, so the long ones are masked once, with the names
+                # already known, and stay current (a document masked before a new name is masked again on its first
+                # read; the last pass below does it here, not in a tool call).
+                by_size = sorted(refs, key=lambda r: (r.size or 0, r.id))
+                summary = self._mask_all(d, by_size, raws, job, locked=False)
+                with self._lock:
+                    added = self._register_title_parties(d) + self._register_folder_parties(d)
+                # Last pass: only the documents masked before the last new name are masked again (the text read
+                # before is used again); the others come back from the cache at once.
+                summary = self._mask_all(d, by_size, raws, job, locked=False, count=False)
+                with self._lock:
+                    d.journal("scan", documents=summary["documents"], entities=len(d.all()))
+                    summary.update(code=d.code, entities=len(d.all()), counts=_kind_counts(d), directory=persons,
+                                   parties=added)
+                summary["read_seconds"] = round(read_seconds, 1)
+                summary["seconds"] = round(time.monotonic() - job.started, 1)
+                job.summary = summary
+                self._clear_mark(job.code, job.uuid)  # first the mark, then "ready": never ready with a mark left
+                job.state = "ready"
+        except _Stopped:
+            job.state = "failed"
+            job.error = "stopped"
+        except BaseException as exc:  # noqa: BLE001 - the mark stays: the next call starts the reading again
+            with self._reads_lock:
+                self._failures[job.code] += 1
+            job.state = "failed"
+            job.error = getattr(exc, "kind", None) or type(exc).__name__
+            _log_failure("background reading", exc)
+        finally:
+            job.finished.set()
+
     @_guarded("remove_dossier")
     def remove_dossier(self, dossier_code: str) -> None:
         with self._lock:
@@ -1726,6 +2202,7 @@ class Service:
             self.registry.remove(code)
             self._drop_maskers(code)
             self._invalidate(code)
+            self._clear_mark(code)
 
     @_guarded("entities")
     def entities(self, dossier_code: str) -> list[dict]:
@@ -2199,6 +2676,34 @@ def document_folders(dossier_code: str) -> dict[str, str]:
 
 def registered_folders() -> dict[str, Path]:
     return default().registered_folders()
+
+
+def protect_folder(folder: os.PathLike | str) -> dict:
+    return default().protect_folder(folder)
+
+
+def start_reading(dossier_code: str) -> dict:
+    return default().start_reading(dossier_code)
+
+
+def reading_state(dossier_code: str) -> Optional[dict]:
+    return default().reading_state(dossier_code)
+
+
+def readings() -> list[dict]:
+    return default().readings()
+
+
+def reading_summary(dossier_code: str) -> Optional[dict]:
+    return default().reading_summary(dossier_code)
+
+
+def wait_reading(dossier_code: str, timeout: float) -> bool:
+    return default().wait_reading(dossier_code, timeout)
+
+
+def resume_readings() -> list[str]:
+    return default().resume_readings()
 
 
 def remove_dossier(dossier_code: str) -> None:
