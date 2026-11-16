@@ -4,12 +4,12 @@ One installer per platform, no Terminal, no administrator password: a private Py
 into the user's own folder, a login item runs Shield Desk in the background, and a menu bar (macOS) or tray
 (Windows) icon controls it. User guide: `docs/INSTALL.md`, section 0. Contract: `ARCHITECTURE.md`.
 
-## Status of 0.4.1
+## Status of 0.4.4
 
 | Platform | Installer | State |
 |---|---|---|
-| macOS 13 or later, Intel and Apple Silicon | `RAGbase-Shield-<version>.pkg` (universal, the default download); `-x86_64.pkg` and `-arm64.pkg` (half size) | **Built, unsigned.** Built from the tag `v0.4.1` (commit 5dc8e18), with the licence step of section "Release files of 0.4.1". Level-1 test on an Intel Mac: 58 of 58 checks (universal), 56 of 56 (Intel only); the Apple Silicon package passed its static checks only (10 of 10). Not done yet: the manual test with a fresh account, a run on an Apple Silicon Mac, signing. |
-| Windows 10 and 11, x64 | `RAGbase-Shield-<version>-win64.msi` (per user, no administrator) | **Built, unsigned.** Built from the same tag, with the same licence step. Level-1 test on a Windows Server 2025 test machine, two runs (a new install of 0.4.1, and the update from 0.4.0 to 0.4.1): 65 of 65 checks pass in each run; the tray visual check W9 is pending. Not done yet: the tray on a desktop session (W9), a run on a real Windows 10 or 11 PC, an install by an account without administrator rights, signing. |
+| macOS 13 or later, Intel and Apple Silicon | `RAGbase-Shield-<version>.pkg` (universal, the default download); `-x86_64.pkg` and `-arm64.pkg` (half size) | **Built, unsigned.** Built from the tag `v0.4.4`, with the licence step of section "Release files of 0.4.4". Level-1 test on an Intel Mac for the universal and the Intel-only package; static checks for the Apple Silicon package. Not done yet: the manual test with a fresh account, a run on an Apple Silicon Mac, signing. |
+| Windows 10 and 11, x64 | `RAGbase-Shield-<version>-win64.msi` (per user, no administrator) | **Built, unsigned.** Built from the same tag, with the same licence step. Level-1 test on a Windows Server 2025 test machine, two runs (a new install of 0.4.4, and the update from 0.4.1 to 0.4.4); the tray visual check W9 is pending. Not done yet: the tray on a desktop session (W9), a run on a real Windows 10 or 11 PC, an install by an account without administrator rights, signing. |
 
 The version is the one in `pyproject.toml`. The build reads it, so a new version needs only a rebuild.
 
@@ -69,7 +69,7 @@ Windows machine, in `C:\shield_pkg` only (user level, no administrator step).
 
 ```sh
 packaging/windows/build.sh                                       # payload, staged copy, Components.wxs, payload.zip -> build/windows/msi-<version>/
-packaging/windows/build.sh --msi-version 0.4.2 --reuse-payload   # same payload, higher MSI version (for the upgrade test)
+packaging/windows/build.sh --msi-version 0.4.5 --reuse-payload   # same payload, higher MSI version (for the upgrade test)
 ```
 
 Then, on the Windows machine:
@@ -90,8 +90,8 @@ on the PATH, telemetry off), SHA-256 check of the zip, every file checked agains
 `wix build -arch x64`, `wix msi validate`, and the SHA-256 of the `.msi` in its log. No build tool is shipped.
 
 `ProductCode` = uuid5 of the version under `shield_ns`; `UpgradeCode` is fixed in `pins.json` and must never
-change. The Windows Installer compares only the first three fields of `Version`: an upgrade test uses `0.4.2`,
-not `0.4.1.1`.
+change. The Windows Installer compares only the first three fields of `Version`: an upgrade test uses `0.4.5`,
+not `0.4.4.1`.
 
 Every `.msi` handed to anyone must carry a new version: `ProductCode` follows the version, so a package with the
 same version as the installed one runs in maintenance mode (the service restarts, no file is replaced; W7.0 of
@@ -113,7 +113,7 @@ reboot, no prompt, product gone, data kept).
 | `common/prune_runtime.py` | Removes Tcl/Tk, IDLE, tests, headers, `libpython3.12.dylib` (unused: the binary is static), `.dSYM` |
 | `common/build_payload.py` | One payload per target; `merge-macos` makes the universal payload; drops `uv_cache.json`, `direct_url.json` and their `RECORD` lines (reproducible manifests) |
 | `common/licenses.py` | `LICENSES/` tree and table; fails when the licence field of a package is empty or names GPL, LGPL or AGPL. It reads the top-level packages only (not the modules inside a package, not vendored libraries) and keeps one licence file per file name |
-| `common/add_licence_texts.py`, `common/licence_texts/` | Step of the installer build, after `build_payload.py` and before the packing: adds the licence texts that `licenses.py` does not copy, from the upstream texts in `licence_texts/` (URL and SHA-256 in `SOURCES.json`) (section "Release files of 0.4.1"). It stops when a file named like a licence file has a GPL-family licence title in its first 4,000 characters, other than the two known Windows files. This check missed GNU libiconv in lxml (known limit 23) |
+| `common/add_licence_texts.py`, `common/licence_texts/` | Step of the installer build, after `build_payload.py` and before the packing: adds the licence texts that `licenses.py` does not copy, from the upstream texts in `licence_texts/` (URL and SHA-256 in `SOURCES.json`) (section "Release files of 0.4.4"). It stops when a file named like a licence file has a GPL-family licence title in its first 4,000 characters, other than the two known Windows files. This check missed GNU libiconv in lxml (known limit 23) |
 | `common/check_payload.py` | Licences, no build-machine or repo path, no Tcl/Tk, `MANIFEST.json` matches the tree, every `RECORD` line ships, no em dash, no group- or world-writable file, no setuid bit, no link out of the payload, sizes |
 | `common/make_tray_icons.py` | Menu bar template (44 px), `.ico`, `.icns` from `integrations/assets/icon-512.png` |
 | `macos/build.sh` | The whole macOS build (`build_pkg.sh` is the same script under another name) |
@@ -195,7 +195,7 @@ signtool verify /pa /v dist\RAGbase-Shield-<version>-win64.msi
 | 2 | Clean commit | `git status --porcelain -- src pyproject.toml packaging LICENSE NOTICE integrations/assets` prints nothing |
 | 3 | Clean build account | Build from Terminal.app in a clean macOS account: an agent or IDE session adds `com.apple.provenance` attributes (`._` entries in the package; `build.sh` warns) |
 | 4 | Locks | `packaging/common/relock.sh` only when the dependencies changed; commit the locks |
-| 5 | macOS packages | `packaging/macos/build.sh`, the licence step, then the three packages with `--reuse-payload` (section "Release files of 0.4.1"); each prints `check: OK` |
+| 5 | macOS packages | `packaging/macos/build.sh`, the licence step, then the three packages with `--reuse-payload` (section "Release files of 0.4.4"); each prints `check: OK` |
 | 6 | Reproducibility | A second build in another clone; `packaging/macos/compare_pkgs.sh` says "same" for every part |
 | 7 | Level-1 test | `packaging/macos/test_payload.sh dist/RAGbase-Shield-<version>.pkg`: every check PASS |
 | 8 | Level-2 test | `packaging/TEST_PLAN_macos.md` on Intel and on Apple Silicon (no Rosetta) |
@@ -224,11 +224,11 @@ lines.
 | `docs/img/install/win-02-installation.png` | The MSI screens |
 | `docs/img/install/win-03-icone-et-menu.png` | The tray icon and its menu |
 
-## Release files of 0.4.1 (unsigned)
+## Release files of 0.4.4 (unsigned)
 
-The four installers are built from the tag `v0.4.1` (commit 5dc8e18) of this repository, with the build scripts of that
-commit (`install_info.json` says `"version": "0.4.1"` and `"source": "5dc8e18335ca"`, no `+dirty`). Their Shield code is the
-`src/` tree of the tag, byte for byte. The Python runtime and the dependencies are those of 0.4.0 (same
+The four installers are built from the tag `v0.4.4` of this repository, with the build scripts of that commit
+(`install_info.json` says `"version": "0.4.4"` and the commit of the tag, no `+dirty`). Their Shield code is the
+`src/` tree of the tag, byte for byte. The Python runtime and the dependencies are those of 0.4.0 and 0.4.1 (same
 `common/pins.json`, same lock files). One step runs on each single-target payload before the packing:
 `common/add_licence_texts.py` adds the licence texts that `licenses.py` does not copy, then writes `MANIFEST.json`
 again. It changes no other file of the payload. It adds:
@@ -246,7 +246,7 @@ again. It changes no other file of the payload. It adds:
   libedit line goes. The macOS tables keep that sentence, which is false: lxml holds GNU libiconv (LGPL-2.1). The
   section "Licences of what ships" lists every part that the tables of the installers do not name.
 
-To build the same payloads, use a clean checkout of the tag `v0.4.1`, with Python 3.11 or later:
+To build the same payloads, use a clean checkout of the tag `v0.4.4`, with Python 3.11 or later:
 
 ```sh
 packaging/macos/build.sh                  # universal; also builds build/macos/payload-x86_64 and payload-arm64
@@ -260,15 +260,8 @@ python3 -I packaging/common/add_licence_texts.py build/windows/payload .
 packaging/windows/build.sh --reuse-payload  # then build_msi.ps1 on the Windows machine (section "Build")
 ```
 
-The Claude Desktop extension (`ragbase-shield-0.4.1.mcpb`), the wheel and the source archive are built from this
-repository at the tag `v0.4.1`. The `SHA256SUMS` file of the release gives the SHA-256 of all eight files.
-
-| File | Size | SHA-256 |
-|---|---|---|
-| `RAGbase-Shield-0.4.1.pkg` (macOS, universal, the default download) | 85,282,041 bytes | `620e4b92113d8fd4ca4465cb4412f72c2c034e0915243b17782e49c20af45df8` |
-| `RAGbase-Shield-0.4.1-x86_64.pkg` (macOS, Intel only) | 43,383,644 bytes | `21ec800b0f3de906e688027edc06058ccd911003db3ae6d28d0464c96c19624e` |
-| `RAGbase-Shield-0.4.1-arm64.pkg` (macOS, Apple Silicon only) | 41,976,176 bytes | `40e579accf70d668dea0787a9cfa2c0627378872a0c58b88346860fa6ec96d95` |
-| `RAGbase-Shield-0.4.1-win64.msi` (Windows x64, per user) | 40,382,996 bytes | `9e5c45c58e13a7eb8ea52a8a30d92e6da968a4be34a18ec7e7da12b3c547f380` |
+The Claude Desktop extension (`ragbase-shield-0.4.4.mcpb`), the wheel and the source archive are built from this
+repository at the tag `v0.4.4`. The `SHA256SUMS` file of the release gives the SHA-256 of all eight files.
 
 Minimum macOS: 13.0 (pypdfium2 5.x wheels). The `.app` shell uses the `pyvenv.cfg` variant (the
 python-build-standalone `python3.12` is statically linked, so there is no `libpython` lookup).
@@ -278,8 +271,8 @@ python-build-standalone `python3.12` is statically linked, so there is no `libpy
 Each installed app holds the licence texts in its `LICENSES/` folder, with the table
 `LICENSES/THIRD_PARTY_LICENSES.txt`. The table below gives the licence that each package declares. Some packages
 hold parts under other terms. The section "Parts under other terms" lists them. The list comes from a full read of
-every licence file and a check of the native libraries of the four 0.4.0 installers (12 November 2026). The 0.4.1
-installers hold the same runtime and the same dependencies.
+every licence file and a check of the native libraries of the four 0.4.0 installers (12 November 2026). The 0.4.1 and
+0.4.4 installers hold the same runtime and the same dependencies.
 
 | Package | Licence | Package | Licence |
 |---|---|---|---|
