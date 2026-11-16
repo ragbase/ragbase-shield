@@ -682,9 +682,10 @@ def test_a_window_that_did_not_close_blocks_a_second_one(monkeypatch):
 
 
 class FakeUser32:
-    def __init__(self, front=0, front_thread=0, fail_focus=False):
+    def __init__(self, front=0, front_thread=0, fail_focus=False, fail_attach=False):
         self.log: list = []
         self.front, self.front_thread, self.fail_focus = front, front_thread, fail_focus
+        self.fail_attach = fail_attach
 
     def SetWindowPos(self, *a):
         self.log.append(("SetWindowPos",) + a)
@@ -699,7 +700,10 @@ class FakeUser32:
 
     def AttachThreadInput(self, me, other, attach):
         self.log.append(("AttachThreadInput", me, other, attach))
-        return 1
+        return 0 if self.fail_attach else 1
+
+    def keybd_event(self, vk, scan, flags, extra):
+        self.log.append(("keybd_event", vk, scan, flags, extra))
 
     def SetForegroundWindow(self, h):
         self.log.append(("SetForegroundWindow", h))
@@ -737,12 +741,24 @@ def test_focus_shares_input_for_one_call_and_always_detaches():
     with pytest.raises(OSError):
         _win_with(u).bring_front(41)
     assert u.log[0] == ("SetWindowPos", 41, -1, 0, 0, 0, 0, 0x1 | 0x2 | 0x40)  # HWND_TOPMOST, no size/move, shown
-    assert u.log[1:] == [("AttachThreadInput", 50, 60, True), ("SetForegroundWindow", 41),
-                         ("AttachThreadInput", 50, 60, False)]
+    alt = [("keybd_event", 0x12, 0, 0, 0), ("keybd_event", 0x12, 0, 2, 0)]  # Alt pressed, then released
+    assert u.log[1:] == [("AttachThreadInput", 50, 60, True)] + alt + [("SetForegroundWindow", 41),
+                                                                       ("AttachThreadInput", 50, 60, False)]
+    u = FakeUser32(front=900, front_thread=60, fail_attach=True)  # attach refused: Alt still, nothing to detach
+    _win_with(u).bring_front(44)
+    assert u.log[1:] == [("AttachThreadInput", 50, 60, True)] + alt + [("SetForegroundWindow", 44)]
     for front, thread in ((0, 0), (900, 50)):  # nothing in front, or our own thread in front: no attach at all
         u = FakeUser32(front=front, front_thread=thread)
         _win_with(u).bring_front(42)
         assert [e[0] for e in u.log] == ["SetWindowPos", "SetForegroundWindow"]
+
+
+def test_no_alt_key_when_no_other_window_is_in_front():
+    for front, thread in ((0, 0), (900, 0), (900, 50)):  # nothing in front, no thread, or our own thread
+        u = FakeUser32(front=front, front_thread=thread)
+        _win_with(u).bring_front(45)
+        assert not [e for e in u.log if e[0] == "keybd_event"]
+        assert u.log[-1] == ("SetForegroundWindow", 45)
 
 
 def test_owner_is_an_invisible_window_of_shield_and_close_is_wm_close():

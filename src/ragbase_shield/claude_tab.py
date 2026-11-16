@@ -526,6 +526,7 @@ _SWP_NOSIZE, _SWP_NOMOVE, _SWP_SHOWWINDOW = 0x0001, 0x0002, 0x0040
 _WS_POPUP = 0x80000000
 _WS_EX_TOPMOST, _WS_EX_TOOLWINDOW = 0x00000008, 0x00000080
 _SM_CXSCREEN, _SM_CYSCREEN = 0, 1
+_VK_MENU, _KEYEVENTF_KEYUP = 0x12, 0x0002  # the Alt key, key released
 _OWNER_TITLE = "RAGbase Shield"
 
 
@@ -555,6 +556,7 @@ class _Win32:
                                          w.HINSTANCE, w.LPVOID)),
             "DestroyWindow": (w.BOOL, (w.HWND,)),
             "GetSystemMetrics": (i, (i,)),
+            "keybd_event": (None, (w.BYTE, w.BYTE, w.DWORD, ctypes.c_size_t)),  # c_size_t = ULONG_PTR
         }
         for name, (restype, argtypes) in signatures.items():
             fn = getattr(user32, name)
@@ -603,8 +605,16 @@ class _Win32:
         me = self.kernel32.GetCurrentThreadId()
         front = u.GetForegroundWindow()
         other = u.GetWindowThreadProcessId(front, None) if front else 0
-        joined = bool(other) and other != me and bool(u.AttachThreadInput(me, other, True))
+        alien = bool(other) and other != me  # a window of another thread is in front
+        joined = alien and bool(u.AttachThreadInput(me, other, True))
         try:
+            if alien:
+                # Windows gives the focus only to a program that just received input: a short Alt press and
+                # release counts as input (without it, a Notepad in front kept the focus on a Windows desktop).
+                try:
+                    u.keybd_event(_VK_MENU, 0, 0, 0)
+                finally:
+                    u.keybd_event(_VK_MENU, 0, _KEYEVENTF_KEYUP, 0)
             u.SetForegroundWindow(hwnd)
         finally:
             if joined:
