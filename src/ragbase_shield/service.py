@@ -1006,7 +1006,8 @@ class Service:
         """Registered values of ``d`` still present in ``text`` (lenient canary, kept-clear terms ignored).
 
         F0 (0.4.3): the canary reads only the values that may be spread (``engine.types.spreadable``, applied in
-        the masker's lexicon, so a weak value such as "4" is never a dictionary hit), a structured hit counts only
+        the masker's lexicon, so a weak value such as "4", or since 0.4.4 a place of birth such as "Lyon", is never
+        a dictionary hit), a structured hit counts only
         for a value that is not weak, and a hit that touches a Shield code, DOC_n, DOSSIER_n, OUTPUT_n or a
         placeholder ("[IDENT]") is dropped: Shield never masks its own words."""
         if not text or not d.all():
@@ -1021,6 +1022,9 @@ class Service:
             if sp.source == "dictionary":
                 spans.append(sp)
             elif sp.source == "regex":
+                # 0.4.4: a structured hit is a detector find in its own context, not a spread value: a place of
+                # birth comes back here only where the text says it is one ("né le ... à Lyon"), which is L1 of the
+                # birth place fix. The dictionary hits never hold one (``spreadable`` in the masker's lexicon).
                 ent = self._entity_for(d, sp.kind, sp.value)
                 if ent is not None and not is_weak_value(ent.value):
                     spans.append(sp)
