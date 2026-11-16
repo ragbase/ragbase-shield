@@ -13,7 +13,7 @@ from pathlib import Path
 
 import pytest
 
-from ragbase_shield import cli, clipboard, config, service
+from ragbase_shield import __version__, cli, clipboard, config, service
 
 ROOT = Path(__file__).resolve().parents[1]
 TEXT = ("Madame Clémence MORVANDIAU contre la société LAMBRETTI CONSEIL SAS, représentée par "
@@ -82,13 +82,13 @@ def test_parser_has_every_command_of_section_8():
 def test_version(capsys):
     with pytest.raises(SystemExit) as e:
         cli.main(["--version"])
-    assert e.value.code == 0 and "0.4.1" in capsys.readouterr().out
+    assert e.value.code == 0 and __version__ in capsys.readouterr().out
 
 
 def test_python_dash_m_works():
     p = subprocess.run([sys.executable, "-m", "ragbase_shield", "--version"], capture_output=True, text=True,
                        timeout=60)
-    assert p.returncode == 0 and "ragbase-shield 0.4.1" in p.stdout
+    assert p.returncode == 0 and f"ragbase-shield {__version__}" in p.stdout
 
 
 # ---------------------------------------------------------------------------------------------- dossier commands

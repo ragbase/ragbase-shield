@@ -32,6 +32,38 @@ from collections import Counter
 from pathlib import Path
 from typing import Annotated, Callable, Literal, Optional
 
+
+def _system_windows_dir() -> str:  # pragma: no cover - Windows
+    """The Windows folder (C:\\Windows) from the system, never from an environment variable."""
+    try:
+        import ctypes
+
+        buf = ctypes.create_unicode_buffer(260)
+        if ctypes.windll.kernel32.GetSystemWindowsDirectoryW(buf, 260):
+            return buf.value
+    except Exception:  # noqa: BLE001
+        pass
+    return ""
+
+
+def fill_systemroot(environ=None, windows: Optional[bool] = None,
+                    windows_dir: Optional[Callable[[], str]] = None) -> bool:
+    """Windows: put SYSTEMROOT back when the app starts Shield with a small environment. Without it Winsock, so
+    ``import asyncio``, stops with WinError 10106 before the server answers. Runs before anything imports asyncio.
+    Returns True when the variable was set."""
+    environ = os.environ if environ is None else environ
+    windows = (os.name == "nt") if windows is None else windows
+    if not windows or environ.get("SYSTEMROOT"):
+        return False
+    value = (windows_dir or _system_windows_dir)()
+    if not value:
+        return False
+    environ["SYSTEMROOT"] = value
+    return True
+
+
+fill_systemroot()  # at import time, before the MCP framework (asyncio) is imported
+
 APP_DIR_NAME = "RAGbase Shield"
 KEY_SERVICE = "ragbase-shield-plugin"
 KEY_ACCOUNT = "vault-key"

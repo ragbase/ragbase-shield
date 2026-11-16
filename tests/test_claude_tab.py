@@ -460,3 +460,30 @@ def test_sub_folder_of_a_protected_dossier_gives_the_same_code(folder):
     assert "fait partie de DOSSIER_1" in text and clean(text, sub), text
     assert server2._shield_scope.pinned == "DOSSIER_1"
     assert [r["code"] for r in service.list_dossiers()] == ["DOSSIER_1"]
+
+
+# ------------------------------------------------------------------ Windows: SYSTEMROOT before asyncio (round 3)
+
+def test_systemroot_is_filled_on_windows_when_missing():
+    env = {"PATH": r"C:\Windows\System32"}
+    assert claude_tab.fill_systemroot(env, windows=True, windows_dir=lambda: r"C:\Windows") is True
+    assert env["SYSTEMROOT"] == r"C:\Windows"
+
+
+def test_systemroot_is_kept_when_present_or_not_windows():
+    env = {"SYSTEMROOT": r"D:\Win"}
+    assert claude_tab.fill_systemroot(env, windows=True, windows_dir=lambda: r"C:\Windows") is False
+    assert env["SYSTEMROOT"] == r"D:\Win"
+    env = {}
+    assert claude_tab.fill_systemroot(env, windows=False, windows_dir=lambda: "/x") is False and env == {}
+    env = {}  # the system call failed: nothing is invented
+    assert claude_tab.fill_systemroot(env, windows=True, windows_dir=lambda: "") is False and env == {}
+
+
+def test_systemroot_fix_runs_before_asyncio_is_imported():
+    """The fix must run at import time, before the MCP framework imports asyncio (WinError 10106 otherwise)."""
+    src = Path(claude_tab.__file__).read_text(encoding="utf-8")
+    call = src.index("\nfill_systemroot()")
+    head = src[:call]
+    imports = re.findall(r"^(?:import|from) ([\w.]+)", head, re.M)  # top-level imports before the fix
+    assert imports and not any(m.split(".")[0] in ("asyncio", "mcp", "anyio") or m == "." for m in imports)
