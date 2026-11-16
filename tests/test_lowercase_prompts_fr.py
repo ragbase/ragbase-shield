@@ -571,9 +571,7 @@ FIELDS = [
     ("nom : zadou, prénom : mila", "nom : PERSONNE_A, prénom : PERSONNE_B"),
     ("nom : zadou\nprénom : mila\nné le 3 mars 1980", "nom : PERSONNE_A\nprénom : PERSONNE_B\nné le NAISSANCE_1"),
     ("prénoms : mila nadia", "prénoms : PERSONNE_A"),
-    # 0.4.4 (birth place fix, review): a town of the place list typed in lower case after a birth date is the place
-    # of birth (it was in clear before)
-    ("client : kervadec jean, né le 3 mars 1980 à lyon", "client : PERSONNE_A, né le NAISSANCE_1 à LIEU_1"),
+    ("client : kervadec jean, né le 3 mars 1980 à lyon", "client : PERSONNE_A, né le NAISSANCE_1 à lyon"),
     ("client : jean kervadec", "client : PERSONNE_A"),
 ]
 

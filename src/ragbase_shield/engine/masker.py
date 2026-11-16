@@ -38,7 +38,7 @@ from . import ner as nr
 from . import synthetic as syn
 from .normalize import Folded, PhraseMatcher, fold, fold_word, normalize, phrase_tokens, split_windows, tokens
 from .types import (CODE_RE, MAX_DIGITS, MAX_LETTERS, PREFIXES, SHAPE_KINDS, Entity, EntityStore, MaskResult, Span,
-                    is_weak_value, spreadable, spreads)
+                    spreadable, spreads)
 
 __all__ = ["Masker", "entity_norm", "escape_codes", "canonical_codes", "code_like_spans", "ner_available",
            "ner_installed", "prepare_scan", "ScanPrep", "UNMASK_RE"]
@@ -1720,9 +1720,6 @@ class Masker:
             elif protected.overlaps(d.start, d.end) and (d.entity is None or normalize(text[d.start:d.end]) != normalize(d.full_text)) \
                     and not (d.entity is not None and d.kind == "BIRTHDATE"):  # "1er mars 1979": a month is clear text
                 d.dropped = True
-            elif d.source == "dictionary" and place_word_hit(text, d.start, d.end, d.kind, d.vtoks, d.full_text,
-                                                             lambda: protected):
-                d.dropped = True  # 0.4.4 (review): "Fait à Lyon", "Ville : Lyon" of "SAS Lyon Ascenseurs"
             elif lang == "en" and d.kind in ("EMAIL", "URL") and _written_as_words(text[d.start:d.end], d.kind):
                 # v0.4 (T4): the words of a known address or host written as prose ("Hexlo AI" for hexlo.ai,
                 # "Intake Desk, Hexlo Co" for intake.desk@hexlo.co) are not that address: the company rules
@@ -1733,8 +1730,6 @@ class Masker:
         cands.extend(d for d in dict_cands if not d.dropped)
         if lang == "en":
             cands.extend(self._known_org_aliases(text, dict_cands, protected, code_like))  # v0.4 (T3)
-        cands.extend(self._places_after_birthdates(text, cands, code_like, protected))
-        cands.extend(_weak_ids_after_id_word(text, ents, code_like, protected))
         final = self._resolve(cands, text)
         self._learn_shapes(text, raw, final)  # v0.2 (DETECTORS)
         self._tally(text, final)  # v0.3 (S2): what the export shows each surface to be
@@ -2313,24 +2308,6 @@ class Masker:
         # would leave both words in clear (each alone sits inside a capitalised phrase); its stored value gives
         # no token roles (:meth:`_plausible_full_name`)
         return None
-
-    @staticmethod
-    def _places_after_birthdates(text: str, cands: list[_Cand], code_like: det.IntervalSet,
-                                 protected: det.IntervalSet) -> list[_Cand]:
-        """0.4.4 (birth place fix, review): the place written right after ANY birth date of the text ("| 12/03/1950 à
-        Crest |" in a family table, a birth date the dossier already knows): a place of birth, whatever found the
-        date (detector, dictionary). The place is masked there only; it is never spread (``NEVER_SPREAD_KINDS``)."""
-        out: list[_Cand] = []
-        have = {(c.start, c.end) for c in cands if c.kind == "BIRTHPLACE"}
-        for c in cands:
-            if c.kind != "BIRTHDATE" or c.dropped:
-                continue
-            span = det.birthplace_after(text, c.end)
-            if span is None or span in have or code_like.overlaps(*span) or protected.overlaps(*span):
-                continue
-            have.add(span)
-            out.append(_Cand(span[0], span[1], "BIRTHPLACE", "regex", det.PRIORITY["BIRTHPLACE"]))
-        return out
 
     def _known_org_aliases(self, text: str, dict_cands: list[_Cand], protected: det.IntervalSet,
                            code_like: det.IntervalSet) -> list[_Cand]:
@@ -3584,20 +3561,9 @@ class Masker:
                                      split=prep.split)
             cands = [c for c in cands if c.need != "nick"]  # a diminutive is a guess: masked, never a canary hit
             cands.extend(self._handles(text, [(tok, e, None) for tok, e in lex.handle_tokens]))
-            prot: list = []
-
-            def protected() -> det.IntervalSet:
-                # 0.4.4 (review): the courts of the masker's dictionary pass, for the last check too
-                if not prot:  # the folding of the masker (the canary's own folding is a lenient one)
-                    f = fold(text)
-                    prot.append(nm.protected_intervals(text, f, tokens(f.text)))
-                return prot[0]
-
             for c in cands:
                 if (c.start, c.end) in seen:
                     continue
-                if place_word_hit(text, c.start, c.end, c.kind, c.vtoks, c.full_text, protected):
-                    continue  # "cour d'appel de Lyon", "Fait à Lyon": the town, not the name that holds it
                 seen.add((c.start, c.end))
                 out.append(Span(c.start, c.end, c.kind, text[c.start:c.end], "dictionary"))
             for kind, pat in lex.bodies:
@@ -3919,104 +3885,6 @@ def _name_compound(compound: str, known: str) -> bool:
         if f not in afn and word:
             return False
     return True
-
-
-# ---------------------------------------------------------------------------
-# 0.4.4 (birth place fix, review): a town word of a known name in a place context
-# ---------------------------------------------------------------------------
-# A known name may hold a town ("SAS Lyon Ascenseurs", a title party "Métropole de Lyon", a surname "Valence"). The
-# town alone, where the text says it is a place, is the town and not the name: "cour d'appel de Lyon", "Fait à Lyon",
-# "notaire à Crest", "Ville : Lyon", "69007 Lyon", "Lyon, le 4 juin 2025". Before this rule only the dictionary
-# pass of the masker kept the courts (protected intervals); the last check (``scan``) and the other contexts did not.
-
-# a place cue right before the word: a verb or a noun of place and "à" ("fait à", "demeurant à", "notaire à"), a
-# postcode, a place label ("Ville :", "Commune :", "Lieu :")
-_PLACE_CUE_BEFORE_RE = re.compile(
-    r"(?i)(?:(?<![\w'’-])(?:habit\w*|demeur\w*|r[ée]sid\w*|domicili\w*|vit|vivait|vivent|travaill\w*|n[ée]e?s?"
-    r"|situ[ée]e?s?|sise?s?|si[èe]ge|bas[ée]e?s?|install[ée]e?s?|implant[ée]e?s?|mut[ée]e?s?|affect[ée]e?s?|fait"
-    r"|faite|sign[ée]e?|d[ée]livr[ée]e?|[ée]tabli[e]?|notaire|notaires|huissier|huissiers|commissaire\s+de\s+justice"
-    r"|audience|r[ée]union|agence|usine|entrep[ôo]t|bureaux?|succursale|[ée]tablissement)"
-    r"[   ]+(?:[àa]|au|en)"
-    r"|(?<!\d)\d{5}"
-    r"|(?<![\w'’-])(?:ville|commune|lieu|localit[ée]|city|town|place)[   ]*[:|])[   ]*$")
-# a dateline: the town at the start of a line, then ", le 4 juin 2025"
-_DATELINE_AFTER_RE = re.compile(r"(?i)[   ]*,?[   ]+le[   ]+(?:\d|1er|premier)")
-_LINE_HEAD_RE = re.compile(r"(?:^|\n)[ \t  *\-•>|]*$")
-
-
-# 0.4.4 (review of F0): a weak identifier of 3 to 5 digits ("Matricule : 45821") is never searched for alone (a
-# number of a text), but right after an identifier word it is the same identifier: "le salarié n° 45821".
-_WEAK_ID_KINDS = frozenset({"EMPLOYEE_ID", "ID_CODE", "ACCOUNT_NUMBER"})
-_ID_WORD_BEFORE_RE = re.compile(
-    r"(?i)(?:(?<![\w])n[°o]\.?|(?<![\w])num[ée]ro|(?<![\w])matricule|(?<![\w])r[ée]f(?:[ée]rence)?\.?"
-    r"|(?<![\w])identifiant|(?<![\w])badge|(?<![\w])toque|(?<![\w])compte)[ \t\u00a0]*[:#]?[ \t\u00a0]*$")
-# "article n° 1234", "pièce n° 120", "RG n° 255": the number of something else
-_OTHER_NUMBER_BEFORE_RE = re.compile(
-    r"(?i)(?<![\w])(?:articles?|art\.|loi|d[ée]cret|arr[êe]t|ordonnance|pi[èe]ces?|pages?|annexes?|rg|pourvoi|requ[êe]te"
-    r"|factures?|lots?|chambres?|bureaux?|salles?|tableaux?|lignes?|points?|chapitres?|titres?|livres?|alin[ée]as?"
-    r"|cases?|bo[iî]tes?|appartements?|b[âa]timents?|immeubles?|routes?|rue|av(?:enue)?\.?|dossiers?)[ \t\u00a0]+$")
-
-
-def _weak_ids_after_id_word(text: str, ents: list[Entity], code_like: det.IntervalSet,
-                            protected: det.IntervalSet) -> list[_Cand]:
-    out: list[_Cand] = []
-    for e in ents:
-        if e.kind not in _WEAK_ID_KINDS or not is_weak_value(e.value):
-            continue
-        body = re.sub(r"[\W_]+", "", e.value)
-        if not (body.isdigit() and 3 <= len(body) <= 5):
-            continue
-        for m in re.finditer(r"(?<![\w./,-])" + body + r"(?![\w/-]|[.,]\d)", text):
-            before = text[max(0, m.start() - 40):m.start()]
-            idw = _ID_WORD_BEFORE_RE.search(before)
-            if idw is None or _OTHER_NUMBER_BEFORE_RE.search(before[:idw.start()]):
-                continue
-            if code_like.overlaps(m.start(), m.end()) or protected.overlaps(m.start(), m.end()):
-                continue
-            out.append(_Cand(m.start(), m.end(), e.kind, "dictionary", 3, entity=e, full_text=e.value))
-    return out
-
-
-def _sig_tokens(toks: Iterable[str]) -> tuple[str, ...]:
-    return tuple(t for t in toks if t not in nm.PARTICLES and t not in nm.TITLE_WORDS and t not in nm.LEGAL_FORMS)
-
-
-def place_word_hit(text: str, start: int, end: int, kind: str, vtoks: tuple, full_text: str,
-                   protected: Callable[[], det.IntervalSet]) -> bool:
-    """True when the known-name hit ``text[start:end]`` is a town in a place context and must stay in clear.
-
-    Only for a person or a company, and only when the hit is a PART of the known name (its words without particles,
-    titles and legal forms are fewer than the name's), or when every word of the hit is a town of the place list.
-    - In a place context (a court or a public body named by its town, "Fait à", "demeurant à", "notaire à", a
-      postcode, "Ville :", a dateline): the hit stays in clear.
-    - With no context: the hit stays in clear when every word of it is a town of the place list and the name is a
-      company, or a "person" with no first name (a title party such as "Métropole de Lyon"). A surname that is a
-      town ("M. Valence") keeps its code: a title right before it, or no place context, is the person.
-    ``protected`` gives the protected intervals of the text (computed only when needed)."""
-    if kind not in ("PERSON", "ORG") or not vtoks:
-        return False
-    sig = _sig_tokens(vtoks)
-    if not sig:
-        return False
-    full = _sig_tokens(phrase_tokens(full_text)) if full_text else ()
-    places = nm._lc_sets()["places"]
-    all_places = all(t in places for t in sig)
-    partial = len(sig) < len(full)
-    if not partial and not all_places:
-        return False
-    before = text[max(0, start - 60):start]
-    if kind == "PERSON" and _TITLE_BEFORE_RE.search(before):
-        return False  # "M. Valence": the person
-    if protected().overlaps(start, end) or _PLACE_CUE_BEFORE_RE.search(before):
-        return True
-    if (kind == "ORG" or all_places) and _LINE_HEAD_RE.search(before) and _DATELINE_AFTER_RE.match(text, end):
-        return True  # "Lyon, le 4 juin 2025" (a surname at the head of a line keeps its code)
-    if not (partial and all_places):
-        return False
-    if kind == "ORG":
-        return True
-    firsts = nm._lc_sets()["any_first"]
-    return not any(t in firsts for t in full if t not in sig)
 
 
 def _dictionary_word(tok: str) -> bool:
