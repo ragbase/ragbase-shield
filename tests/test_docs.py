@@ -637,3 +637,165 @@ def test_notice_credits_lexicon_sources():
     mentions_insee = any("insee" in p.read_text(encoding="utf-8", errors="ignore").lower()[:4000] for p in files)
     if mentions_insee:
         assert "INSEE" in notice and "Licence Ouverte" in notice
+
+
+# ---- The Claude plugin (Claude tab of the Claude app) and the Claude Code plugin (since 16 November 2026) ----------
+# In the Claude app, Shield is the Claude plugin: one plugin per system, each in its own public repository, with the
+# whole engine inside and no hooks. The plugin of this repository needs uv and has hooks: it is for Claude Code only.
+# Added in the Claude tab, its UserPromptSubmit hook can stop every message when uvx cannot run there.
+
+CLAUDE_PLUGIN_REPOS = ("ragbase/ragbase-shield-mac", "ragbase/ragbase-shield-windows")
+_PLUGIN_STEPS = ("Customize > Plugins > Add > Add marketplace > Add from a repository", "**Sync**", "**Discover**",
+                 '"RAGbase Shield (Mac)"', '"RAGbase Shield (Windows)"')
+
+
+def _install_parts() -> dict[str, str]:
+    fr, en = _read("docs/INSTALL.md").split("## Part 2. English", 1)
+    return {"README.md": _read("README.md"), "README.fr.md": _read("README.fr.md"),
+            "docs/INSTALL.md, French": fr, "docs/INSTALL.md, English": en}
+
+
+@pytest.mark.parametrize("name", sorted(_install_parts()))
+def test_claude_plugin_steps_in_the_install_texts(name):
+    """Both READMEs and both parts of the install guide name the two plugin repositories, link to them, and give the
+    steps of the Claude app: Add from a repository, Sync, then Add on the Discover tab, on the Claude tab."""
+    flat = " ".join(_install_parts()[name].split())
+    for repo in CLAUDE_PLUGIN_REPOS:
+        assert f"`{repo}`" in flat, f"{name}: misses {repo}"
+        assert f"(https://github.com/{repo})" in flat, f"{name}: no link to {repo}"
+    french = name in ("README.fr.md", "docs/INSTALL.md, French")
+    names = ("« RAGbase Shield (Mac) »", "« RAGbase Shield (Windows) »") if french else _PLUGIN_STEPS[3:]
+    for step in _PLUGIN_STEPS[:3] + names + (("onglet **Claude**",) if french else ("**Claude** tab",)):
+        assert step in flat, f"{name}: the plugin steps miss {step!r}"
+    assert "https://shield.ragbase.ai" in flat, f"{name}: Way A (the site button) is not named"
+
+
+def test_claude_plugin_row_comes_first_in_the_install_tables():
+    for rel, first, code_row, warning in (
+            ("README.md", "| Claude app on a Mac or a PC (Claude tab) |", "| Claude Code | Plugin: ",
+             "Not for the Claude tab of the Claude app: it needs uv, and its hooks can stop every message there."),
+            ("README.fr.md", "| Application Claude sur Mac ou sur PC (onglet Claude) |", "| Claude Code | Plugin : ",
+             "Pas pour l'onglet Claude de l'application Claude : il a besoin de uv, et ses hooks peuvent y bloquer "
+             "chaque message.")):
+        section = _read(rel).split("\n## Install", 1)[1].split("\n## ", 1)[0]
+        rows = [ln for ln in section.splitlines() if ln.startswith("| ") and not ln.startswith("|---")]
+        assert rows[1].startswith(first), f"{rel}: the first row of the install table is not the Claude plugin"
+        [row] = [r for r in rows if r.startswith(code_row)]
+        assert warning in row, f"{rel}: the Claude Code row does not send the Claude tab to the Claude plugin"
+
+
+# A bare mention of this repository as a plugin source (not the URLs of its releases, not the two plugin repositories).
+_OLD_PLUGIN_SOURCE = re.compile(r"(?<![\w/.-])ragbase/ragbase-shield(?![\w/-])")
+# Words that only the steps of the Claude app use (Claude Code adds a plugin with /plugin commands).
+_CLAUDE_APP_STEP_WORDS = ("Cowork", "Customize", "Add marketplace", "Add from a repository", "Discover")
+
+
+def _markdown_files() -> list[Path]:
+    skip = {".git", ".bench_data", "node_modules", "out", ".pytest_cache", ".venv", "venv"}
+    return sorted(p for p in ROOT.rglob("*.md") if not skip & set(p.relative_to(ROOT).parts))
+
+
+def _text_units(text: str) -> list[str]:
+    """Paragraphs (blank-line separated) and single table rows, each on one line."""
+    units = []
+    for para in re.split(r"\n\s*\n", text):
+        rows = [ln for ln in para.splitlines() if ln.lstrip().startswith("|")]
+        rest = [ln for ln in para.splitlines() if not ln.lstrip().startswith("|")]
+        units += rows + [" ".join(" ".join(rest).split())]
+    return units
+
+
+def _adds_this_repo_in_the_claude_app(text: str) -> list[str]:
+    return [u for u in _text_units(text)
+            if _OLD_PLUGIN_SOURCE.search(u) and any(w in u for w in _CLAUDE_APP_STEP_WORDS)]
+
+
+def test_the_cowork_check_catches_the_texts_it_replaced():
+    """The sentences of commit a83c83d that sent the Claude app to this repository are caught by the check."""
+    for old in ("| Claude Code and Cowork | Plugin: `/plugin marketplace add ragbase/ragbase-shield`, then "
+                "`/plugin install ragbase-shield@ragbase` | section 3 |",
+                "**Cowork.** Dans l'application Claude : Customize > Plugins > Add > Add marketplace. Saisissez\n"
+                "`ragbase/ragbase-shield` (ou le chemin d'une copie du dépôt), puis installez RAGbase Shield.",
+                "In the Claude app (Cowork): **Customize > Plugins > Add > Add marketplace**, enter "
+                "`ragbase/ragbase-shield`,\nthen add **RAGbase Shield**."):
+        assert _adds_this_repo_in_the_claude_app(old), old
+    for new in ("Type `ragbase/ragbase-shield-mac` (Mac) and click **Sync**. Customize > Plugins > Add > Add marketplace",
+                "uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v1/x.whl Cowork"):
+        assert not _adds_this_repo_in_the_claude_app(new), new
+
+
+@pytest.mark.parametrize("path", _markdown_files(), ids=lambda p: p.relative_to(ROOT).as_posix())
+def test_no_text_adds_this_repository_in_the_claude_app(path):
+    """No document tells the reader to add ragbase/ragbase-shield in the Claude app (Cowork): that is the Claude Code
+    plugin, with hooks that need uv. The Claude app takes ragbase/ragbase-shield-mac or ragbase/ragbase-shield-windows."""
+    bad = _adds_this_repo_in_the_claude_app(path.read_text(encoding="utf-8"))
+    assert not bad, f"{path.relative_to(ROOT)}: {bad[0][:200]!r}"
+
+
+def test_markdown_scan_sees_the_guides():
+    names = {p.relative_to(ROOT).as_posix() for p in _markdown_files()}
+    assert {"README.md", "README.fr.md", "docs/INSTALL.md", "integrations/README.md",
+            "integrations/claude-code/README.md", "integrations/claude-code/plugin/README.md"} <= names
+
+
+@pytest.mark.parametrize("path", _markdown_files(), ids=lambda p: p.relative_to(ROOT).as_posix())
+def test_no_claude_scheme_link(path):
+    """GitHub removes claude:// links from a README: the docs give the steps by hand and the site button instead."""
+    assert "claude://" not in path.read_text(encoding="utf-8"), path.relative_to(ROOT)
+
+
+def _github_anchors(text: str) -> set[str]:
+    """The anchors GitHub gives the headings of a Markdown file (a title used again gets -1, -2...), plus the ids of
+    <a id="..."> tags."""
+    text = re.sub(r"(?ms)^```.*?^```", "", text)
+    seen: dict[str, int] = {}
+    anchors = set(re.findall(r'<a id="([^"]+)"></a>', text))
+    for title in re.findall(r"(?m)^#{1,6} (.+?)\s*$", text):
+        slug = re.sub(r"[^\w\- ]", "", title.lower()).replace(" ", "-")
+        n = seen.get(slug, 0)
+        seen[slug] = n + 1
+        anchors.add(slug if n == 0 else f"{slug}-{n}")
+    return anchors
+
+
+def test_install_guide_anchors_resolve():
+    """Every #anchor link to the install guide (from the guide itself and from both READMEs) names a heading or an
+    <a id> of the guide."""
+    anchors = _github_anchors(_read("docs/INSTALL.md"))
+    links = [("docs/INSTALL.md", a) for a in re.findall(r"\]\(#([^)\s]+)\)", _read("docs/INSTALL.md"))]
+    for rel in ("README.md", "README.fr.md"):
+        links += [(rel, a) for a in re.findall(r"INSTALL\.md#([^)\s]+)\)", _read(rel))]
+    assert len(links) >= 14
+    for rel, anchor in links:
+        assert anchor in anchors, f"{rel}: link to a missing anchor of docs/INSTALL.md: #{anchor}"
+
+
+def test_old_install_anchors_kept():
+    """Section 3 lost "Cowork" from its title. The old anchors stay, just above the new titles, so old links work.
+    The French and English titles are the same text: GitHub names the English one 3-claude-code-plugin-1."""
+    text = _read("docs/INSTALL.md")
+    fr, en = text.split("## Part 2. English", 1)
+    assert '<a id="3-claude-code-et-cowork-plugin"></a>\n\n### 3. Claude Code (plugin)\n' in fr
+    assert '<a id="3-claude-code-and-cowork-plugin"></a>\n\n### 3. Claude Code (plugin)\n' in en
+    anchors = _github_anchors(text)
+    assert {"3-claude-code-plugin", "3-claude-code-plugin-1", "3-claude-code-et-cowork-plugin",
+            "3-claude-code-and-cowork-plugin", "le-plugin-claude-application-claude-mac-et-windows",
+            "the-claude-plugin-claude-app-mac-and-windows"} <= anchors
+    # The Claude plugin comes before section 0 in each part, without a number.
+    for part, title in ((fr, "### Le plugin Claude (application Claude, Mac et Windows)\n"),
+                        (en, "### The Claude plugin (Claude app, Mac and Windows)\n")):
+        assert title in part and part.index(title) < part.index("### 0. ")
+        section = part.split(title, 1)[1].split("\n### ", 1)[0]
+        assert "2 000 fichiers ou 2 Go" in section or "2,000 files or 2 GB" in section, title
+        assert "DOSSIER_1" in section and "Shield - sorties" in section, title
+
+
+def test_claude_code_plugin_json_says_claude_code_only():
+    """The marketplace and the plugin of this repository say they are for Claude Code, and send the Claude app to
+    the Claude plugin."""
+    import json
+    tail = "In the Claude app, use RAGbase Shield (Mac) or RAGbase Shield (Windows) from shield.ragbase.ai."
+    mk = json.loads(_read(".claude-plugin/marketplace.json"))
+    plugin = json.loads(_read("integrations/claude-code/plugin/.claude-plugin/plugin.json"))
+    for desc in (mk["description"], mk["plugins"][0]["description"], plugin["description"]):
+        assert desc.startswith("For Claude Code (developers). ") and desc.endswith(tail), desc
