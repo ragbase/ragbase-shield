@@ -118,6 +118,7 @@ nothing else to install (no uv, no Python, no Terminal, no installer). In the Cl
 the Code tab), open **Customize > Plugins > Add > Add marketplace > Add from a repository**.
 Type `ragbase/ragbase-shield-mac` (Mac) or `ragbase/ragbase-shield-windows` (Windows) and click **Sync**.
 Then, in the **Discover** tab, click **Add** next to "RAGbase Shield (Mac)" or "RAGbase Shield (Windows)".
+Claude then opens a window that says Shield is a program that runs on your computer: click **Continue**.
 Or use the button for your system on [shield.ragbase.ai](https://shield.ragbase.ai).
 Use and limits: [docs/INSTALL.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/INSTALL.md#the-claude-plugin-claude-app-mac-and-windows).
 

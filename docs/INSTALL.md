@@ -49,9 +49,11 @@ pour Claude Code.
    - sous Windows : `ragbase/ragbase-shield-windows`.
 4. Dans l'onglet **Découvrir**, cliquez sur **Ajouter** à droite de « RAGbase Shield (Mac) » ou de
    « RAGbase Shield (Windows) ».
+5. Claude ouvre une fenêtre qui prévient que Shield est un programme qui tourne sur votre ordinateur : cliquez
+   sur **Continuer**.
 
 Si votre Claude est en anglais : **Customize > Plugins > Add > Add marketplace > Add from a repository**, puis
-**Sync**, **Discover** et **Add**.
+**Sync**, **Discover**, **Add** et **Continue**.
 
 Vous pouvez aussi utiliser le bouton de votre système sur [shield.ragbase.ai](https://shield.ragbase.ai).
 
@@ -648,6 +650,7 @@ Claude Code.
    - on a Mac: `ragbase/ragbase-shield-mac`;
    - on Windows: `ragbase/ragbase-shield-windows`.
 4. In the **Discover** tab, click **Add** next to "RAGbase Shield (Mac)" or "RAGbase Shield (Windows)".
+5. Claude opens a window that says Shield is a program that runs on your computer: click **Continue**.
 
 You can also use the button for your system on [shield.ragbase.ai](https://shield.ragbase.ai).
 

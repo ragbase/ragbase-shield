@@ -673,6 +673,9 @@ def test_claude_plugin_steps_in_the_install_texts(name):
         for step in _PLUGIN_STEPS_FR:
             assert step in flat, f"{name}: the French plugin steps miss {step!r}"
         assert flat.index(_PLUGIN_STEPS_FR[0]) < flat.index(_PLUGIN_STEPS[0]), name
+        assert "**Continuer**" in flat, f"{name}: the last click of the add, « Continuer », is not named"
+    # Since 16 November 2026 (seen in the real app): after Add, a window about the local program asks for Continue.
+    assert "**Continue**" in flat, f"{name}: the last click of the add, Continue, is not named"
     assert "https://shield.ragbase.ai" in flat, f"{name}: Way A (the site button) is not named"
 
 

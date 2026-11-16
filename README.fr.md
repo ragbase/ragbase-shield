@@ -118,8 +118,9 @@ l'onglet **Claude** (pas l'onglet Code), ouvrez
 **Personnalisation > Plug-ins > Ajouter > Ajouter une marketplace > Ajouter depuis un dépôt**.
 Écrivez `ragbase/ragbase-shield-mac` (Mac) ou `ragbase/ragbase-shield-windows` (Windows) et cliquez sur **Synchro**.
 Dans l'onglet **Découvrir**, cliquez ensuite sur **Ajouter** à droite de « RAGbase Shield (Mac) » ou de « RAGbase Shield (Windows) ».
+Claude ouvre alors une fenêtre qui prévient que Shield est un programme qui tourne sur votre ordinateur : cliquez sur **Continuer**.
 Si votre Claude est en anglais : **Customize > Plugins > Add > Add marketplace > Add from a repository**, puis
-**Sync**, **Discover** et **Add**.
+**Sync**, **Discover**, **Add** et **Continue**.
 Vous pouvez aussi utiliser le bouton de votre système sur [shield.ragbase.ai](https://shield.ragbase.ai).
 Utilisation et limites : [docs/INSTALL.md](docs/INSTALL.md#le-plugin-claude-application-claude-mac-et-windows).
 
