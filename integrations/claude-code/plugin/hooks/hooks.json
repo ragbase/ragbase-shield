@@ -9,7 +9,7 @@
             "command": "uvx",
             "args": [
               "--from",
-              "${CLAUDE_PLUGIN_ROOT}/vendor/ragbase_shield-0.4.1-py3-none-any.whl",
+              "${CLAUDE_PLUGIN_ROOT}/vendor/ragbase_shield-0.4.4-py3-none-any.whl",
               "ragbase-shield",
               "hook",
               "user-prompt-submit"
@@ -28,7 +28,7 @@
             "command": "uvx",
             "args": [
               "--from",
-              "${CLAUDE_PLUGIN_ROOT}/vendor/ragbase_shield-0.4.1-py3-none-any.whl",
+              "${CLAUDE_PLUGIN_ROOT}/vendor/ragbase_shield-0.4.4-py3-none-any.whl",
               "ragbase-shield",
               "hook",
               "pre-tool-use"
@@ -45,7 +45,7 @@
             "command": "uvx",
             "args": [
               "--from",
-              "${CLAUDE_PLUGIN_ROOT}/vendor/ragbase_shield-0.4.1-py3-none-any.whl",
+              "${CLAUDE_PLUGIN_ROOT}/vendor/ragbase_shield-0.4.4-py3-none-any.whl",
               "ragbase-shield",
               "hook",
               "pre-tool-use"
@@ -63,7 +63,7 @@
             "command": "uvx",
             "args": [
               "--from",
-              "${CLAUDE_PLUGIN_ROOT}/vendor/ragbase_shield-0.4.1-py3-none-any.whl",
+              "${CLAUDE_PLUGIN_ROOT}/vendor/ragbase_shield-0.4.4-py3-none-any.whl",
               "ragbase-shield",
               "hook",
               "post-tool-use"

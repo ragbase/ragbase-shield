@@ -169,10 +169,10 @@ for (const sender of [PAGE, OPTIONS_TAB]) {
 // 10. Status + dossiers from the options page.
 {
   const e = env({ token: 'tok' }, (url) =>
-    url.endsWith('/api/status') ? json({ version: '0.4.1' }) : json([{ code: 'DOSSIER_1', title: 'Synthétique c. Exemple' }]));
+    url.endsWith('/api/status') ? json({ version: '0.4.4' }) : json([{ code: 'DOSSIER_1', title: 'Synthétique c. Exemple' }]));
   const s = await e.send({ type: 'shield:status' }, OPTIONS_TAB);
   assert.equal(s.ok, true);
-  assert.equal(s.status.version, '0.4.1');
+  assert.equal(s.status.version, '0.4.4');
   const d = await e.send({ type: 'shield:dossiers' }, PAGE);
   assert.equal(d.dossiers[0].code, 'DOSSIER_1');
   assert.ok(e.calls.every((c) => c.url.startsWith('http://127.0.0.1:')));

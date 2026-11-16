@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "ragbase-shield",
-  "version": "0.4.1",
+  "version": "0.4.4",
   "description": "Local pseudonymisation for client files. The model reads dossier documents masked (PERSONNE_A, SOCIETE_B, IBAN_1) through a local MCP server; the table of codes and real names stays on your computer.",
   "author": {
     "name": "RAGbase",

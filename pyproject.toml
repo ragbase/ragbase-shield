@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "ragbase-shield"
-version = "0.4.1"
+version = "0.4.4"
 description = "Local, reversible pseudonymisation of client files for Claude, ChatGPT and Copilot. Free and open source."
 readme = "README.md"
 requires-python = ">=3.10"

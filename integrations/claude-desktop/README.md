@@ -34,12 +34,12 @@ your dossier documents **masked** through 6 tools and never sees the real names.
    release, and start Shield Desk:
 
    ```sh
-   uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl
+   uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.4/ragbase_shield-0.4.4-py3-none-any.whl
    ragbase-shield desk
    ```
 
    To start Shield Desk without installing the command:
-   `uvx --from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield desk`.
+   `uvx --from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.4/ragbase_shield-0.4.4-py3-none-any.whl ragbase-shield desk`.
 5. In a chat, ask: "List my RAGbase Shield dossiers, read DOSSIER_1 and draft a summary, then save it."
    The restored file appears in the `Shield - sorties` folder of the dossier.
 

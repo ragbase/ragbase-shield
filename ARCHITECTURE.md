@@ -1,6 +1,6 @@
 # RAGbase Shield: architecture and build contract
 
-Status: technical contract of RAGbase Shield 0.4.1, for developers.
+Status: technical contract of RAGbase Shield 0.4.4, for developers.
 
 ## 1. Product in one paragraph
 
@@ -1254,6 +1254,6 @@ French masks of FR-PII-Bench, Judilibre and MAPA stay byte-identical; rules mode
 
 ### 14.11 Version
 
-- `ragbase_shield.__version__` and `pyproject.toml` read 0.4.1; the four integration manifests follow (a test checks
+- `ragbase_shield.__version__` and `pyproject.toml` read 0.4.4; the four integration manifests follow (a test checks
   them).
 - Public results: `evaluation/laptop/RESULTS_PUBLIC.md`.

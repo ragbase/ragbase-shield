@@ -8,12 +8,12 @@
 The plugin adds three things:
 
 1. **MCP server** ([`plugin/.mcp.json`](plugin/.mcp.json)), the 6 Shield tools:
-   `uvx --from ${CLAUDE_PLUGIN_ROOT}/vendor/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield mcp`.
+   `uvx --from ${CLAUDE_PLUGIN_ROOT}/vendor/ragbase_shield-0.4.4-py3-none-any.whl ragbase-shield mcp`.
 2. **Skill** ([`plugin/skills/ragbase-shield/SKILL.md`](plugin/skills/ragbase-shield/SKILL.md)), French
    and English: list dossiers, read through Shield tools only, never ask for or type real names, work with
    codes, save with `shield_save_draft`, tell the user the restored file is in `Shield - sorties`.
 3. **Hooks** ([`plugin/hooks/hooks.json`](plugin/hooks/hooks.json)). Each hook runs
-   `uvx --from ${CLAUDE_PLUGIN_ROOT}/vendor/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield hook <event>`
+   `uvx --from ${CLAUDE_PLUGIN_ROOT}/vendor/ragbase_shield-0.4.4-py3-none-any.whl ragbase-shield hook <event>`
    in exec form: `command` is `uvx` and every other word is one item of `args`, so no shell runs and a plugin
    path with spaces stays one argument.
 
@@ -42,7 +42,7 @@ In Claude Code:
 Then run `/reload-plugins` or restart Claude Code.
 
 The plugin pins the package as Anthropic's plugin directory requires for `uvx`: it ships the wheel of the GitHub
-release, [`plugin/vendor/ragbase_shield-0.4.1-py3-none-any.whl`](plugin/vendor/) (same SHA-256 as in the
+release, [`plugin/vendor/ragbase_shield-0.4.4-py3-none-any.whl`](plugin/vendor/) (same SHA-256 as in the
 `SHA256SUMS` file of the release), and runs it with `uvx --from`. A version number alone
 (`ragbase-shield==<version>`) is not a pin for the directory.
 At each release: put the wheel of the release into `plugin/vendor/` (remove the old one), change the wheel name in

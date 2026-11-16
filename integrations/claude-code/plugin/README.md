@@ -1,6 +1,6 @@
 # RAGbase Shield (plugin for Claude Code)
 
-Version 0.4.1. Free and open source (Apache-2.0). Publisher: RAGbase, Paris.
+Version 0.4.4. Free and open source (Apache-2.0). Publisher: RAGbase, Paris.
 English version below.
 
 ## Français
@@ -29,12 +29,12 @@ Ce que le plugin ajoute :
 
 Ce que le plugin exécute et envoie :
 
-- Le plugin contient le paquet `ragbase-shield` 0.4.1, dans le fichier
-  `vendor/ragbase_shield-0.4.1-py3-none-any.whl`. C'est le fichier de la version 0.4.1 publiée sur GitHub. Son
+- Le plugin contient le paquet `ragbase-shield` 0.4.4, dans le fichier
+  `vendor/ragbase_shield-0.4.4-py3-none-any.whl`. C'est le fichier de la version 0.4.4 publiée sur GitHub. Son
   SHA-256 est celui du fichier `SHA256SUMS` de cette version :
   `1710644a4e93e3e436f4d46d9d931d98eee208fe6b58d6f82a5f2e455aad54c5`.
 - Le serveur MCP et les quatre hooks lancent ce fichier, et rien d'autre :
-  `uvx --from ${CLAUDE_PLUGIN_ROOT}/vendor/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield mcp`
+  `uvx --from ${CLAUDE_PLUGIN_ROOT}/vendor/ragbase_shield-0.4.4-py3-none-any.whl ragbase-shield mcp`
   (ou `hook user-prompt-submit`, `hook pre-tool-use`, `hook post-tool-use` à la place de `mcp`).
 - Au premier lancement, `uvx` installe ce fichier et télécharge ses dépendances depuis PyPI, une fois.
 - Le serveur MCP et les hooks tournent sur votre ordinateur. Ils n'envoient rien à RAGbase et aucune statistique
@@ -86,10 +86,10 @@ powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | ie
 Si uv est déjà installé sur votre ordinateur, collez quand même cette ligne : elle met uv à jour.
 
 Fermez la fenêtre, puis ouvrez-en une nouvelle. Installez ensuite la commande `ragbase-shield`, depuis le fichier
-de la version 0.4.1 publiée sur GitHub :
+de la version 0.4.4 publiée sur GitHub :
 
 ```sh
-uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl
+uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.4/ragbase_shield-0.4.4-py3-none-any.whl
 ```
 
 Enregistrez un dossier avec Shield Desk (`ragbase-shield desk`) ou avec
@@ -127,12 +127,12 @@ What the plugin adds:
 
 What the plugin runs and sends:
 
-- The plugin holds the `ragbase-shield` 0.4.1 package, in the file
-  `vendor/ragbase_shield-0.4.1-py3-none-any.whl`. It is the wheel of the GitHub release 0.4.1. Its SHA-256 is the
+- The plugin holds the `ragbase-shield` 0.4.4 package, in the file
+  `vendor/ragbase_shield-0.4.4-py3-none-any.whl`. It is the wheel of the GitHub release 0.4.4. Its SHA-256 is the
   one in the `SHA256SUMS` file of that release:
   `1710644a4e93e3e436f4d46d9d931d98eee208fe6b58d6f82a5f2e455aad54c5`.
 - The MCP server and the four hooks run this file and nothing else:
-  `uvx --from ${CLAUDE_PLUGIN_ROOT}/vendor/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield mcp`
+  `uvx --from ${CLAUDE_PLUGIN_ROOT}/vendor/ragbase_shield-0.4.4-py3-none-any.whl ragbase-shield mcp`
   (or `hook user-prompt-submit`, `hook pre-tool-use`, `hook post-tool-use` in place of `mcp`).
 - At the first start, `uvx` installs this file and downloads its dependencies from PyPI, once.
 - The MCP server and the hooks run on your computer. They send nothing to RAGbase and no usage statistics. The code
@@ -181,11 +181,11 @@ powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | ie
 
 If uv is already on your computer, paste this line anyway: it updates uv.
 
-Close the window and open a new one. Then install the `ragbase-shield` command, from the file of the 0.4.1 release
+Close the window and open a new one. Then install the `ragbase-shield` command, from the file of the 0.4.4 release
 on GitHub:
 
 ```sh
-uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl
+uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.4/ragbase_shield-0.4.4-py3-none-any.whl
 ```
 
 Register a folder with Shield Desk (`ragbase-shield desk`) or with

@@ -59,12 +59,12 @@ Not covered: text you **type** goes out as typed. A file pasted or dropped on th
    release, and start Shield Desk:
 
    ```sh
-   uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl
+   uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.4/ragbase_shield-0.4.4-py3-none-any.whl
    ragbase-shield desk
    ```
 
    To start Shield Desk without installing the command:
-   `uvx --from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield desk`.
+   `uvx --from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.4/ragbase_shield-0.4.4-py3-none-any.whl ragbase-shield desk`.
    Copy the token that Shield Desk shows (it is stored in the `desk_token` file of the Shield data folder).
 2. Chrome: open `chrome://extensions`. Edge: open `edge://extensions`.
 3. Turn on **Developer mode**, click **Load unpacked**, choose this `browser-extension` folder.

@@ -1,6 +1,6 @@
 # Modèle de confidentialité / Privacy model
 
-RAGbase Shield 0.4.1. Partie 1 en français, pour les avocats et le DPO.
+RAGbase Shield 0.4.4. Partie 1 en français, pour les avocats et le DPO.
 Part 2 in English, for developers and IT.
 
 ---

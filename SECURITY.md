@@ -78,6 +78,6 @@ Full model: [docs/PRIVACY_MODEL.md](docs/PRIVACY_MODEL.md). Contract: [ARCHITECT
 - Keep Shield up to date: run the newer `.pkg` or `.msi`. With uv, first paste the uv line for your computer (Mac
   or Windows) from the [README](README.md#install), section Install. If uv is already on your computer, paste this
   line anyway: it updates uv. Then run
-  `uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl`.
+  `uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.4/ragbase_shield-0.4.4-py3-none-any.whl`.
 - Do not share `desk_token`, vault files or exports. Send an export passphrase through a separate channel.
 - Run `ragbase-shield verify` after each update and keep the CLEAN result with your AI usage records.

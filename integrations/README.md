@@ -4,7 +4,7 @@ Every app integration in this folder runs the **same local stdio MCP server**:
 
 ```text
 command: uvx
-args:    ["--from", "https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl", "ragbase-shield", "mcp"]
+args:    ["--from", "https://github.com/ragbase/ragbase-shield/releases/download/v0.4.4/ragbase_shield-0.4.4-py3-none-any.whl", "ragbase-shield", "mcp"]
 ```
 
 `uvx` comes with [uv](https://docs.astral.sh/uv/getting-started/installation/). On first use it downloads this

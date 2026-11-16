@@ -49,7 +49,7 @@
 
   "statusOk": {
     "message": "Connecté à Shield Desk (version $VERSION$)",
-    "placeholders": { "version": { "content": "$1", "example": "0.4.1" } }
+    "placeholders": { "version": { "content": "$1", "example": "0.4.4" } }
   },
   "statusDown": { "message": "Shield Desk n'est pas lancé. Lancez « uvx ragbase-shield desk »." },
   "statusTimeout": { "message": "Shield Desk ne répond pas." },

@@ -43,7 +43,7 @@ configuration; ask your admin if the server does not appear.
    Shield Desk (`ragbase-shield desk`) or with `ragbase-shield add <folder>`:
 
    ```sh
-   uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl
+   uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.4/ragbase_shield-0.4.4-py3-none-any.whl
    ```
 
 ## Add the server: pick one way
@@ -65,7 +65,7 @@ The first line shows the change. The second line writes the `[mcp_servers.ragbas
 3. Name: `ragbase-shield`. Type: **STDIO**. Command: `uvx`. Arguments: the block below.
 
    ```text
-   --from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield mcp
+   --from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.4/ragbase_shield-0.4.4-py3-none-any.whl ragbase-shield mcp
    ```
 
 4. Save, then click **Restart**.
@@ -78,7 +78,7 @@ Copy the table from [`../codex/config.toml.example`](../codex/config.toml.exampl
 ```toml
 [mcp_servers.ragbase-shield]
 command = "uvx"
-args = ["--from", "https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl", "ragbase-shield", "mcp"]
+args = ["--from", "https://github.com/ragbase/ragbase-shield/releases/download/v0.4.4/ragbase_shield-0.4.4-py3-none-any.whl", "ragbase-shield", "mcp"]
 startup_timeout_sec = 60
 tool_timeout_sec = 120
 default_tools_approval_mode = "writes"
@@ -90,7 +90,7 @@ default_tools_approval_mode = "writes"
 Codex CLI alternative:
 
 ```sh
-codex mcp add ragbase-shield -- uvx --from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield mcp
+codex mcp add ragbase-shield -- uvx --from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.4/ragbase_shield-0.4.4-py3-none-any.whl ragbase-shield mcp
 ```
 
 ## Check and use

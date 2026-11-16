@@ -2,7 +2,7 @@
 # the Codex CLI and the Codex IDE extension. They all read ~/.codex/config.toml.
 #
 # Option A: install the command once, then let it write the table (its uvx entry runs the installed command):
-#             uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl
+#             uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.4/ragbase_shield-0.4.4-py3-none-any.whl
 #             ragbase-shield install codex      (or: ragbase-shield install chatgpt)
 # Option B: copy the table below into ~/.codex/config.toml (Windows: %USERPROFILE%\.codex\config.toml),
 #           then restart the ChatGPT desktop app or the Codex CLI. It runs the wheel of the release.
@@ -11,7 +11,7 @@
 
 [mcp_servers.ragbase-shield]
 command = "uvx"
-args = ["--from", "https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl", "ragbase-shield", "mcp"]
+args = ["--from", "https://github.com/ragbase/ragbase-shield/releases/download/v0.4.4/ragbase_shield-0.4.4-py3-none-any.whl", "ragbase-shield", "mcp"]
 startup_timeout_sec = 60
 tool_timeout_sec = 120
 # Read-only Shield tools run without a prompt; shield_save_draft (writes a file) asks first.

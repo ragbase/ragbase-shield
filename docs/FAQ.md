@@ -191,7 +191,7 @@ port (default 7878).
 
 No. uv prints it on macOS the first time it downloads a managed Python. Shield works. Shield needs Python 3.10 or
 later, and uv picks one for you. To pin a version:
-`uvx --python 3.12 --from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield desk`.
+`uvx --python 3.12 --from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.4/ragbase_shield-0.4.4-py3-none-any.whl ragbase-shield desk`.
 
 ### Why are some commands refused in Claude Code or Codex?
 
