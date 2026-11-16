@@ -53,7 +53,7 @@ def fake_packages(root: Path, n: int = 120, big: int = 0) -> dict[str, bytes]:
 
 @pytest.fixture
 def engine(tmp_path):
-    """A plugin engine folder: pkgs.zip + pkgs.id built by the real build helper."""
+    """A plugin engine folder: pkgs.bin + pkgs.id built by the real build helper."""
     pk = tmp_path / "packages"
     files = fake_packages(pk)
     eng = tmp_path / "plugin" / "engine"
@@ -85,7 +85,7 @@ def test_good_member_names():
 
 
 def test_bad_member_name_stops_before_any_write(tmp_path):
-    archive = tmp_path / "pkgs.zip"
+    archive = tmp_path / "pkgs.bin"
     with zipfile.ZipFile(archive, "w") as z:
         z.writestr("good/first.py", "X = 1\n")
         z.writestr("../evil.txt", "no\n")
@@ -103,7 +103,7 @@ def test_id_file_and_cache_folder(engine, tmp_path, monkeypatch):
     ident = (eng / "pkgs.id").read_text().strip()
     import hashlib
 
-    assert ident == hashlib.sha256((eng / "pkgs.zip").read_bytes()).hexdigest()[:12]
+    assert ident == hashlib.sha256((eng / "pkgs.bin").read_bytes()).hexdigest()[:12]
     monkeypatch.setattr(boot, "local_app_data", lambda: str(tmp_path / "local"))
     assert boot.cache_dir(str(eng)) == str(tmp_path / "local" / "RAGbase Shield" / "engine" / f"{boot.VERSION}-{ident}")
     (eng / "pkgs.id").write_text("not-an-id\n")
@@ -118,8 +118,8 @@ def test_same_files_give_the_same_archive(tmp_path):
     a.mkdir()
     b.mkdir()
     assert make_zip.build(pk, a)[1] == make_zip.build(pk, b)[1]
-    assert (a / "pkgs.zip").read_bytes() == (b / "pkgs.zip").read_bytes()
-    assert all(i.compress_type == zipfile.ZIP_DEFLATED for i in zipfile.ZipFile(a / "pkgs.zip").infolist())
+    assert (a / "pkgs.bin").read_bytes() == (b / "pkgs.bin").read_bytes()
+    assert all(i.compress_type == zipfile.ZIP_DEFLATED for i in zipfile.ZipFile(a / "pkgs.bin").infolist())
 
 
 def test_version_is_the_engine_version():
@@ -145,15 +145,15 @@ def test_local_app_data_never_comes_from_the_environment(monkeypatch, tmp_path):
 def test_unpack_once_then_the_mark_means_the_archive_is_not_read(engine, tmp_path, monkeypatch):
     eng, files = engine
     dest = tmp_path / "cache"
-    n = boot.unpack(str(eng / "pkgs.zip"), str(dest))
+    n = boot.unpack(str(eng / "pkgs.bin"), str(dest))
     assert n == len(files) and same_tree(dest, files) and boot.is_complete(str(dest)) and not leftovers(dest)
     # the mark is there: the archive is never opened again, even when it is gone or broken
-    (eng / "pkgs.zip").write_bytes(b"broken")
+    (eng / "pkgs.bin").write_bytes(b"broken")
     opened = []
     monkeypatch.setattr(zipfile, "ZipFile", lambda *a, **k: opened.append(a) or (_ for _ in ()).throw(OSError()))
-    assert boot.unpack(str(eng / "pkgs.zip"), str(dest)) == 0
-    (eng / "pkgs.zip").unlink()
-    assert boot.unpack(str(eng / "pkgs.zip"), str(dest)) == 0
+    assert boot.unpack(str(eng / "pkgs.bin"), str(dest)) == 0
+    (eng / "pkgs.bin").unlink()
+    assert boot.unpack(str(eng / "pkgs.bin"), str(dest)) == 0
     assert opened == []
 
 
@@ -165,7 +165,7 @@ def test_complete_files_are_kept_and_wrong_sizes_are_written_again(engine, tmp_p
     (dest / first).write_bytes(b"x" * len(files[first]))  # right size: taken as complete
     (dest / second).parent.mkdir(parents=True, exist_ok=True)
     (dest / second).write_bytes(b"short")  # wrong size: written again
-    n = boot.unpack(str(eng / "pkgs.zip"), str(dest))
+    n = boot.unpack(str(eng / "pkgs.bin"), str(dest))
     assert n == len(files) - 1
     assert (dest / first).read_bytes() == b"x" * len(files[first])
     assert (dest / second).read_bytes() == files[second]
@@ -195,12 +195,12 @@ def test_kill_in_the_middle_then_the_next_start_goes_on(tmp_path):
     eng = tmp_path / "engine"
     eng.mkdir()
     make_zip.build(pk, eng)
-    names = [i.filename for i in zipfile.ZipFile(eng / "pkgs.zip").infolist()]
+    names = [i.filename for i in zipfile.ZipFile(eng / "pkgs.bin").infolist()]
     kill_at = names.index("pkg_big/_native.bin") + 1  # die in the middle of the big file
     script = tmp_path / "kill.py"
     script.write_text(KILL_SCRIPT)
     dest = tmp_path / "cache"
-    r = subprocess.run([sys.executable, "-I", str(script), str(BOOT_SRC), str(eng / "pkgs.zip"), str(dest),
+    r = subprocess.run([sys.executable, "-I", str(script), str(BOOT_SRC), str(eng / "pkgs.bin"), str(dest),
                         str(kill_at)], capture_output=True, timeout=120)
     assert r.returncode == 9, r.stderr
     assert not boot.is_complete(str(dest))
@@ -208,7 +208,7 @@ def test_kill_in_the_middle_then_the_next_start_goes_on(tmp_path):
     assert leftovers(dest), "the killed start left its temporary file"
     done_before = sum(1 for rel in files if (dest / rel).is_file())
     assert done_before == kill_at - 1
-    n = boot.unpack(str(eng / "pkgs.zip"), str(dest))  # next start
+    n = boot.unpack(str(eng / "pkgs.bin"), str(dest))  # next start
     assert n == len(files) - done_before
     assert same_tree(dest, files) and boot.is_complete(str(dest))
 
@@ -234,7 +234,7 @@ def test_two_starts_at_the_same_time(tmp_path):
     script = tmp_path / "race.py"
     script.write_text(RACE_SCRIPT)
     dest, go = tmp_path / "cache", tmp_path / "go"
-    procs = [subprocess.Popen([sys.executable, "-I", str(script), str(BOOT_SRC), str(eng / "pkgs.zip"), str(dest),
+    procs = [subprocess.Popen([sys.executable, "-I", str(script), str(BOOT_SRC), str(eng / "pkgs.bin"), str(dest),
                                str(go)], stdout=subprocess.PIPE, stderr=subprocess.PIPE) for _ in range(3)]
     go.write_text("go")
     outs = [p.communicate(timeout=120) for p in procs]
@@ -310,7 +310,7 @@ def test_failure_is_one_french_sentence_on_stderr_and_code_1(engine, tmp_path, d
     if damage == "id":
         (eng / "pkgs.id").write_text("zz\n")
     elif damage == "archive":
-        (eng / "pkgs.zip").write_bytes(b"not a zip")
+        (eng / "pkgs.bin").write_bytes(b"not a zip")
     else:
         local.write_text("a file, not a folder")  # the cache folder cannot be made
     r = run_main(eng, local, tmp_path)
@@ -345,3 +345,15 @@ def test_boot_uses_the_standard_library_only():
             names.add((node.module or "").split(".")[0])
     assert names <= set(sys.stdlib_module_names), names - set(sys.stdlib_module_names)
     assert "print(" not in BOOT_SRC.read_text(encoding="utf-8")
+
+
+def test_no_plugin_file_name_ends_in_zip(tmp_path):
+    """The Claude app may refuse a plugin that holds a file named "*.zip": the archive is pkgs.bin, still a zip."""
+    pk = tmp_path / "packages"
+    fake_packages(pk, n=5)
+    eng = tmp_path / "engine"
+    eng.mkdir()
+    archive, _ident, _n = make_zip.build(pk, eng)
+    assert archive.name == "pkgs.bin" and boot.ARCHIVE == "pkgs.bin"
+    assert zipfile.is_zipfile(archive)
+    assert not [p for p in eng.rglob("*") if p.name.lower().endswith(".zip")]

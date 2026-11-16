@@ -1,10 +1,12 @@
-"""Build ``engine/pkgs.zip`` and ``engine/pkgs.id`` of the Windows plugin for the Claude app.
+"""Build ``engine/pkgs.bin`` (a zip archive) and ``engine/pkgs.id`` of the Windows plugin for the Claude app.
 
     python make_pkgs_zip.py <packages folder> <engine folder>
 
 Every file of the packages folder goes into ONE deflate archive (sorted names, fixed dates and modes, so the same
 files always give the same archive). ``pkgs.id`` holds the first 12 hex characters of the archive's SHA-256: the
 start module (``shield_boot``) uses it to name its cache folder and never hashes the archive itself.
+The archive name does not end in ".zip": the Claude app may refuse a plugin that holds a file named "*.zip"
+("Nested zip files are not allowed").
 """
 import hashlib
 import sys
@@ -12,13 +14,14 @@ import zipfile
 from pathlib import Path
 
 DATE = (2026, 1, 1, 0, 0, 0)
+ARCHIVE_NAME = "pkgs.bin"
 
 
 def build(packages: Path, engine: Path) -> tuple:
     files = sorted((p for p in packages.rglob("*") if p.is_file()), key=lambda p: p.relative_to(packages).as_posix())
     if not files:
         raise SystemExit("no file to pack")
-    archive = engine / "pkgs.zip"
+    archive = engine / ARCHIVE_NAME
     with zipfile.ZipFile(archive, "w", zipfile.ZIP_DEFLATED, compresslevel=9) as z:
         for p in files:
             name = p.relative_to(packages).as_posix()
