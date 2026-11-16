@@ -24,6 +24,7 @@ What differs from ``ragbase-shield mcp``:
 
 import logging
 import os
+import re
 import subprocess
 import sys
 import threading
@@ -289,6 +290,8 @@ REFUSALS = {
     "too_big": "Ce dossier contient trop de fichiers (plus de 2 000) ou plus de 2 Go : ce n'est pas le dossier d'un "
                "seul client. Rien n'a été protégé. Choisissez un dossier plus petit.",
     "missing": "Le dossier choisi n'existe plus ou ne peut pas être ouvert. Rien n'a été protégé.",
+    "holds_dossier": "Ce dossier contient déjà un dossier client protégé. Rien n'a été protégé. Choisissez le "
+                     "dossier d'un seul client.",
 }
 
 
@@ -558,6 +561,97 @@ def _system_picker(title: str, timeout: float) -> str:
 PICKER: Callable[[str, float], str] = _system_picker
 
 
+# ================================================================================ safe file names
+
+#: Words a file name may show in clear when they start with a capital letter (besides Shield codes and numbers):
+#: everyday file words. Names of people and places are not in these lists; a first name never passes.
+_FILE_WORDS = frozenset("""
+pdf docx doc txt md eml html scan scanne copie version final finale definitif definitive projet brouillon draft
+notes note courrier courriers lettre lettres mail email mails piece pieces annexe annexes bordereau conclusions
+assignation jugement arret ordonnance requete memoire contrat contrats avenant facture factures devis attestation
+attestations releve releves proces verbal pv sous dossier dossiers rg tj cph ca cass synthese recapitulatif
+compte rendu cr reponse demande mise demeure relance relances echange echanges plainte constat expertise rapport
+convocation citation decision notification signification acte actes statuts bail quittance quittances bulletin
+bulletins paie salaire salaires calcul calculs tableau liste chronologie analyse audit fiche fiches modele
+""".split())
+
+
+def _safe_words() -> tuple[frozenset, frozenset]:
+    """(words that may stay in clear, first names). Built from the engine's own word lists."""
+    global _SAFE_CACHE
+    if _SAFE_CACHE is None:
+        from .engine import lexicon as lx
+        from .engine import names as nm
+
+        stop, legal, common, _fn, afn, months, wl = nm._lists()
+        extra: set[str] = set()
+        for getter in ("business_words", "trade_nouns", "instrument_terms"):
+            try:
+                extra |= set(getattr(lx, getter)())
+            except Exception:  # noqa: BLE001 - a missing list only makes the filter stricter
+                pass
+        try:
+            for words in lx.lowercase_words().values():
+                extra |= set(words)
+        except Exception:  # noqa: BLE001
+            pass
+        known = frozenset(stop | legal | common | months | wl | extra | _FILE_WORDS)
+        _SAFE_CACHE = (known, frozenset(afn), frozenset(stop | months | legal | _FILE_WORDS))
+    return _SAFE_CACHE[0], _SAFE_CACHE[1]
+
+
+_SAFE_CACHE: Optional[tuple] = None
+_HIDDEN = "\u2026"  # "…"
+_LETTERS_RE = re.compile(r"[^\W\d_]+")
+_DOTS_RE = re.compile(_HIDDEN + r"(?:[\s\-'’.,&+]*" + _HIDDEN + r")+")
+
+
+def _code_re():
+    from .engine.masker import UNMASK_RE
+
+    return re.compile(r"(?:" + UNMASK_RE.pattern + r"|\[[A-Z]{2,}\]|\b(?:DOC|DOSSIER|OUTPUT)_[0-9]{1,7}\b)")
+
+
+def safe_file_name(masked: str) -> str:
+    """A masked file name made safe to show: Shield codes, numbers, punctuation and everyday words stay; every
+    other word that starts with a capital letter, and every first name, becomes "…". A name that the detection
+    did not know ("Notes Quillivic.txt") never reaches Claude."""
+    known, first = _safe_words()
+    from .engine.normalize import fold_word
+
+    strict = _SAFE_CACHE[2]
+    out: list[str] = []
+    pos = 0
+
+    def words(seg: str) -> str:
+        res: list[str] = []
+        q = 0
+        for m in _LETTERS_RE.finditer(seg):
+            res.append(seg[q:m.start()])
+            w = m.group()
+            f = fold_word(w)
+            if w.islower():
+                keep = f in known or f not in first
+            else:
+                keep = len(w) > 1 and f in known and (f not in first or f in strict)
+            res.append(w if keep else _HIDDEN)
+            q = m.end()
+        res.append(seg[q:])
+        return "".join(res)
+
+    for m in _code_re().finditer(masked):
+        out.append(words(masked[pos:m.start()]))
+        out.append(m.group())
+        pos = m.end()
+    out.append(words(masked[pos:]))
+    return _DOTS_RE.sub(_HIDDEN, "".join(out))
+
+
+def _norm_inside(path: Path, other: Path) -> bool:
+    """True when ``path`` is ``other`` or inside it (case rules of the system)."""
+    return _inside(_norm(path), _norm(other))
+
+
 # ================================================================================ French texts
 
 PICK_MESSAGES = {
@@ -595,7 +689,7 @@ KIND_WORDS = {
     "SIREN": "SIREN", "SIRET": "SIRET", "VAT": "numéro(s) de TVA", "CARD": "carte(s) bancaire(s)",
     "CASE_REF": "numéro(s) de procédure", "ID_CODE": "numéro(s) d'identité", "URL": "site(s) web",
     "BIRTHDATE": "date(s) de naissance", "USERNAME": "identifiant(s)", "EMPLOYEE_ID": "matricule(s)",
-    "ACCOUNT_NUMBER": "numéro(s) de compte",
+    "ACCOUNT_NUMBER": "numéro(s) de compte", "BIRTHPLACE": "lieu(x) de naissance",
 }
 
 TYPE_WORDS = {"pdf": "PDF", "docx": "Word", "txt": "texte", "md": "texte", "eml": "e-mail", "html": "page web",
@@ -709,15 +803,38 @@ def build_server():
             except FolderRefused as exc:
                 return REFUSALS[exc.kind]
             try:
-                r = service.add_dossier(folder)
+                registered = service.registered_folders()
+            except Exception as exc:  # noqa: BLE001
+                return fail(exc)
+            same = parent = None
+            for c, f in registered.items():
+                if _norm(Path(f)) == _norm(folder):
+                    same = c
+                elif _norm_inside(Path(f), folder):
+                    return REFUSALS["holds_dossier"]  # one dossier must never hold several client dossiers
+                elif _norm_inside(folder, Path(f)):
+                    if parent is None or _norm_inside(Path(f), Path(registered[parent])):
+                        parent = c  # the deepest protected folder that holds the chosen one
+            try:
+                if parent is not None and same is None:
+                    r = service.scan_dossier(parent)  # a part of a protected dossier: same codes, no second vault
+                    r["existing"] = True
+                else:
+                    r = service.add_dossier(folder)
+                if service.register_folder_parties(r["code"]):
+                    r.update({k: v for k, v in service.scan_dossier(r["code"]).items() if k != "existing"})
             except Exception as exc:  # noqa: BLE001
                 return fail(exc)
             code = r["code"]
             with scope._lock:
                 scope.pinned = code  # the lawyer chose this folder himself in the window
             readable = r["documents"] - r["unreadable"]
-            head = (f"Ce dossier était déjà protégé : {code}. Shield l'a relu." if r.get("existing")
-                    else f"Le dossier choisi est maintenant protégé : {code}.")
+            if parent is not None and same is None:
+                head = (f"Ce dossier fait partie de {code}, déjà protégé. Shield a relu {code} en entier ; la "
+                        "conversation travaille sur ce dossier.")
+            else:
+                head = (f"Ce dossier était déjà protégé : {code}. Shield l'a relu." if r.get("existing")
+                        else f"Le dossier choisi est maintenant protégé : {code}.")
             lines = [head,
                      f"{r['documents']} document(s) trouvé(s), {readable} lu(s)"
                      + (f", {r['unreadable']} illisible(s)" if r["unreadable"] else "")
@@ -757,16 +874,23 @@ def build_server():
             return fail(exc)
 
     def shield_list_documents(dossier: DossierArg) -> str:
-        """Lister les documents d'un dossier protégé : code (DOC_1...), type, taille et nom du fichier avec les
-        noms remplacés par des codes."""
+        """Lister les documents d'un dossier protégé : code (DOC_1...), type, taille et nom du fichier. Les noms
+        sont remplacés par des codes ou par « … » ; les sous-dossiers sont numérotés (sous-dossier 1, 2...)."""
         try:
             docs = service.list_documents(scoped(dossier))
+            folders = service.document_folders(dossier)
             scope.used(dossier)
             code = dossier.strip().upper()
+            sub_labels: dict[str, str] = {}  # real sub-folder -> "sous-dossier n" (stable: DOC order)
+            for d in docs:
+                f = folders.get(d["id"], "")
+                if f and f not in sub_labels:
+                    sub_labels[f] = f"sous-dossier {len(sub_labels) + 1}"
             if not docs:
                 return out(f"{code} : aucun document lisible (Shield lit les PDF, Word, textes, e-mails et pages "
                            "web).", code)
-            lines = [f"{code} : {len(docs)} document(s). Code | type | taille | nom (noms remplacés par des codes)"]
+            lines = [f"{code} : {len(docs)} document(s). Code | type | taille | nom (noms remplacés par des codes ou "
+                     "par « … », sous-dossiers numérotés)"]
             unsupported = 0
             for d in docs:
                 size = _kb(d["size"])
@@ -774,7 +898,10 @@ def build_server():
                     size += f", {d['pages']} page(s)"
                 if d["kind"] == UNSUPPORTED_KIND:
                     unsupported += 1
-                lines.append(f"{d['id']} | {TYPE_WORDS.get(d['kind'], d['kind'])} | {size} | {d['masked_path']}")
+                name = safe_file_name(d["masked_name"])
+                sub = sub_labels.get(folders.get(d["id"], ""))
+                lines.append(f"{d['id']} | {TYPE_WORDS.get(d['kind'], d['kind'])} | {size} | "
+                             + (f"{sub} / {name}" if sub else name))
             if unsupported:
                 lines.append(f"{unsupported} fichier(s) que Shield ne sait pas lire (tableur, image...). Si leur "
                              "contenu compte, demandez à l'utilisateur une copie en PDF, Word ou texte.")

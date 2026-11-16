@@ -19,8 +19,9 @@ FILE_NAME = "Conclusions Ferrandou.txt"
 TEXT = ("Monsieur Aurélien FERRANDOU, demeurant 9 impasse des Mésanges, 49100 Angers, contre la société "
         "BRISQUET MENUISERIE SARL (SIREN 732 829 320). M. Ferrandou réclame le solde de 7 300 euros. "
         "IBAN FR76 3000 6000 0112 3456 7890 189.\n")
+BIRTH = "Monsieur Aurélien FERRANDOU, né le 14 février 1972 à Angers, gérant.\n"
 SECRETS = ("FERRANDOU", "Ferrandou", "BRISQUET", "Brisquet", "Mésanges", "Aurélien", "732 829 320",
-           "FR76 3000", FOLDER_NAME)
+           "FR76 3000", FOLDER_NAME, "Angers")
 #: English words that must not appear in a French text of the plugin.
 ENGLISH = re.compile(r"\b(the|masked|dossier code|document code|error|internal|unknown|vault|registered|"
                      r"pinned|search for|words or|file title|start offset)\b", re.I)
@@ -44,7 +45,7 @@ def _plugin_mode(tmp_path):
 def folder(tmp_path):
     f = tmp_path / "cabinet" / FOLDER_NAME
     f.mkdir(parents=True)
-    (f / FILE_NAME).write_text(TEXT * 4, encoding="utf-8")
+    (f / FILE_NAME).write_text(TEXT * 4 + BIRTH, encoding="utf-8")
     (f / "releve.txt").write_text("Relevé : virement de M. Aurélien Ferrandou, 4 000 euros, le 2 mai 2026.\n",
                                   encoding="utf-8")
     return f
@@ -361,3 +362,101 @@ def test_test_switches_are_command_line_only():
         claude_tab._parse(["--home", "/x"])
     data, picked = claude_tab._parse(["--test-data", "/d", "--test-pick", "/p"])
     assert data == Path("/d") and picked == "/p"
+
+
+# ------------------------------------------------------------------------------------------ round 2 (review findings)
+
+def test_birthplace_is_a_code(folder):
+    """Review finding: "né le <date> à Angers" sent the town in clear."""
+    pick(folder)
+    server = claude_tab.build_server()
+    _, text = call(server, "shield_protect_folder")
+    assert "lieu(x) de naissance" in text
+    err, doc = call(server, "shield_read_document", {"dossier": "DOSSIER_1", "document": "DOC_1"})
+    if "NAISSANCE_" not in doc:
+        err, doc = call(server, "shield_read_document", {"dossier": "DOSSIER_1", "document": "DOC_2"})
+    assert not err and re.search(r"né le NAISSANCE_\d+ à LIEU_\d+", doc), doc
+    _, hits = call(server, "shield_search", {"dossier": "DOSSIER_1", "query": "gérant"})
+    assert "LIEU_" in hits and clean(doc, folder) and clean(hits, folder), hits
+
+
+@pytest.mark.parametrize("sentence, place", [
+    ("Madame Odile Garancier, née le 03/04/1975 à Saint-Étienne (Loire), comptable.", "Saint-Étienne"),
+    ("Monsieur Paul Ferrandou, né à La Rochelle le 2 juin 1980.", "La Rochelle"),
+    ("Date et lieu de naissance : 7 avril 1990 à Boulogne-Billancourt", "Boulogne-Billancourt"),
+    ("Lieu de naissance : Quimperlé", "Quimperlé"),
+    ("Madame Anne Brisquet, née Garancier le 5 mai 1969 à Aix-en-Provence.", "Aix-en-Provence"),
+])
+def test_birthplace_forms(sentence, place):
+    from ragbase_shield.engine import Masker, MemoryStore
+
+    out = Masker(MemoryStore(locale="fr"), locale="fr", use_ner=False).mask(sentence).text
+    assert place not in out and "LIEU_" in out, out
+
+
+def test_a_town_without_birth_stays_clear():
+    from ragbase_shield.engine import Masker, MemoryStore
+
+    out = Masker(MemoryStore(locale="fr"), locale="fr", use_ner=False).mask(
+        "Le contrat a été signé à Angers le 3 mars 2020.").text
+    assert "Angers" in out and "LIEU_" not in out
+
+
+def test_sub_folder_and_unknown_file_names_never_reach_claude(folder):
+    """Review finding: sub-folder names and file names with a name the detection did not know were sent as is."""
+    (folder / "Martin-Pradel c. Boisgontier").mkdir()
+    (folder / "Martin-Pradel c. Boisgontier" / "conclusions.txt").write_text("Conclusions.\n", encoding="utf-8")
+    (folder / "Succession Quillivic").mkdir()
+    (folder / "Succession Quillivic" / "acte.txt").write_text("Acte.\n", encoding="utf-8")
+    (folder / "Notes Kerbrat 2026.txt").write_text("Rendez-vous.\n", encoding="utf-8")
+    (folder / "Jean-Yves Tanguerel - attestation.txt").write_text("Attestation.\n", encoding="utf-8")
+    pick(folder)
+    server = claude_tab.build_server()
+    call(server, "shield_protect_folder")
+    err, docs = call(server, "shield_list_documents", {"dossier": "DOSSIER_1"})
+    assert not err
+    for name in ("Martin", "Pradel", "Boisgontier", "Quillivic", "Kerbrat", "Jean-Yves", "Tanguerel", "Succession"):
+        assert name not in docs, (name, docs)
+    assert "sous-dossier 1 / conclusions.txt" in docs and "sous-dossier 2 / acte.txt" in docs, docs
+    assert "Notes … 2026.txt" in docs and "attestation.txt" in docs, docs
+    _, again = call(server, "shield_list_documents", {"dossier": "DOSSIER_1"})
+    assert again == docs  # stable labels
+    # the parties of a sub-folder name became codes of the dossier: same code in every document
+    ents = {e["value"] for e in service.entities("DOSSIER_1")}
+    assert {"Martin-Pradel", "Boisgontier"} <= ents, ents
+
+
+def test_safe_file_name_rules():
+    f = claude_tab.safe_file_name
+    assert f("Notes Quillivic 2026.txt") == "Notes … 2026.txt"
+    assert f("PERSONNE_A - attestation.docx") == "PERSONNE_A - attestation.docx"
+    assert f("Martin-Pradel c. Boisgontier") == "… c. …"
+    assert f("Conclusions récapitulatives v2.pdf") == "Conclusions récapitulatives v2.pdf"
+    assert f("Courrier de Pierre.pdf") == "Courrier de ….pdf"
+    assert f("relance [PERSONNE] 12-03.txt") == "relance [PERSONNE] 12-03.txt"
+
+
+def test_parent_of_a_protected_dossier_is_refused(folder):
+    """Review finding: a parent folder became one dossier holding several client dossiers."""
+    pick(folder)
+    server = claude_tab.build_server()
+    call(server, "shield_protect_folder")
+    pick(folder.parent)
+    _, text = call(server, "shield_protect_folder")
+    assert text == claude_tab.REFUSALS["holds_dossier"]
+    assert [r["code"] for r in service.list_dossiers()] == ["DOSSIER_1"]
+
+
+def test_sub_folder_of_a_protected_dossier_gives_the_same_code(folder):
+    sub = folder / "Pièces"
+    sub.mkdir()
+    (sub / "piece.txt").write_text("Monsieur Aurélien FERRANDOU signe.\n", encoding="utf-8")
+    pick(folder)
+    server = claude_tab.build_server()
+    call(server, "shield_protect_folder")
+    pick(sub)
+    server2 = claude_tab.build_server()
+    _, text = call(server2, "shield_protect_folder")
+    assert "fait partie de DOSSIER_1" in text and clean(text, sub), text
+    assert server2._shield_scope.pinned == "DOSSIER_1"
+    assert [r["code"] for r in service.list_dossiers()] == ["DOSSIER_1"]

@@ -126,7 +126,8 @@ def test_court_city_stays_clear_but_party_city_name_is_not_confused():
     r = Masker(MemoryStore(), use_ner=False).mask(
         "Le Tribunal judiciaire de Lyon et la Cour d'appel d'Aix-en-Provence. Mme Nadia Haddad, née à Lyon, demeurant à Lyon.")
     assert "Tribunal judiciaire de Lyon" in r.text and "Cour d'appel d'Aix-en-Provence" in r.text
-    assert "née à Lyon" in r.text and "demeurant à Lyon" in r.text
+    # plugin round 2: the place of birth is masked (LIEU_n); the town of residence and the courts stay clear
+    assert "née à LIEU_" in r.text and "demeurant à Lyon" in r.text
     assert "Haddad" not in r.text
 
 

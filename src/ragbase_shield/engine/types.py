@@ -10,6 +10,8 @@ KINDS = (
     "VAT", "CARD", "CASE_REF", "ID_CODE", "URL", "BIRTHDATE",
     # v0.2 (DETECTORS): login names and chat mentions, staff identifiers, account numbers
     "USERNAME", "EMPLOYEE_ID", "ACCOUNT_NUMBER",
+    # plugin round 2 (16 Nov 2026): the place of birth next to a birth date ("né le ... à Angers")
+    "BIRTHPLACE",
 )
 
 # kind -> (fr prefix, en prefix, letter codes?)
@@ -33,6 +35,7 @@ PREFIXES = {
     "USERNAME": ("PSEUDO", "USERNAME", False),
     "EMPLOYEE_ID": ("MATRICULE", "EMPLOYEEID", False),
     "ACCOUNT_NUMBER": ("COMPTE", "ACCOUNT", False),
+    "BIRTHPLACE": ("LIEU", "PLACE", False),
 }
 
 #: Kinds whose labelled values teach the masker an id layout ("EMP-ddddd"): unlabelled values of the same layout

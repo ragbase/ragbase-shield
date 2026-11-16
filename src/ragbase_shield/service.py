@@ -1564,6 +1564,53 @@ class Service:
                            existing=existed, title_updated=title_changed)
             return summary
 
+    @_guarded("register_folder_parties")
+    def register_folder_parties(self, dossier_code: str) -> int:
+        """Register the parties that the dossier's SUB-folder names cite ("Martin-Pradel c. Boisgontier"), as
+        :meth:`add_dossier` does for the top folder name, so every document and label of the dossier uses the same
+        code for them. Only names with opposing parties ("X c. Y") are read. Local API (plugin). Returns the
+        number of new entities."""
+        with self._lock:
+            d = self._dossier(dossier_code)
+            seen: set[str] = set()
+            added = 0
+            for ref in d.documents(include_unsupported=True):
+                parent = Path(ref.rel).parent if ref.rel else Path(".")
+                for part in parent.parts:
+                    if part in seen or part in (".", "") or not has_party_separator(part):
+                        continue
+                    seen.add(part)
+                    for kind, name in parse_parties(part):
+                        if self._party_known(d, kind, name):
+                            continue
+                        try:
+                            d.register(kind, name)
+                            added += 1
+                        except ValueError:
+                            continue
+            if added:
+                self._invalidate(d.code)
+                d.journal("register_folder_parties", parties=added)
+            return added
+
+    @_guarded("document_folders")
+    def document_folders(self, dossier_code: str) -> dict[str, str]:
+        """{DOC_n: sub-folder of the document, relative to the dossier ("" at the top)}. REAL names: local use only
+        (the plugin turns them into neutral labels)."""
+        with self._lock:
+            d = self._dossier(dossier_code)
+            out: dict[str, str] = {}
+            for ref in d.documents(include_unsupported=True):
+                parent = Path(ref.rel).parent.as_posix() if ref.rel else ""
+                out[ref.id] = "" if parent in (".", "") else parent
+            return out
+
+    @_guarded("registered_folders")
+    def registered_folders(self) -> dict[str, Path]:
+        """{DOSSIER_n: folder} from the registry. REAL paths: local use only."""
+        with self._lock:
+            return self.registry.folders()
+
     def _party_known(self, d: Dossier, kind: str, name: str) -> bool:
         """True when a title party is already one of the dossier's entities, under ANY kind: "Ateliers Brunelac"
         typed as a person is the company the documents found; "Kerdalis" is the company "KERDALIS INDUSTRIES"."""
@@ -2140,6 +2187,18 @@ def add_dossier(folder: os.PathLike | str, title: Optional[str] = None) -> dict:
 
 def scan_dossier(dossier_code: str) -> dict:
     return default().scan_dossier(dossier_code)
+
+
+def register_folder_parties(dossier_code: str) -> int:
+    return default().register_folder_parties(dossier_code)
+
+
+def document_folders(dossier_code: str) -> dict[str, str]:
+    return default().document_folders(dossier_code)
+
+
+def registered_folders() -> dict[str, Path]:
+    return default().registered_folders()
 
 
 def remove_dossier(dossier_code: str) -> None:

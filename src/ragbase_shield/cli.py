@@ -116,7 +116,7 @@ _KIND_LABELS = {"PERSON": "Personnes", "ORG": "Sociétés", "ADDRESS": "Adresses
                 "PHONE": "Téléphones", "IBAN": "IBAN", "NIR": "NIR", "SIREN": "SIREN", "SIRET": "SIRET", "VAT": "TVA",
                 "CARD": "Cartes", "CASE_REF": "Références", "ID_CODE": "Identifiants", "URL": "Sites",
                 "BIRTHDATE": "Dates de naissance", "USERNAME": "Pseudos", "EMPLOYEE_ID": "Matricules",
-                "ACCOUNT_NUMBER": "Comptes"}
+                "ACCOUNT_NUMBER": "Comptes", "BIRTHPLACE": "Lieux de naissance"}
 
 
 def _counts_line(counts: dict) -> str:
