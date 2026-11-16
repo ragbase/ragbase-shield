@@ -15,6 +15,8 @@ This is **local, reversible pseudonymisation**.
 It is not anonymisation: facts, dates and amounts stay readable by the AI.
 Nothing goes to RAGbase. Shield sends no usage statistics.
 
+**Do you use the Claude app on a Mac or a PC?** Add the Claude plugin, with nothing else to install: see [Install](#install).
+
 Version française (la version de référence pour les cabinets français) : [README.fr.md](https://github.com/ragbase/ragbase-shield/blob/main/README.fr.md)
 
 Contents:
@@ -127,7 +129,7 @@ https://github.com/ragbase/ragbase-shield/releases/latest. Python package: the w
 | Claude app on a Mac or a PC (Claude tab) | The Claude plugin, nothing else to install: add `ragbase/ragbase-shield-mac` or `ragbase/ragbase-shield-windows` (steps above) | [Mac plugin](https://github.com/ragbase/ragbase-shield-mac), [Windows plugin](https://github.com/ragbase/ragbase-shield-windows), [docs/INSTALL.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/INSTALL.md#the-claude-plugin-claude-app-mac-and-windows) |
 | Mac (macOS 13 or later) | `RAGbase-Shield-0.4.1.pkg`: double-click, installs for you only (designed to need no administrator password), no Terminal. Not signed yet: macOS asks you to confirm the first time | [docs/INSTALL.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/INSTALL.md), section 0 |
 | Windows 10 or 11 | `RAGbase-Shield-0.4.1-win64.msi`: per-user install (designed to need no administrator rights). Not signed yet: SmartScreen asks you to confirm | [docs/INSTALL.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/INSTALL.md), section 0 |
-| Claude Desktop | `ragbase-shield-0.4.1.mcpb`: double-click, then "Install" | [docs/INSTALL.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/INSTALL.md), section 2 |
+| Claude Desktop, other way (`.mcpb` extension) | `ragbase-shield-0.4.1.mcpb`: double-click, then "Install". In the Claude app, the Claude plugin (first row) is simpler | [docs/INSTALL.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/INSTALL.md), section 2 |
 | Claude Code | Plugin: `/plugin marketplace add ragbase/ragbase-shield`, then `/plugin install ragbase-shield@ragbase`. Not for the Claude tab of the Claude app: it needs uv, and its hooks can stop every message there. Use the Claude plugin there | [docs/INSTALL.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/INSTALL.md), section 3 |
 | ChatGPT desktop and Codex, GitHub Copilot in VS Code | `ragbase-shield install chatgpt` (or `codex`, `vscode`), once the command is installed with uv (commands below) | [docs/INSTALL.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/INSTALL.md), sections 4 and 5 |
 | Any web app (claude.ai, chatgpt.com, Copilot web) | Shield Desk, and the browser extension for Chrome and Edge (not in the stores yet: load the folder `integrations/browser-extension` in developer mode) | [docs/INSTALL.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/INSTALL.md), sections 6 and 7 |
@@ -208,9 +210,10 @@ On a Mac, the first use may ask for keychain access for the Shield key: click "A
 
 ### With the Claude plugin (Claude app)
 
-1. In a conversation, write: "Protège un dossier avec Shield". A RAGbase Shield window opens on top of Claude:
-   choose the folder of one client (2,000 files or 2 GB at most). Shield reads and masks the whole folder on your
-   computer: a large folder takes some minutes. Claude only gets a code, for example `DOSSIER_1`.
+1. In a conversation, write: "Protège un dossier avec Shield" (or "Protect a folder with Shield"). A RAGbase Shield
+   window opens on top of Claude: click in it and choose the folder of one client (2,000 files or 2 GB at most).
+   Shield reads and masks the whole folder on your computer: a large folder takes some minutes. Claude only gets a
+   code, for example `DOSSIER_1`.
 2. Ask for your work, for example: "Draft a formal notice". Claude reads the documents with the codes.
 3. Write: "Save the final document with Shield". Shield puts the real names back on your computer, in the
    "Shield - sorties" folder of the client folder.
@@ -287,6 +290,8 @@ REF and Max, with their answer keys and one command that reproduces the Shield a
 
 ## Limits (please read)
 
+- **The Claude plugin masks only the folder chosen in its window.** Text you type, or a file you drop directly
+  into the conversation, is sent as it is. 2,000 files or 2 GB at most per folder.
 - **No OCR.** A scanned PDF (an image) has no text. Shield says so and does not read it.
 - **Detection is never complete.** A name nobody registered can slip through:
   a rare name, a foreign name, a nickname, a typo. Register the parties of each dossier.
@@ -431,7 +436,7 @@ Shield Desk.
 | App | How Shield plugs in |
 |---|---|
 | Claude app (Claude tab), Mac and Windows | The Claude plugin: engine inside the plugin, local MCP server with 7 tools, skill, no hooks |
-| Claude Desktop | One-click extension (`.mcpb`) that runs the local MCP server |
+| Claude Desktop, other way (`.mcpb` extension) | One-click extension (`.mcpb`) that runs the local MCP server |
 | Claude Code | Plugin: MCP server + skill + hooks |
 | ChatGPT desktop and Codex | Local MCP server (`~/.codex/config.toml`), where local MCP is allowed |
 | GitHub Copilot (VS Code) | Local MCP server (`mcp.json`) |

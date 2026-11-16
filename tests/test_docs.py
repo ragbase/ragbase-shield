@@ -647,6 +647,8 @@ def test_notice_credits_lexicon_sources():
 CLAUDE_PLUGIN_REPOS = ("ragbase/ragbase-shield-mac", "ragbase/ragbase-shield-windows")
 _PLUGIN_STEPS = ("Customize > Plugins > Add > Add marketplace > Add from a repository", "**Sync**", "**Discover**",
                  '"RAGbase Shield (Mac)"', '"RAGbase Shield (Windows)"')
+_PLUGIN_STEPS_FR = ("Personnalisation > Plug-ins > Ajouter > Ajouter une marketplace > Ajouter depuis un dépôt",
+                    "**Synchro**", "**Découvrir**", "**Ajouter**", "Si votre Claude est en anglais : ")
 
 
 def _install_parts() -> dict[str, str]:
@@ -667,6 +669,10 @@ def test_claude_plugin_steps_in_the_install_texts(name):
     names = ("« RAGbase Shield (Mac) »", "« RAGbase Shield (Windows) »") if french else _PLUGIN_STEPS[3:]
     for step in _PLUGIN_STEPS[:3] + names + (("onglet **Claude**",) if french else ("**Claude** tab",)):
         assert step in flat, f"{name}: the plugin steps miss {step!r}"
+    if french:  # the Claude app follows the language of the computer: French labels first, English ones after
+        for step in _PLUGIN_STEPS_FR:
+            assert step in flat, f"{name}: the French plugin steps miss {step!r}"
+        assert flat.index(_PLUGIN_STEPS_FR[0]) < flat.index(_PLUGIN_STEPS[0]), name
     assert "https://shield.ragbase.ai" in flat, f"{name}: Way A (the site button) is not named"
 
 
@@ -687,7 +693,9 @@ def test_claude_plugin_row_comes_first_in_the_install_tables():
 # A bare mention of this repository as a plugin source (not the URLs of its releases, not the two plugin repositories).
 _OLD_PLUGIN_SOURCE = re.compile(r"(?<![\w/.-])ragbase/ragbase-shield(?![\w/-])")
 # Words that only the steps of the Claude app use (Claude Code adds a plugin with /plugin commands).
-_CLAUDE_APP_STEP_WORDS = ("Cowork", "Customize", "Add marketplace", "Add from a repository", "Discover")
+_CLAUDE_APP_STEP_WORDS = ("Cowork", "Customize", "Add marketplace", "Add from a repository", "Discover",
+                          "Personnalisation", "Plug-ins", "Ajouter une marketplace", "Ajouter depuis un dépôt",
+                          "Découvrir")
 
 
 def _markdown_files() -> list[Path]:
@@ -717,7 +725,9 @@ def test_the_cowork_check_catches_the_texts_it_replaced():
                 "**Cowork.** Dans l'application Claude : Customize > Plugins > Add > Add marketplace. Saisissez\n"
                 "`ragbase/ragbase-shield` (ou le chemin d'une copie du dépôt), puis installez RAGbase Shield.",
                 "In the Claude app (Cowork): **Customize > Plugins > Add > Add marketplace**, enter "
-                "`ragbase/ragbase-shield`,\nthen add **RAGbase Shield**."):
+                "`ragbase/ragbase-shield`,\nthen add **RAGbase Shield**.",
+                "Dans l'application Claude, ouvrez Personnalisation > Plug-ins > Ajouter une marketplace, écrivez "
+                "`ragbase/ragbase-shield`."):
         assert _adds_this_repo_in_the_claude_app(old), old
     for new in ("Type `ragbase/ragbase-shield-mac` (Mac) and click **Sync**. Customize > Plugins > Add > Add marketplace",
                 "uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v1/x.whl Cowork"):
@@ -790,11 +800,23 @@ def test_old_install_anchors_kept():
         assert "DOSSIER_1" in section and "Shield - sorties" in section, title
 
 
+def test_uninstall_warns_about_the_claude_plugin_vault_on_a_mac():
+    """On a Mac, the Claude plugin keeps its vault in ~/Library/Application Support/RAGbase Shield, the folder that
+    the .pkg installs and that its uninstaller deletes. Both uninstall texts and both delete-data texts say so."""
+    fr, en = _read("docs/INSTALL.md").split("## Part 2. English", 1)
+    fr, en = " ".join(fr.split()), " ".join(en.split())
+    assert "La désinstallation efface ce dossier, donc aussi ce coffre." in fr
+    assert "Uninstalling deletes that folder, so it also erases that vault." in en
+    assert "« ragbase-shield-plugin »" in fr and '"ragbase-shield-plugin"' in en
+    assert "le supprimer retire aussi cette installation" in fr and "deleting it also removes that install" in en
+
+
 def test_claude_code_plugin_json_says_claude_code_only():
     """The marketplace and the plugin of this repository say they are for Claude Code, and send the Claude app to
     the Claude plugin."""
     import json
-    tail = "In the Claude app, use RAGbase Shield (Mac) or RAGbase Shield (Windows) from shield.ragbase.ai."
+    tail = ("In the Claude app, use the Claude plugin instead: add ragbase/ragbase-shield-mac (Mac) or "
+            "ragbase/ragbase-shield-windows (Windows) as a marketplace.")
     mk = json.loads(_read(".claude-plugin/marketplace.json"))
     plugin = json.loads(_read("integrations/claude-code/plugin/.claude-plugin/plugin.json"))
     for desc in (mk["description"], mk["plugins"][0]["description"], plugin["description"]):

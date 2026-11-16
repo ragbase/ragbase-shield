@@ -14,6 +14,8 @@ C'est une **pseudonymisation locale et réversible**.
 Ce n'est pas une anonymisation : les faits, les dates et les montants restent lisibles par l'IA.
 Rien ne part chez RAGbase. Shield n'envoie aucune statistique d'usage.
 
+**Vous utilisez l'application Claude sur Mac ou sur PC ?** Ajoutez le plugin Claude, sans rien installer d'autre : voir [Installer](#installer).
+
 English version: [README.md](README.md)
 
 Sommaire :
@@ -112,9 +114,12 @@ les lois, les codes, les articles, les mois et les jours.
 
 **Le plus simple, dans l'application Claude sur Mac ou sur PC : le plugin Claude.** Il contient tout le moteur de
 Shield : rien d'autre à installer (ni uv, ni Python, ni Terminal, ni installateur). Dans l'application Claude, sur
-l'onglet **Claude** (pas l'onglet Code), ouvrez **Customize > Plugins > Add > Add marketplace > Add from a repository**.
-Écrivez `ragbase/ragbase-shield-mac` (Mac) ou `ragbase/ragbase-shield-windows` (Windows) et cliquez sur **Sync**.
-Dans l'onglet **Discover**, cliquez ensuite sur **Add** à droite de « RAGbase Shield (Mac) » ou de « RAGbase Shield (Windows) ».
+l'onglet **Claude** (pas l'onglet Code), ouvrez
+**Personnalisation > Plug-ins > Ajouter > Ajouter une marketplace > Ajouter depuis un dépôt**.
+Écrivez `ragbase/ragbase-shield-mac` (Mac) ou `ragbase/ragbase-shield-windows` (Windows) et cliquez sur **Synchro**.
+Dans l'onglet **Découvrir**, cliquez ensuite sur **Ajouter** à droite de « RAGbase Shield (Mac) » ou de « RAGbase Shield (Windows) ».
+Si votre Claude est en anglais : **Customize > Plugins > Add > Add marketplace > Add from a repository**, puis
+**Sync**, **Discover** et **Add**.
 Vous pouvez aussi utiliser le bouton de votre système sur [shield.ragbase.ai](https://shield.ragbase.ai).
 Utilisation et limites : [docs/INSTALL.md](docs/INSTALL.md#le-plugin-claude-application-claude-mac-et-windows).
 
@@ -126,7 +131,7 @@ https://github.com/ragbase/ragbase-shield/releases/latest. Paquet Python : le fi
 | Application Claude sur Mac ou sur PC (onglet Claude) | Le plugin Claude, rien d'autre à installer : ajoutez `ragbase/ragbase-shield-mac` ou `ragbase/ragbase-shield-windows` (étapes ci-dessus) | [Plugin Mac](https://github.com/ragbase/ragbase-shield-mac), [plugin Windows](https://github.com/ragbase/ragbase-shield-windows), [docs/INSTALL.md](docs/INSTALL.md#le-plugin-claude-application-claude-mac-et-windows) |
 | Mac (macOS 13 ou plus récent) | `RAGbase-Shield-0.4.1.pkg` : double-clic, installation pour vous seul (prévue sans mot de passe administrateur), sans Terminal. Pas encore signé : macOS vous demande de confirmer la première fois | [docs/INSTALL.md](docs/INSTALL.md), section 0 |
 | Windows 10 ou 11 | `RAGbase-Shield-0.4.1-win64.msi` : installation pour l'utilisateur (prévue sans droits administrateur). Pas encore signé : SmartScreen vous demande de confirmer | [docs/INSTALL.md](docs/INSTALL.md), section 0 |
-| Claude Desktop | `ragbase-shield-0.4.1.mcpb` : double-clic, puis « Installer » | [docs/INSTALL.md](docs/INSTALL.md), section 2 |
+| Claude Desktop, autre méthode (extension `.mcpb`) | `ragbase-shield-0.4.1.mcpb` : double-clic, puis « Installer ». Dans l'application Claude, le plugin Claude (première ligne) est plus simple | [docs/INSTALL.md](docs/INSTALL.md), section 2 |
 | Claude Code | Plugin : `/plugin marketplace add ragbase/ragbase-shield`, puis `/plugin install ragbase-shield@ragbase`. Pas pour l'onglet Claude de l'application Claude : il a besoin de uv, et ses hooks peuvent y bloquer chaque message. Là, utilisez le plugin Claude | [docs/INSTALL.md](docs/INSTALL.md), section 3 |
 | ChatGPT desktop et Codex, GitHub Copilot dans VS Code | `ragbase-shield install chatgpt` (ou `codex`, `vscode`), une fois la commande installée avec uv (commandes plus bas) | [docs/INSTALL.md](docs/INSTALL.md), sections 4 et 5 |
 | Toute application web (claude.ai, chatgpt.com, Copilot web) | Shield Desk, et l'extension de navigateur pour Chrome et Edge (pas encore dans les boutiques : chargez le dossier `integrations/browser-extension` en mode développeur) | [docs/INSTALL.md](docs/INSTALL.md), sections 6 et 7 |
@@ -209,9 +214,9 @@ cliquez sur « Toujours autoriser ».
 ### Avec le plugin Claude (application Claude)
 
 1. Dans une conversation, écrivez : « Protège un dossier avec Shield ». Une fenêtre RAGbase Shield s'ouvre
-   par-dessus Claude : choisissez le dossier d'un seul client (2 000 fichiers ou 2 Go au plus). Shield lit et masque
-   tout le dossier sur votre ordinateur : pour un gros dossier, cela prend quelques minutes. Claude reçoit seulement
-   un code, par exemple `DOSSIER_1`.
+   par-dessus Claude : cliquez dedans et choisissez le dossier d'un seul client (2 000 fichiers ou 2 Go au plus).
+   Shield lit et masque tout le dossier sur votre ordinateur : pour un gros dossier, cela prend quelques minutes.
+   Claude reçoit seulement un code, par exemple `DOSSIER_1`.
 2. Demandez votre travail, par exemple : « Rédige une mise en demeure ». Claude lit les documents avec les codes.
 3. Écrivez : « Enregistre le document final avec Shield ». Shield remet les vrais noms sur votre ordinateur, dans le
    dossier « Shield - sorties » du dossier client.
@@ -292,6 +297,8 @@ REF et Max, avec leurs corrigés et une commande qui reproduit les résultats de
 
 ## Les limites (à lire)
 
+- **Le plugin Claude masque seulement le dossier choisi dans sa fenêtre.** Un texte tapé ou un fichier déposé
+  directement dans la conversation part tel quel. 2 000 fichiers ou 2 Go au plus par dossier.
 - **Pas d'OCR.** Un PDF scanné (une image) ne contient pas de texte. Shield le signale et ne le lit pas.
 - **La détection n'est jamais complète.** Un nom que personne n'a enregistré peut passer :
   nom rare, nom étranger, surnom, faute de frappe. Enregistrez les parties de chaque dossier.
@@ -440,7 +447,7 @@ Lancez ces commandes dans votre propre terminal, ou utilisez Shield Desk.
 | Application | Branchement |
 |---|---|
 | Application Claude (onglet Claude), Mac et Windows | Le plugin Claude : moteur dans le plugin, serveur MCP local avec 7 outils, skill, sans hooks |
-| Claude Desktop | Extension en un clic (`.mcpb`) qui lance le serveur MCP local |
+| Claude Desktop, autre méthode (extension `.mcpb`) | Extension en un clic (`.mcpb`) qui lance le serveur MCP local |
 | Claude Code | Plugin : serveur MCP + skill + hooks |
 | ChatGPT desktop et Codex | Serveur MCP local (`~/.codex/config.toml`), là où le MCP local est permis |
 | GitHub Copilot (VS Code) | Serveur MCP local (`mcp.json`) |

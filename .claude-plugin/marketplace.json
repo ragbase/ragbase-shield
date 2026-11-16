@@ -4,12 +4,12 @@
     "name": "RAGbase",
     "url": "https://ragbase.ai"
   },
-  "description": "For Claude Code (developers). RAGbase plugins. RAGbase Shield: local pseudonymisation so Claude works on client files with codes for the names Shield detects or you register. In the Claude app, use RAGbase Shield (Mac) or RAGbase Shield (Windows) from shield.ragbase.ai.",
+  "description": "For Claude Code (developers). RAGbase plugins. RAGbase Shield: local pseudonymisation so Claude works on client files with codes for the names Shield detects or you register. In the Claude app, use the Claude plugin instead: add ragbase/ragbase-shield-mac (Mac) or ragbase/ragbase-shield-windows (Windows) as a marketplace.",
   "plugins": [
     {
       "name": "ragbase-shield",
       "source": "./integrations/claude-code/plugin",
-      "description": "For Claude Code (developers). Local pseudonymisation for client files: masked document reading through MCP tools, hooks that block real names in prompts and direct reads of dossier folders, and a skill for the safe workflow. In the Claude app, use RAGbase Shield (Mac) or RAGbase Shield (Windows) from shield.ragbase.ai.",
+      "description": "For Claude Code (developers). Local pseudonymisation for client files: masked document reading through MCP tools, hooks that block real names in prompts and direct reads of dossier folders, and a skill for the safe workflow. In the Claude app, use the Claude plugin instead: add ragbase/ragbase-shield-mac (Mac) or ragbase/ragbase-shield-windows (Windows) as a marketplace.",
       "category": "security",
       "tags": ["privacy", "pseudonymisation", "gdpr", "rgpd", "legal", "avocat"]
     }
