@@ -26,7 +26,7 @@ The browser extension is the exception: it does not run the MCP server. It talks
 | ChatGPT desktop (Work, Codex) | [`chatgpt/`](chatgpt/) | Step-by-step guide |
 | Codex CLI and IDE | [`codex/`](codex/) | `config.toml.example` |
 | ChatGPT and Codex plugin | [`openai-plugin/`](openai-plugin/) + repo-root [`/.agents/plugins/marketplace.json`](../.agents/plugins/marketplace.json) | Portable Agent Plugins package: `plugin.json`, `mcp.json` (stdio), skill |
-| GitHub Copilot (VS Code) | [`vscode/`](vscode/) | `mcp.json.example`, one-click `vscode:mcp/install` link |
+| GitHub Copilot (VS Code) | [`vscode/`](vscode/) | `mcp.json.example`, `vscode:mcp/install` link |
 | Microsoft 365 Copilot, Word, Outlook, Copilot app | [`microsoft-copilot/`](microsoft-copilot/) | Guide: Shield Desk, clipboard, browser extension. No native connector, by design |
 | claude.ai, chatgpt.com, Copilot web, Gemini | [`browser-extension/`](browser-extension/) | Manifest V3 extension for Chrome and Edge, no build step. Not in the stores yet: load it unpacked |
 

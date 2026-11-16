@@ -10,10 +10,10 @@ Sommaire :
 
 - [Le plugin Claude (application Claude, Mac et Windows)](#le-plugin-claude-application-claude-mac-et-windows) : le plus simple pour l'application Claude.
 
-0. [Installer en un clic](#0-installer-en-un-clic) (autre méthode :
+0. [Installateur Mac ou Windows](#0-installateur-mac-ou-windows) (autre méthode :
    [uv et le Terminal](#0-bis-autre-méthode--uv-et-shield-desk-terminal))
 1. [Ajouter un dossier client](#1-ajouter-un-dossier-client)
-2. [Claude Desktop (un clic)](#2-claude-desktop-un-clic)
+2. [Claude Desktop (extension .mcpb)](#2-claude-desktop-extension-mcpb)
 3. [Claude Code (plugin)](#3-claude-code-plugin)
 4. [ChatGPT desktop et Codex](#4-chatgpt-desktop-et-codex)
 5. [GitHub Copilot dans VS Code](#5-github-copilot-dans-vs-code)
@@ -39,7 +39,11 @@ chacun dans son dépôt public : [ragbase/ragbase-shield-mac](https://github.com
 [ragbase/ragbase-shield-windows](https://github.com/ragbase/ragbase-shield-windows). Ce n'est pas le plugin de la section 3, qui est
 pour Claude Code.
 
-**Ajouter le plugin :**
+**Ajouter le plugin :** il faut l'application Claude pour ordinateur, connectée, avec un abonnement Claude payant.
+Sur [shield.ragbase.ai/installer](https://shield.ragbase.ai/installer/), cliquez sur le bouton de votre ordinateur.
+Dans Claude, cliquez sur « Synchro », « Ajouter », puis « Continuer ».
+
+**Autre méthode, à la main :**
 
 1. Ouvrez l'application Claude sur l'onglet **Claude**. Pas l'onglet **Code** : depuis l'onglet Code,
    l'application ajoute le plugin pour les sessions Code seulement.
@@ -55,14 +59,13 @@ pour Claude Code.
 Si votre Claude est en anglais : **Customize > Plugins > Add > Add marketplace > Add from a repository**, puis
 **Sync**, **Discover**, **Add** et **Continue**.
 
-Vous pouvez aussi utiliser le bouton de votre système sur [shield.ragbase.ai](https://shield.ragbase.ai).
-
 **Utiliser le plugin en 3 étapes :**
 
-1. **Protéger un dossier.** Dans une conversation, écrivez : « Protège un dossier avec Shield ». Une fenêtre
+1. **Protéger un dossier.** Dans une nouvelle conversation, écrivez : « Protège un dossier avec Shield ». Une fenêtre
    RAGbase Shield s'ouvre par-dessus Claude : cliquez dedans et choisissez le dossier d'un seul client. Shield lit
-   et masque tout le dossier sur votre ordinateur, à ce moment-là. Pour un gros dossier, cela prend quelques
-   minutes. Claude reçoit seulement un code, par exemple `DOSSIER_1`.
+   et masque tout le dossier sur votre ordinateur. Pour un grand dossier, la lecture se fait en arrière-plan et
+   Claude vous dit où elle en est. Claude reçoit seulement un code, par exemple `DOSSIER_1`. Ensuite, le dossier
+   protégé est prêt tout de suite dans chaque nouvelle conversation.
 2. **Demander le travail.** Par exemple : « Fais une synthèse du dossier » ou « Rédige une mise en demeure ».
    Claude lit les documents avec les codes.
 3. **Enregistrer le document final.** Écrivez : « Enregistre le document final avec Shield ». Shield remet les
@@ -73,6 +76,7 @@ Vous pouvez aussi utiliser le bouton de votre système sur [shield.ragbase.ai](h
 - Un seul client par dossier. 2 000 fichiers ou 2 Go au plus par dossier.
 - Un texte que vous tapez dans la conversation, ou un fichier que vous y déposez directement, n'est pas masqué par
   le plugin : il part tel quel.
+- Un dossier ajouté à la conversation n'est pas protégé : seul le dossier choisi dans la fenêtre Shield l'est.
 - La détection n'est jamais parfaite : relisez les passages sensibles.
 
 **Où restent vos données :** sur votre ordinateur, avec la clé du coffre.
@@ -84,7 +88,7 @@ Vous pouvez aussi utiliser le bouton de votre système sur [shield.ragbase.ai](h
 Pour retirer le plugin : dans l'application Claude, ouvrez **Personnalisation > Plug-ins** (en anglais :
 Customize > Plugins), puis retirez « RAGbase Shield (Mac) » ou « RAGbase Shield (Windows) ».
 
-### 0. Installer en un clic
+### 0. Installateur Mac ou Windows
 
 L'installateur met RAGbase Shield sur votre ordinateur sans Terminal. Il est prévu sans mot de passe
 administrateur : tout va dans votre dossier personnel. Il installe :
@@ -171,7 +175,7 @@ Il faut Windows 10 ou 11 (64 bits). Une carte graphique n'est pas nécessaire. S
 |---|---|
 | Shield Desk : en marche, port 7878, ... | Montre l'état de Shield Desk : port, version, mode (« règles » = mode Rapide ; « règles + NER » = mode Précis). Sous Windows : « Statut... ». |
 | Ouvrir Shield Desk | Ouvre la page Shield Desk dans votre navigateur, avec le lien privé. |
-| Dossiers | Mac : la liste de vos dossiers ; un clic ouvre le dossier dans le Finder. Windows : « Dossiers (Shield Desk) » ouvre la page Dossiers. |
+| Dossiers | Mac : la liste de vos dossiers ; choisissez un dossier pour l'ouvrir dans le Finder. Windows : « Dossiers (Shield Desk) » ouvre la page Dossiers. |
 | Dossier de données Shield | Ouvre le dossier des coffres et de la clé. |
 | Redémarrer | Redémarre Shield Desk. |
 | Lancer à l'ouverture de session | Coché : Shield démarre à chaque ouverture de session. |
@@ -228,7 +232,7 @@ Bon à savoir :
   fermez votre session, puis rouvrez-la. Sous Windows, menu Démarrer > RAGbase Shield le relance aussi.
 - Si l'icône affiche « port 7878 occupé par un autre programme », un autre logiciel utilise ce port.
   Prévenez RAGbase.
-- Le mode Précis (section 10) n'est pas encore disponible avec l'installateur en un clic.
+- Le mode Précis (section 10) n'est pas encore disponible avec l'installateur Mac ou Windows.
 - Relancer le même fichier `.msi` ne réinstalle rien : Shield redémarre, c'est tout. Pour réparer une
   installation abîmée, désinstallez, puis réinstallez.
 - Pas d'icône une minute après l'installation ? Menu Démarrer > RAGbase Shield. Toujours rien : une règle du
@@ -274,7 +278,7 @@ Fermez la fenêtre, puis ouvrez-en une nouvelle.
 Installez la commande `ragbase-shield` une fois, depuis le fichier wheel de la version, puis lancez Shield Desk :
 
 ```sh
-uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl
+uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.4/ragbase_shield-0.4.4-py3-none-any.whl
 ragbase-shield desk
 ```
 
@@ -288,7 +292,7 @@ navigateur s'arrête aussi.
 Pour lancer Shield Desk sans installer la commande :
 
 ```sh
-uvx --from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield desk
+uvx --from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.4/ragbase_shield-0.4.4-py3-none-any.whl ragbase-shield desk
 ```
 
 
@@ -319,10 +323,10 @@ ragbase-shield register DOSSIER_1 --org "Ateliers Brunelac"
 
 Le titre et le chemin restent sur votre ordinateur. L'IA ne voit que DOSSIER_1.
 
-### 2. Claude Desktop (un clic)
+### 2. Claude Desktop (extension .mcpb)
 
 1. Faites l'étape 0 (ou 0 bis) si ce n'est pas déjà fait : Shield Desk sert à ajouter vos dossiers.
-   Téléchargez `ragbase-shield-0.4.1.mcpb` sur la page des versions du dépôt :
+   Téléchargez `ragbase-shield-0.4.4.mcpb` sur la page des versions du dépôt :
    https://github.com/ragbase/ragbase-shield/releases/latest.
 2. Double-cliquez sur le fichier. Claude Desktop s'ouvre et affiche l'extension. Cliquez sur « Installer ».
    Autre méthode : dans Claude Desktop, Réglages > Extensions, glissez le fichier dans la fenêtre.
@@ -332,7 +336,7 @@ Le titre et le chemin restent sur votre ordinateur. L'IA ne voit que DOSSIER_1.
 Autre méthode, depuis le terminal (la ligne `--dry-run` montre ce qui sera modifié, sans rien écrire) :
 
 ```sh
-uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl
+uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.4/ragbase_shield-0.4.4-py3-none-any.whl
 ragbase-shield install claude-desktop --dry-run
 ragbase-shield install claude-desktop
 ```
@@ -375,7 +379,7 @@ Depuis une copie du dépôt : `/plugin marketplace add /chemin/vers/ragbase-shie
 **Méthode terminal :**
 
 ```sh
-uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl
+uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.4/ragbase_shield-0.4.4-py3-none-any.whl
 ragbase-shield install claude-code --dry-run
 ragbase-shield install claude-code
 ```
@@ -390,7 +394,7 @@ méthode plugin.
 **Méthode simple (terminal) :**
 
 ```sh
-uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl
+uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.4/ragbase_shield-0.4.4-py3-none-any.whl
 ragbase-shield install chatgpt --dry-run
 ragbase-shield install chatgpt
 ragbase-shield install codex
@@ -406,7 +410,7 @@ Version commentée : [integrations/codex/config.toml.example](../integrations/co
 ```toml
 [mcp_servers.ragbase-shield]
 command = "uvx"
-args = ["--from", "https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl", "ragbase-shield", "mcp"]
+args = ["--from", "https://github.com/ragbase/ragbase-shield/releases/download/v0.4.4/ragbase_shield-0.4.4-py3-none-any.whl", "ragbase-shield", "mcp"]
 startup_timeout_sec = 60
 tool_timeout_sec = 120
 default_tools_approval_mode = "writes"
@@ -421,7 +425,7 @@ Nom : `ragbase-shield`. Type : STDIO. Commande : `uvx`. Arguments : le bloc ci-d
 Enregistrez, puis cliquez sur Restart.
 
 ```text
---from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield mcp
+--from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.4/ragbase_shield-0.4.4-py3-none-any.whl ragbase-shield mcp
 ```
 
 Bon à savoir :
@@ -438,13 +442,13 @@ Bon à savoir :
 **Méthode simple (terminal) :**
 
 ```sh
-uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl
+uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.4/ragbase_shield-0.4.4-py3-none-any.whl
 ragbase-shield install vscode --dry-run
 ragbase-shield install vscode
 ```
 
-**Méthode un clic.** Depuis l'ordinateur où VS Code est installé, cliquez sur
-[Installer RAGbase Shield dans VS Code](https://insiders.vscode.dev/redirect/mcp/install?name=ragbase-shield&config=%7B%22type%22%3A%22stdio%22%2C%22command%22%3A%22uvx%22%2C%22args%22%3A%5B%22--from%22%2C%22https%3A%2F%2Fgithub.com%2Fragbase%2Fragbase-shield%2Freleases%2Fdownload%2Fv0.4.1%2Fragbase_shield-0.4.1-py3-none-any.whl%22%2C%22ragbase-shield%22%2C%22mcp%22%5D%7D).
+**Méthode par lien.** Depuis l'ordinateur où VS Code est installé, cliquez sur
+[Installer RAGbase Shield dans VS Code](https://insiders.vscode.dev/redirect/mcp/install?name=ragbase-shield&config=%7B%22type%22%3A%22stdio%22%2C%22command%22%3A%22uvx%22%2C%22args%22%3A%5B%22--from%22%2C%22https%3A%2F%2Fgithub.com%2Fragbase%2Fragbase-shield%2Freleases%2Fdownload%2Fv0.4.4%2Fragbase_shield-0.4.4-py3-none-any.whl%22%2C%22ragbase-shield%22%2C%22mcp%22%5D%7D).
 
 **Méthode manuelle.** VS Code lit de préférence le fichier `.mcp.json` à la racine du projet, ou
 `~/.copilot/mcp-config.json` pour tous vos projets (clé `"mcpServers"` au lieu de `"servers"`, même contenu).
@@ -457,7 +461,7 @@ Les anciens emplacements marchent encore : `.vscode/mcp.json` dans le projet, ou
     "ragbase-shield": {
       "type": "stdio",
       "command": "uvx",
-      "args": ["--from", "https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl", "ragbase-shield", "mcp"]
+      "args": ["--from", "https://github.com/ragbase/ragbase-shield/releases/download/v0.4.4/ragbase_shield-0.4.4-py3-none-any.whl", "ragbase-shield", "mcp"]
     }
   }
 }
@@ -532,8 +536,8 @@ Les vrais noms ne reviennent que dans le panneau latéral de l'extension, jamais
 ### 8. Vérifier que tout fonctionne
 
 ```sh
-uvx --from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield doctor
-uvx --from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield verify
+uvx --from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.4/ragbase_shield-0.4.4-py3-none-any.whl ragbase-shield doctor
+uvx --from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.4/ragbase_shield-0.4.4-py3-none-any.whl ragbase-shield verify
 ```
 
 La ligne `doctor` vérifie l'installation, le stockage de la clé et chaque intégration. La ligne `verify` place des
@@ -545,17 +549,17 @@ LEAK veut dire qu'un chemin a laissé passer une donnée : n'utilisez pas Shield
 
 ### 9. Mettre à jour, désinstaller
 
-**Mettre à jour :** avec l'installateur en un clic (section 0), lancez le nouveau fichier `.pkg` ou `.msi`.
-Avec uv, cette commande installe la version 0.4.1 ou remplace celle que vous avez. Relancez ensuite Shield Desk
+**Mettre à jour :** avec l'installateur Mac ou Windows (section 0), lancez le nouveau fichier `.pkg` ou `.msi`.
+Avec uv, cette commande installe la version 0.4.4 ou remplace celle que vous avez. Relancez ensuite Shield Desk
 et vos applications.
 
 ```sh
-uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl
+uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.4/ragbase_shield-0.4.4-py3-none-any.whl
 ```
 
 Mode Précis : relancez plutôt la commande du mode Précis (section 10).
 
-**Désinstaller Shield installé en un clic :** icône Shield > « Désinstaller... » (détails en section 0).
+**Désinstaller Shield installé avec l'installateur Mac ou Windows :** icône Shield > « Désinstaller... » (détails en section 0).
 
 **Retirer une intégration :**
 
@@ -597,16 +601,16 @@ Par défaut, Shield est en mode Rapide : il travaille avec ses règles et ses di
 Le mode Précis ajoute un modèle IA local (nom technique : GLiNER). Ce modèle trouve en plus les noms sans titre ni
 prénom connu, les sociétés sans forme juridique, les pseudonymes et les matricules.
 Il tourne sur le processeur, hors ligne, et pèse environ 1,2 Go. Il s'installe avec uv (section 0 bis) :
-l'installateur en un clic ne le prend pas encore en charge.
+l'installateur Mac ou Windows ne le prend pas encore en charge.
 
 ```sh
-uv tool install --python 3.12 "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl"
+uv tool install --python 3.12 "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.4/ragbase_shield-0.4.4-py3-none-any.whl"
 ```
 
 Sur un Mac avec un processeur Intel, utilisez cette ligne :
 
 ```sh
-uv tool install --python 3.12 --with "numpy<2" --with "sentencepiece<0.2.3" "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl"
+uv tool install --python 3.12 --with "numpy<2" --with "sentencepiece<0.2.3" "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.4/ragbase_shield-0.4.4-py3-none-any.whl"
 ```
 
 Puis, sur tous les ordinateurs :
@@ -641,7 +645,11 @@ in French and a skill, with no hooks. There is one plugin per system, each in it
 [ragbase/ragbase-shield-windows](https://github.com/ragbase/ragbase-shield-windows). It is not the plugin of section 3, which is for
 Claude Code.
 
-**Add the plugin:**
+**Add the plugin:** you need the Claude desktop app, signed in, with a paid Claude plan.
+On [shield.ragbase.ai/installer](https://shield.ragbase.ai/installer/), click the button for your computer.
+In Claude, click « Synchro » ("Sync"), « Ajouter » ("Add"), then « Continuer » ("Continue").
+
+**Other way, by hand:**
 
 1. Open the Claude app on the **Claude** tab. Not the **Code** tab: from the Code tab, the app adds the plugin for
    Code sessions only.
@@ -652,14 +660,13 @@ Claude Code.
 4. In the **Discover** tab, click **Add** next to "RAGbase Shield (Mac)" or "RAGbase Shield (Windows)".
 5. Claude opens a window that says Shield is a program that runs on your computer: click **Continue**.
 
-You can also use the button for your system on [shield.ragbase.ai](https://shield.ragbase.ai).
-
 **Use the plugin in 3 steps:**
 
-1. **Protect a folder.** In a conversation, write: "Protège un dossier avec Shield" (or "Protect a folder with
+1. **Protect a folder.** In a new conversation, write: "Protège un dossier avec Shield" (or "Protect a folder with
    Shield"). A RAGbase Shield window opens on top of Claude: click in it and choose the folder of one client.
-   Shield reads and masks the whole folder on your computer, at that moment. A large folder takes some minutes.
-   Claude only gets a code, for example `DOSSIER_1`.
+   Shield reads and masks the whole folder on your computer. A large folder is read in the background, and Claude
+   tells you how far the reading is. Claude only gets a code, for example `DOSSIER_1`. Then the protected folder
+   is ready at once in each new conversation.
 2. **Ask for the work.** For example: "Summarise the file" or "Draft a formal notice". Claude reads the documents
    with the codes.
 3. **Save the final document.** Write: "Save the final document with Shield". Shield puts the real names back on
@@ -670,6 +677,7 @@ You can also use the button for your system on [shield.ragbase.ai](https://shiel
 - One client per folder. 2,000 files or 2 GB at most per folder.
 - Text you type in the conversation, or a file you drop directly into it, is not masked by the plugin: it is sent
   as it is.
+- A folder added to the conversation is not protected: only the folder chosen in the Shield window is.
 - Detection is never perfect: check sensitive passages.
 
 **Where your data stays:** on your computer, with the vault key.
@@ -681,7 +689,7 @@ You can also use the button for your system on [shield.ragbase.ai](https://shiel
 To remove the plugin: in the Claude app, open **Customize > Plugins**, then remove "RAGbase Shield (Mac)" or
 "RAGbase Shield (Windows)".
 
-### 0. One-click install
+### 0. Mac or Windows installer
 
 The installer puts RAGbase Shield on your computer without the Terminal. It is designed to need no administrator
 password: everything goes into your own user folder. It installs:
@@ -788,7 +796,7 @@ vault. On a Mac, IT can also run `"$HOME/Library/Application Support/RAGbase Shi
 with `--purge-data` it also erases the vaults and the key, which cannot be undone.
 After "Quit", Shield comes back at the next login (on Windows, Start menu > RAGbase Shield also starts it
 again). Precise mode (section 10) is not available with the
-one-click installer yet.
+Mac or Windows installer yet.
 Running the same `.msi` again installs nothing: Shield restarts, that is all; to repair a damaged install,
 uninstall, then install again. No icon one minute after the install? Start menu > RAGbase Shield. Still
 nothing: a firm policy blocks programs in the user folder (AppLocker, Smart App Control); ask your IT team
@@ -827,7 +835,7 @@ Open a new terminal window.
 Then install the `ragbase-shield` command once, from the wheel of the release, and start Shield Desk:
 
 ```sh
-uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl
+uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.4/ragbase_shield-0.4.4-py3-none-any.whl
 ragbase-shield desk
 ```
 
@@ -839,7 +847,7 @@ stops Desk and the browser extension.
 To start Shield Desk without installing the command:
 
 ```sh
-uvx --from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield desk
+uvx --from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.4/ragbase_shield-0.4.4-py3-none-any.whl ragbase-shield desk
 ```
 
 ### 1. Add a case folder
@@ -858,9 +866,9 @@ ragbase-shield register DOSSIER_1 --person "Thibault Mercadier"
 
 The title and path stay local. Models only see DOSSIER_1.
 
-### 2. Claude Desktop (one click)
+### 2. Claude Desktop (.mcpb extension)
 
-1. Do step 0 (or 0b) first: you add your folders in Shield Desk. Download `ragbase-shield-0.4.1.mcpb` from the
+1. Do step 0 (or 0b) first: you add your folders in Shield Desk. Download `ragbase-shield-0.4.4.mcpb` from the
    releases page of the repository: https://github.com/ragbase/ragbase-shield/releases/latest.
 2. Double-click it and click "Install" (or drag it into Settings > Extensions).
 3. In a new chat, ask "What is the Shield status?". Claude should call `shield_status`.
@@ -902,7 +910,7 @@ so. Prefer the plugin method.
 ### 4. ChatGPT desktop and Codex
 
 ```sh
-uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl
+uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.4/ragbase_shield-0.4.4-py3-none-any.whl
 ragbase-shield install chatgpt --dry-run
 ragbase-shield install chatgpt
 ragbase-shield install codex
@@ -916,7 +924,7 @@ Annotated version: [integrations/codex/config.toml.example](../integrations/code
 ```toml
 [mcp_servers.ragbase-shield]
 command = "uvx"
-args = ["--from", "https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl", "ragbase-shield", "mcp"]
+args = ["--from", "https://github.com/ragbase/ragbase-shield/releases/download/v0.4.4/ragbase_shield-0.4.4-py3-none-any.whl", "ragbase-shield", "mcp"]
 startup_timeout_sec = 60
 tool_timeout_sec = 120
 default_tools_approval_mode = "writes"
@@ -926,7 +934,7 @@ ChatGPT desktop manual setup: Settings > MCP servers > Add server; name `ragbase
 command `uvx`, arguments: the block below. Save, then Restart.
 
 ```text
---from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield mcp
+--from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.4/ragbase_shield-0.4.4-py3-none-any.whl ragbase-shield mcp
 ```
 
 Business, Edu and Enterprise admins can restrict MCP servers. It works in local Work threads (running on this
@@ -937,12 +945,12 @@ ChatGPT web is not supported natively: use Shield Desk or the browser extension.
 ### 5. GitHub Copilot in VS Code
 
 ```sh
-uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl
+uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.4/ragbase_shield-0.4.4-py3-none-any.whl
 ragbase-shield install vscode --dry-run
 ragbase-shield install vscode
 ```
 
-One click: [Install RAGbase Shield in VS Code](https://insiders.vscode.dev/redirect/mcp/install?name=ragbase-shield&config=%7B%22type%22%3A%22stdio%22%2C%22command%22%3A%22uvx%22%2C%22args%22%3A%5B%22--from%22%2C%22https%3A%2F%2Fgithub.com%2Fragbase%2Fragbase-shield%2Freleases%2Fdownload%2Fv0.4.1%2Fragbase_shield-0.4.1-py3-none-any.whl%22%2C%22ragbase-shield%22%2C%22mcp%22%5D%7D).
+By link: [Install RAGbase Shield in VS Code](https://insiders.vscode.dev/redirect/mcp/install?name=ragbase-shield&config=%7B%22type%22%3A%22stdio%22%2C%22command%22%3A%22uvx%22%2C%22args%22%3A%5B%22--from%22%2C%22https%3A%2F%2Fgithub.com%2Fragbase%2Fragbase-shield%2Freleases%2Fdownload%2Fv0.4.4%2Fragbase_shield-0.4.4-py3-none-any.whl%22%2C%22ragbase-shield%22%2C%22mcp%22%5D%7D).
 
 Manual: VS Code now prefers `.mcp.json` at the project root, or `~/.copilot/mcp-config.json` for all projects
 (top-level key `"mcpServers"` instead of `"servers"`, same entry). The older places still work: `.vscode/mcp.json`
@@ -954,7 +962,7 @@ in the project, or your user profile `mcp.json` (where `ragbase-shield install v
     "ragbase-shield": {
       "type": "stdio",
       "command": "uvx",
-      "args": ["--from", "https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl", "ragbase-shield", "mcp"]
+      "args": ["--from", "https://github.com/ragbase/ragbase-shield/releases/download/v0.4.4/ragbase_shield-0.4.4-py3-none-any.whl", "ragbase-shield", "mcp"]
     }
   }
 }
@@ -999,8 +1007,8 @@ shows codes before you send.
 ### 8. Check
 
 ```sh
-uvx --from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield doctor
-uvx --from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl ragbase-shield verify
+uvx --from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.4/ragbase_shield-0.4.4-py3-none-any.whl ragbase-shield doctor
+uvx --from https://github.com/ragbase/ragbase-shield/releases/download/v0.4.4/ragbase_shield-0.4.4-py3-none-any.whl ragbase-shield verify
 ```
 
 The `doctor` line checks the install, the key storage and each app integration. The `verify` line prints CLEAN or
@@ -1008,16 +1016,16 @@ LEAK per path. If `verify` prints LEAK, stop using Shield and report it privatel
 
 ### 9. Update and uninstall
 
-Update: with the one-click installer (section 0), run the newer `.pkg` or `.msi`. With uv, this command installs
-version 0.4.1 or replaces the one you have; then restart Shield Desk and your apps:
+Update: with the Mac or Windows installer (section 0), run the newer `.pkg` or `.msi`. With uv, this command installs
+version 0.4.4 or replaces the one you have; then restart Shield Desk and your apps:
 
 ```sh
-uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl
+uv tool install https://github.com/ragbase/ragbase-shield/releases/download/v0.4.4/ragbase_shield-0.4.4-py3-none-any.whl
 ```
 
 Precise mode: run the Precise command again instead (section 10).
 
-Uninstall the one-click install: Shield icon > "Uninstall..." (details in section 0).
+Uninstall what the Mac or Windows installer put in: Shield icon > "Uninstall..." (details in section 0).
 Remove integrations: Claude plugin: Customize > Plugins in the Claude app, remove "RAGbase Shield (Mac)" or
 "RAGbase Shield (Windows)"; Claude Desktop Settings > Extensions; `/plugin uninstall ragbase-shield@ragbase`;
 delete `[mcp_servers.ragbase-shield]` from `~/.codex/config.toml`; delete the `ragbase-shield` entry in `mcp.json`.
@@ -1045,17 +1053,17 @@ Technical details per app:
 By default Shield is in Fast mode: it works with its rules and dictionaries (French and English). Precise mode adds
 a local AI model (technical name: GLiNER). The model also finds the names without a title or a known first name, the
 companies without a legal form, the usernames and the employee ids.
-It runs on the CPU, offline, and takes about 1.2 GB. You install it with uv (section 0b): the one-click
-installer does not support it yet.
+It runs on the CPU, offline, and takes about 1.2 GB. You install it with uv (section 0b): the Mac or
+Windows installer does not support it yet.
 
 ```sh
-uv tool install --python 3.12 "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl"
+uv tool install --python 3.12 "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.4/ragbase_shield-0.4.4-py3-none-any.whl"
 ```
 
 On a Mac with an Intel processor, use this line:
 
 ```sh
-uv tool install --python 3.12 --with "numpy<2" --with "sentencepiece<0.2.3" "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.1/ragbase_shield-0.4.1-py3-none-any.whl"
+uv tool install --python 3.12 --with "numpy<2" --with "sentencepiece<0.2.3" "ragbase-shield[ner] @ https://github.com/ragbase/ragbase-shield/releases/download/v0.4.4/ragbase_shield-0.4.4-py3-none-any.whl"
 ```
 
 Then, on every computer:

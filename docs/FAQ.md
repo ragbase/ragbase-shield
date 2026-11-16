@@ -166,7 +166,7 @@ Yes, it is optional. Fast mode (technical name: rules) is the default. Precise m
 recognition (technical name: GLiNER; about 1.2 GB, Apache-2.0). Install the `ner` extra, then run
 `ragbase-shield ner download`: this is the only download, and you start it yourself. The model then runs offline, on
 the CPU, and the engine uses it automatically. What the model finds goes through the same whitelist as the rules and
-never overrides the structured detectors. The one-click installers do not include the model yet. Details:
+never overrides the structured detectors. The Mac and Windows installers do not include the model yet. Details:
 [NER.md](NER.md).
 
 ### What does Shield mask in text typed without capitals?

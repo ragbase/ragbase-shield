@@ -3,7 +3,7 @@
 Covers the two review findings of 2026-10-27 that were left open in desk/ (1b: the service processes put the
 current folder on sys.path; 2: ``service uninstall --purge-data`` could delete a custom data folder that holds
 client files), plus static checks of what ships: home-domain package, no network tool in the install scripts,
-hashed locks and pins, isolated launchers, no em or en dash, and the install guide's one-click section.
+hashed locks and pins, isolated launchers, no em or en dash, and the install guide's installer section.
 Nothing here builds a package, opens the network or touches launchd or the real HOME.
 """
 from __future__ import annotations
@@ -202,8 +202,8 @@ def test_signing_is_a_todo_and_never_faked():
 def test_install_guide_has_the_one_click_section_in_both_languages():
     text = (ROOT / "docs" / "INSTALL.md").read_text(encoding="utf-8")
     fr, en = text.split("## Part 2. English", 1)
-    assert "### 0. Installer en un clic" in fr and "### 0 bis. Autre méthode" in fr
-    assert "### 0. One-click install" in en and "### 0b. Other way" in en
+    assert "### 0. Installateur Mac ou Windows" in fr and "### 0 bis. Autre méthode" in fr
+    assert "### 0. Mac or Windows installer" in en and "### 0b. Other way" in en
     version = re.search(r'^version = "([^"]+)"', (ROOT / "pyproject.toml").read_text(encoding="utf-8"), re.M).group(1)
     wheel = f"https://github.com/ragbase/ragbase-shield/releases/download/v{version}/ragbase_shield-{version}-py3-none-any.whl"
     for part in (fr, en):
@@ -212,7 +212,7 @@ def test_install_guide_has_the_one_click_section_in_both_languages():
         assert f"uvx --from {wheel} ragbase-shield desk" in part
         # No placeholder for a screenshot that does not exist (a public guide must not look unfinished).
         assert "à venir" not in part and "to come" not in part
-    assert fr.index("### 0. Installer en un clic") < fr.index("### 0 bis. Autre méthode")
+    assert fr.index("### 0. Installateur Mac ou Windows") < fr.index("### 0 bis. Autre méthode")
 
 
 def test_packaging_readme_says_built_and_unsigned():

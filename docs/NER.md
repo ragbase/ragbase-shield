@@ -70,7 +70,7 @@ A model cached in the user's own Hugging Face cache (`HF_HUB_CACHE`, `HF_HOME/hu
 is found too. A snapshot folder copied by hand into `<models dir>/<repo name>` works as well.
 
 On Intel macOS the last torch is 2.2.2 and transformers must stay under 5 (the extra pins `transformers<5`).
-The one-click installers do not include the model yet: install it with uv or pip.
+The Mac and Windows installers do not include the model yet: install it with uv or pip.
 
 ## 2. Settings
 

@@ -1,6 +1,6 @@
 # RAGbase Shield for Claude Desktop (desktop extension, .mcpb)
 
-A one-click desktop extension that runs the RAGbase Shield MCP server on your computer. Claude reads
+A desktop extension that runs the RAGbase Shield MCP server on your computer. Claude reads
 your dossier documents **masked** through 6 tools and never sees the real names.
 
 ## Install (users)

@@ -33,7 +33,7 @@ The config files follow the official VS Code documentation.
   for unconfigured Copilot features from 22 October 2026: check with your admin which value applies.)
   Copilot Free, Pro and Pro+ users do not need an admin.
 
-## Option 1: one-click install
+## Option 1: install by link
 
 Open this link (VS Code must be installed). VS Code asks you to confirm, then adds the server to your
 user profile:
