@@ -1079,8 +1079,12 @@ def build_server():
             return reading_answer(state)  # codes, numbers and fixed words: no canary, no wait
         return error_result(_msg(exc, scope.pinned))
 
-    def out(text: str, dossier: Optional[str] = None) -> str:
-        return mcp_server._out(text, dossier)
+    Content = mcp_server.Content
+
+    def answer(parts: list, dossier: Optional[str] = None) -> str:
+        # F0 (0.4.3): only the Content parts (file names, passages, search results, codes the model wrote) go
+        # through the last check; Shield's own words, codes and counts never do
+        return mcp_server._answer(parts, dossier)
 
     def scoped(dossier: str) -> str:
         scope.check(dossier)
@@ -1162,7 +1166,7 @@ def build_server():
                      _counts_line(summary.get("counts") or {}),
                      "Les vrais noms restent sur cet ordinateur.",
                      f"Suite : shield_list_documents avec {code}."]
-            return out("\n".join(lines), code)
+            return "\n".join(lines)  # F0 (0.4.3): codes, counts and fixed words only: never changed by the last check
         finally:
             lock.release()
 
@@ -1173,8 +1177,8 @@ def build_server():
             rows = service.list_dossiers()
             pinned = scope.pinned
             if not rows:
-                return out("Aucun dossier n'est encore protégé. Appelez shield_protect_folder : l'avocat choisira "
-                           "le dossier dans une fenêtre sur son ordinateur.")
+                return ("Aucun dossier n'est encore protégé. Appelez shield_protect_folder : l'avocat choisira "
+                        "le dossier dans une fenêtre sur son ordinateur.")
             if pinned is not None:
                 rows = [r for r in rows if r.get("code") == pinned]
             lines = [f"{len(rows)} dossier(s) protégé(s) :" if pinned is None
@@ -1210,10 +1214,10 @@ def build_server():
                 if f and f not in sub_labels:
                     sub_labels[f] = f"sous-dossier {len(sub_labels) + 1}"
             if not docs:
-                return out(f"{code} : aucun document lisible (Shield lit les PDF, Word, textes, e-mails et pages "
-                           "web).", code)
-            lines = [f"{code} : {len(docs)} document(s). Code | type | taille | nom (noms remplacés par des codes ou "
-                     "par « … », sous-dossiers numérotés)"]
+                return (f"{code} : aucun document lisible (Shield lit les PDF, Word, textes, e-mails et pages "
+                        "web).")
+            parts: list = [f"{code} : {len(docs)} document(s). Code | type | taille | nom (noms remplacés par des "
+                           "codes ou par « … », sous-dossiers numérotés)"]
             unsupported = 0
             for d in docs:
                 size = _kb(d["size"])
@@ -1223,14 +1227,14 @@ def build_server():
                     unsupported += 1
                 name = safe_file_name(d["masked_name"])
                 sub = sub_labels.get(folders.get(d["id"], ""))
-                lines.append(f"{d['id']} | {TYPE_WORDS.get(d['kind'], d['kind'])} | {size} | "
-                             + (f"{sub} / {name}" if sub else name)
-                             + (" | non lu (trop long)" if d.get("not_read") in ("too_long", "too_large") else ""))
+                parts += [f"\n{d['id']} | {TYPE_WORDS.get(d['kind'], d['kind'])} | {size} | "
+                          + (f"{sub} / " if sub else ""), Content(name),
+                          " | non lu (trop long)" if d.get("not_read") in ("too_long", "too_large") else ""]
             if unsupported:
-                lines.append(f"{unsupported} fichier(s) que Shield ne sait pas lire (tableur, image...). Si leur "
+                parts.append(f"\n{unsupported} fichier(s) que Shield ne sait pas lire (tableur, image...). Si leur "
                              "contenu compte, demandez à l'utilisateur une copie en PDF, Word ou texte.")
-            lines.append("Suite : shield_read_document ou shield_search.")
-            return out("\n".join(lines), code)
+            parts.append("\nSuite : shield_read_document ou shield_search.")
+            return answer(parts, code)
         except Exception as exc:  # noqa: BLE001
             return fail(exc)
 
@@ -1250,8 +1254,8 @@ def build_server():
             scope.used(dossier)
             code = dossier.strip().upper()
             if r["needs_ocr"]:
-                return out(f"{code} / {r['id']} : ce PDF est une image scannée, sans texte. Shield ne peut pas le "
-                           "lire. Demandez à l'utilisateur une version texte ou Word.", code)
+                return (f"{code} / {r['id']} : ce PDF est une image scannée, sans texte. Shield ne peut pas le "
+                        "lire. Demandez à l'utilisateur une version texte ou Word.")
             end = r["start"] + len(r["text"])
             head = f"[{code} / {r['id']} · caractères {r['start']} à {end} sur {r['total_chars']}"
             if r.get("pages"):
@@ -1259,7 +1263,7 @@ def build_server():
             head += f" · suite : start={r['next']}]" if r["next"] is not None else " · fin du document]"
             if r.get("warnings"):
                 head += "\n[remarque : une partie du document n'a peut-être pas pu être lue]"
-            return out(head + "\n" + r["text"], code)
+            return answer([head + "\n", Content(r["text"])], code)
         except Exception as exc:  # noqa: BLE001
             return fail(exc)
 
@@ -1275,11 +1279,11 @@ def build_server():
             scope.used(dossier)
             code = dossier.strip().upper()
             if not hits:
-                return out(f"{code} : aucun résultat.", code)
-            lines = [f"{code} : {len(hits)} résultat(s). Pour lire la suite : shield_read_document avec start."]
+                return f"{code} : aucun résultat."
+            parts: list = [f"{code} : {len(hits)} résultat(s). Pour lire la suite : shield_read_document avec start."]
             for i, h in enumerate(hits, 1):
-                lines.append(f"{i}. {h['document']} (start={h['offset']}) : {h['snippet']}")
-            return out("\n".join(lines), code)
+                parts += [f"\n{i}. {h['document']} (start={h['offset']}) : ", Content(h["snippet"])]
+            return answer(parts, code)
         except Exception as exc:  # noqa: BLE001
             return fail(exc)
 
@@ -1296,22 +1300,21 @@ def build_server():
             r = service.save_draft_report(scoped(dossier), title, content, format)
             scope.used(dossier)
             code = dossier.strip().upper()
+            unknown, placeholders, ids = mcp_server._model_items(r, code)  # what the model wrote: checked
             msg = (f"Enregistré : {r['id']} ({_kb(r['bytes'])}, {'Word' if r['format'] == 'docx' else 'texte'}) "
                    f"dans le dossier « Shield - sorties » de {code}. Les vrais noms y sont remis, sur l'ordinateur "
                    "uniquement. Dites à l'avocat d'ouvrir ce fichier sur son ordinateur.")
-            if r["unknown_codes"]:
+            if unknown:
                 msg += ("\nCes codes n'existent pas dans ce dossier et sont restés tels quels : "
-                        + ", ".join(r["unknown_codes"]) + ".")
-            placeholders = list(r.get("placeholders") or [])
+                        + ", ".join(unknown) + ".")
             if placeholders:
                 items = ", ".join(f"{p} ×{n}" if n > 1 else p for p, n in Counter(placeholders).items())
                 msg += (f"\nAttention : ces marques ne peuvent pas être remplacées par un vrai nom : {items}. "
                         "Réécrivez ces passages avec les codes du dossier, puis enregistrez à nouveau.")
-            ids = list(r.get("shield_ids") or [])
             if ids:
                 msg += (f"\nCes codes Shield sont restés dans le fichier : {', '.join(ids)}. Remplacez-les par une "
                         "description de la pièce, puis enregistrez à nouveau.")
-            return out(msg, code)
+            return msg
         except Exception as exc:  # noqa: BLE001
             return fail(exc)
 

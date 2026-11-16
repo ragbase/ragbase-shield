@@ -53,10 +53,29 @@ from .engine import (
 )
 from .engine import ner as _ner
 from .engine.masker import ScanPrep, prepare_scan
-from .engine.types import PREFIXES
+from .engine.types import PREFIXES, is_weak_value, spreadable
 from .vault import DOSSIER_SETTINGS, UNSUPPORTED_KIND, Dossier, Registry, UnknownDossier, VaultError
 
 log = logging.getLogger(__name__)
+
+#: F0 (0.4.3): Shield's own tokens in a text: entity codes (as ``UNMASK_RE`` reads them, also glued), DOC_n,
+#: DOSSIER_n, OUTPUT_n and the placeholders "[PERSONNE]", "[IDENT]". The last check never changes them: a hit of
+#: the canary that touches one of them is dropped.
+SHIELD_TOKEN_RE = re.compile(
+    r"(?:" + UNMASK_RE.pattern
+    + r"|(?<![A-Za-z0-9])(?:DOC|DOSSIER|OUTPUT)_[0-9]{1,7}(?![0-9])"
+    + r"|\[[A-ZÀ-Ý]{2,}(?:[_ -][A-ZÀ-Ý]+)*\])"
+)
+
+
+def shield_token_spans(text: str) -> list[tuple[int, int]]:
+    """(start, end) of every Shield code, structural token and placeholder of ``text`` (F0, 0.4.3)."""
+    return [m.span() for m in SHIELD_TOKEN_RE.finditer(text or "")]
+
+
+def _touches(spans: list[tuple[int, int]], start: int, end: int) -> bool:
+    return any(a < end and start < b for a, b in spans)
+
 
 __all__ = [
     "ShieldError",
@@ -801,15 +820,27 @@ class Service:
         return bool(ent is not None and d.is_kept_clear(ent.norm))
 
     def _leftovers(self, d: Dossier, text: str, prep: Optional[ScanPrep] = None) -> list[Span]:
-        """Registered values of ``d`` still present in ``text`` (lenient canary, kept-clear terms ignored)."""
+        """Registered values of ``d`` still present in ``text`` (lenient canary, kept-clear terms ignored).
+
+        F0 (0.4.3): the canary reads only the values that may be spread (``engine.types.spreadable``, applied in
+        the masker's lexicon, so a weak value such as "4" is never a dictionary hit), a structured hit counts only
+        for a value that is not weak, and a hit that touches a Shield code, DOC_n, DOSSIER_n, OUTPUT_n or a
+        placeholder ("[IDENT]") is dropped: Shield never masks its own words."""
         if not text or not d.all():
             return []
+        tokens = shield_token_spans(text)
         spans = []
         for sp in self._rules(d).scan(text, prepared=prep):
+            if _touches(tokens, sp.start, sp.end):
+                continue
             # known values come back as "dictionary"; a registered identifier that is also a valid structured
             # id (e-mail, IBAN...) comes back as "regex": keep it only when it is one of the dossier's values
-            if sp.source == "dictionary" or (sp.source == "regex" and self._entity_for(d, sp.kind, sp.value)):
+            if sp.source == "dictionary":
                 spans.append(sp)
+            elif sp.source == "regex":
+                ent = self._entity_for(d, sp.kind, sp.value)
+                if ent is not None and not is_weak_value(ent.value):
+                    spans.append(sp)
         return [sp for sp in spans if not self._kept(d, sp)]
 
     def _redact(self, text: str, hits: list[Span], d: Dossier, own: bool,
@@ -849,8 +880,8 @@ class Service:
         when the user keeps this term in clear in ``d``: the caller then writes a placeholder."""
         value = " ".join(surface.split())
         norm = _safe_norm(kind, value)
-        if not value or not norm or d.is_kept_clear(norm) or d.is_kept_clear(normalize(value)):
-            return None
+        if not value or not norm or is_weak_value(value) or d.is_kept_clear(norm) or d.is_kept_clear(normalize(value)):
+            return None  # F0 (0.4.3): a weak value is never made into an entity of another dossier
         try:
             return d.add(kind, value, norm)
         except Exception:  # noqa: BLE001 - code range exhausted, refused value: keep the placeholder
@@ -1176,7 +1207,7 @@ class Service:
             if is_weak and surname and len(tok) >= 4:
                 weak_surname.setdefault(tok, set()).add(code)
 
-        for e in d.all():
+        for e in spreadable(d.all()):  # F0 (0.4.3): weak values are never searched for in a label
             if e.kind == "PERSON":
                 for tok in nm.surname_key(e.value).split():
                     classify(tok, e.code, surname=True)
@@ -1686,6 +1717,22 @@ class Service:
             else:
                 primary = self._context_dossier()
             return self._guard(str(text or ""), primary)
+
+    @_guarded("guard_output")
+    def guard_parts(self, parts: list[str], dossier_code: Optional[str] = None) -> list[str]:
+        """F0 (0.4.3): the last check on the CONTENT parts of a tool answer (file names, passages, search
+        results, titles), one string each, in one canary pass per dossier. The words, codes and numbers that Shield
+        writes itself are never passed here. Same rules as :meth:`guard_output`."""
+        items = [str(x or "") for x in parts]
+        if not any(items):
+            return items
+        with self._lock:
+            if dossier_code:
+                with output_dossier(dossier_code):
+                    primary = self._context_dossier()
+            else:
+                primary = self._context_dossier()
+            return self._guard_many(items, primary)
 
     @_guarded("protect")
     def protect(self, text: str) -> tuple[str, list[str]]:
@@ -2986,6 +3033,10 @@ def entities(dossier_code: str) -> list[dict]:
 
 def register(dossier_code: str, kind: str, value: str) -> dict:
     return default().register(dossier_code, kind, value)
+
+
+def guard_parts(parts: list[str], dossier_code: Optional[str] = None) -> list[str]:
+    return default().guard_parts(parts, dossier_code)
 
 
 def keep_clear(dossier_code: str, target: str, value: bool = True) -> dict:
