@@ -889,3 +889,42 @@ def test_an_old_0_4_3_cache_folder_breaks_nothing(tmp_path, monkeypatch):
     (old / boot.MARKER).write_text("RAGbase Shield 0.4.3: 1 entries\n", encoding="ascii")
     new = boot.cache_dir(str(eng))
     assert Path(new).name.startswith("0.4.4-") and Path(new) != old and not boot.is_complete(new)
+
+
+# ============================================================================================ slow (runners)
+
+@pytest.mark.skipif(os.environ.get("RAGBASE_SHIELD_SLOW_TESTS") != "1", reason="slow: RAGBASE_SHIELD_SLOW_TESTS=1")
+def test_b1_a_very_long_pdf_is_read_masked_listed_searched_and_kept(tmp_path):
+    """B1 for the runners: one synthetic PDF (about 2,600 characters a page; RAGBASE_SHIELD_B1_PAGES pages, 2,300 by
+    default = about 6,000,000 characters) is read, masked, listed, searched and readable, then ready at a second start
+    with no file read. Prints the seconds and the process peak."""
+    import json
+    import resource
+
+    pages = int(os.environ.get("RAGBASE_SHIELD_B1_PAGES", "2300"))
+    f = tmp_path / "Dossier Long"
+    f.mkdir()
+    synth_pdf.make_long_pdf(f / "registre.pdf", pages)
+    svc = service.Service(tmp_path / "data")
+    t0 = time.monotonic()
+    code = svc.protect_folder(f)["code"]
+    assert svc.wait_reading(code, 3 * 3600)
+    summary = svc.reading_summary(code)
+    docs = svc.list_documents(code)
+    assert docs[0]["not_read"] is None and summary["too_long"] == 0, summary
+    middle = svc.read_document(code, "DOC_1", max_chars=500)["total_chars"] // 2
+    page = svc.read_document(code, "DOC_1", start=middle, max_chars=50_000)
+    assert page["total_chars"] > 2_500 * pages * 0.9 and synth_pdf.PERSON_LATE not in page["text"]
+    assert svc.search(code, "délai de trente jours")
+    svc.close()
+    second = service.Service(tmp_path / "data")
+    try:
+        t1 = time.monotonic()
+        assert second._kset_ready(code)
+        ready2 = time.monotonic() - t1
+        assert second.read_document(code, "DOC_1", start=middle, max_chars=50_000)["text"] == page["text"]
+    finally:
+        second.close()
+    print(json.dumps({"pages": pages, "chars": page["total_chars"], "read_s": summary["read_seconds"],
+                      "ready_s": round(time.monotonic() - t0, 1), "second_start_s": round(ready2, 2),
+                      "peak_mb": round(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 2 ** (20 if sys.platform == "darwin" else 10))}))
