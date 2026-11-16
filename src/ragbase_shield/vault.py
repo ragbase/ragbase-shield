@@ -290,8 +290,40 @@ def _key_matches(key: bytes, check_token: bytes) -> bool:
         return False
 
 
+#: Plugin mode (``ragbase_shield.claude_tab``): the ONLY place of the master key. An object with ``source`` (str),
+#: ``get() -> Optional[bytes]`` and ``put(key: bytes) -> None``. When it is set, the keychain library and the key
+#: file are never used, and a key store failure is a VaultError (no silent fallback to a file next to the vault).
+KEY_STORE: Any = None
+
+
+def _store_master_key(check_token: Optional[bytes]) -> tuple[bytes, str]:
+    store = KEY_STORE
+    try:
+        key = store.get()
+    except Exception:  # noqa: BLE001 - never echo the message
+        raise VaultError("Clé du coffre illisible (key store error)") from None
+    key = _as_key(key) if key is not None else None
+    if check_token is not None:
+        if key is not None and _key_matches(key, check_token):
+            return key, store.source
+        raise VaultError("Clé du coffre introuvable ou différente : le coffre ne peut pas être ouvert "
+                         "(vault key missing or wrong)")
+    if key is None:
+        try:
+            store.put(Fernet.generate_key())
+            key = store.get()
+        except Exception:  # noqa: BLE001
+            raise VaultError("Clé du coffre impossible à créer (key store error)") from None
+        key = _as_key(key) if key is not None else None
+        if key is None:
+            raise VaultError("Clé du coffre impossible à créer (key store error)")
+    return key, store.source
+
+
 def _master_key(home: Path, check_token: Optional[bytes]) -> tuple[bytes, str]:
     """Find the master key. With an existing registry the key must pass the check token (fail closed)."""
+    if KEY_STORE is not None:
+        return _store_master_key(check_token)
     key_file = home / KEY_FILE_NAME
     if check_token is not None:
         candidates = [(k, src) for k, src in ((_read_key_file(key_file), "file"), (_keyring_key(False), "keyring"))
