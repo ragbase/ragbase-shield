@@ -18,6 +18,7 @@ import pytest
 from mcp import Client
 
 from ragbase_shield import hooks, mcp_server, service
+from ragbase_shield.engine.types import NEVER_SPREAD_KINDS
 
 FIXTURES = Path(__file__).parent / "fixtures" / "docs"
 MANIFEST = json.loads((FIXTURES / "manifest.json").read_text(encoding="utf-8"))
@@ -34,8 +35,14 @@ def _digits(s: str) -> str:
 
 
 class Leaks:
-    def __init__(self, values):
+    def __init__(self, values, birth_places=()):
         self.values = sorted({" ".join(v.split()) for v in values if v and len(v.strip()) >= 3}, key=len, reverse=True)
+        # 0.4.4 (birth place fix): a place of birth is a town. It must never show in a birth context ("née le
+        # NAISSANCE_1 à Lyon"), but the same town elsewhere is legal text that stays ("avocat au barreau de Lyon",
+        # a keep of the gold file): it is checked in its birth context only.
+        self.birth = [re.compile(r"(?i)\b(?:né(?:e|s|es)?|naissance)\b[^.\n]{0,60}?(?<![\w-])"
+                                 + re.escape(" ".join(v.split())) + r"(?![\w-])")
+                      for v in birth_places if v and v.strip()]
 
     def find(self, output) -> list[str]:
         text = output if isinstance(output, str) else json.dumps(output, ensure_ascii=False)
@@ -52,6 +59,7 @@ class Leaks:
                     found.append(v)
                 elif sum(c.isdigit() for c in v) >= 6 and _digits(v) in compact:
                     found.append(v)
+        found += [rx.pattern for rx in self.birth if rx.search(text)]
         return found
 
 
@@ -71,9 +79,9 @@ def _setup(tmp_path: Path, item: dict):
     for p in gold["parties"]:
         service.register(code, p["kind"], p["value"])
     d = service.default().registry.get(code)
-    values = [e.value for e in d.all()] + [p["value"] for p in gold["parties"]]
+    values = [e.value for e in d.all() if e.kind not in NEVER_SPREAD_KINDS] + [p["value"] for p in gold["parties"]]
     values += [m["text"] for m in gold["mentions"]] + [gold["title"]]
-    return folder, code, gold, Leaks(values)
+    return folder, code, gold, Leaks(values, [e.value for e in d.all() if e.kind in NEVER_SPREAD_KINDS])
 
 
 def _calls(server, calls: list[tuple[str, dict]]) -> list[tuple[str, bool, str]]:
@@ -207,3 +215,13 @@ def test_no_party_name_in_masked_file_names(tmp_path):
     rc, out = _hook("post-tool-use", {"tool_name": "Glob", "tool_input": {},
                                       "tool_response": {"filenames": [str(p) for p in folder.iterdir()]}})
     assert rc == 0 and _fold(surname) not in _fold(out.split('"updatedToolOutput"', 1)[-1].split("additionalContext")[0])
+
+
+def test_the_checker_sees_a_birth_place_in_its_birth_context_only():
+    """0.4.4 (birth place fix): the checker flags a place of birth in a birth context, never the same town in a
+    court or a bar name (invented text)."""
+    leaks = Leaks([], ["Lyon"])
+    assert leaks.find("Madame PERSONNE_A, née le NAISSANCE_1 à Lyon, demeurant ADRESSE_1")
+    assert leaks.find("Lieu de naissance : Lyon")
+    assert not leaks.find("Madame PERSONNE_A, née le NAISSANCE_1 à LIEU_1.\nAvocat au barreau de Lyon.")
+    assert not leaks.find("Il ne travaille plus à Lyon. Le conseil de prud'hommes de Lyon est saisi.")

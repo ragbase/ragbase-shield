@@ -283,7 +283,25 @@ def test_urls_and_public_whitelist():
     ("DATE DE NAISSANCE : 12/03/1980", "12/03/1980"),
 ])
 def test_birthdate(text, value):
-    assert found(text) == [("BIRTHDATE", value)]
+    assert [f for f in found(text) if f[0] != "BIRTHPLACE"] == [("BIRTHDATE", value)]
+
+
+@pytest.mark.parametrize("text,place", [
+    ("né le 12 mars 1980 à Lyon", "Lyon"),
+    ("Date et lieu de naissance : Le 11 février 1962 à Lyon", "Lyon"),
+    ("née à Mâcon (71), le 3 mai 1975", "Mâcon"),
+    ("Monsieur Jean Kerbrat, né en 1958 à Saint-Brieuc", "Saint-Brieuc"),
+    ("Lieu de naissance : Quimperlé", "Quimperlé"),
+    ("born on 4 March 1970 in Leeds", "Leeds"),
+])
+def test_birthplace(text, place):
+    """Plugin round 2: the town next to a birth date or a birth word is masked (LIEU_n)."""
+    assert ("BIRTHPLACE", place) in found(text)
+
+
+def test_town_without_birth_is_clear():
+    assert not [f for f in found("signé à Angers le 3 mars 2020 ; demeurant à Lyon ; né le 3 mars 1980 à l'hôpital")
+                if f[0] == "BIRTHPLACE"]
 
 
 def test_dates_without_birth_context_are_clear():

@@ -82,7 +82,7 @@ PRIORITY = {
     "ID_CODE": 5, "ADDRESS": 4, "ORG": 3,
     # v0.2: a labelled account number beats a SIREN or phone shape of the same span; an employee id or a username
     # beats the generic labelled reference (ID_CODE - 1)
-    "ACCOUNT_NUMBER": 8, "EMPLOYEE_ID": 6, "USERNAME": 6,
+    "ACCOUNT_NUMBER": 8, "EMPLOYEE_ID": 6, "USERNAME": 6, "BIRTHPLACE": 4,
 }
 
 # ---------------------------------------------------------------------------
@@ -748,6 +748,7 @@ _GESTION_RE = re.compile(r"(?i)(?:num[ée]ro|n[°ºo]\.?)\s+de\s+gestion\s*:?\s*
 _TOQUE_RE = re.compile(
     r"(?:(?i:\btoque)\s*(?:n[°ºo]\.?\s*)?:?\s*|\(\s*T\.?\s?)(?P<v>[A-Z]?[ \u00a0]?\d{1,5})(?![0-9])"
 )
+_TOQUE_CLOSE_RE = re.compile(r"[ \u00a0]*\)")
 
 
 def _mask_toque() -> bool:
@@ -763,8 +764,12 @@ def _find_id_code(text: str) -> Iterator[Candidate]:
             v = m.group("v")
             if rx is _VERIF_RE and (not any(c.isdigit() for c in v) or not any(c.isalpha() for c in v)):
                 continue
-            if rx is _TOQUE_RE and re.match(r"\(\s*T\.?\d{1,2}\)", text[m.start():m.end() + 1]):
-                continue  # "(T4)": a parenthesised short token (a quarter, a column), not a toque (v0.2, Max class C)
+            if rx is _TOQUE_RE and text[m.start()] == "(" and not v[:1].isalpha() \
+                    and (len(v.strip()) < 3 or not _TOQUE_CLOSE_RE.match(text, m.end("v"))):
+                # F0 (0.4.3): "(T4)", "(T. 4)", "(T 13)", "(T. 2, ligne 20)": a tome, a table, a quarter, never a
+                # toque. With no "toque" word, a toque made of digits only is "(T 1234)": three digits or more and
+                # nothing else in the brackets. These short numbers were stored as identifiers (v0.2, Max class C)
+                continue
             yield Candidate(m.start("v"), m.end("v"), "ID_CODE", True, pr, "kbis_court")
     for m in _ISIN_RE.finditer(text):
         v = m.group()
@@ -1223,6 +1228,70 @@ def _find_birthdate(text: str) -> Iterator[Candidate]:
             yield Candidate(m.start(), m.end(), "BIRTHDATE", True, PRIORITY["BIRTHDATE"], "birthdate")
     for m in _BIRTH_YEAR_RE.finditer(text):
         yield Candidate(m.start("y"), m.end("y"), "BIRTHDATE", True, PRIORITY["BIRTHDATE"], "birth_year")
+
+
+# ---------------------------------------------------------------------------
+# BIRTHPLACE (plugin round 2): the town after a birth date or a birth word. A town is kept in clear elsewhere; next
+# to a birth date it identifies the person ("né le 12 mars 1971 à Angers").
+# ---------------------------------------------------------------------------
+
+_PLACE_WORD = r"[A-ZÀ-ÖØ-Þ][a-zà-öø-ÿA-ZÀ-ÖØ-Þ'’]*[a-zà-öø-ÿA-ZÀ-ÖØ-Þ]|[A-ZÀ-ÖØ-Þ]"
+_PLACE = (
+    r"(?P<place>(?:(?:Le|La|Les|LE|LA|LES)\s+|L['’])?(?:" + _PLACE_WORD + r")"
+    r"(?:-(?:(?:sur|sous|en|lès|lez|le|la|les|de|du|des|aux?|et|SUR|SOUS|EN|LES|LE|LA|DE|DU|DES)-|[dlDL]['’])?"
+    r"(?:" + _PLACE_WORD + r")"
+    r"|\s+(?:sur|sous|en|lès|lez)\s+(?:" + _PLACE_WORD + r")){0,4})"
+)
+# Right after a birth date: "à Angers", "au Mans", ", à Saint-Étienne", "in Leeds".
+_AFTER_BIRTHDATE_RE = re.compile(r"\s*,?\s*(?:à|À|au|aux|AU|AUX|in)\s+" + _PLACE)
+# "né à Angers", "née DURAND à Brest", "née au Mans", "born in Leeds".
+_BORN_AT_RE = re.compile(
+    r"(?:\b(?:[Nn]é(?:e|s|es)?|NÉ(?:E|S|ES)?|NEE?S?)\b(?:\s*\([eE]\))?|\b[Nn]é\(e\)|\b[Bb]orn\b)"
+    r"(?:\s+[A-ZÀ-Þ][\w'\-]*){0,3}?\s+(?:à|À|au|aux|AU|AUX|in)\s+" + _PLACE)
+# "Lieu de naissance : Angers", "Place of birth: Leeds", "Birthplace | Leeds".
+_PLACE_LABEL_RE = re.compile(
+    r"(?i:\blieu\s+de\s+naissance|\bplace\s+of\s+birth|\bbirth\s*place|\bcommune\s+de\s+naissance)"
+    r"\s*[:|]?\s*(?:(?i:à|in)\s+)?" + _PLACE)
+_NOT_PLACE = frozenset({"monsieur", "madame", "mademoiselle", "maitre", "me", "mr", "mrs", "ms", "dr", "docteur",
+                        "le", "la", "les", "l", "un", "une", "des", "son", "sa", "ses", "leur", "cette", "ce"})
+
+
+def _place_ok(text: str, s: int, e: int) -> bool:
+    words = [fold_word(w) for w in re.findall(r"[^\W\d_]+", text[s:e])]
+    if not words:
+        return False
+    from .lexicon import months_days, stopwords
+
+    head = words[-1] if words[0] in ("le", "la", "les", "l") and len(words) > 1 else words[0]
+    return head not in _NOT_PLACE and head not in months_days() and head not in stopwords()
+
+
+#: Birth words: the place is looked for only near them (a C-speed scan, then small windows).
+_BIRTH_WORD_RE = re.compile(r"(?:\b(?:[Nn]é(?:e|s|es)?|NÉ(?:E|S|ES)?|NEE?S?)\b|\b[Nn]é\(e\)|\b[Bb]orn\b|"
+                            r"(?i:naissance)|(?i:\bbirth)|\bDDN\b|\bDOB\b)")
+
+
+def _find_birthplace(text: str) -> Iterator[Candidate]:
+    seen: set[tuple[int, int]] = set()
+
+    def emit(m: "Optional[re.Match[str]]") -> Iterator[Candidate]:
+        if m is None:
+            return
+        s, e = m.start("place"), m.end("place")
+        if (s, e) not in seen and _place_ok(text, s, e):
+            seen.add((s, e))
+            yield Candidate(s, e, "BIRTHPLACE", True, PRIORITY["BIRTHPLACE"], "birthplace")
+
+    for h in _BIRTH_WORD_RE.finditer(text):
+        a, b = h.start(), h.end()
+        yield from emit(_BORN_AT_RE.match(text, a))  # "née DURAND à Brest", "born in Leeds"
+        yield from emit(_PLACE_LABEL_RE.search(text, max(0, a - 30), min(len(text), b + 80)))
+        y = _BIRTH_YEAR_RE.match(text, a)  # "né en 1958 à Brest"
+        if y:
+            yield from emit(_AFTER_BIRTHDATE_RE.match(text, y.end("y")))
+        for m in _DATE_RE.finditer(text, b, min(len(text), b + 90)):  # "né le 12 mars 1971 à Angers"
+            if _BIRTH_CTX.search(_before_raw(text, m.start(), 90)):
+                yield from emit(_AFTER_BIRTHDATE_RE.match(text, m.end()))
 
 
 # ---------------------------------------------------------------------------
@@ -2553,7 +2622,7 @@ def detect_candidates_en(text: str) -> list[Candidate]:
 
 DETECTORS: tuple[Callable[[str], Iterable[Candidate]], ...] = (
     _find_email, _find_phone, _find_iban, _find_nir, _find_siret, _find_siren, _find_vat,
-    _find_card, _find_case_ref, _find_id_code, _find_url, _find_birthdate, _find_address,
+    _find_card, _find_case_ref, _find_id_code, _find_url, _find_birthdate, _find_birthplace, _find_address,
     _find_named_places, _find_table_cells,
     # v0.2 (both languages)
     _find_mentions, _find_handles, _find_labelled_ids, _find_routing,

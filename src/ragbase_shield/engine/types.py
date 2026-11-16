@@ -10,6 +10,8 @@ KINDS = (
     "VAT", "CARD", "CASE_REF", "ID_CODE", "URL", "BIRTHDATE",
     # v0.2 (DETECTORS): login names and chat mentions, staff identifiers, account numbers
     "USERNAME", "EMPLOYEE_ID", "ACCOUNT_NUMBER",
+    # plugin round 2 (16 Nov 2026): the place of birth next to a birth date ("né le ... à Angers")
+    "BIRTHPLACE",
 )
 
 # kind -> (fr prefix, en prefix, letter codes?)
@@ -33,6 +35,7 @@ PREFIXES = {
     "USERNAME": ("PSEUDO", "USERNAME", False),
     "EMPLOYEE_ID": ("MATRICULE", "EMPLOYEEID", False),
     "ACCOUNT_NUMBER": ("COMPTE", "ACCOUNT", False),
+    "BIRTHPLACE": ("LIEU", "PLACE", False),
 }
 
 #: Kinds whose labelled values teach the masker an id layout ("EMP-ddddd"): unlabelled values of the same layout
@@ -57,6 +60,44 @@ CODE_RE = re.compile(
     + r"|DOSSIER_[0-9]{1,6}|DOC_[0-9]{1,7}|OUTPUT_[0-9]{1,7}"
     r")(?![A-Za-z0-9_])"
 )
+
+#: F0 (0.4.3): a registered value is WEAK when, once spaces and punctuation are removed, it has fewer than
+#: ``WEAK_MIN_CHARS`` characters, or only digits and fewer than ``WEAK_MIN_DIGITS`` of them ("4", "13", "35000",
+#: "A", "Li", "3M"). A weak value stays masked where its detector found it, but it is never spread: never searched
+#: for in other places (dictionary pass of the masker), never used by the last check, never made into an entity of
+#: another dossier. The rule reads the value only, so it also holds for the values already in a vault.
+WEAK_MIN_CHARS = 3
+WEAK_MIN_DIGITS = 6
+_WEAK_STRIP_RE = re.compile(r"[\W_]+")
+
+
+def is_weak_value(value: object) -> bool:
+    """True for a registered value too short to be searched for safely (see ``WEAK_MIN_CHARS``)."""
+    body = _WEAK_STRIP_RE.sub("", str(value or ""))
+    return len(body) < WEAK_MIN_CHARS or (body.isdigit() and len(body) < WEAK_MIN_DIGITS)
+
+
+#: 0.4.4 (birth place fix): kinds whose values are NEVER spread, whatever the value. A place of birth is a town:
+#: masked where the text says it is a place of birth (the detector reads "né le ... à Lyon", "Lieu de naissance :
+#: Lyon"), but the same town elsewhere is legal text ("cour d'appel de Lyon", "Fait à Lyon", "notaire à Crest") and
+#: stays in clear. In 0.4.2 and 0.4.3 the value spread like a name. The rule reads the kind only, so it also holds
+#: for the values already in a vault.
+NEVER_SPREAD_KINDS = frozenset({"BIRTHPLACE"})
+
+
+def spreads(kind: str, value: object) -> bool:
+    """THE spread rule: True when a registered value of ``kind`` may be searched for outside the place where its
+    detector found it (dictionary pass of the masker, pending finds of a text, last check, labels of file names,
+    values made into entities of another dossier). False for a kind of ``NEVER_SPREAD_KINDS`` and for a weak
+    value (F0)."""
+    return kind not in NEVER_SPREAD_KINDS and not is_weak_value(value)
+
+
+def spreadable(ents) -> list:
+    """The entities whose values may be searched for outside the place where they were found (F0: the weak values
+    are left out; 0.4.4: the kinds of ``NEVER_SPREAD_KINDS`` too). THE one list of known values for the dictionary
+    pass and the last check."""
+    return [e for e in ents if spreads(e.kind, e.value)]
 
 
 @dataclass(frozen=True)

@@ -1,6 +1,6 @@
 """Read and write documents on this computer (contract: ARCHITECTURE.md section 4.3).
 
-Readers: .pdf (pypdf), .docx (python-docx + raw WordprocessingML), .xlsx (stdlib zipfile + SpreadsheetML, v0.4),
+Readers: .pdf (pdfplumber up to 40 pages, pypdf beyond: v0.4.3), .docx (python-docx + raw WordprocessingML), .xlsx (stdlib zipfile + SpreadsheetML, v0.4),
 .txt/.md, .eml (stdlib email), .html/.htm (stdlib html.parser). Writers: DOCX from simple Markdown, and Markdown.
 
 Privacy rules for this module:
@@ -17,7 +17,9 @@ import copy
 import logging
 import os
 import re
+import stat
 import tempfile
+import time
 import unicodedata
 import zipfile
 from datetime import datetime, timezone
@@ -25,7 +27,7 @@ from email import policy
 from email.parser import BytesParser
 from html.parser import HTMLParser
 from pathlib import Path
-from typing import Iterable, Iterator, Optional
+from typing import Callable, Iterable, Iterator, Optional
 from xml.sax.saxutils import escape as _xml_escape
 
 from . import config
@@ -46,6 +48,148 @@ _DOSSIER_CODE_RE = re.compile(r"^DOSSIER_[0-9]{1,6}$")
 
 class DocumentError(Exception):
     """A document could not be read or written. The message is a short code, never a name or content."""
+
+
+#: v0.4.3: the code of a document that was not read in its time budget (:data:`DOCUMENT_TIME_BUDGET`).
+READ_TOO_LONG = "read_too_long"
+#: v0.4.3: time budget of one document, in seconds, checked between the pages of a PDF. Past it the document is not
+#: read (like a scanned PDF): the reading of a dossier always ends.
+DOCUMENT_TIME_BUDGET = 180.0
+#: v0.4.3: a PDF of more pages than this is read with pypdf from the first page. pdfplumber gives the table cells
+#: (the published quality numbers were measured with it) but is far too slow on long files with ruled tables, and its
+#: memory grows with every page. A PDF of this many pages or fewer is read exactly as in 0.4.2.
+PDF_PLUMBER_MAX_PAGES = 40
+#: v0.4.3: the pdfplumber reading of a short PDF falls back to pypdf for the whole file past this time (seconds).
+PDF_PLUMBER_SECONDS = 20.0
+#: v0.4.3 (fix): a short PDF with one page whose drawing instructions pass this size (decoded bytes), or with more
+#: than :data:`PDF_PLUMBER_MAX_BYTES` in all, is read with pypdf: pdfplumber can spend minutes on one plan-like page
+#: and its time budget is only checked between pages. The repository PDFs have at most 15 KB per page.
+PDF_PLUMBER_MAX_PAGE_BYTES = 256 * 1024
+PDF_PLUMBER_MAX_BYTES = 4 * 1024 * 1024
+#: v0.4.3 (fix): inside one pypdf page, the time budget is checked every this many drawing instructions.
+PDF_CHECK_EVERY_OPS = 2_000
+#: v0.4.3 (fix): the code of a document whose text passes the ``max_chars`` limit of :func:`read_text`.
+READ_TOO_LARGE = "read_too_large"
+#: v0.4.4 (B2): a long PDF gets more time: :data:`DOCUMENT_TIME_BUDGET`, plus this many seconds for each page over
+#: :data:`BUDGET_FREE_PAGES`, at most :data:`DOCUMENT_TIME_BUDGET_MAX` seconds.
+BUDGET_SECONDS_PER_PAGE = 0.5
+BUDGET_FREE_PAGES = 300
+DOCUMENT_TIME_BUDGET_MAX = 1800.0
+#: v0.4.4 (F4): the codes of a file that the system did not let Shield open: held open and locked by another program
+#: (Windows sharing violation, errors 32 and 33), or access refused. Both can pass, so a dossier with such a file is
+#: read again at its next start.
+READ_LOCKED = "file_locked"
+READ_DENIED = "file_denied"
+#: v0.4.4 (review fix): the code of a file that the system could not give at that moment: an error of the disk or
+#: of the network (EIO, ETIMEDOUT...), a file "in the cloud only" that is not on the computer (OneDrive Files
+#: On-Demand, iCloud) while offline, a file that is missing for a moment, or no memory. It can pass, like a locked
+#: file: the document is tried again, and a dossier with such a file is never kept (A2 e).
+READ_IO = "file_io"
+#: v0.4.4 (F1, F3): the codes of a final document that could not be saved: the system refused the write (Windows
+#: ransomware protection, macOS privacy settings, rights), or the folder path is too long for Windows.
+WRITE_BLOCKED = "write_blocked"
+OUTPUT_PATH_TOO_LONG = "output_path_too_long"
+#: v0.4.4 (F3): longest full path of a saved file on Windows (long paths are off on most computers), the shortest
+#: file name Shield writes there, and the room kept for " (99)" when a name is already taken.
+WINDOWS_MAX_OUTPUT_PATH = 255
+MIN_OUTPUT_STEM = 12
+_UNIQUE_ROOM = 5
+
+
+def document_budget(pages: Optional[int] = None) -> float:
+    """v0.4.4 (B2): time budget of one document in seconds. 180 s; a PDF gets 0.5 s more for each page over 300,
+    at most 1,800 s."""
+    extra = max(0, int(pages or 0) - BUDGET_FREE_PAGES) * BUDGET_SECONDS_PER_PAGE
+    return min(DOCUMENT_TIME_BUDGET_MAX, DOCUMENT_TIME_BUDGET + extra)
+
+#: ``progress(done, total)``: pages read so far and pages of the document (PDF only).
+Progress = Optional[Callable[[int, int], None]]
+
+
+class ReadTooLong(DocumentError):
+    """The document was not read in its time budget (code :data:`READ_TOO_LONG`)."""
+
+    def __init__(self) -> None:
+        super().__init__(READ_TOO_LONG)
+
+
+class ReadTooLarge(DocumentError):
+    """The text of the document passes the ``max_chars`` limit of :func:`read_text` (code :data:`READ_TOO_LARGE`):
+    the reading stops there, so no minute is lost on a document Shield will not mask."""
+
+    def __init__(self) -> None:
+        super().__init__(READ_TOO_LARGE)
+
+
+class ReadLocked(DocumentError):
+    """v0.4.4 (F4): another program holds the file open and locked (code :data:`READ_LOCKED`)."""
+
+    def __init__(self) -> None:
+        super().__init__(READ_LOCKED)
+
+
+class ReadDenied(DocumentError):
+    """v0.4.4 (F4): the system refused to open the file (code :data:`READ_DENIED`)."""
+
+    def __init__(self) -> None:
+        super().__init__(READ_DENIED)
+
+
+class ReadIO(DocumentError):
+    """v0.4.4 (review fix): the system could not give the file at that moment (code :data:`READ_IO`, or
+    ``file_not_found`` for a file that is missing for a moment). It can pass: never kept as "unreadable"."""
+
+    def __init__(self, code: str = READ_IO) -> None:
+        super().__init__(code)
+
+
+def io_failure(exc: BaseException) -> bool:
+    """v0.4.4 (review fix): True when the error, or a cause it was raised from, is a system error of the disk, of the
+    network or of the memory (OSError, MemoryError): it can pass. A reader's own error about the content (a broken
+    zip, a bad PDF) is not one: such a file stays "unreadable" while it is the same."""
+    cur: Optional[BaseException] = exc
+    seen: list[BaseException] = []
+    while cur is not None and len(seen) < 8 and cur not in seen:
+        if isinstance(cur, (OSError, MemoryError)):
+            return True
+        seen.append(cur)
+        cur = cur.__cause__
+    return False
+
+
+def _os_causes(exc: BaseException) -> list[BaseException]:
+    """The exception and its causes (a reader can wrap the system error)."""
+    out: list[BaseException] = []
+    cur: Optional[BaseException] = exc
+    while cur is not None and len(out) < 8 and cur not in out:
+        out.append(cur)
+        cur = cur.__cause__ or cur.__context__
+    return out
+
+
+def open_refusal(exc: BaseException) -> Optional[str]:
+    """v0.4.4 (F4): :data:`READ_LOCKED` when the error (or one of its causes) is a Windows sharing or lock violation
+    (winerror 32 or 33), :data:`READ_DENIED` when it is another refusal of the system (PermissionError, winerror 5),
+    else None."""
+    causes = _os_causes(exc)
+    for c in causes:
+        if isinstance(c, OSError) and getattr(c, "winerror", None) in (32, 33):
+            return READ_LOCKED
+    for c in causes:
+        if isinstance(c, PermissionError) or (isinstance(c, OSError) and getattr(c, "winerror", None) == 5):
+            return READ_DENIED
+    return None
+
+
+def write_refused(exc: BaseException) -> bool:
+    """v0.4.4 (F1): True when the system refused a write (PermissionError, or an OSError with winerror 5): the
+    ransomware protection of Windows ("Controlled folder access"), the privacy settings of macOS, or rights."""
+    return any(isinstance(c, PermissionError) or (isinstance(c, OSError) and getattr(c, "winerror", None) == 5)
+               for c in _os_causes(exc))
+
+
+class _PlumberTooSlow(Exception):
+    """Internal: the pdfplumber reading went past :data:`PDF_PLUMBER_SECONDS`; pypdf reads the file instead."""
 
 
 class ReadResult(str):
@@ -91,27 +235,64 @@ def kind_of(path: os.PathLike | str) -> Optional[str]:
 
 # --------------------------------------------------------------------------------------------- reading
 
-def read_text(path: os.PathLike | str) -> ReadResult:
+def read_text(path: os.PathLike | str, *, progress: Progress = None, budget: Optional[float] = None,
+              clock: Callable[[], float] = time.monotonic, max_chars: Optional[int] = None) -> ReadResult:
     """Extract the text of a supported document. Raises DocumentError (code only) on failure.
 
     Fail closed: a reader error never returns partial raw content.
+
+    v0.4.3: ``progress(done, total)`` is called between the pages of a PDF. ``budget`` (seconds, default
+    :data:`DOCUMENT_TIME_BUDGET`) is checked between pages: past it, :class:`ReadTooLong` (code ``read_too_long``).
+    ``clock``: the time source (tests).
+
+    v0.4.3 (fix): ``max_chars``: a PDF stops as soon as its pages hold more than this many non-space characters, and
+    any document whose text is longer than this raises :class:`ReadTooLarge` (code ``read_too_large``). The text of a
+    document under the limit is the same as without it.
     """
     p = Path(path)
     kind = kind_of(p)
     if kind is None:
         raise DocumentError("unsupported_format")
-    if not p.is_file():
-        raise DocumentError("file_not_found")
-    reader = {"pdf": _read_pdf, "docx": _read_docx, "xlsx": _read_xlsx, "txt": _read_plain, "md": _read_plain,
-              "eml": _read_eml, "html": _read_html}[kind]
     try:
-        text, pages, needs_ocr, warnings = reader(p)
+        st = p.stat()
+    except OSError as exc:  # v0.4.4 (review fix): a file the system cannot give now, not a broken file
+        refusal = open_refusal(exc)
+        if refusal == READ_LOCKED:
+            raise ReadLocked() from None
+        if refusal == READ_DENIED:
+            raise ReadDenied() from None
+        raise ReadIO("file_not_found" if isinstance(exc, (FileNotFoundError, NotADirectoryError)) else READ_IO) \
+            from None
+    if not stat.S_ISREG(st.st_mode):
+        raise DocumentError("file_not_found")
+    started = clock()
+    deadline = started + (DOCUMENT_TIME_BUDGET if budget is None else float(budget))
+    try:
+        if kind == "pdf":
+            # v0.4.4 (B2): with no budget given, a long PDF gets more time (document_budget, from its page count)
+            text, pages, needs_ocr, warnings = _read_pdf(p, progress=progress, deadline=deadline, clock=clock,
+                                                         max_chars=max_chars,
+                                                         started=started if budget is None else None)
+        else:
+            reader = {"docx": _read_docx, "xlsx": _read_xlsx, "txt": _read_plain, "md": _read_plain,
+                      "eml": _read_eml, "html": _read_html}[kind]
+            text, pages, needs_ocr, warnings = reader(p)
     except DocumentError:
         raise
     except Exception as exc:  # noqa: BLE001 - fail closed with a code, no content in the message
         log.debug("%s reader failed: %s", kind, type(exc).__name__)
+        refusal = open_refusal(exc)  # v0.4.4 (F4): a locked or refused file says so (it can pass)
+        if refusal == READ_LOCKED:
+            raise ReadLocked() from None
+        if refusal == READ_DENIED:
+            raise ReadDenied() from None
+        if io_failure(exc):  # v0.4.4 (review fix): disk, network, cloud file offline, memory: it can pass
+            raise ReadIO() from None
         raise DocumentError(f"{kind}_unreadable") from None
-    return ReadResult(_clean_text(text), pages, needs_ocr, warnings)
+    text = _clean_text(text)
+    if max_chars is not None and len(text) > max_chars:
+        raise ReadTooLarge()
+    return ReadResult(text, pages, needs_ocr, warnings)
 
 
 def _clean_text(text: str) -> str:
@@ -260,21 +441,97 @@ def pdf_page_text(page, *, line_tolerance: float = PDF_LINE_TOLERANCE, factor: f
     return "\n".join(out)
 
 
-def _read_pdf(path: Path):
+def _pdf_page_count(path: Path) -> Optional[int]:
+    """Number of pages from pypdf (fast: the page tree only), or None when pypdf cannot open the file (the 0.4.2
+    reading then decides, with its own error codes)."""
+    try:
+        from pypdf import PdfReader
+
+        reader = PdfReader(str(path))
+        if reader.is_encrypted and not reader.decrypt(""):
+            return None
+        return len(reader.pages)
+    except Exception:  # noqa: BLE001 - a count is only a choice of reader
+        return None
+
+
+def _pdf_heavy(path: Path) -> bool:
+    """v0.4.3 (fix): True when one page of a short PDF holds more than :data:`PDF_PLUMBER_MAX_PAGE_BYTES` of drawing
+    instructions (decoded), or the file more than :data:`PDF_PLUMBER_MAX_BYTES` in all: pypdf reads it, with its
+    time budget checked inside each page. False when pypdf cannot tell (the 0.4.2 reading then decides)."""
+    try:
+        from pypdf import PdfReader
+
+        reader = PdfReader(str(path))
+        if reader.is_encrypted and not reader.decrypt(""):
+            return False
+        total = 0
+        for index in range(len(reader.pages)):
+            page = reader.pages[index]
+            try:
+                contents = page.get_contents()
+                size = len(contents.get_data()) if contents is not None else 0
+            finally:
+                _free_pypdf_page(page)
+            total += size
+            if size > PDF_PLUMBER_MAX_PAGE_BYTES or total > PDF_PLUMBER_MAX_BYTES:
+                return True
+        return False
+    except Exception:  # noqa: BLE001 - a size is only a choice of reader
+        return False
+
+
+def _read_pdf(path: Path, progress: Progress = None, deadline: Optional[float] = None,
+              clock: Callable[[], float] = time.monotonic, max_chars: Optional[int] = None,
+              started: Optional[float] = None):
+    """v0.4.3: pdfplumber (table cells) for a PDF of :data:`PDF_PLUMBER_MAX_PAGES` pages or fewer, exactly as in
+    0.4.2; pypdf from the first page for a longer one, for a short one with a very heavy page (:func:`_pdf_heavy`),
+    or when pdfplumber takes more than :data:`PDF_PLUMBER_SECONDS`.
+
+    v0.4.4 (B2): ``started`` (the start of the reading, when no budget was given): the deadline becomes ``started``
+    plus :func:`document_budget` of the page count."""
+    pages = _pdf_page_count(path)
+    if started is not None and pages is not None:
+        deadline = started + document_budget(pages)
     try:
         import pdfplumber  # noqa: F401 - optional: word boxes give the table cells (v0.3)
     except ImportError:
-        return _read_pdf_pypdf(path)
-    return _read_pdf_plumber(path)
+        return _read_pdf_pypdf(path, progress, deadline, clock, max_chars)
+    if pages is not None and (pages > PDF_PLUMBER_MAX_PAGES or _pdf_heavy(path)):
+        return _read_pdf_pypdf(path, progress, deadline, clock, max_chars)
+    try:
+        return _read_pdf_plumber(path, progress, deadline, clock, max_chars)
+    except _PlumberTooSlow:
+        log.info("RAGbase Shield: a PDF took more than %ss with pdfplumber; read with pypdf", PDF_PLUMBER_SECONDS)
+        return _read_pdf_pypdf(path, progress, deadline, clock, max_chars)
 
 
-def _read_pdf_plumber(path: Path):
+def _check_time(deadline: Optional[float], clock: Callable[[], float]) -> None:
+    if deadline is not None and clock() > deadline:
+        raise ReadTooLong()
+
+
+def _non_space(text: str) -> int:
+    """Characters of ``text`` that are not white space: the cleaned text of a document is never shorter (except for
+    accents written as two characters), so a running count of them can stop a reading over ``max_chars`` early."""
+    return len("".join(text.split()))
+
+
+def _check_size(seen: int, max_chars: Optional[int]) -> None:
+    if max_chars is not None and seen > max_chars:
+        raise ReadTooLarge()
+
+
+def _read_pdf_plumber(path: Path, progress: Progress = None, deadline: Optional[float] = None,
+                      clock: Callable[[], float] = time.monotonic, max_chars: Optional[int] = None):
     import pdfplumber
 
     logging.getLogger("pdfminer").setLevel(logging.ERROR)
     warnings: list[str] = []
     texts: list[str] = []
     empty = 0
+    seen = 0
+    started = clock()
     try:
         pdf = pdfplumber.open(str(path), password="")  # many PDFs only carry an owner password
     except Exception as exc:  # noqa: BLE001
@@ -288,15 +545,29 @@ def _read_pdf_plumber(path: Path):
             raise DocumentError("pdf_encrypted") from None
         raise
     with pdf:
+        total = len(pdf.pages)
+        if progress is not None:
+            progress(0, total)
         for number, page in enumerate(pdf.pages, start=1):
             try:
                 page_text = pdf_page_text(page)
             except Exception:  # noqa: BLE001
                 page_text = ""
                 warnings.append(f"pdf_page_unreadable:{number}")
+            finally:
+                _close_quietly(page)  # v0.4.3: free the page's objects (memory stays flat)
             if not page_text.strip():
                 empty += 1
             texts.append(page_text.strip("\n"))
+            if max_chars is not None:
+                seen += _non_space(page_text)
+                _check_size(seen, max_chars)
+            if progress is not None:
+                progress(number, total)
+            if number < total:
+                _check_time(deadline, clock)
+                if clock() - started > PDF_PLUMBER_SECONDS:
+                    raise _PlumberTooSlow()
     pages = len(texts)
     needs_ocr = pages > 0 and empty == pages
     if needs_ocr:
@@ -306,7 +577,32 @@ def _read_pdf_plumber(path: Path):
     return "\n\n".join(t for t in texts if t.strip()), pages, needs_ocr, warnings
 
 
-def _read_pdf_pypdf(path: Path):
+def _close_quietly(page) -> None:
+    close = getattr(page, "close", None)
+    if callable(close):
+        try:
+            close()
+        except Exception:  # noqa: BLE001 - freeing memory never fails a reading
+            pass
+
+
+def _free_pypdf_page(page) -> None:
+    """Drop the decoded content of a pypdf page once its text is read (pypdf keeps it with the file's objects), so
+    the memory of a long reading does not grow with the page count."""
+    try:
+        contents = page.get("/Contents")
+        contents = contents.get_object() if contents is not None else None
+        items = contents if isinstance(contents, list) else [contents]
+        for item in items:
+            obj = item.get_object() if item is not None else None
+            if obj is not None and getattr(obj, "decoded_self", None) is not None:
+                obj.decoded_self = None
+    except Exception:  # noqa: BLE001 - freeing memory never fails a reading
+        pass
+
+
+def _read_pdf_pypdf(path: Path, progress: Progress = None, deadline: Optional[float] = None,
+                    clock: Callable[[], float] = time.monotonic, max_chars: Optional[int] = None):
     from pypdf import PdfReader
 
     reader = PdfReader(str(path))
@@ -320,15 +616,45 @@ def _read_pdf_pypdf(path: Path):
     warnings: list[str] = []
     texts: list[str] = []
     empty = 0
-    for number, page in enumerate(reader.pages, start=1):
+    total = len(reader.pages)
+    seen = 0
+    ops = [0]
+
+    def check(_operator, _operands, _cm, _tm) -> None:
+        # v0.4.3 (fix): the time budget inside one page too (a plan-like page can hold millions of instructions)
+        ops[0] += 1
+        if ops[0] % PDF_CHECK_EVERY_OPS == 0:
+            _check_time(deadline, clock)
+
+    visitor = check if deadline is not None else None
+    if progress is not None:
+        progress(0, total)
+    for index in range(total):  # one page at a time: no list of page objects is kept
+        number = index + 1
+        page = None
         try:
-            page_text = page.extract_text() or ""
+            page = reader.pages[index]
+            page_text = (page.extract_text(visitor_operand_before=visitor) if visitor is not None
+                         else page.extract_text()) or ""
+        except ReadTooLong:
+            raise
         except Exception:  # noqa: BLE001
             page_text = ""
             warnings.append(f"pdf_page_unreadable:{number}")
+        finally:
+            if page is not None:
+                _free_pypdf_page(page)
+            page = None
         if not page_text.strip():
             empty += 1
         texts.append(page_text.strip("\n"))
+        if max_chars is not None:
+            seen += _non_space(page_text)
+            _check_size(seen, max_chars)
+        if progress is not None:
+            progress(number, total)
+        if number < total:
+            _check_time(deadline, clock)
     pages = len(texts)
     needs_ocr = pages > 0 and empty == pages
     if needs_ocr:
@@ -437,6 +763,10 @@ def _read_docx(path: Path):
     import docx
     from docx.opc.constants import RELATIONSHIP_TYPE as RT
 
+    # v0.4.4 (review fix): python-docx first asks zipfile.is_zipfile(), which hides the error of a refused or locked
+    # open and then says "not a Word file". This open lets that system error reach open_refusal (F4). Same reader.
+    with open(path, "rb"):
+        pass
     document = docx.Document(str(path))
     kinds = {RT.HEADER: "header", RT.FOOTER: "footer", RT.FOOTNOTES: "footnotes",
              RT.ENDNOTES: "endnotes", RT.COMMENTS: "comments"}
@@ -880,8 +1210,8 @@ def write_md(path: os.PathLike | str, text: str, *, overwrite: bool = False) -> 
 
     try:
         _write_atomic(target, write, reserved=not overwrite)
-    except OSError:
-        raise DocumentError("write_failed") from None
+    except OSError as exc:
+        raise DocumentError(WRITE_BLOCKED if write_refused(exc) else "write_failed") from None
     return target
 
 
@@ -905,19 +1235,57 @@ def write_docx(path: os.PathLike | str, markdown_text: str, dossier_code: str, *
     target = _reserve(Path(path), overwrite)
     try:
         _write_atomic(target, document.save, reserved=not overwrite)
-    except OSError:
-        raise DocumentError("write_failed") from None
+    except OSError as exc:
+        raise DocumentError(WRITE_BLOCKED if write_refused(exc) else "write_failed") from None
     return target
+
+
+def windows_paths(platform: Optional[str] = None) -> bool:
+    """v0.4.4 (F2, F3): True when the path length rules of Windows apply (long paths are off on most computers)."""
+    import sys
+
+    return (sys.platform if platform is None else platform) == "win32"
+
+
+def output_stem_room(directory: os.PathLike | str, ext: str) -> int:
+    """v0.4.4 (F3): how many characters the stem of a file saved in ``directory`` may have so that its full path,
+    with " (99)" added when the name is taken, stays at :data:`WINDOWS_MAX_OUTPUT_PATH` characters or less."""
+    return WINDOWS_MAX_OUTPUT_PATH - len(str(Path(directory))) - 1 - len(ext) - _UNIQUE_ROOM
+
+
+def output_folder_too_long(directory: os.PathLike | str, fmt: str = "docx", platform: Optional[str] = None) -> bool:
+    """v0.4.4 (F3): True on Windows when the folder path leaves less than :data:`MIN_OUTPUT_STEM` characters for a
+    file name."""
+    return windows_paths(platform) and output_stem_room(directory, "." + fmt.lstrip(".")) < MIN_OUTPUT_STEM
+
+
+def fit_output_name(directory: os.PathLike | str, name: str, platform: Optional[str] = None) -> str:
+    """v0.4.4 (F3): on Windows, ``name`` cut at a word so that the full path of the saved file stays at 255
+    characters or less (the extension is kept; " (2)" still fits when the name is taken). Elsewhere, and for a
+    path that already fits, ``name`` is returned unchanged."""
+    if not windows_paths(platform):
+        return name
+    stem, ext = os.path.splitext(name)
+    room = output_stem_room(directory, ext)
+    if len(stem) <= room:
+        return name
+    if room < MIN_OUTPUT_STEM:
+        raise DocumentError(OUTPUT_PATH_TOO_LONG)
+    cut = cut_at_word(stem, room).rstrip(" .") or stem[:room].rstrip(" .")
+    return (cut or "document") + ext
 
 
 def save_output(directory: os.PathLike | str, title: str, text: str, fmt: str = "docx",
                 dossier_code: Optional[str] = None) -> Path:
-    """Safe name + unique name + write, inside ``directory`` only. fmt: "docx" or "md"."""
+    """Safe name + unique name + write, inside ``directory`` only. fmt: "docx" or "md".
+
+    v0.4.4: on Windows the name is cut so that the full path fits (F3); a write that the system refuses raises
+    DocumentError ``write_blocked`` (F1)."""
     fmt = fmt.lower().lstrip(".")
     if fmt not in ("docx", "md"):
         raise ValueError("fmt must be docx or md")
     base = Path(directory)
-    target = base / safe_filename(title, fmt)
+    target = base / fit_output_name(base, safe_filename(title, fmt))
     if target.parent.resolve() != base.resolve():  # defence in depth; safe_filename has no separators
         raise DocumentError("unsafe_file_name")
     if fmt == "docx":

@@ -10,7 +10,7 @@ import sys
 import pytest
 from mcp import Client, StdioServerParameters
 
-from ragbase_shield import config, documents, mcp_server, service
+from ragbase_shield import __version__, config, documents, mcp_server, service
 
 TEXT = ("Madame Clémence MORVANDIAU, demeurant 14 rue des Glycines, 59300 Valenciennes, contre la société "
         "LAMBRETTI CONSEIL SAS. Mme Morvandiau réclame un acompte.\n")
@@ -120,7 +120,7 @@ def test_full_workflow_returns_codes_only(dossier):
     files = list((dossier["folder"] / "Shield - sorties").glob("*.docx"))
     assert len(files) == 1 and "MORVANDIAU" in documents.read_text(files[0]).text.upper()
     err, out = call("shield_status", server=server)
-    assert not err and "0.4.1" in out and "OCR" in out and "100" not in out
+    assert not err and __version__ in out and "OCR" in out and "100" not in out
 
 
 def test_save_draft_reports_unknown_codes(dossier):

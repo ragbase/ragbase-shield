@@ -37,7 +37,8 @@ from . import names as nm
 from . import ner as nr
 from . import synthetic as syn
 from .normalize import Folded, PhraseMatcher, fold, fold_word, normalize, phrase_tokens, split_windows, tokens
-from .types import CODE_RE, MAX_DIGITS, MAX_LETTERS, PREFIXES, SHAPE_KINDS, Entity, EntityStore, MaskResult, Span
+from .types import (CODE_RE, MAX_DIGITS, MAX_LETTERS, PREFIXES, SHAPE_KINDS, Entity, EntityStore, MaskResult, Span,
+                    spreadable, spreads)
 
 __all__ = ["Masker", "entity_norm", "escape_codes", "canonical_codes", "code_like_spans", "ner_available",
            "ner_installed", "prepare_scan", "ScanPrep", "UNMASK_RE"]
@@ -823,6 +824,12 @@ class Masker:
         if rev is not None and self._lex is not None and self._lex_key == rev:
             return self._lex
         ents = list(self.store.all()) if ents is None else ents
+        # F0 (0.4.3): THE one place where the known values of a dossier are listed for the dictionary pass of the
+        # masker and for the last check (``scan``): the weak values ("4", "13", "Li") are left out, also the ones
+        # already in a vault. They keep their codes where a detector finds them (``_index`` still holds them).
+        # 0.4.4: the places of birth too (``types.NEVER_SPREAD_KINDS``): "Lyon" of "né à Lyon" is never searched
+        # for in "cour d'appel de Lyon"; the birth contexts still give it its code LIEU_n.
+        ents = spreadable(ents)
         refs: list[_Ref] = []
         directory = self._directory()
         dir_persons: dict[str, dr.Person] = {}
@@ -1688,6 +1695,8 @@ class Masker:
 
         prefs: list[_Ref] = []
         for p in pendings.values():
+            if not spreads(p.kind, p.value):
+                continue  # F0 (0.4.3), 0.4.4: masked where it was found, never searched for elsewhere
             # diminutives come from registered people only (R1, CL-03)
             prefs.extend(r for r in self._refs_for(p.kind, p.value, pending=p) if r.variant.need != "nick")
         if prefs:
