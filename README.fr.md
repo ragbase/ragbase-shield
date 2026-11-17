@@ -11,7 +11,7 @@ Pseudonymisation locale et réversible pour les avocats qui utilisent Claude. Ou
 [![Ajouter à Claude](https://img.shields.io/badge/Ajouter_%C3%A0-Claude-D97757)](https://shield.ragbase.ai/installer/?utm_source=github-readme)
 [![Démo en ligne](https://img.shields.io/badge/D%C3%A9mo-en_ligne-2563EB)](https://shield.ragbase.ai/demo/?utm_source=github-readme)
 
-[![Sur votre ordinateur, Shield remplace les noms de vos clients par des codes. Claude travaille sur les codes. Shield remet les vrais noms dans le document final.](docs/images/shield-flow-en.png)](https://shield.ragbase.ai/?utm_source=github-readme)
+[![Sur votre ordinateur, Shield remplace les noms de vos clients par des codes. Claude travaille sur les codes. Shield remet les vrais noms dans le document final.](docs/images/shield-flow-fr.png)](https://shield.ragbase.ai/?utm_source=github-readme)
 
 **Résultats :** devant Hexagone et Presidio sur quatre jeux de test français (96,9 sur FR-PII-Bench). Termes juridiques
 modifiés : 0 à 4 % avec Shield, 18 à 58 % avec Hexagone. [Voir les résultats](https://shield.ragbase.ai/resultats/?utm_source=github-readme).
@@ -83,8 +83,10 @@ Le réglage RAGBASE_SHIELD_LOWERCASE_NAMES=0 désactive ces règles.
 
 1. **Protégez un dossier avec Shield, n'attachez pas le fichier au chat.**
    Un fichier joint au chat part chez le fournisseur d'IA avant que Shield puisse agir.
-   Dans une nouvelle conversation, écrivez « Protège un dossier avec Shield » et choisissez le dossier du client
-   dans la fenêtre Shield. Claude lit ensuite les pièces masquées par Shield.
+   Dans l'application Claude : dans une nouvelle conversation, écrivez « Protège un dossier avec Shield » et
+   choisissez le dossier du client dans la fenêtre Shield. Si votre application Claude a un onglet « Cowork »,
+   ouvrez la conversation dans cet onglet. Claude lit ensuite les pièces masquées par Shield.
+   Autres méthodes : ajoutez le dossier dans Shield Desk ou avec `ragbase-shield add <dossier>`.
 2. **Ne collez pas de texte brut dans la zone de saisie du chat.**
    Le texte tapé ou collé dans le chat n'est pas masqué.
    Pour parler d'une personne dans le chat, écrivez son code (PERSONNE_A), pas son nom.

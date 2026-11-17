@@ -15,8 +15,8 @@ Local, reversible pseudonymisation for lawyers who use Claude. A free, open-sour
 
 [![On your computer, Shield replaces your clients' names with codes. Claude works on the codes. Shield puts the real names back in the final document.](https://raw.githubusercontent.com/ragbase/ragbase-shield/main/docs/images/shield-flow-en.png)](https://shield.ragbase.ai/en/?utm_source=github-readme)
 
-**Results:** ahead of Hexagone and Presidio on four French test sets (96.9 on FR-PII-Bench). Legal terms changed: 0 to 4 % with
-Shield, 18 to 58 % with Hexagone. [See the results](https://shield.ragbase.ai/en/results/?utm_source=github-readme).
+**Results:** ahead of Hexagone and Presidio on four French test sets (96.9 on FR-PII-Bench). Legal terms changed: 0 to 4% with
+Shield, 18 to 58% with Hexagone. [See the results](https://shield.ragbase.ai/en/results/?utm_source=github-readme).
 
 Version française (la version de référence pour les cabinets français) : [README.fr.md](https://github.com/ragbase/ragbase-shield/blob/main/README.fr.md)
 
@@ -84,8 +84,10 @@ The setting RAGBASE_SHIELD_LOWERCASE_NAMES=0 turns these rules off.
 
 1. **Protect a folder with Shield. Do not attach the file to the chat.**
    A file attached to a chat reaches the AI provider before Shield can act.
-   In a new conversation, write "Protect a folder with Shield" and choose the client folder in the Shield window.
-   Claude then reads the documents through Shield, masked.
+   In the Claude app: in a new conversation, write « Protège un dossier avec Shield » ("Protect a folder with
+   Shield") and choose the client folder in the Shield window. If your Claude app has a "Cowork" tab, open the
+   conversation in that tab. Claude then reads the documents through Shield, masked.
+   Other ways: add the folder in Shield Desk or with `ragbase-shield add <folder>`.
 2. **Do not paste raw text into the chat box.**
    Text you type or paste in the chat is not masked.
    To talk about a person in the chat, write their code (PERSONNE_A), not their name.
