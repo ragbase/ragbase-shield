@@ -1,0 +1,77 @@
+name: Bug report
+description: Something in RAGbase Shield does not work as expected.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Never paste client data here.** No real names, addresses, numbers, documents or file paths of a client.
+        Use invented text only. This page is public.
+
+        Vous pouvez écrire en français. **Ne collez jamais de données de client ici.**
+
+        A security problem? Do not open a public issue: see [SECURITY.md](https://github.com/ragbase/ragbase-shield/blob/main/SECURITY.md).
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options:
+        - macOS
+        - Windows
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: os_version
+    attributes:
+      label: Operating system version
+      placeholder: "macOS 15.1, Windows 11 24H2"
+    validations:
+      required: true
+  - type: input
+    id: claude_version
+    attributes:
+      label: Claude app version
+      description: The version shown in the About window of the Claude app. Write "not used" if you do not use the Claude app.
+    validations:
+      required: true
+  - type: input
+    id: shield_version
+    attributes:
+      label: Shield version
+      description: The Shield version, as far as you know it. With the command line, the output of "ragbase-shield --version".
+      placeholder: "0.4.4"
+    validations:
+      required: true
+  - type: dropdown
+    id: way
+    attributes:
+      label: How do you use Shield?
+      options:
+        - Claude plugin in the Claude app (Mac or Windows)
+        - Claude Code plugin
+        - Shield Desk or the browser extension
+        - Other (say which below)
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, what you saw. Use invented text only.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to see it again
+      placeholder: |
+        1. ...
+        2. ...
+  - type: checkboxes
+    id: no_client_data
+    attributes:
+      label: Client data
+      options:
+        - label: This report holds no real client data (names, numbers, documents, paths).
+          required: true
