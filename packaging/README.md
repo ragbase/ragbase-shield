@@ -8,8 +8,8 @@ into the user's own folder, a login item runs Shield Desk in the background, and
 
 | Platform | Installer | State |
 |---|---|---|
-| macOS 13 or later, Intel and Apple Silicon | `RAGbase-Shield-<version>.pkg` (universal, the default download); `-x86_64.pkg` and `-arm64.pkg` (half size) | **Built, unsigned.** Built from the tag `v0.4.4`, with the licence step of section "Release files of 0.4.4". Level-1 test on an Intel Mac for the universal and the Intel-only package; static checks for the Apple Silicon package. Not done yet: the manual test with a fresh account, a run on an Apple Silicon Mac, signing. |
-| Windows 10 and 11, x64 | `RAGbase-Shield-<version>-win64.msi` (per user, no administrator) | **Built, unsigned.** Built from the same tag, with the same licence step. Level-1 test on a Windows Server 2025 test machine, two runs (a new install of 0.4.4, and the update from 0.4.1 to 0.4.4); the tray visual check W9 is pending. Not done yet: the tray on a desktop session (W9), a run on a real Windows 10 or 11 PC, an install by an account without administrator rights, signing. |
+| macOS 13 or later, Intel and Apple Silicon | `RAGbase-Shield-<version>.pkg` (universal, the default download); `-x86_64.pkg` and `-arm64.pkg` (half size) | **Built, unsigned.** Built from the tag `v0.4.4` (commit 436730f), with the licence step of section "Release files of 0.4.4". Level-1 test on an Intel Mac: 58 of 58 checks (universal), 56 of 56 (Intel only); the Apple Silicon package passed its static checks only (10 of 10). Not done yet: the manual test with a fresh account, a run on an Apple Silicon Mac, signing. |
+| Windows 10 and 11, x64 | `RAGbase-Shield-<version>-win64.msi` (per user, no administrator) | **Built, unsigned.** Built from the same tag, with the same licence step. Level-1 test on a Windows Server 2025 test machine, two runs (a new install of 0.4.4, and the update from 0.4.1 to 0.4.4): 65 of 65 checks pass in each run; the tray visual check W9 is pending. Not done yet: the tray on a desktop session (W9), a run on a real Windows 10 or 11 PC, an install by an account without administrator rights, signing. |
 
 The version is the one in `pyproject.toml`. The build reads it, so a new version needs only a rebuild.
 
@@ -226,8 +226,8 @@ lines.
 
 ## Release files of 0.4.4 (unsigned)
 
-The four installers are built from the tag `v0.4.4` of this repository, with the build scripts of that commit
-(`install_info.json` says `"version": "0.4.4"` and the commit of the tag, no `+dirty`). Their Shield code is the
+The four installers are built from the tag `v0.4.4` (commit 436730f) of this repository, with the build scripts of that
+commit (`install_info.json` says `"version": "0.4.4"` and `"source": "436730fdb9d8"`, no `+dirty`). Their Shield code is the
 `src/` tree of the tag, byte for byte. The Python runtime and the dependencies are those of 0.4.0 and 0.4.1 (same
 `common/pins.json`, same lock files). One step runs on each single-target payload before the packing:
 `common/add_licence_texts.py` adds the licence texts that `licenses.py` does not copy, then writes `MANIFEST.json`
@@ -262,6 +262,13 @@ packaging/windows/build.sh --reuse-payload  # then build_msi.ps1 on the Windows 
 
 The Claude Desktop extension (`ragbase-shield-0.4.4.mcpb`), the wheel and the source archive are built from this
 repository at the tag `v0.4.4`. The `SHA256SUMS` file of the release gives the SHA-256 of all eight files.
+
+| File | Size | SHA-256 |
+|---|---|---|
+| `RAGbase-Shield-0.4.4.pkg` (macOS, universal, the default download) | 85,415,120 bytes | `eccd177643d2dd3a8f888f402d56299722bdcc89417e57f91f230deea43f45cd` |
+| `RAGbase-Shield-0.4.4-x86_64.pkg` (macOS, Intel only) | 43,449,265 bytes | `3625450288d65dfbcad1f5890e882f3e6710251cf2b49ae6e65355685bc16713` |
+| `RAGbase-Shield-0.4.4-arm64.pkg` (macOS, Apple Silicon only) | 42,043,004 bytes | `05616029491e935c2a7a8a16a4c685ddcf8c6e0f573d2bd46f689baf6107df0b` |
+| `RAGbase-Shield-0.4.4-win64.msi` (Windows x64, per user) | 40,432,164 bytes | `2064c15e15956d009e60fc5f830774a81efca7c6c277ad1b3040c8db36886d04` |
 
 Minimum macOS: 13.0 (pypdfium2 5.x wheels). The `.app` shell uses the `pyvenv.cfg` variant (the
 python-build-standalone `python3.12` is statically linked, so there is no `libpython` lookup).
