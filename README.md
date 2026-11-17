@@ -6,6 +6,20 @@
 
 The best pseudonymisation engine on the market.
 
+Local, reversible pseudonymisation for lawyers who use Claude. A free, open-source tool that runs on your own computer.
+
+[![Licence Apache-2.0](https://img.shields.io/badge/licence-Apache--2.0-blue)](https://github.com/ragbase/ragbase-shield/blob/main/LICENSE)
+[![Release v0.4.4](https://img.shields.io/badge/release-v0.4.4-blue)](https://github.com/ragbase/ragbase-shield/releases/tag/v0.4.4)
+[![Add to Claude](https://img.shields.io/badge/Add_to-Claude-D97757)](https://shield.ragbase.ai/en/install/?utm_source=github-readme)
+[![Live demo](https://img.shields.io/badge/Live-demo-2563EB)](https://shield.ragbase.ai/en/demo/?utm_source=github-readme)
+
+[![On your computer, Shield replaces your clients' names with codes. Claude works on the codes. Shield puts the real names back in the final document.](https://raw.githubusercontent.com/ragbase/ragbase-shield/main/docs/images/shield-flow-en.png)](https://shield.ragbase.ai/en/?utm_source=github-readme)
+
+**Results:** ahead of Hexagone and Presidio on four French test sets (96.9 on FR-PII-Bench). Legal terms changed: 0 to 4 % with
+Shield, 18 to 58 % with Hexagone. [See the results](https://shield.ragbase.ai/en/results/?utm_source=github-readme).
+
+Version française (la version de référence pour les cabinets français) : [README.fr.md](https://github.com/ragbase/ragbase-shield/blob/main/README.fr.md)
+
 RAGbase Shield 0.4.4 is a free, open-source tool (Apache-2.0).
 On your own computer, it replaces your clients' names and numbers with codes before the text goes to Claude.
 The real names come back only on your computer, in the final document that Shield saves.
@@ -15,9 +29,8 @@ This is **local, reversible pseudonymisation**.
 It is not anonymisation: facts, dates and amounts stay readable by the AI.
 Nothing goes to RAGbase. Shield sends no usage statistics.
 
-**Do you use the Claude app on a Mac or a PC?** Add the Claude plugin, with nothing else to install: see [Install](#install).
-
-Version française (la version de référence pour les cabinets français) : [README.fr.md](https://github.com/ragbase/ragbase-shield/blob/main/README.fr.md)
+**Do you use the Claude app on a Mac or a PC?** Add the Claude plugin in a few clicks, with nothing else to install:
+[shield.ragbase.ai/en/install](https://shield.ragbase.ai/en/install/?utm_source=github-readme). Other ways: see [Install](#install).
 
 Contents:
 
@@ -69,12 +82,14 @@ The setting RAGBASE_SHIELD_LOWERCASE_NAMES=0 turns these rules off.
 
 ### Three rules to remember
 
-1. **Connect a folder. Do not attach the file to the chat.**
+1. **Protect a folder with Shield. Do not attach the file to the chat.**
    A file attached to a chat reaches the AI provider before Shield can act.
-   Add the case folder to Shield. The AI then reads the documents through Shield, masked.
+   In a new conversation, write "Protect a folder with Shield" and choose the client folder in the Shield window.
+   Claude then reads the documents through Shield, masked.
 2. **Do not paste raw text into the chat box.**
-   Go through Shield first (the "Masquer" page in Shield Desk, or the browser extension).
+   Text you type or paste in the chat is not masked.
    To talk about a person in the chat, write their code (PERSONNE_A), not their name.
+   Other ways, outside the Claude plugin: the "Masquer" page of Shield Desk, or the browser extension (see Daily use).
 3. **Text already sent cannot be recalled.**
    Shield protects only what goes through it. If a name was sent by mistake, Shield cannot undo it.
 
@@ -116,7 +131,7 @@ articles, months and days.
 **The simplest way, in the Claude app on a Mac or a PC: the Claude plugin.** It carries the whole Shield engine:
 nothing else to install (no uv, no Python, no Terminal, no installer). It needs the Claude desktop app, signed in,
 with a paid Claude plan.
-On [shield.ragbase.ai/installer](https://shield.ragbase.ai/installer/), click the button for your computer.
+On [shield.ragbase.ai/en/install](https://shield.ragbase.ai/en/install/?utm_source=github-readme), click the button for your computer.
 In Claude, click « Synchro » ("Sync"), « Ajouter » ("Add"), then « Continuer » ("Continue").
 Then, in a new conversation, write « Protège un dossier avec Shield » ("Protect a folder with Shield") and choose
 the folder of one client in the Shield window.
@@ -488,7 +503,7 @@ Shield Desk.
 - Source code: https://github.com/ragbase/ragbase-shield
 - Releases (installers, `.mcpb`, `SHA256SUMS`): https://github.com/ragbase/ragbase-shield/releases/latest
 - Issues: https://github.com/ragbase/ragbase-shield/issues
-- Product page: https://shield.ragbase.ai
+- Product page: https://shield.ragbase.ai/en/?utm_source=github-readme
 - Install guide per app: [docs/INSTALL.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/INSTALL.md). FAQ: [docs/FAQ.md](https://github.com/ragbase/ragbase-shield/blob/main/docs/FAQ.md).
 - Public results: [evaluation/laptop/RESULTS_PUBLIC.md](https://github.com/ragbase/ragbase-shield/blob/main/evaluation/laptop/RESULTS_PUBLIC.md)
 
